@@ -1,0 +1,157 @@
+/* PAGE-COVERING NOTICE: Gradually fades into full view, persists for a short time, and then rapidly fades out */
+div.page-covering-notice-css3 {
+	animation-name: anim-page-notice-fade;
+	-webkit-animation-name: anim-page-notice-fade;
+	animation-duration: 4.9s;
+	-webkit-animation-duration: 4.9s;
+	.rgb-white();
+	background-color: rgba(@rval,@gval,@bval,0.95);
+	height: 100%;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	z-index: -1;
+	
+	div.notice-content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		text-align: center;
+	}
+	
+	div.notice-content img {
+		margin: 0 auto 20px;
+	}
+
+	div.notice-content p {
+		font-size: 2rem;
+		line-height: 1.35em;
+	}
+	
+	@keyframes anim-page-notice-fade {
+		0% {
+			opacity: 0;
+			z-index: 99166;
+		}
+		
+		31% {
+			opacity: 1;
+			z-index: 99166;
+		}
+		
+		92% {
+			opacity: 1;
+			z-index: 99166;
+		}
+		
+		100% {
+			opacity: 0;
+			z-index: 99166;
+		}
+	}
+
+	@-webkit-keyframes anim-page-notice-fade {
+		0% {
+			opacity: 0;
+			z-index: 99166;
+		}
+		
+		31% {
+			opacity: 1;
+			z-index: 99166;
+		}
+		
+		92% {
+			opacity: 1;
+			z-index: 99166;
+		}
+		
+		100% {
+			opacity: 0;
+			z-index: 99166;
+		}
+	}
+}
+
+div.page-covering-notice-js {
+	.rgb-white();
+	background-color: rgba(@rval,@gval,@bval,0.95);
+	display: none;
+	height: 100%;
+	position: fixed;
+		top: 0;
+		left: 0;
+	text-align: center;
+	width: 100%;
+	z-index: 99166;
+	
+	div.notice-content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		text-align: center;
+	}
+	
+	div.notice-content img {
+		margin: 0 auto 20px;
+	}
+
+	div.notice-content p {
+		font-size: 2rem;
+		line-height: 1.35em;
+	}
+}
+
+header.main-header {
+	span.sup-header-default {
+		font-size: .9rem;
+		margin-bottom: .5rem;
+		
+		@media all {
+			@media (max-width: 561px) {
+				font-size: .75rem;
+			}
+		}
+	}
+
+	span.sub-header-default {
+		font-size: 2.5rem;
+		line-height: 2rem;
+		
+		@media all {
+			@media (max-width: 493px) {
+				font-size: 1.3rem;
+				line-height: 1.3rem;
+			}
+			@media (min-width: 494px) {
+				@media (max-width: 561px) {
+					font-size: 2.08333rem;
+					line-height: 2.08333rem;
+				}
+			}
+		}
+	}
+	
+	sub.sub-header {
+		font-size: 2.5rem;
+		line-height: 2rem;
+		
+		@media all {
+			@media (max-width: 493px) {
+				font-size: 1.3rem;
+				line-height: 1.3rem;
+			}
+			@media (min-width: 494px) {
+				@media (max-width: 561px) {
+					font-size: 2.08333rem;
+					line-height: 2.08333rem;
+				}
+			}
+		}
+	}	
+}

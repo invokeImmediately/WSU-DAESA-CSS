@@ -1,0 +1,175 @@
+/* ===============================================================================================================
+ * Cycle2dcr jQuery Plugin
+ * ---------------------------------------------------------------------------------------------------------------
+ * Styling of elements associated with the cycle2dcr jQuery-based picture slideshow plugin (an enhanced version of
+ * what appears in the builder template).
+ * ===============================================================================================================
+ */
+.cycle2-slideshow, .cycle2-slideshow * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.cycle2-slideshow {
+	width: 100%;
+	min-width: 200px;
+	max-width: 898px;
+	margin: 10px auto;
+	padding: 0;
+	position: relative;
+	background: url(/wp-content/uploads/sites/50/2015/10/spinner.gif) 50% 50% no-repeat;
+	opacity: 0;
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 0;
+		display: block;
+		&:first-child {
+			position: static;
+			z-index: 100;
+		}
+	}
+}
+
+.cycle2-pager {
+	text-align: center;
+	width: 100%;
+	z-index: 500;
+	position: absolute;
+	top: 10px;
+	overflow: hidden;
+	opacity: 0;
+	&.external {
+		position: static;
+		& > * {
+			margin: 0 5px;
+		}
+	}
+	span {
+		font-family: arial;
+		font-size: 50px;
+		width: 16px;
+		height: 16px;
+		display: inline-block;
+		color: #ddd;
+		cursor: pointer;
+		&.cycle2-pager-active {
+			color: #D69746;
+		}
+	}
+	img.cycle2-pager-active {
+		border: 2px solid #c60c30;
+	}
+	& > * {
+		cursor: pointer;
+	}
+}
+
+.cycle2-caption {
+	position: absolute;
+	color: white;
+	bottom: 15px;
+	right: 15px;
+	z-index: 700;
+}
+
+.cycle2-overlay {
+	font-family: tahoma, arial;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 600;
+	background: black;
+	color: white;
+	padding: 15px;
+	opacity: .5;
+	transition: opacity .4s linear, background .4s linear, font-size .15s ease-in;
+	-webkit-transition: opacity .4s linear, background .4s linear, font-size .15s ease-in;
+	&:hover {
+		.rgb-black(); background-color: rgba(@rval,@gval,@bval,0.9);
+		opacity: .95;
+		font-size: 1.333em;
+	}
+	a {
+	/*color: #cc929b;*/
+		color: #f6861f;
+	/*border-bottom: 1px dotted rgba(204,146,155,0.4);*/
+		border-bottom: 1px dotted rgba(246,134,31,0.4);
+		transition: color .4s linear, border-color .4s linear;
+		-webkit-transition: color .4s linear, border-color .4s linear;
+	}
+	strong {
+	/*color: #cc929b;*/
+		color: #f6861f;
+		&:hover {
+			color: #949b9d;
+			.rgb-gray(); border-color: rgba(@rval,@gval,@bval,0.4);
+		}
+	}
+}
+
+/* prev / next links */
+.cycle2-prev, .cycle2-next {
+	position: absolute;
+	top: 0;
+	width: 30%;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: 800;
+	height: 100%;
+	cursor: pointer;
+}
+
+.cycle2-prev {
+	left: 0;
+	background: url(http://malsup.github.com/images/left.png) 50% 50% no-repeat;
+}
+
+.cycle2-next {
+	right: 0;
+	background: url(http://malsup.github.com/images/right.png) 50% 50% no-repeat;
+}
+
+.cycle2-prev:hover, .cycle2-next:hover {
+	opacity: .7;
+	filter: alpha(opacity=70);
+}
+
+.disabled {
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+
+/* display paused text on top of paused slideshow */
+.cycle2-paused:after {
+	content: 'Paused';
+	color: white;
+	background: black;
+	padding: 10px;
+	z-index: 500;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border-radius: 10px;
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+
+/*  media queries 
+    some style overrides to make things more pleasant on mobile devices
+*/
+@media only screen and (max-width: 480px),only screen and (max-device-width: 480px) {
+	.cycle2-slideshow {
+		width: 200px;
+	}
+	.cycle2-overlay {
+		padding: 4px;
+	}
+	.cycle2-caption {
+		bottom: 4px;
+		right: 4px;
+	}
+}
