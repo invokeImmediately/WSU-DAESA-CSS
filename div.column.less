@@ -40,15 +40,11 @@ div.column {
 		&.centered {
 			text-align: center;
 		}
-		@media all {
-			@media (max-width: 375px) {
+		@media all and (max-width: 480px) {
 				font-size: 2.296875rem;
-			}
-			@media (min-width: 376px) {
-				@media (max-width: 1208px) {
-					font-size: 2.625rem;
-				}
-			}
+        }
+		@media all and (min-width: 481px) and (max-width: 1208px) {
+                font-size: 2.625rem;
 		}
 	}
 	header:first-child + h1 {
@@ -75,19 +71,19 @@ div.column {
 			margin-top: 1.25rem;
 		}
 		@media all {
-			@media (max-width: 375px) {
+			@media (max-width: 480px) {
 				font-size: 1.684375rem;
 			}
-			@media (max-width: 1208px) and (min-width: 376px) {
+			@media (max-width: 1208px) and (min-width: 481px) {
 				font-size: 1.925rem;
 			}
 		}
 		&.article-title {
 			@media all {
-				@media (max-width: 375px) {
+				@media (max-width: 480px) {
 					font-size: 1.3125rem;
 				}
-				@media (max-width: 1208px) and (min-width: 376px) {
+				@media (max-width: 1208px) and (min-width: 481px) {
 					font-size: 1.5rem;
 				}
 			}
@@ -110,10 +106,10 @@ div.column {
 			text-align: center;
 		}
 		@media all {
-			@media (max-width: 375px) {
+			@media (max-width: 480px) {
 				font-size: 1.3015625rem;
 			}
-			@media (min-width: 376px) {
+			@media (min-width: 481px) {
 				@media (max-width: 1208px) {
 					font-size: 1.4875rem;
 				}
@@ -138,10 +134,10 @@ div.column {
 			text-align: center;
 		}
 		@media all {
-			@media (max-width: 375px) {
+			@media (max-width: 480px) {
 				font-size: 1.071875rem;
 			}
-			@media (min-width: 376px) {
+			@media (min-width: 481px) {
 				@media (max-width: 1208px) {
 					font-size: 1.225rem;
 				}
@@ -267,7 +263,7 @@ div.column {
 			}
 		}
 	}
-	&:hover a:not(.subtle-link) {
+	&:hover a.loud-link {
 		.rgb-dark-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.3);
 	}
 /*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ASIDES ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
