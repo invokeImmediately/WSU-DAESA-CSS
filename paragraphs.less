@@ -1,6 +1,13 @@
-/*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ DIV.COLUMN ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Paragraphs ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+ *  │ ++++++++ div.column ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+ *  │ ++++++++ PARAGRAPHS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ *  │ Styling for paragraph elements intended as children of div.column elements as defined in the │
+ *  │ WSU Spine theme for WordPress.                                                               │
+ *  │  ╘═» This file assumes [//github.com/invokeImmediately/WSU-UE---CSS/color-palette.less] has  │
+ *  │       already been imported.                                                                 │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 div.column > p {
     padding-bottom: 0;
     text-align: justify;
@@ -24,11 +31,10 @@ div.column > p {
         margin-bottom: 1rem;
     }	
     &.article-deck {
-        color: #72652a;
-        font-size: 1.2rem;
-        line-height: 1.35em;
         @media all {
-            @media all and (max-width: 480px) {
+            font-size: 1.2rem;
+            line-height: 1.35em;
+            @media (max-width: 480px) {
                 font-size: ~"calc(1.2rem * 0.875 * 0.875)";
                 line-height: 1.35em;
             }
@@ -37,15 +43,14 @@ div.column > p {
                 line-height: 1.35em;
             }
         }
+        color: @hex-dark-green;
         strong {
-            color: #8f7e35;
+            color: @hex-green;
         }
     }
     &.article-tagline {
         font-family: "Palatino";
         font-size: 1.6rem;
-        line-height: normal;
-        font-weight: 550;
         @media all {
             @media (max-width: 480px) {
                 font-size: 1.225rem;
@@ -54,42 +59,46 @@ div.column > p {
                 font-size: 1.4rem;
             }
         }
+        line-height: normal;
+        font-weight: 550;
     }
     &.no-bottom-pad {
         padding-bottom: 0;
     }
     &.vpue-jump-bar {
+        width: 100%;
+        padding-top: 0;
+         padding-bottom: .25em;
+        margin-top: 2rem;
+         margin-bottom: 2rem;
         .rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
         color: @hex-darker-gray;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        padding-top: 0;
-        padding-bottom: .25em;
         text-align: center;
-        width: 100%;
         span.title {
             font-size: 1em;
-            font-variant: small-caps;
-            font-weight: bold;
             line-height: 2em;
+            font-weight: bold;
+            font-variant: small-caps;
         }
     }
     &.vpue-jump-back {
-        font-size: .6875rem;
-        line-height: ~"calc(0.6875rem * 1.35)";
         padding-bottom: .3333rem;
         margin-bottom: .3333rem;
+        font-size: .6875rem;
+        line-height: ~"calc(0.6875rem * 1.35)";
     }
     &.article-media-contacts {
+        padding-left: 2em;
         font-size: .8em;
         line-height: normal;
-        padding-left: 2em;
     }
+    // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
     &.award-quote {
-        margin-right: 2rem;
         margin-left: 2rem;
-        margin-bottom: .5rem;
+         margin-bottom: .5rem;
+         margin-right: 2rem;
     }
+    // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
     &.award-quote-source {
         font-style: italic;
         margin-right: 2rem;
@@ -97,6 +106,7 @@ div.column > p {
         padding-right: 2rem;
         padding-left: 2rem;
     }
+    // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
     &.banner-text-gray-with-towers {
         color: #2A3033;
         background-color: rgba(141,149,154,0.5);
@@ -117,6 +127,7 @@ div.column > p {
             }
         }
     }
+    // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
     &.banner-text-orange-with-towers {
         color: #492E14;
         background-color: rgba(182,114,51,0.5);
@@ -138,4 +149,6 @@ div.column > p {
         }
     }
 }
-/*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
+/*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
+ */
+ 
