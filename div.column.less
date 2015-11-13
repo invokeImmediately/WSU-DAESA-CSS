@@ -1,8 +1,16 @@
-/*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ DIV.COLUMN ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+ *  │ ++++++++ div.column ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ *  │ Highly specific styling applied to the div.column semantic construct in the WSU Spine Theme. │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 div.column {
 	font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande';
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ MODIFYING CLASSES ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+    
+/*  ├----------------------------------------------------------------------------------------------┤
+ *  │++++++++++++ GENERIC CLASSES for child elements of div.column +++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 	&.hides-overflow {
         overflow: hidden;
     }
@@ -21,7 +29,11 @@ div.column {
 	header.article-header.show-header {
 		display: block;
 	}*/
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ HEADERS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+    
+/*  ├----------------------------------------------------------------------------------------------┤
+ *  │++++++++++++ HEADER child elements of div.column ++++++++++++++++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 	h1 {
 		color: @hex-darker-gray;
 		font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', sans-serif;
@@ -147,7 +159,11 @@ div.column {
 	&:nth-child(1) {
 		margin-top: 0;
 	}
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ HORIZONTAL RULES ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+    
+/*  ├----------------------------------------------------------------------------------------------┤
+ *  │++++++++++++ HORIZONTAL RULE child elements of div.column +++++++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 	hr {
 		background: none;
 		border: 0;
@@ -199,7 +215,11 @@ div.column {
 			clear: none;
 		}
 	}
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ HYPERLINKS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+    
+/*  ├----------------------------------------------------------------------------------------------┤
+ *  │++++++++++++ HYPERLINK child elements of div.column +++++++++++++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 	a {
 		color: @hex-crimson;
 		.rgb-dark-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0);
@@ -266,7 +286,11 @@ div.column {
 	&:hover a.loud-link {
 		.rgb-dark-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.3);
 	}
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ASIDES ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+    
+/*  ├----------------------------------------------------------------------------------------------┤
+ *  │++++++++++++ ASIDE child elements of div.column +++++++++++++++++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 	aside.article-sidebar {
 		background: #f8f1eb;
 		border: 1px solid #6d441f;
@@ -358,7 +382,11 @@ div.column {
             }
         }
 	}
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ UNORDERED LISTS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+    
+/*  ├----------------------------------------------------------------------------------------------┤
+ *  │++++++++++++ UNORDERED LIST child elements of div.column ++++++++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 	ul {
 		padding-bottom: 0;
 		&:last-child:not(.no-bottom-pad) {
@@ -387,7 +415,11 @@ div.column {
 	p+ul {
 		margin-top: .5rem;
 	}
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ORDERED LISTS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+
+/*  ├----------------------------------------------------------------------------------------------┤
+ *  │++++++++++++ ORDERED LIST child elements of div.column ++++++++++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 	ol {
 		@media all {
 			@media (min-width: 1209px) {
@@ -407,266 +439,19 @@ div.column {
 			}
 		}
 	}	
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ PARAGRAPHS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
-	p {
-		padding-bottom: 0;
-		text-align: justify;
-		&.centered {
-			text-align: center;
-		}
-		@media all {
-			@media (min-width: 1209px) {
-				font-size: 1rem;
-				line-height: 1.35em;
-			}
-			@media (max-width: 1208px) {
-				font-size: ~"calc(1rem * 0.875)";
-				line-height: 1.35em;
-			}
-		}
-		&:last-child:not(.no-bottom-pad) {
-			padding-bottom: 1rem;
-		}
-		&:not(:last-child) {
-			margin-bottom: 1rem;
-		}	
-		&.article-deck {
-			color: #72652a;
-			font-size: 1.2rem;
-			line-height: 1.35em;
-			@media all {
-				@media all and (max-width: 480px) {
-					font-size: ~"calc(1.2rem * 0.875 * 0.875)";
-					line-height: 1.35em;
-				}
-				@media (min-width: 481px) and (max-width: 1208px) {
-					font-size: ~"calc(1.2rem * 0.875)";
-					line-height: 1.35em;
-				}
-			}
-			strong {
-				color: #8f7e35;
-			}
-		}
-		&.article-tagline {
-			font-family: "Palatino";
-			font-size: 1.6rem;
-			line-height: normal;
-			font-weight: 550;
-			@media all {
-				@media (max-width: 480px) {
-					font-size: 1.225rem;
-				}
-				@media (min-width: 481px) and (max-width: 1208px) {
-					font-size: 1.4rem;
-				}
-			}
-		}
-		&.no-bottom-pad {
-			padding-bottom: 0;
-		}
-		&.vpue-jump-bar {
-			.rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
-			color: @hex-darker-gray;
-			margin-top: 2rem;
-			margin-bottom: 2rem;
-			padding-top: 0;
-			padding-bottom: .25em;
-			text-align: center;
-			width: 100%;
-			span.title {
-				font-size: 1em;
-				font-variant: small-caps;
-				font-weight: bold;
-				line-height: 2em;
-			}
-		}
-		&.vpue-jump-back {
-			font-size: .6875rem;
-			line-height: ~"calc(0.6875rem * 1.35)";
-			padding-bottom: .3333rem;
-			margin-bottom: .3333rem;
-		}
-		&.article-media-contacts {
-			font-size: .8em;
-			line-height: normal;
-			padding-left: 2em;
-		}
-		&.award-quote {
-			margin-right: 2rem;
-			margin-left: 2rem;
-			margin-bottom: .5rem;
-		}
-		&.award-quote-source {
-			font-style: italic;
-			margin-right: 2rem;
-			margin-left: 2rem;
-			padding-right: 2rem;
-			padding-left: 2rem;
-		}
-		&.banner-text-gray-with-towers {
-			color: #2A3033;
-			background-color: rgba(141,149,154,0.5);
-			border: 32px solid transparent;
-			-webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-			-o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-			border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-			margin-bottom: 15px;
-			padding: 7px;
-			@media all {
-				@media (min-width: 1209px) {
-					font-size: 1.25rem;
-					line-height: ~"calc(1.25rem * 1.35)";
-				}
-				@media (max-width: 1208px) {
-					font-size: ~"calc(1.25rem * 0.875)";
-					line-height: ~"calc(1.25rem * 1.35 *0.875)";
-				}
-			}
-		}
-		&.banner-text-orange-with-towers {
-			color: #492E14;
-			background-color: rgba(182,114,51,0.5);
-			border: 32px solid transparent;
-			-webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-			-o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-			border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-			margin-bottom: 15px;
-			padding: 7px;
-			@media all {
-				@media (min-width: 1209px) {
-					font-size: 1.25rem;
-					line-height: ~"calc(1.25rem * 1.35)";
-				}
-				@media (max-width: 1208px) {
-					font-size: ~"calc(1.25rem * 0.875)";
-					line-height: ~"calc(1.25rem * 1.35 *0.875)";
-				}
-			}
-		}
-	}
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ SECTIONS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+
+/*  ├----------------------------------------------------------------------------------------------┤
+ *  │++++++++++++ SECTION child elements of div.column +++++++++++++++++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
     section {
         position: relative;
     }
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ TABLES ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
-	table {
-		&.plain {
-			border-collapse: separate;
-			border-spacing: 0;
-			border-top: 1px solid @hex-dark-gray;
-			border-bottom: 1px solid @hex-dark-gray;
-			background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat fixed left top;
-			thead {
-				tr {
-					th {
-						border-top: 1px solid @hex-white;
-						border-bottom: 1px solid #B6BCBF;
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						text-align: inherit;
-					}
-				}
-			}
-			tbody {
-				tr {
-					td {
-						background-color: @hex-bright-gray;
-						border-top: 1px solid @hex-white;
-						border-bottom: 1px solid @hex-light-gray;
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						text-align: inherit;
-						vertical-align: top;
-					}
-				}
-				tr:nth-of-type(2n) {
-					td {
-						background-color: @hex-white;
-						border-top: 1px solid @hex-bright-gray;
-						border-bottom: 1px solid @hex-lighter-gray;
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						text-align: inherit;
-						vertical-align: top;
-					}
-				}
-			}
-		}
-		&.award-recipients {
-			border-collapse: separate;
-			border-spacing: 0;
-			border-top: 1px solid @hex-dark-gray;
-			border-bottom: 1px solid @hex-dark-gray;
-			background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat fixed left top;
-			thead {
-				tr {
-					th {
-						border-top: 1px solid @hex-white;
-						border-bottom: 1px solid #B6BCBF;
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						text-align: inherit;
-					}
-				}
-			}
-			tbody {
-				tr {
-					td {
-						background-color: @hex-white;
-						border-top: 1px solid @hex-bright-gray;
-						border-bottom: 1px solid @hex-lighter-gray;
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						text-align: inherit;
-						vertical-align: top;
-					}
-				}
-			}
-			tbody:nth-of-type(2n) {
-				tr {
-					td {
-						background-color: @hex-bright-gray;
-						border-top: 1px solid @hex-white;
-						border-bottom: 1px solid @hex-light-gray;
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						text-align: inherit;
-						vertical-align: top;
-					}
-				}
-			}
-		}
-		&.peopleList {
-			width: 100%;
-			border-collapse: separate;
-			border-spacing: 0;
-			border-top: 1px solid #e5e5e5;
-			background: @hex-white;
-			tbody {
-				td {
-					width: 80%;
-					padding-bottom: 3pt;
-					padding-top: 3pt;
-					border-bottom: 1px solid #e5e5e5;
-					vertical-align: middle;
-					/* background: #c75d61; */
-				
-					&:first-of-type {
-						width: 20%;
-						text-align: center;
-					}
-				}
-			}
-		}
-	}
-/*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ADDITIONAL CLASSES ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
+    
+/*  ├----------------------------------------------------------------------------------------------┤
+ *  │++++++++++++ ADDITIONAL CLASSES for child elements of div.column ++++++++++++++++++++++++++++ │
+ *  ├----------------------------------------------------------------------------------------------┤
+ */
 	.crimson-text {
 		color: @hex-crimson;
 	}
@@ -677,4 +462,4 @@ div.column {
 		text-align: center;
 	}
 }
-/*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
+/*================================================================================================*/

@@ -1,143 +1,141 @@
 /*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
 /*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ DIV.COLUMN ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
 /*▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Paragraphs ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒*/
-div.column {
-	p {
-		padding-bottom: 0;
-		text-align: justify;
-		&.centered {
-			text-align: center;
-		}
-		@media all {
-			@media (min-width: 1209px) {
-				font-size: 1rem;
-				line-height: 1.35em;
-			}
-			@media (max-width: 1208px) {
-				font-size: ~"calc(1rem * 0.875)";
-				line-height: 1.35em;
-			}
-		}
-		&:last-child:not(.no-bottom-pad) {
-			padding-bottom: 1rem;
-		}
-		&:not(:last-child) {
-			margin-bottom: 1rem;
-		}	
-		&.article-deck {
-			color: #72652a;
-			font-size: 1.2rem;
-			line-height: 1.35em;
-			@media all {
-				@media all and (max-width: 480px) {
-					font-size: ~"calc(1.2rem * 0.875 * 0.875)";
-					line-height: 1.35em;
-				}
-				@media (min-width: 481px) and (max-width: 1208px) {
-					font-size: ~"calc(1.2rem * 0.875)";
-					line-height: 1.35em;
-				}
-			}
-			strong {
-				color: #8f7e35;
-			}
-		}
-		&.article-tagline {
-			font-family: "Palatino";
-			font-size: 1.6rem;
-			line-height: normal;
-			font-weight: 550;
-			@media all {
-				@media (max-width: 480px) {
-					font-size: 1.225rem;
-				}
-				@media (min-width: 481px) and (max-width: 1208px) {
-					font-size: 1.4rem;
-				}
-			}
-		}
-		&.no-bottom-pad {
-			padding-bottom: 0;
-		}
-		&.vpue-jump-bar {
-			.rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
-			color: @hex-darker-gray;
-			margin-top: 2rem;
-			margin-bottom: 2rem;
-			padding-top: 0;
-			padding-bottom: .25em;
-			text-align: center;
-			width: 100%;
-			span.title {
-				font-size: 1em;
-				font-variant: small-caps;
-				font-weight: bold;
-				line-height: 2em;
-			}
-		}
-		&.vpue-jump-back {
-			font-size: .6875rem;
-			line-height: ~"calc(0.6875rem * 1.35)";
-			padding-bottom: .3333rem;
-			margin-bottom: .3333rem;
-		}
-		&.article-media-contacts {
-			font-size: .8em;
-			line-height: normal;
-			padding-left: 2em;
-		}
-		&.award-quote {
-			margin-right: 2rem;
-			margin-left: 2rem;
-			margin-bottom: .5rem;
-		}
-		&.award-quote-source {
-			font-style: italic;
-			margin-right: 2rem;
-			margin-left: 2rem;
-			padding-right: 2rem;
-			padding-left: 2rem;
-		}
-		&.banner-text-gray-with-towers {
-			color: #2A3033;
-			background-color: rgba(141,149,154,0.5);
-			border: 32px solid transparent;
-			-webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-			-o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-			border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-			margin-bottom: 15px;
-			padding: 7px;
-			@media all {
-				@media (min-width: 1209px) {
-					font-size: 1.25rem;
-					line-height: ~"calc(1.25rem * 1.35)";
-				}
-				@media (max-width: 1208px) {
-					font-size: ~"calc(1.25rem * 0.875)";
-					line-height: ~"calc(1.25rem * 1.35 *0.875)";
-				}
-			}
-		}
-		&.banner-text-orange-with-towers {
-			color: #492E14;
-			background-color: rgba(182,114,51,0.5);
-			border: 32px solid transparent;
-			-webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-			-o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-			border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-			margin-bottom: 15px;
-			padding: 7px;
-			@media all {
-				@media (min-width: 1209px) {
-					font-size: 1.25rem;
-					line-height: ~"calc(1.25rem * 1.35)";
-				}
-				@media (max-width: 1208px) {
-					font-size: ~"calc(1.25rem * 0.875)";
-					line-height: ~"calc(1.25rem * 1.35 *0.875)";
-				}
-			}
-		}
-	}
+div.column > p {
+    padding-bottom: 0;
+    text-align: justify;
+    &.centered {
+        text-align: center;
+    }
+    @media all {
+        @media (min-width: 1209px) {
+            font-size: 1rem;
+            line-height: 1.35em;
+        }
+        @media (max-width: 1208px) {
+            font-size: ~"calc(1rem * 0.875)";
+            line-height: 1.35em;
+        }
+    }
+    &:last-child:not(.no-bottom-pad) {
+        padding-bottom: 1rem;
+    }
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }	
+    &.article-deck {
+        color: #72652a;
+        font-size: 1.2rem;
+        line-height: 1.35em;
+        @media all {
+            @media all and (max-width: 480px) {
+                font-size: ~"calc(1.2rem * 0.875 * 0.875)";
+                line-height: 1.35em;
+            }
+            @media (min-width: 481px) and (max-width: 1208px) {
+                font-size: ~"calc(1.2rem * 0.875)";
+                line-height: 1.35em;
+            }
+        }
+        strong {
+            color: #8f7e35;
+        }
+    }
+    &.article-tagline {
+        font-family: "Palatino";
+        font-size: 1.6rem;
+        line-height: normal;
+        font-weight: 550;
+        @media all {
+            @media (max-width: 480px) {
+                font-size: 1.225rem;
+            }
+            @media (min-width: 481px) and (max-width: 1208px) {
+                font-size: 1.4rem;
+            }
+        }
+    }
+    &.no-bottom-pad {
+        padding-bottom: 0;
+    }
+    &.vpue-jump-bar {
+        .rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
+        color: @hex-darker-gray;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding-top: 0;
+        padding-bottom: .25em;
+        text-align: center;
+        width: 100%;
+        span.title {
+            font-size: 1em;
+            font-variant: small-caps;
+            font-weight: bold;
+            line-height: 2em;
+        }
+    }
+    &.vpue-jump-back {
+        font-size: .6875rem;
+        line-height: ~"calc(0.6875rem * 1.35)";
+        padding-bottom: .3333rem;
+        margin-bottom: .3333rem;
+    }
+    &.article-media-contacts {
+        font-size: .8em;
+        line-height: normal;
+        padding-left: 2em;
+    }
+    &.award-quote {
+        margin-right: 2rem;
+        margin-left: 2rem;
+        margin-bottom: .5rem;
+    }
+    &.award-quote-source {
+        font-style: italic;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    &.banner-text-gray-with-towers {
+        color: #2A3033;
+        background-color: rgba(141,149,154,0.5);
+        border: 32px solid transparent;
+        -webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+        -o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+        border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+        margin-bottom: 15px;
+        padding: 7px;
+        @media all {
+            @media (min-width: 1209px) {
+                font-size: 1.25rem;
+                line-height: ~"calc(1.25rem * 1.35)";
+            }
+            @media (max-width: 1208px) {
+                font-size: ~"calc(1.25rem * 0.875)";
+                line-height: ~"calc(1.25rem * 1.35 *0.875)";
+            }
+        }
+    }
+    &.banner-text-orange-with-towers {
+        color: #492E14;
+        background-color: rgba(182,114,51,0.5);
+        border: 32px solid transparent;
+        -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+        -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+        border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+        margin-bottom: 15px;
+        padding: 7px;
+        @media all {
+            @media (min-width: 1209px) {
+                font-size: 1.25rem;
+                line-height: ~"calc(1.25rem * 1.35)";
+            }
+            @media (max-width: 1208px) {
+                font-size: ~"calc(1.25rem * 0.875)";
+                line-height: ~"calc(1.25rem * 1.35 *0.875)";
+            }
+        }
+    }
 }
 /*▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒*/
