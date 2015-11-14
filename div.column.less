@@ -140,6 +140,7 @@ div.column {
         margin-bottom: .5rem;
         font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', sans-serif;
         font-size: 1.4rem;
+        line-height: 1.2em;
         @media all {
             @media (max-width: 480px) {
                 font-size: 1.071875rem;
@@ -217,7 +218,8 @@ div.column {
 //  ├----------------------------------------------------------------------------------------------┤
 //
     a {
-        .rgb-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0);
+        margin-bottom: -3px;
+        .rgb-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.25);
         color: @hex-crimson;
         text-decoration: none;
         transition-property: color, background, border-color;
@@ -228,11 +230,11 @@ div.column {
          -webkit-transition-timing-function: linear, ease-in, linear;
         &:hover {
             background-color: rgba(239,120,121,0.1);
-            .rgb-crimson(); border-color: rgba(@rval,@gval,@bval,0.3);
+            .rgb-crimson(); border-color: rgba(@rval,@gval,@bval,0.5);
             color: #c60c30;
         }
         &.subtle-link {
-            .rgb-=crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.0);
+            .rgb-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.0);
             transition-property: border-color;
              -webkit-transition-property: border-color;
             transition-duration: .4s;
@@ -241,7 +243,7 @@ div.column {
              -webkit-transition-timing-function: linear;
         }
         &.subtle-link:not(.quiet):hover {
-            .rgb-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.3);
+            .rgb-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.5);
         }
         &.pop-out-link {
             .rgb-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.3);
@@ -281,6 +283,9 @@ div.column {
     }
     &:hover a.loud-link {
         .rgb-dark-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.3);
+    }
+    h1 > a, h2 > a, h3 > a, h4 > a {
+        line-height: 1.35em;
     }
     
 //  ├----------------------------------------------------------------------------------------------┤
