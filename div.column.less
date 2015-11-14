@@ -1,8 +1,8 @@
 /*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
  *  │ ++++++++ div.column ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
  *  ├----------------------------------------------------------------------------------------------┤
- *  │ Highly specific styling applied to div.column elements as specified in the WSU Spine         │
- *  │ WordPress Theme.                                                                             │
+ *  │ Highly specific styling applied to div.column container elements as specified in the WSU     │
+ *  │ Spine WordPress Theme.                                                                             │
  *  ├----------------------------------------------------------------------------------------------┤
  */
 div.column {
@@ -11,7 +11,7 @@ div.column {
 		margin-top: 0;
 	}
 //  ├----------------------------------------------------------------------------------------------┤
-//  │++++++++++++ GENERIC CLASSES for div.column elements ++++++++++++++++++++++++++++++++++++++++ │
+//  │++++++++++++ GENERIC CLASSES for div.column content containers ++++++++++++++++++++++++++++++ │
 //  ├----------------------------------------------------------------------------------------------┤
 //
     &.hides-overflow {
@@ -34,10 +34,10 @@ div.column {
     }*/
     
 //  ├----------------------------------------------------------------------------------------------┤
-//  │++++++++++++ HEADER children of div.column elements +++++++++++++++++++++++++++++++++++++++++ │
+//  │++++++++++++ HEADER elements contained within div.column containers++++++++++++++++++++++++++ │
 //  ├----------------------------------------------------------------------------------------------┤
 //
-    & > h1 {
+    h1 {
         padding-bottom: 0;
         margin-top: 1.5rem;
         margin-bottom: .75rem;
@@ -62,10 +62,10 @@ div.column {
             text-align: center;
         }
     }
-    & > header:first-child + h1 {
+    header:first-child + h1 {
         margin-top: 0;
     }
-    & > h2 {
+    h2 {
         padding: 0 0 0 .1em;
         margin-top: 1.5rem;
         margin-bottom: .75rem;
@@ -104,10 +104,10 @@ div.column {
             }
         }
     }
-    & > hr:not(.subSection) + h2 {
+    hr:not(.subSection) + h2 {
         margin-top: 0;
     }
-    & > h3 {
+    h3 {
         padding: 0 0 0 .1em;
         margin-top: 1.5rem;
         margin-bottom: .75rem;
@@ -131,10 +131,10 @@ div.column {
             text-align: center;
         }
     }
-    & > hr:not(.subSection) + h3 {
+    hr:not(.subSection) + h3 {
         margin-top: 0;
     }
-    & > h4 {
+    h4 {
         padding: 0;
         margin-top: 1rem;
         margin-bottom: .5rem;
@@ -161,7 +161,7 @@ div.column {
 //  │++++++++++++ HORIZONTAL RULE children of div.column elements ++++++++++++++++++++++++++++++++ │
 //  ├----------------------------------------------------------------------------------------------┤
 //
-    & > hr {
+    hr {
         height: 0;
         margin-top: 2rem;
         margin-bottom: 2rem;
@@ -217,7 +217,7 @@ div.column {
 //  ├----------------------------------------------------------------------------------------------┤
 //
     a {
-        .rgb-dark-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0);
+        .rgb-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0);
         color: @hex-crimson;
         text-decoration: none;
         transition-property: color, background, border-color;
@@ -228,10 +228,11 @@ div.column {
          -webkit-transition-timing-function: linear, ease-in, linear;
         &:hover {
             background-color: rgba(239,120,121,0.1);
+            .rgb-crimson(); border-color: rgba(@rval,@gval,@bval,0.3);
             color: #c60c30;
         }
         &.subtle-link {
-            .rgb-dark-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.0);
+            .rgb-=crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.0);
             transition-property: border-color;
              -webkit-transition-property: border-color;
             transition-duration: .4s;
@@ -240,10 +241,10 @@ div.column {
              -webkit-transition-timing-function: linear;
         }
         &.subtle-link:not(.quiet):hover {
-            .rgb-dark-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.3);
+            .rgb-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.3);
         }
         &.pop-out-link {
-            .rgb-dark-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.3);
+            .rgb-crimson(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.3);
             color: @hex-crimson;
             text-decoration: none;
             transition-property: color, background, font-size;
@@ -286,7 +287,7 @@ div.column {
 //  │++++++++++++ ASIDE children of div.column elements ++++++++++++++++++++++++++++++++++++++++++ │
 //  ├----------------------------------------------------------------------------------------------┤
 //
-    & > aside.article-sidebar {
+    aside.article-sidebar {
         float: right;
         width: 33%;
         min-width: 230px;
@@ -406,7 +407,7 @@ div.column {
             }
         }
     }
-    & > p + ul {
+    p + ul {
         margin-top: .5rem;
     }
 
@@ -437,7 +438,7 @@ div.column {
 //  │++++++++++++ SECTION children of div.column elements ++++++++++++++++++++++++++++++++++++++++ │
 //  ├----------------------------------------------------------------------------------------------┤
 //
-    & > section {
+    section {
         position: relative;
     }
     
