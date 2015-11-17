@@ -697,6 +697,42 @@ section {
             }
         }
     }
+    &.side-right.large-format-friendly, &.row.side-right.large-format-friendly {
+        @media all {
+            @media (min-width: 875px) {
+                overflow: hidden;
+                div.column.one {
+                    width: 660px;
+                }
+                div.column.two {
+                    width: ~"calc(100% - 660px)";
+                    &:not(.graphical) {
+                        position: relative;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 1rem;
+                            right: 0;
+                            padding-bottom: 1000em;
+                            margin-bottom: -1000em;
+                            background: @hex-bright-gray;
+                        }
+                    }
+                }
+            }
+            @media (max-width: 874px) {
+                overflow: hidden;
+                div.column.one {
+                    width: 100%;
+                    padding-right: 2rem;
+                }
+                div.column.two {
+                    display: none;
+                }
+            }
+        }
+    }
 }
 
 /*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
