@@ -124,44 +124,48 @@ div.column {
 				}
 			}
 		}
-	}
-}
-table.navigational-map {
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    font-size: 13px;
-    text-align: left;
-    color: @hex-crimson;
-    a {
-        color: inherit;
-    }
-    th {
-        border-bottom: 1px solid @hex-light-gray;
-        font-size: inherit;
-        font-weight: bold;
-        vertical-align: bottom;
-        &.table-spacer {
-            width: 15px;
-        }
-        &:nth-child(4n+3) {
-            color: #c60c30
-        }
-        &:nth-child(2):hover {
-            background-color: #d3e1e3;
-        }
-    }
-    td {
-        p {
-            padding-bottom: 0px; 
-            &:not(:last-child) {
-                border-bottom: 1px solid @hex-lighter-gray;
+        &.navigational-map {
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            font-size: 13px;
+            text-align: left;
+            color: @hex-crimson;
+            a {
+                border-bottom: 1px dotted rgba(152,30,50,0.0);
+                color: inherit;
+            }
+            th {
+                border-bottom: 1px solid @hex-light-gray;
+                font-size: inherit;
+                font-weight: bold;
+                vertical-align: bottom;
+                &.table-spacer {
+                    width: 15px;
+                }
+                &:nth-child(4n+3) {
+                    color: #c60c30
+                }
+                &:nth-child(2):hover {
+                    background-color: #d3e1e3;
+                }
+            }
+            td {
+                p {
+                    padding-bottom: 0px;
+                    font-size: inherit;
+                    text-align: inherit;
+                    &:not(:last-child) {
+                        margin-bottom: 0;
+                        border-bottom: 1px solid @hex-lighter-gray;
+                    }                    
+                }
+                &:nth-child(4n+3) {
+                    color: #c60c30
+                }
             }
         }
-        &:nth-child(4n+3) {
-            color: #c60c30
-        }
-    }
+	}
 }
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
  */
