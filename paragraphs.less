@@ -127,6 +127,22 @@ div.column p {
             }
         }
     }
+    &.banner-text-orange {
+        padding: 7px;
+        margin-bottom: 15px;
+        background-color: rgba(182,114,51,0.5);
+        border: 1px solid @hex-darkest-orange;
+        line-height: 1.35em;
+        color: @hex-darkest-orange;
+        @media all {
+            @media (min-width: 1209px) {
+                font-size: 1.25rem;
+            }
+            @media (max-width: 1208px) {
+                font-size: ~"calc(1.25rem * 0.875)";
+            }
+        }
+    }
     // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
     &.banner-text-orange-with-towers {
         color: #492E14;
