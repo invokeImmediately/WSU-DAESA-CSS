@@ -85,8 +85,8 @@ the page, it's all good.
          -webkit-animation-name: animFlashHighlight;
         animation-delay: .175s;
          -webkit-animation-delay: .175s;
-        animation-duration: 2.0375s;
-         -webkit-animation-duration: 2.0375s;
+        animation-duration: 1.325s;
+         -webkit-animation-duration: 1.325s;
         animation-timing-function: linear;
          -webkit-animation-timing-function: linear;
         animation-iteration-count: 1;
@@ -195,6 +195,11 @@ aside {
         font-weight: bold;
         font-size: 1rem;
     }
+    &.widget_archive {
+        label.screen-reader-text {
+            display: none;
+        }
+    }
 }
 
 /*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
@@ -295,6 +300,18 @@ div.read-more-target {
 }
 .read-more-state:checked ~ p label.read-more-trigger:before {
     content: 'Show less';
+}
+
+/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
+ *  ║ #### FOOTERS ############################################################################### ║
+ *  ╠==============================================================================================╣
+ *  ║ Styling applied to <footer>...</footer> elements and their children.                         ║
+ *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+ */
+footer.article-footer {
+    div.author-info {
+        display: none;
+    }
 }
 
 /*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
