@@ -171,6 +171,14 @@ div.column {
             border-spacing:0;
             border-top: 1px solid @hex-dark-blue;
              border-bottom: 1px solid @hex-dark-blue;
+            @media all {
+                @media (min-width: 891px) {
+                    font-size: 14px;
+                }
+                @media (max-width: 890px) {
+                    font-size: 12px;
+                }
+            }
             & > thead > tr {
                 & > th {
                     padding: 3px;
@@ -199,7 +207,6 @@ div.column {
                     background-color: @hex-white;
                     text-indent: -1em;
                     vertical-align: top;
-                    font-size: 12px;
                     line-height: normal;
                 }
                 & > tr:nth-child(2n + 1) > td {
@@ -210,7 +217,6 @@ div.column {
                     background-color: @hex-lightest-blue;
                     text-indent: -1em;
                     vertical-align: top;
-                    font-size: 12px;
                     line-height: normal;
                 }
             }
@@ -222,6 +228,14 @@ div.column {
             border-top: 1px solid @hex-darker-gray;
              border-bottom: 1px solid @hex-darker-gray;
             vertical-align: top;
+            @media all {
+                @media (min-width: 891px) {
+                    font-size: 14px;
+                }
+                @media (max-width: 890px) {
+                    font-size: 12px;
+                }
+            }
             font-variant: small-caps;
             & > thead > tr {
                 & > th {
@@ -245,14 +259,12 @@ div.column {
                     padding: 3px;
                     background-color: @hex-white;
                     vertical-align: top;
-                    font-size: 12px;
                     line-height: normal;
                 }
                 & > tr:nth-child(2n + 1) > td {
                     padding: 3px;
                     background-color: @hex-lighter-gray;
                     vertical-align: top;
-                    font-size: 12px;
                     line-height: normal;
                 }
             }
