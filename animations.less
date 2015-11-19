@@ -1,0 +1,65 @@
+.mixi-fade-in-from-left() {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%,0,0);
+         -webkit-transform: translate3d(-100%,0,0);
+         -moz-transform: translate3d(-100%,0,0);
+         -o-transform: translate3d(-100%,0,0);
+    }        
+    100% {
+        opacity: 1;
+        transform: none;
+         -webkit-transform: none;
+         -moz-transform: none;
+         -o-transform: none;
+    }
+}
+
+.mixi-flash-highlight() {
+    0% {
+        .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
+        border-color: rgba(@rval,@gval,@bval,0);
+        z-index: 10;
+    }
+    10% {
+        .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0.1);
+        border-color: rgba(@rval,@gval,@bval,0.5);
+    }
+    20% {
+        .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
+        border-color: rgba(@rval,@gval,@bval,0);
+    }
+    31% {
+        .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0.1);
+        border-color: rgba(@rval,@gval,@bval,0.5);
+    }
+    41% {
+        .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
+        border-color: rgba(@rval,@gval,@bval,0);
+    }
+    51% {
+        .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0.1);
+        border-color: rgba(@rval,@gval,@bval,0.5);
+    }
+    100% {
+        .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
+        border-color: rgba(@rval,@gval,@bval,0);
+    }
+}
+
+.mixi-read-more-trigger-glow() {
+    0% {
+        .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
+        box-shadow: 0 0 9px rgba(@rval,@gval,@bval,0);
+        color: @hex-dark-gray;
+    }
+    50% {
+        .rgb-yellow(); background-color: rgba(@rval,@gval,@bval,0.5);
+        box-shadow: 0 0 18px rgba(@rval,@gval,@bval,0.5);
+        color: @hex-darkest-gray;
+    }
+    100% {
+        .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
+        box-shadow: 0 0 9px rgba(@rval,@gval,@bval,0);
+    }
+}
