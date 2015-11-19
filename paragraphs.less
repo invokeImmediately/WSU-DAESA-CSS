@@ -18,33 +18,32 @@ div.column p {
         text-align: left;
     }
     @media all {
+        line-height: @v-p-lnhght;
         @media (min-width: 481px) {
-            font-size: 1rem;
-            line-height: 1.35em;
+            font-size: @v-p-sz;
         }
         @media (max-width: 480px) {
-            font-size: ~"calc(1rem * 0.875)";
-            line-height: 1.35em;
+            font-size: @v-p-sz * @v-scl-dwn;
             text-align: left;
         }
     }
     &:last-child:not(.no-bottom-pad) {
-        padding-bottom: 1rem;
+        padding-bottom: @v-btm-pads;
     }
-    &:not(:last-child) {
-        margin-bottom: 1rem;
+    &:not(:last-child):not(.no-btm-margin) {
+        margin-bottom: @v-btm-margins;
+    }	
+    &.half-margins:not(:last-child) {
+        margin-bottom: @v-btm-margins / 2;
     }	
     &.article-deck {
         @media all {
-            font-size: 1.2rem;
-            line-height: 1.35em;
-            @media (max-width: 480px) {
-                font-size: ~"calc(1.2rem * 0.875 * 0.875)";
-                line-height: 1.35em;
-            }
+            font-size: @v-artcl-deck-sz;
             @media (min-width: 481px) and (max-width: 1208px) {
-                font-size: ~"calc(1.2rem * 0.875)";
-                line-height: 1.35em;
+                font-size: @v-artcl-deck-sz * @v-scl-dwn;
+            }
+            @media (max-width: 480px) {
+                font-size: @v-artcl-deck-sz * @v-scl-dwn * @v-scl-dwn;
             }
         }
         color: @hex-dark-green;
@@ -54,17 +53,17 @@ div.column p {
     }
     &.article-tagline {
         font-family: "Palatino";
-        font-size: 1.6rem;
+        font-size: @v-artcl-tgln-sz;
         @media all {
-            @media (max-width: 480px) {
-                font-size: 1.225rem;
-            }
             @media (min-width: 481px) and (max-width: 1208px) {
-                font-size: 1.4rem;
+                font-size: @v-artcl-tgln-sz * @v-scl-dwn;
+            }
+            @media (max-width: 480px) {
+                font-size: @v-artcl-tgln-sz * @v-scl-dwn * @v-scl-dwn;
             }
         }
         line-height: normal;
-        font-weight: 550;
+        font-weight: @v-artcl-tgln-wght;
     }
     &.no-bottom-pad {
         padding-bottom: 0;
@@ -73,8 +72,8 @@ div.column p {
         width: 100%;
         padding-top: 0;
          padding-bottom: .25em;
-        margin-top: 2rem;
-         margin-bottom: 2rem;
+        margin-top: @v-dflt-spacing;
+         margin-bottom: @v-dflt-spacing;
         .rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
         color: @hex-darker-gray;
         text-align: center;
@@ -86,33 +85,32 @@ div.column p {
         }
     }
     &.vpue-jump-back {
-        padding-bottom: .3333rem;
-        margin-bottom: .3333rem;
-        font-size: .6875rem;
-        line-height: ~"calc(0.6875rem * 1.35)";
+        padding-bottom: @v-btm-pads / 3;
+        margin-bottom: @v-btm-margins / 3;
+        font-size: @v-p-jumpback-sz;
     }
     &.article-media-contacts {
         padding-left: 2em;
         font-size: .8em;
-        line-height: normal;
+        line-height: @v-p-lnhght;
     }
     // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
     &.award-quote {
-        margin-left: 2rem;
-         margin-bottom: .5rem;
-         margin-right: 2rem;
+        margin-left: @v-dflt-spacing;
+         margin-bottom: @v-btm-pads / 2;
+         margin-right: @v-dflt-spacing;
     }
     // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
     &.award-quote-source {
         font-style: italic;
-        margin-right: 2rem;
-        margin-left: 2rem;
-        padding-right: 2rem;
-        padding-left: 2rem;
+        margin-right: @v-dflt-spacing;
+        margin-left: @v-dflt-spacing;
+        padding-right: @v-dflt-spacing;
+        padding-left: @v-dflt-spacing;
     }
     // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
     &.banner-text-gray-with-towers {
-        color: #2A3033;
+        color: @hex-darkest-gray;
         background-color: rgba(141,149,154,0.5);
         border: 32px solid transparent;
         -webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
@@ -122,31 +120,28 @@ div.column p {
         padding: 7px;
         @media all {
             @media (min-width: 1209px) {
-                font-size: 1.25rem;
-                line-height: ~"calc(1.25rem * 1.35)";
+                font-size: @v-bnnr-txt-sz;
             }
             @media (max-width: 1208px) {
-                font-size: ~"calc(1.25rem * 0.875)";
-                line-height: ~"calc(1.25rem * 1.35 *0.875)";
+                font-size: @v-bnnr-txt-sz * @v-scl-dwn;
             }
         }
     }
     &.banner-text {
-        max-width: 700px;
+        max-width: @v-w-cnstrn-lrg;
         padding: 7px;
-        margin-left: auto;
-         margin-bottom: 2rem;
-         margin-right: auto;
+        .margin-centered;
+         margin-bottom: @v-dflt-spacing;
         .rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.5);
         border: 1px solid @hex-darkest-gray;
-        line-height: 1.35em;
+        line-height: @v-p-lnhght;
         color: @hex-darkest-gray;
         @media all {
             @media (min-width: 1209px) {
-                font-size: 1.25rem;
+                font-size: @v-bnnr-txt-sz;
             }
             @media (max-width: 1208px) {
-                font-size: ~"calc(1.25rem * 0.875)";
+                font-size: @v-bnnr-txt-sz * @v-scl-dwn;
             }
         }
         &.orange {
@@ -169,8 +164,8 @@ div.column p {
     
     // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
     &.banner-text-orange-with-towers {
-        color: #492E14;
-        background-color: rgba(182,114,51,0.5);
+        color: @hex-darkest-orange;
+        .rgb-orange(); background-color: rgba(@rval,@gval,@bval,0.5);
         border: 32px solid transparent;
         -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
         -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
@@ -179,12 +174,10 @@ div.column p {
         padding: 7px;
         @media all {
             @media (min-width: 1209px) {
-                font-size: 1.25rem;
-                line-height: ~"calc(1.25rem * 1.35)";
+                font-size: @v-bnnr-txt-sz;
             }
             @media (max-width: 1208px) {
-                font-size: ~"calc(1.25rem * 0.875)";
-                line-height: ~"calc(1.25rem * 1.35 *0.875)";
+                font-size: @v-bnnr-txt-sz * @v-scl-dwn;
             }
         }
     }
