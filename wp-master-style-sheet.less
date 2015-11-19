@@ -13,7 +13,7 @@ the page, it's all good.
 @import "color-palette.less";
 @import "animations.less";
 
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
+/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗
  *  ║ #### GENERIC CLASSES & SELECTORS ########################################################### ║
  *  ╠==============================================================================================╣
  *  ║ Styling of classes applied to multiple elements with low specificity.                        ║
@@ -52,7 +52,7 @@ the page, it's all good.
 
 :target {
     position: relative;
-    &::before {
+    &:before {
         content: "";
         position: absolute;
          top: -1px;
@@ -594,24 +594,22 @@ section {
     &.side-right.large-format-friendly, &.row.side-right.large-format-friendly {
         @media all {
             @media (min-width: 1050px) {
-                overflow: hidden;
+                overflow-y: hidden;
                 div.column.one {
                     width: 660px;
                 }
                 div.column.two {
                     width: ~"calc(100% - 660px)";
-                    &:not(.graphical) {
-                        position: relative;
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            top: 0;
-                            left: 1rem;
-                            right: 0;
-                            padding-bottom: 1000em;
-                            margin-bottom: -1000em;
-                            background: @hex-bright-gray;
-                        }
+                    position: relative;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 1rem;
+                        right: 0;
+                        padding-bottom: 1000em;
+                        margin-bottom: -1000em;
+                        background: @hex-bright-gray;
                     }
                 }
             }
@@ -621,23 +619,20 @@ section {
                 }
                 div.column.two {
                     width: ~"calc(100% - 660px)";
-                    &:not(.graphical) {
-                        position: relative;
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            top: 0;
-                            left: 1rem;
-                            right: 0;
-                            padding-bottom: 1000em;
-                            margin-bottom: -1000em;
-                            background: none;
-                        }
+                    position: relative;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 1rem;
+                        right: 0;
+                        padding-bottom: 1000em;
+                        margin-bottom: -1000em;
+                        background: none;
                     }
                 }
             }
             @media (max-width: 890px) {
-                overflow: hidden;
                 div.column.one {
                     width: 100%;
                     padding-right: 2rem;
@@ -645,6 +640,13 @@ section {
                 div.column.two {
                     display: none;
                 }
+            }
+        }
+    }
+    &.side-right.pad-top.large-format-friendly, &.row.side-right.pad-top.large-format-friendly {
+        @media all and (min-width: 1050px) {
+            div.column.two:before {
+                top: 1rem;
             }
         }
     }
