@@ -11,6 +11,7 @@ As a general rule of thumb, if your styles target aspects of the spine
 the page, it's all good.
 */
 @import "color-palette.less";
+@import "animations.less";
 
 /*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
  *  ║ #### GENERIC CLASSES & SELECTORS ########################################################### ║
@@ -39,34 +40,14 @@ the page, it's all good.
 }
 
 .fade-in-from-left {
-    animation-name: anim-fade-in-from-left;
-     -webkit-animation-name: anim-fade-in-from-left;
-    animation-duration: 1s;
-     -webkit-animation-duration: 1s;
-    @keyframes anim-fade-in-from-left {
-        0% {
-            opacity: 0;
-            transform: translate3d(-100%,0,0);
-             -webkit-transform: translate3d(-100%,0,0);
-        }        
-        100% {
-            opacity: 1;
-            transform: none;
-             -webkit-transform: none;
-        }
-    }
-    @-webkit-keyframes anim-fade-in-from-left {
-        0% {
-            opacity: 0;
-            transform: translate3d(-100%,0,0);
-             -webkit-transform: translate3d(-100%,0,0);
-        }   
-        100% {
-            opacity: 1;
-            transform: none;
-             -webkit-transform: none;
-        }
-    }
+    animation-name: anim-fade-in-from-left 1s;
+     -webkit-animation-name: anim-fade-in-from-left 1s;
+     -moz-animation-name: anim-fade-in-from-left 1s;
+     -o-animation-name: anim-fade-in-from-left 1s;
+    @keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
+     @-webkit-keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
+     @-moz-keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
+     @-o-keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
 }
 
 :target {
@@ -81,82 +62,18 @@ the page, it's all good.
         .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
         .rgb-light-crimson(); border: 1px solid rgba(@rval,@gval,@bval,0);
         z-index: -1;
-        animation-name: animFlashHighlight;
-         -webkit-animation-name: animFlashHighlight;
-        animation-delay: .175s;
-         -webkit-animation-delay: .175s;
-        animation-duration: 1.325s;
-         -webkit-animation-duration: 1.325s;
-        animation-timing-function: linear;
-         -webkit-animation-timing-function: linear;
-        animation-iteration-count: 1;
-         -webkit-animation-iteration-count: 1;
-        animation-direction: normal;
-         -webkit-animation-direction: normal;
+        animation-name: animFlashHighlight 1.325s linear .175s 1 normal;
+         -webkit-animation-name: animFlashHighlight 1.325s linear .175s 1 normal;
+         -moz-animation-name: animFlashHighlight 1.325s linear .175s 1 normal;
+         -o-animation-name: animFlashHighlight 1.325s linear .175s 1 normal;
         animation-play-state: running;
-        -webkit-animation-play-state: running;
-        @-webkit-keyframes animFlashHighlight {
-            0% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
-                border-color: rgba(@rval,@gval,@bval,0);
-                z-index: 10;
-            }
-            10% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0.1);
-                border-color: rgba(@rval,@gval,@bval,0.5);
-            }
-            20% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
-                border-color: rgba(@rval,@gval,@bval,0);
-            }
-            31% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0.1);
-                border-color: rgba(@rval,@gval,@bval,0.5);
-            }
-            41% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
-                border-color: rgba(@rval,@gval,@bval,0);
-            }
-            51% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0.1);
-                border-color: rgba(@rval,@gval,@bval,0.5);
-            }
-            100% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
-                border-color: rgba(@rval,@gval,@bval,0);
-            }
-        }
-        @keyframes animFlashHighlight {
-            0% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
-                border-color: rgba(@rval,@gval,@bval,0);
-                z-index: 10;
-            }
-            10% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0.1);
-                border-color: rgba(@rval,@gval,@bval,0.5);
-            }
-            20% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
-                border-color: rgba(@rval,@gval,@bval,0);
-            }
-            31% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0.1);
-                border-color: rgba(@rval,@gval,@bval,0.5);
-            }
-            41% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
-                border-color: rgba(@rval,@gval,@bval,0);
-            }
-            51% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0.1);
-                border-color: rgba(@rval,@gval,@bval,0.5);
-            }
-            100% {
-                .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
-                border-color: rgba(@rval,@gval,@bval,0);
-            }
-        }
+         -webkit-animation-play-state: running;
+         -moz-animation-play-state: running;
+         -o-animation-play-state: running;        
+        @keyframes animFlashHighlight { .mixi-flash-highlight(); }
+         @-webkit-keyframes animFlashHighlight { .mixi-flash-highlight(); }
+         @-moz-keyframes animFlashHighlight { .mixi-flash-highlight(); }
+         @-o-keyframes animFlashHighlight { .mixi-flash-highlight(); }
     }
 }
 
@@ -494,45 +411,17 @@ label.read-more-trigger {
     color: @hex-dark-gray;
     transition: .333s ease;
      -webkit-transition: .333s ease;
-    animation-name: read-more-trigger-glow;
-     -webkit-animation-name: read-more-trigger-glow;
-    animation-duration: 5s;
-     -webkit-animation-duration: 5s;
-    animation-iteration-count: infinite;
-     -webkit-animation-iteration-count: infinite;
+     -moz-transition: .333s ease;
+     -o-transition: .333s ease;
+    animation-name: read-more-trigger-glow 5s linear 0 infinite;
+     -webkit-animation-name: read-more-trigger-glow 5s linear 0 infinite;
+     -moz-animation-name: read-more-trigger-glow 5s linear 0 infinite;
+     -o-animation-name: read-more-trigger-glow 5s linear 0 infinite;
     cursor: pointer;
-    @keyframes read-more-trigger-glow {
-        0% {
-            .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
-            box-shadow: 0 0 9px rgba(@rval,@gval,@bval,0);
-            color: @hex-dark-gray;
-        }
-        50% {
-            .rgb-yellow(); background-color: rgba(@rval,@gval,@bval,0.5);
-            box-shadow: 0 0 18px rgba(@rval,@gval,@bval,0.5);
-            color: @hex-darkest-gray;
-        }
-        100% {
-            .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
-            box-shadow: 0 0 9px rgba(@rval,@gval,@bval,0);
-        }
-    }
-    @-webkit-keyframes read-more-trigger-glow {
-        0% {
-            .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
-            box-shadow: 0 0 9px rgba(@rval,@gval,@bval,0);
-        }
-        50% {
-            .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.5);
-            box-shadow: 0 0 18px rgba(@rval,@gval,@bval,0.5);
-            color: @hex-darkest-gray;
-        }
-        100% {
-            .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
-            box-shadow: 0 0 9px rgba(@rval,@gval,@bval,0);
-            color: @hex-dark-gray;
-        }
-    }
+    @keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
+     @-webkit-keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
+     @-moz-keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
+     @-o-keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
 }
 label.read-more-trigger:hover {
     animation: none;
@@ -549,6 +438,8 @@ div.read-more-target {
     opacity: 0;
     transition: .333s ease;
      -webkit-transition: .333s ease;
+     -moz-transition: .333s ease;
+     -o-transition: .333s ease;
 }
 .read-more-state:checked ~ p label.read-more-trigger:before {
     content: 'Show less';
@@ -702,7 +593,7 @@ section {
     }
     &.side-right.large-format-friendly, &.row.side-right.large-format-friendly {
         @media all {
-            @media (min-width: 875px) {
+            @media (min-width: 1050px) {
                 overflow: hidden;
                 div.column.one {
                     width: 660px;
@@ -724,7 +615,28 @@ section {
                     }
                 }
             }
-            @media (max-width: 874px) {
+            @media (min-width: 891px) and (max-width: 1049px) {
+                div.column.one {
+                    width: 660px;
+                }
+                div.column.two {
+                    width: ~"calc(100% - 660px)";
+                    &:not(.graphical) {
+                        position: relative;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 1rem;
+                            right: 0;
+                            padding-bottom: 1000em;
+                            margin-bottom: -1000em;
+                            background: none;
+                        }
+                    }
+                }
+            }
+            @media (max-width: 890px) {
                 overflow: hidden;
                 div.column.one {
                     width: 100%;
@@ -830,8 +742,12 @@ div .subtlePanel {
     opacity: .3333;
     transition: opacity .3333s;
      -webkit-transition: opacity .3333s;
+     -moz-transition: opacity .3333s;
+     -o-transition: opacity .3333s;
     animation: subtlePanel-FadeOut 1.5s linear 0 1;
      -webkit-animation: subtlePanel-FadeOut 1.5s linear 0 1;
+     -moz-animation: subtlePanel-FadeOut 1.5s linear 0 1;
+     -o-animation: subtlePanel-FadeOut 1.5s linear 0 1;
     @-webkit-keyframes subtlePanel-FadeOut {
         0% {
             opacity: 1;
@@ -884,16 +800,24 @@ a.vpue-tooltip {
         visibility: hidden;
         z-index: 10;
         border-radius: 3px;
-        box-shadow: 2px 2px 2px rgba(146,91,41,0.5);
+        .rgb-dark-orange(); box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
+         -webkit-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
+         -moz-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
         font-family: inherit;
         font-size: .9em;
         font-style: normal;
         transition-property: opacity, margin-top, visibility, margin-left;
          -webkit-transition-property: opacity, margin-top, visibility, margin-left;
+         -moz-transition-property: opacity, margin-top, visibility, margin-left;
+         -o-transition-property: opacity, margin-top, visibility, margin-left;
         transition-duration: 0.4s, 0.3s, 0.4s, .3s;
          -webkit-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+         -moz-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+         -o-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
         transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
          -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+         -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+         -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
     }
     &:hover > span {
         display: inline;
@@ -914,6 +838,7 @@ a.vpue-tooltip {
         transform: rotate(-45deg);
          -webkit-transform: rotate(-45deg);
          -moz-transform: rotate(-45deg);
+         -ms-transform: rotate(-45deg);
          -o-transform: rotate(-45deg);
         box-shadow: inset 0 1px 0 @hex-white;
          -webkit-box-shadow: inset -1px 1px 0 @hex-white;
@@ -922,16 +847,18 @@ a.vpue-tooltip {
     /*display: none;*/
     }
     & > span {
-        background: #eddccc;
-         background: -webkit-linear-gradient(top,#eddccc,@hex-white);
-         background: linear-gradient(top,#eddccc,@hex-white);
-        border: 1px solid #925b29;
+        background: @hex-lighest-orange;
+         background: -webkit-linear-gradient(top,@hex-lighest-orange,@hex-white);
+         background: -moz-linear-gradient(top,@hex-lighest-orange,@hex-white);
+         background: -o-linear-gradient(top,@hex-lighest-orange,@hex-white);
+         background: linear-gradient(top,@hex-lighest-orange,@hex-white);
+        border: 1px solid @hex-dark-orange;
         color: @hex-dark-gray;
     }
     span b {
-        background: #eddccc;
-        border-top: 1px solid #925b29;
-         border-right: 1px solid #925b29;
+        background: @hex-lighest-orange;
+        border-top: 1px solid @hex-dark-orange;
+         border-right: 1px solid @hex-dark-orange;
     }
 }
 
@@ -948,6 +875,8 @@ div.column {
         line-height: 1.35rem;
         transition: font-size .15s linear, line-height .15s linear;
          -webkit-transition: font-size .15s linear, line-height .15s linear;
+         -moz-transition: font-size .15s linear, line-height .15s linear;
+         -o-transition: font-size .15s linear, line-height .15s linear;
         &:hover {
             font-size: 1.3333rem;
             line-height: 1.799955rem;
@@ -977,6 +906,8 @@ div.column {
             border-bottom: 1px dotted rgba(246,134,31,0.4);
             transition: color .4s linear, border-color .4s linear;
              -webkit-transition: color .4s linear, border-color .4s linear;
+             -moz-transition: color .4s linear, border-color .4s linear;
+             -o-transition: color .4s linear, border-color .4s linear;
             &:hover {
                 color: #949b9d;
                 .rgb-gray(); border-color: rgba(@rval,@gval,@bval,0.4);
@@ -991,6 +922,8 @@ div.column {
         color: #949b9d;
         transition: background-color .4s linear, height .15s linear, top .15s linear;
          -webkit-transition: background-color .4s linear, height .15s linear, top .15s linear;
+         -moz-transition: background-color .4s linear, height .15s linear, top .15s linear;
+         -o-transition: background-color .4s linear, height .15s linear, top .15s linear;
     }
 }
 
