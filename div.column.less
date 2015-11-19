@@ -74,8 +74,8 @@ div.column {
     h2 {
         padding: 0 0 0 .1em;
         margin-top: 1.5rem;
-        margin-bottom: .75rem;
-        margin-left: -.1em;
+         margin-bottom: .75rem;
+         margin-left: -.1em;
         font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', sans-serif;
         font-size: 2.2rem;
         @media all {
@@ -176,6 +176,9 @@ div.column {
         border: 0;
          .rgb-dark-gray(); border-top: 1px solid rgba(@rval,@gval,@bval,0.5);
          border-bottom: 1px solid rgba(160,160,160,0.25);
+        &:first-child {
+            margin-top: 0;
+        }
         &.subSection {
             width: 85%;
             margin: 2rem auto;
@@ -193,8 +196,8 @@ div.column {
              border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
         }
         &.dark-gray {
-            .rgb-dark-gray(); border-top: 1px solid rgba(@rval,@gval,@bval,0.55);
-             border-bottom: 1px solid rgba(@rval,@gval,@bval,0.275);
+            .rgb-darker-gray(); border-top: 1px solid rgba(@rval,@gval,@bval,0.6667);
+             border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
         }
         &.no-top-margin {
             margin-top: 0;
@@ -216,6 +219,9 @@ div.column {
         }
         &.does-not-clear {
             clear: none;
+        }
+        &.thicker {
+            border-top-width: 2px;
         }
     }
     
@@ -488,6 +494,9 @@ div.column {
 	.centered-text {
 		text-align: center;
 	}
+    .larger-text {
+        font-size: larger;
+    }
 }
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
  */
