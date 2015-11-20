@@ -503,6 +503,12 @@ div.column {
     .larger-text {
         font-size: larger;
     }
+    .large-format-friendly {
+        @media (min-width: 1050px) {
+            .margin-centered;
+            max-width: @v-w-cnstrn-lrg;
+        }
+    }
 }
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
  */
