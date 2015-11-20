@@ -42,10 +42,10 @@ the page, it's all good.
 }
 
 .fade-in-from-left {
-    animation-name: anim-fade-in-from-left 1s;
-     -webkit-animation-name: anim-fade-in-from-left 1s;
-     -moz-animation-name: anim-fade-in-from-left 1s;
-     -o-animation-name: anim-fade-in-from-left 1s;
+    animation: anim-fade-in-from-left 1s;
+     -webkit-animation: anim-fade-in-from-left 1s;
+     -moz-animation: anim-fade-in-from-left 1s;
+     -o-animation: anim-fade-in-from-left 1s;
     @keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
      @-webkit-keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
      @-moz-keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
@@ -64,10 +64,10 @@ the page, it's all good.
         .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
         .rgb-light-crimson(); border: 1px solid rgba(@rval,@gval,@bval,0);
         z-index: -1;
-        animation-name: animFlashHighlight 1.325s linear .175s 1 normal;
-         -webkit-animation-name: animFlashHighlight 1.325s linear .175s 1 normal;
-         -moz-animation-name: animFlashHighlight 1.325s linear .175s 1 normal;
-         -o-animation-name: animFlashHighlight 1.325s linear .175s 1 normal;
+        animation: animFlashHighlight 1.325s linear .175s 1 normal;
+         -webkit-animation: animFlashHighlight 1.325s linear .175s 1 normal;
+         -moz-animation: animFlashHighlight 1.325s linear .175s 1 normal;
+         -o-animation: animFlashHighlight 1.325s linear .175s 1 normal;
         animation-play-state: running;
          -webkit-animation-play-state: running;
          -moz-animation-play-state: running;
@@ -118,6 +118,15 @@ aside {
         label.screen-reader-text {
             display: none;
         }
+    }
+}
+
+section.side-right div.column.two aside, section.row.side-right div.column.two aside {
+    padding: (@v-dflt-spcng / 2);
+    .rgb-lighter-gray(); background: rgba(@rval, @gval, @bval, 0.8);
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.9), 0px 0px 0px 2px rgba(0, 0, 0, 0.2);
+    p {
+        text-align: left;
     }
 }
 
@@ -417,10 +426,10 @@ label.read-more-trigger {
      -webkit-transition: .333s ease;
      -moz-transition: .333s ease;
      -o-transition: .333s ease;
-    animation-name: read-more-trigger-glow 5s linear 0 infinite;
-     -webkit-animation-name: read-more-trigger-glow 5s linear 0 infinite;
-     -moz-animation-name: read-more-trigger-glow 5s linear 0 infinite;
-     -o-animation-name: read-more-trigger-glow 5s linear 0 infinite;
+    animation: read-more-trigger-glow 5s linear 0 infinite;
+     -webkit-animation: read-more-trigger-glow 5s linear 0 infinite;
+     -moz-animation: read-more-trigger-glow 5s linear 0 infinite;
+     -o-animation: read-more-trigger-glow 5s linear 0 infinite;
     cursor: pointer;
     @keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
      @-webkit-keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
