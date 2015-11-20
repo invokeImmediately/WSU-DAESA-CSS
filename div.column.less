@@ -58,7 +58,7 @@ div.column {
         font-weight: 900;
         text-transform: uppercase;
         color: @hex-darker-gray;
-        &:nth-child(1) {
+        &:first-child {
             margin-top: 0;
         }
         &+h2 {
@@ -90,7 +90,7 @@ div.column {
         font-weight: 800;
         color: @hex-darker-gray;
         text-transform: uppercase;
-        &:nth-child(1) {
+        &:first-child {
             margin-top: 0;
         }
         &.centered {
@@ -133,6 +133,9 @@ div.column {
         font-weight: 600;
         text-transform: uppercase;
         color: @hex-crimson;
+        &:first-child {
+            margin-top: 0;
+        }
         &.centered {
             text-align: center;
         }
@@ -159,6 +162,9 @@ div.column {
         }
         font-weight: 600;
         color: @hex-crimson;
+        &:first-child {
+            margin-top: 0;
+        }
         &.centered {
             text-align: center;
         }
