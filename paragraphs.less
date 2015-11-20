@@ -19,11 +19,11 @@ div.column p {
     }
     @media all {
         line-height: @v-p-lnhght;
-        @media (min-width: 481px) {
+        @media (min-width: (@v-mbl-thrshld + 1)) {
             font-size: @v-p-sz;
         }
-        @media (max-width: 480px) {
-            font-size: @v-p-sz * @v-scl-dwn;
+        @media (max-width: @v-mbl-thrshld) {
+            font-size: (@v-p-sz * @v-scl-dwn);
             text-align: left;
         }
     }
@@ -31,18 +31,18 @@ div.column p {
         padding-bottom: @v-btm-pads;
     }
     &:not(:last-child):not(.no-btm-margin) {
-        margin-bottom: @v-btm-margins;
+        margin-bottom: @v-btm-mrgns;
     }	
     &.half-margins:not(:last-child) {
-        margin-bottom: @v-btm-margins / 2;
+        margin-bottom: @v-btm-mrgns / 2;
     }	
     &.article-deck {
         @media all {
             font-size: @v-artcl-deck-sz;
-            @media (min-width: 481px) and (max-width: 1208px) {
+            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
                 font-size: @v-artcl-deck-sz * @v-scl-dwn;
             }
-            @media (max-width: 480px) {
+            @media (max-width: @v-mbl-thrshld) {
                 font-size: @v-artcl-deck-sz * @v-scl-dwn * @v-scl-dwn;
             }
         }
@@ -55,10 +55,10 @@ div.column p {
         font-family: "Palatino";
         font-size: @v-artcl-tgln-sz;
         @media all {
-            @media (min-width: 481px) and (max-width: 1208px) {
+            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
                 font-size: @v-artcl-tgln-sz * @v-scl-dwn;
             }
-            @media (max-width: 480px) {
+            @media (max-width: @v-mbl-thrshld) {
                 font-size: @v-artcl-tgln-sz * @v-scl-dwn * @v-scl-dwn;
             }
         }
@@ -72,8 +72,8 @@ div.column p {
         width: 100%;
         padding-top: 0;
          padding-bottom: .25em;
-        margin-top: @v-dflt-spacing;
-         margin-bottom: @v-dflt-spacing;
+        margin-top: @v-dflt-spcng;
+         margin-bottom: @v-dflt-spcng;
         .rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
         color: @hex-darker-gray;
         text-align: center;
@@ -86,8 +86,8 @@ div.column p {
     }
     &.vpue-jump-back {
         padding-bottom: @v-btm-pads / 3;
-        margin-bottom: @v-btm-margins / 3;
-        font-size: @v-p-jumpback-sz;
+        margin-bottom: @v-btm-mrgns / 3;
+        font-size: @v-p-jmpbck-sz;
     }
     &.article-media-contacts {
         padding-left: 2em;
@@ -96,17 +96,17 @@ div.column p {
     }
     // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
     &.award-quote {
-        margin-left: @v-dflt-spacing;
+        margin-left: @v-dflt-spcng;
          margin-bottom: @v-btm-pads / 2;
-         margin-right: @v-dflt-spacing;
+         margin-right: @v-dflt-spcng;
     }
     // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
     &.award-quote-source {
         font-style: italic;
-        margin-right: @v-dflt-spacing;
-        margin-left: @v-dflt-spacing;
-        padding-right: @v-dflt-spacing;
-        padding-left: @v-dflt-spacing;
+        margin-right: @v-dflt-spcng;
+        margin-left: @v-dflt-spcng;
+        padding-right: @v-dflt-spcng;
+        padding-left: @v-dflt-spcng;
     }
     // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
     &.banner-text-gray-with-towers {
@@ -119,10 +119,10 @@ div.column p {
         margin-bottom: 15px;
         padding: 7px;
         @media all {
-            @media (min-width: 1209px) {
+            @media (min-width: @v-lrgfrmt-thrshld) {
                 font-size: @v-bnnr-txt-sz;
             }
-            @media (max-width: 1208px) {
+            @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
                 font-size: @v-bnnr-txt-sz * @v-scl-dwn;
             }
         }
@@ -131,16 +131,16 @@ div.column p {
         max-width: @v-w-cnstrn-lrg;
         padding: 7px;
         .margin-centered;
-         margin-bottom: @v-dflt-spacing;
+         margin-bottom: @v-dflt-spcng;
         .rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.5);
         border: 1px solid @hex-darkest-gray;
         line-height: @v-p-lnhght;
         color: @hex-darkest-gray;
         @media all {
-            @media (min-width: 1209px) {
+            @media (min-width: @v-lrgfrmt-thrshld) {
                 font-size: @v-bnnr-txt-sz;
             }
-            @media (max-width: 1208px) {
+            @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
                 font-size: @v-bnnr-txt-sz * @v-scl-dwn;
             }
         }
@@ -173,10 +173,10 @@ div.column p {
         margin-bottom: 15px;
         padding: 7px;
         @media all {
-            @media (min-width: 1209px) {
+            @media (min-width: @v-lrgfrmt-thrshld) {
                 font-size: @v-bnnr-txt-sz;
             }
-            @media (max-width: 1208px) {
+            @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
                 font-size: @v-bnnr-txt-sz * @v-scl-dwn;
             }
         }
