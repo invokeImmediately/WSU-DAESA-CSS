@@ -125,7 +125,7 @@ section.side-right div.column.two aside, section.row.side-right div.column.two a
     padding: (@v-dflt-spcng / 2);
     .rgb-lighter-gray(); background: rgba(@rval, @gval, @bval, 0.8);
     box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.9), 0px 0px 0px 2px rgba(0, 0, 0, 0.2);
-    p {
+    p:not(.centered) {
         text-align: left;
     }
 }
@@ -609,12 +609,27 @@ section {
     &.side-right.large-format-friendly, &.row.side-right.large-format-friendly {
         @media all {
             @media (min-width: (@v-lrgfrmt-thrshld + 1)) {
-                overflow-y: hidden;
+                /* .rgb-bright-gray(); background: -webkit-linear-gradient(left,
+                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+                 rgba(@rval, @gval, @bval, 1.0) 676px);
+                background: -moz-linear-gradient(left,
+                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+                 rgba(@rval, @gval, @bval, 1.0) 676px);
+                background: -ms-linear-gradient(left,
+                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+                 rgba(@rval, @gval, @bval, 1.0) 676px);
+                background: -o-linear-gradient(left,
+                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+                 rgba(@rval, @gval, @bval, 1.0) 676px);
+                background: linear-gradient(to right,
+                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+                 rgba(@rval, @gval, @bval, 1.0) 676px); */
                 div.column.one {
-                    width: 660px;
+                    width: @v-w-cnstrn-nrml;
                 }
                 div.column.two {
-                    width: ~"calc(100% - 660px)";
+                    width: ~"calc(100% - " @v-w-cnstrn-nrml ~")";
+                    height: 0;
                     position: relative;
                     &:before {
                         content: "";
@@ -622,11 +637,11 @@ section {
                         top: 0;
                         left: 1rem;
                         right: 0;
-                        padding-bottom: 1000em;
-                        margin-bottom: -1000em;
+                        bottom: 0;
+                        /* padding-bottom: 1000em;
+                        margin-bottom: -1000em; */
                         background: @hex-bright-gray;
-                    }
-                }
+                    }                }
             }
             @media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-lrgfrmt-thrshld) {
                 div.column.one {
@@ -634,6 +649,7 @@ section {
                 }
                 div.column.two {
                     width: ~"calc(100% - " @v-w-cnstrn-nrml ~")";
+                    height: 0;
                     position: relative;
                     &:before {
                         content: "";
@@ -641,8 +657,9 @@ section {
                         top: 0;
                         left: 1rem;
                         right: 0;
-                        padding-bottom: 1000em;
-                        margin-bottom: -1000em;
+                        bottom: 0;
+                        /* padding-bottom: 1000em;
+                        margin-bottom: -1000em; */
                         background: none;
                     }
                 }
