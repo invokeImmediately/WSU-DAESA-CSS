@@ -1,5 +1,5 @@
 section.pad-top {
-    div.column.half-pad {
+    &.half-pad, div.column.half-pad {
         padding-top: 1rem;
     }
 }
@@ -31,6 +31,43 @@ div.column {
     }
     &.with-right-margin {
         margin-right: 2rem;
+    }
+    
+//  ├----------------------------------------------------------------------------------------------┤
+//  │++++++++++++ DEFINITION LIST elements contained within div.column containers ++++++++++++++++ │
+//  ├----------------------------------------------------------------------------------------------┤
+//   
+    dl.faq dt {
+        width: 100%;
+        padding: 5px 10px;
+        margin: 5px -10px;
+        background-color: @hex-lighter-gray;
+        @media all {
+            line-height: @v-p-lnhght;
+            @media (min-width: (@v-mbl-thrshld + 1)) {
+                font-size: @v-p-sz;
+            }
+            @media (max-width: @v-mbl-thrshld) {
+                font-size: (@v-p-sz * @v-scl-dwn);
+                text-align: left;
+            }
+        }
+        font-weight: bold;
+    }
+    dl.faq dt.activated {
+        background-color: @hex-lghtr-gry-0pt2-crmsn;
+        color: @hex-darker-gray;
+    }
+    dl.faq dt:hover {
+        background-color: @hex-dark-gray;
+        color: @hex-white;
+    }
+    dl.faq dt.activated:hover {
+        background-color: @hex-drk-gry-0pt2-crmsn;
+        color: @hex-white;
+    }
+    dl.toggled dd {
+        display: none;
     }
 /*	header.article-header {
         display: none;
@@ -334,7 +371,7 @@ div.column {
         padding: .8rem;
         margin-left: 1rem;
         margin-bottom: 1rem;
-        background: #f8f1eb;
+        background: @hex-bright-orange;
         border: 1px solid #6d441f;
         box-shadow: 1px 1px 2px rgba(109,68,31,0.5);
         font-size: .8rem;
