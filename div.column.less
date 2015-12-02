@@ -318,6 +318,20 @@ div.column {
                 color: @hex-accent-orange;
             }
         }
+        &.dark-red-button {
+            display: block;
+            color: @hex-white;
+            background-color: @hex-crimson;
+            text-transform: uppercase;
+            font-size: 1em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3333s linear;
+            padding: 0.5em 1em;
+            &:hover {
+                background-color: @hex-light-crimson;
+            }        
+        }
         img {
             .rgb-dark-gray(); border: 1px solid rgba(@rval,@gval,@bval,0.5);
             box-shadow: 2px 2px 2px rgba(@rval,@gval,@bval,0.25);
@@ -478,7 +492,6 @@ div.column {
             }
         }
         li {
-            list-style-image: url(/wp-content/uploads/sites/906/2015/08/ico-cougar-bullet-point.png);
             &.no-bottom-pad {
                 padding-bottom: 0;
             }
