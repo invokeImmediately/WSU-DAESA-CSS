@@ -33,6 +33,9 @@ div.column p {
     &:not(:last-child):not(.no-btm-margin) {
         margin-bottom: @v-btm-mrgns;
     }	
+    &.double-margins:not(:last-child) {
+        margin-bottom: @v-btm-mrgns * 2;
+    }	
     &.half-margins:not(:last-child) {
         margin-bottom: @v-btm-mrgns / 2;
     }	
