@@ -62,22 +62,27 @@ div.column {
             width: 0; 
             height: 0; 
             transform: translateY(-50%);
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 20px solid @hex-dark-gray;            
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid @hex-dark-gray;            
+        }
+        &:hover {
+            background-color: @hex-dark-gray;
+            color: @hex-white;
+            &:after {
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid @hex-dark-white;
+            }
         }
     }
     dl.faq dt.activated {
         background-color: @hex-lghtr-gry-0pt2-crmsn;
         color: @hex-darker-gray;
-    }
-    dl.faq dt:hover {
-        background-color: @hex-dark-gray;
-        color: @hex-white;
-    }
-    dl.faq dt.activated:hover {
-        background-color: @hex-drk-gry-0pt2-crmsn;
-        color: @hex-white;
+        &:hover {
+            background-color: @hex-drk-gry-0pt2-crmsn;
+            color: @hex-white;
+        }
     }
     dl.toggled dd {
         display: none;
