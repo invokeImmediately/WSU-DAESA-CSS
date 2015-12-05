@@ -38,6 +38,7 @@ div.column {
 //  ├----------------------------------------------------------------------------------------------┤
 //   
     dl.faq dt {
+        position: relative;
         width: 100%;
         padding: 5px 10px;
         margin: 5px -10px;
@@ -53,6 +54,18 @@ div.column {
             }
         }
         font-weight: bold;
+        &:after {
+            content: "";
+            position: absolute;
+            right: 2em;
+             top: 50%;
+            width: 0; 
+            height: 0; 
+            transform: translateY(-50%);
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid @hex-dark-gray;            
+        }
     }
     dl.faq dt.activated {
         background-color: @hex-lghtr-gry-0pt2-crmsn;
