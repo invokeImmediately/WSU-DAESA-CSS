@@ -64,11 +64,12 @@ div.column {
             transform: translateY(-50%);
             border-top: 8px solid @hex-dark-gray;
             border-right: 8px solid transparent;
+            border-bottom: none;
             border-left: 8px solid transparent;
-            transition: all 1s linear;
-             -webkit-transition: all 1s linear;
-             -moz-transition: all 1s linear;
-             -o-transition: all 1s linear;
+            transition: all 0.25s linear;
+             -webkit-transition: all 0.25s linear;
+             -moz-transition: all 0.25s linear;
+             -o-transition: all 0.25s linear;
         }
         &:hover {
             background-color: @hex-dark-gray;
@@ -76,6 +77,7 @@ div.column {
             &:after {
                 border-top: 8px solid @hex-white;
                 border-right: 8px solid transparent;
+                border-bottom: none;
                 border-left: 8px solid transparent;
             }
         }
@@ -83,16 +85,20 @@ div.column {
     dl.faq dt.activated {
         background-color: @hex-lghtr-gry-0pt2-crmsn;
         color: @hex-darker-gray;
-        border-right: 8px solid transparent;
-        border-bottom: 8px solid @hex-dark-gray;
-        border-left: 8px solid transparent;
+        &:after {
+            border-top: none;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid @hex-dark-gray;
+            border-left: 8px solid transparent;
+        }
         &:hover {
             background-color: @hex-drk-gry-0pt2-crmsn;
             color: @hex-white;
             &:after {
-                border-left: 8px solid transparent;
-                border-bottom: 8px solid @hex-white;
+                border-top: none;
                 border-right: 8px solid transparent;
+                border-bottom: 8px solid @hex-white;
+                border-left: 8px solid transparent;
             }
         }
     }
