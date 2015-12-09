@@ -137,18 +137,26 @@ div.column {
             }
             th {
                 border-bottom: 1px solid @hex-light-gray;
-                font-size: 1.2em;
+                font-size: 1.1em;
                 line-height: 1.35em;
                 font-weight: bold;
+                text-transform: uppercase;
                 vertical-align: bottom;
                 &.table-spacer {
                     width: 15px;
                 }
                 &:nth-child(4n+1) {
                     color: #4e2a32;
+                    a:hover {
+                        background-color: rgba(239,120,121,0.2);
+                    }
                 }
                 &:nth-child(4n+3) {
-                    color: #5d2432;
+                    color: #781d31;
+                    a:hover {
+                        background-color: rgba(239,120,121,0.3);
+                        color: #d13c59;
+                    }
                 }
                 /*&:nth-child(2):hover {
                     background-color: #d3e1e3;
