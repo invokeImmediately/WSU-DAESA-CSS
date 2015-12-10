@@ -790,14 +790,14 @@ div.column article + article {
          -webkit-transition: all 0.3s ease;
          -moz-transition: all 0.3s ease;
          -o-transition: all 0.3s ease;
-        &:hover:after {
-            border-top: 8px solid @hex-light-crimson;
-            border-right: 8px solid transparent;
-            border-bottom: none;
-            border-left: 8px solid transparent;
-        }
     }
-    .activated {
+    &:hover:after {
+        border-top: 8px solid @hex-light-crimson;
+        border-right: 8px solid transparent;
+        border-bottom: none;
+        border-left: 8px solid transparent;
+    }
+    &.activated {
         &:after {
             border-top: none;
             border-right: 8px solid transparent;
