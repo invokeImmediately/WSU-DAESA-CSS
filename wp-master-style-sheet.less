@@ -772,6 +772,49 @@ div.column article + article {
  *  ║ Advanced CSS3 styling of classes that effect animations and transitions.                     ║
  *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
  */
+.drop-down-toggle {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        right: 10px;
+         top: 50%;
+        width: 0; 
+        height: 0; 
+        transform: translateY(-50%);
+        border-top: 8px solid @hex-crimson;
+        border-right: 8px solid transparent;
+        border-bottom: none;
+        border-left: 8px solid transparent;
+        transition: all 0.3s ease;
+         -webkit-transition: all 0.3s ease;
+         -moz-transition: all 0.3s ease;
+         -o-transition: all 0.3s ease;
+        &:hover:after {
+            border-top: 8px solid @hex-bright-crimson;
+            border-right: 8px solid transparent;
+            border-bottom: none;
+            border-left: 8px solid transparent;
+        }
+    }
+    .activated {
+        &:after {
+            border-top: none;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid @hex-crimson;
+            border-left: 8px solid transparent;
+        }
+        &:hover {
+            &:after {
+                border-top: none;
+                border-right: 8px solid transparent;
+                border-bottom: 8px solid @hex-bright-crimson;
+                border-left: 8px solid transparent;
+            }
+        }
+    }
+}
+ 
 /*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
  *  │ ++++++++ Subtle Panels +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
  *  ├----------------------------------------------------------------------------------------------┤
