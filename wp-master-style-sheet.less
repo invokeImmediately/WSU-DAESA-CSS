@@ -362,19 +362,30 @@ img {
     }
     &.shiftToCenter {
         display: block;
-        margin-left: auto;
         margin-right: auto;
         margin-bottom: 2rem;
+        margin-left: auto;
+        &.no-margins {
+            margin-bottom: 0;
+        }
     }
     &.shiftToLeft {
         float: left;
         margin-right: 2rem;
         margin-bottom: 1rem;
+        &.no-margins {
+            margin-right: 0;
+            margin-bottom: 0;
+        }
     }
     &.shiftToRight {
         float: right;
-        margin-left: 2rem;
         margin-bottom: 1rem;
+        margin-left: 2rem;
+        &.no-margins {
+            margin-bottom: 0;
+            margin-left: 0;
+        }
     }
     &.fancy {
         .rgb-dark-gray(); border: 1px solid rgba(@rval,@gval,@bval,.5);
