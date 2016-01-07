@@ -623,6 +623,7 @@ section {
     &.single.large-format-friendly, &.row.single.large-format-friendly {
         div.column.one {
             @media (min-width: @v-lrgfrmt-thrshld) {
+                float: none;
                 .margin-centered;
                 max-width: @v-w-cnstrn-lrg;
             }
@@ -631,7 +632,6 @@ section {
             }
         }
     }
-    
     &.side-right.large-format-friendly, &.row.side-right.large-format-friendly {
         @media all {
             @media (min-width: (@v-lrgfrmt-thrshld + 1)) {
