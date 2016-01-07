@@ -620,6 +620,18 @@ section {
             }
         }
     }
+    &.single.large-format-friendly, &.row.single.large-format-friendly {
+        div.column.one {
+            @media (min-width: @v-lrgfrmt-thrshld) {
+                .margin-centered;
+                max-width: @v-w-cnstrn-lrg;
+            }
+            @media (min-width: (@v-tblt-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                max-width: @v-w-cnstrn-lrg;
+            }
+        }
+    }
+    
     &.side-right.large-format-friendly, &.row.side-right.large-format-friendly {
         @media all {
             @media (min-width: (@v-lrgfrmt-thrshld + 1)) {
