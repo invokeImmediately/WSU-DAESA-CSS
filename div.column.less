@@ -172,11 +172,20 @@ div.column {
         &:first-child {
             margin-top: 0;
         }
+        &.fancy {
+            padding: 0.3333rem 0.5rem;
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
+            .rgb-lighter-gray(); background-color: rgba(@rval, @gval, @bval, 0.075);
+        }
         &.centered {
             text-align: center;
         }
         &.narrower-top-margin {
             margin-top: 1.25rem;
+        }
+        &.no-top-margin {
+            margin-top: 0;
         }
         &.article-title {
             @media all {
@@ -212,6 +221,15 @@ div.column {
         color: @hex-crimson;
         &:first-child {
             margin-top: 0;
+        }
+        &.no-top-margin {
+            margin-top: 0;
+        }
+        &.fancy {
+            padding: 0.3333rem 0.5rem;
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
+            .rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.075);
         }
         &.centered {
             text-align: center;
