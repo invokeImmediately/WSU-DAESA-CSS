@@ -175,15 +175,16 @@ div.column {
             margin-left: -0.5rem;
             margin-bottom: (@v-dflt-spcng / 2);
             margin-right: -0.5rem;
-            .rgb-lighter-gray(); background-color: rgba(@rval, @gval, @bval, 0.075);
+            .rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.2);
             &.with-top-border {
+                padding-top: 0.5rem;
                 &:not(:first-child) {
                     margin-top: @v-dflt-spcng;
                 }
                 &::before {
                     content: "";
                     position: absolute;
-                        top: -3;
+                        top: 0;
                         left: 0;
                     width: 100%;
                     height: 0;
@@ -248,13 +249,14 @@ div.column {
             margin-right: -0.5rem;
             .rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.075);
             &.with-top-border {
+                padding-top: 0.4375rem;
                 &:not(:first-child) {
                     margin-top: @v-dflt-spcng;
                 }
                 &::before {
                     content: "";
                     position: absolute;
-                        top: -2;
+                        top: 0;
                         left: 0;
                     width: 100%;
                     height: 0;
