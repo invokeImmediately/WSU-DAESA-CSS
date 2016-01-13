@@ -169,9 +169,6 @@ div.column {
         font-weight: 800;
         color: @hex-darker-gray;
         text-transform: uppercase;
-        &:first-child {
-            margin-top: 0;
-        }
         &.fancy {
             position: relative;
             padding: 0.3333rem 0.5rem;
@@ -210,6 +207,9 @@ div.column {
                 }
             }
         }
+        &:first-child {
+            margin-top: 0;
+        }
     }
     hr:not(.subSection) + h2 {
         margin-top: 0;
@@ -232,9 +232,6 @@ div.column {
         font-weight: 600;
         text-transform: uppercase;
         color: @hex-crimson;
-        &:first-child {
-            margin-top: 0;
-        }
         &.no-top-margin {
             margin-top: 0;
         }
@@ -261,6 +258,9 @@ div.column {
         }
         &.centered {
             text-align: center;
+        }
+        &:first-child {
+            margin-top: 0;
         }
     }
     hr:not(.subSection) + h3 {
