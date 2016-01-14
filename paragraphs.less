@@ -8,186 +8,194 @@
  *  │       already been imported.                                                                 │
  *  ├----------------------------------------------------------------------------------------------┤
  */
-div.column p {
-    padding-bottom: 0;
-    text-align: justify;
-    &.centered {
-        text-align: center;
-    }
-    &.align-left {
-        text-align: left;
-    }
-    @media all {
-        line-height: @v-p-lnhght;
-        @media (min-width: (@v-mbl-thrshld + 1)) {
-            font-size: @v-p-sz;
+div.column {
+    p {
+        padding-bottom: 0;
+        text-align: justify;
+        &.centered {
+            text-align: center;
         }
-        @media (max-width: @v-mbl-thrshld) {
-            font-size: (@v-p-sz * @v-scl-dwn);
+        &.align-left {
             text-align: left;
         }
-    }
-    &:last-child:not(.no-bottom-pad) {
-        padding-bottom: @v-btm-pads;
-    }
-    &:not(:last-child):not(.no-btm-margin) {
-        margin-bottom: @v-btm-mrgns;
-    }	
-    &.double-margins:not(:last-child) {
-        margin-bottom: @v-btm-mrgns * 2;
-    }	
-    &.half-margins:not(:last-child) {
-        margin-bottom: @v-btm-mrgns / 2;
-    }	
-    &.article-deck {
         @media all {
-            font-size: @v-artcl-deck-sz;
-            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: @v-artcl-deck-sz * @v-scl-dwn;
+            line-height: @v-p-lnhght;
+            @media (min-width: (@v-mbl-thrshld + 1)) {
+                font-size: @v-p-sz;
             }
             @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-artcl-deck-sz * @v-scl-dwn * @v-scl-dwn;
+                font-size: (@v-p-sz * @v-scl-dwn);
+                text-align: left;
             }
         }
-        color: @hex-dark-green;
-        strong {
-            color: @hex-green;
+        &:last-child:not(.no-bottom-pad) {
+            padding-bottom: @v-btm-pads;
         }
-    }
-    &.article-tagline {
-        font-family: "Palatino";
-        font-size: @v-artcl-tgln-sz;
-        @media all {
-            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: @v-artcl-tgln-sz * @v-scl-dwn;
+        &:not(:last-child):not(.no-btm-margin) {
+            margin-bottom: @v-btm-mrgns;
+        }	
+        &.double-margins:not(:last-child) {
+            margin-bottom: @v-btm-mrgns * 2;
+        }	
+        &.half-margins:not(:last-child) {
+            margin-bottom: @v-btm-mrgns / 2;
+        }	
+        &.article-deck {
+            @media all {
+                font-size: @v-artcl-deck-sz;
+                @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                    font-size: @v-artcl-deck-sz * @v-scl-dwn;
+                }
+                @media (max-width: @v-mbl-thrshld) {
+                    font-size: @v-artcl-deck-sz * @v-scl-dwn * @v-scl-dwn;
+                }
             }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-artcl-tgln-sz * @v-scl-dwn * @v-scl-dwn;
-            }
-        }
-        line-height: normal;
-        font-weight: @v-artcl-tgln-wght;
-    }
-    &.no-bottom-pad {
-        padding-bottom: 0;
-    }
-    &.vpue-jump-bar {
-        width: 100%;
-        padding-top: 0;
-         padding-bottom: .25em;
-        margin-top: @v-dflt-spcng;
-         margin-bottom: @v-dflt-spcng;
-        .rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
-        color: @hex-darker-gray;
-        text-align: center;
-        span.title {
-            font-size: 1em;
-            line-height: 2em;
-            font-weight: bold;
-            font-variant: small-caps;
-        }
-    }
-    &.vpue-jump-back {
-        padding-bottom: @v-btm-pads / 3;
-        margin-bottom: @v-btm-mrgns / 3;
-        font-size: @v-p-jmpbck-sz;
-    }
-    &.article-media-contacts {
-        padding-left: 2em;
-        font-size: .8em;
-        line-height: @v-p-lnhght;
-    }
-    &.fine-print {
-        .has-smllr-txt;
-    }
-    // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
-    &.award-quote {
-        margin-left: @v-dflt-spcng;
-         margin-bottom: @v-btm-pads / 2;
-         margin-right: @v-dflt-spcng;
-    }
-    // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
-    &.award-quote-source {
-        font-style: italic;
-        margin-right: @v-dflt-spcng;
-        margin-left: @v-dflt-spcng;
-        padding-right: @v-dflt-spcng;
-        padding-left: @v-dflt-spcng;
-    }
-    // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-    &.banner-text-gray-with-towers {
-        color: @hex-darkest-gray;
-        background-color: rgba(141,149,154,0.5);
-        border: 32px solid transparent;
-        -webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-        -o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-        border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-        margin-bottom: 15px;
-        padding: 7px;
-        @media all {
-            @media (min-width: @v-lrgfrmt-thrshld) {
-                font-size: @v-bnnr-txt-sz;
-            }
-            @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+            color: @hex-dark-green;
+            strong {
+                color: @hex-green;
             }
         }
-    }
-    &.banner-text {
-        max-width: @v-w-cnstrn-lrg;
-        padding: 7px;
-        .margin-centered;
-         margin-bottom: @v-dflt-spcng;
-        .rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.5);
-        border: 1px solid @hex-darkest-gray;
-        line-height: @v-p-lnhght;
-        color: @hex-darkest-gray;
-        @media all {
-            @media (min-width: @v-lrgfrmt-thrshld) {
-                font-size: @v-bnnr-txt-sz;
+        &.article-tagline {
+            font-family: "Palatino";
+            font-size: @v-artcl-tgln-sz;
+            @media all {
+                @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                    font-size: @v-artcl-tgln-sz * @v-scl-dwn;
+                }
+                @media (max-width: @v-mbl-thrshld) {
+                    font-size: @v-artcl-tgln-sz * @v-scl-dwn * @v-scl-dwn;
+                }
             }
-            @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+            line-height: normal;
+            font-weight: @v-artcl-tgln-wght;
+        }
+        &.no-bottom-pad {
+            padding-bottom: 0;
+        }
+        &.vpue-jump-bar {
+            width: 100%;
+            padding-top: 0;
+             padding-bottom: .25em;
+            margin-top: @v-dflt-spcng;
+             margin-bottom: @v-dflt-spcng;
+            .rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
+            color: @hex-darker-gray;
+            text-align: center;
+            span.title {
+                font-size: 1em;
+                line-height: 2em;
+                font-weight: bold;
+                font-variant: small-caps;
             }
         }
-        &.orange {
-            .rgb-orange(); background-color: rgba(@rval, @gval, @bval, 0.5);
-            border: 1px solid @hex-darkest-orange;
+        &.vpue-jump-back {
+            padding-bottom: @v-btm-pads / 3;
+            margin-bottom: @v-btm-mrgns / 3;
+            font-size: @v-p-jmpbck-sz;
         }
-        &.blue {
-            .rgb-blue(); background-color: rgba(@rval, @gval, @bval, 0.5);
-            border: 1px solid @hex-darkest-blue;
+        &.article-media-contacts {
+            padding-left: 2em;
+            font-size: .8em;
+            line-height: @v-p-lnhght;
         }
-        &.yellow {
-            .rgb-yellow(); background-color: rgba(@rval, @gval, @bval, 0.5);
-            border: 1px solid @hex-darkest-yellow;
+        &.fine-print {
+            .has-smllr-txt;
         }
-        &.green {
-            .rgb-green(); background-color: rgba(@rval, @gval, @bval, 0.5);
-            border: 1px solid @hex-darkest-green;
+        // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
+        &.award-quote {
+            margin-left: @v-dflt-spcng;
+             margin-bottom: @v-btm-pads / 2;
+             margin-right: @v-dflt-spcng;
+        }
+        // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
+        &.award-quote-source {
+            font-style: italic;
+            margin-right: @v-dflt-spcng;
+            margin-left: @v-dflt-spcng;
+            padding-right: @v-dflt-spcng;
+            padding-left: @v-dflt-spcng;
+        }
+        // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
+        &.banner-text-gray-with-towers {
+            color: @hex-darkest-gray;
+            background-color: rgba(141,149,154,0.5);
+            border: 32px solid transparent;
+            -webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+            -o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+            border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+            margin-bottom: 15px;
+            padding: 7px;
+            @media all {
+                @media (min-width: @v-lrgfrmt-thrshld) {
+                    font-size: @v-bnnr-txt-sz;
+                }
+                @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                    font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+                }
+            }
+        }
+        &.banner-text {
+            max-width: @v-w-cnstrn-lrg;
+            padding: 7px;
+            .margin-centered;
+             margin-bottom: @v-dflt-spcng;
+            .rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.5);
+            border: 1px solid @hex-darkest-gray;
+            line-height: @v-p-lnhght;
+            color: @hex-darkest-gray;
+            @media all {
+                @media (min-width: @v-lrgfrmt-thrshld) {
+                    font-size: @v-bnnr-txt-sz;
+                }
+                @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                    font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+                }
+            }
+            &.orange {
+                .rgb-orange(); background-color: rgba(@rval, @gval, @bval, 0.5);
+                border: 1px solid @hex-darkest-orange;
+            }
+            &.blue {
+                .rgb-blue(); background-color: rgba(@rval, @gval, @bval, 0.5);
+                border: 1px solid @hex-darkest-blue;
+            }
+            &.yellow {
+                .rgb-yellow(); background-color: rgba(@rval, @gval, @bval, 0.5);
+                border: 1px solid @hex-darkest-yellow;
+            }
+            &.green {
+                .rgb-green(); background-color: rgba(@rval, @gval, @bval, 0.5);
+                border: 1px solid @hex-darkest-green;
+            }
+        }
+        // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
+        &.banner-text-orange-with-towers {
+            margin-bottom: 15px;
+            padding: 7px;
+            color: @hex-darkest-orange;
+            .rgb-orange(); background-color: rgba(@rval,@gval,@bval,0.5);
+            border: 32px solid transparent;
+             -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+             -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+            border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+            @media all {
+                @media (min-width: @v-lrgfrmt-thrshld) {
+                    font-size: @v-bnnr-txt-sz;
+                }
+                @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                    font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+                }
+            }
         }
     }
     
-    // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-    &.banner-text-orange-with-towers {
-        color: @hex-darkest-orange;
-        .rgb-orange(); background-color: rgba(@rval,@gval,@bval,0.5);
-        border: 32px solid transparent;
-        -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-        -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-        border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-        margin-bottom: 15px;
-        padding: 7px;
-        @media all {
-            @media (min-width: @v-lrgfrmt-thrshld) {
-                font-size: @v-bnnr-txt-sz;
-            }
-            @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: @v-bnnr-txt-sz * @v-scl-dwn;
-            }
+    section:not(:last-child) {
+        p:last-child {
+            padding-bottom: 0;
         }
-    }   
+    }
 }
+
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
  */
  
