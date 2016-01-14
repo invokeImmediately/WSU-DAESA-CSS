@@ -684,18 +684,7 @@ section {
                     width: @v-w-cnstrn-nrml;
                 }
                 div.column.two {
-                    width: ~"calc(100% - " @v-w-cnstrn-nrml ~")";
-                    height: 0;
-                    position: relative;
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: 1rem;
-                        right: 0;
-                        bottom: 0;
-                        background: none;
-                    }
+                    display: none;
                 }
             }
             @media (max-width: @v-tblt-thrshld) {
