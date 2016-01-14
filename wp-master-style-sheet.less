@@ -664,6 +664,7 @@ section {
                     width: @v-w-cnstrn-nrml;
                 }
                 div.column.two {
+                    display: none;
                     width: ~"calc(100% - " @v-w-cnstrn-nrml ~")";
                     height: 0;
                     position: relative;
@@ -674,10 +675,9 @@ section {
                         left: 1rem;
                         right: 0;
                         bottom: 0;
-                        /* padding-bottom: 1000em;
-                        margin-bottom: -1000em; */
                         background: @hex-bright-gray;
-                    }                }
+                    }
+                }
             }
             @media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-lrgfrmt-thrshld) {
                 div.column.one {
@@ -694,8 +694,6 @@ section {
                         left: 1rem;
                         right: 0;
                         bottom: 0;
-                        /* padding-bottom: 1000em;
-                        margin-bottom: -1000em; */
                         background: none;
                     }
                 }
