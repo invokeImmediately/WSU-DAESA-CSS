@@ -424,6 +424,11 @@ div.column {
     p + ul {
         margin-top: (@v-dflt-spcng / 2);
     }
+    section:not(:last-child) {
+        ul:last-child {
+            padding-bottom: 0;
+        }
+    }
 
 //  ├----------------------------------------------------------------------------------------------┤
 //  │++++++++++++ ORDERED LIST elements contained within div.column elements +++++++++++++++++++++ │
