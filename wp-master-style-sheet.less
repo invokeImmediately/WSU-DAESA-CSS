@@ -57,10 +57,10 @@ the page, it's all good.
     &:before {
         content: "";
         position: absolute;
-         top: -1px;
-         right: -1px;
-         bottom: -1px;
-         left: -1px;
+         top: (-1 * @v-dflt-spcng / 2);
+         right: (-1 * @v-dflt-spcng / 2);
+         bottom: (-1 * @v-dflt-spcng / 2);
+         left: (-1 * @v-dflt-spcng / 2);
         .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
         .rgb-light-crimson(); border: 1px solid rgba(@rval,@gval,@bval,0);
         z-index: -1;
@@ -559,7 +559,66 @@ div.column {
         }
     }
 }
-/*, li + li:not(.gsection)::before*/
+
+.oue-gf-rqrd-input {
+    //transition: background 0.5s ease;
+    // -webkit-transition: background 0.5s ease;
+    // -moz-transition: background 0.5s ease;
+    // -o-transition: background 0.5s ease;
+    &.gfield_contains_required {
+        input {
+            transition: background 0.3s ease;
+             -webkit-transition: background 0.3s ease;
+             -moz-transition: background 0.3s ease;
+             -o-transition: background 0.3s ease;
+            &:not(.gf-value-entered) {
+                background-color: rgba(255,0,0,0.1);
+            }
+        }
+        input:focus {
+            background-color: @hex-bright-blue;
+        }
+    }
+}
+
+.oue-gf-rqrd-checkbox {
+    //transition: background 0.5s ease;
+    // -webkit-transition: background 0.5s ease;
+    // -moz-transition: background 0.5s ease;
+    // -o-transition: background 0.5s ease;
+    &.gfield_contains_required {
+        ul.gfield_checkboxes {
+            transition: background 0.3s ease;
+             -webkit-transition: background 0.3s ease;
+             -moz-transition: background 0.3s ease;
+             -o-transition: background 0.3s ease;
+            &:not(.gf-value-entered) {
+                background-color: rgba(255,0,0,0.1);
+            }
+        }
+    }
+}
+
+.oue-gf-rqrd-txtarea {
+    //transition: background 0.5s ease;
+    // -webkit-transition: background 0.5s ease;
+    // -moz-transition: background 0.5s ease;
+    // -o-transition: background 0.5s ease;
+    &.gfield_contains_required {
+        textarea {
+            transition: background 0.3s ease;
+             -webkit-transition: background 0.3s ease;
+             -moz-transition: background 0.3s ease;
+             -o-transition: background 0.3s ease;
+            &:not(.gf-value-entered) {
+                background-color: rgba(255,0,0,0.1);
+            }
+        }
+        input:focus {
+            background-color: @hex-bright-blue;
+        }
+    }
+}
 
 /*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
  *  ║ #### LISTS ################################################################################# ║
