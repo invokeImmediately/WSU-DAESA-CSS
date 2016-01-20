@@ -561,10 +561,6 @@ div.column {
 }
 
 .oue-gf-rqrd-input {
-    //transition: background 0.5s ease;
-    // -webkit-transition: background 0.5s ease;
-    // -moz-transition: background 0.5s ease;
-    // -o-transition: background 0.5s ease;
     &.gfield_contains_required {
         input {
             transition: background 0.3s ease;
@@ -582,10 +578,6 @@ div.column {
 }
 
 .oue-gf-rqrd-checkbox {
-    //transition: background 0.5s ease;
-    // -webkit-transition: background 0.5s ease;
-    // -moz-transition: background 0.5s ease;
-    // -o-transition: background 0.5s ease;
     &.gfield_contains_required {
         ul.gfield_checkbox {
             transition: background 0.3s ease;
@@ -600,10 +592,6 @@ div.column {
 }
 
 .oue-gf-rqrd-txtarea {
-    //transition: background 0.5s ease;
-    // -webkit-transition: background 0.5s ease;
-    // -moz-transition: background 0.5s ease;
-    // -o-transition: background 0.5s ease;
     &.gfield_contains_required {
         textarea {
             transition: background 0.3s ease;
@@ -617,6 +605,16 @@ div.column {
                 background-color: @hex-bright-blue;
             }
         }
+    }
+}
+
+.oue-gf-actvtr-checkbox {
+    transition: all 0.3s ease;
+     -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+     -o-transition: all 0.3s ease;
+    &.gf-activated {
+        display: none;
     }
 }
 
