@@ -561,18 +561,18 @@ div.column {
 }
 
 .oue-gf-rqrd-input {
-    &.gfield_contains_required {
-        input {
-            transition: background 0.3s ease;
-             -webkit-transition: background 0.3s ease;
-             -moz-transition: background 0.3s ease;
-             -o-transition: background 0.3s ease;
-            &:not(.gf-value-entered) {
-                background-color: rgba(255,0,0,0.1);
-            }
-        }
-        input:focus {
+    input {
+        transition: background 0.3s ease;
+         -webkit-transition: background 0.3s ease;
+         -moz-transition: background 0.3s ease;
+         -o-transition: background 0.3s ease;
+        &:focus {
             background-color: @hex-bright-blue;
+        }
+    }
+    &.gfield_contains_required {
+        input:not(.gf-value-entered) {
+            background-color: rgba(255,0,0,0.1);
         }
     }
 }
@@ -592,17 +592,19 @@ div.column {
 }
 
 .oue-gf-rqrd-txtarea {
+    textarea {
+        transition: background 0.3s ease;
+         -webkit-transition: background 0.3s ease;
+         -moz-transition: background 0.3s ease;
+         -o-transition: background 0.3s ease;
+        &:focus {
+            background-color: @hex-bright-blue;
+        }
+    }
     &.gfield_contains_required {
         textarea {
-            transition: background 0.3s ease;
-             -webkit-transition: background 0.3s ease;
-             -moz-transition: background 0.3s ease;
-             -o-transition: background 0.3s ease;
             &:not(.gf-value-entered) {
                 background-color: rgba(255,0,0,0.1);
-            }
-            &:focus {
-                background-color: @hex-bright-blue;
             }
         }
     }
