@@ -322,7 +322,21 @@ header.main-header {
                 line-height: 1em;
             }
         }
-    }    
+    }
+    &.centered {
+        @media (min-width: @v-lrgfrmt-thrshld) {
+            text-align: center;
+        }
+    }
+    div.header-group.centered {
+        @media (min-width: @v-lrgfrmt-thrshld) {
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+             -webkit-transform: translateX(-50%);
+             -ms-transform: translateX(-50%);
+        }
+    }
 }
 
 /*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
@@ -616,7 +630,7 @@ div.column {
      -moz-transition: all 0.3s ease;
      -o-transition: all 0.3s ease;
     &.gf-activated {
-        display: none;
+        display: none !important;
     }
 }
 
