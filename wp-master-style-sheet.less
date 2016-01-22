@@ -288,7 +288,7 @@ header.main-header {
         margin-bottom: .5rem;
         font-size: .9rem;
         @media all {
-            @media (max-width: 561px) {
+            @media (max-width: @v-mbl-thrshld) {
                 font-size: .75rem;
             }
         }
@@ -297,30 +297,30 @@ header.main-header {
         @media all {
             font-size: 2.5rem;
             line-height: 0.8em;
-            @media (max-width: 493px) {
+            @media (max-width: @v-mbl-thrshld) {
                 font-size: 2.08333rem;
                 line-height: 1em;
             }
-            @media (min-width: 494px) {
-                @media (max-width: 561px) {
-                    font-size: 1.3rem;
-                    line-height: 1em;
-                }
-            }
+//            @media (min-width: 494px) {
+//                @media (max-width: 561px) {
+//                    font-size: 1.3rem;
+//                    line-height: 1em;
+//                }
+//            }
         }
     }
     sub.sub-header {
         @media all {
             font-size: 2.5rem;
             line-height: 0.8em;
-            @media (max-width: 493px) {
+            @media (max-width: @v-mbl-thrshld) {
                 font-size: 2.08333rem;
                 line-height: 1em;
             }
-            @media (min-width: 494px) and (max-width: 561px) {
-                font-size: 1.3rem;
-                line-height: 1em;
-            }
+//            @media (min-width: 494px) and (max-width: 561px) {
+//                font-size: 1.3rem;
+//                line-height: 1em;
+//            }
         }
     }
     &.centered {
