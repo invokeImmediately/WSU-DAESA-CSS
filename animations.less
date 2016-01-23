@@ -15,6 +15,23 @@
     }
 }
 
+.mixi-fade-in-from-left() {
+    0% {
+        opacity: 0;
+        transform: translate3d(100%,0,0);
+         -webkit-transform: translate3d(100%,0,0);
+         -moz-transform: translate3d(100%,0,0);
+         -o-transform: translate3d(100%,0,0);
+    }        
+    100% {
+        opacity: 1;
+        transform: none;
+         -webkit-transform: none;
+         -moz-transform: none;
+         -o-transform: none;
+    }
+}
+
 .mixi-flash-highlight() {
     0% {
         .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
