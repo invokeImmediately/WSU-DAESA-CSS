@@ -667,7 +667,7 @@ ul.content-boxes {
         border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
         background-color: @hex-white;
         list-style-type: none;
-        @media all and (max-width: 1205px) {
+        @media all and (max-width: @v-bckgrnd-thrshld) {
             overflow-x: scroll;
         }
         p.email {
@@ -682,7 +682,7 @@ ul.content-boxes {
         }
         div.content {
             position: relative;
-             left: 136px;
+             left: 121px;
             width: ~"calc(100% - 136px)";
             padding: 10px 10px 10px 5px;
         }
