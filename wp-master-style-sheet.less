@@ -667,8 +667,12 @@ ul.content-boxes {
         border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
         background-color: @hex-white;
         list-style-type: none;
+        @media all and (max-width: 1205px) {
+            overflow-x: scroll;
+        }
         p.email {
             font-size: 0.9em;
+            font-weight: bold;
         }
         img {
             position: absolute;
@@ -678,8 +682,8 @@ ul.content-boxes {
         }
         div.content {
             position: relative;
-             left: 121px;
-            width: ~"calc(100% - 121px)";
+             left: 136px;
+            width: ~"calc(100% - 136px)";
             padding: 10px 10px 10px 5px;
         }
         & + li {
