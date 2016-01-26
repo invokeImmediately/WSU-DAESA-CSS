@@ -662,17 +662,18 @@ ul.content-boxes {
         border-radius: 4px;
         .rgb-black(); box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
          -webkit-box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
+        border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
         background-color: @hex-white;
         list-style-image: none;
         img {
             position: absolute;
             left: 0;
             width: 106px;
-            height: 320px;
         }
         div.content {
             position: relative;
-            left: 111px;
+            left: ~"calc(100% - 111px)";
+            padding: 5px;
         }
         & + li {
             margin-top: (@v-dflt-spcng / 2);
