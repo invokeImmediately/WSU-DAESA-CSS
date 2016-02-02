@@ -8,6 +8,8 @@
  *  │       already been imported.                                                                 │
  *  ├----------------------------------------------------------------------------------------------┤
  */
+ 
+// <h1>...</h1> ------------------------------------------------------------------------------------
 div.column {
     h1 {
         padding-bottom: 0;
@@ -39,6 +41,10 @@ div.column {
     header:first-child + h1 {
         margin-top: 0;
     }
+}
+
+// <h2>...</h2> ------------------------------------------------------------------------------------
+div.column {
     h2 {
         padding: 0 0 0 .1em;
         margin-top: 1.5rem;
@@ -109,6 +115,10 @@ div.column {
     hr:not(.subSection) + h2 {
         margin-top: 0;
     }
+}
+
+// <h3>...</h3> ------------------------------------------------------------------------------------
+div.column {
     h3 {
         padding: 0 0 0 .1em;
         margin-top: 1.5rem;
@@ -164,6 +174,10 @@ div.column {
     hr:not(.subSection) + h3 {
         margin-top: 0;
     }
+}
+    
+// <h4>...</h4> ------------------------------------------------------------------------------------
+div.column {
     h4 {
         padding: 0;
         margin-top: 1rem;
@@ -188,10 +202,24 @@ div.column {
             text-align: center;
         }
     }
+}
+
+// <hN>...</hN> ------------------------------------------------------------------------------------
+div.column {
     h3.gray, h4.gray {
         color: @hex-darker-gray;
     }
     h1.crimson, h2.crimson {
         color: @hex-crimson;
+    }
+}
+
+section {
+    &.side-right.large-format-friendly, &.row.side-right.large-format-friendly {
+        div.column.one h2.fancy, div.column.one h3.fancy {
+            @media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+                margin-right: 0;
+            }
+        }
     }
 }
