@@ -357,6 +357,7 @@ header.main-header {
  *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
  */
 img {
+    // TODO: Replace with parametric mixin implementation.
     &.autoScaled {
         height: auto;
         width: 100%;
@@ -410,22 +411,11 @@ img {
         width: 10%;
     }
     &.shiftToCenter {
+        &:extend(.margin-centered);
         display: block;
-        margin-right: auto;
-        margin-bottom: 2rem;
-        margin-left: auto;
-        &.no-margins {
-            margin-bottom: 0;
-        }
     }
     &.shiftToLeft {
         float: left;
-        margin-right: 2rem;
-        margin-bottom: 1rem;
-        &.no-margins {
-            margin-right: 0;
-            margin-bottom: 0;
-        }
     }
     &.shiftToRight {
         float: right;
@@ -789,21 +779,21 @@ section {
     &.side-right.large-format-friendly, &.row.side-right.large-format-friendly {
         @media all {
             @media (min-width: (@v-lrgfrmt-thrshld + 1)) {
-                /* .rgb-bright-gray(); background: -webkit-linear-gradient(left,
-                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
-                 rgba(@rval, @gval, @bval, 1.0) 676px);
-                background: -moz-linear-gradient(left,
-                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
-                 rgba(@rval, @gval, @bval, 1.0) 676px);
-                background: -ms-linear-gradient(left,
-                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
-                 rgba(@rval, @gval, @bval, 1.0) 676px);
-                background: -o-linear-gradient(left,
-                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
-                 rgba(@rval, @gval, @bval, 1.0) 676px);
-                background: linear-gradient(to right,
-                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
-                 rgba(@rval, @gval, @bval, 1.0) 676px); */
+//                 .rgb-bright-gray(); background: -webkit-linear-gradient(left,
+//                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+//                 rgba(@rval, @gval, @bval, 1.0) 676px);
+//                background: -moz-linear-gradient(left,
+//                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+//                 rgba(@rval, @gval, @bval, 1.0) 676px);
+//                background: -ms-linear-gradient(left,
+//                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+//                 rgba(@rval, @gval, @bval, 1.0) 676px);
+//                background: -o-linear-gradient(left,
+//                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+//                 rgba(@rval, @gval, @bval, 1.0) 676px);
+//                background: linear-gradient(to right,
+//                 rgba(@rval, @gval, @bval, 0.0) 0px, rgba(@rval, @gval, @bval, 0.0) 676px,
+//                 rgba(@rval, @gval, @bval, 1.0) 676px);
                 &:first-child {
                     padding-top: (@v-dflt-spcng / 2);
                 }
@@ -880,7 +870,7 @@ div.column article + article {
  *  │ Specification of the faded white backing superclass.                                         │
  *  └──────────────────────────────────────────────────────────────────────────────────────────────┘
  */
-.fadedwhitebacking {
+.fadedwhitebacking() {
     p {
         .rgb-white(); background-color: rgba(@rval,@gval,@bval,0.95);
         padding: 1em 3em;
@@ -988,7 +978,7 @@ div.column article + article {
  *  │ Content panels with highly faded appearence until mousehover.                                │
  *  └──────────────────────────────────────────────────────────────────────────────────────────────┘
  */
-div .subtlePanel {
+.subtlePanel() {
     opacity: .3333;
     transition: opacity .3333s;
      -webkit-transition: opacity .3333s;
