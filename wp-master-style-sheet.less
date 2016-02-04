@@ -1,15 +1,5 @@
-/*
-Welcome to custom CSS for the WSU Spine Theme!
+// TODO: Find a way to add a link to github repository
 
-You may delete these comments and get started with your custom stylesheet.
-Before doing so, please review the WSU web standards:
-
-http://brand.wsu.edu/media/web/web-standards/
-
-As a general rule of thumb, if your styles target aspects of the spine
-(#spine), that's against standard, whereas if you're styling elsewhere on
-the page, it's all good.
-*/
 @import "color-palette.less";
 @import "variables.less";
 @import "mixins.less";
@@ -41,15 +31,10 @@ the page, it's all good.
     display: none;
 }
 
+// TODO: Add a set of functions that reduces need for typing out repetitive browser-specific declarations.
 .fade-in-from-left {
-    animation: anim-fade-in-from-left 1s;
-     -webkit-animation: anim-fade-in-from-left 1s;
-     -moz-animation: anim-fade-in-from-left 1s;
-     -o-animation: anim-fade-in-from-left 1s;
-    @keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
-     @-webkit-keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
-     @-moz-keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
-     @-o-keyframes anim-fade-in-from-left { .mixi-fade-in-from-left(); }
+    .animation(anim-fade-in-from-left; 1s);
+    .keyframes(anim-fade-in-from-left; @rules-fade-in-from-left);
 }
 
 .fade-in-from-right {
@@ -79,10 +64,6 @@ the page, it's all good.
          -webkit-animation: animFlashHighlight 1.325s linear .175s 1 normal;
          -moz-animation: animFlashHighlight 1.325s linear .175s 1 normal;
          -o-animation: animFlashHighlight 1.325s linear .175s 1 normal;
-        animation-play-state: running;
-         -webkit-animation-play-state: running;
-         -moz-animation-play-state: running;
-         -o-animation-play-state: running;        
         @keyframes animFlashHighlight { .mixi-flash-highlight(); }
          @-webkit-keyframes animFlashHighlight { .mixi-flash-highlight(); }
          @-moz-keyframes animFlashHighlight { .mixi-flash-highlight(); }
