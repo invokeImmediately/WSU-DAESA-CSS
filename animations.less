@@ -5,18 +5,7 @@
             animation: @arguments;
 }
 
-.keyframes(@name; @from; @to) {
-    @frames: {
-        from { @from(); }
-        to { @to(); }
-    };
-    @-webkit-keyframes @name { @frames(); }
-    @-moz-keyframes @name { @frames(); }
-    @-o-keyframes @name { @frames(); }
-    @keyframes @name { @frames(); }
-}
-
-.keyframes-by-rules(@name; @ruleset) {
+.keyframes(@name; @ruleset) {
     @-webkit-keyframes @name { @ruleset(); }
     @-moz-keyframes @name { @ruleset(); }
     @-o-keyframes @name { @ruleset(); }
@@ -30,16 +19,6 @@
             transform: @operations;
 }
 
-@fade-in-from-left-from: {
-    opacity: 0;
-    .transform(translate3d(-100%,0,0));
-};
-
-@fade-in-from-left-to: {
-    opacity: 1;
-    .transform(none);
-};
-
 @rules-fade-in-from-left: {
     0% {
         opacity: 0;
@@ -50,17 +29,6 @@
         .transform(none);
     }
 };
-
-.mixi-fade-in-from-left() {
-    0% {
-        opacity: 0;
-        .transform(translate3d(-100%,0,0));
-    }        
-    100% {
-        opacity: 1;
-        .transform(none);
-    }
-}
 
 .mixi-fade-in-from-right() {
     0% {
