@@ -38,14 +38,8 @@
 }
 
 .fade-in-from-right {
-    animation: anim-fade-in-from-right 1s;
-     -webkit-animation: anim-fade-in-from-right 1s;
-     -moz-animation: anim-fade-in-from-right 1s;
-     -o-animation: anim-fade-in-from-right 1s;
-    @keyframes anim-fade-in-from-right { .mixi-fade-in-from-right(); }
-     @-webkit-keyframes anim-fade-in-from-right { .mixi-fade-in-from-right(); }
-     @-moz-keyframes anim-fade-in-from-right { .mixi-fade-in-from-right(); }
-     @-o-keyframes anim-fade-in-from-right { .mixi-fade-in-from-right(); }
+    .animation(anim-fade-in-from-right; 1s);
+    .keyframes(anim-fade-in-from-right; @rules-fade-in-from-right);
 }
 
 :target {
@@ -60,14 +54,8 @@
         .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
         .rgb-light-crimson(); border: 1px solid rgba(@rval,@gval,@bval,0);
         z-index: -1;
-        animation: animFlashHighlight 1.325s linear .175s 1 normal;
-         -webkit-animation: animFlashHighlight 1.325s linear .175s 1 normal;
-         -moz-animation: animFlashHighlight 1.325s linear .175s 1 normal;
-         -o-animation: animFlashHighlight 1.325s linear .175s 1 normal;
-        @keyframes animFlashHighlight { .mixi-flash-highlight(); }
-         @-webkit-keyframes animFlashHighlight { .mixi-flash-highlight(); }
-         @-moz-keyframes animFlashHighlight { .mixi-flash-highlight(); }
-         @-o-keyframes animFlashHighlight { .mixi-flash-highlight(); }
+        .animation(animFlashHighlight; 1.325s; linear; .175s);
+        .keyframes(animFlashHighlight; @rules-flash-highlight);
     }
 }
 
@@ -460,19 +448,12 @@ label.read-more-trigger {
      -webkit-transition: .333s ease;
      -moz-transition: .333s ease;
      -o-transition: .333s ease;
-    animation: read-more-trigger-glow 5s linear 0 infinite;
-     -webkit-animation: read-more-trigger-glow 5s linear 0 infinite;
-     -moz-animation: read-more-trigger-glow 5s linear 0 infinite;
-     -o-animation: read-more-trigger-glow 5s linear 0 infinite;
+    .animation(orange-glow; 5s);
+    .keyframes(orange-glow; @rules-orange-glow);
     cursor: pointer;
-    @keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
-     @-webkit-keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
-     @-moz-keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
-     @-o-keyframes read-more-trigger-glow { .mixi-read-more-trigger-glow(); }
 }
 label.read-more-trigger:hover {
-    animation: none;
-     -webkit-animation: none;    
+    .animation(none);
     .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,1.0);
     box-shadow: 0 0 18px rgba(@rval,@gval,@bval,0.6667);
     border: 1px solid #2a3033;

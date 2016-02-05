@@ -1,4 +1,4 @@
-.animation(@name; @duration; @timing: linear; @delay: 0; @iterations: infinite) {
+.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) {
     -webkit-animation: @arguments;
        -moz-animation: @arguments;
          -o-animation: @arguments;
@@ -19,6 +19,8 @@
             transform: @operations;
 }
 
+//TODO: Add a parametric mixin for transitions.
+
 @rules-fade-in-from-left: {
     0% {
         opacity: 0;
@@ -30,7 +32,7 @@
     }
 };
 
-.mixi-fade-in-from-right() {
+@rules-fade-in-from-right: {
     0% {
         opacity: 0;
         transform: translate3d(100%,0,0);
@@ -45,9 +47,9 @@
          -moz-transform: none;
          -o-transform: none;
     }
-}
+};
 
-.mixi-flash-highlight() {
+@rules-flash-highlight: {
     0% {
         .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
         border-color: rgba(@rval,@gval,@bval,0);
@@ -77,9 +79,9 @@
         .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
         border-color: rgba(@rval,@gval,@bval,0);
     }
-}
+};
 
-.mixi-read-more-trigger-glow() {
+@rules-orange-glow: {
     0% {
         .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
         box-shadow: 0 0 9px rgba(@rval,@gval,@bval,0);
@@ -94,4 +96,4 @@
         .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
         box-shadow: 0 0 9px rgba(@rval,@gval,@bval,0);
     }
-}
+};
