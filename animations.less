@@ -1,20 +1,26 @@
-
-.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when (@iterations = infinite) {
-    -webkit-animation: @name @duration @timing @delay;
-       -moz-animation: @name @duration @timing @delay;
-         -o-animation: @name @duration @timing @delay;
-            animation: @name @duration @timing @delay;
+.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when (@name = none) and when (@delay = 0s) {
+    -webkit-animation: @name;
+       -moz-animation: @name;
+         -o-animation: @name;
+            animation: @name;
 }
 
-.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when not (@iterations = infinite) {
-    -webkit-animation: @name @duration @timing @delay;
-       -moz-animation: @name @duration @timing @delay;
-         -o-animation: @name @duration @timing @delay;
-            animation: @name @duration @timing @delay;
-    -webkit-animation-iteration-count: @iterations;
-       -moz-animation-iteration-count: @iterations;
-         -o-animation-iteration-count: @iterations;
-            animation-iteration-count: @iterations;
+.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when not (@name = none) and when (@delay = 0s) {
+    -webkit-animation: @name @duration @timing @iterations;
+       -moz-animation: @name @duration @timing @iterations;
+         -o-animation: @name @duration @timing @iterations;
+            animation: @name @duration @timing @iterations;
+}
+
+.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when not (@name = none) and when not (@delay = 0s) {
+    -webkit-animation: @name @duration @timing @iterations;
+       -moz-animation: @name @duration @timing @iterations;
+         -o-animation: @name @duration @timing @iterations;
+            animation: @name @duration @timing @iterations;
+    -webkit-animation-delay: @delay;
+       -moz-animation-delay: @delay;
+         -o-animation-delay: @delay;
+            animation-delay: @delay;
 }
 
 .keyframes(@name; @ruleset) {
