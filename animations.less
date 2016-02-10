@@ -37,7 +37,12 @@
             transform: @operations;
 }
 
-//TODO: Add a parametric mixin for transitions.
+.transition(@parameters) {
+    -webkit-transition: @parameters;
+       -moz-transition: @parameters;
+         -o-transition: @parameters;
+            transition: @parameters;
+}
 
 @rules-fade-in-from-left: {
     0% {
