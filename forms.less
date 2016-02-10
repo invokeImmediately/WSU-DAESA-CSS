@@ -1,0 +1,122 @@
+/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
+ *  ║ #### INPUT FORMS ########################################################################### ║
+ *  ╠==============================================================================================╣
+ *  ║ Styling applied to input elements to which the gravity form classes have been applied.       ║
+ *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+ */
+div.column {
+    .gform_wrapper {
+        max-width: 990px;
+        .gsection {
+            margin-bottom: 0;
+        }
+        .gfield_checkbox li label, .gfield_radio li label {
+            font-weight: normal;
+        }
+        .ginput_complex {
+            label {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            span.ginput_full:not(:first-of-type) label, span.ginput_left:not(:first-of-type) label,
+             span.ginput_right:not(:nth-of-type(2)) label {
+                margin-top: 0.4em;
+            }
+            /*span.address_line_1 label {
+                margin-bottom: 0.75em;
+            }
+            span.address_city, span.address_state, span.address_zip {
+                margin-top: 0.75em;
+            }*/
+        }
+        label.gfield_label {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 1.125em;
+        }
+        ul:last-child {
+            padding-bottom: 0;
+        }
+        .gform_body > ul {
+            & > li:not(.gsection):not(.gfield_html) + li:not(.gsection):not(.no-top-border)::before {
+                display: block;
+                width: 95%;
+                height: 0;
+                margin: @v-dflt-spcng auto 0;
+                /*.rgb-dark-gray(); border-top: 1px dashed rgba(@rval,@gval,@bval,0.3333);
+                 border-bottom: 1px dashed rgba(160,160,160,0.25);*/
+                content: "";
+            }
+        }
+        #extensions_message {
+            padding-left: 1rem;
+        }
+    }
+}
+
+.oue-gf-rqrd-input {
+    input, select {
+        transition: background 0.3s ease;
+         -webkit-transition: background 0.3s ease;
+         -moz-transition: background 0.3s ease;
+         -o-transition: background 0.3s ease;
+        &:focus {
+            background-color: @hex-bright-blue;
+        }
+    }
+    &.gfield_contains_required {
+        input:not(.gf-value-entered):not(:focus) {
+            background-color: rgba(255,0,0,0.1);
+        }
+    }
+}
+
+.oue-gf-rqrd-checkbox {
+    &.gfield_contains_required {
+        ul.gfield_checkbox {
+            transition: background 0.3s ease;
+             -webkit-transition: background 0.3s ease;
+             -moz-transition: background 0.3s ease;
+             -o-transition: background 0.3s ease;
+            &:not(.gf-value-entered) {
+                background-color: rgba(255,0,0,0.1);
+            }
+        }
+    }
+}
+
+.oue-gf-rqrd-txtarea {
+    textarea {
+        transition: background 0.3s ease;
+         -webkit-transition: background 0.3s ease;
+         -moz-transition: background 0.3s ease;
+         -o-transition: background 0.3s ease;
+        &:focus {
+            background-color: @hex-bright-blue;
+        }
+    }
+    &.gfield_contains_required {
+        textarea {
+            &:not(.gf-value-entered):not(:focus) {
+                background-color: rgba(255,0,0,0.1);
+            }
+        }
+    }
+}
+
+.oue-gf-actvtr-checkbox {
+    transition: all 0.3s ease;
+     -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+     -o-transition: all 0.3s ease;
+    &.gf-activated {
+        display: none !important;
+    }
+}
+
+.oue-gf-actvtr-chain {
+    .transition(all 0.3s ease);
+    &.gf-hidden {
+        display: none !important;
+    }
+}
