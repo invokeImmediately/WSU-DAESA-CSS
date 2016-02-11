@@ -1,3 +1,10 @@
+.keyframes(@name; @ruleset) {
+    @-webkit-keyframes @name { @ruleset(); }
+    @-moz-keyframes @name { @ruleset(); }
+    @-o-keyframes @name { @ruleset(); }
+    @keyframes @name { @ruleset(); }
+}
+
 .animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when (@name = none) and (@delay = 0s) {
     -webkit-animation: @name;
        -moz-animation: @name;
@@ -21,13 +28,6 @@
        -moz-animation-delay: @delay;
          -o-animation-delay: @delay;
             animation-delay: @delay;
-}
-
-.keyframes(@name; @ruleset) {
-    @-webkit-keyframes @name { @ruleset(); }
-    @-moz-keyframes @name { @ruleset(); }
-    @-o-keyframes @name { @ruleset(); }
-    @keyframes @name { @ruleset(); }
 }
 
 .transform(@operations) {
@@ -120,4 +120,14 @@
         .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
         box-shadow: 0 0 9px rgba(@rval,@gval,@bval,0);
     }
+};
+
+@frames-simple-fade-in: {
+	0% {
+		opacity: 0;
+	}
+	
+	100% {
+		opacity: 1;
+	}
 };

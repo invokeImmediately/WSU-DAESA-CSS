@@ -54,7 +54,7 @@ div.column {
     }
 }
 
-.oue-gf-rqrd-input {
+.oue-gf-rqrd-input, .oue-gf-hghlghts-rqrd {
     input, select {
         transition: background 0.3s ease;
          -webkit-transition: background 0.3s ease;
@@ -71,7 +71,7 @@ div.column {
     }
 }
 
-.oue-gf-rqrd-checkbox {
+.oue-gf-rqrd-checkbox, .oue-gf-hghlghts-rqrd-checkbox {
     &.gfield_contains_required {
         ul.gfield_checkbox {
             transition: background 0.3s ease;
@@ -85,7 +85,7 @@ div.column {
     }
 }
 
-.oue-gf-rqrd-txtarea {
+.oue-gf-rqrd-txtarea, .oue-gf-hghlghts-rqrd-txtarea {
     textarea {
         transition: background 0.3s ease;
          -webkit-transition: background 0.3s ease;
@@ -120,3 +120,9 @@ div.column {
         display: none !important;
     }
 }
+
+.oue-gf-revealed {
+    .animation(gf-fades-in; 0.5s; linear; 0s; 1);
+    .keyframes(gf-fades-in; @frames-simple-fade-in);
+}
+
