@@ -8,7 +8,14 @@
  *  │       already been imported.                                                                 │
  *  ├----------------------------------------------------------------------------------------------┤
  */
- 
+
+// Remove all <header><h2>...</h2></header> inserted by the WSU Spine Page Builder Template --------
+div.column {
+    & > header:first-child {
+        display: none;
+    }
+}
+
 // <h1>...</h1> ------------------------------------------------------------------------------------
 div.column {
     h1 {
