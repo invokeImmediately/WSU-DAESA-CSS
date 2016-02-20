@@ -54,7 +54,7 @@ div.column {
     }
 }
 
-.oue-gf-rqrd-input, .oue-gf-hghlghts-rqrd {
+.oue-gf-rqrd-input, .oue-gf-rqrd-select, .oue-gf-hghlghts-rqrd {
     input, select {
         transition: background 0.3s ease;
          -webkit-transition: background 0.3s ease;
@@ -65,7 +65,7 @@ div.column {
         }
     }
     &.gfield_contains_required {
-        input:not(.gf-value-entered):not(:focus) {
+        input:not(.gf-value-entered):not(:focus), select:not(.gf-value-entered):not(:focus) {
             background-color: rgba(255,0,0,0.1);
         }
     }
