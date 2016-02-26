@@ -1,18 +1,28 @@
-// ┌────────────────────────────────────────────────┐
-// │ MIXINS                                         │
-// └────────────────────────────────────────────────┘
+// ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
+// ║ #### MIXINS ########################################################################################### ║
+// ╠=========================================================================================================╣
+// ║ DESCRIPTION: Intended for use with all elements regardless of semantics                                 ║
+// ║ LAYOUT: This document is layed out according to browser rendering sequence; styles related to layout    ║
+// ║          are followed by those related to painting and then dynamic changes to the DOM tree.            ║
+// ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ CONTROLLING LAYOUT +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │  Mixins for broadly controlling content layout.                                                 │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+.initially-hidden {
+    display: none;
+}
+
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ SPACING ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │  Mixins for specifying margins and padding.                                                     │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
 .margin-centered {
     margin-right: auto;
      margin-left: auto;
-}
-
-.breaks-words {
-    word-wrap: break-word;
-}
-
-.centered {
-    text-align: center;
 }
 
 .vrtcl-spcng-full() {
@@ -30,12 +40,52 @@
      margin-bottom: (@v-dflt-spcng / 2);
 }
 
-.soft-gray-border {
-    .rgb-darkest-gray(); border: 1px solid rgba(@rval, @gval, @bval, 0.5);
+.spaces-top(@sclng-fctr: 1.0) {
+    margin-top: (@v-dflt-spcng * @sclng-fctr);
 }
 
-.has-smllr-txt() {
-    font-size: 0.9em;
+.spaces-rght(@sclng-fctr: 1.0) {
+    margin-right: (@v-dflt-spcng * @sclng-fctr);
+}
+
+.spaces-bttm(@sclng-fctr: 1.0) {
+    margin-bottom: (@v-dflt-spcng * @sclng-fctr);
+}
+
+.spaces-lft(@sclng-fctr: 1.0) {
+    margin-right: (@v-dflt-spcng * @sclng-fctr);
+}
+
+.spaces-top-nrml {
+    .spaces-top;
+}
+
+.spaces-top-half {
+    .spaces-top(@sz-xsmll);
+}
+
+.spaces-rght-nrml {
+    .spaces-rght;
+}
+
+.spaces-rght-half {
+    .spaces-rght(@sz-xsmll);
+}
+
+.spaces-bttm-nrml {
+    .spaces-bttm;
+}
+
+.spaces-bttm-half {
+    .spaces-bttm(@sz-xsmll);
+}
+
+.spaces-lft-nrml {
+    .spaces-lft;
+}
+
+.spaces-lft-half {
+    .spaces-lft(@sz-xsmll);
 }
 
 .pads-top(@sclng-fctr: 1.0) {
@@ -86,50 +136,45 @@
     .pads-lft(@sz-xsmll);
 }
 
-.spaces-top(@sclng-fctr: 1.0) {
-    margin-top: (@v-dflt-spcng * @sclng-fctr);
+.indent-1x {
+    padding-left: 2rem;
 }
 
-.spaces-rght(@sclng-fctr: 1.0) {
-    margin-right: (@v-dflt-spcng * @sclng-fctr);
+.indent-2x {
+    padding-left: 4rem;
 }
 
-.spaces-bttm(@sclng-fctr: 1.0) {
-    margin-bottom: (@v-dflt-spcng * @sclng-fctr);
+.indent-3x {
+    padding-left: 6rem;
 }
 
-.spaces-lft(@sclng-fctr: 1.0) {
-    margin-right: (@v-dflt-spcng * @sclng-fctr);
+.indent-4x {
+    padding-left: 8rem;
 }
 
-.spaces-top-nrml {
-    .spaces-top;
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ TEXTUAL RENDERING ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │  Mixins for controlling the layout, sizing, and positioning of text nodes.                      │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+.breaks-words {
+    word-wrap: break-word;
 }
 
-.spaces-top-half {
-    .spaces-top(@sz-xsmll);
+.centered, .centers-text {
+    text-align: center;
 }
 
-.spaces-rght-nrml {
-    .spaces-rght;
+.has-smllr-txt() {
+    font-size: 0.9em;
 }
 
-.spaces-rght-half {
-    .spaces-rght(@sz-xsmll);
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ BORDERING ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │  Mixins for specifying the border around element nodes.                                         │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+.soft-gray-border {
+    .rgb-darkest-gray(); border: 1px solid rgba(@rval, @gval, @bval, 0.5);
 }
 
-.spaces-bttm-nrml {
-    .spaces-bttm;
-}
-
-.spaces-bttm-half {
-    .spaces-bttm(@sz-xsmll);
-}
-
-.spaces-lft-nrml {
-    .spaces-lft;
-}
-
-.spaces-lft-half {
-    .spaces-lft(@sz-xsmll);
-}
