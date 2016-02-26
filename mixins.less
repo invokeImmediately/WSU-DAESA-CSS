@@ -136,20 +136,16 @@
     .pads-lft(@sz-xsmll);
 }
 
-.indent-1x {
-    padding-left: 2rem;
-}
+.generate-indents(4);
 
-.indent-2x {
-    padding-left: 4rem;
-}
-
-.indent-3x {
-    padding-left: 6rem;
-}
-
-.indent-4x {
-    padding-left: 8rem;
+.generate-indents(@n, @i: 1) when (@i <= @n) {
+    .indent-@{i}x {
+        padding-left: (2rem * @i);
+    }
+    .indent-rght-@{i}x {
+        padding-right: (2rem * @i);
+    }
+    .generate-indents(@n, (@i + 1));
 }
 
 //     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
