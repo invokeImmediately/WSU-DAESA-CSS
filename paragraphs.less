@@ -68,6 +68,16 @@ div.column {
             }
             line-height: @v-artcl-tgln-lnhght;
             font-weight: @v-artcl-tgln-wght;
+            &.sans:extend(span.accentuated-text) {
+                color: @hex-darkest-gray;
+                font-weight: 300;
+                letter-spacing: 0.5px;
+                & > span.lead-in {
+                    color: @hex-dark-blue;
+                    font-weight: 700;
+                    letter-spacing: normal;                    
+                }
+            }
         }
         &.no-bottom-pad {
             padding-bottom: 0;
