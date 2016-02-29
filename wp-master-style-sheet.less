@@ -1,35 +1,53 @@
-// TODO: Find a way to add a link to github repository
-
+// ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+// ║ #### MASTER STYLE SHEET for WSU Office of Undergraduate Education Websites ############################ ║
+// ╠=========================================================================================================╣
+// ║ DESCRIPTION: Intended for use with all elements regardless of semantics                                 ║
+// ║ LAYOUT: This document is laid out according to the W3C HTML5 language specification (please see         ║
+// ║          https://www.w3.org/TR/html5/ for more information). Selectors are generally declared in the    ║
+// ║          same sequence as their matching elements appear in the HTML5 spec. Moreover, style             ║
+// ║          declarations are made according to browser rendering sequence; styles for controlling layout   ║
+// ║          are followed by those related to painting and then by those associated with dynamic changes to ║
+// ║          the DOM tree.                                                                                  ║
+// ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+//
+// ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+// ║ #### GLOBAL LESS VARIABLES, LESS MIXINS, AND CSS3 SELECTORS ########################################### ║
+// ╠=========================================================================================================╣
+// ║ LESS variables and mixins and low-specificity CSS3 selectors designed for either styling nodes without  ║
+// ║ regard to semantics or being included within LESS dependencies.                                         ║
+// ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ COLOR VARIABLES AND MIXINS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │   LESS variables and parametric mixins designed for inclusion in dependencies to specify        |
+//     │   coloring of backgrounds, borders, text, and outlines.                                         |
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
 @import "color-palette.less";
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ ALL OTHER VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │   LESS variables intended for use within media queries and style declarations to specify        │
+//     │   spacing, padding, and sizing, and to facilitate responsive behaviors.                         │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
 @import "variables.less";
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ MIXINS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │   LESS mixins designed for inclusion within dependencies, regardless of semantics, to specify   |
+//     │   spacing, padding, sizing, textual flow, and responsive behaviors.                             |
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
 @import "mixins.less";
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ ANIMATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │   LESS mixins designed for efficiently declaring animations, transitions, and transformations   │
+//     │   with automatic cross-platform support.                                                        |
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
 @import "animations.less";
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗
- *  ║ #### GENERIC CLASSES & SELECTORS ########################################################### ║
- *  ╠==============================================================================================╣
- *  ║ Styling of classes applied to multiple elements with low specificity.                        ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-.indent-1x {
-    padding-left: 2rem;
-}
-
-.indent-2x {
-    padding-left: 4rem;
-}
-
-.indent-3x {
-    padding-left: 6rem;
-}
-
-.indent-4x {
-    padding-left: 8rem;
-}
-
-.initially-hidden {
-    display: none;
-}
 
 // TODO: Add a set of functions that reduces need for typing out repetitive browser-specific declarations.
 .fade-in-from-left {
@@ -40,23 +58,6 @@
 .fade-in-from-right {
     .animation(anim-fade-in-from-right; 1s; linear; 0s; 1);
     .keyframes(anim-fade-in-from-right; @rules-fade-in-from-right);
-}
-
-:target {
-    position: relative;
-    &:before {
-        content: "";
-        position: absolute;
-         top: (-1 * @v-dflt-spcng / 2);
-         right: (-1 * @v-dflt-spcng / 2);
-         bottom: (-1 * @v-dflt-spcng / 2);
-         left: (-1 * @v-dflt-spcng / 2);
-        .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
-        .rgb-light-crimson(); border: 1px solid rgba(@rval,@gval,@bval,0);
-        z-index: -1;
-        .animation(animFlashHighlight; 1.325s; linear; .175s; 1);
-        .keyframes(animFlashHighlight; @rules-flash-highlight);
-    }
 }
 
 @-webkit-keyframes animGlowingHighlight {
@@ -79,470 +80,46 @@
         border-color: rgba(@rval,@gval,@bval,0.5);
     }
 }
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### ASIDES ################################################################################ ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [aside]...[/aside] elements.                                              ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-aside {
-    &:not(:first-child).widget header {
-        margin-top: 1rem;
-    }
-    &.widget header {
-        font-weight: bold;
-        font-size: 1rem;
-    }
-    &.widget_archive {
-        label.screen-reader-text {
-            display: none;
-        }
-    }
-}
-
-section.side-right div.column.two aside, section.row.side-right div.column.two aside {
-    padding: (@v-dflt-spcng / 2);
-    .rgb-lighter-gray(); background: rgba(@rval, @gval, @bval, 0.8);
-    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.9), 0px 0px 0px 2px rgba(0, 0, 0, 0.2);
-    p:not(.centered) {
-        text-align: left;
-    }
-}
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### CHARACTER FORMATTING ################################################################## ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [strong]...[/strong], [span]...[/span], [mark][/mark], etc. elements.     ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-strong.opening-line {
-    font-size: 1.0625em;
-    color: @hex-dark-green;
-    .rgb-darkest-green(); text-shadow: 1px 1px 1px rgba(@rval, @gval, @bval, 0.3333);
-}
-
-mark.highlight {
-    background-color: transparent;
-    font-style: normal;
-    color: #AEC7CB;
-}
-
-span {
-    &.accentuated-text {
-        font-family: 'Open Sans Condensed', 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode',
-         'Lucida Sans', Geneva, Verdana, sans-serif;
-        font-weight: bold;
-        font-size: 1.3em;
-        line-height: normal;
-        color: @hex-dark-blue;
-        &.brighter {
-            color: @hex-blue;
-        }
-        &.gray {
-            color: @hex-dark-gray;
-            &.brighter {
-                color: @hex-less-dark-gray;
-            }
-        }
-    }
-    &.has-tool-tip {
-        margin-bottom: -3px;
-        .rgb-accent-blue(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.25);
-        color: @hex-accent-blue;
-        transition-property: color, background, border-color;
-         -webkit-transition-property: color, background, border-color;
-        transition-duration: .3s, .3s, .3s;
-         -webkit-transition-duration: .3s, .3s, .3s;
-        transition-timing-function: ease, ease, ease;
-         -webkit-transition-timing-function: ease, ease, ease;
-        &:hover {
-            .rgb-accent-blue(); background-color: rgba(@rval,@gval,@bval,0.2);
-            border-color: rgba(@rval,@gval,@bval,0.67);
-            color: @hex-darker-blue;
-        }
-    }
-}
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### CITES ################################################################################# ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [cite]...[/cite] elements.                                                ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-cite.article-author {
-    display: none;
-}
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### DIVS ################################################################################## ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [div]...[/div] elements.                                                  ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-div.award-banner {
-    margin-top: 1rem;
-     margin-bottom: 1rem;
-}
-
-div.article-summary {
-    aside.article-sidebar, img, object, p.article-media-contacts {
-        display: none;
-    }
-    img.attachment-spine-thumbnail_size {
-        display: block;
-    }
-}
-
-@import "div.column.less";
-@import "headers.less";
-@import "paragraphs.less";
-@import "tables.less";
-@import "interactively-flipped-panels.less";
-@import "page-covering-notice.less";
-@import "recent-updates.less";
-
-div.auto-scroller {
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ Purely CLASS SPECIFIC CSS3 selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+:target {
     position: relative;
-    .inner-scroll-area {
+    &:before {
+        content: "";
         position: absolute;
-         top: 0;
-         right: 0;
-         bottom: 0;
-         left: 0;
-        overflow: hidden;
-    }
-    ul {
-        position: relative;
-        padding: 0;
-        margin: 0;
-        li {
-            position: absolute;
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-            list-style-image: none;
-        }
+         top: (-1 * @v-dflt-spcng / 2);
+         right: (-1 * @v-dflt-spcng / 2);
+         bottom: (-1 * @v-dflt-spcng / 2);
+         left: (-1 * @v-dflt-spcng / 2);
+        .rgb-light-crimson(); background-color: rgba(@rval,@gval,@bval,0);
+        .rgb-light-crimson(); border: 1px solid rgba(@rval,@gval,@bval,0);
+        z-index: -1;
+        .animation(animFlashHighlight; 1.325s; linear; .175s; 1);
+        .keyframes(animFlashHighlight; @rules-flash-highlight);
     }
 }
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### FOOTERS ############################################################################### ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [footer]...[/footer] elements and their children.                         ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-footer.article-footer {
-    div.author-info {
-        display: none;
-    }
+//
+// ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
+// ║ #### DOCUMENT SECTIONS ################################################################################ ║
+// ╠=========================================================================================================╣
+// ║ Selectors that target section-level nodes.                                                              ║
+// ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ ARTICLE selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+div.column article + article {
+    margin-top: 1.5em;
 }
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### HEADERS ############################################################################### ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [header]...[/header], [h1]...[/h1], [h2]...[/h2], etc. elements.          ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
- //TODO: Move this code to headers.less
-h2.article-title a {
-    border-bottom: none;
-}
-
-div.column {
-    header.article-header {
-        h1.article-title, h2.article-title {
-            font-size: (@v-p-sz * 2);
-            @media all {
-                @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: (@v-p-sz * 2 * @v-scl-dwn);
-                }            
-                @media (max-width: @v-mbl-thrshld) {
-                        font-size: (@v-p-sz * 2 * @v-scl-dwn * @v-scl-dwn);
-                }
-            }
-        }
-    }
-}
-
-header.main-header {
-    span.sup-header-default {
-        margin-bottom: .5rem;
-        font-size: .9rem;
-        @media all {
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: .75rem;
-            }
-        }
-    }
-    span.sub-header-default {
-        @media all {
-            font-size: 2.5rem;
-            line-height: 0.8em;
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: 2.08333rem;
-                line-height: 1em;
-            }
-//            @media (min-width: 494px) {
-//                @media (max-width: 561px) {
-//                    font-size: 1.3rem;
-//                    line-height: 1em;
-//                }
-//            }
-        }
-    }
-    sub.sub-header {
-        @media all {
-            font-size: 2.5rem;
-            line-height: 0.8em;
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: 2.08333rem;
-                line-height: 1em;
-            }
-//            @media (min-width: 494px) and (max-width: 561px) {
-//                font-size: 1.3rem;
-//                line-height: 1em;
-//            }
-        }
-    }
-    &.centered {
-        @media (min-width: @v-lrgfrmt-thrshld) {
-            text-align: center;
-        }
-    }
-    div.header-group.centered {
-        @media (min-width: @v-lrgfrmt-thrshld) {
-            width: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-             -webkit-transform: translateX(-50%);
-             -ms-transform: translateX(-50%);
-        }
-    }
-}
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### IMAGES ################################################################################ ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [img]...[/img] elements.                                                  ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-img {
-    // TODO: Replace with parametric mixin implementation.
-    &.autoScaled {
-        height: auto;
-        width: 100%;
-    }
-    &.autoScaled-byHeight {
-        height: 100%;
-        width: auto;
-    }
-    &.autoScaledTo90 {
-        height: auto;
-        width: 90%;
-    }
-    &.autoScaledTo80 {
-        height: auto;
-        width: 80%;
-    }
-    &.autoScaledTo70 {
-        height: auto;
-        width: 70%;
-    }
-    &.autoScaledTo60 {
-        height: auto;
-        width: 60%;
-    }
-    &.autoScaledToHalf {
-        height: auto;
-        width: 50%;
-    }
-    &.autoScaledTo40 {
-        height: auto;
-        width: 40%;
-    }
-    &.autoScaledToThird {
-        height: auto;
-        width: 33%;
-    }
-    &.autoScaledTo30 {
-        height: auto;
-        width: 30%;
-    }
-    &.autoScaledToQuarter {
-        height: auto;
-        width: 25%;
-    }
-    &.autoScaledTo20 {
-        height: auto;
-        width: 20%;
-    }
-    &.autoScaledTo10 {
-        height: auto;
-        width: 10%;
-    }
-    &.shiftToCenter {
-        &:extend(.margin-centered);
-        display: block;
-    }
-    &.shiftToLeft {
-        float: left;
-    }
-    &.shiftToRight {
-        float: right;
-        margin-bottom: 1rem;
-        margin-left: 2rem;
-        &.no-margins {
-            margin-bottom: 0;
-            margin-left: 0;
-        }
-    }
-    &.fancy {
-        .rgb-dark-gray(); border: 1px solid rgba(@rval,@gval,@bval,.5);
-        .rgb-black(); box-shadow: 2px 2px 2px rgba(@rval,@gval,@bval,0.5);
-    }
-    &.symbolic-image {
-        float: right;
-        width: 144px;
-        height: auto;
-        margin-left: 20px;
-        margin-bottom: 15px;
-        .rgb-dark-gray(); border: 1px solid rgba(@rval,@gval,@bval,.5);
-        .rgb-black(); box-shadow: 2px 2px 2px rgba(@rval,@gval,@bval,0.5);
-        @media screen {
-            @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                img.symbolic-image {
-                    width: 96px;
-                }
-            }
-        }
-    }
-}
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### INPUTS ################################################################################ ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [input]...[/input] and [label]...[/label] elements.                       ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-input.read-more-state {
-    display: none;
-    &:checked + div.read-more-target {
-        margin-top: 0;
-        height: auto;
-        opacity: 1;
-    }
-    & ~ p label.read-more-trigger:before {
-        content: 'Show more';
-    }
-}
-
-label.read-more-trigger {
-    display: inline-block;
-    padding: 0 .5rem;
-    .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
-    border: 1px solid #2a3033;
-    border-radius: .25rem;
-    font-size: .9rem;
-    line-height: 2;
-    color: @hex-dark-gray;
-    transition: .333s ease;
-     -webkit-transition: .333s ease;
-     -moz-transition: .333s ease;
-     -o-transition: .333s ease;
-    .animation(orange-glow; 5s);
-    .keyframes(orange-glow; @rules-orange-glow);
-    cursor: pointer;
-}
-label.read-more-trigger:hover {
-    .animation(none);
-    .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,1.0);
-    box-shadow: 0 0 18px rgba(@rval,@gval,@bval,0.6667);
-    border: 1px solid #2a3033;
-    color: @hex-darkest-gray;
-}
-div.read-more-target {
-    height: 0;
-    overflow: hidden;
-    margin-top: .5rem;
-    opacity: 0;
-    transition: .333s ease;
-     -webkit-transition: .333s ease;
-     -moz-transition: .333s ease;
-     -o-transition: .333s ease;
-}
-.read-more-state:checked ~ p label.read-more-trigger:before {
-    content: 'Show less';
-}
-
-@media screen and (min-width: 906px) {
-    div.readability-controlled {
-/*      margin-right: auto;
-        margin-left: auto; */
-        width: 70%;
-    }
-}
-
-//  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
-//  ║ #### INPUT FORMS ########################################################################### ║
-//  ╠==============================================================================================╣
-//  ║ Styling applied to input elements to which the gravity form classes have been applied.       ║
-//  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
-@import "forms.less";
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### LISTS ################################################################################# ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [ul]...[/ul] and [ol]...[/ol] elements with low specificity.              ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-ul.external-links li {
-    list-style-image: url(/wp-content/uploads/sites/906/2015/08/external-link-bullet.png);
-}
-
-ul.content-boxes {
-    padding-right: 0;
-     padding-left: 0;
-    li {
-        position: relative;
-        min-height: 320px;
-        border-radius: 4px;
-        .rgb-black(); box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
-         -webkit-box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
-        border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
-        background-color: @hex-white;
-        list-style-type: none;
-        @media all and (max-width: @v-bckgrnd-thrshld) {
-            overflow-x: scroll;
-        }
-        p.email {
-            font-size: 0.9em;
-            font-weight: bold;
-        }
-        img {
-            position: absolute;
-             top: 10px;
-             left: 10px;
-            width: 106px;
-        }
-        div.content {
-            position: relative;
-             left: 121px;
-            width: ~"calc(100% - 136px)";
-            min-width: 189px;
-            padding: 10px 10px 10px 5px;
-        }
-        & + li {
-            margin-top: @v-dflt-spcng;
-        }
-    }
-}
-
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### SECTIONS ############################################################################## ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to [section]...[/section] elements with low specificity.                     ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ SECTION selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
 section {
     &.column-one-with-bottom-margin > div.one {
         margin-bottom: 2rem;
@@ -701,267 +278,87 @@ section {
     }
 }
 
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### "SUPERCLASS" SPECIFICATIONS ########################################################### ║
- *  ╠==============================================================================================╣
- *  ║ Styling of classes designed according to object-oriented principles and applied to elements  ║
- *  ║ with high specificity.                                                                       ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
- *  │ ++++++++ Article Superclasses ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *  ├----------------------------------------------------------------------------------------------┤
- *  │ Modification of article related superclasses                                                 │
- *  └──────────────────────────────────────────────────────────────────────────────────────────────┘
- */
-div.column article + article {
-    margin-top: 1.5em;
-}
-
-/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
- *  │ ++++++++ Faded White Backing Superclass ++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *  ├----------------------------------------------------------------------------------------------┤
- *  │ Specification of the faded white backing superclass.                                         │
- *  └──────────────────────────────────────────────────────────────────────────────────────────────┘
- */
-.fadedwhitebacking() {
-    p {
-        .rgb-white(); background-color: rgba(@rval,@gval,@bval,0.95);
-        padding: 1em 3em;
-        // box-shadow: 5px 5px 3px rgba(64,64,64,0.5);
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ ASIDE selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+aside {
+    &:not(:first-child).widget header {
+        margin-top: 1rem;
     }
-    h1, h2 {
-        padding: .25em .5em;
-        margin-bottom: 10px;
-        background-color: rgba(89,106,113,0.95);
-        border: 1px solid white;
-        // box-shadow: 5px 5px 3px rgba(64,64,64,0.5);
-        text-transform: uppercase;
-        color: white;
-        .rgb-black(); text-shadow: 0 1px 0 #aaa,
-         0 2px 0 #888,
-         0 3px 1px rgba(@rval,@gval,@bval,.1),
-         0 0 5px rgba(@rval,@gval,@bval,.1),
-         0 1px 3px rgba(@rval,@gval,@bval,.3),
-         0 2px 5px rgba(@rval,@gval,@bval,.2),
-         0 0 1px #000, 0 3px 2px #000;
+    &.widget header {
+        font-weight: bold;
+        font-size: 1rem;
     }
-    hgroup h2 a {
-/*      text-shadow: 0 1px 0 #a00, 0 2px 0 #800, 0 3px 1px rgba(64,0,0,.1), 0 0 5px rgba(64,0,0,.1)
-         0 1px 3px rgba(64,0,0,.3), 0 2px 5px rgba(64,0,0,.2), 0 0 1px #300, 0 3px 2px #300; */
-        text-shadow: none;
-    }
-    h3 {
-        padding: .25em .5em;
-        margin-top: 10px;
-        .rgb-crimson(); background-color: rgba(@rval,@gval,@bval,0.95);
-        border: 1px solid white;
-        // box-shadow: 5px 5px 3px rgba(64,64,64,0.5);
-        color: white;
-        .rgb-black(); text-shadow: 0 .5px 0 #aaa, 0 1px 0 #888,
-            0 1.5px .5px rgba(@rval,@gval,@bval,.1), 0 0 2.5px rgba(@rval,@gval,@bval,.1),
-            0 .5px 1.5px rgba(@rval,@gval,@bval,.3), 0 1px 2.5px rgba(@rval,@gval,@bval,.2),
-            0 0 .5px #000, 0 1.5px 1px #000;
-    }
-    h4 {
-        padding: .25em .5em;
-        .rgb-white(); background-color: rgba(@rval,@gval,@bval,0.95);
-        // box-shadow: 5px 5px 3px rgba(64,64,64,0.5);
-    }
-    hr {
-        padding: 5px;
-        margin: 0;
-        .rgb-white(); background-color: rgba(@rval,@gval,@bval,0.95);
-        border-bottom: 1px solid #E4E6E7;
-        // box-shadow: 5px 5px 3px rgba(64,64,64,0.5);
+    &.widget_archive {
+        label.screen-reader-text {
+            display: none;
+        }
     }
 }
 
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### INTERACTIVE EFFECTS & ANIMATIONS ###################################################### ║
- *  ╠==============================================================================================╣
- *  ║ Advanced CSS3 styling of classes that effect animations and transitions.                     ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
- */
-.drop-down-toggle {
-    position: relative;
-    &:after {
-        content: "";
-        position: absolute;
-        right: 10px;
-         top: 50%;
-        width: 0; 
-        height: 0; 
-        transform: translateY(-50%);
-        border-top: 8px solid @hex-crimson;
-        border-right: 8px solid transparent;
-        border-bottom: none;
-        border-left: 8px solid transparent;
-        transition: all 0.3s ease;
-         -webkit-transition: all 0.3s ease;
-         -moz-transition: all 0.3s ease;
-         -o-transition: all 0.3s ease;
-    }
-    &:hover:after {
-        border-top: 8px solid @hex-light-crimson;
-        border-right: 8px solid transparent;
-        border-bottom: none;
-        border-left: 8px solid transparent;
-    }
-    &.activated {
-        &:after {
-            border-top: none;
-            border-right: 8px solid transparent;
-            border-bottom: 8px solid @hex-crimson;
-            border-left: 8px solid transparent;
-        }
-        &:hover {
-            &:after {
-                border-top: none;
-                border-right: 8px solid transparent;
-                border-bottom: 8px solid @hex-light-crimson;
-                border-left: 8px solid transparent;
-            }
-        }
+section.side-right div.column.two aside, section.row.side-right div.column.two aside {
+    padding: (@v-dflt-spcng / 2);
+    .rgb-lighter-gray(); background: rgba(@rval, @gval, @bval, 0.8);
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.9), 0px 0px 0px 2px rgba(0, 0, 0, 0.2);
+    p:not(.centered) {
+        text-align: left;
     }
 }
- 
-/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
- *  │ ++++++++ Subtle Panels +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *  ├----------------------------------------------------------------------------------------------┤
- *  │ Content panels with highly faded appearence until mousehover.                                │
- *  └──────────────────────────────────────────────────────────────────────────────────────────────┘
- */
-.subtlePanel() {
-    opacity: .3333;
-    transition: opacity .3333s;
-     -webkit-transition: opacity .3333s;
-     -moz-transition: opacity .3333s;
-     -o-transition: opacity .3333s;
-    animation: subtlePanel-FadeOut 1.5s linear 0 1;
-     -webkit-animation: subtlePanel-FadeOut 1.5s linear 0 1;
-     -moz-animation: subtlePanel-FadeOut 1.5s linear 0 1;
-     -o-animation: subtlePanel-FadeOut 1.5s linear 0 1;
-    @-webkit-keyframes subtlePanel-FadeOut {
-        0% {
-            opacity: 1;
-        }
-        33% {
-            opacity: 1;
-        }
-        100% {
-            opacity: .3333;
-        }
-    }
-    @keyframes subtlePanel-FadeOut {
-        0% {
-            opacity: 1;
-        }
-        33% {
-            opacity: 1;
-        }
-        100% {
-            opacity: .3333;
-        }
-    }
-    &:hover {
-        opacity: 1;
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ H1-H6 & HEADER selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+@import "headers.less";
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ FOOTER selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+footer.article-footer {
+    div.author-info {
+        display: none;
     }
 }
-
-/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
- *  │ ++++++++ CSS3 Driven Tooltips ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *  ├----------------------------------------------------------------------------------------------┤
- *  │ Specification of tooltips driven purely by CSS3.                                             │
- *  └──────────────────────────────────────────────────────────────────────────────────────────────┘
- */
-a.vpue-tooltip {
-    position: relative;
-    border-bottom: dotted 1px #b67233;
-    outline: none;
-    text-decoration: none;
-    color: #b67233;
-    strong {
-        line-height: 30px;
+//
+// ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
+// ║ #### CONTENT GROUPING NODES ########################################################################### ║
+// ╠=========================================================================================================╣
+// ║ Selectors that target nodes for grouping content.                                                       ║
+// ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ PARAGRAPH selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+@import "paragraphs.less";
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ DIV selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+div.article-summary {
+    aside.article-sidebar, img, object, p.article-media-contacts {
+        display: none;
     }
-    & > span {
-        position: absolute;
-        width: 300px;
-        padding: 10px 20px;
-        margin-top: 20px;
-         margin-left: -100px;
-        opacity: 0;
-        visibility: hidden;
-        z-index: 10;
-        border-radius: 3px;
-        .rgb-dark-orange(); box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
-         -webkit-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
-         -moz-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
-        font-family: inherit;
-        font-size: .9em;
-        font-style: normal;
-        transition-property: opacity, margin-top, visibility, margin-left;
-         -webkit-transition-property: opacity, margin-top, visibility, margin-left;
-         -moz-transition-property: opacity, margin-top, visibility, margin-left;
-         -o-transition-property: opacity, margin-top, visibility, margin-left;
-        transition-duration: 0.4s, 0.3s, 0.4s, .3s;
-         -webkit-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
-         -moz-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
-         -o-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
-        transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
-         -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
-         -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
-         -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
-    }
-    &:hover > span {
-        display: inline;
-        margin-top: 40px;
-         margin-left: -90px;
-        overflow: visible;
-        opacity: 1;
-        visibility: visible;
-        text-decoration: none;
-    }
-    span b {
+    img.attachment-spine-thumbnail_size {
         display: block;
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        margin-top: -19px;
-         margin-left: 40px;
-        transform: rotate(-45deg);
-         -webkit-transform: rotate(-45deg);
-         -moz-transform: rotate(-45deg);
-         -ms-transform: rotate(-45deg);
-         -o-transform: rotate(-45deg);
-        box-shadow: inset 0 1px 0 @hex-white;
-         -webkit-box-shadow: inset -1px 1px 0 @hex-white;
-         -moz-box-shadow: inset 0 1px 0 @hex-white;
-         -o-box-shadow: inset 0 1px 0 @hex-white;
-    /*display: none;*/
-    }
-    & > span {
-        background: @hex-lighest-orange;
-         background: -webkit-linear-gradient(top,@hex-lighest-orange,@hex-white);
-         background: -moz-linear-gradient(top,@hex-lighest-orange,@hex-white);
-         background: -o-linear-gradient(top,@hex-lighest-orange,@hex-white);
-         background: linear-gradient(top,@hex-lighest-orange,@hex-white);
-        border: 1px solid @hex-dark-orange;
-        color: @hex-dark-gray;
-    }
-    span b {
-        background: @hex-lighest-orange;
-        border-top: 1px solid @hex-dark-orange;
-         border-right: 1px solid @hex-dark-orange;
     }
 }
 
-/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
- *  │ ++++++++ Builder Template Slideshows +++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *  ├----------------------------------------------------------------------------------------------┤
- *  │ Styling modifications of builder template slideshows added through the WordPress interface.  │
- *  └──────────────────────────────────────────────────────────────────────────────────────────────┘
- */
+div.award-banner {
+    margin-top: 1rem;
+     margin-bottom: 1rem;
+}
+//
+//         ┌-----------------------------------------------------------------------------------------┐
+//         │ ···· Builder Template Slideshows ······················································ │
+//         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
+//         │ Styling modifications of builder template slideshows added through the WordPress        │
+//         │ interface.                                                                              │
+//         └-----------------------------------------------------------------------------------------┘        
+//
 div.column {
     div.builder-banner-content {
         padding: 0 0 10px 0;
@@ -1062,18 +459,543 @@ div.column {
     }
 }
 
+@media screen and (min-width: 906px) {
+    div.readability-controlled {
+/*      margin-right: auto;
+        margin-left: auto; */
+        width: 70%;
+    }
+}
 
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### ELEMENTS FROM JAVASCRIPTS ############################################################# ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to dynamic, interactive elemenets that do not function as intended without   ║
- *  ║ the support of JavaScript.                                                                   ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+@import "div.column.less";
+@import "interactively-flipped-panels.less";
+@import "page-covering-notice.less";
+@import "recent-updates.less";
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ UL selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+ul.external-links li {
+    list-style-image: url(/wp-content/uploads/sites/906/2015/08/external-link-bullet.png);
+}
+
+ul.content-boxes {
+    padding-right: 0;
+     padding-left: 0;
+    li {
+        position: relative;
+        min-height: 320px;
+        border-radius: 4px;
+        .rgb-black(); box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
+         -webkit-box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
+        border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
+        background-color: @hex-white;
+        list-style-type: none;
+        @media all and (max-width: @v-bckgrnd-thrshld) {
+            overflow-x: scroll;
+        }
+        p.email {
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        img {
+            position: absolute;
+             top: 10px;
+             left: 10px;
+            width: 106px;
+        }
+        div.content {
+            position: relative;
+             left: 121px;
+            width: ~"calc(100% - 136px)";
+            min-width: 189px;
+            padding: 10px 10px 10px 5px;
+        }
+        & + li {
+            margin-top: @v-dflt-spcng;
+        }
+    }
+}
+//
+// ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
+// ║ #### TEXT-LEVEL NODES ################################################################################# ║
+// ╠=========================================================================================================╣
+// ║ Selectors that target nodes with text-level semantics.                                                  ║
+// ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ A selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+//         ---- CSS3 Driven Tooltips -----------------------------------------------------------------
+a.vpue-tooltip {
+    position: relative;
+    border-bottom: dotted 1px #b67233;
+    outline: none;
+    text-decoration: none;
+    color: #b67233;
+    strong {
+        line-height: 30px;
+    }
+    & > span {
+        position: absolute;
+        width: 300px;
+        padding: 10px 20px;
+        margin-top: 20px;
+         margin-left: -100px;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 10;
+        border-radius: 3px;
+        .rgb-dark-orange(); box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
+         -webkit-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
+         -moz-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
+        font-family: inherit;
+        font-size: .9em;
+        font-style: normal;
+        transition-property: opacity, margin-top, visibility, margin-left;
+         -webkit-transition-property: opacity, margin-top, visibility, margin-left;
+         -moz-transition-property: opacity, margin-top, visibility, margin-left;
+         -o-transition-property: opacity, margin-top, visibility, margin-left;
+        transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+         -webkit-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+         -moz-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+         -o-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+        transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+         -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+         -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+         -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+    }
+    &:hover > span {
+        display: inline;
+        margin-top: 40px;
+         margin-left: -90px;
+        overflow: visible;
+        opacity: 1;
+        visibility: visible;
+        text-decoration: none;
+    }
+    span b {
+        display: block;
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        margin-top: -19px;
+         margin-left: 40px;
+        transform: rotate(-45deg);
+         -webkit-transform: rotate(-45deg);
+         -moz-transform: rotate(-45deg);
+         -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+        box-shadow: inset 0 1px 0 @hex-white;
+         -webkit-box-shadow: inset -1px 1px 0 @hex-white;
+         -moz-box-shadow: inset 0 1px 0 @hex-white;
+         -o-box-shadow: inset 0 1px 0 @hex-white;
+    /*display: none;*/
+    }
+    & > span {
+        background: @hex-lighest-orange;
+         background: -webkit-linear-gradient(top,@hex-lighest-orange,@hex-white);
+         background: -moz-linear-gradient(top,@hex-lighest-orange,@hex-white);
+         background: -o-linear-gradient(top,@hex-lighest-orange,@hex-white);
+         background: linear-gradient(top,@hex-lighest-orange,@hex-white);
+        border: 1px solid @hex-dark-orange;
+        color: @hex-dark-gray;
+    }
+    span b {
+        background: @hex-lighest-orange;
+        border-top: 1px solid @hex-dark-orange;
+         border-right: 1px solid @hex-dark-orange;
+    }
+}
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ STRONG selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+strong.opening-line {
+    font-size: 1.0625em;
+    color: @hex-dark-green;
+    .rgb-darkest-green(); text-shadow: 1px 1px 1px rgba(@rval, @gval, @bval, 0.3333);
+}
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ MARK selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+mark.highlight {
+    background-color: transparent;
+    font-style: normal;
+    color: #AEC7CB;
+}
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ SPAN selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+span {
+    &.accentuated-text {
+        font-family: 'Open Sans Condensed', 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode',
+         'Lucida Sans', Geneva, Verdana, sans-serif;
+        font-weight: 700;
+        font-size: 1.3em;
+        line-height: normal;
+        color: @hex-dark-blue;
+        &.brighter {
+            color: @hex-blue;
+        }
+        &.gray {
+            color: @hex-dark-gray;
+            &.brighter {
+                color: @hex-less-dark-gray;
+            }
+        }
+    }
+    &.has-tool-tip {
+        margin-bottom: -3px;
+        .rgb-accent-blue(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.25);
+        color: @hex-accent-blue;
+        transition-property: color, background, border-color;
+         -webkit-transition-property: color, background, border-color;
+        transition-duration: .3s, .3s, .3s;
+         -webkit-transition-duration: .3s, .3s, .3s;
+        transition-timing-function: ease, ease, ease;
+         -webkit-transition-timing-function: ease, ease, ease;
+        &:hover {
+            .rgb-accent-blue(); background-color: rgba(@rval,@gval,@bval,0.2);
+            border-color: rgba(@rval,@gval,@bval,0.67);
+            color: @hex-darker-blue;
+        }
+    }
+}
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ CITE selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+cite.article-author {
+    display: none;
+}
+//
+// ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
+// ║ #### EMBEDDED CONTENT ################################################################################# ║
+// ╠=========================================================================================================╣
+// ║ Selectors that target nodes representing embedded content.                                              ║
+// ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ IMG selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+img {
+    // TODO: Replace with parametric mixin implementation.
+    &.autoScaled {
+        height: auto;
+        width: 100%;
+    }
+    &.autoScaled-byHeight {
+        height: 100%;
+        width: auto;
+    }
+    &.autoScaledTo90 {
+        height: auto;
+        width: 90%;
+    }
+    &.autoScaledTo80 {
+        height: auto;
+        width: 80%;
+    }
+    &.autoScaledTo70 {
+        height: auto;
+        width: 70%;
+    }
+    &.autoScaledTo60 {
+        height: auto;
+        width: 60%;
+    }
+    &.autoScaledToHalf {
+        height: auto;
+        width: 50%;
+    }
+    &.autoScaledTo40 {
+        height: auto;
+        width: 40%;
+    }
+    &.autoScaledToThird {
+        height: auto;
+        width: 33%;
+    }
+    &.autoScaledTo30 {
+        height: auto;
+        width: 30%;
+    }
+    &.autoScaledToQuarter {
+        height: auto;
+        width: 25%;
+    }
+    &.autoScaledTo20 {
+        height: auto;
+        width: 20%;
+    }
+    &.autoScaledTo10 {
+        height: auto;
+        width: 10%;
+    }
+    &.shiftToCenter {
+        &:extend(.margin-centered);
+        display: block;
+    }
+    &.shiftToLeft {
+        float: left;
+    }
+    &.shiftToRight {
+        float: right;
+        margin-bottom: 1rem;
+        margin-left: 2rem;
+        &.no-margins {
+            margin-bottom: 0;
+            margin-left: 0;
+        }
+    }
+    &.fancy {
+        .rgb-dark-gray(); border: 1px solid rgba(@rval,@gval,@bval,.5);
+        .rgb-black(); box-shadow: 2px 2px 2px rgba(@rval,@gval,@bval,0.5);
+    }
+    &.symbolic-image {
+        float: right;
+        width: 144px;
+        height: auto;
+        margin-left: 20px;
+        margin-bottom: 15px;
+        .rgb-dark-gray(); border: 1px solid rgba(@rval,@gval,@bval,.5);
+        .rgb-black(); box-shadow: 2px 2px 2px rgba(@rval,@gval,@bval,0.5);
+        @media screen {
+            @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                img.symbolic-image {
+                    width: 96px;
+                }
+            }
+        }
+    }
+}
+//
+// ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
+// ║ #### TABULAR DATA ##################################################################################### ║
+// ╠=========================================================================================================╣
+// ║ Selectors that nodes for representing tabular data.                                                     ║
+// ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+//
+@import "tables.less";
+//
+// ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
+// ║ #### FORMS ############################################################################################ ║
+// ╠=========================================================================================================╣
+// ║ Styling applied to nodes representing a form's user interface.                                          ║
+// ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+//
+input.read-more-state {
+    display: none;
+    &:checked + div.read-more-target {
+        margin-top: 0;
+        height: auto;
+        opacity: 1;
+    }
+    & ~ p label.read-more-trigger:before {
+        content: 'Show more';
+    }
+}
+
+label.read-more-trigger {
+    display: inline-block;
+    padding: 0 .5rem;
+    .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
+    border: 1px solid #2a3033;
+    border-radius: .25rem;
+    font-size: .9rem;
+    line-height: 2;
+    color: @hex-dark-gray;
+    transition: .333s ease;
+     -webkit-transition: .333s ease;
+     -moz-transition: .333s ease;
+     -o-transition: .333s ease;
+    .animation(orange-glow; 5s);
+    .keyframes(orange-glow; @rules-orange-glow);
+    cursor: pointer;
+}
+label.read-more-trigger:hover {
+    .animation(none);
+    .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,1.0);
+    box-shadow: 0 0 18px rgba(@rval,@gval,@bval,0.6667);
+    border: 1px solid #2a3033;
+    color: @hex-darkest-gray;
+}
+div.read-more-target {
+    height: 0;
+    overflow: hidden;
+    margin-top: .5rem;
+    opacity: 0;
+    transition: .333s ease;
+     -webkit-transition: .333s ease;
+     -moz-transition: .333s ease;
+     -o-transition: .333s ease;
+}
+.read-more-state:checked ~ p label.read-more-trigger:before {
+    content: 'Show less';
+}
+
+@import "forms.less";
+
+/*  ╔════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
+ *  ║ #### SCRIPTING ####################################################################################### ║
+ *  ╠========================================================================================================╣
+ *  ║ Selectors for interactive elements that do not function as intended without the support of JavaScript. ║
+ *  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════╝
  */
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ Purely CLASS SPECIFIC CSS3 selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+//         ┌-----------------------------------------------------------------------------------------┐
+//         │ ···· Drop-down toggle: upon click, either drops down or pulls up a related element ···· │
+//         └-----------------------------------------------------------------------------------------┘        
+//
+.drop-down-toggle {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        right: 10px;
+         top: 50%;
+        width: 0; 
+        height: 0; 
+        transform: translateY(-50%);
+        border-top: 8px solid @hex-crimson;
+        border-right: 8px solid transparent;
+        border-bottom: none;
+        border-left: 8px solid transparent;
+        transition: all 0.3s ease;
+         -webkit-transition: all 0.3s ease;
+         -moz-transition: all 0.3s ease;
+         -o-transition: all 0.3s ease;
+    }
+    &:hover:after {
+        border-top: 8px solid @hex-light-crimson;
+        border-right: 8px solid transparent;
+        border-bottom: none;
+        border-left: 8px solid transparent;
+    }
+    &.activated {
+        &:after {
+            border-top: none;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid @hex-crimson;
+            border-left: 8px solid transparent;
+        }
+        &:hover {
+            &:after {
+                border-top: none;
+                border-right: 8px solid transparent;
+                border-bottom: 8px solid @hex-light-crimson;
+                border-left: 8px solid transparent;
+            }
+        }
+    }
+}
+//
+//         ┌-----------------------------------------------------------------------------------------┐
+//         │ ···· Subtle Panels: Content panels with highly faded appearence until mousehover. ····· │
+//         └-----------------------------------------------------------------------------------------┘        
+//
+.subtlePanel() {
+    opacity: .3333;
+    transition: opacity .3333s;
+     -webkit-transition: opacity .3333s;
+     -moz-transition: opacity .3333s;
+     -o-transition: opacity .3333s;
+    animation: subtlePanel-FadeOut 1.5s linear 0 1;
+     -webkit-animation: subtlePanel-FadeOut 1.5s linear 0 1;
+     -moz-animation: subtlePanel-FadeOut 1.5s linear 0 1;
+     -o-animation: subtlePanel-FadeOut 1.5s linear 0 1;
+    @-webkit-keyframes subtlePanel-FadeOut {
+        0% {
+            opacity: 1;
+        }
+        33% {
+            opacity: 1;
+        }
+        100% {
+            opacity: .3333;
+        }
+    }
+    @keyframes subtlePanel-FadeOut {
+        0% {
+            opacity: 1;
+        }
+        33% {
+            opacity: 1;
+        }
+        100% {
+            opacity: .3333;
+        }
+    }
+    &:hover {
+        opacity: 1;
+    }
+}
+//
+//         ┌-----------------------------------------------------------------------------------------┐
+//         │ ···· Flipped content panels ··························································· │
+//         └-----------------------------------------------------------------------------------------┘        
+//
 .flipped-content-back {
     display: none;
     width: 100%;
 }
-
+//
+//         ┌-----------------------------------------------------------------------------------------┐
+//         │ ···· qTip tooltips ···································································· │
+//         └-----------------------------------------------------------------------------------------┘        
+//
 @import "qtips.less";
+//
+//         ┌-----------------------------------------------------------------------------------------┐
+//         │ ···· jQuery-based photo slideshows ···················································· │
+//         └-----------------------------------------------------------------------------------------┘        
+//
 @import "cycle2.less";
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ DIV selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+//         ┌-----------------------------------------------------------------------------------------┐
+//         │ ···· Auto-scrolling image containers ·················································· │
+//         └-----------------------------------------------------------------------------------------┘        
+//
+div.auto-scroller {
+    position: relative;
+    .inner-scroll-area {
+        position: absolute;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+        overflow: hidden;
+    }
+    ul {
+        position: relative;
+        padding: 0;
+        margin: 0;
+        li {
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            list-style-image: none;
+        }
+    }
+}
+
+
