@@ -1,22 +1,19 @@
-/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
- *  │ ++++++++ div.column ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *  │ ++++++++ HEADERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *  ├----------------------------------------------------------------------------------------------┤
- *  │ Styling for header elements intended as children of div.column elements as defined in the    │
- *  │ WSU Spine theme for WordPress.                                                               │
- *  │  ╘═» This file assumes [//github.com/invokeImmediately/WSU-UE---CSS/color-palette.less] has  │
- *  │       already been imported.                                                                 │
- *  ├----------------------------------------------------------------------------------------------┤
- */
-
-// Remove all <header><h2>...</h2></header> inserted by the WSU Spine Page Builder Template --------
+// ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+// │ ++++++++ H1-H6 & HEADER selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+// ├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+// │ Styling for h1-h6 and header elements within WSU Office of Undergraduate Education websites             │
+// │ built using the WSU Spine theme for WordPress.                                                          │
+// │  ╘═» This file assumes [//github.com/invokeImmediately/WSU-UE---CSS/color-palette.less] has             │
+// │       already been imported.                                                                            │
+// ├---------------------------------------------------------------------------------------------------------┤
+// │ ···· Remove all <header><h2>…</h2></header> inserted by the WSU Spine Page Builder Template ··········· │
 div.column {
     & > header:first-child {
         display: none;
     }
 }
-
-// <h1>...</h1> ------------------------------------------------------------------------------------
+// ├---------------------------------------------------------------------------------------------------------┤
+// │ ···· <h1>…</h1> selectors ············································································· │
 div.column {
     h1 {
         padding-bottom: 0;
@@ -49,8 +46,8 @@ div.column {
         margin-top: 0;
     }
 }
-
-// <h2>...</h2> ------------------------------------------------------------------------------------
+// ├---------------------------------------------------------------------------------------------------------┤
+// │ ···· <h2>…</h2> selectors ············································································· │
 div.column {
     h2 {
         padding: 0 0 0 .1em;
@@ -124,7 +121,11 @@ div.column {
     }
 }
 
-// <h3>...</h3> ------------------------------------------------------------------------------------
+h2.article-title a {
+    border-bottom: none;
+}
+// ├---------------------------------------------------------------------------------------------------------┤
+// │ ···· <h3>…</h3> selectors ············································································· │
 div.column {
     h3 {
         padding: 0 0 0 .1em;
@@ -182,8 +183,8 @@ div.column {
         margin-top: 0;
     }
 }
-    
-// <h4>...</h4> ------------------------------------------------------------------------------------
+// ├---------------------------------------------------------------------------------------------------------┤
+// │ ···· <h4>…</h4> selectors ············································································· │
 div.column {
     h4 {
         padding: 0;
@@ -210,8 +211,8 @@ div.column {
         }
     }
 }
-
-// <hN>...</hN> ------------------------------------------------------------------------------------
+// ├---------------------------------------------------------------------------------------------------------┤
+// │ ···· <hN>…</hN> selectors ············································································· │
 div.column {
     h3.gray, h4.gray {
         color: @hex-darker-gray;
@@ -230,3 +231,78 @@ section {
         }
     }
 }
+
+div.column {
+    header.article-header {
+        h1.article-title, h2.article-title {
+            font-size: (@v-p-sz * 2);
+            @media all {
+                @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                    font-size: (@v-p-sz * 2 * @v-scl-dwn);
+                }            
+                @media (max-width: @v-mbl-thrshld) {
+                        font-size: (@v-p-sz * 2 * @v-scl-dwn * @v-scl-dwn);
+                }
+            }
+        }
+    }
+}
+
+// ├---------------------------------------------------------------------------------------------------------┤
+// │ ···· <header>…<header> selectors ······································································ │
+header.main-header {
+    span.sup-header-default {
+        margin-bottom: .5rem;
+        font-size: .9rem;
+        @media all {
+            @media (max-width: @v-mbl-thrshld) {
+                font-size: .75rem;
+            }
+        }
+    }
+    span.sub-header-default {
+        @media all {
+            font-size: 2.5rem;
+            line-height: 0.8em;
+            @media (max-width: @v-mbl-thrshld) {
+                font-size: 2.08333rem;
+                line-height: 1em;
+            }
+//            @media (min-width: 494px) {
+//                @media (max-width: 561px) {
+//                    font-size: 1.3rem;
+//                    line-height: 1em;
+//                }
+//            }
+        }
+    }
+    sub.sub-header {
+        @media all {
+            font-size: 2.5rem;
+            line-height: 0.8em;
+            @media (max-width: @v-mbl-thrshld) {
+                font-size: 2.08333rem;
+                line-height: 1em;
+            }
+//            @media (min-width: 494px) and (max-width: 561px) {
+//                font-size: 1.3rem;
+//                line-height: 1em;
+//            }
+        }
+    }
+    &.centered {
+        @media (min-width: @v-lrgfrmt-thrshld) {
+            text-align: center;
+        }
+    }
+    div.header-group.centered {
+        @media (min-width: @v-lrgfrmt-thrshld) {
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+             -webkit-transform: translateX(-50%);
+             -ms-transform: translateX(-50%);
+        }
+    }
+}
+// └─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
