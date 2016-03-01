@@ -458,7 +458,7 @@ div.column {
 //
     section {
         position: relative;
-        &+section {
+        &+section:not(.no-top-margin) {
             margin-top: @v-dflt-spcng;
         }
     }
