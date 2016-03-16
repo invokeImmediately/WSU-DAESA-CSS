@@ -1,0 +1,87 @@
+--------------------------------------------------------------------------------------------------------------
+  Blendoku Medium Level 3 Color Progression; from left-to-right, top-to-bottom.
+---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+#00b4ff / r000g180b255 / contrasting text = black
+
+#40c6ff / r064g198b255 / contrasting text = black
+#279ed1 / r039g158b209 / contrasting text = black
+#006ca2 / r000g108b162 / contrasting text = white
+
+#61b4d9 / r097g180b217 / contrasting text = black
+#448daf / r068g141b175 / contrasting text = white
+#286080 / r040g096b128 / contrasting text = white
+
+#7ba6bb / r123g166b187 / contrasting text = black
+#5a8094 / r090g128b148 / contrasting text = white
+#405a6a / r064g090b106 / contrasting text = white
+
+#e3f3ff / r227g243b255 / contrasting text = black
+#b6c2ce / r182g194b206 / contrasting text = black
+#8f9aa2 / r143g154b162 / contrasting text = black
+#6c767f / r108g118b127 / contrasting text = white
+#4e565e / r078g086b094 / contrasting text = white
+#323a40 / r050g058b064 / contrasting text = white
+#1b2026 / r027g032b038 / contrasting text = white
+
+--------------------------------------------------------------------------------------------------------------
+  #981e32 Color Schemes via http://www.colorhexa.com/981e32
+---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+Monochromatic color scale:
+#58111d / rgb(88,17,29) / .crimson-scale-darkest
+#6d1624 / rgb(109,22,36) / .crimson-scale-darker
+#831a2b / rgb(131,26,43) / .crimson-scale-dark
+#981e32 / rgb(152,30,50) / .crimson
+#ad2239 / rgb(173,34,57) / .crimson-scale-light
+#c32640 / rgb(195,38,64) / .crimson-scale-lighter
+#d62d49 / rgb(214,45,73) / .crimson-scale-lightest
+
+Alternatives:
+#981e51 / rgb(152,30,81) / .crimson-alts-bluest
+#981e46 / rgb(152,30,70) / .crimson-alts-bluer
+#981e3c / rgb(152,30,60) / .crimson-alts-blue
+#981e32 / rgb(152,30,50) / .crimson
+#981e28 / rgb(152,30,40) / .crimson-alts-orange
+#981e1e / rgb(152,30,30) / .crimson-alts-oranger
+#98291e / rgb(152,41,30) / .crimson-alts-orangest
+
+Shades:
+#c92842 / rgb(201,40,66) / .crimson-shades-brightest
+#b9243d / rgb(185,36,61) / .crimson-shades-brighter
+#a82137 / rgb(168,33,55) / .crimson-shades-bright
+#981e32 / rgb(152,30,50) / .crimson
+#881b2d / rgb(136,27,45) / .crimson-shades-dim
+#771827 / rgb(119,24,39) / .crimson-shades-shady
+#671422 / rgb(103,20,34) / .crimson-shades-shadowy
+#56111c / rgb(86,17,28) / .crimson-shades-dusky
+#460e17 / rgb(70,14,23) / .crimson-shades-dark
+#360b12 / rgb(54,11,18) / .crimson-shades-darker
+#25070c / rgb(37,7,12) / .crimson-shades-black
+#150407 / rgb(21,4,7) / .crimson-shades-blacker
+#050102 / rgb(5,1,2) / .crimson-shades-blackest
+
+Tints:
+#d62f4a / rgb(214,47,74) / .crimson-tints-light
+#d93f58 / rgb(217,63,88) / .crimson-tints-lighter
+#dc4f66 / rgb(220,79,102) / .crimson-tints-bright
+#e06075 / rgb(224,96,117) / .crimson-tints-brighter
+#e37083 / rgb(227,112,131) / .crimson-tints-shining
+#e68191 / rgb(230,129,145) / .crimson-tints-brilliant
+#e9919f / rgb(233,145,159) / .crimson-tints-radiant
+#eda1ae / rgb(237,161,174) / .crimson-tints-dazzling
+#f0b2bc / rgb(240,178,188) / .crimson-tints-blinding
+#f3c2ca / rgb(243,194,202) / .crimson-tints-white
+#f6d2d8 / rgb(249,227,231) / .crimson-tints-whiter
+#fdf3f5 / rgb(253,243,245) / .crimson-tints-whitest
+
+--------------------------------------------------------------------------------------------------------------
+  RegEx based color parser
+---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+FIND WHAT:
+^(#[0-9a-fA-F]+) / rgb\(([0-9]+),([0-9]+),([0-9]+)\) / \.([a-zA-Z0-9\-]+)$
+\1 = Hex code
+\2 = Red value
+\3 = Green value
+\4 = Blue value
+\5 = Class name
+REPLACE WITH:
+@hex-\5: \1;\r\n.rgb-\5\(\) {\r\n    @rval: \2;\r\n    @gval: \3;\r\n    @rval: \4;\r\n}
