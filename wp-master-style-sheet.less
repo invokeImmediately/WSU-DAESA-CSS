@@ -107,6 +107,10 @@
 // ╠=========================================================================================================╣
 // ║ Selectors that target section-level nodes.                                                              ║
 // ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+body {
+    &:extend(.has-dflt-font);
+    font-size: 16px;
+}
 //
 //     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 //     │ ++++ ARTICLE selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
@@ -137,7 +141,7 @@ section {
         @media screen {
             div.header-content {
                 h1 {
-                    font-family: 'Open Sans Condensed', 'Open Sans';
+                    &:extend(.has-alt-font);
                     font-size: 70px;
                     line-height: 1.071428571428571em;
                     color: @hex-white;
@@ -152,7 +156,7 @@ section {
                     -webkit-font-smoothing: antialiased !important;
                 }
                 h2 {
-                    font-family: 'Open Sans Condensed', 'Open Sans';
+                    &:extend(.has-alt-font);
                     margin-bottom: .75rem;
                     font-size: 3.0238rem;
                     line-height: 0.8em;
@@ -636,8 +640,7 @@ mark.highlight {
 //
 span {
     &.accentuated-text {
-        font-family: 'Open Sans Condensed', 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode',
-         'Lucida Sans', Geneva, Verdana, sans-serif;
+        &:extend(.has-alt-font);
         font-weight: 700;
         font-size: 1.3em;
         line-height: normal;

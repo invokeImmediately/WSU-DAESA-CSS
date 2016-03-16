@@ -69,10 +69,9 @@ div.column {
             line-height: @v-artcl-tgln-lnhght;
             font-weight: @v-artcl-tgln-wght;
             &.sans {
+                &:extend(.has-alt-font);
                 color: @hex-darkest-gray;
                 font-weight: 300;
-                font-family: 'Open Sans Condensed', 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode',
-                 'Lucida Sans', Geneva, Verdana, sans-serif;
                 letter-spacing: 0.5px;
                 & > span.lead-in {
                     color: @hex-dark-blue;

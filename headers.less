@@ -16,10 +16,10 @@ div.column {
 // │ ···· <h1>…</h1> selectors ············································································· │
 div.column {
     h1 {
+        &:extend(.has-dflt-font);
         padding-bottom: 0;
         margin-top: 1.5rem;
         margin-bottom: .75rem;
-        font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', sans-serif;
         font-size: @v-p-sz * 3;
         @media all {
             @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-tblt-thrshld) {
@@ -50,11 +50,11 @@ div.column {
 // │ ···· <h2>…</h2> selectors ············································································· │
 div.column {
     h2 {
+        &:extend(.has-dflt-font);
         padding: 0 0 0 .1em;
         margin-top: 1.5rem;
          margin-bottom: .75rem;
          margin-left: -.1em;
-        font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', sans-serif;
         font-size: @v-p-sz * 2.2;
         @media all {
             @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-tblt-thrshld) {
@@ -128,11 +128,11 @@ h2.article-title a {
 // │ ···· <h3>…</h3> selectors ············································································· │
 div.column {
     h3 {
+        &:extend(.has-dflt-font);
         padding: 0 0 0 .1em;
         margin-top: 1.5rem;
         margin-bottom: .75rem;
         margin-left: -.1em;
-        font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', sans-serif;
         font-size: @v-p-sz * 1.7;
         @media all {
             @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-tblt-thrshld) {
@@ -187,10 +187,10 @@ div.column {
 // │ ···· <h4>…</h4> selectors ············································································· │
 div.column {
     h4 {
+        &:extend(.has-dflt-font);
         padding: 0;
         margin-top: 1rem;
         margin-bottom: .5rem;
-        font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Sans', 'Lucida Grande', sans-serif;
         font-size: @v-p-sz * 1.4;
         line-height: 1.2em;
         @media all {
