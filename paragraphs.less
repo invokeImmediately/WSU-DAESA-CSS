@@ -115,11 +115,14 @@ div.column {
         // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
         &.award-quote {
             margin-left: @v-dflt-spcng;
-             margin-bottom: @v-btm-pads / 2;
              margin-right: @v-dflt-spcng;
+            &:not(:last-child) {
+                margin-bottom: (@v-btm-pads / 2);
+            }
         }
         // TODO: Move to [//github.com/invokeImmediately/distinguishedscholarships.wsu.edu/] ■
         &.award-quote-source {
+            font-size: 0.95em;
             font-style: italic;
             margin-right: @v-dflt-spcng;
             margin-left: @v-dflt-spcng;
