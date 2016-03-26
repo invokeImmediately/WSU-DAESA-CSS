@@ -44,7 +44,7 @@
             box-shadow: @parameters;    
 }
 
-.textShadow3D(@color, @size) when (iscolor(@color)) and when (ispixel(@size)) {
+.textShadow3D(@color, @size) when (iscolor(@color)) and (ispixel(@size)) {
     text-shadow: 0 round((@size/6),4) 0 multiply(@color,#cccccc),
                  0 round((@size/3),4) 0 multiply(@color,#c9c9c9),
                  0 round((@size/2),4) 0 multiply(@color,#bbbbbb),
