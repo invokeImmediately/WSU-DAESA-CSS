@@ -1,47 +1,62 @@
 .keyframes(@name; @ruleset) {
     @-webkit-keyframes @name { @ruleset(); }
     @-moz-keyframes @name { @ruleset(); }
-    @-o-keyframes @name { @ruleset(); }
     @keyframes @name { @ruleset(); }
 }
 
 .animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when (@name = none) and (@delay = 0s) {
     -webkit-animation: @name;
        -moz-animation: @name;
-         -o-animation: @name;
             animation: @name;
 }
 
 .animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when not (@name = none) and (@delay = 0s) {
     -webkit-animation: @name @duration @timing @iterations;
        -moz-animation: @name @duration @timing @iterations;
-         -o-animation: @name @duration @timing @iterations;
             animation: @name @duration @timing @iterations;
 }
 
 .animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when not (@name = none) and not (@delay = 0s) {
     -webkit-animation: @name @duration @timing @iterations;
        -moz-animation: @name @duration @timing @iterations;
-         -o-animation: @name @duration @timing @iterations;
             animation: @name @duration @timing @iterations;
     -webkit-animation-delay: @delay;
        -moz-animation-delay: @delay;
-         -o-animation-delay: @delay;
             animation-delay: @delay;
 }
 
 .transform(@operations) {
     -webkit-transform: @operations;
        -moz-transform: @operations;
-         -o-transform: @operations;
+//         -o-transform: @operations; // Vendor prefix only used in Opera 11.5.
             transform: @operations;
 }
 
 .transition(@parameters) {
     -webkit-transition: @parameters;
-       -moz-transition: @parameters;
-         -o-transition: @parameters;
+       -moz-transition: @operations;
+//         -o-transition: @operations; // Vendor prefix only used in Opera 11.5.
             transition: @parameters;
+}
+
+.box-shadow(@parameters) {
+    -webkit-box-shadow: @parameters;
+            box-shadow: @parameters;    
+}
+
+.textShadow3D(@color, @size) when (iscolor(@color)) and when (ispixel(@size)) {
+    text-shadow: 0 round((@size/6),4) 0 multiply(@color,#cccccc),
+                 0 round((@size/3),4) 0 multiply(@color,#c9c9c9),
+                 0 round((@size/2),4) 0 multiply(@color,#bbbbbb),
+                 0 round((@size*2/3),4) 0 multiply(@color,#b9b9b9),
+                 0 round((@size*5/6),4) 0 multiply(@color,#aaaaaa),
+                 0 @size round((@size/6),4) rgba(0,0,0,.1),
+                 0 0 round((@size*5/6),4) rgba(0,0,0,.1),
+                 0 round((@size/6) round((@size/2),4) rgba(0,0,0,.3),
+                 0 round((@size/2) round((@size*5/6),4) rgba(0,0,0,.2),
+                 0 round((@size*5/6) round((@size*5/3),4) rgba(0,0,0,.25),
+                 0 round((@size*5/3) round((@size*5/3),4) rgba(0,0,0,.2),
+                 0 round((@size*10/3) round((@size*10/3),4) rgba(0,0,0,.15);
 }
 
 @rules-fade-in-from-left: {
@@ -131,3 +146,15 @@
 		opacity: 1;
 	}
 };
+
+@rules-pulsate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+@rules-vrtcl-cntrd-pulsate {
+    0% { transform: scale(1) translate(-50%,-50%); }
+    50% { transform: scale(1.2) translate(-50%,-50%); }
+    100% { transform: scale(1) translate(-50%,-50%); }
+}
