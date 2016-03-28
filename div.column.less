@@ -1,6 +1,6 @@
 section.pad-top {
     &.half-pad, div.column.half-pad {
-        padding-top: 1rem;
+        padding-top: (@v-dflt-spcng / 2);
     }
 }
 
@@ -12,6 +12,7 @@ section.pad-top {
  *  ├----------------------------------------------------------------------------------------------┤
  */
 div.column {
+    font-size: @v-clmn-sz;
     &:extend(.has-dflt-font);
 	&:nth-child(1) {
 		margin-top: 0;
