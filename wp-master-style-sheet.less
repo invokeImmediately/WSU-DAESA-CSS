@@ -901,7 +901,7 @@ div.read-more-target {
          border-right: 8px solid transparent;
          border-bottom: 8px solid @hex-crimson;
          border-left: 8px solid transparent;
-        .transition("all 0.3s ease");
+        .transition(all 0.3s ease);
     }
     &:before {
         content: "Click to expand";
@@ -909,17 +909,18 @@ div.read-more-target {
         top: 0;
          right: 0;
         color: @hex-crimson;
-        font-size: 0.85em;
+        font-size: 12px;
+        text-transform: none;
         opacity: 0;
-        .transform("translate(-125%, -50%)");
-        .transition("all 0.3s ease");
+        .transform(translate(-125%, -50%));
+        .transition(all 0.3s ease);
     }
     &:hover {
         &:after {
             border-top: 8px solid transparent;
-            border-right: none;
+            border-right: 8px solid @hex-light-crimson;
             border-bottom: 8px solid transparent;
-            border-left: 8px solid @hex-light-crimson;
+            border-left: none;
         }
         &:before { opacity: 0.5; }
     }
