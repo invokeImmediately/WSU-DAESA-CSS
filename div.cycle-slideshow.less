@@ -15,7 +15,7 @@ div.column {
         &:hover {
             font-size: 1.3333rem;
             line-height: 1.799955rem;
-            & > .inner-banner-content {
+            & > div.builder-banner-inner-content {
                 .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.9);
             }
         }
@@ -29,7 +29,7 @@ div.column {
         position: absolute;
         bottom: 0;
         width: 100%;
-        .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.5);
+        .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.6);
         p {
             padding: 10px;
             font-size: inherit;
@@ -77,10 +77,10 @@ div.column {
             font-size: 1.7704vw;
             line-height: 2.39004vw;
         }
-        &:hover ~ div.builder-banner-overlay {
-            top: ~"calc(100% - 4.78008vw - 1.66vw)";
-            height: ~"calc(4.78008vw + 1.66vw)";
-        }
+//        &:hover ~ div.builder-banner-overlay {
+//            top: ~"calc(100% - 4.78008vw - 1.66vw)";
+//            height: ~"calc(4.78008vw + 1.66vw)";
+//        }
     }    
     
 //    div.column div.builder-banner-overlay {
