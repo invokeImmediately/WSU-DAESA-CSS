@@ -16,7 +16,7 @@ div.column {
             font-size: 1.3333rem;
             line-height: 1.799955rem;
             & > .inner-banner-content {
-                .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.6667);                
+                .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.9);
             }
         }
 //        &:hover ~ .builder-banner-overlay {
@@ -28,7 +28,8 @@ div.column {
     div.builder-banner-inner-content {
         position: absolute;
         bottom: 0;
-        .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.9);
+        width: 100%;
+        .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.5);
         p {
             padding: 10px;
             font-size: inherit;
