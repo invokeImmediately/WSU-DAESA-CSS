@@ -19,17 +19,15 @@ div.column {
                 .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.9);
             }
         }
-//        &:hover ~ .builder-banner-overlay {
-//            .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.9);
-//            height: ~"calc(3.59991rem + 20px)";
-//            top: ~"calc(100% - 3.59991rem - 20px)";
-//        }
     }
+    
     div.builder-banner-inner-content {
         position: absolute;
         bottom: 0;
         width: 100%;
         .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.6);
+        font-size: inherit;
+        line-height: inherit;
         p {
             padding: 10px;
             font-size: inherit;
@@ -55,21 +53,13 @@ div.column {
             }
         }
     }
+    
     div.builder-banner-overlay {
         display: none;
-//        height: ~"calc(2.7rem + 20px)";
-//        top: ~"calc(100% - 2.7rem - 20px)";
-//        .rgb-black(); background-color: rgba(@rval,@gval,@bval,0.6667);
-//        .rgb-gray(); border-color: rgba(@rval,@gval,@bval,0.4);
-//        color: #949b9d;
-//        transition: background-color .4s linear, height .15s linear, top .15s linear;
-//         -webkit-transition: background-color .4s linear, height .15s linear, top .15s linear;
-//         -moz-transition: background-color .4s linear, height .15s linear, top .15s linear;
-//         -o-transition: background-color .4s linear, height .15s linear, top .15s linear;
     }
 }
 
-@media screen and (max-width: 1204px) {
+@media screen and (max-width: (@v-bckgrnd-thrshld - 1)) {
     div.column div.builder-banner-content {
         font-size: 1.3278vw;
         line-height: 1.79253vw;
@@ -77,16 +67,7 @@ div.column {
             font-size: 1.7704vw;
             line-height: 2.39004vw;
         }
-//        &:hover ~ div.builder-banner-overlay {
-//            top: ~"calc(100% - 4.78008vw - 1.66vw)";
-//            height: ~"calc(4.78008vw + 1.66vw)";
-//        }
     }    
-    
-//    div.column div.builder-banner-overlay {
-//        top: ~"calc(100% - 3.58506vw - 1.66vw)";
-//        height: ~"calc(3.58506vw + 1.66vw)";
-//    }
         
     div.column div.builder-banner-inner-content p {
         padding: 1.0vw;
@@ -96,7 +77,7 @@ div.column {
     }
 }
 
-@media screen and (max-width: 791px) {
+@media screen and (max-width: @v-spn-thrshld) {
     div.column div.builder-banner-content {
         font-size: 12px;
         line-height: 16.2px;
@@ -105,15 +86,11 @@ div.column {
             line-height: 18.9px;
         }
     }    
-//    div.column div.builder-banner-overlay {
-//        height: auto;
-//    }
 }
 
+// TODO: Move back to wp-master-style-sheet.less
 @media screen and (min-width: 906px) {
     div.readability-controlled {
-/*      margin-right: auto;
-        margin-left: auto; */
         width: 70%;
     }
 }
