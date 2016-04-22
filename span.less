@@ -35,4 +35,14 @@ span {
             color: @hex-darker-blue;
         }
     }
+    &.hides-with-spine {
+        @media all and (max-width: @v-spn-thrshld) {
+            display: none;
+        }
+    }
+    &.hides-from-spine {
+        @media all and (min-width: (@v-spn-thrshld + 1)) {
+            display: none;
+        }
+    }
 }
