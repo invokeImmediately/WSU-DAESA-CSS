@@ -562,40 +562,7 @@ mark.highlight {
 //     │ ++++ SPAN selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
-span {
-    &.accentuated-text {
-        &:extend(.has-alt-font);
-        font-weight: 700;
-        font-size: 1.3em;
-        line-height: normal;
-        color: @hex-dark-blue;
-        &.brighter {
-            color: @hex-blue;
-        }
-        &.gray {
-            color: @hex-dark-gray;
-            &.brighter {
-                color: @hex-less-dark-gray;
-            }
-        }
-    }
-    &.has-tool-tip {
-        margin-bottom: -3px;
-        .rgb-accent-blue(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.25);
-        color: @hex-accent-blue;
-        transition-property: color, background, border-color;
-         -webkit-transition-property: color, background, border-color;
-        transition-duration: .3s, .3s, .3s;
-         -webkit-transition-duration: .3s, .3s, .3s;
-        transition-timing-function: ease, ease, ease;
-         -webkit-transition-timing-function: ease, ease, ease;
-        &:hover {
-            .rgb-accent-blue(); background-color: rgba(@rval,@gval,@bval,0.2);
-            border-color: rgba(@rval,@gval,@bval,0.67);
-            color: @hex-darker-blue;
-        }
-    }
-}
+@import "span.less";
 //
 //     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 //     │ ++++ CITE selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
