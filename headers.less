@@ -304,8 +304,16 @@ header.main-header {
             text-align: left;
         }
     }
+    div.header-group { text-align: inherit; }
     div.header-group.centered {
         @media (min-width: @v-lrgfrmt-thrshld) {
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+             -webkit-transform: translateX(-50%);
+             -ms-transform: translateX(-50%);
+        }
+        @media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
             width: 100%;
             left: 50%;
             transform: translateX(-50%);
