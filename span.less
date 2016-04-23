@@ -45,4 +45,14 @@ span {
             display: none;
         }
     }
+    &.hides-with-rghtclmn {
+        @media all and (max-width: @v-rghtclmn-thrshld) {
+            display: none;
+        }
+    }
+    &.hides-from-rghtclmn {
+        @media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+            display: none;
+        }
+    }
 }
