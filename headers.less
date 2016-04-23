@@ -294,6 +294,15 @@ header.main-header {
         @media (min-width: @v-lrgfrmt-thrshld) {
             text-align: center;
         }
+        @media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+            text-align: left;
+        }
+        @media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+            text-align: center;
+        }
+        @media (max-width: @v-tblt-thrshld) {
+            text-align: left;
+        }
     }
     div.header-group.centered {
         @media (min-width: @v-lrgfrmt-thrshld) {
