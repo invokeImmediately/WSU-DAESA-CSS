@@ -55,10 +55,7 @@ div.column {
             }
         }
         font-weight: bold;
-        transition: all 0.25s linear;
-         -webkit-transition: all 0.25s linear;
-         -moz-transition: all 0.25s linear;
-         -o-transition: all 0.25s linear;
+        .transition(~"all 0.25s linear");
         &:after {
             content: "";
             position: absolute;
@@ -71,10 +68,7 @@ div.column {
             border-right: 8px solid transparent;
             border-bottom: none;
             border-left: 8px solid transparent;
-            transition: all 0.3s ease;
-             -webkit-transition: all 0.3s ease;
-             -moz-transition: all 0.3s ease;
-             -o-transition: all 0.3s ease;
+            .transition(~"all 0.3s ease");
         }
         &:hover {
             background-color: @hex-dark-gray;
@@ -282,102 +276,6 @@ div.column {
     }
     h1 > a, h2 > a, h3 > a, h4 > a {
         line-height: 1.35em;
-    }
-    
-/*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- *         │ ···· ASIDE children of div.column elements ············································ │
- *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- */
-    aside.article-sidebar {
-        float: right;
-        width: 33%;
-        min-width: 230px;
-        padding: .8rem;
-        margin-left: 1rem;
-        margin-bottom: 1rem;
-        background: @hex-bright-orange;
-        border: 1px solid #6d441f;
-        box-shadow: 1px 1px 2px rgba(109,68,31,0.5);
-        font-size: .8rem;
-        color: #464e54;
-        &:first-child+h1, &:first-child+h2, &:first-child+h3, &:first-child+h4 {
-            margin-top: 0;
-        }
-        p, ol, ul {
-            font-size: inherit;
-            line-height: normal;
-        }
-        p {
-            text-align: left;
-            &:not(:last-child) {
-                    margin-bottom: 0.8rem;
-            }
-        }
-        ol, ul {
-            padding-bottom: 0;
-        }
-        h2 + hr {
-            margin-top: .25rem;
-            background-color: rgba(70,78,84,0.75);
-        }
-        h3 {
-            font-size: 1.275rem;
-            margin-top: 1.2rem;
-            margin-bottom: 0;
-            &:first-child {
-                margin-top: 0;
-            }
-        }
-        h4 {
-            font-size: 1.05rem;
-            &:first-child {
-                margin-top: 0;
-            }
-        }
-        @media screen {
-            @media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-spn-thrshld + 109)) {
-                position: absolute;
-                 right: 0px;
-                 top: 0px;
-                width: 230px;
-                transform-origin: 100% 0%;
-                 -webkit-transform-origin: 100% 0%;
-                 -ms-transform-origin: 100% 0%;
-                transform: rotate(-90deg);
-                 -webkit-transform: rotate(-90deg);
-                 -ms-transform: rotate(-90deg);
-                transition: transform .25s ease-out;
-                 -webkit-transition: transform .25s ease-out;
-                 -moz-transition: transform .25s ease-out;
-                 -o-transition: transform .25s ease-out;                        
-                &:hover {
-                    transform: none;
-                     -webkit-transform: none;
-                     -ms-transform: none;
-                }
-            }
-            @media (max-width: (@v-mbl-thrshld + 160)) {
-                position: absolute;
-                 right: -2rem;
-                 top: 0px;
-                width: 230px;
-                transform-origin: 100% 0%;
-                 -webkit-transform-origin: 100% 0%;
-                 -ms-transform-origin: 100% 0%;
-                transform: rotate(-90deg) translateY(-2rem);
-                 -webkit-transform: rotate(-90deg) translateY(-2rem);
-                 -ms-transform: rotate(-90deg) translateY(-2rem);
-                 -webkit-transition: transform .25s ease-out;
-                transition: transform .25s ease-out;
-                 -moz-transition: transform .25s ease-out;
-                 -o-transition: transform .25s ease-out;
-                &:hover {
-                    transform: none;
-                     -webkit-transform: none;
-                     -ms-transform: none;
-                }
-            }
-        }
     }
     
 /*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
