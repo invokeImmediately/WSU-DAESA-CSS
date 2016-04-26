@@ -36,7 +36,10 @@ div.column {
         }
         &:not(:last-child):not(.no-btm-margin) {
             margin-bottom: @v-btm-mrgns;
-        }	
+        }
+        &.btm-margin-override:not(:last-child) {
+            margin-bottom: 0;
+        }
         &.double-margins:not(:last-child) {
             margin-bottom: @v-btm-mrgns * 2;
         }	
