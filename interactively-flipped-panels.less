@@ -57,7 +57,6 @@ div.interactively-flipped-panels {
             padding-bottom: 36.9762%;
              padding-bottom: ~"calc(50% * 0.8 - 1.5em)";
             margin: 1em;
-            .transition(~"width linear 0.25s, padding linear 0.25s");
             @media all {
                 @media (max-width: 480px) {
                     padding-bottom: 76.9762%;
@@ -294,6 +293,7 @@ div.interactively-flipped-panels {
             &.top-left:hover, &.top-right:hover, &.bottom-left:hover, &.bottom-right:hover {
                 width: ~"calc(100% - 2em)";
                 padding-bottom: ~"calc((50% * 0.8 - 2em) * 2 + 2em)";
+                .transition(~"width linear 0.25s, padding linear 0.25s");
                 @media all {
                     @media (max-width: 480px) {
                         position: relative;
