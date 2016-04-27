@@ -45,7 +45,7 @@ div.interactively-flipped-panels {
             @media (max-width: 480px) {
                 width: 100%;
                 padding-bottom: 320%;
-                 padding-bottom: ~"calc((100% * 0.8) * 4)";
+                padding-bottom: ~"calc((100% * 0.8) * 4)";
             }
         }
         div.panel-wrapper {
@@ -135,7 +135,7 @@ div.interactively-flipped-panels {
                     width: 100%;
                     height: 100%;
                     z-index: 10;
-                    opacity: 1.0;
+                    opacity: 1;
                     text-transform: uppercase;
                     p {
                         padding: 0.25em;
@@ -260,51 +260,56 @@ div.interactively-flipped-panels {
                 z-index: 11;
                 @media all {
                     @media (max-width: 480px) {
-                        width: 96.9762%;
-                         width: 100%;
-                        padding-bottom: 313.3477%;
-                         padding-bottom: ~"calc(100% * 0.8 * 4)";
+                        width: 100%;
+//                        padding-bottom: 313.3477%;
+//                         padding-bottom: ~"calc(100% * 0.8 * 4)";
+                        padding-bottom: 76.9762%;
+                        padding-bottom: ~"calc(100% * 0.8)";
                     }
                 }
                 div.panel {
                     div.front {
                         opacity: 0;
-                        transition-property: opacity;
-                         -webkit-transition-property: opacity;
-                        transition-delay: 0.5s;
-                         -webkit-transition-delay: 0.5s;
-                        transition-duration: .25s;
-                         -webkit-transition-duration: .25s;
-                        transition-timing-function: linear;
-                         -webkit-transition-timing-function: linear;
+                        .transition(~"opacity 0.25s linear 0.5s");
+//                        transition-property: opacity;
+//                         -webkit-transition-property: opacity;
+//                        transition-delay: 0.5s;
+//                         -webkit-transition-delay: 0.5s;
+//                        transition-duration: .25s;
+//                         -webkit-transition-duration: .25s;
+//                        transition-timing-function: linear;
+//                         -webkit-transition-timing-function: linear;
                     }
                     div.rear {
                         opacity: 1;
-                        transition-property: opacity;
-                         -webkit-transition-property: opacity;
-                        transition-delay: 0.5s;
-                         -webkit-transition-delay: 0.5s;
-                        transition-duration: 0s;
-                         -webkit-transition-duration: 0s;
-                        transition-timing-function: linear;
-                         -webkit-transition-timing-function: linear;
+                        .transition(~"opacity 0 linear 0.5s");
+//                        transition-property: opacity;
+//                         -webkit-transition-property: opacity;
+//                        transition-delay: 0.5s;
+//                         -webkit-transition-delay: 0.5s;
+//                        transition-duration: 0s;
+//                         -webkit-transition-duration: 0s;
+//                        transition-timing-function: linear;
+//                         -webkit-transition-timing-function: linear;
                     }
                 }
             }
             &.top-left:hover, &.top-right:hover, &.bottom-left:hover, &.bottom-right:hover {
                 width: ~"calc(100% - 2em)";
                 padding-bottom: ~"calc((50% * 0.8 - 2em) * 2 + 2em)";
-                transition-property: width, padding;
-                 -webkit-transition-property: width, padding;
-                transition-duration: 0.25s, 0.25s;
-                 -webkit-transition-duration: 0.25s, 0.25s;
-                transition-timing-function: linear, linear;
-                 -webkit-transition-timing-function: linear, linear;
+                .transition(~"width 0.25s linear 0.25s, padding 0.25s linear 0.25s");
+//                transition-property: width, padding;
+//                 -webkit-transition-property: width, padding;
+//                transition-duration: 0.25s, 0.25s;
+//                 -webkit-transition-duration: 0.25s, 0.25s;
+//                transition-timing-function: linear, linear;
+//                 -webkit-transition-timing-function: linear, linear;
                 @media all {
                     @media (max-width: 480px) {
                         position: relative;
                         width: 100%;
-                        padding-bottom: ~"calc(100% * 0.8 * 4)";
+//                        padding-bottom: ~"calc(100% * 0.8 * 4)";
+                        padding-bottom: ~"calc(100% * 0.8)";
                     }
                 }
             }
@@ -312,13 +317,15 @@ div.interactively-flipped-panels {
         &:hover {
             @media all {
                 @media (max-width: 480px) {
-                    padding-bottom: ~"calc((100% * 0.8) * 3 + (100% * 0.8) * 4)";
-                    transition-property: padding;
-                     -webkit-transition-property: padding;
-                    transition-duration: 0.25s;
-                     -webkit-transition-duration: 0.25s;
-                    transition-timing-function: linear;
-                     -webkit-transition-timing-function: linear;
+                    padding-bottom: 320%;
+                    padding-bottom: ~"calc((100% * 0.8) * 4)";
+//                    padding-bottom: ~"calc((100% * 0.8) * 3 + (100% * 0.8) * 4)";
+//                    transition-property: padding;
+//                     -webkit-transition-property: padding;
+//                    transition-duration: 0.25s;
+//                     -webkit-transition-duration: 0.25s;
+//                    transition-timing-function: linear;
+//                     -webkit-transition-timing-function: linear;
                 }
             }
         }
