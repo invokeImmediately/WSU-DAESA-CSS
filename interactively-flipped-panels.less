@@ -261,8 +261,6 @@ div.interactively-flipped-panels {
                 @media all {
                     @media (max-width: 480px) {
                         width: 100%;
-//                        padding-bottom: 313.3477%;
-//                         padding-bottom: ~"calc(100% * 0.8 * 4)";
                         padding-bottom: 76.9762%;
                         padding-bottom: ~"calc(100% * 0.8)";
                     }
@@ -270,40 +268,34 @@ div.interactively-flipped-panels {
                 div.panel {
                     div.front {
                         opacity: 0;
-                        .transition(~"opacity 0.25s linear 0.5s");
-//                        transition-property: opacity;
-//                         -webkit-transition-property: opacity;
-//                        transition-delay: 0.5s;
-//                         -webkit-transition-delay: 0.5s;
-//                        transition-duration: .25s;
-//                         -webkit-transition-duration: .25s;
-//                        transition-timing-function: linear;
-//                         -webkit-transition-timing-function: linear;
+//                        .transition(~"opacity 0.25s linear 0.5s");
+                        transition-property: opacity;
+                         -webkit-transition-property: opacity;
+                        transition-delay: 0.5s;
+                         -webkit-transition-delay: 0.5s;
+                        transition-duration: .25s;
+                         -webkit-transition-duration: .25s;
+                        transition-timing-function: linear;
+                         -webkit-transition-timing-function: linear;
                     }
                     div.rear {
                         opacity: 1;
-                        .transition(~"opacity 0 linear 0.5s");
-//                        transition-property: opacity;
-//                         -webkit-transition-property: opacity;
-//                        transition-delay: 0.5s;
-//                         -webkit-transition-delay: 0.5s;
-//                        transition-duration: 0s;
-//                         -webkit-transition-duration: 0s;
-//                        transition-timing-function: linear;
-//                         -webkit-transition-timing-function: linear;
+//                        .transition(~"opacity 0 linear 0.5s");
+                        transition-property: opacity;
+                         -webkit-transition-property: opacity;
+                        transition-delay: 0.5s;
+                         -webkit-transition-delay: 0.5s;
+                        transition-duration: 0s;
+                         -webkit-transition-duration: 0s;
+                        transition-timing-function: linear;
+                         -webkit-transition-timing-function: linear;
                     }
                 }
             }
             &.top-left:hover, &.top-right:hover, &.bottom-left:hover, &.bottom-right:hover {
                 width: ~"calc(100% - 2em)";
                 padding-bottom: ~"calc((50% * 0.8 - 2em) * 2 + 2em)";
-                .transition(~"width 0.25s linear 0.25s, padding 0.25s linear 0.25s");
-//                transition-property: width, padding;
-//                 -webkit-transition-property: width, padding;
-//                transition-duration: 0.25s, 0.25s;
-//                 -webkit-transition-duration: 0.25s, 0.25s;
-//                transition-timing-function: linear, linear;
-//                 -webkit-transition-timing-function: linear, linear;
+                .transition(~"width linear 0.25s, padding linear 0.25s");
                 @media all {
                     @media (max-width: 480px) {
                         position: relative;
