@@ -21,33 +21,18 @@ section {
                 h1, h2 {
                     &:extend(.has-alt-font);
                     color: @hex-white;
-                    .textShadow3D(@hex-white,6px);
-                    /*.rgb-black(); text-shadow: 0 1px 0 #bbb,
-                     0 2px 0 #999, 0 3px 0 #777,
-                     0 4px 1px rgba(@rval,@gval,@bval,.1),
-                     0 0 5px rgba(@rval,@gval,@bval,.1),
-                     0 1px 3px rgba(@rval,@gval,@bval,.3),
-                     0 3px 5px rgba(@rval,@gval,@bval,.2),
-                     0 5px 10px rgba(@rval,@gval,@bval,.25),
-                     0 0 2px #000, 0 4px 2px #000;*/
                 }
                 h1 {
                     font-size: 70px;
                     line-height: 1.071428571428571em;
+                    .textShadow3D(@hex-white,6px);
                 }
                 h2 {
                     margin-bottom: .75rem;
                     font-size: 3.0238rem;
                     line-height: 0.8em;
                     text-transform: uppercase;
-                    /*.rgb-black(); text-shadow: 0 1px 0 #bbb,
-                     0 2px 0 #999, 0 3px 0 #777,
-                     0 4px 1px rgba(@rval,@gval,@bval,.1),
-                     0 0 5px rgba(@rval,@gval,@bval,.1),
-                     0 1px 3px rgba(@rval,@gval,@bval,.3),
-                     0 3px 5px rgba(@rval,@gval,@bval,.2),
-                     0 5px 10px rgba(@rval,@gval,@bval,.25),
-                     0 0 2px #000, 0 4px 2px #000;*/
+                    .textShadow3D(@hex-white,4px);
                 }
                 h3 {
                     padding: .1rem .2rem .2rem;
@@ -58,12 +43,13 @@ section {
                     font-size: 1.35rem;
                     text-transform: uppercase;
                     color: @hex-white;
-                    .rgb-black(); text-shadow: 0 .5px 0 #aaa, 0 1px 0 #888,
+                    .textShadow3D(@hex-white,2px);
+                    /*.rgb-black(); text-shadow: 0 .5px 0 #aaa, 0 1px 0 #888,
                      0 1.5px .5px rgba(@rval,@gval,@bval,.1),
                      0 0 2.5px rgba(@rval,@gval,@bval,.1),
                      0 .5px 1.5px rgba(@rval,@gval,@bval,.3),
                      0 1px 2.5px rgba(@rval,@gval,@bval,.2),
-                     0 0 .5px #000, 0 1.5px 1px #000;
+                     0 0 .5px #000, 0 1.5px 1px #000;*/
                 }
             }
         }
