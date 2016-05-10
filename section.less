@@ -126,4 +126,30 @@ section {
             }
         }
     }
+    &.thirds {
+        img.show-when-adjacent {
+            @media all {
+                @media (min-width: (@v-rghtclmn-thrshld+1)) {
+                    width: 100%;
+                    .spaces-top-half;
+                    .spaces-btm-half;
+                }
+                @media (max-width: @v-rghtclmn-thrshld) {
+                    display: none;
+                }
+            }
+        }
+        img.show-when-stacked {
+            @media all {
+                @media (min-width: (@v-rghtclmn-thrshld+1)) {
+                    display: none;
+                }
+                @media (max-width: @v-rghtclmn-thrshld) {
+                    width: 100%;
+                    .spaces-top-half;
+                    .spaces-btm-half;
+                }
+            }
+        }
+    }
 }
