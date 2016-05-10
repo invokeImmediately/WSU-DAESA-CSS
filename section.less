@@ -147,5 +147,17 @@ section {
                 }
             }
         }
+        div.column {
+            p {
+                @media all {
+                    @media (min-width: (@v-rghtclmn-thrshld+1)) {
+                        text-align: left;
+                    }
+                    @media (max-width: @v-mbl-thrshld) {
+                        text-align: left;
+                    }
+                }
+            }
+        }
     }
 }
