@@ -1,0 +1,89 @@
+/*     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+ *     │ ++++ IMG selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+ *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+ */
+img {
+    // TODO: Replace with parametric mixin implementation.
+    &.autoScaled {
+        height: auto;
+        width: 100%;
+    }
+    &.autoScaled-byHeight {
+        height: 100%;
+        width: auto;
+    }
+    &.autoScaledTo90 {
+        height: auto;
+        width: 90%;
+    }
+    &.autoScaledTo80 {
+        height: auto;
+        width: 80%;
+    }
+    &.autoScaledTo70 {
+        height: auto;
+        width: 70%;
+    }
+    &.autoScaledTo60 {
+        height: auto;
+        width: 60%;
+    }
+    &.autoScaledToHalf {
+        height: auto;
+        width: 50%;
+    }
+    &.autoScaledTo40 {
+        height: auto;
+        width: 40%;
+    }
+    &.autoScaledToThird {
+        height: auto;
+        width: 33%;
+    }
+    &.autoScaledTo30 {
+        height: auto;
+        width: 30%;
+    }
+    &.autoScaledToQuarter {
+        height: auto;
+        width: 25%;
+    }
+    &.autoScaledTo20 {
+        height: auto;
+        width: 20%;
+    }
+    &.autoScaledTo10 {
+        height: auto;
+        width: 10%;
+    }
+    &.shiftToCenter {
+        &:extend(.margin-centered);
+        display: block;
+    }
+    &.shiftToLeft {
+        float: left;
+    }
+    &.shiftToRight {
+        float: right;
+    }
+    &.fancy {
+        .rgb-dark-gray(); border: 1px solid rgba(@rval,@gval,@bval,.5);
+        .rgb-black(); box-shadow: 2px 2px 2px rgba(@rval,@gval,@bval,0.5);
+    }
+    &.symbolic-image {
+        float: right;
+        width: 144px;
+        height: auto;
+        margin-left: 20px;
+        margin-bottom: 15px;
+        .rgb-dark-gray(); border: 1px solid rgba(@rval,@gval,@bval,.5);
+        .rgb-black(); box-shadow: 2px 2px 2px rgba(@rval,@gval,@bval,0.5);
+        @media screen {
+            @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                img.symbolic-image {
+                    width: 96px;
+                }
+            }
+        }
+    }
+}
