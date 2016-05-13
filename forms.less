@@ -13,6 +13,7 @@ div.column {
         .gfield_checkbox li label, .gfield_radio li label {
             font-weight: normal;
         }
+        .gform_wrapper .gfield_checkbox li { margin-bottom: 0; }
         .ginput_complex {
             label {
                 margin-top: 0;
@@ -55,7 +56,24 @@ div.column {
             padding-left: 1rem;
         }
     }
-    li.gfield > div.ginput_complex > span > label { color: @hex-dark-grayish-pink; }
+    li.gfield > div.ginput_complex > span > label {
+        color: @hex-dark-grayish-pink;
+    }
+    ul.gform_fields.top_label {
+        & > li.gfield {
+            & > div.gfield_description {
+                padding-top: 0;
+                margin-bottom: 0;
+                color: @hex-dark-grayish-pink;
+            }
+            & > div.ginput_complex {
+                margin-top: 0;
+            }
+        }
+        & > li.gfield + li.gfield {
+            .spaces-top-qrtr;
+        }
+    }
 }
 
 .gform_heading h3.gform_title:extend(div.column h3 all) {}
