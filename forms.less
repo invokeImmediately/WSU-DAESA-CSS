@@ -80,12 +80,9 @@ div.column {
 
 .oue-gf-rqrd-input, .oue-gf-rqrd-select, .oue-gf-hghlghts-rqrd-input, .oue-gf-hghlghts-rqrd-select {
     input, select {
-        transition: background 0.3s ease;
-         -webkit-transition: background 0.3s ease;
-         -moz-transition: background 0.3s ease;
-         -o-transition: background 0.3s ease;
+        .transition(~"background 0.3s ease");
         &:focus {
-            background-color: @hex-bright-blue;
+            background-color: @hex-bright-blue !important;
         }
     }
     &.gfield_contains_required {
@@ -98,10 +95,7 @@ div.column {
 .oue-gf-rqrd-checkbox, .oue-gf-hghlghts-rqrd-checkbox {
     &.gfield_contains_required {
         ul.gfield_checkbox, ul.gfield_radio {
-            transition: background 0.3s ease;
-             -webkit-transition: background 0.3s ease;
-             -moz-transition: background 0.3s ease;
-             -o-transition: background 0.3s ease;
+            .transition(~"background 0.3s ease");
             &:not(.gf-value-entered) {
                 background-color: rgba(255,0,0,0.1);
             }
@@ -111,10 +105,7 @@ div.column {
 
 .oue-gf-rqrd-txtarea, .oue-gf-hghlghts-rqrd-txtarea {
     textarea {
-        transition: background 0.3s ease;
-         -webkit-transition: background 0.3s ease;
-         -moz-transition: background 0.3s ease;
-         -o-transition: background 0.3s ease;
+        .transition(~"background 0.3s ease");
         &:focus {
             background-color: @hex-bright-blue;
         }
@@ -129,10 +120,7 @@ div.column {
 }
 
 .oue-gf-actvtr-checkbox {
-    transition: all 0.3s ease;
-     -webkit-transition: all 0.3s ease;
-     -moz-transition: all 0.3s ease;
-     -o-transition: all 0.3s ease;
+    .transition(~"background 0.3s ease");
     &.gf-activated {
         display: none !important;
     }
@@ -147,7 +135,7 @@ div.column {
 
 .oue-gf-upload-chain {
     input {
-        .transition(background 0.3s ease);
+        .transition(~"background 0.3s ease");
         &:focus {
             background-color: @hex-bright-blue;
         }
