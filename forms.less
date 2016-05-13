@@ -38,25 +38,29 @@ div.column {
             padding-bottom: 0;
         }
         .gform_body > ul {
-            & > li:not(.gsection):not(.gfield_html) + li:not(.gsection):not(.no-top-border)::before {
+            & > li.has-top-border:not(.gsection):not(.gfield_html) + li:not(.gsection)::before, 
+            & > li.has-top-spacer:not(.gsection):not(.gfield_html) + li:not(.gsection)::before {
+                content: "";
                 display: block;
                 width: 95%;
                 height: 0;
                 margin: @v-dflt-spcng auto 0;
-                /*.rgb-dark-gray(); border-top: 1px dashed rgba(@rval,@gval,@bval,0.3333);
-                 border-bottom: 1px dashed rgba(160,160,160,0.25);*/
-                content: "";
+            }
+            & > li.has-top-border:not(.gsection):not(.gfield_html) + li:not(.gsection)::before {
+                .rgb-dark-gray(); border-top: 1px dashed rgba(@rval,@gval,@bval,0.3333);
+                 border-bottom: 1px dashed rgba(160,160,160,0.25);
             }
         }
         #extensions_message {
             padding-left: 1rem;
         }
     }
+    li.gfield > div.ginput_complex > span > label { color: @hex-dark-grayish-pink; }
 }
 
 .gform_heading h3.gform_title:extend(div.column h3 all) {}
 
-.oue-gf-rqrd-input, .oue-gf-rqrd-select, .oue-gf-hghlghts-rqrd {
+.oue-gf-rqrd-input, .oue-gf-rqrd-select, .oue-gf-hghlghts-rqrd-input, .oue-gf-hghlghts-rqrd-select {
     input, select {
         transition: background 0.3s ease;
          -webkit-transition: background 0.3s ease;
