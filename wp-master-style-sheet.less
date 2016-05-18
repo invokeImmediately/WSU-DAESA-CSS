@@ -477,6 +477,7 @@ div.read-more-target {
 //
 .drop-down-toggle {
     position: relative;
+    .transition(~"all 0.3s ease")
     &:after {
         content: "";
         position: absolute;
@@ -504,6 +505,7 @@ div.read-more-target {
         .transition(all 0.3s ease);
     }
     &:hover {
+        .rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.30);        
         &:after {
             border-top: none;
             border-right: 8px solid transparent;
@@ -513,6 +515,7 @@ div.read-more-target {
         &:before { opacity: 0.5; }
     }
     &.activated {
+        .rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.15);
         &:after {
             border-top: 8px solid @hex-crimson;
              border-right: 8px solid transparent;
