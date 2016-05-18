@@ -56,8 +56,13 @@ div.column {
             padding-left: 1rem;
         }
     }
-    li.gfield > div.ginput_complex > span > label {
-        color: @hex-dark-grayish-pink;
+    li.gfield {
+        & > div.ginput_complex > span > label {
+            color: @hex-dark-grayish-pink;
+        }
+        & > div.ginput_container_select > div.chosen-container {
+            width: 100% !important;
+        }
     }
     ul.gform_fields.top_label {
         & > li.gfield {
