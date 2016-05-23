@@ -85,6 +85,17 @@ div.column {
                     letter-spacing: normal;                    
                 }
             }
+            &.home {
+                font-size: @v-artcl-tgln-sz * 1.310345;
+                @media all {
+                    @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                        font-size: @v-artcl-tgln-sz * 1.310345 * @v-scl-dwn;
+                    }
+                    @media (max-width: @v-mbl-thrshld) {
+                        font-size: @v-artcl-tgln-sz * 1.310345 * @v-scl-dwn * @v-scl-dwn;
+                    }
+                }
+            }
         }
         &.no-bottom-pad {
             padding-bottom: 0;
