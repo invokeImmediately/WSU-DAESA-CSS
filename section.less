@@ -161,3 +161,10 @@ section {
         }
     }
 }
+
+section:not(:last-child) {
+    & > *:last-child:not(.vpue-jump-bar) {
+        padding-bottom: 0;
+    }
+}
+
