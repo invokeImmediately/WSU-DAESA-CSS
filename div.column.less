@@ -17,6 +17,9 @@ div.column {
 	&:nth-child(1) {
 		margin-top: 0;
 	}
+    & > *:last-child:not(.no-bottom-pad) {
+        padding-bottom: @v-btm-pads;
+    }
 /*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
  *         │············ GENERIC CLASSES for div.column content containers ························· │
  *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
