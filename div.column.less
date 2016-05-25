@@ -17,9 +17,6 @@ div.column {
 	&:nth-child(1) {
 		margin-top: 0;
 	}
-    & > *:last-child:not(.no-bottom-pad) {
-        padding-bottom: @v-dflt-spcng;
-    }
 /*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
  *         │············ GENERIC CLASSES for div.column content containers ························· │
  *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
@@ -384,6 +381,10 @@ div.column {
             max-width: (@v-tblt-thrshld + 1);
         }
     }
+}
+
+main > section.row:last-child > div.column:last-child > *:last-child:not(.no-bottom-pad) {
+    padding-bottom: @v-dflt-spcng;
 }
 /*         └-----------------------------------------------------------------------------------------┘        
  */
