@@ -255,6 +255,20 @@ ul.content-boxes {
         }
     }
 }
+
+ul.cascaded-layout > li {
+    &.cascade-sizer, &.gutter-sizer {
+        height: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        background: none !important;
+        box-shadow: none !important;
+    }
+    &.gutter-sizer {
+        width: 2% !important;
+    }
+}
 //
 // ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
 // ║ #### TEXT-LEVEL NODES ################################################################################# ║
