@@ -6,16 +6,6 @@
 // │  ╘═» This file assumes [//github.com/invokeImmediately/WSU-UE---CSS/color-palette.less] has             │
 // │       already been imported.                                                                            │
 // ├---------------------------------------------------------------------------------------------------------┤
-// │ ···· Remove all <header><h2>…</h2></header> inserted by the WSU Spine Page Builder Template ··········· │
-div.column {
-    & > header:first-child {
-        display: none;
-    }
-    header:first-child + h1, header:first-child + h2, header:first-child + h3, header:first-child + h4 {
-        margin-top: 0;
-    }
-}
-// ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h1>…</h1> selectors ············································································· │
 div.column {
     h1 {
@@ -320,6 +310,17 @@ header.main-header {
              -webkit-transform: translateX(-50%);
              -ms-transform: translateX(-50%);
         }
+    }
+}
+// ├---------------------------------------------------------------------------------------------------------┤
+// │ ···· Remove all <header><h2>…</h2></header> inserted by the WSU Spine Page Builder Template ··········· │
+div.column {
+    & > header:first-child {
+        display: none;
+    }
+    header:first-child + h1, header:first-child + h2.fancy.with-top-border,
+     header:first-child + h3.fancy.with-top-border {
+        margin-top: 0;
     }
 }
 // └─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
