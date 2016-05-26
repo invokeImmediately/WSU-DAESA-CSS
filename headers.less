@@ -11,6 +11,9 @@ div.column {
     & > header:first-child {
         display: none;
     }
+    header:first-child + h1, header:first-child + h2, header:first-child + h3, header:first-child + h4 {
+        margin-top: 0;
+    }
 }
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h1>…</h1> selectors ············································································· │
@@ -41,9 +44,6 @@ div.column {
         &.centered {
             text-align: center;
         }
-    }
-    header:first-child + h1 {
-        margin-top: 0;
     }
 }
 // ├---------------------------------------------------------------------------------------------------------┤
