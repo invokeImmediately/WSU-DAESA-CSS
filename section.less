@@ -63,6 +63,12 @@ section {
                 text-align: left;
             }
         }
+        &.large-format-friendly, &.row.large-format-friendly {
+            @media (min-width: @v-lrgfrmt-thrshld) {
+                .margin-centered;
+                max-width: @v-w-cnstrn-lrg;
+            }
+        }
     }
     &.single.large-format-friendly, &.row.single.large-format-friendly {
         div.column.one {
