@@ -86,41 +86,48 @@ section {
             }
         }
     }
-    &.side-right.large-format-friendly, &.row.side-right.large-format-friendly {
-        @media all {
-            @media (min-width: (@v-lrgfrmt-thrshld + 1)) {
-                &:first-child {
-                    padding-top: (@v-dflt-spcng / 2);
-                }
-                div.column.one {
-                    width: @v-w-cnstrn-lrg;
-                }
-                div.column.two {
-                    width: ~"calc(100% - " @v-w-cnstrn-lrg ~")";
-                    height: 0;
-                    position: relative;
-                    opacity: 0;
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: 1rem;
-                        right: 0;
-                        bottom: 0;
-                        background: @hex-bright-gray;
+    &.side-right {
+        div.column.two {
+            p {
+                text-align: left;
+            }
+        }
+        &.large-format-friendly, &.row.side-right.large-format-friendly {
+            @media all {
+                @media (min-width: (@v-lrgfrmt-thrshld + 1)) {
+                    &:first-child {
+                        padding-top: (@v-dflt-spcng / 2);
+                    }
+                    div.column.one {
+                        width: @v-w-cnstrn-lrg;
+                    }
+                    div.column.two {
+                        width: ~"calc(100% - " @v-w-cnstrn-lrg ~")";
+                        height: 0;
+                        position: relative;
+                        opacity: 0;
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 1rem;
+                            right: 0;
+                            bottom: 0;
+                            background: @hex-bright-gray;
+                        }
                     }
                 }
-            }
-            @media (max-width: @v-lrgfrmt-thrshld) {
-                div.column.one {
-                    width: 100%;
-                    max-width: @v-w-cnstrn-lrg;
-                    float: none;
-                    .margin-centered;
-                    padding-right: 2rem;
-                }
-                div.column.two {
-                    display: none;
+                @media (max-width: @v-lrgfrmt-thrshld) {
+                    div.column.one {
+                        width: 100%;
+                        max-width: @v-w-cnstrn-lrg;
+                        float: none;
+                        .margin-centered;
+                        padding-right: 2rem;
+                    }
+                    div.column.two {
+                        display: none;
+                    }
                 }
             }
         }
