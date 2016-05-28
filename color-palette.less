@@ -24,6 +24,10 @@
  and (@opacity >= 0) and (@opacity <= 1) {
     @returned-3: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-4) and (iscolor(@color))
+ and (@opacity >= 0) and (@opacity <= 1) {
+    @returned-4: rgba(red(@color), green(@color), blue(@color), @opacity);
+}
 
 // -----------------------------------------------------------------------------------------------------------
 //   WSU Color Palette from https://brand.wsu.edu
