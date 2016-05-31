@@ -31,9 +31,6 @@ div.column {
                 text-align: left;
             }
         }
-        &:not(:last-child):not(.no-btm-margin) {
-            margin-bottom: @v-btm-mrgns;
-        }
         &.btm-margin-override:not(:last-child) {
             margin-bottom: 0;
         }
@@ -201,6 +198,14 @@ div.column {
     }
 }
 
+main section.row {
+    &:not(:last-child) > div.column p:not(.no-btm-margin) {
+        margin-bottom: @v-btm-mrgns;
+    }
+    &:last-child) > div.column p:not(:last-child):not(.no-btm-margin) {
+            margin-bottom: @v-btm-mrgns;
+    }
+}
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
  */
  
