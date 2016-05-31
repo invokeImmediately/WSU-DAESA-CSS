@@ -202,8 +202,10 @@ main section.row {
     & > div.column p:not(.no-btm-margin) {
         margin-bottom: @v-btm-mrgns;
     }
-    &:last-child > div.column > p:last-child {
+    &:last-child > div.column {
+        & > p:last-child, & > :not(p):last-child p:last-child {
             margin-bottom: 0;
+        }
     }
 }
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
