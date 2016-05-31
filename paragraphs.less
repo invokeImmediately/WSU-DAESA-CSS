@@ -199,11 +199,11 @@ div.column {
 }
 
 main section.row {
-    &:not(:last-child) > div.column p:not(.no-btm-margin) {
+    & > div.column p:not(.no-btm-margin) {
         margin-bottom: @v-btm-mrgns;
     }
-    &:last-child > div.column > p:not(:last-child):not(.no-btm-margin) {
-            margin-bottom: @v-btm-mrgns;
+    &:last-child > div.column > p:last-child {
+            margin-bottom: 0;
     }
 }
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
