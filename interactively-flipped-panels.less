@@ -268,24 +268,25 @@ div.interactively-flipped-panels {
                 div.panel {
                     div.front {
                         opacity: 0;
+						z-index: 0;
                         @media all {
                             @media (min-width: 481px) {
-                                transition-property: opacity;
-                                 -webkit-transition-property: opacity;
-                                transition-delay: 0.5s;
-                                 -webkit-transition-delay: 0.5s;
-                                transition-duration: 0.25s;
-                                 -webkit-transition-duration: 0.25s;
-                                transition-timing-function: linear;
-                                 -webkit-transition-timing-function: linear;
+                                transition-property: opacity, z-index;
+                                 -webkit-transition-property: opacity, z-index;
+                                transition-delay: 0.5s, 0.5s;
+                                 -webkit-transition-delay: 0.5s, 0.5s;
+                                transition-duration: 0.25s, 0.25s;
+                                 -webkit-transition-duration: 0.25s, 0.25s;
+                                transition-timing-function: linear, step-end;
+                                 -webkit-transition-timing-function: linear, step-end;
                             }
                             @media (max-width: 480px) {
-                                transition-property: opacity;
-                                 -webkit-transition-property: opacity;
-                                transition-duration: 0.25s;
-                                 -webkit-transition-duration: 0.25s;
-                                transition-timing-function: linear;
-                                 -webkit-transition-timing-function: linear;
+                                transition-property: opacity, z-index;
+                                 -webkit-transition-property: opacity, z-index;
+                                transition-duration: 0.25s, 0.25s;
+                                 -webkit-transition-duration: 0.25s, 0.25s;
+                                transition-timing-function: linear, step-end;
+                                 -webkit-transition-timing-function: linear, step-end;
                             }
                         }
                     }
