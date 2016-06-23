@@ -11,7 +11,8 @@
 //     │  Mixins for broadly controlling content layout.                                                 │
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
-.initially-hidden {
+.initially-hidden, 
+div.column .initially-hidden {
     display: none;
 }
 
@@ -20,7 +21,8 @@
 //     │  Mixins for specifying margins and padding.                                                     │
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
-.margin-centered {
+.margin-centered,
+div.column .margin-centered {
     margin-right: auto;
      margin-left: auto;
 }
@@ -56,67 +58,83 @@
     margin-left: (@v-dflt-spcng * @sclng-fctr);
 }
 
-.spaces-top-nrml {
+.spaces-top-nrml,
+div.column .spaces-top-nrml {
     .spaces-top(@sz-xxxlrg);
 }
 
-.spaces-top-nrml {
+.spaces-top-nrml,
+div.column .spaces-top-nrml {
     .spaces-top;
 }
 
-.spaces-top-half {
+.spaces-top-half,
+div.column .spaces-top-half {
     .spaces-top(@sz-xsmll);
 }
 
-.spaces-top-qrtr {
+.spaces-top-qrtr,
+div.column .spaces-top-qrtr {
     .spaces-top(@sz-xxsmll);
 }
 
-.spaces-rgt-nrml {
+.spaces-rgt-nrml,
+div.column .spaces-rgt-nrml {
     .spaces-rgt(@sz-xxxlrg);
 }
 
-.spaces-rgt-nrml {
+.spaces-rgt-nrml,
+div.column .spaces-rgt-nrml {
     .spaces-rgt;
 }
 
-.spaces-rgt-half {
+.spaces-rgt-half,
+div.column .spaces-rgt-half {
     .spaces-rgt(@sz-xsmll);
 }
 
-.spaces-rgt-qrtr {
+.spaces-rgt-qrtr,
+div.column .spaces-rgt-qrtr {
     .spaces-rgt(@sz-xxsmll);
 }
 
-.spaces-btm-full {
+.spaces-btm-full,
+div.column .spaces-btm-full {
     .spaces-btm(@sz-xxxlrg);
 }
 
-.spaces-btm-nrml {
+.spaces-btm-nrml,
+div.column .spaces-btm-nrml {
     .spaces-btm;
 }
 
-.spaces-btm-half {
+.spaces-btm-half,
+div.column .spaces-btm-half {
     .spaces-btm(@sz-xsmll);
 }
 
-.spaces-btm-qrtr {
+.spaces-btm-qrtr,
+div.column .spaces-btm-qrtr {
     .spaces-btm(@sz-xxsmll);
 }
 
-.spaces-lft-nrml {
+.spaces-lft-nrml,
+div.column .spaces-lft-nrml {
     .spaces-lft(@sz-xxxlrg);
 }
 
-.spaces-lft-nrml {
+.spaces-lft-nrml,
+div.column .spaces-lft-nrml {
     .spaces-lft;
 }
 
-.spaces-lft-half {
+.spaces-lft-half,
+div.column .spaces-lft-half {
     .spaces-lft(@sz-xsmll);
 }
 
-.spaces-lft-qrtr {
+.spaces-lft-qrtr,
+div.column .spaces-lft-qrtr {
     .spaces-lft(@sz-xxsmll);
 }
 
@@ -136,45 +154,55 @@
     padding-right: (@v-dflt-spcng * @sclng-fctr);
 }
 
-.pads-top-nrml {
+.pads-top-nrml,
+div.column .pads-top-nrml {
     .pads-top;
 }
 
-.pads-top-half {
+.pads-top-half,
+div.column .pads-top-half {
     .pads-top(@sz-xsmll);
 }
 
-.pads-rgt-nrml {
+.pads-rgt-nrml,
+div.column .pads-rgt-nrml {
     .pads-rgt;
 }
 
-.pads-rgt-half {
+.pads-rgt-half,
+div.column .pads-rgt-half {
     .pads-rgt(@sz-xsmll);
 }
 
-.pads-btm-nrml {
+.pads-btm-nrml,
+div.column .pads-btm-nrml {
     .pads-btm;
 }
 
-.pads-btm-half {
+.pads-btm-half,
+div.column .pads-btm-half {
     .pads-btm(@sz-xsmll);
 }
 
-.pads-lft-nrml {
+.pads-lft-nrml,
+div.column .pads-lft-nrml {
     .pads-lft;
 }
 
-.pads-lft-half {
+.pads-lft-half,
+div.column .pads-lft-half {
     .pads-lft(@sz-xsmll);
 }
 
 .generate-indents(4);
 
 .generate-indents(@n, @i: 1) when (@i <= @n) {
-    .indent-@{i}x {
+    .indent-@{i}x,
+	div.column .indent-@{i}x {
         padding-left: (2rem * @i);
     }
-    .indent-rgt-@{i}x {
+    .indent-rgt-@{i}x,
+	div.column .indent-rgt-@{i}x {
         padding-right: (2rem * @i);
     }
     .generate-indents(@n, (@i + 1));
@@ -185,11 +213,15 @@
 //     │  Mixins for controlling the layout, sizing, and positioning of text nodes.                      │
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
-.breaks-words {
+.breaks-words,
+div.column .breaks-words {
     word-wrap: break-word;
 }
 
-.centered, .centers-text {
+.centered,
+div.column .centered,
+.centers-text,
+div.column .centers-text {
     text-align: center;
 }
 
@@ -210,7 +242,8 @@
 //     │  Mixins for specifying the border around element nodes.                                         │
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
-.soft-gray-border {
+.soft-gray-border,
+div.column .soft-gray-border {
     .rgb-darkest-gray(); border: 1px solid rgba(@rval, @gval, @bval, 0.5);
 }
 
