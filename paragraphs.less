@@ -8,197 +8,196 @@
  *  │       already been imported.                                                                 │
  *  ├----------------------------------------------------------------------------------------------┤
  */
-div.column {
-    p {
-        padding-bottom: 0;
-        text-align: justify;
-        &.centered {
-            text-align: center;
-        }
-        &.align-left {
-            text-align: left;
-        }
-        @media all {
-            line-height: @v-p-lnhght;
-            @media (min-width: @v-lrgfrmt-thrshld) {
-                font-size: (@v-p-sz);
-            }
-            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: (@v-p-sz * @v-scl-dwn);
-            }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: (@v-p-sz * @v-scl-dwn * @v-scl-dwn);
-                text-align: left;
-            }
-        }
-        &.btm-margin-override:not(:last-child) {
-            margin-bottom: 0;
-        }
-        &.double-margins:not(:last-child) {
-            margin-bottom: @v-btm-mrgns * 2;
-        }	
-        &.half-margins:not(:last-child) {
-            margin-bottom: @v-btm-mrgns / 2;
-        }	
-        &.article-deck {
-            @media all {
-                font-size: @v-artcl-deck-sz;
-                @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: @v-artcl-deck-sz * @v-scl-dwn;
-                }
-                @media (max-width: @v-mbl-thrshld) {
-                    font-size: @v-artcl-deck-sz * @v-scl-dwn * @v-scl-dwn;
-                }
-            }
-            color: @hex-dark-green;
-            strong {
-                color: @hex-green;
-            }
-        }
-        &.article-tagline {
-            font-family: "Palatino";
-            font-size: @v-artcl-tgln-sz;
-            @media all {
-                @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: @v-artcl-tgln-sz * @v-scl-dwn;
-                }
-                @media (max-width: @v-mbl-thrshld) {
-                    font-size: @v-artcl-tgln-sz * @v-scl-dwn * @v-scl-dwn;
-                }
-            }
-            line-height: @v-artcl-tgln-lnhght;
-            font-weight: @v-artcl-tgln-wght;
-            &.sans {
-                &:extend(.has-alt-font);
-                color: @hex-darkest-gray;
-                font-weight: 300;
-                // letter-spacing: 0.5px; // Removed on 2016-06-10 to improve readability of text.
-                & > span.lead-in {
-                    color: @hex-dark-blue;
-                    font-weight: 700;
-                    letter-spacing: normal;                    
-                }
-            }
-            &.home {
-                font-size: @v-artcl-tgln-sz * 1.310345;
-                @media all {
-                    @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                        font-size: @v-artcl-tgln-sz * 1.310345 * @v-scl-dwn;
-                    }
-                    @media (max-width: @v-mbl-thrshld) {
-                        font-size: @v-artcl-tgln-sz * 1.310345 * @v-scl-dwn * @v-scl-dwn;
-                    }
-                }
-            }
-        }
-        &.no-bottom-pad {
-            padding-bottom: 0;
-        }
-        &.vpue-jump-bar {
-            padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
-            margin-top: @v-dflt-spcng;
-             margin-bottom: @v-dflt-spcng;
-            .rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
-            border: 1px solid rgba(red(@hex-dark-blue), green(@hex-dark-blue), blue(@hex-dark-blue), 0.5);
-            border-radius: 10px;
-            // font-size: 0.92em; // Removed as per request of MSL made on 2016-06-07
-            color: @hex-darker-gray;
-            text-align: center;
-            span.title {
-                // font-size: (1em / 0.92); // Changed due to request of MSL made on 2016-06-07
-                font-size: (1em / 0.92 / 0.92);
-                line-height: 2em;
-                font-weight: bold;
-                font-variant: small-caps;
-            }
-        }
-        &.vpue-jump-back {
-            padding-bottom: @v-btm-pads / 3;
-            margin-bottom: @v-btm-mrgns / 3;
-            font-size: @v-p-jmpbck-sz;
-        }
-        &.article-media-contacts {
-            padding-left: 2em;
-            font-size: .8em;
-            line-height: @v-p-lnhght;
-        }
-        &.fine-print {
-            .has-smllr-txt;
-        }
-        // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-        &.banner-text-gray-with-towers {
-            color: @hex-darkest-gray;
-            background-color: rgba(141,149,154,0.5);
-            border: 32px solid transparent;
-            -webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-            -o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-            border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-            margin-bottom: 15px;
-            padding: 7px;
-            @media all {
-                @media (min-width: @v-lrgfrmt-thrshld) {
-                    font-size: @v-bnnr-txt-sz;
-                }
-                @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: @v-bnnr-txt-sz * @v-scl-dwn;
-                }
-            }
-        }
-        &.banner-text {
-            max-width: @v-w-cnstrn-lrg;
-            padding: 7px;
-            .margin-centered;
-             margin-bottom: @v-dflt-spcng;
-            .rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.5);
-            border: 1px solid @hex-darkest-gray;
-            line-height: @v-p-lnhght;
-            color: @hex-darkest-gray;
-            @media all {
-                @media (min-width: @v-lrgfrmt-thrshld) {
-                    font-size: @v-bnnr-txt-sz;
-                }
-                @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: @v-bnnr-txt-sz * @v-scl-dwn;
-                }
-            }
-            &.orange {
-                .rgb-orange(); background-color: rgba(@rval, @gval, @bval, 0.5);
-                border: 1px solid @hex-darkest-orange;
-            }
-            &.blue {
-                .rgb-blue(); background-color: rgba(@rval, @gval, @bval, 0.5);
-                border: 1px solid @hex-darkest-blue;
-            }
-            &.yellow {
-                .rgb-yellow(); background-color: rgba(@rval, @gval, @bval, 0.5);
-                border: 1px solid @hex-darkest-yellow;
-            }
-            &.green {
-                .rgb-green(); background-color: rgba(@rval, @gval, @bval, 0.5);
-                border: 1px solid @hex-darkest-green;
-            }
-        }
-        // TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-        &.banner-text-orange-with-towers {
-            margin-bottom: 15px;
-            padding: 7px;
-            color: @hex-darkest-orange;
-            .rgb-orange(); background-color: rgba(@rval,@gval,@bval,0.5);
-            border: 32px solid transparent;
-             -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-             -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-            border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-            @media all {
-                @media (min-width: @v-lrgfrmt-thrshld) {
-                    font-size: @v-bnnr-txt-sz;
-                }
-                @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: @v-bnnr-txt-sz * @v-scl-dwn;
-                }
-            }
-        }
-    }
+p {
+	padding-bottom: 0;
+	text-align: justify;
+	&.centered {
+		text-align: center;
+	}
+	&.align-left {
+		text-align: left;
+	}
+	@media all {
+		line-height: @v-p-lnhght;
+		@media (min-width: @v-lrgfrmt-thrshld) {
+			font-size: (@v-p-sz);
+		}
+		@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+			font-size: (@v-p-sz * @v-scl-dwn);
+		}
+		@media (max-width: @v-mbl-thrshld) {
+			font-size: (@v-p-sz * @v-scl-dwn * @v-scl-dwn);
+			text-align: left;
+		}
+	}
+	&.btm-margin-override:not(:last-child) {
+		margin-bottom: 0;
+	}
+	&.double-margins:not(:last-child) {
+		margin-bottom: @v-btm-mrgns * 2;
+	}	
+	&.half-margins:not(:last-child) {
+		margin-bottom: @v-btm-mrgns / 2;
+	}	
+	&.article-deck {
+		@media all {
+			font-size: @v-artcl-deck-sz;
+			@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+				font-size: @v-artcl-deck-sz * @v-scl-dwn;
+			}
+			@media (max-width: @v-mbl-thrshld) {
+				font-size: @v-artcl-deck-sz * @v-scl-dwn * @v-scl-dwn;
+			}
+		}
+		color: @hex-dark-green;
+		strong {
+			color: @hex-green;
+		}
+	}
+	&.article-tagline {
+		font-family: "Palatino";
+		font-size: @v-artcl-tgln-sz;
+		@media all {
+			@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+				font-size: @v-artcl-tgln-sz * @v-scl-dwn;
+			}
+			@media (max-width: @v-mbl-thrshld) {
+				font-size: @v-artcl-tgln-sz * @v-scl-dwn * @v-scl-dwn;
+			}
+		}
+		line-height: @v-artcl-tgln-lnhght;
+		font-weight: @v-artcl-tgln-wght;
+		&.sans {
+			&:extend(.has-alt-font);
+			color: @hex-darkest-gray;
+			font-weight: 300;
+			// letter-spacing: 0.5px; // Removed on 2016-06-10 to improve readability of text.
+			& > span.lead-in {
+				color: @hex-dark-blue;
+				font-weight: 700;
+				letter-spacing: normal;                    
+			}
+		}
+		&.home {
+			font-size: @v-artcl-tgln-sz * 1.310345;
+			@media all {
+				@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+					font-size: @v-artcl-tgln-sz * 1.310345 * @v-scl-dwn;
+				}
+				@media (max-width: @v-mbl-thrshld) {
+					font-size: @v-artcl-tgln-sz * 1.310345 * @v-scl-dwn * @v-scl-dwn;
+				}
+			}
+		}
+	}
+	&.no-bottom-pad {
+		padding-bottom: 0;
+	}
+	&.vpue-jump-bar {
+		padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
+		margin-top: @v-dflt-spcng;
+		 margin-bottom: @v-dflt-spcng;
+		.rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
+		border: 1px solid rgba(red(@hex-dark-blue), green(@hex-dark-blue), blue(@hex-dark-blue), 0.5);
+		border-radius: 10px;
+		// font-size: 0.92em; // Removed as per request of MSL made on 2016-06-07
+		color: @hex-darker-gray;
+		text-align: center;
+		span.title {
+			// font-size: (1em / 0.92); // Changed due to request of MSL made on 2016-06-07
+			font-size: (1em / 0.92 / 0.92);
+			line-height: 2em;
+			font-weight: bold;
+			font-variant: small-caps;
+		}
+	}
+	&.vpue-jump-back {
+		padding-bottom: @v-btm-pads / 3;
+		margin-bottom: @v-btm-mrgns / 3;
+		font-size: @v-p-jmpbck-sz;
+	}
+	&.article-media-contacts {
+		padding-left: 2em;
+		font-size: .8em;
+		line-height: @v-p-lnhght;
+	}
+	&.fine-print {
+		.has-smllr-txt;
+	}
+	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
+	&.banner-text-gray-with-towers {
+		color: @hex-darkest-gray;
+		background-color: rgba(141,149,154,0.5);
+		border: 32px solid transparent;
+		-webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+		-o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+		border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+		margin-bottom: 15px;
+		padding: 7px;
+		@media all {
+			@media (min-width: @v-lrgfrmt-thrshld) {
+				font-size: @v-bnnr-txt-sz;
+			}
+			@media (max-width: (@v-lrgfrmt-thrshld - 1)) {
+				font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+			}
+		}
+	}
+	&.banner-text {
+		max-width: @v-w-cnstrn-lrg;
+		padding: 7px;
+		.margin-centered;
+		 margin-bottom: @v-dflt-spcng;
+		.rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.5);
+		border: 1px solid @hex-darkest-gray;
+		line-height: @v-p-lnhght;
+		color: @hex-darkest-gray;
+		@media all {
+			@media (min-width: @v-lrgfrmt-thrshld) {
+				font-size: @v-bnnr-txt-sz;
+			}
+			@media (max-width: (@v-lrgfrmt-thrshld - 1)) {
+				font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+			}
+		}
+		&.orange {
+			.rgb-orange(); background-color: rgba(@rval, @gval, @bval, 0.5);
+			border: 1px solid @hex-darkest-orange;
+		}
+		&.blue {
+			.rgb-blue(); background-color: rgba(@rval, @gval, @bval, 0.5);
+			border: 1px solid @hex-darkest-blue;
+		}
+		&.yellow {
+			.rgb-yellow(); background-color: rgba(@rval, @gval, @bval, 0.5);
+			border: 1px solid @hex-darkest-yellow;
+		}
+		&.green {
+			.rgb-green(); background-color: rgba(@rval, @gval, @bval, 0.5);
+			border: 1px solid @hex-darkest-green;
+		}
+	}
+	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
+	&.banner-text-orange-with-towers {
+		margin-bottom: 15px;
+		padding: 7px;
+		color: @hex-darkest-orange;
+		.rgb-orange(); background-color: rgba(@rval,@gval,@bval,0.5);
+		border: 32px solid transparent;
+		 -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+		 -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+		border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+		@media all {
+			@media (min-width: @v-lrgfrmt-thrshld) {
+				font-size: @v-bnnr-txt-sz;
+			}
+			@media (max-width: (@v-lrgfrmt-thrshld - 1)) {
+				font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+			}
+		}
+	}
 }
+
 
 main section.row {
     & > div.column,
