@@ -32,79 +32,7 @@ div.column {
     }
     &.with-right-margin {
         margin-right: 2rem;
-    }
-    
-/*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- *         │············ DEFINITION LIST elements contained within div.column containers ··········· │
- *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- */
-    dl.faq dt {
-        position: relative;
-        width: 100%;
-        padding: 5px 20px 5px 10px;
-        margin: 5px -10px;
-        background-color: @hex-lighter-gray;
-        @media all {
-            line-height: @v-p-lnhght;
-            @media (min-width: (@v-mbl-thrshld + 1)) {
-                font-size: @v-p-sz;
-            }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: (@v-p-sz * @v-scl-dwn);
-                text-align: left;
-            }
-        }
-        font-weight: bold;
-        .transition(~"all 0.25s linear");
-        &:after {
-            content: "";
-            position: absolute;
-            right: 10px;
-             top: 50%;
-            width: 0; 
-            height: 0; 
-            transform: translateY(-50%);
-            border-top: 8px solid @hex-dark-gray;
-            border-right: 8px solid transparent;
-            border-bottom: none;
-            border-left: 8px solid transparent;
-            .transition(~"all 0.3s ease");
-        }
-        &:hover {
-            background-color: @hex-dark-gray;
-            color: @hex-white;
-            &:after {
-                border-top: 8px solid @hex-white;
-                border-right: 8px solid transparent;
-                border-bottom: none;
-                border-left: 8px solid transparent;
-            }
-        }
-    }
-    dl.faq dt.activated {
-        background-color: @hex-lghtr-gry-0pt2-crmsn;
-        color: @hex-darker-gray;
-        &:after {
-            border-top: none;
-            border-right: 8px solid transparent;
-            border-bottom: 8px solid @hex-dark-gray;
-            border-left: 8px solid transparent;
-        }
-        &:hover {
-            background-color: @hex-drk-gry-0pt2-crmsn;
-            color: @hex-white;
-            &:after {
-                border-top: none;
-                border-right: 8px solid transparent;
-                border-bottom: 8px solid @hex-white;
-                border-left: 8px solid transparent;
-            }
-        }
-    }
-    dl.toggled dd {
-        display: none;
-    }
-    
+    }    
 /*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
  *         │···· HORIZONTAL RULE children of div.column elements ··································· │
  *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
@@ -169,68 +97,6 @@ div.column {
             border-top-width: 2px;
         }
     }
-    
-/*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- *         │ ···· UNORDERED LIST elements contained within div.column elements ····················· │
- *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- */
-    ul {
-        padding-bottom: 0;
-        &:last-child:not(.no-bottom-pad) {
-            padding-bottom: @v-btm-pads;
-        }
-        &.centered {
-            text-align: center;
-        }
-        &+p {
-            margin-top: @v-btm-mrgns;
-        }
-        @media all {
-            line-height: @v-p-lnhght;
-            @media (min-width: (@v-mbl-thrshld + 1)) {
-                font-size: @v-p-sz;
-            }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-p-sz * @v-scl-dwn;
-            }
-        }
-        li {
-            &.no-bottom-pad {
-                padding-bottom: 0;
-            }
-        }
-    }
-    p + ul {
-        margin-top: (@v-dflt-spcng / 2);
-    }
-    section:not(:last-child) {
-        ul:last-child {
-            padding-bottom: 0;
-        }
-    }
-
-/*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- *         │ ···· ORDERED LIST elements contained within div.column elements ······················· │
- *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- */
-    ol {
-        @media all {
-            line-height: @v-p-lnhght;
-            @media (min-width: (@v-mbl-thrshld + 1)) {
-                font-size: @v-p-sz;
-            }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-p-sz * @v-scl-dwn;
-            }
-        }
-        ol {
-            list-style-type: lower-alpha;
-            ol {
-                list-style-type: lower-roman;
-            }
-        }
-    }
-
 /*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
  *         │ ···· SECTION children of div.column elements ·········································· │
  *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
