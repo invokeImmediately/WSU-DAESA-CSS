@@ -247,3 +247,168 @@ div.column .soft-gray-border {
     .rgb-darkest-gray(); border: 1px solid rgba(@rval, @gval, @bval, 0.5);
 }
 
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ RULESET APPLICATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │  Mixins for applying a ruleset to lists of selectors.                                           │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 1) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr: extract(@slctr-list,1);
+	@{slctr} {
+		@ruleset-to-apply();
+	}
+}
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 2) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr-1: extract(@slctr-list,1);
+	@slctr-2: extract(@slctr-list,2);
+	@{slctr-1},
+	@{slctr-2} {
+		@ruleset-to-apply();
+	}
+}
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 3) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr-1: extract(@slctr-list,1);
+	@slctr-2: extract(@slctr-list,2);
+	@slctr-3: extract(@slctr-list,3);
+	@{slctr-1},
+	@{slctr-2},
+	@{slctr-3} {
+		@ruleset-to-apply();
+	}
+}
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 4) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr-1: extract(@slctr-list,1);
+	@slctr-2: extract(@slctr-list,2);
+	@slctr-3: extract(@slctr-list,3);
+	@slctr-4: extract(@slctr-list,4);
+	@{slctr-1},
+	@{slctr-2},
+	@{slctr-3},
+	@{slctr-4} {
+		@ruleset-to-apply();
+	}
+}
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 5) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr-1: extract(@slctr-list,1);
+	@slctr-2: extract(@slctr-list,2);
+	@slctr-3: extract(@slctr-list,3);
+	@slctr-4: extract(@slctr-list,4);
+	@slctr-5: extract(@slctr-list,5);
+	@{slctr-1},
+	@{slctr-2},
+	@{slctr-3},
+	@{slctr-4},
+	@{slctr-5} {
+		@ruleset-to-apply();
+	}
+}
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 6) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr-1: extract(@slctr-list,1);
+	@slctr-2: extract(@slctr-list,2);
+	@slctr-3: extract(@slctr-list,3);
+	@slctr-4: extract(@slctr-list,4);
+	@slctr-5: extract(@slctr-list,5);
+	@slctr-6: extract(@slctr-list,6);
+	@{slctr-1},
+	@{slctr-2},
+	@{slctr-3},
+	@{slctr-4},
+	@{slctr-5},
+	@{slctr-6} {
+		@ruleset-to-apply();
+	}
+}
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 7) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr-1: extract(@slctr-list,1);
+	@slctr-2: extract(@slctr-list,2);
+	@slctr-3: extract(@slctr-list,3);
+	@slctr-4: extract(@slctr-list,4);
+	@slctr-5: extract(@slctr-list,5);
+	@slctr-6: extract(@slctr-list,6);
+	@slctr-7: extract(@slctr-list,7);
+	@{slctr-1},
+	@{slctr-2},
+	@{slctr-3},
+	@{slctr-4},
+	@{slctr-5},
+	@{slctr-6},
+	@{slctr-7} {
+		@ruleset-to-apply();
+	}
+}
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 8) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr-1: extract(@slctr-list,1);
+	@slctr-2: extract(@slctr-list,2);
+	@slctr-3: extract(@slctr-list,3);
+	@slctr-4: extract(@slctr-list,4);
+	@slctr-5: extract(@slctr-list,5);
+	@slctr-6: extract(@slctr-list,6);
+	@slctr-7: extract(@slctr-list,7);
+	@slctr-8: extract(@slctr-list,8);
+	@{slctr-1},
+	@{slctr-2},
+	@{slctr-3},
+	@{slctr-4},
+	@{slctr-5},
+	@{slctr-6},
+	@{slctr-7},
+	@{slctr-8} {
+		@ruleset-to-apply();
+	}
+}
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 9) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr-1: extract(@slctr-list,1);
+	@slctr-2: extract(@slctr-list,2);
+	@slctr-3: extract(@slctr-list,3);
+	@slctr-4: extract(@slctr-list,4);
+	@slctr-5: extract(@slctr-list,5);
+	@slctr-6: extract(@slctr-list,6);
+	@slctr-7: extract(@slctr-list,7);
+	@slctr-8: extract(@slctr-list,8);
+	@slctr-9: extract(@slctr-list,9);
+	@{slctr-1},
+	@{slctr-2},
+	@{slctr-3},
+	@{slctr-4},
+	@{slctr-5},
+	@{slctr-6},
+	@{slctr-7},
+	@{slctr-8},
+	@{slctr-9} {
+		@ruleset-to-apply();
+	}
+}
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 10) and
+ (isruleset(@ruleset-to-apply)) {
+	@slctr-1: extract(@slctr-list,1);
+	@slctr-2: extract(@slctr-list,2);
+	@slctr-3: extract(@slctr-list,3);
+	@slctr-4: extract(@slctr-list,4);
+	@slctr-5: extract(@slctr-list,5);
+	@slctr-6: extract(@slctr-list,6);
+	@slctr-7: extract(@slctr-list,7);
+	@slctr-8: extract(@slctr-list,8);
+	@slctr-9: extract(@slctr-list,9);
+	@slctr-10: extract(@slctr-list,10);
+	@{slctr-1},
+	@{slctr-2},
+	@{slctr-3},
+	@{slctr-4},
+	@{slctr-5},
+	@{slctr-6},
+	@{slctr-7},
+	@{slctr-8},
+	@{slctr-9},
+	@{slctr-10} {
+		@ruleset-to-apply();
+	}
+}
