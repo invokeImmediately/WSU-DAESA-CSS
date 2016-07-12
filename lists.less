@@ -18,11 +18,15 @@ div.column {
         }
         @media all {
             line-height: @v-p-lnhght;
-            @media (min-width: (@v-mbl-thrshld + 1)) {
-                font-size: @v-p-sz;
+            @media (min-width: @v-lrgfrmt-thrshld) {
+                font-size: (@v-p-sz);
+            }
+            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                font-size: (@v-p-sz * @v-scl-dwn);
             }
             @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-p-sz * @v-scl-dwn;
+                font-size: (@v-p-sz * @v-scl-dwn * @v-scl-dwn);
+                text-align: left;
             }
         }
         li {
@@ -100,11 +104,15 @@ div.column {
     ol {
         @media all {
             line-height: @v-p-lnhght;
-            @media (min-width: (@v-mbl-thrshld + 1)) {
-                font-size: @v-p-sz;
+            @media (min-width: @v-lrgfrmt-thrshld) {
+                font-size: (@v-p-sz);
+            }
+            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+                font-size: (@v-p-sz * @v-scl-dwn);
             }
             @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-p-sz * @v-scl-dwn;
+                font-size: (@v-p-sz * @v-scl-dwn * @v-scl-dwn);
+                text-align: left;
             }
         }
         ol {
@@ -130,15 +138,18 @@ div.column {
 			background-color: @hex-lighter-gray;
 			@media all {
 				line-height: @v-p-lnhght;
-				@media (min-width: (@v-mbl-thrshld + 1)) {
-					font-size: @v-p-sz;
+				@media (min-width: @v-lrgfrmt-thrshld) {
+					font-size: (@v-p-sz);
+				}
+				@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+					font-size: (@v-p-sz * @v-scl-dwn);
 				}
 				@media (max-width: @v-mbl-thrshld) {
-					font-size: (@v-p-sz * @v-scl-dwn);
+					font-size: (@v-p-sz * @v-scl-dwn * @v-scl-dwn);
 					text-align: left;
 				}
 			}
-			font-weight: bold;
+				font-weight: bold;
 			.transition(~"all 0.25s linear");
 			&:after {
 				content: "";
