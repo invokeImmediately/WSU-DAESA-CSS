@@ -10,9 +10,6 @@
 div.column {
     ul {
         padding-bottom: 0;
-        &:last-child:not(.no-bottom-pad) {
-            padding-bottom: @v-btm-pads;
-        }
         &.centered {
             text-align: center;
         }
@@ -36,11 +33,6 @@ div.column {
     }
     p + ul {
         margin-top: (@v-dflt-spcng / 2);
-    }
-    section:not(:last-child) {
-        ul:last-child {
-            padding-bottom: 0;
-        }
     }
 }
 	

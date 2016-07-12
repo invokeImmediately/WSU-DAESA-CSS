@@ -182,3 +182,30 @@ div.column section:not(:last-child) {
     }
 }
 
+main section.row {
+    & > div.column,
+	& > div.column > article > div.article-body,
+	& > div.column > section {
+        & > p:not(.no-btm-margin),
+		& > section > p:not(.no-btm-margin),
+		& > ul:not(.no-btm-margin),
+		& > section > ul:not(.no-btm-margin),
+		& > ol:not(.no-btm-margin),
+		& > section > ol:not(.no-btm-margin) {
+            margin-bottom: @v-btm-mrgns;
+        }
+    }
+	&:last-child {
+		& > div.column,
+		& > div.column > article > div.article-body,
+		& > div.column > section {
+			& > p:not(.no-btm-margin),
+			& > section > p:not(.no-btm-margin),
+			& > ul:not(.no-btm-margin),
+			& > section > ul:not(.no-btm-margin),
+			& > ol:not(.no-btm-margin),
+			& > section > ol:not(.no-btm-margin) {
+				margin-bottom: 0;
+			}
+	}
+}

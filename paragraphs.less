@@ -200,29 +200,6 @@ div.column {
     }
 }
 
-main section.row {
-    & > div.column,
-	& > div.column > article > div.article-body,
-	& > div.column > section {
-        & > p:not(.no-btm-margin),
-		& > section > p:not(.no-btm-margin) {
-            margin-bottom: @v-btm-mrgns;
-        }
-		
-        &:last-child > div.column {
-            & > p:last-child,
-			& > section > p:last-child {
-                margin-bottom: 0;
-            }
-        }
-		
-        //&:last-child > div.column { // NOTE: Trying a different strategy (see above) | 2016-06-13
-        //    & > p:last-child, & > :not(p):last-child > p:last-child, & > ul[class] > li > p:last-child {
-        //        margin-bottom: 0;
-        //    }
-        //}
-    }
-}
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
  */
  
