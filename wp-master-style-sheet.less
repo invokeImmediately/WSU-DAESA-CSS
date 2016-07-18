@@ -135,9 +135,16 @@ body {
 //     │ ++++ ARTICLE selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
-div.column article + article {
-    margin-top: 1.5em;
-}
+div.column article.post {
+    padding: 1em;
+    border: 1px solid rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.3333);
+    border-radius: 5px;
+	background-color: @hex-white;
+    box-shadow: 1px 2px 3px rgba(red(@hex-black), green(@hex-black), blue(@hex-black),.25);
+	& + article.post {
+		margin-top: 1.5em;
+	}
+}	
 //
 //     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 //     │ ++++ SECTION selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
