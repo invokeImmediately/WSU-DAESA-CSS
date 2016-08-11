@@ -86,4 +86,18 @@ img {
             }
         }
     }
+	&.has-caption[title] {
+		position: relative;
+		margin-bottom: 40px;
+		&::after {
+			content: attr(title);
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;			
+			font-size: 0.8em;
+			text-align: center;
+			.transform(~"translateY(-100%)");
+		}
+	}
 }
