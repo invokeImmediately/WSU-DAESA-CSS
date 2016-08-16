@@ -6,10 +6,15 @@ aside {
 /*    &:not(:first-child).widget header {
         margin-top: 1rem;
     }*/
-    &.widget header {
-        font-weight: bold;
-        font-size: 1rem;
-    }
+    &.widget {
+		& + aside.widget {
+            margin-top: @v-dflt-spcng;
+		}
+		header {
+			font-weight: bold;
+			font-size: 1rem;
+		}
+	}
     &.widget_archive {
         label.screen-reader-text {
             display: none;
