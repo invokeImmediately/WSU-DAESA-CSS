@@ -29,15 +29,7 @@ div.column {
             margin-bottom: @v-btm-mrgns / 2;
         }	
         &.article-deck {
-            @media all {
-                font-size: @v-artcl-deck-sz;
-                @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: @v-artcl-deck-sz * @v-scl-dwn;
-                }
-                @media (max-width: @v-mbl-thrshld) {
-                    font-size: @v-artcl-deck-sz * @v-scl-dwn * @v-scl-dwn;
-                }
-            }
+			.has-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
             color: @hex-dark-green;
             strong {
                 color: @hex-green;
@@ -46,14 +38,7 @@ div.column {
         &.article-tagline {
             font-family: "Palatino";
             font-size: @v-artcl-tgln-sz;
-            @media all {
-                @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: @v-artcl-tgln-sz * @v-scl-dwn;
-                }
-                @media (max-width: @v-mbl-thrshld) {
-                    font-size: @v-artcl-tgln-sz * @v-scl-dwn * @v-scl-dwn;
-                }
-            }
+			.has-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
             line-height: @v-artcl-tgln-lnhght;
             font-weight: @v-artcl-tgln-wght;
             &.sans {
@@ -68,15 +53,7 @@ div.column {
                 }
             }
             &.home {
-                font-size: @v-artcl-tgln-sz * 1.310345;
-                @media all {
-                    @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                        font-size: @v-artcl-tgln-sz * 1.310345 * @v-scl-dwn;
-                    }
-                    @media (max-width: @v-mbl-thrshld) {
-                        font-size: @v-artcl-tgln-sz * 1.310345 * @v-scl-dwn * @v-scl-dwn;
-                    }
-                }
+				.has-responsive-font(@v-artcl-tgln-sz * 1.310345, @v-p-lnhght);
             }
         }
         &.no-bottom-pad {
@@ -142,14 +119,7 @@ div.column {
             border: 1px solid @hex-darkest-gray;
             line-height: @v-p-lnhght;
             color: @hex-darkest-gray;
-            @media all {
-                @media (min-width: @v-lrgfrmt-thrshld) {
-                    font-size: @v-bnnr-txt-sz;
-                }
-                @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: @v-bnnr-txt-sz * @v-scl-dwn;
-                }
-            }
+			.has-responsive-font(@v-bnnr-txt-sz, @v-p-lnhght);
             &.orange {
                 .rgb-orange(); background-color: rgba(@rval, @gval, @bval, 0.5);
                 border: 1px solid @hex-darkest-orange;
@@ -177,14 +147,7 @@ div.column {
              -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
              -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
             border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-            @media all {
-                @media (min-width: @v-lrgfrmt-thrshld) {
-                    font-size: @v-bnnr-txt-sz;
-                }
-                @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: @v-bnnr-txt-sz * @v-scl-dwn;
-                }
-            }
+			.has-responsive-font(@v-bnnr-txt-sz, @v-p-lnhght);
         }
     }
 }

@@ -13,15 +13,7 @@ div.column {
         padding-bottom: 0;
         margin-top: 1.5rem;
         margin-bottom: .75rem;
-        font-size: @v-p-sz * 3;
-        @media all {
-            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: @v-p-sz * 3 * @v-scl-dwn;
-            }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-p-sz * 3 * @v-scl-dwn * @v-scl-dwn;
-            }
-        }
+		.has-responsive-font((@v-p-sz * 3), @v-hX-lnhght);
         font-weight: 900;
         text-transform: uppercase;
         color: @hex-darker-gray;
@@ -46,14 +38,7 @@ div.column {
          margin-bottom: .75rem;
          margin-left: -.1em;
         font-size: @v-p-sz * 2.2;
-        @media all {
-            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: @v-p-sz * 2.2 * @v-scl-dwn;
-            }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-p-sz * 2.2 * @v-scl-dwn * @v-scl-dwn;
-            }
-        }
+		.has-responsive-font((@v-p-sz * 2.2), @v-hX-lnhght);
         line-height: 1.375em;
         font-weight: 800;
         color: @hex-darker-gray;
@@ -123,15 +108,7 @@ div.column {
         margin-top: 1.5rem;
         margin-bottom: .75rem;
         margin-left: -.1em;
-        font-size: @v-p-sz * 1.7;
-        @media all {
-            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: @v-p-sz * 1.7 * @v-scl-dwn;
-            }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-p-sz * 1.7 * @v-scl-dwn * @v-scl-dwn;
-            }
-        }
+		.has-responsive-font((@v-p-sz * 1.7), @v-hX-lnhght);
         font-weight: 600;
         text-transform: uppercase;
         color: @hex-crimson;
@@ -181,16 +158,7 @@ div.column {
         padding: 0;
         margin-top: 1rem;
         margin-bottom: .5rem;
-        font-size: @v-p-sz * 1.4;
-        line-height: 1.2em;
-        @media all {
-            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: @v-p-sz * 1.4 * @v-scl-dwn;
-            }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: @v-p-sz * 1.4 * @v-scl-dwn * @v-scl-dwn;
-            }
-        }
+		.has-responsive-font((@v-p-sz * 1.7), 1.2em);
         font-weight: 600;
         color: @hex-crimson;
         &:first-child {
@@ -225,15 +193,7 @@ section {
 div.column {
     header.article-header {
         h1.article-title, h2.article-title {
-            font-size: (@v-p-sz * 2);
-            @media all {
-                @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                    font-size: (@v-p-sz * 2 * @v-scl-dwn);
-                }            
-                @media (max-width: @v-mbl-thrshld) {
-                        font-size: (@v-p-sz * 2 * @v-scl-dwn * @v-scl-dwn);
-                }
-            }
+			.has-responsive-font((@v-p-sz * 2), @v-hX-lnhght);
         }
     }
 }
