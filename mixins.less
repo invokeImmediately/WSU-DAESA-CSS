@@ -248,6 +248,37 @@ div.column .soft-gray-border {
 }
 
 //     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ TYPOGRAPHY +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │  Mixins for specifying font sizes, line heights, etc.                                           │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+.has-responsive-font(@fntsz, @lnhght) when (isem(@fntsz)) and (isem(@lnhght)) {
+	@media all {
+		line-height: @lnhght;
+		@media (min-width: @v-dsktp-thrshld) {
+			font-size: (@fntsz / @v-scl-dwn);
+		}
+		@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-dsktp-thrshld - 1)) {
+			font-size: (@fntsz);
+		}
+		@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+			font-size: (@fntsz / @v-scl-dwn);
+		}
+		@media (min-width: (@v-lg-mbl-thrshld + 1)) and (max-width: @v-tblt-thrshld) {
+			font-size: (@fntsz);
+		}
+		@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-lg-mbl-thrshld) {
+			font-size: (@v-p-sz * @v-scl-dwn);
+			text-align: left;
+		}
+		@media (max-width: @v-mbl-thrshld) {
+			font-size: (@v-p-sz * @v-scl-dwn * @v-scl-dwn);
+			text-align: left;
+		}
+	}
+}
+
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 //     │ ++++ RULESET APPLICATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
 //     │  Mixins for applying a ruleset to lists of selectors.                                           │
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘

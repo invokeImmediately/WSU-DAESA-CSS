@@ -11,25 +11,13 @@
 div.column {
     p {
         padding-bottom: 0;
+		.has-responsive-font(@v-p-sz, @v-p-lnhght);
         text-align: justify;
         &.centered {
             text-align: center;
         }
         &.align-left {
             text-align: left;
-        }
-        @media all {
-            line-height: @v-p-lnhght;
-            @media (min-width: @v-lrgfrmt-thrshld) {
-                font-size: (@v-p-sz);
-            }
-            @media (min-width: (@v-mbl-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-                font-size: (@v-p-sz * @v-scl-dwn);
-            }
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: (@v-p-sz * @v-scl-dwn * @v-scl-dwn);
-                text-align: left;
-            }
         }
         &.btm-margin-override:not(:last-child) {
             margin-bottom: 0;
