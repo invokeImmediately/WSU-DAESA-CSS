@@ -4,7 +4,8 @@
  */
 img {
     // TODO: Replace with parametric mixin implementation.
-    &.autoScaled {
+    &.autoScaled,
+	&.auto-scaled {
         height: auto;
         width: 100%;
     }
@@ -56,14 +57,14 @@ img {
         height: auto;
         width: 10%;
     }
-    &.shiftToCenter, shift-to-center {
+    &.shiftToCenter, &.shift-to-center {
         &:extend(.margin-centered);
         display: block;
     }
-    &.shiftToLeft, shift-to-left {
+    &.shiftToLeft, &.shift-to-left {
         float: left;
     }
-    &.shiftToRight, shift-to-right {
+    &.shiftToRight, &.shift-to-right {
         float: right;
     }
     &.fancy {
