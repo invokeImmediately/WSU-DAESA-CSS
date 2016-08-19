@@ -13,7 +13,8 @@ div.column {
         padding-bottom: 0;
         margin-top: 1.5rem;
         margin-bottom: .75rem;
-		.has-responsive-font((@v-p-sz * 3), @v-hX-lnhght);
+		font-size: @v-h1-sz;
+		.has-responsive-font(@v-h1-sz, @v-hX-lnhght);
         font-weight: 900;
         text-transform: uppercase;
         color: @hex-darker-gray;
@@ -37,8 +38,8 @@ div.column {
         margin-top: 1.5rem;
          margin-bottom: .75rem;
          margin-left: -.1em;
-        font-size: @v-p-sz * 2.2;
-		.has-responsive-font((@v-p-sz * 2.2), @v-hX-lnhght);
+        font-size: @v-h2-sz;
+		.has-responsive-font(@v-h2-sz, @v-hX-lnhght);
         line-height: 1.375em;
         font-weight: 800;
         color: @hex-darker-gray;
@@ -108,7 +109,8 @@ div.column {
         margin-top: 1.5rem;
         margin-bottom: .75rem;
         margin-left: -.1em;
-		.has-responsive-font((@v-p-sz * 1.7), @v-hX-lnhght);
+		font-size: @v-h3-sz;
+		.has-responsive-font(@v-h3-sz, @v-hX-lnhght);
         font-weight: 600;
         text-transform: uppercase;
         color: @hex-crimson;
@@ -158,7 +160,8 @@ div.column {
         padding: 0;
         margin-top: 1rem;
         margin-bottom: .5rem;
-		.has-responsive-font((@v-p-sz * 1.7), 1.2em);
+		font-size: @v-h4-sz;
+		.has-responsive-font(@v-h4-sz, @v-h4-lnhght);
         font-weight: 600;
         color: @hex-crimson;
         &:first-child {
