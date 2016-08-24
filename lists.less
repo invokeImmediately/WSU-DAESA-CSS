@@ -45,12 +45,15 @@ ul.content-boxes {
         background-color: @hex-white;
         list-style-type: none;
         @media all and (max-width: @v-bckgrnd-thrshld) {
-            overflow-x: scroll;
+            overflow-x: auto;
         }
-        p.email {
-            font-size: 0.9em;
-            font-weight: bold;
-        }
+		p {
+			.has-responsive-font((@v-p-sz * @v-scl-dwn));
+			&.email {
+				font-size: 0.9em;
+				font-weight: bold;
+			}
+		}
         & > img {
             position: absolute;
              top: 10px;
