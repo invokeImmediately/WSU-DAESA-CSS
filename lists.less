@@ -18,6 +18,7 @@ div.column {
             margin-top: @v-btm-mrgns;
         }
         li {
+			line-height: inherit;
             &.no-bottom-pad {
                 padding-bottom: 0;
             }
@@ -95,6 +96,9 @@ div.column {
     ol {
         padding-bottom: 0;
 		.has-responsive-font(@v-p-sz, @v-p-lnhght);
+		li {
+			line-height: inherit;
+		}
         ol {
             list-style-type: lower-alpha;
             ol {
