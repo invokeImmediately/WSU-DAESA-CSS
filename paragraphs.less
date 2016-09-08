@@ -13,22 +13,22 @@ p {
 	padding-bottom: 0;
 	.has-responsive-font(@v-p-sz, @v-p-lnhght);
 	text-align: left;
-	@prnt &.centered {
+	@{prnt} &.centered {
 		text-align: center;
 	}
-	@prnt &.align-left {
+	@{prnt} &.align-left {
 		text-align: left;
 	}
-	@prnt &.btm-margin-override:not(:last-child) {
+	@{prnt} &.btm-margin-override:not(:last-child) {
 		margin-bottom: 0;
 	}
-	@prnt &.double-margins:not(:last-child) {
+	@{prnt} &.double-margins:not(:last-child) {
 		margin-bottom: @v-btm-mrgns * 2;
 	}	
-	@prnt &.half-margins:not(:last-child) {
+	@{prnt} &.half-margins:not(:last-child) {
 		margin-bottom: @v-btm-mrgns / 2;
 	}	
-	@prnt &.article-deck {
+	@{prnt} &.article-deck {
 		.has-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
 		color: @hex-dark-green;
 		strong {
@@ -45,7 +45,7 @@ p {
 		.has-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
 		line-height: @v-artcl-tgln-lnhght;
 		font-weight: @v-artcl-tgln-wght;
-		@prnt &.sans {
+		@{prnt} &.sans {
 			&:extend(.has-alt-font);
 			color: @hex-black;
 			font-weight: 300;
@@ -56,42 +56,42 @@ p {
 				letter-spacing: normal;                    
 			}
 		}
-		@prnt &.home {
+		@{prnt} &.home {
 			.has-responsive-font(@v-artcl-tgln-sz * 1.310345, @v-p-lnhght);
 		}
-		@prnt &:before,
-		@prnt &:after {
+		@{prnt} &:before,
+		@{prnt} &:after {
 			content: "";
 			position: absolute;
 			left: 50%;
 			width: 90%;
 			.transform(~"translateX(-50%)");
 		}
-		@prnt &:before {
+		@{prnt} &:before {
 			top: (-1 * @v-btm-mrgns / 3);
 			height: 5px;
 			border-top: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
 						blue(@hex-darker-gray), 0.25);
 		}
-		@prnt &:after {
+		@{prnt} &:after {
 			bottom: (-1 * @v-btm-mrgns / 3);
 			height: 1px;
 			border-top: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
 						blue(@hex-darker-gray), 0.25);
 		}
-		@prnt h1 + &,
-		@prnt h2 + &,
-		@prnt h3 + &,
-		@prnt h4 + &,
-		@prnt h5 + &,
-		@prnt h6 + & {
+		@{prnt} h1 + &,
+		@{prnt} h2 + &,
+		@{prnt} h3 + &,
+		@{prnt} h4 + &,
+		@{prnt} h5 + &,
+		@{prnt} h6 + & {
 			margin-top: (@v-btm-mrgns * 4 / 3);
 		}
 	}
-	@prnt &.no-bottom-pad {
+	@{prnt} &.no-bottom-pad {
 		padding-bottom: 0;
 	}
-	@prnt &.vpue-jump-bar {
+	@{prnt} &.vpue-jump-bar {
 		padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
 		margin-top: @v-dflt-spcng;
 		 margin-bottom: @v-dflt-spcng;
@@ -109,22 +109,22 @@ p {
 			font-variant: small-caps;
 		}
 	}
-	@prnt &.vpue-jump-back {
+	@{prnt} &.vpue-jump-back {
 		padding-bottom: @v-btm-pads / 3;
 		margin-bottom: @v-btm-mrgns / 3;
 		font-size: @v-p-jmpbck-sz;
 	}
-	@prnt &.article-media-contacts {
+	@{prnt} &.article-media-contacts {
 		padding-left: 2em;
 		font-size: .8em;
 		line-height: @v-p-lnhght;
 		text-align: left;
 	}
-	@prnt &.fine-print {
+	@{prnt} &.fine-print {
 		.has-smllr-txt;
 	}
 	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	@prnt &.banner-text-gray-with-towers {
+	@{prnt} &.banner-text-gray-with-towers {
 		color: @hex-darkest-gray;
 		background-color: rgba(141,149,154,0.5);
 		border: 32px solid transparent;
@@ -142,7 +142,7 @@ p {
 			}
 		}
 	}
-	@prnt &.banner-text {
+	@{prnt} &.banner-text {
 		max-width: @v-w-cnstrn-lrg;
 		padding: 7px;
 		.margin-centered;
@@ -170,7 +170,7 @@ p {
 		}
 	}
 	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	@prnt &.banner-text-orange-with-towers {
+	@{prnt} &.banner-text-orange-with-towers {
 		margin-bottom: 15px;
 		padding: 7px;
 		color: @hex-darkest-orange;
