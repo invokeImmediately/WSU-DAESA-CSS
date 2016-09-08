@@ -10,9 +10,11 @@
  */
 @prnt: div.column;
 p {
-	padding-bottom: 0;
-	.has-responsive-font(@v-p-sz, @v-p-lnhght);
-	text-align: left;
+	@{prnt} & {
+		padding-bottom: 0;
+		.has-responsive-font(@v-p-sz, @v-p-lnhght);
+		text-align: left;
+	}
 	@{prnt} &.centered {
 		text-align: center;
 	}
