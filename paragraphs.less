@@ -8,26 +8,27 @@
  *  │       already been imported.                                                                 │
  *  ├----------------------------------------------------------------------------------------------┤
  */
+@prnt: div.column;
 p {
 	padding-bottom: 0;
 	.has-responsive-font(@v-p-sz, @v-p-lnhght);
 	text-align: left;
-	&.centered {
+	@prnt &.centered {
 		text-align: center;
 	}
-	&.align-left {
+	@prnt &.align-left {
 		text-align: left;
 	}
-	&.btm-margin-override:not(:last-child) {
+	@prnt &.btm-margin-override:not(:last-child) {
 		margin-bottom: 0;
 	}
-	&.double-margins:not(:last-child) {
+	@prnt &.double-margins:not(:last-child) {
 		margin-bottom: @v-btm-mrgns * 2;
 	}	
-	&.half-margins:not(:last-child) {
+	@prnt &.half-margins:not(:last-child) {
 		margin-bottom: @v-btm-mrgns / 2;
 	}	
-	&.article-deck {
+	@prnt &.article-deck {
 		.has-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
 		color: @hex-dark-green;
 		strong {
@@ -44,7 +45,7 @@ p {
 		.has-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
 		line-height: @v-artcl-tgln-lnhght;
 		font-weight: @v-artcl-tgln-wght;
-		&.sans {
+		@prnt &.sans {
 			&:extend(.has-alt-font);
 			color: @hex-black;
 			font-weight: 300;
@@ -55,41 +56,42 @@ p {
 				letter-spacing: normal;                    
 			}
 		}
-		&.home {
+		@prnt &.home {
 			.has-responsive-font(@v-artcl-tgln-sz * 1.310345, @v-p-lnhght);
 		}
-		&:before, &:after {
+		@prnt &:before,
+		@prnt &:after {
 			content: "";
 			position: absolute;
 			left: 50%;
 			width: 90%;
 			.transform(~"translateX(-50%)");
 		}
-		&:before {
+		@prnt &:before {
 			top: (-1 * @v-btm-mrgns / 3);
 			height: 5px;
 			border-top: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
 						blue(@hex-darker-gray), 0.25);
 		}
-		&:after {
+		@prnt &:after {
 			bottom: (-1 * @v-btm-mrgns / 3);
 			height: 1px;
 			border-top: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
 						blue(@hex-darker-gray), 0.25);
 		}
-		h1 + &,
-		h2 + &,
-		h3 + &,
-		h4 + &,
-		h5 + &,
-		h6 + & {
+		@prnt h1 + &,
+		@prnt h2 + &,
+		@prnt h3 + &,
+		@prnt h4 + &,
+		@prnt h5 + &,
+		@prnt h6 + & {
 			margin-top: (@v-btm-mrgns * 4 / 3);
 		}
 	}
-	&.no-bottom-pad {
+	@prnt &.no-bottom-pad {
 		padding-bottom: 0;
 	}
-	&.vpue-jump-bar {
+	@prnt &.vpue-jump-bar {
 		padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
 		margin-top: @v-dflt-spcng;
 		 margin-bottom: @v-dflt-spcng;
@@ -107,22 +109,22 @@ p {
 			font-variant: small-caps;
 		}
 	}
-	&.vpue-jump-back {
+	@prnt &.vpue-jump-back {
 		padding-bottom: @v-btm-pads / 3;
 		margin-bottom: @v-btm-mrgns / 3;
 		font-size: @v-p-jmpbck-sz;
 	}
-	&.article-media-contacts {
+	@prnt &.article-media-contacts {
 		padding-left: 2em;
 		font-size: .8em;
 		line-height: @v-p-lnhght;
 		text-align: left;
 	}
-	&.fine-print {
+	@prnt &.fine-print {
 		.has-smllr-txt;
 	}
 	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	&.banner-text-gray-with-towers {
+	@prnt &.banner-text-gray-with-towers {
 		color: @hex-darkest-gray;
 		background-color: rgba(141,149,154,0.5);
 		border: 32px solid transparent;
@@ -140,7 +142,7 @@ p {
 			}
 		}
 	}
-	&.banner-text {
+	@prnt &.banner-text {
 		max-width: @v-w-cnstrn-lrg;
 		padding: 7px;
 		.margin-centered;
@@ -168,7 +170,7 @@ p {
 		}
 	}
 	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	&.banner-text-orange-with-towers {
+	@prnt &.banner-text-orange-with-towers {
 		margin-bottom: 15px;
 		padding: 7px;
 		color: @hex-darkest-orange;
