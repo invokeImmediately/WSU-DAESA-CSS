@@ -36,7 +36,7 @@ div.column {
             }
         }
         &.article-tagline {
-            font-family: "Palatino";
+			.has-subst-font.serif;
             font-size: @v-artcl-tgln-sz;
 			.has-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
             line-height: @v-artcl-tgln-lnhght;
@@ -55,6 +55,26 @@ div.column {
             &.home {
 				.has-responsive-font(@v-artcl-tgln-sz * 1.310345, @v-p-lnhght);
             }
+			&:before {
+				content: "";
+				border-top: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
+							blue(@hex-darker-gray), 0.25);
+				height: 5px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: (@v-btm-mrgns / 3);
+				width: 80%;
+			}
+			&:after {
+				content: "";
+				border-top: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
+							blue(@hex-darker-gray), 0.25);
+				height: 1px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: (@v-btm-mrgns / 3);
+				width: 80%;				
+			}
         }
         &.no-bottom-pad {
             padding-bottom: 0;
