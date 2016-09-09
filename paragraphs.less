@@ -59,7 +59,9 @@ p {
 		@{prnt} &.home {
 			.has-responsive-font(@v-artcl-tgln-sz * 1.310345, @v-p-lnhght);
 		}
-		@{prnt} &.has-pull-quote-bordering;
+		@{prnt} & {
+			.has-pull-quote-bordering;
+		}
 		/*:before,
 		@{prnt} &:after {
 			content: "";
