@@ -3,9 +3,10 @@
  *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
 .setup-autoscaled-classes(@scaling-factor) when (isnumber(@scaling-factor)) and (@scaling-factor > 0) {
+	@units: %;
     &.autoScaledTo@{scaling-factor},
 	&.auto-scaled.to-@{scaling-factor} {
-        width: "@{scaling-factor}%";
+        width: @{scaling-factor}@{units};
     }	
 	.setup-autoscaled-classes((@scaling-factor - 10));
 }
