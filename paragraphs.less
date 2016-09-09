@@ -39,10 +39,6 @@ p {
 	}
 	&.article-tagline {
 		@{prnt} & {
-			position: relative;
-			padding-top: (@v-btm-mrgns / 3);
-			padding-bottom: (@v-btm-mrgns / 3);
-			margin-top: (@v-btm-mrgns / 3);
 			.has-subst-font.serif;
 			font-size: @v-artcl-tgln-sz;
 			.has-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
@@ -63,7 +59,8 @@ p {
 		@{prnt} &.home {
 			.has-responsive-font(@v-artcl-tgln-sz * 1.310345, @v-p-lnhght);
 		}
-		@{prnt} &:before,
+		@{prnt} &.has-pull-quote-bordering;
+		/*:before,
 		@{prnt} &:after {
 			content: "";
 			position: absolute;
@@ -82,7 +79,7 @@ p {
 			height: 1px;
 			border-top: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
 						blue(@hex-darker-gray), 0.25);
-		}
+		}*/
 		@{prnt} h1 + &,
 		@{prnt} h2 + &,
 		@{prnt} h3 + &,

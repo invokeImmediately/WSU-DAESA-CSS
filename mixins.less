@@ -247,6 +247,33 @@ div.column .soft-gray-border {
     .rgb-darkest-gray(); border: 1px solid rgba(@rval, @gval, @bval, 0.5);
 }
 
+.has-pull-quote-bordering {
+	position: relative;
+	padding-top: (@v-btm-mrgns / 3);
+	padding-bottom: (@v-btm-mrgns / 3);
+	margin-top: (@v-btm-mrgns / 3);	
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		width: 90%;
+		.transform(~"translateX(-50%)");
+	}
+	&:before {
+		top: (-1 * @v-btm-mrgns / 3);
+		height: 5px;
+		border-top: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
+					blue(@hex-darker-gray), 0.25);
+	}
+	&:after {
+		bottom: (-1 * @v-btm-mrgns / 3);
+		height: 1px;
+		border-top: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
+					blue(@hex-darker-gray), 0.25);
+	}
+}
+
 //     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 //     │ ++++ TYPOGRAPHY +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
 //     │  Mixins for specifying font sizes, line heights, etc.                                           │
