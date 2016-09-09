@@ -2,13 +2,13 @@
  *     │ ++++ IMG selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
  *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
-.setup-autoscaled-classes(@scaling-factor) when (isnumber(@scaling-factor)) and (@scaling-factor > 0) {
+.setup-autoscaled-classes(@scaling) when (isnumber(@scaling)) and (@scaling > 0) {
 	@units: %;
-    &.autoScaledTo@{scaling-factor},
-	&.auto-scaled.to-@{scaling-factor} {
-        width: @{scaling-factor}@{units};
+    &.autoScaledTo@{scaling},
+	&.auto-scaled.to-@{scaling} {
+        width: ~"@{scaling-factor}%";
     }	
-	.setup-autoscaled-classes((@scaling-factor - 10));
+	.setup-autoscaled-classes((@scaling - 10));
 }
 
 img {
