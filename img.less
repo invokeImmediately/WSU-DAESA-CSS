@@ -11,7 +11,7 @@
 }
 
 .setup-fixedwidth-classes(@width, @cutoff) when (isnumber(@width)) and (isnumber(@cutoff))
-  and (@cutoff > 0) and (@width > @cutoff) {
+  and (@cutoff > 0) and (@width >= @cutoff) {
 	&.width-fixed.to-@{width} {
         width: ~"@{width}px";
     }	
