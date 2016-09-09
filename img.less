@@ -2,61 +2,57 @@
  *     │ ++++ IMG selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
  *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
+.setup-autoscaled-classes(@scaling-factor) when (isnumber(@scaling-factor)) and (@scaling-factor > 0) {
+    &.autoScaledTo@{scaling-factor},
+	&.auto-scaled.to-@{scaling-factor} {
+        width: @{scaling-factor}%;
+    }	
+	.setup-autoscaled-classes((@scaling-factor - 10));
+}
+
 img {
-    // TODO: Replace with parametric mixin implementation.
+	height: auto;
     &.autoScaled,
 	&.auto-scaled {
-        height: auto;
         width: 100%;
     }
     &.autoScaled-byHeight {
         height: 100%;
         width: auto;
     }
-    &.autoScaledTo90 {
-        height: auto;
-        width: 90%;
-    }
-    &.autoScaledTo80 {
-        height: auto;
-        width: 80%;
-    }
-    &.autoScaledTo70 {
-        height: auto;
-        width: 70%;
-    }
-    &.autoScaledTo60 {
-        height: auto;
-        width: 60%;
-    }
+	.setup-autoscaled-classes(90);
     &.autoScaledToHalf {
-        height: auto;
         width: 50%;
     }
-    &.autoScaledTo40 {
-        height: auto;
-        width: 40%;
-    }
-    &.autoScaledToThird {
-        height: auto;
+    &.autoScaledToThird
+	&.auto-scaled.to-33 {
         width: 33%;
     }
-    &.autoScaledTo30 {
-        height: auto;
-        width: 30%;
-    }
-    &.autoScaledToQuarter {
-        height: auto;
+    &.autoScaledToQuarter
+	&.auto-scaled.to-25 {
         width: 25%;
     }
-    &.autoScaledTo20 {
-        height: auto;
-        width: 20%;
-    }
-    &.autoScaledTo10 {
-        height: auto;
-        width: 10%;
-    }
+	&.width-fixed {
+		width: 192px;
+		&.to-96 {
+			width: 96px;
+		}
+		&.to-128 {
+			width: 128px;
+		}
+		&.to-160 {
+			width: 160px;
+		}
+		&.to-192 {
+			width: 192px;
+		}
+		&.to-224 {
+			width: 224px;
+		}
+		&.to-256 {
+			width: 256px;
+		}
+	}
     &.shiftToCenter, &.shift-to-center {
         &:extend(.margin-centered);
         display: block;
