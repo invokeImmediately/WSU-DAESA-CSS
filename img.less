@@ -5,7 +5,7 @@
 .setup-autoscaled-classes(@scaling-factor) when (isnumber(@scaling-factor)) and (@scaling-factor > 0) {
     &.autoScaledTo@{scaling-factor},
 	&.auto-scaled.to-@{scaling-factor} {
-        width: @{scaling-factor}%;
+        width: "@{scaling-factor}%";
     }	
 	.setup-autoscaled-classes((@scaling-factor - 10));
 }
