@@ -3,12 +3,19 @@
  *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
 .setup-autoscaled-classes(@scaling) when (isnumber(@scaling)) and (@scaling > 0) {
-	@units: %;
     &.autoScaledTo@{scaling},
 	&.auto-scaled.to-@{scaling} {
-        width: ~"@{scaling-factor}%";
+        width: ~"@{scaling}%";
     }	
 	.setup-autoscaled-classes((@scaling - 10));
+}
+
+.setup-fixedwidth-classes(@width, @cutoff) when (isnumber(@width)) and (isnumber(@cutoff))
+  and (@cutoff > 0) and (@width > @cutoff) and  {
+	&.width-fixed.to-@{width} {
+        width: ~"@{width}px";
+    }	
+	.setup-fixedwidth-classes((@width - 32));
 }
 
 img {
@@ -33,27 +40,7 @@ img {
 	&.auto-scaled.to-25 {
         width: 25%;
     }
-	&.width-fixed {
-		width: 192px;
-		&.to-96 {
-			width: 96px;
-		}
-		&.to-128 {
-			width: 128px;
-		}
-		&.to-160 {
-			width: 160px;
-		}
-		&.to-192 {
-			width: 192px;
-		}
-		&.to-224 {
-			width: 224px;
-		}
-		&.to-256 {
-			width: 256px;
-		}
-	}
+	.setup-fixedwidth-classes(256, 96);
     &.shiftToCenter, &.shift-to-center {
         &:extend(.margin-centered);
         display: block;
