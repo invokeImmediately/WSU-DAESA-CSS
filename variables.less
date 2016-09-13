@@ -70,3 +70,7 @@
 //@v-scl-dwn: 0.92195445;
 @v-scl-dwn: 0.938; // Scaling factor by which font size reduces as a smaller format is reached
 @v-scl-up: (1 / @v-scl-dwn);
+
+@v-fnt-sclng-fctrs: @v-scl-up, 1.0, @v-scl-up, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn);
+@v-fnt-sclng-fctrs-alt: 1.0, 1.0, 1.0, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn);
+@v-fnt-sclng-fctrs-alt-2: 1.0, @v-scl-dwn, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn), (@v-scl-dwn * @v-scl-dwn);
