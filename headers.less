@@ -1,5 +1,3 @@
-@prnt: div.column;
-
 // ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 // │ ++++++++ H1-H6 & HEADER selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
 // ├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
@@ -10,6 +8,7 @@
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h1>…</h1> selectors ············································································· │
 h1 {
+	@prnt: div.column;
 	@{prnt} & {
 		&:extend(.has-dflt-font);
 		padding-bottom: 0;
@@ -32,6 +31,7 @@ h1 {
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h2>…</h2> selectors ············································································· │
 h2 {
+	@prnt: div.column;
 	@{prnt} & {
 		&:extend(.has-dflt-font);
 		padding: 0 0 0 .1em;
@@ -90,18 +90,19 @@ h2 {
 	@{prnt} h1 + & {
 		font-style: italic;
 	}
-    @{prnt} hr:not(.subSection) + h2 {
-        margin-top: 0;
-    }
+	@{prnt} hr:not(.subSection) + h2 {
+		margin-top: 0;
+	}
 }
 
 // TODO: move to hyperlink.less
 h2.article-title a {
-    border-bottom: none;
+	border-bottom: none;
 }
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h3>…</h3> selectors ············································································· │
 h3 {
+	@prnt: div.column;
 	@{prnt} & {
 		&:extend(.has-dflt-font);
 		padding: 0 0 0 .1em;
@@ -159,6 +160,7 @@ h3 {
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h4>…</h4> selectors ············································································· │
 h4 {
+	@prnt: div.column;
 	@{prnt} & {
 		&:extend(.has-dflt-font);
 		padding: 0;
@@ -189,112 +191,112 @@ h4 {
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <hN>…</hN> selectors ············································································· │
 div.column {
-    h1.crimson, h2.crimson {
-        color: @hex-crimson;
-    }
+	h1.crimson, h2.crimson {
+		color: @hex-crimson;
+	}
 }
 
 section {
-    &.side-right, &.row.side-right {
-        div.column.one h2.fancy, div.column.one h3.fancy {
-            @media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
-                margin-right: 0;
-            }
-        }
-    }
+	&.side-right, &.row.side-right {
+		div.column.one h2.fancy, div.column.one h3.fancy {
+			@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+				margin-right: 0;
+			}
+		}
+	}
 }
 
 div.column {
-    header.article-header {
-        h1.article-title, h2.article-title {
+	header.article-header {
+		h1.article-title, h2.article-title {
 			.has-responsive-font((@v-p-sz * 2), @v-hX-lnhght);
-        }
-    }
+		}
+	}
 }
 
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <header>…<header> selectors ······································································ │
 header.main-header {
-    span.sup-header-default {
-        margin-bottom: .5rem;
-        font-size: .9rem;
-        @media all {
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: .75rem;
-            }
-        }
-    }
-    span.sub-header-default {
-        @media all {
-            font-size: 2.5rem;
-            line-height: 0.8em;
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: 2.08333rem;
-                line-height: 1em;
-            }
+	span.sup-header-default {
+		margin-bottom: .5rem;
+		font-size: .9rem;
+		@media all {
+			@media (max-width: @v-mbl-thrshld) {
+				font-size: .75rem;
+			}
+		}
+	}
+	span.sub-header-default {
+		@media all {
+			font-size: 2.5rem;
+			line-height: 0.8em;
+			@media (max-width: @v-mbl-thrshld) {
+				font-size: 2.08333rem;
+				line-height: 1em;
+			}
 //            @media (min-width: 494px) {
 //                @media (max-width: 561px) {
 //                    font-size: 1.3rem;
 //                    line-height: 1em;
 //                }
 //            }
-        }
-    }
-    sub.sub-header {
-        @media all {
-            font-size: 2.5rem;
-            line-height: 0.8em;
-            @media (max-width: @v-mbl-thrshld) {
-                font-size: 2.08333rem;
-                line-height: 1em;
-            }
+		}
+	}
+	sub.sub-header {
+		@media all {
+			font-size: 2.5rem;
+			line-height: 0.8em;
+			@media (max-width: @v-mbl-thrshld) {
+				font-size: 2.08333rem;
+				line-height: 1em;
+			}
 //            @media (min-width: 494px) and (max-width: 561px) {
 //                font-size: 1.3rem;
 //                line-height: 1em;
 //            }
-        }
-    }
-    &.centered {
-        @media (min-width: @v-lrgfrmt-thrshld) {
-            text-align: center;
-        }
-        @media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-            text-align: left;
-        }
-        @media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
-            text-align: center;
-        }
-        @media (max-width: @v-tblt-thrshld) {
-            text-align: left;
-        }
-    }
-    div.header-group { text-align: inherit; }
-    div.header-group.centered {
-        @media (min-width: @v-lrgfrmt-thrshld) {
-            width: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-             -webkit-transform: translateX(-50%);
-             -ms-transform: translateX(-50%);
-        }
-        @media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
-            width: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-             -webkit-transform: translateX(-50%);
-             -ms-transform: translateX(-50%);
-        }
-    }
+		}
+	}
+	&.centered {
+		@media (min-width: @v-lrgfrmt-thrshld) {
+			text-align: center;
+		}
+		@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+			text-align: left;
+		}
+		@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+			text-align: center;
+		}
+		@media (max-width: @v-tblt-thrshld) {
+			text-align: left;
+		}
+	}
+	div.header-group { text-align: inherit; }
+	div.header-group.centered {
+		@media (min-width: @v-lrgfrmt-thrshld) {
+			width: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			 -webkit-transform: translateX(-50%);
+			 -ms-transform: translateX(-50%);
+		}
+		@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+			width: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			 -webkit-transform: translateX(-50%);
+			 -ms-transform: translateX(-50%);
+		}
+	}
 }
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· Remove all <header><h2>…</h2></header> inserted by the WSU Spine Page Builder Template ··········· │
 div.column {
-    & > header:first-child {
-        display: none;
-    }
-    header:first-child + h1, header:first-child + h2.fancy.with-top-border,
-     header:first-child + h3.fancy.with-top-border {
-        margin-top: 0;
-    }
+	& > header:first-child {
+		display: none;
+	}
+	header:first-child + h1, header:first-child + h2.fancy.with-top-border,
+	 header:first-child + h3.fancy.with-top-border {
+		margin-top: 0;
+	}
 }
 // └─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
