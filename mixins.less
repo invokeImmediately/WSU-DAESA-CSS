@@ -280,7 +280,7 @@ div.column .soft-gray-border {
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
 .has-responsive-font(@fntsz, @lnhght, @sclng-fctrs: @v-fnt-sclng-fctrs) when (isem(@fntsz))
-  and (isem(@lnhght)) and (@is-constrainted = false) and (length(@sclng-fctrs) = 6) {
+  and (isem(@lnhght)) and (length(@sclng-fctrs) = 6) {
 	@media all {
 		line-height: @lnhght;
 		font-size: @fntsz;
