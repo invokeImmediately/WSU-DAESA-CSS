@@ -15,6 +15,15 @@ p {
 		.has-responsive-font(@v-p-sz, @v-p-lnhght);
 		text-align: left;
 	}
+	section.row.side-right @{prnt} &,
+	section.row.side-left @{prnt} &,
+	section.row.halves @{prnt} & {
+		.has-responsive-font(@v-p-sz, @v-p-lnhght, @v-fnt-sclng-fctrs-alt);
+	}
+	section.row.thirds @{prnt} &,
+	section.row.quarters @{prnt} & {
+		.has-responsive-font(@v-p-sz, @v-p-lnhght, @v-fnt-sclng-fctrs-alt-2);
+	}
 	@{prnt} &.centered {
 		text-align: center;
 	}
