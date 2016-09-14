@@ -8,21 +8,12 @@
  *  │       already been imported.                                                                 │
  *  ├----------------------------------------------------------------------------------------------┤
  */
-@prnt: div.column;
 p {
+	@prnt: div.column;
+	.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
 	@{prnt} & {
 		padding-bottom: 0;
-		.has-responsive-font(@v-p-sz, @v-p-lnhght);
 		text-align: left;
-	}
-	section.row.side-right @{prnt} &,
-	section.row.side-left @{prnt} &,
-	section.row.halves @{prnt} & {
-		.has-responsive-font(@v-p-sz, @v-p-lnhght, @v-fnt-sclng-fctrs-alt);
-	}
-	section.row.thirds @{prnt} &,
-	section.row.quarters @{prnt} & {
-		.has-responsive-font(@v-p-sz, @v-p-lnhght, @v-fnt-sclng-fctrs-alt-2);
 	}
 	@{prnt} &.centered {
 		text-align: center;
@@ -47,10 +38,13 @@ p {
 		}
 	}
 	&.article-tagline {
+		.has-sectionally-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
+		&.home {
+			.has-sectionally-responsive-font(@v-artcl-tgln-sz * 1.310345, @v-p-lnhght);
+		}
 		@{prnt} & {
 			.has-subst-font.serif;
 			font-size: @v-artcl-tgln-sz;
-			.has-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
 			line-height: @v-artcl-tgln-lnhght;
 			font-weight: @v-artcl-tgln-wght;
 		}
@@ -64,9 +58,6 @@ p {
 				font-weight: 700;
 				letter-spacing: normal;                    
 			}
-		}
-		@{prnt} &.home {
-			.has-responsive-font(@v-artcl-tgln-sz * 1.310345, @v-p-lnhght);
 		}
 		@{prnt} & {
 			.has-pull-quote-bordering;
