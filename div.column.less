@@ -147,3 +147,41 @@ main > div.page > section.row:last-child > div.column {
 }
 /*         └-----------------------------------------------------------------------------------------┘        
  */
+div.callout {
+	position: absolute;
+	top: 50%;
+	width: 80px;
+	height: 100px;
+	padding: 10px;
+	border: 1px solid #F1D031;
+	background-color: #FFEF93;
+	color: #000;
+	border-radius: 3px;
+	box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+	&.left:before,
+	&.right:before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		width: 0;
+		height: 0;
+		border: .8em solid transparent;
+		.transform(~"translateY(-50%)");
+	}
+	&.left {
+		left: 0;
+		.transform("~translate(-110px,-50%)");
+		&:before {
+			right: -20px;
+			border-left: 10px solid #FFEF93;
+		}
+	}
+	&.right {
+		right: 0;
+		.transform("~translate(110px,-50%)");
+		&:before {
+			left: -20px;
+			border-right: 10px solid #FFEF93;
+		}
+	}
+}
