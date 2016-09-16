@@ -148,10 +148,9 @@ main > div.page > section.row:last-child > div.column {
 /*         └-----------------------------------------------------------------------------------------┘        
  */
 div.callout {
-	position: absolute;
-	top: 50%;
-	width: 80px;
-	height: 100px;
+	.set-position(absolute, 50%);
+	.set-widths(auto, 80px, 230px);
+	height: auto;
 	padding: 10px;
 	border: 1px solid #F1D031;
 	background-color: #FFEF93;
@@ -160,29 +159,43 @@ div.callout {
 	border-radius: 3px;
 	box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
 	&.left:before,
-	&.right:before {
+	&.right:before,
+	&.left:after,
+	&.right:after {
 		content: "";
-		position: absolute;
-		top: 50%;
+		.set-position(absolute, 50%);
 		width: 0;
 		height: 0;
-		border: .8em solid transparent;
+		border: 10px solid transparent;
 		.transform(~"translateY(-50%)");
+	}
+	&.left:after,
+	&.right:after {
+		border: 11px solid transparent;
+		z-index: -1;
 	}
 	&.left {
 		left: 0;
-		.transform(~"translate(-110px,-50%)");
+		.transform(~"translate(-100%,-50%) translateX(-10px)");
 		&:before {
 			right: -20px;
 			border-left: 10px solid #FFEF93;
 		}
+		&:after {
+			right: -22px;
+			border-left: 10px solid #F1D031;
+		}
 	}
 	&.right {
 		right: 0;
-		.transform(~"translate(110px,-50%)");
+		.transform(~"translate(100%,-50%) translateX(10px)");
 		&:before {
 			left: -20px;
 			border-right: 10px solid #FFEF93;
+		}
+		&:after {
+			left: -22px;
+			border-left: 11px solid #F1D031;
 		}
 	}
 }

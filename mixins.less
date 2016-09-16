@@ -16,6 +16,43 @@ div.column .initially-hidden {
     display: none;
 }
 
+.set-widths(@wdth, @mn-wdth: "na", @mx-wdth: "na") when (@mn-wdth > 0) and (isnumber(@mn-wdth))
+  and (@mx-wdth = "na") {
+	width: @wdth;
+	min-width: @mn-wdth;
+}
+.set-widths(@wdth, @mn-wdth: "na", @mx-wdth: "na") when (@mx-wdth = "na") and (@mx-wdth > 0)
+  and (isnumber(@mx-wdth)) {
+	width: @wdth;
+	max-width: @mx-wdth;
+}
+.set-widths(@wdth, @mn-wdth: "na", @mx-wdth: "na") when (@mx-wdth = "na") and (@mx-wdth > 0)
+  and (isnumber(@mx-wdth)) {
+	width: @wdth;
+	min-width: @mn-wdth;
+	max-width: @mx-wdth;
+}
+
+.set-pstn-top(@pstn) when not (@pstn = "na") {
+	top: @pstn;
+}
+.set-pstn-rgt(@pstn) when not (@pstn = "na") {
+	right: @pstn;
+}
+.set-pstn-btm(@pstn) when not (@pstn = "na") {
+	bottom: @pstn;
+}
+.set-pstn-lft(@pstn) when not (@pstn = "na") {
+	left: @pstn;
+}
+.set-position(@pstn: "na", @pstn-top: "na", @pstn-rgt: "na", @ptsn-btm: "na", @pstn-lft: "na") when not (@pstn = "na") {
+	position: @pstn;
+	.set-pstn-top(@pstn-top);
+	.set-pstn-rgt(@pstn-rgt);
+	.set-pstn-btm(@pstn-btm);
+	.set-pstn-lft(@pstn-lft);
+}
+
 //     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 //     │ ++++ SPACING ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
 //     │  Mixins for specifying margins and padding.                                                     │
