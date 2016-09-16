@@ -524,3 +524,33 @@ div.column .soft-gray-border {
 		@ruleset-to-apply();
 	}
 }
+
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ INTERPOLATED PROPERTY SPECIFICATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     │  Mixins for applying a style rule to an interpolated property.                                  │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+.has-responsive-property(@property, @value, @sclng-fctrs: @v-fnt-sclng-fctrs) when (isnumber(@value))
+  and (length(@sclng-fctrs) = 6) {
+	@media all {
+		@{property}: @value;
+		@media (min-width: @v-dsktp-thrshld) {
+			@{property}: (@value * extract(@sclng-fctrs, 1));
+		}
+		@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-dsktp-thrshld - 1)) {
+			@{property}: (@value * extract(@sclng-fctrs, 2));
+		}
+		@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+			@{property}: (@value * extract(@sclng-fctrs, 3));
+		}
+		@media (min-width: (@v-lg-mbl-thrshld + 1)) and (max-width: @v-tblt-thrshld) {
+			@{property}: (@value * extract(@sclng-fctrs, 4));
+		}
+		@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-lg-mbl-thrshld) {
+			@{property}: (@value * extract(@sclng-fctrs, 5));
+		}
+		@media (max-width: @v-mbl-thrshld) {
+			@{property}: (@value * extract(@sclng-fctrs, 6));
+		}
+	}
+}
