@@ -7,9 +7,13 @@
 */
 div.column {
     div.builder-section-content.cycle-slideshow {
+        @media screen and (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-lg-mbl-thrshld) {
+            margin-left: (-2rem / 2);
+            margin-right: (-2rem / 2);
+        }
         @media screen and (max-width: @v-mbl-thrshld) {
-            margin-left: -2em;
-            margin-right: -2em;
+            margin-left: (-2rem / 4);
+            margin-right: (-2rem / 4);
         }
     }
 
