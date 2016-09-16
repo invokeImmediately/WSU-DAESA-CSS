@@ -230,62 +230,161 @@ main section.row {
 	}
 }
 
-.single.gutter .column:not(.gutterless) {
-	.has-responsive-property(padding-left, 2rem);
-	.has-responsive-property(padding-right, 2rem);
+@media only screen and (min-width:(@v-lg-mbl-thrshld + 1)) and (max-width:@v-rghtclmn-thrshld) {
+    .single.gutter .column:not(.gutterless) {
+        padding-left: 2rem;
+        padding-right: 2rem
+    }
+    .halves.gutter .column.one:not(.gutterless),
+    .halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
+    .side-left.gutter .column.one:not(.gutterless),
+    .side-right.gutter .column.one:not(.gutterless) {
+        padding-right: 2rem
+    }
+    .halves.gutter .column.two:not(.gutterless),
+    .halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
+    .side-left.gutter .column.two:not(.gutterless),
+    .side-right.gutter .column.two:not(.gutterless) {
+        padding-left: 2rem
+    }
+    .thirds.gutter .column.one:not(.gutterless),
+    .thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
+    .triptych.gutter .column.one:not(.gutterless) {
+        padding-right: 2rem
+    }
+    .thirds.gutter .column.two:not(.gutterless),
+    .thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
+    .triptych.gutter .column.two:not(.gutterless) {
+        padding-left: 2rem;
+        padding-right: 2rem
+    }
+    .thirds.gutter .column.three:not(.gutterless),
+    .thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
+    .triptych.gutter .column.three:not(.gutterless) {
+        padding-left: 2rem
+    }
+    .quarters.gutter .column.one:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
+        padding-right: 1rem
+    }
+    .quarters.gutter .column.two:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
+        padding-left: 1rem;
+        padding-right: 2rem
+    }
+    .quarters.gutter .column.three:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
+        padding-left: 2rem;
+        padding-right: 1rem
+    }
+    .quarters.gutter .column.four:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
+        padding-left: 1rem
+    }
 }
 
-.halves.gutter .column.one:not(.gutterless),
-.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
-.side-left.gutter .column.one:not(.gutterless),
-.side-right.gutter .column.one:not(.gutterless) {
-	.has-responsive-property(padding-right, 2rem);
+@media only screen and (min-width:(@v-mbl-thrshld + 1)) and (max-width:@v-lg-mbl-thrshld) {
+    .single.gutter .column:not(.gutterless) {
+        padding-left: (2rem / 2);
+        padding-right: (2rem / 2);
+    }
+    .halves.gutter .column.one:not(.gutterless),
+    .halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
+    .side-left.gutter .column.one:not(.gutterless),
+    .side-right.gutter .column.one:not(.gutterless) {
+        padding-right: (2rem / 2);
+    }
+    .halves.gutter .column.two:not(.gutterless),
+    .halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
+    .side-left.gutter .column.two:not(.gutterless),
+    .side-right.gutter .column.two:not(.gutterless) {
+        padding-left: (2rem / 2);
+    }
+    .thirds.gutter .column.one:not(.gutterless),
+    .thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
+    .triptych.gutter .column.one:not(.gutterless) {
+        padding-right: (2rem / 2);
+    }
+    .thirds.gutter .column.two:not(.gutterless),
+    .thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
+    .triptych.gutter .column.two:not(.gutterless) {
+        padding-left: (2rem / 2);
+        padding-right: (2rem / 2);
+    }
+    .thirds.gutter .column.three:not(.gutterless),
+    .thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
+    .triptych.gutter .column.three:not(.gutterless) {
+        padding-left: (2rem / 2);
+    }
+    .quarters.gutter .column.one:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
+        padding-right: (1rem / 2);
+    }
+    .quarters.gutter .column.two:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
+        padding-left: (1rem / 2);
+        padding-right: (2rem / 2);
+    }
+    .quarters.gutter .column.three:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
+        padding-left: (2rem / 2);
+        padding-right: (1rem / 2);
+    }
+    .quarters.gutter .column.four:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
+        padding-left: (1rem / 2);
+    }
 }
 
-.halves.gutter .column.two:not(.gutterless),
-.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
-.side-left.gutter .column.two:not(.gutterless),
-.side-right.gutter .column.two:not(.gutterless) {
-	.has-responsive-property(padding-left, 2rem);
-}
-
-.thirds.gutter .column.one:not(.gutterless),
-.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
-.triptych.gutter .column.one:not(.gutterless) {
-	.has-responsive-property(padding-right, 2rem);
-}
-
-.thirds.gutter .column.two:not(.gutterless),
-.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
-.triptych.gutter .column.two:not(.gutterless) {
-	.has-responsive-property(padding-left, 2rem);
-	.has-responsive-property(padding-right, 2rem);
-}
-
-.thirds.gutter .column.three:not(.gutterless),
-.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
-.triptych.gutter .column.three:not(.gutterless) {
-	.has-responsive-property(padding-left, 2rem);
-}
-
-.quarters.gutter .column.one:not(.gutterless),
-.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
-	.has-responsive-property(padding-right, 1rem);
-}
-
-.quarters.gutter .column.two:not(.gutterless),
-.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
-	.has-responsive-property(padding-left, 1rem);
-	.has-responsive-property(padding-right, 2rem);
-}
-
-.quarters.gutter .column.three:not(.gutterless),
-.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
-	.has-responsive-property(padding-left, 2rem);
-	.has-responsive-property(padding-right, 1rem);
-}
-
-.quarters.gutter .column.four:not(.gutterless),
-.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
-	.has-responsive-property(padding-left, 1rem);
+@media only screen and (max-width:@v-mbl-thrshld) {
+    .single.gutter .column:not(.gutterless) {
+        padding-left: (2rem / 4);
+        padding-right: (2rem / 4);
+    }
+    .halves.gutter .column.one:not(.gutterless),
+    .halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
+    .side-left.gutter .column.one:not(.gutterless),
+    .side-right.gutter .column.one:not(.gutterless) {
+        padding-right: (2rem / 4);
+    }
+    .halves.gutter .column.two:not(.gutterless),
+    .halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
+    .side-left.gutter .column.two:not(.gutterless),
+    .side-right.gutter .column.two:not(.gutterless) {
+        padding-left: (2rem / 4);
+    }
+    .thirds.gutter .column.one:not(.gutterless),
+    .thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
+    .triptych.gutter .column.one:not(.gutterless) {
+        padding-right: (2rem / 4);
+    }
+    .thirds.gutter .column.two:not(.gutterless),
+    .thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
+    .triptych.gutter .column.two:not(.gutterless) {
+        padding-left: (2rem / 4);
+        padding-right: (2rem / 4);
+    }
+    .thirds.gutter .column.three:not(.gutterless),
+    .thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
+    .triptych.gutter .column.three:not(.gutterless) {
+        padding-left: (2rem / 4);
+    }
+    .quarters.gutter .column.one:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
+        padding-right: (1rem / 4);
+    }
+    .quarters.gutter .column.two:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
+        padding-left: (1rem / 4);
+        padding-right: (2rem / 4);
+    }
+    .quarters.gutter .column.three:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
+        padding-left: (2rem / 4);
+        padding-right: (1rem / 4);
+    }
+    .quarters.gutter .column.four:not(.gutterless),
+    .quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
+        padding-left: (1rem / 4);
+    }
 }
