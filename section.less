@@ -231,7 +231,12 @@ main section.row {
 }
 
 @media only screen and (min-width:(@v-lg-mbl-thrshld + 1)) and (max-width:@v-rghtclmn-thrshld) {
-    .single.gutter .column:not(.gutterless) {
+    .gutter .column:not(.gutterless),
+    .guttered {
+        padding-left: 2rem;
+        padding-right: 2rem
+    }
+   .single.gutter .column:not(.gutterless) {
         padding-left: 2rem;
         padding-right: 2rem
     }
@@ -284,6 +289,11 @@ main section.row {
 }
 
 @media only screen and (min-width:(@v-mbl-thrshld + 1)) and (max-width:@v-lg-mbl-thrshld) {
+    .gutter .column:not(.gutterless),
+    .guttered {
+        padding-left: (2rem / 2);
+        padding-right: (2rem / 2);
+    }
     .single.gutter .column:not(.gutterless) {
         padding-left: (2rem / 2);
         padding-right: (2rem / 2);
@@ -337,6 +347,11 @@ main section.row {
 }
 
 @media only screen and (max-width:@v-mbl-thrshld) {
+    .gutter .column:not(.gutterless),
+    .guttered {
+        padding-left: (2rem / 4);
+        padding-right: (2rem / 4);
+    }
     .single.gutter .column:not(.gutterless) {
         padding-left: (2rem / 4);
         padding-right: (2rem / 4);
