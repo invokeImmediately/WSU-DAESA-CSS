@@ -7,6 +7,11 @@
 div.column {
     .gform_wrapper {
         max-width: 990px;
+		.field_sublabel_above {
+			.ginput_complex.ginput_container label {
+				margin: 0;
+			}
+		}
         .gsection {
             margin-bottom: 0;
         }
@@ -15,10 +20,6 @@ div.column {
         }
         .gfield_checkbox li { margin-bottom: 0; }
         .ginput_complex {
-            label {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
             span.ginput_full:not(:first-of-type) label, span.ginput_left:not(:first-of-type) label,
              span.ginput_right:not(:nth-of-type(2)) label {
                 margin-top: 0.4em;
@@ -69,8 +70,9 @@ div.column {
 			}
 			& > div.chosen-container-single > a.chosen-single {
 				height: 1.98em;
+				line-height: 1.98em;
 				& > div > b {
-					background-position: 0 0.441258em;
+					background-position: 0 0.4em;
 					@media only screen and (max-width: 641px) {
 						background-position: 0 -0.2em;
 					}
@@ -81,8 +83,8 @@ div.column {
     ul.gform_fields.top_label {
         & > li.gfield {
             & > div.gfield_description {
-                padding-top: 0;
-                margin-bottom: 3px;
+                padding: 0;
+                margin: 0;
                 color: @hex-dark-grayish-pink;
             }
             & > div.ginput_complex {
@@ -173,4 +175,4 @@ div.column {
     .animation(gf-fades-in; 0.5s; linear; 0s; 1);
     .keyframes(gf-fades-in; @frames-simple-fade-in);
 }
-
+                                                                                                              
