@@ -63,8 +63,19 @@ div.column {
         & > div.ginput_complex > span > label {
             color: @hex-dark-grayish-pink;
         }
-        & > div.ginput_container_select > div.chosen-container {
-            width: 100% !important;
+        & > div.ginput_container_select {
+			& > div.chosen-container {
+				width: 100% !important;
+			}
+			& > div.chosen-container-single > a.chosen-single {
+				height: 1.98em;
+				& > div > b {
+					background-position: 0 0.441258em;
+					@media only screen and (max-width: 641px) {
+						background-position: 0 -0.2em;
+					}
+				}
+			}
         }
     }
     ul.gform_fields.top_label {
