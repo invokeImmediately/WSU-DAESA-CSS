@@ -7,6 +7,7 @@
 div.column {
     .gform_wrapper {
         max-width: 990px;
+		.has-responsive-font(16px, @v-p-lnhght, @v-fnt-sclng-fctrs-alt);
 		.field_sublabel_above {
 			.ginput_complex.ginput_container label {
 				margin: 0;
@@ -24,12 +25,6 @@ div.column {
              span.ginput_right:not(:nth-of-type(2)) label {
                 margin-top: 0.4em;
             }
-            /*span.address_line_1 label {
-                margin-bottom: 0.75em;
-            }
-            span.address_city, span.address_state, span.address_zip {
-                margin-top: 0.75em;
-            }*/
         }
         label.gfield_label {
             margin-top: 0;
@@ -79,7 +74,7 @@ div.column {
 						text-shadow: none;
 					}
 					& > div > b {
-						background-position: ~"0 calc(-9px + 1.98em / 2)";
+						background-position: ~"0 calc(-10px + 1.98em / 2)";
 						@media only screen and (max-width: 641px) {
 							top: ~"calc(0.99em - 3px)";
 							background-position: 0 -7px;
