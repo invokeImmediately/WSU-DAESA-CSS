@@ -344,6 +344,34 @@ div.column .soft-gray-border {
 	}
 }
 
+.has-responsive-font(@fntsz, @lnhght, @sclng-fctrs: @v-fnt-sclng-fctrs) when (ispixel(@fntsz))
+  and (isem(@lnhght)) and (length(@sclng-fctrs) = 6) {
+	@media all {
+		line-height: @lnhght;
+		font-size: @fntsz;
+		@media (min-width: @v-dsktp-thrshld) {
+			font-size: (@fntsz * extract(@sclng-fctrs, 1));
+		}
+		@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-dsktp-thrshld - 1)) {
+			font-size: (@fntsz * extract(@sclng-fctrs, 2));
+		}
+		@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+			font-size: (@fntsz * extract(@sclng-fctrs, 3));
+		}
+		@media (min-width: (@v-lg-mbl-thrshld + 1)) and (max-width: @v-tblt-thrshld) {
+			font-size: (@fntsz * extract(@sclng-fctrs, 4));
+		}
+		@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-lg-mbl-thrshld) {
+			font-size: (@fntsz * extract(@sclng-fctrs, 5));
+			text-align: left;
+		}
+		@media (max-width: @v-mbl-thrshld) {
+			font-size: (@fntsz * extract(@sclng-fctrs, 6));
+			text-align: left;
+		}
+	}
+}
+
 .has-sectionally-responsive-font(@fntsz, @lnhght) when (isem(@fntsz)) and (isem(@lnhght)) {
 	section.row.single div.column & {
 		.has-responsive-font(@fntsz, @lnhght);
