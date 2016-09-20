@@ -87,6 +87,24 @@ div.column {
 				}
 			}
         }
+		&.uses-rich-editor div.tmce-active {
+			div.mce-menubar {
+				display: none;
+			}
+			div.mce-toolbar-grp > div.mce-stack-layout {
+				& > div.mce-toolbar.mce-first {
+					div.mce-btn[aria-label="Toolbar Toggle"] {
+						display: none;
+					}
+				}
+				& > div.mce-toolbar.mce-last {
+					display: none;
+				}
+			}
+			div.mce-statusbar {
+				display: none;
+			}
+		}
     }
     ul.gform_fields.top_label {
         & > li.gfield {
