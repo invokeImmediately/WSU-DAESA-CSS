@@ -68,14 +68,26 @@ div.column {
 			& > div.chosen-container {
 				width: 100% !important;
 			}
-			& > div.chosen-container-single > a.chosen-single {
-				height: 1.98em;
-				line-height: 1.98em;
-				& > div > b {
-					background-position: 0 0.4em;
-					@media only screen and (max-width: 641px) {
-						background-position: 0 -0.2em;
+			& > div.chosen-container-single {
+				& > a.chosen-single {
+					height: 1.98em;
+					background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,0.038) 50%,
+								rgba(0,0,0,0.07) 52%, rgba(0,0,0,0.045) 100%),
+								linear-gradient(to bottom, #fff, #fff);
+					line-height: 1.98em;
+					&:hover {
+						text-shadow: none;
 					}
+					& > div > b {
+						background-position: 0 0.4em;
+						@media only screen and (max-width: 641px) {
+							background-position: 0 -0.2em;
+						}
+					}
+				}
+				&.chosen-with-drop > a.chosen-single {
+					background: linear-gradient(to bottom, rgba(0,0,0,0.07) 20%, rgba(0,0,0,0) 80%),
+								linear-gradient(to bottom, #fff, #fff);
 				}
 			}
         }
