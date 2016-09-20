@@ -93,8 +93,16 @@ div.column {
 			}
 			div.mce-toolbar-grp > div.mce-stack-layout {
 				& > div.mce-toolbar.mce-first {
-					div.mce-btn[aria-label="Toolbar Toggle"] {
-						display: none;
+					div.mce-btn {
+						&[aria-label="Blockquote"],
+						&[aria-label="Insert/edit link"],
+						&[aria-label="Remove link"],
+						&[aria-label="Insert/edit image"],
+						&[aria-label="Table"],
+						&[aria-label="Toolbar Toggle"],
+						&[aria-label="Fullscreen"] {
+							display: none;
+						}
 					}
 				}
 				& > div.mce-toolbar.mce-last {
