@@ -123,6 +123,19 @@ div.column {
     ul.gform_fields {
 		&.top_label {
 			& > li.gfield {
+				&.gfield_error {
+					&.gf_left_half,
+					&.gf_right_half {
+						width: calc(50% - 16px);
+					}
+				}
+				&.gf_left_half,
+				&.gf_right_half {
+					ul.gfield_radio,
+					ul.gfield_checkbox {
+						width: 100%;
+					}
+				}
 				& > div.gfield_description {
 					padding: 0;
 					margin: 0;
@@ -130,19 +143,6 @@ div.column {
 				}
 				& > div.ginput_complex {
 					margin-top: 0;
-				}
-				&.gfield_error {
-					&.gf_left_half,
-					&.gf_right_half {
-						width: calc(50% - 16px);
-					}
-				}
-				ul.gfield_radio,
-				ul.gfield_checkbox {
-					&.gf_left_half,
-					&.gf_right_half {
-						width: 100%;
-					}
 				}
 			}
 			& > li.gfield + li.gfield,
