@@ -4,6 +4,7 @@
  *  ║ Styling applied to input elements to which the gravity form classes have been applied.       ║
  *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
  */
+
 div.column {
     .gform_wrapper {
         max-width: 990px;
@@ -129,6 +130,19 @@ div.column {
 				}
 				& > div.ginput_complex {
 					margin-top: 0;
+				}
+				&.gfield_error {
+					&.gf_left_half,
+					&.gf_right_half {
+						width: calc(50% - 16px);
+					}
+				}
+				ul.gfield_radio,
+				ul.gfield_checkbox {
+					&.gf_left_half,
+					&.gf_right_half {
+						width: 100%;
+					}
 				}
 			}
 			& > li.gfield + li.gfield,
