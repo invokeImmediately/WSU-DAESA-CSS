@@ -115,12 +115,11 @@ p {
 	@{prnt} &.vpue-jump-back {
 		padding-bottom: @v-btm-pads / 3;
 		margin-bottom: @v-btm-mrgns / 3;
-		font-size: @v-p-jmpbck-sz;
+		.has-responsive-font(@v-p-jmpbck-sz, @v-p-lnhght);
 	}
 	@{prnt} &.article-media-contacts {
 		padding-left: 2em;
-		font-size: .8em;
-		line-height: @v-p-lnhght;
+		.has-responsive-font(0.8rem, @v-p-lnhght);
 		text-align: left;
 	}
 	@{prnt} &.fine-print {
