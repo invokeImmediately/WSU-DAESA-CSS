@@ -11,6 +11,10 @@ div.column {
     ul {
         padding-bottom: 0;
 		.has-responsive-font(@v-p-sz, @v-p-lnhght);
+		ol,
+		ul {
+			font-size: inherit;
+		}
         &.centered {
             text-align: center;
         }
@@ -98,6 +102,10 @@ div.column {
 		.has-responsive-font(@v-p-sz, @v-p-lnhght);
 		li {
 			line-height: inherit;
+		}
+		ol,
+		ul {
+			font-size: inherit;
 		}
         ol {
             list-style-type: lower-alpha;
