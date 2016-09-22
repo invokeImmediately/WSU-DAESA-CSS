@@ -30,11 +30,13 @@ p {
 	@{prnt} &.half-margins:not(:last-child) {
 		margin-bottom: @v-btm-mrgns / 2;
 	}	
-	@{prnt} &.article-deck {
+	&.article-deck {
 		.has-sectionally-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
-		color: @hex-dark-green;
-		strong {
-			color: @hex-green;
+		@{prnt} & {
+			color: @hex-dark-green;
+			strong {
+				color: @hex-green;
+			}
 		}
 	}
 	&.article-tagline {
@@ -62,26 +64,6 @@ p {
 		@{prnt} & {
 			.has-pull-quote-bordering;
 		}
-		/*:before,
-		@{prnt} &:after {
-			content: "";
-			position: absolute;
-			left: 50%;
-			width: 90%;
-			.transform(~"translateX(-50%)");
-		}
-		@{prnt} &:before {
-			top: (-1 * @v-btm-mrgns / 3);
-			height: 5px;
-			border-top: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
-						blue(@hex-darker-gray), 0.25);
-		}
-		@{prnt} &:after {
-			bottom: (-1 * @v-btm-mrgns / 3);
-			height: 1px;
-			border-top: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
-						blue(@hex-darker-gray), 0.25);
-		}*/
 		@{prnt} h1 + &,
 		@{prnt} h2 + &,
 		@{prnt} h3 + &,
