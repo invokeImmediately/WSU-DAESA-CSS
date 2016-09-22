@@ -40,7 +40,7 @@ p {
 	&.article-tagline {
 		.has-sectionally-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
 		&.home {
-			.has-sectionally-responsive-font(@v-artcl-tgln-sz * 1.310345, @v-p-lnhght);
+			.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), @v-p-lnhght);
 		}
 		@{prnt} & {
 			.has-subst-font.serif;
@@ -112,15 +112,19 @@ p {
 			font-variant: small-caps;
 		}
 	}
-	@{prnt} &.vpue-jump-back {
-		padding-bottom: @v-btm-pads / 3;
-		margin-bottom: @v-btm-mrgns / 3;
+	&.vpue-jump-back {
 		.has-sectionally-responsive-font(@v-p-jmpbck-sz, @v-p-lnhght);
+		@{prnt} & {
+			padding-bottom: @v-btm-pads / 3;
+			margin-bottom: @v-btm-mrgns / 3;
+		}
 	}
-	@{prnt} &.article-media-contacts {
-		padding-left: 2em;
+	&.article-media-contacts {
 		.has-sectionally-responsive-font(0.8rem, @v-p-lnhght);
-		text-align: left;
+		@{prnt} & {
+			padding-left: 2em;
+			text-align: left;
+		}
 	}
 	@{prnt} &.fine-print {
 		.has-smllr-txt;
