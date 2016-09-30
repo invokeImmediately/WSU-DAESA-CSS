@@ -94,10 +94,11 @@ ul {
  *         │ ···· ORDERED list elements ···························································· │
  *         └-----------------------------------------------------------------------------------------┘
  */
-div.column {
-    ol {
-        padding-bottom: 0;
-		.has-responsive-font(@v-p-sz, @v-p-lnhght);
+ol {
+	@prnt: div.column;
+	.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
+	@{prnt} & {
+		padding-bottom: 0;
 		li {
 			line-height: inherit;
 		}
@@ -105,13 +106,13 @@ div.column {
 		ul {
 			font-size: inherit;
 		}
-        ol {
-            list-style-type: lower-alpha;
-            ol {
-                list-style-type: lower-roman;
-            }
-        }
-    }
+		ol {
+			list-style-type: lower-alpha;
+			ol {
+				list-style-type: lower-roman;
+			}
+		}
+	}
 }
 
 /*         ┌-----------------------------------------------------------------------------------------┐
