@@ -124,59 +124,6 @@ div.column {
 				}
 			}
 		}
-        &.navigational-map {
-            width: 100%;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            font-size: 13px;
-            text-align: left;
-            color: @hex-crimson;
-            a {
-                border-bottom: 1px dotted rgba(152,30,50,0.0);
-                color: inherit;
-            }
-            th {
-                border-bottom: 1px solid @hex-light-gray;
-                font-size: 1.1em;
-                line-height: @v-p-lnhght;
-                font-weight: bold;
-                text-transform: uppercase;
-                vertical-align: bottom;
-                &.table-spacer {
-                    width: 15px;
-                }
-                &:nth-child(4n+1) {
-                    color: #4e2a32;
-                    a:hover {
-                        background-color: rgba(239,120,121,0.2);
-                    }
-                }
-                &:nth-child(4n+3) {
-                    color: #781d31;
-                    a:hover {
-                        background-color: rgba(239,120,121,0.3);
-                        color: #d13c59;
-                    }
-                }
-                /*&:nth-child(2):hover {
-                    background-color: #d3e1e3;
-                }*/
-            }
-            td {
-                p {
-                    padding-bottom: 0px;
-                    font-size: inherit;
-                    text-align: inherit;
-                    &:not(:last-child) {
-                        margin-bottom: 0 !important;
-                        border-bottom: 1px solid @hex-lighter-gray;
-                    }                    
-                }
-                &:nth-child(4n+3) {
-                    color: #c60c30
-                }
-            }
-        }
         &.wsu-blue-theme {
             width: 100%;
             border-collapse:separate;
@@ -303,6 +250,107 @@ div.column {
                 }
             }
         }
+	}
+}
+
+div.column table.navigational-map {
+	@media screen {
+		@media (max-width: 695px), (min-width: (@v-spn-thrshld + 1)) and (max-width: 895px) {
+			display: block;
+			thead, tr, th {
+				display: block;
+			}
+			tbody {
+				display: none;
+			}
+			th {
+				border: none;
+				text-align: center;
+				text-transform: none;
+				&.table-spacer, br {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.uses-navigational-map-tables() {
+	div.column table.navigational-map {
+		width: 100%;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		font-size: 13px;
+		text-align: left;
+		color: @hex-crimson;
+		a {
+			border-bottom: 1px dotted rgba(152,30,50,0.0);
+			color: inherit;
+		}
+		th {
+			border-bottom: 1px solid @hex-light-gray;
+			font-size: 1.1em;
+			line-height: @v-p-lnhght;
+			font-weight: bold;
+			text-transform: uppercase;
+			vertical-align: bottom;
+			&.table-spacer {
+				width: 15px;
+			}
+			&:nth-child(4n+1) {
+				color: #4e2a32;
+				a:hover {
+					background-color: rgba(239,120,121,0.2);
+				}
+			}
+			&:nth-child(4n+3) {
+				color: #781d31;
+				a:hover {
+					background-color: rgba(239,120,121,0.3);
+					color: #d13c59;
+				}
+			}
+			/*&:nth-child(2):hover {
+				background-color: #d3e1e3;
+			}*/
+		}
+		td {
+			p {
+				padding-top: 4px;
+				padding-bottom: 6px;
+				a {
+					.subtle-link;
+				}
+				font-size: inherit;
+				text-align: inherit;
+				&:not(:last-child) {
+					margin-bottom: 0 !important;
+					border-bottom: 1px solid @hex-lighter-gray;
+				}
+			}
+			&:nth-child(4n+3) {
+				color: #c60c30
+			}
+		}
+		@media screen {
+			@media (max-width: 695px), (min-width: (@v-spn-thrshld + 1)) and (max-width: 895px) {
+				display: block;
+				thead, tr, th {
+					display: block;
+				}
+				tbody {
+					display: none;
+				}
+				th {
+					border: none;
+					text-align: center;
+					text-transform: none;
+					&.table-spacer, br {
+						display: none;
+					}
+				}
+			}
+		}
 	}
 }
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
