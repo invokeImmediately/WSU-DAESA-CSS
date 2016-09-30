@@ -310,16 +310,16 @@ div.column table.navigational-map {
 					color: #d13c59;
 				}
 			}
-			/*&:nth-child(2):hover {
-				background-color: #d3e1e3;
-			}*/
+			a {
+				&:extend(div.column a.subtle-link);
+			}
 		}
 		td {
 			p {
-				padding-top: 4px;
-				padding-bottom: 6px;
+				padding-top: 2px;
+				padding-bottom: 3px;
 				a {
-					.subtle-link;
+					&:extend(div.column a.subtle-link);
 				}
 				font-size: inherit;
 				text-align: inherit;
