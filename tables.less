@@ -54,54 +54,6 @@ div.column {
 				}
 			}
 		}
-		&.award-recipients {
-			background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat
-             fixed left top;
-			border-collapse: separate;
-			border-spacing: 0;
-			border-top: 1px solid @hex-dark-gray;
-			border-bottom: 1px solid @hex-dark-gray;
-			thead {
-				tr {
-					th {
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						border-top: 1px solid @hex-white;
-						border-bottom: 1px solid #B6BCBF;
-						text-align: inherit;
-					}
-				}
-			}
-			tbody {
-				tr {
-					td {
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						background-color: @hex-white;
-						border-top: 1px solid @hex-bright-gray;
-						border-bottom: 1px solid @hex-lighter-gray;
-						text-align: inherit;
-						vertical-align: top;
-					}
-				}
-			}
-			tbody:nth-of-type(2n) {
-				tr {
-					td {
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						background-color: @hex-bright-gray;
-						border-top: 1px solid @hex-white;
-						border-bottom: 1px solid @hex-light-gray;
-						text-align: inherit;
-						vertical-align: top;
-					}
-				}
-			}
-		}
 		&.peopleList {
 			width: 100%;
 			background: @hex-white;
@@ -253,29 +205,61 @@ div.column {
 	}
 }
 
-div.column table.navigational-map {
-	@media screen {
-		@media (max-width: 695px), (min-width: (@v-spn-thrshld + 1)) and (max-width: 895px) {
-			display: block;
-			thead, tr, th {
-				display: block;
+.use-award-recipients-tables() {
+	div.column table.award-recipients {
+		background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat
+		 fixed left top;
+		border-collapse: separate;
+		border-spacing: 0;
+		border-top: 1px solid @hex-dark-gray;
+		border-bottom: 1px solid @hex-dark-gray;
+		@media screen and (max-width: @v-lg-mbl-thrshld) {
+			font-size: 12px;
+		}
+		thead {
+			tr {
+				th {
+					padding-top: .25rem;
+					padding-left: .25rem;
+					padding-bottom: .25rem;
+					border-top: 1px solid @hex-white;
+					border-bottom: 1px solid #B6BCBF;
+					text-align: inherit;
+				}
 			}
-			tbody {
-				display: none;
+		}
+		tbody {
+			tr {
+				td {
+					padding-top: .25rem;
+					padding-left: .25rem;
+					padding-bottom: .25rem;
+					background-color: @hex-white;
+					border-top: 1px solid @hex-bright-gray;
+					border-bottom: 1px solid @hex-lighter-gray;
+					text-align: inherit;
+					vertical-align: top;
+				}
 			}
-			th {
-				border: none;
-				text-align: center;
-				text-transform: none;
-				&.table-spacer, br {
-					display: none;
+		}
+		tbody:nth-of-type(2n) {
+			tr {
+				td {
+					padding-top: .25rem;
+					padding-left: .25rem;
+					padding-bottom: .25rem;
+					background-color: @hex-bright-gray;
+					border-top: 1px solid @hex-white;
+					border-bottom: 1px solid @hex-light-gray;
+					text-align: inherit;
+					vertical-align: top;
 				}
 			}
 		}
 	}
 }
 
-.uses-navigational-map-tables() {
+.use-navigational-map-tables() {
 	div.column table.navigational-map {
 		width: 100%;
 		margin: 0 auto;
