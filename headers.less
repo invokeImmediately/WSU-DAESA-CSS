@@ -45,7 +45,7 @@ h2 {
 		color: @hex-darker-gray;
 		text-transform: uppercase;
 		&.article-title {
-			.has-responsive-font((@v-h2-sz * 0.6), @v-hX-lnhght);
+			.has-responsive-font((@v-h2-sz * 0.4), @v-hX-lnhght);
 		}
 		&.centered {
 			text-align: center;
@@ -206,11 +206,14 @@ section {
 	}
 }
 
-div.column {
-	header.article-header {
-		h1.article-title, h2.article-title {
-			.has-responsive-font((@v-p-sz * 2), @v-hX-lnhght);
-		}
+header.article-header {
+	body.blog div.column & + * {
+		padding-top: 15px;
+		border-top: 1px solid rgba(127,127,127,0.2);
+	}
+	div.column & h1.article-title,
+	div.column & h2.article-title {
+		.has-responsive-font((@v-p-sz * 1.5), @v-hX-lnhght);
 	}
 }
 

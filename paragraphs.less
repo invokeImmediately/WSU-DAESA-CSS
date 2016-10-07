@@ -9,30 +9,29 @@
  *  ├----------------------------------------------------------------------------------------------┤
  */
 p {
-	@prnt: div.column;
 	.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
-	@{prnt} & {
+	div.column & {
 		padding-bottom: 0;
 		text-align: left;
 	}
-	@{prnt} &.centered {
+	div.column &.centered {
 		text-align: center;
 	}
-	@{prnt} &.align-left {
+	div.column &.align-left {
 		text-align: left;
 	}
-	@{prnt} &.btm-margin-override:not(:last-child) {
+	div.column &.btm-margin-override:not(:last-child) {
 		margin-bottom: 0;
 	}
-	@{prnt} &.double-margins:not(:last-child) {
+	div.column &.double-margins:not(:last-child) {
 		margin-bottom: @v-btm-mrgns * 2;
 	}	
-	@{prnt} &.half-margins:not(:last-child) {
+	div.column &.half-margins:not(:last-child) {
 		margin-bottom: @v-btm-mrgns / 2;
 	}	
 	&.article-deck {
 		.has-sectionally-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
-		@{prnt} & {
+		div.column & {
 			color: @hex-dark-green;
 			strong {
 				color: @hex-green;
@@ -44,13 +43,13 @@ p {
 		&.home {
 			.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), @v-p-lnhght);
 		}
-		@{prnt} & {
+		div.column & {
 			.has-subst-font.serif;
 			font-size: @v-artcl-tgln-sz;
 			line-height: @v-artcl-tgln-lnhght;
 			font-weight: @v-artcl-tgln-wght;
 		}
-		@{prnt} &.sans {
+		div.column &.sans {
 			&:extend(.has-alt-font);
 			color: @hex-black;
 			font-weight: 300;
@@ -61,22 +60,22 @@ p {
 				letter-spacing: normal;                    
 			}
 		}
-		@{prnt} & {
+		div.column & {
 			.has-pull-quote-bordering;
 		}
-		@{prnt} h1 + &,
-		@{prnt} h2 + &,
-		@{prnt} h3 + &,
-		@{prnt} h4 + &,
-		@{prnt} h5 + &,
-		@{prnt} h6 + & {
+		div.column h1 + &,
+		div.column h2 + &,
+		div.column h3 + &,
+		div.column h4 + &,
+		div.column h5 + &,
+		div.column h6 + & {
 			margin-top: (@v-btm-mrgns * 4 / 3);
 		}
 	}
-	@{prnt} &.no-bottom-pad {
+	div.column &.no-bottom-pad {
 		padding-bottom: 0;
 	}
-	@{prnt} &.vpue-jump-bar {
+	div.column &.vpue-jump-bar {
 		padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
 		margin-top: @v-dflt-spcng;
 		 margin-bottom: @v-dflt-spcng;
@@ -96,23 +95,27 @@ p {
 	}
 	&.vpue-jump-back {
 		.has-sectionally-responsive-font(@v-p-jmpbck-sz, @v-p-lnhght);
-		@{prnt} & {
+		div.column & {
 			padding-bottom: @v-btm-pads / 3;
 			margin-bottom: @v-btm-mrgns / 3;
 		}
 	}
 	&.article-media-contacts {
 		.has-sectionally-responsive-font(0.8rem, @v-p-lnhght);
-		@{prnt} & {
+		div.column & {
 			padding-left: 2em;
 			text-align: left;
 		}
+		body.single-post div.column & + :not(.article-media-contacts) {
+			padding-top: 15px;
+			border-top: 1px solid rgba(127,127,127,0.2);
+		}
 	}
-	@{prnt} &.fine-print {
+	div.column &.fine-print {
 		.has-smllr-txt;
 	}
 	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	@{prnt} &.banner-text-gray-with-towers {
+	div.column &.banner-text-gray-with-towers {
 		color: @hex-darkest-gray;
 		background-color: rgba(141,149,154,0.5);
 		border: 32px solid transparent;
@@ -130,7 +133,7 @@ p {
 			}
 		}
 	}
-	@{prnt} &.banner-text {
+	div.column &.banner-text {
 		max-width: @v-w-cnstrn-lrg;
 		padding: 7px;
 		.margin-centered;
@@ -158,7 +161,7 @@ p {
 		}
 	}
 	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	@{prnt} &.banner-text-orange-with-towers {
+	div.column &.banner-text-orange-with-towers {
 		margin-bottom: 15px;
 		padding: 7px;
 		color: @hex-darkest-orange;
