@@ -4,7 +4,79 @@
  *  ║ Styling applied to input elements to which the gravity form classes have been applied.       ║
  *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
  */
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ Form-mediated "Read More" interfaces +++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+input.read-more-state {
+    display: none;
+    &:checked + div.read-more-target {
+        margin-top: 0;
+        height: auto;
+        opacity: 1;
+    }
+    & ~ p label.read-more-trigger:before {
+        content: 'Show more';
+    }
+}
 
+label.read-more-trigger {
+    display: inline-block;
+    position: relative;
+    padding: 0 .5rem;
+    .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,0.25);
+    border: 1px solid #2a3033;
+    border-radius: .25rem;
+    font-size: .9rem;
+    line-height: 2;
+    color: @hex-dark-gray;
+    .transition(~"all 0.3333s ease");
+    .animation(orange-glow; 5s);
+    .keyframes(orange-glow; @rules-orange-glow);
+    cursor: pointer;
+    
+    &:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+         right: 2px;
+         bottom: 0;
+         left: 2px;
+        border-radius: 0.25rem;
+        & { @color-top: returned; .getRgbaForProp(@color-top, @hex-white, 0.7);
+         @color-mid-a: returned-2; .getRgbaForProp(@color-mid-a, @hex-white, 0.1);
+         @color-mid-b: returned-3; .getRgbaForProp(@color-mid-b, @hex-black, 0);
+         @color-btm: returned-4; .getRgbaForProp(@color-btm, @hex-black, 0.1);         
+         background: linear-gradient(@@color-top, @@color-mid-a 50%, @@color-mid-b 50%, @@color-btm); }
+    }
+}
+
+label.read-more-trigger:hover {
+    .animation(none);
+    .rgb-accent-yellow(); background-color: rgba(@rval,@gval,@bval,1.0);
+    box-shadow: 0 0 18px rgba(@rval,@gval,@bval,0.6667);
+    border: 1px solid #2a3033;
+    color: @hex-darkest-gray;
+}
+div.read-more-target {
+    height: 0;
+    overflow: hidden;
+    margin-top: .5rem;
+    opacity: 0;
+    transition: .333s ease;
+     -webkit-transition: .333s ease;
+     -moz-transition: .333s ease;
+     -o-transition: .333s ease;
+}
+.read-more-state:checked ~ p label.read-more-trigger:before {
+    content: 'Show less';
+}
+//
+//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+//     │ ++++ Gravity Forms ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
 div.column {
     .gform_wrapper {
         max-width: 990px;

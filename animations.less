@@ -181,3 +181,33 @@
     .keyframes(anim-fade-in-from-top; @rules-fade-in-from-top);
 }
 
+.fade-in-from-left {
+    .animation(anim-fade-in-from-left; 1s; linear; 0s; 1);
+    .keyframes(anim-fade-in-from-left; @rules-fade-in-from-left);
+}
+
+.fade-in-from-right {
+    .animation(anim-fade-in-from-right; 1s; linear; 0s; 1);
+    .keyframes(anim-fade-in-from-right; @rules-fade-in-from-right);
+}
+
+@-webkit-keyframes animGlowingHighlight {
+    0% {
+        .rgb-sky-blue(); background-color: rgba(@rval,@gval,@bval,0.75);
+        border-color: rgba(@rval,@gval,@bval,1);
+    }
+    100% {
+        .rgb-sky-blue(); background-color: rgba(@rval,@gval,@bval,0.25);
+        border-color: rgba(@rval,@gval,@bval,0.5);
+    }
+}
+@keyframes animGlowingHighlight {
+    0% {
+        .rgb-sky-blue(); background-color: rgba(@rval,@gval,@bval,0.75);
+        border-color: rgba(@rval,@gval,@bval,1);
+    }
+    100% {
+        .rgb-sky-blue(); background-color: rgba(@rval,@gval,@bval,0.25);
+        border-color: rgba(@rval,@gval,@bval,0.5);
+    }
+}
