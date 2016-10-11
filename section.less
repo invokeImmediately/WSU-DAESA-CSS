@@ -196,10 +196,10 @@ main section.row {
 		& > section > ol:not(.no-btm-margin) {
             margin-bottom: @v-btm-mrgns;
         }
-		& > p + ul,
-		& > section > p + ul,
-		& > p + ol,
-		& > section > p + ol {
+		& > p + ul:not(.spaces-top-full),
+		& > section > p + ul:not(.spaces-top-full),
+		& > p + ol:not(.spaces-top-full),
+		& > section > p + ol:not(.spaces-top-full) {
             margin-top: (-2 * @v-btm-mrgns / 3);
         }
     }
