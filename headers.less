@@ -222,42 +222,11 @@ header.article-header {
 header.main-header {
 	span.sup-header-default {
 		margin-bottom: .5rem;
-		font-size: .9rem;
-		@media all {
-			@media (max-width: @v-mbl-thrshld) {
-				font-size: .75rem;
-			}
-		}
+		.has-responsive-font(0.9rem, false, @v-fnt-sclng-fctrs-alt-2);
 	}
-	span.sub-header-default {
-		@media all {
-			font-size: 2.5rem;
-			line-height: 0.8em;
-			@media (max-width: @v-mbl-thrshld) {
-				font-size: 2.08333rem;
-				line-height: 1em;
-			}
-//            @media (min-width: 494px) {
-//                @media (max-width: 561px) {
-//                    font-size: 1.3rem;
-//                    line-height: 1em;
-//                }
-//            }
-		}
-	}
+	span.sub-header-default,
 	sub.sub-header {
-		@media all {
-			font-size: 2.5rem;
-			line-height: 0.8em;
-			@media (max-width: @v-mbl-thrshld) {
-				font-size: 2.08333rem;
-				line-height: 1em;
-			}
-//            @media (min-width: 494px) and (max-width: 561px) {
-//                font-size: 1.3rem;
-//                line-height: 1em;
-//            }
-		}
+		.has-responsive-font((2.5rem * 16 / 17), 0.9em, @v-fnt-sclng-fctrs-alt-2);
 	}
 	&.centered {
 		@media (min-width: @v-lrgfrmt-thrshld) {
