@@ -1,8 +1,8 @@
-/*  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗ 
- *  ║ #### INPUT FORMS ########################################################################### ║
- *  ╠==============================================================================================╣
- *  ║ Styling applied to input elements to which the gravity form classes have been applied.       ║
- *  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+/*  ╔════════════════════════════════════════════════════════════════════════════════════════════════════════╗ 
+ *  ║ #### INPUT FORMS ##################################################################################### ║
+ *  ╠========================================================================================================╣
+ *  ║ Styling applied to input elements to which the gravity form classes have been applied.                 ║
+ *  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════╝
  */
 //
 //     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -87,6 +87,7 @@ div.column {
 			}
 		}
         .gsection {
+			margin-top: @v-dflt-spcng;
             margin-bottom: 0;
         }
         .gfield_checkbox li label, .gfield_radio li label {
@@ -127,6 +128,20 @@ div.column {
         #extensions_message {
             padding-left: 1rem;
         }
+		h2.fancy {
+			margin-right: 0;
+			margin-left: 0;
+		}
+		&.gf_browser_chrome .gform_body {
+			@media only screen {
+				@media (min-width: 641px) {
+					width: ~"calc(100% + 15px)";
+				}
+				@media (max-width: 640px) {
+					width: 100%;
+				}
+			}
+		}
     }
     li.gfield {
         & > div.ginput_complex > span > label {
@@ -217,7 +232,7 @@ div.column {
 					margin-top: 0;
 				}
 			}
-			& > li.gfield + li.gfield,
+			& > li.gfield + li.gfield:not(.gsection),
 			li.gfield:first-child {
 				.spaces-top-qrtr;
 			}
