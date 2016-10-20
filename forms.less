@@ -175,33 +175,40 @@ div.column {
 				}
 			}
         }
-		&.uses-rich-editor div.tmce-active {
-			div.mce-menubar {
-				display: none;
-			}
-			div.mce-toolbar-grp > div.mce-stack-layout {
-				& > div.mce-toolbar.mce-first {
-					div.mce-btn {
-						&[aria-label="Blockquote"],
-						&[aria-label="Insert/edit link"],
-						&[aria-label="Remove link"],
-						&[aria-label="Insert/edit image"],
-						&[aria-label="Table"],
-						&[aria-label="Toolbar Toggle"],
-						&[aria-label="Fullscreen"] {
-							display: none;
+		&.uses-rich-editor {
+			div.tmce-active {
+				div.mce-menubar {
+					display: none;
+				}
+				div.mce-toolbar-grp > div.mce-stack-layout {
+					& > div.mce-toolbar.mce-first {
+						div.mce-btn {
+							&[aria-label="Blockquote"],
+							&[aria-label="Insert/edit link"],
+							&[aria-label="Remove link"],
+							&[aria-label="Insert/edit image"],
+							&[aria-label="Table"],
+							&[aria-label="Toolbar Toggle"],
+							&[aria-label="Fullscreen"] {
+								display: none;
+							}
 						}
 					}
+					& > div.mce-toolbar.mce-last {
+						display: none;
+					}
 				}
-				& > div.mce-toolbar.mce-last {
+				div.mce-statusbar {
 					display: none;
 				}
 			}
-			div.mce-statusbar {
-				display: none;
+			iframe {
+				width: 100% !important;
+			}
+			span.gp-word-count-label {
+				margin-top: 0 !important;
 			}
 		}
-		
 		div.ginput_container_textarea > textarea {
 			font-size: 16px;
 			font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
