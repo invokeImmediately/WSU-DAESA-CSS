@@ -46,6 +46,7 @@
 	padding: 5px 35px 5px 10px;
 	overflow: hidden;
 	border-width: 0 0 1px;
+	border-top-right-radius: 7px;
 	font-weight: 700;
 	&+.qtip-content {
 		border-top-width: 0 !important;
@@ -92,6 +93,9 @@
 
 .qtip-default {
 	border: 1px solid #F1D031;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
 	background-color: #FFFFA3;
 	color: #555;
 	.qtip-titlebar {
@@ -189,6 +193,7 @@
 	background-color: @hex-lightest-blue;
 	border-color: @hex-darkest-blue;
 	color: @hex-darker-blue;
+	box-shadow: 3px 3px 6px rgba(red(@hex-darker-blue), green(@hex-darker-blue), blue(@hex-darker-blue), 0.3);
 }
 
 .qtip-blue .qtip-titlebar {
