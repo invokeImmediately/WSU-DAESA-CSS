@@ -515,3 +515,15 @@
 .qtipmodal-ie6fix {
 	position: absolute !important;
 }
+
+.use-qtip-indicator-icon(@icon-url) when (isurl(@icon-url)) {
+	.qtip-titlebar:after {
+		content: "";
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		width: 16px;
+		height: 16px;
+		background: @icon-url;
+	}	
+}

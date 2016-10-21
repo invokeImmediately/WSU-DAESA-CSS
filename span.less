@@ -24,6 +24,7 @@ span {
     }
     &.has-tool-tip,
 	&.has-tooltip {
+		position: relative;
         margin-bottom: -3px;
         .rgb-accent-blue(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.25);
         color: @hex-accent-blue;
@@ -62,4 +63,26 @@ span {
 	&.callout {
 		&:extend(div.callout all);
 	}
+}
+
+.use-tool-tip-indicator-icon(@icon-url) when (isurl(@icon-url)) {
+	span.has-tool-tip,
+	span.has-tooltip {
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 10px;
+			height: 10px;
+			background: @icon-url no-repeat center center/100% 100%;
+			opacity: 1.0;
+			.transition(~"all 0.3s ease");
+			.transform(~"translate(100%, -25%)");
+		}
+		&:hover:after {
+			opacity: 0;
+		}
+	}
+	.use-qtip-indicator-icon(@icon-url);
 }
