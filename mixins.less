@@ -285,32 +285,42 @@ div.column .soft-gray-border {
 }
 
 .has-pull-quote-bordering {
-	position: relative;
-	padding-top: (@v-btm-mrgns / 3) !important;
-	padding-bottom: (@v-btm-mrgns / 3) !important;
-	margin-top: (@v-btm-mrgns / 3);	
-	&:before,
-	&:after {
-		content: "";
-		position: absolute;
-		left: 0;
-		width: 67%;
+	&:not(.alt) {
+		position: relative;
+		padding-top: (@v-btm-mrgns / 3) !important;
+		padding-bottom: (@v-btm-mrgns / 3) !important;
+		margin-top: (@v-btm-mrgns / 3);	
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			width: 67%;
+		}
+		&:before {
+			top: (-1 * @v-btm-mrgns / 3);
+			height: 5px;
+			border-top: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
+						blue(@hex-darker-gray), 0.33);
+		}
+		&:after {
+			bottom: (-1 * @v-btm-mrgns / 3);
+			height: 1px;
+			width: 33%;
+			border-top: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
+						blue(@hex-darker-gray), 0.25);
+		}
 	}
-	&:before {
-		top: (-1 * @v-btm-mrgns / 3);
-		height: 5px;
-		border-top: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
+	&.alt {
+		padding-left: (@v-btm-mrgns * 3 / 4) !important;
+		padding-right: (@v-btm-mrgns * 3 / 4) !important;
+		border-right: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
+					blue(@hex-darker-gray), 0.25);		
+		border-left: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
 					blue(@hex-darker-gray), 0.33);
 	}
-	&:after {
-		bottom: (-1 * @v-btm-mrgns / 3);
-		height: 1px;
-		width: 33%;
-		border-top: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
-					blue(@hex-darker-gray), 0.25);
-	}
 }
-
+	
 //     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 //     │ ++++ TYPOGRAPHY +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
 //     │  Mixins for specifying font sizes, line heights, etc.                                           │
