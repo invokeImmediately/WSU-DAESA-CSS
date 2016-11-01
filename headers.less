@@ -8,8 +8,7 @@
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h1>…</h1> selectors ············································································· │
 h1 {
-	@prnt:div.column;
-	@{prnt} & {
+	div.column & {
 		&:extend(.has-dflt-font);
 		padding-bottom: 0;
 		margin-top: 1.5rem;
@@ -23,16 +22,15 @@ h1 {
 			text-align: center;
 		}
 	}
-	@{prnt} &:first-child,
-	@{prnt} header:first-child + & {
+	div.column &:first-child,
+	div.column header:first-child + & {
 		margin-top: 0;
 	}
 }
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h2>…</h2> selectors ············································································· │
 h2 {
-	@prnt:div.column;
-	@{prnt} & {
+	div.column & {
 		&:extend(.has-dflt-font);
 		padding: 0 0 0 .1em;
 		margin-top: 1.5rem;
@@ -82,15 +80,15 @@ h2 {
 			margin-top: 0;
 		}
 	}
-	@{prnt} &:first-child,
-	@{prnt} header:first-child + &,
-	@{prnt} header:first-child + &.fancy.with-top-border:not(:first-child) {
+	div.column &:first-child,
+	div.column header:first-child + &,
+	div.column header:first-child + &.fancy.with-top-border:not(:first-child) {
 		margin-top: 0;
 	}
-	@{prnt} h1 + & {
+	div.column h1 + & {
 		font-style: italic;
 	}
-	@{prnt} hr:not(.subSection) + h2 {
+	div.column hr:not(.subSection) + h2 {
 		margin-top: 0;
 	}
 }
@@ -102,8 +100,7 @@ h2.article-title a {
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h3>…</h3> selectors ············································································· │
 h3 {
-	@prnt:div.column;
-	@{prnt} & {
+	div.column & {
 		&:extend(.has-dflt-font);
 		padding: 0 0 0 .1em;
 		margin-top: 1.5rem;
@@ -123,45 +120,44 @@ h3 {
 		&.no-top-margin {
 			margin-top: 0;
 		}
+		&.fancy {
+			position: relative;
+			padding: 0.3333rem 0.5rem;
+			margin-left: 0;
+			margin-bottom: (@v-dflt-spcng / 2);
+			margin-right: 0;
+			.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.075);
+			&.with-top-border {
+				padding-top: 0.4375rem;
+				&:not(:first-child) {
+					margin-top: @v-dflt-spcng;
+				}
+				&::before {
+					content: "";
+					position: absolute;
+						top: 0;
+						left: 0;
+					width: 100%;
+					height: 0;
+					.rgb-crimson(); border-top: 1px solid rgba(@rval,@gval,@bval,0.67);
+					 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
+				 }
+			}
+		}
 	}
-	@{prnt} &:first-child,
-	@{prnt} header:first-child + &,
-	@{prnt} header:first-child + &.fancy.with-top-border:not(:first-child),
-	@{prnt} hr:not(.subSection) + &
+	div.column &:first-child,
+	div.column header:first-child + &,
+	div.column header:first-child + &.fancy.with-top-border:not(:first-child),
+	div.column hr:not(.subSection) + &
 	{
 		margin-top: 0;
-	}
-}
-div.column h3.fancy {
-	position: relative;
-	padding: 0.3333rem 0.5rem;
-	margin-left: 0;
-	margin-bottom: (@v-dflt-spcng / 2);
-	margin-right: 0;
-	.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.075);
-	&.with-top-border {
-		padding-top: 0.4375rem;
-		&:not(:first-child) {
-			margin-top: @v-dflt-spcng;
-		}
-		&::before {
-			content: "";
-			position: absolute;
-				top: 0;
-				left: 0;
-			width: 100%;
-			height: 0;
-			.rgb-crimson(); border-top: 1px solid rgba(@rval,@gval,@bval,0.67);
-			 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
-		 }
 	}
 }
 
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h4>…</h4> selectors ············································································· │
 h4 {
-	@prnt:div.column;
-	@{prnt} & {
+	div.column & {
 		&:extend(.has-dflt-font);
 		padding: 0;
 		margin-top: 1rem;
@@ -180,9 +176,9 @@ h4 {
 			color: @hex-darker-gray;
 		}
 	}
-	@{prnt} &:first-child,
-	@{prnt} header:first-child + &,
-	@{prnt} hr:not(.subSection) + &
+	div.column &:first-child,
+	div.column header:first-child + &,
+	div.column hr:not(.subSection) + &
 	{
 		margin-top: 0;
 	}
@@ -261,7 +257,7 @@ header.main-header {
 	}
 }
 // ├---------------------------------------------------------------------------------------------------------┤
-// │ ···· Remove all <header><h2>…</h2></header> inserted by the WSU Spine Page Builder Template ··········· │
+// │ ···· Hide all <header><h2>…</h2></header> inserted by the WSU Spine Page Builder Template ············· │
 div.column {
 	& > header:first-child {
 		display: none;
