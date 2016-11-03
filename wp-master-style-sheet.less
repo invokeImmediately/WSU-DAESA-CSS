@@ -288,7 +288,7 @@ cite.article-author {
 //
 .drop-down-toggle {
     position: relative;
-    .transition(~"all 0.3s ease")
+    .transition(~"all 0.3s ease");
     &:after {
         content: "";
         position: absolute;
@@ -301,7 +301,7 @@ cite.article-author {
          border-right: 8px solid transparent;
          border-bottom: 8px solid @hex-crimson;
          border-left: 8px solid transparent;
-        .transition(all 0.3s ease);
+        .transition(~"all 0.3s ease");
     }
     &:before {
         content: "Click to expand";
@@ -312,8 +312,8 @@ cite.article-author {
         font-size: 12px;
         text-transform: none;
         opacity: 0;
-        .transform(translate(-35px, -50%));
-        .transition(all 0.3s ease);
+        .transform(~"translate(-35px, -50%)");
+        .transition(~"all 0.3s ease");
     }
     &:hover {
         .rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.30);        
