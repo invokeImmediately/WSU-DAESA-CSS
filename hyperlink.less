@@ -203,13 +203,11 @@ a.vpue-tooltip {
 .use-glass-button-layout() {
 	div.column a {
 		&.recommend-button,
-		&.glass-button.crimson {
+		&.glass-button {
 			display:block;
 			position: relative;
 			padding: 1em;
 			border-radius: 7px;
-			background-color: @hex-crimson;
-			color: white;
 			& {
 				@shadow-clr: returned;
 				.getRgbaForProp(@shadow-clr, @hex-black, 0.5);
@@ -246,12 +244,28 @@ a.vpue-tooltip {
 					background: linear-gradient(@@color-top, @@color-btm);
 				}
 			}			
-			&:hover {
-				background-color: @hex-light-crimson;
-				& {
-					@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.5);
-					@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-light-crimson, 0.3333);
-					box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
+			&.crimson {
+				background-color: @hex-crimson;
+				color: white;
+				&:hover {
+					background-color: @hex-light-crimson;
+					& {
+						@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.25);
+						@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-light-crimson, 0.3333);
+						box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
+					}
+				}
+			}
+			&.yellow {
+				background-color: @hex-accent-yellow;
+				color: @hex-black;
+				&:hover {
+					background-color: #ffde1c;
+					& {
+						@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.25);
+						@glow-clr: returned-2; .getRgbaForProp(@glow-clr, #ffde1c, 0.8);
+						box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
+					}
 				}
 			}
 		}
