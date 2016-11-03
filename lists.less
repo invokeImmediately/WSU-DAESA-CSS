@@ -119,13 +119,13 @@ ol {
  *         │ ···· DEFINITION list elements and children ············································ │
  *         └-----------------------------------------------------------------------------------------┘
  */
-div.column {
-    dl.faq {
+dl.faq {
+    div.column & {
 		dt {
 			position: relative;
-			width: 100%;
-			padding: 5px 20px 5px 10px;
-			margin: 5px -10px;
+			width: calc(~"100% - 50px");
+			padding: 5px 40px 5px 10px;
+			margin: 5px 0;
 			background-color: @hex-lighter-gray;
 			.has-responsive-font(@v-p-sz, @v-p-lnhght);
 			font-weight: bold;
@@ -175,8 +175,11 @@ div.column {
 				}
 			}
 		}
+		dd:not(:last-child) > p:last-child {
+			margin-bottom: @v-btm-mrgns;
+		}
 	}
-	dl.toggled dd {
+	div.column &.toggled dd {
         display: none;
     }
 }
