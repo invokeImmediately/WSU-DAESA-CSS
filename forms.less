@@ -93,7 +93,9 @@ div.column {
         .gfield_checkbox li label, .gfield_radio li label {
             font-weight: normal;
         }
-        .gfield_checkbox li { margin-bottom: 0; }
+        .gfield_checkbox li {
+			margin-bottom: 0;
+		}
         .ginput_complex {
             span.ginput_full:not(:first-of-type) label, span.ginput_left:not(:first-of-type) label,
              span.ginput_right:not(:nth-of-type(2)) label {
@@ -144,38 +146,7 @@ div.column {
 		}
     }
     li.gfield {
-        & > div.ginput_complex > span > label {
-            color: @hex-dark-grayish-pink;
-        }
-        & > div.ginput_container_select {
-			& > div.chosen-container {
-				width: 100% !important;
-			}
-			& > div.chosen-container-single {
-				& > a.chosen-single {
-					height: 1.98em;
-					background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,0.038) 50%,
-								rgba(0,0,0,0.07) 52%, rgba(0,0,0,0.045) 100%),
-								linear-gradient(to bottom, #fff, #fff);
-					line-height: 1.98em;
-					&:hover {
-						text-shadow: none;
-					}
-					& > div > b {
-						background-position: ~"0 calc(-10px + 1.98em / 2)";
-						@media only screen and (max-width: 641px) {
-							top: ~"calc(0.99em - 3px)";
-							background-position: 0 -7px;
-						}
-					}
-				}
-				&.chosen-with-drop > a.chosen-single {
-					background: linear-gradient(to bottom, rgba(0,0,0,0.07) 20%, rgba(0,0,0,0) 80%),
-								linear-gradient(to bottom, #fff, #fff);
-				}
-			}
-        }
-		&.uses-rich-editor {
+ 		&.uses-rich-editor {
 			div.tmce-active {
 				div.mce-menubar {
 					display: none;
@@ -209,6 +180,63 @@ div.column {
 				margin-top: 0 !important;
 			}
 		}
+		&.gf_left_half.expands-to-two-thirds {
+			@media only screen and (min-width: 641px) {
+				width: 67% !important;
+			}
+			& + li.gfield.gf_right_half {
+				@media only screen and (min-width: 641px) {
+					width: 33% !important;
+				}
+			}
+		}
+		&.has-label-spacer {
+			& > div.ginput_container {
+				@media only screen and (min-width: 641px) {
+					margin-top: 21px;
+				}
+				@media only screen and (min-width: (@v-tblt-thrshld + 1)) {
+					margin-top: 23px;
+				}
+				@media only screen and (min-width: (@v-spn-thrshld + 1)) {
+					margin-top: 21px;
+				}
+				@media only screen and (min-width: @v-dsktp-thrshld) {
+					margin-top: 23px;
+				}
+			}
+		}
+		& > div.ginput_complex > span > label {
+            color: @hex-dark-grayish-pink;
+        }
+        & > div.ginput_container_select {
+			& > div.chosen-container {
+				width: 100% !important;
+			}
+			& > div.chosen-container-single {
+				& > a.chosen-single {
+					height: 1.98em;
+					background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,0.038) 50%,
+								rgba(0,0,0,0.07) 52%, rgba(0,0,0,0.045) 100%),
+								linear-gradient(to bottom, #fff, #fff);
+					line-height: 1.98em;
+					&:hover {
+						text-shadow: none;
+					}
+					& > div > b {
+						background-position: ~"0 calc(-10px + 1.98em / 2)";
+						@media only screen and (max-width: 641px) {
+							top: ~"calc(0.99em - 3px)";
+							background-position: 0 -7px;
+						}
+					}
+				}
+				&.chosen-with-drop > a.chosen-single {
+					background: linear-gradient(to bottom, rgba(0,0,0,0.07) 20%, rgba(0,0,0,0) 80%),
+								linear-gradient(to bottom, #fff, #fff);
+				}
+			}
+        }
 		div.ginput_container_textarea > textarea {
 			font-size: 16px;
 			font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
