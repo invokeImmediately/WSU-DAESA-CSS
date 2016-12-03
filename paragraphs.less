@@ -115,8 +115,15 @@ p {
 			span.title {
 				display: none;
 			}
-			br {
+			br:first-of-type {
 				display: none;
+			}
+			@media all and (max-width: @v-lg-mbl-thrshld) {
+				.transform(~"translateX(-50%) translateY(-100%) translateY(20px)");
+				.transition(~"all 0.3s ease");
+				&:hover {
+					.transform(~"translateX(-50%)");
+				}
 			}
 		}
 	}
@@ -161,7 +168,6 @@ p {
 		}
 	}
 	div.column &.banner-text {
-		max-width: @v-w-cnstrn-lrg;
 		padding: 7px;
 		.margin-centered;
 		 margin-bottom: @v-dflt-spcng;
@@ -175,7 +181,7 @@ p {
 			border: 1px solid @hex-darkest-orange;
 		}
 		&.blue {
-			.rgb-blue(); background-color: rgba(@rval, @gval, @bval, 0.5);
+			background-color: rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue), 0.3);
 			border: 1px solid @hex-darkest-blue;
 		}
 		&.yellow {
