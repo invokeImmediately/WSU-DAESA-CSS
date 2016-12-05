@@ -35,38 +35,38 @@ div.page-covering-notice-css3 {
     }
     @keyframes anim-page-notice-fade {
         0% {
-            z-index: 99166;
+            z-index: 99352;
             opacity: 0;
         }
         31% {
-            z-index: 99166;
+            z-index: 99352;
             opacity: 1;
         }
         92% {
-            z-index: 99166;
+            z-index: 99352;
             opacity: 1;
         }
         100% {
-            z-index: 99166;
+            z-index: 99352;
             opacity: 0;
         }
     }
     @-webkit-keyframes anim-page-notice-fade {
         0% {
-            z-index: 99166;
+            z-index: 99352;
             opacity: 0;
         }
         31% {
-            z-index: 99166;
+            z-index: 99352;
             opacity: 1;
         }
         92% {
             opacity: 1;
-            z-index: 99166;
+            z-index: 99352;
         }
         100% {
             opacity: 0;
-            z-index: 99166;
+            z-index: 99352;
         }
     }
 }
@@ -78,7 +78,7 @@ div.page-covering-notice-js {
      left: 0;
     width: 100%;
     height: 100%;
-    z-index: 99166;
+    z-index: 99352;
     .rgb-white(); background-color: rgba(@rval,@gval,@bval,0.95);
     text-align: center;
     div.notice-content {
@@ -92,8 +92,12 @@ div.page-covering-notice-js {
         margin: 0 auto 20px;
     }
     div.notice-content p {
-        font-size: 2rem;
-        line-height: 1.35em;
+        font-size: 2rem !important;
+        line-height: 1.35em !important;
+		text-align: inherit !important;
+		& + p {
+			margin-top: 2.7rem !important;
+		}
     }
 }
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
