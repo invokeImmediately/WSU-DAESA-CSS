@@ -63,6 +63,12 @@ span {
 	&.callout {
 		&:extend(div.callout all);
 	}
+	&.quote-source {
+		.has-alt-font;
+		font-size: 1.2em;
+		line-height: 1.275em;
+		font-weight: 400;
+	}
 }
 
 .use-tool-tip-indicator-icon(@icon-url) when (isurl(@icon-url)) {
