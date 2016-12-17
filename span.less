@@ -22,6 +22,9 @@ span {
             }
         }
     }
+	&.callout {
+		&:extend(div.callout all);
+	}
     &.has-tool-tip,
 	&.has-tooltip {
 		position: relative;
@@ -60,14 +63,15 @@ span {
             display: none;
         }
     }
-	&.callout {
-		&:extend(div.callout all);
+	&.shrink-text-on-mobile {
+        @media all and (max-width: @v-lg-mbl-thrshld) {
+            font-size: 0.9em;
+        }	
 	}
-	&.quote-source {
-		.has-alt-font;
-		font-size: 1.2em;
-		line-height: 1.275em;
-		font-weight: 400;
+	&.shrink-text-on-tablet {
+        @media all and (max-width: @v-tblt-thrshld) {
+            font-size: 0.9em;
+        }	
 	}
 }
 
