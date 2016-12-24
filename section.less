@@ -496,8 +496,14 @@ section.has-linked-columns:not(.gutter) {
 		&.bg-pinned-at-left {
 			background-position: left top;
 		}
+		&.bg-pinned-toward-left {
+			background-position: 25% top;
+		}
 		&.bg-pinned-at-right {
 			background-position: right top;
+		}
+		&.bg-pinned-toward-right {
+			background-position: 75% top;
 		}
 		&.has-crimson-bg,
 		&.has-gray-bg,
@@ -505,7 +511,8 @@ section.has-linked-columns:not(.gutter) {
 		&.has-blue-bg, 
 		&.has-orange-bg, 
 		&.has-green-bg,
-		&.has-cyan-bg {
+		&.has-cyan-bg,
+		&.has-black-bg {
 			&:after,
 			&:before {
 				content: "";
@@ -692,8 +699,10 @@ section.has-linked-columns:not(.gutter) {
 			}
 		}
 	}
-	&.thirds {
-		& + &.thirds {
+	&.thirds,
+	&.quarters {
+		& + &.thirds,
+		& + &.quarters {
 			border-top: 1px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.7);
 			margin-top: 0 !important;
 		}
@@ -859,6 +868,50 @@ section.has-linked-columns:not(.gutter) {
 						rgba(0, 173, 164, 1) 80%);
 				}
 			}
+		}
+	}
+	&.for-faculty {
+		div.column {
+			&:not(:first-child) {
+				@media all {
+					@media (min-width: (@v-rghtclmn-thrshld + 1)) {
+						border-left: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
+					}
+					@media (max-width: @v-rghtclmn-thrshld) {
+						border-top: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
+					}
+				}
+			}
+			&.has-black-bg {
+				&:after {
+					background: linear-gradient(to top,
+						rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.0),
+						rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.2) 50%,
+						rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.7) 70%);
+					@media (max-width: @v-lg-mbl-thrshld) {
+						background: linear-gradient(to top,
+							rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.0),
+							rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.2) 40%,
+							rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.7) 67%);
+					}
+				}
+				&:before {
+					background: linear-gradient(to top,
+						rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
+						rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 50%,
+						rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.7) 70%);
+					@media (max-width: @v-lg-mbl-thrshld) {
+						background: linear-gradient(to top,
+							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
+							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 40%,
+							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.7) 67%);
+					}
+				}
+			}
+		}
+		& + &.thirds,
+		& + &.quarters {
+			border-top: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
 		}
 	}
 }
