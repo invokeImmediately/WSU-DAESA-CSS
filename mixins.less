@@ -432,8 +432,11 @@ div.column .soft-gray-border {
 }
 
 .has-sectionally-responsive-font(@fntsz, @lnhght) when (isem(@fntsz)) and (isem(@lnhght)) {
-	section.row.single div.column & {
+	section.row.single:not(.mimic-multi-column-sections) div.column & {
 		.has-responsive-font(@fntsz, @lnhght);
+	}
+	section.row.single.mimic-two-column-sections div.column & {
+		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt);
 	}
 	section.row.side-right div.column &,
 	section.row.side-left div.column &,
