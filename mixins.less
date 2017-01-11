@@ -309,11 +309,12 @@ div.column .soft-gray-border {
 		position: relative;
 		padding-top: (@v-btm-mrgns / 3) !important;
 		padding-bottom: (@v-btm-mrgns / 3) !important;
-		&:first-child {
-			margin-top: (@v-btm-mrgns / 3);
-		}
 		&:not(:first-child) {
 			margin-top: @v-dflt-spcng;
+		}
+		&:first-child,
+		header:first-child + & {
+			margin-top: (@v-btm-mrgns / 3);
 		}
 		&:before,
 		&:after {
