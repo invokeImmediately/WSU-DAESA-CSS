@@ -9,20 +9,20 @@
 @ifp-desktop-min: ~"(min-width: 792px)";
 div.interactively-flipped-panels {
     position: relative;
-     top: 0;
-     left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     margin-top: 1em;
-     margin-bottom: 1em;
+    margin-bottom: 1em;
     background-color: @hex-dark-gray;
     div.container {
         position: relative;
-         top: 0;
-         left: 0;
+        top: 0;
+        left: 0;
         width: 60%;
         height: 0;
         padding-bottom: 48%;
-         padding-bottom: ~"calc(((50% * 0.6) * 0.8 - 1.5em) * 2 + 3em)";
+        padding-bottom: ~"calc(((50% * 0.6) * 0.8 - 1.5em) * 2 + 3em)";
         margin: 1em auto;
         background: @hex-white;
         overflow: hidden;
@@ -30,17 +30,17 @@ div.interactively-flipped-panels {
             @media (max-width: 1030px) and @ifp-desktop-min {
                 width: 70%;
                 padding-bottom: 56%;
-                 padding-bottom: ~"calc(((50% * 0.7) * 0.8 - 1.5em) * 2 + 3em)";
+                padding-bottom: ~"calc(((50% * 0.7) * 0.8 - 1.5em) * 2 + 3em)";
             }
             @media (max-width: 791px) and (min-width: 592px) {
                 width: 80%;
                 padding-bottom: 64%;
-                 padding-bottom: ~"calc(((50% * 0.8) * 0.8 - 1.5em) * 2 + 3em)";
+                padding-bottom: ~"calc(((50% * 0.8) * 0.8 - 1.5em) * 2 + 3em)";
             }
             @media (max-width: 591px) and (min-width: 481px) {
                 width: 100%;
                 padding-bottom: 80%;
-                 padding-bottom: ~"calc((50% * 0.8 - 1.5em) * 2 + 3em)";
+                padding-bottom: ~"calc((50% * 0.8 - 1.5em) * 2 + 3em)";
             }
             @media (max-width: 480px) {
                 width: 100%;
@@ -53,14 +53,14 @@ div.interactively-flipped-panels {
             position: relative;
             height: 0;
             width: 46.9762%;
-             width: ~"calc(50% - 1.5em)";
+            width: ~"calc(50% - 1.5em)";
             padding-bottom: 36.9762%;
-             padding-bottom: ~"calc(50% * 0.8 - 1.5em)";
+            padding-bottom: ~"calc(50% * 0.8 - 1.5em)";
             margin: 1em;
             @media all {
                 @media (max-width: 480px) {
                     padding-bottom: 76.9762%;
-                     padding-bottom: ~"calc(100% * 0.8)";
+                    padding-bottom: ~"calc(100% * 0.8)";
                     margin: 0;
                     width: 100%;
                 }
@@ -68,8 +68,8 @@ div.interactively-flipped-panels {
             &.top-left {
                 float: none;
                 position: absolute;
-                 top: 1em;
-                 left: 1em;
+                top: 1em;
+                left: 1em;
                 margin: 0;
                 @media all {
                     @media (max-width: 480px) {
@@ -127,11 +127,11 @@ div.interactively-flipped-panels {
                 height: 100%;
                 div.front {
                     display: flex;
-                     flex-direction: column;
-                     justify-content: center;
+                    flex-direction: column;
+                    justify-content: center;
                     position: absolute;
-                     top: 0;
-                     left: 0;
+                    top: 0;
+                    left: 0;
                     width: 100%;
                     height: 100%;
                     z-index: 10;
@@ -154,14 +154,14 @@ div.interactively-flipped-panels {
                 }
                 div.rear {
                     display: flex;
-                     flex-direction: column;
-                     justify-content: center;
+                    flex-direction: column;
+                    justify-content: center;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
                     height: 100%;
                     opacity: 0;
-                    position: absolute;
-                     top: 0;
-                     left: 0;
-                    width: 100%;
                     z-index: 9;
                     h2 {
                         color: inherit;
@@ -323,7 +323,6 @@ div.interactively-flipped-panels {
                     @media (max-width: 480px) {
                         position: relative;
                         width: 100%;
-//                        padding-bottom: ~"calc(100% * 0.8 * 4)";
                         padding-bottom: ~"calc(100% * 0.8)";
                     }
                 }
@@ -334,13 +333,6 @@ div.interactively-flipped-panels {
                 @media (max-width: 480px) {
                     padding-bottom: 320%;
                     padding-bottom: ~"calc((100% * 0.8) * 4)";
-//                    padding-bottom: ~"calc((100% * 0.8) * 3 + (100% * 0.8) * 4)";
-//                    transition-property: padding;
-//                     -webkit-transition-property: padding;
-//                    transition-duration: 0.25s;
-//                     -webkit-transition-duration: 0.25s;
-//                    transition-timing-function: linear;
-//                     -webkit-transition-timing-function: linear;
                 }
             }
         }
