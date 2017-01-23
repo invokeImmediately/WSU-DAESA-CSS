@@ -9,12 +9,29 @@ section {
     &:not(.row).article-header {
         height: 120px;
         margin-bottom: 1rem;
-        div.header-content {
+		background-size: auto 100% !important;
+		div.header-content {
             position: relative;
              top: 50%;
             margin-right: 1rem;
             margin-left: 1rem;
             transform: translateY(-50%);
+			h1 {
+				font-size: 4.118rem;
+				line-height: 1.071em;
+			}
+			h2 {
+				margin-bottom: .75rem;
+				font-size: 2.826rem;
+				line-height: 0.8em;
+				text-transform: uppercase;
+			}
+			h3 {
+				margin-top: 0;
+				margin-bottom: 0;
+				font-size: 1.261rem;
+				text-transform: uppercase;
+			}
         }
         @media screen {
             div.header-content {
@@ -23,25 +40,15 @@ section {
                     color: @hex-white;
                 }
                 h1 {
-                    font-size: 70px;
-                    line-height: 1.071428571428571em;
                     .textShadow3D(@hex-white,6px);
                 }
                 h2 {
-                    margin-bottom: .75rem;
-                    font-size: 3.0238rem;
-                    line-height: 0.8em;
-                    text-transform: uppercase;
                     .textShadow3D(@hex-white,4px);
                 }
                 h3 {
                     padding: .1rem .2rem .2rem;
-                    margin-top: 0;
-                     margin-bottom: 0;
                     .rgb-crimson(); background-color: rgba(@rval,@gval,@bval,0.95);
                     border: 1px solid white;
-                    font-size: 1.35rem;
-                    text-transform: uppercase;
                     color: @hex-white;
                     .textShadow3D(@hex-white,2px);
                     /*.rgb-black(); text-shadow: 0 .5px 0 #aaa, 0 1px 0 #888,
@@ -56,6 +63,17 @@ section {
                 }
             }
         }
+		@media print {
+			background: transparent !important;
+            div.header-content {
+				margin-left: 0;
+				margin-right: 0;
+                h2,
+				h3 {
+					padding-left: 0;
+				}
+			}
+		}
     }
     &.halves {
         div.column {
