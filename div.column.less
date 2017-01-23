@@ -148,7 +148,6 @@ main > div.page > section.row:last-child > div.column {
 /*         └-----------------------------------------------------------------------------------------┘        
  */
 div.callout {
-	.set-position(absolute, 50%);
 	.set-widths(auto, 80px, 230px);
 	height: auto;
 	padding: 10px;
@@ -160,22 +159,35 @@ div.callout {
 	box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
 	&.left:before,
 	&.right:before,
+	&.top:before,
 	&.left:after,
-	&.right:after {
+	&.right:after,
+	&.top:after {
 		content: "";
-		.set-position(absolute, 50%);
 		width: 0;
 		height: 0;
 		border: 10px solid transparent;
-		.transform(~"translateY(-50%)");
 	}
+	&.left:before,
+	&.right:before,
 	&.left:after,
 	&.right:after {
+		.set-position(absolute, 50%);
+		.transform(~"translateY(-50%)");
+	}
+	&.top:before,
+	&.top:after {
+		.set-position(absolute, "na", "na", "na", 50%);
+		.transform(~"translateX(-50%)");
+	}
+	&.left:after,
+	&.right:after,
+	&.top:after {
 		border: 11px solid transparent;
 		z-index: -1;
 	}
 	&.left {
-		left: 0;
+		.set-position(absolute, 50%, "na", "na", 0);
 		.transform(~"translate(-100%,-50%) translateX(-10px)");
 		&:before {
 			right: -20px;
@@ -187,7 +199,7 @@ div.callout {
 		}
 	}
 	&.right {
-		right: 0;
+		.set-position(absolute, 50%, 0, "na", "na");
 		.transform(~"translate(100%,-50%) translateX(10px)");
 		&:before {
 			left: -20px;
@@ -196,6 +208,18 @@ div.callout {
 		&:after {
 			left: -22px;
 			border-right: 11px solid #F1D031;
+		}
+	}
+	&.top {
+		.set-position(absolute, 0, "na", "na", 50%);
+		.transform(~"translate(-50%,-100%) translateY(-10px)");
+		&:before {
+			bottom: -20px;
+			border-top: 10px solid #FFEF93;
+		}
+		&:after {
+			bottom: -22px;
+			border-top: 11px solid #F1D031;
 		}
 	}
 }
