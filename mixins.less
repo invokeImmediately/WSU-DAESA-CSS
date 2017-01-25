@@ -12,7 +12,7 @@
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
 .initially-hidden, 
-div.column .initially-hidden {
+.column .initially-hidden {
     display: none;
 }
 
@@ -59,7 +59,7 @@ div.column .initially-hidden {
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
 .margin-centered,
-div.column .margin-centered {
+.column .margin-centered {
     margin-right: auto;
      margin-left: auto;
 }
@@ -96,102 +96,102 @@ div.column .margin-centered {
 }
 
 .spaces-top-full,
-div.column .spaces-top-full {
+.column .spaces-top-full {
     .spaces-top(@sz-xxxlrg);
 }
 
 .spaces-top-nrml,
-div.column .spaces-top-nrml {
+.column .spaces-top-nrml {
     .spaces-top;
 }
 
 .spaces-top-half,
-div.column .spaces-top-half {
+.column .spaces-top-half {
     .spaces-top(@sz-xsmll);
 }
 
 .spaces-top-qrtr,
-div.column .spaces-top-qrtr {
+.column .spaces-top-qrtr {
     .spaces-top(@sz-xxsmll);
 }
 
 .spaces-top-none,
-div.column .spaces-top-none {
+.column .spaces-top-none {
     .spaces-top(0) !important;
 }
 
 .spaces-rgt-full,
-div.column .spaces-rgt-full {
+.column .spaces-rgt-full {
     .spaces-rgt(@sz-xxxlrg);
 }
 
 .spaces-rgt-nrml,
-div.column .spaces-rgt-nrml {
+.column .spaces-rgt-nrml {
     .spaces-rgt;
 }
 
 .spaces-rgt-half,
-div.column .spaces-rgt-half {
+.column .spaces-rgt-half {
     .spaces-rgt(@sz-xsmll);
 }
 
 .spaces-rgt-qrtr,
-div.column .spaces-rgt-qrtr {
+.column .spaces-rgt-qrtr {
     .spaces-rgt(@sz-xxsmll);
 }
 
 .spaces-rgt-none,
-div.column .spaces-rgt-none {
+.column .spaces-rgt-none {
     .spaces-rgt(0) !important;
 }
 
 .spaces-btm-full,
-div.column .spaces-btm-full {
+.column .spaces-btm-full {
     .spaces-btm(@sz-xxxlrg);
 }
 
 .spaces-btm-nrml,
-div.column .spaces-btm-nrml {
+.column .spaces-btm-nrml {
     .spaces-btm;
 }
 
 .spaces-btm-half,
-div.column .spaces-btm-half {
+.column .spaces-btm-half {
     .spaces-btm(@sz-xsmll);
 }
 
 .spaces-btm-qrtr,
-div.column .spaces-btm-qrtr {
+.column .spaces-btm-qrtr {
     .spaces-btm(@sz-xxsmll);
 }
 
 .spaces-btm-none,
-div.column .spaces-btm-none {
+.column .spaces-btm-none {
     .spaces-btm(0) !important;
 }
 
 .spaces-lft-full,
-div.column .spaces-lft-full {
+.column .spaces-lft-full {
     .spaces-lft(@sz-xxxlrg);
 }
 
 .spaces-lft-nrml,
-div.column .spaces-lft-nrml {
+.column .spaces-lft-nrml {
     .spaces-lft;
 }
 
 .spaces-lft-half,
-div.column .spaces-lft-half {
+.column .spaces-lft-half {
     .spaces-lft(@sz-xsmll);
 }
 
 .spaces-lft-qrtr,
-div.column .spaces-lft-qrtr {
+.column .spaces-lft-qrtr {
     .spaces-lft(@sz-xxsmll);
 }
 
 .spaces-lft-none,
-div.column .spaces-lft-none {
+.column .spaces-lft-none {
     .spaces-lft(0) !important;
 }
 
@@ -212,42 +212,42 @@ div.column .spaces-lft-none {
 }
 
 .pads-top-nrml,
-div.column .pads-top-nrml {
+.column .pads-top-nrml {
     .pads-top;
 }
 
 .pads-top-half,
-div.column .pads-top-half {
+.column .pads-top-half {
     .pads-top(@sz-xsmll);
 }
 
 .pads-rgt-nrml,
-div.column .pads-rgt-nrml {
+.column .pads-rgt-nrml {
     .pads-rgt;
 }
 
 .pads-rgt-half,
-div.column .pads-rgt-half {
+.column .pads-rgt-half {
     .pads-rgt(@sz-xsmll);
 }
 
 .pads-btm-nrml,
-div.column .pads-btm-nrml {
+.column .pads-btm-nrml {
     .pads-btm;
 }
 
 .pads-btm-half,
-div.column .pads-btm-half {
+.column .pads-btm-half {
     .pads-btm(@sz-xsmll);
 }
 
 .pads-lft-nrml,
-div.column .pads-lft-nrml {
+.column .pads-lft-nrml {
     .pads-lft;
 }
 
 .pads-lft-half,
-div.column .pads-lft-half {
+.column .pads-lft-half {
     .pads-lft(@sz-xsmll);
 }
 
@@ -255,11 +255,11 @@ div.column .pads-lft-half {
 
 .generate-indents(@n, @i: 1) when (@i <= @n) {
     .indent-@{i}x,
-	div.column .indent-@{i}x {
+	.column .indent-@{i}x {
         padding-left: (2rem * @i);
     }
     .indent-rgt-@{i}x,
-	div.column .indent-rgt-@{i}x {
+	.column .indent-rgt-@{i}x {
         padding-right: (2rem * @i);
     }
     .generate-indents(@n, (@i + 1));
@@ -271,14 +271,14 @@ div.column .pads-lft-half {
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
 .breaks-words,
-div.column .breaks-words {
+.column .breaks-words {
     word-wrap: break-word;
 }
 
 .centered,
-div.column .centered,
+.column .centered,
 .centers-text,
-div.column .centers-text {
+.column .centers-text {
     text-align: center;
 }
 
@@ -300,7 +300,7 @@ div.column .centers-text {
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
 .soft-gray-border,
-div.column .soft-gray-border {
+.column .soft-gray-border {
     .rgb-darkest-gray(); border: 1px solid rgba(@rval, @gval, @bval, 0.5);
 }
 
@@ -374,13 +374,13 @@ div.column .soft-gray-border {
 .has-responsive-font(@fntsz, @lnhght, @sclng-fctrs: @v-fnt-sclng-fctrs) when (isem(@fntsz))
   and (isem(@lnhght)) and (length(@sclng-fctrs) = 6),
   (isem(@fntsz)) and (isunit(@lnhght, rem)) and (length(@sclng-fctrs) = 6),
-  (isem(@fntsz)) and (ispx(@lnhght)) and (length(@sclng-fctrs) = 6),
+  (isem(@fntsz)) and (ispixel(@lnhght)) and (length(@sclng-fctrs) = 6),
   (isunit(@fntsz, rem)) and (isem(@lnhght)) and (length(@sclng-fctrs) = 6),
   (isunit(@fntsz, rem)) and (isunit(@lnhght, rem)) and (length(@sclng-fctrs) = 6),
-  (isunit(@fntsz, rem)) and (ispx(@lnhght)) and (length(@sclng-fctrs) = 6),
-  (ispx(@fntsz)) and (isem(@lnhght)) and (length(@sclng-fctrs) = 6),
-  (ispx(@fntsz)) and (isunit(@lnhght, rem)) and (length(@sclng-fctrs) = 6),
-  (ispx(@fntsz)) and (ispx(@lnhght)) and (length(@sclng-fctrs) = 6) {
+  (isunit(@fntsz, rem)) and (ispixel(@lnhght)) and (length(@sclng-fctrs) = 6),
+  (ispixel(@fntsz)) and (isem(@lnhght)) and (length(@sclng-fctrs) = 6),
+  (ispixel(@fntsz)) and (isunit(@lnhght, rem)) and (length(@sclng-fctrs) = 6),
+  (ispixel(@fntsz)) and (ispixel(@lnhght)) and (length(@sclng-fctrs) = 6) {
 	@media all {
 		line-height: @lnhght;
 		font-size: @fntsz;
@@ -406,9 +406,9 @@ div.column .soft-gray-border {
 }
 
 .has-responsive-font(@fntsz, @lnhght, @sclng-fctrs: @v-fnt-sclng-fctrs) when (isem(@fntsz))
-  and (@lnhght = false) and (length(@sclng-fctrs) = 6),
+ and (@lnhght = false) and (length(@sclng-fctrs) = 6),
   (isunit(@fntsz, rem)) and (@lnhght = false) and (length(@sclng-fctrs) = 6),
-  (ispx(@fntsz)) and (@lnhght = false) and (length(@sclng-fctrs) = 6) {
+  (ispixel(@fntsz)) and (@lnhght = false) and (length(@sclng-fctrs) = 6) {
 	@media all {
 		font-size: @fntsz;
 		@media (min-width: @v-dsktp-thrshld) {
@@ -432,20 +432,22 @@ div.column .soft-gray-border {
 	}
 }
 
-.has-sectionally-responsive-font(@fntsz, @lnhght) when (isem(@fntsz)) and (isem(@lnhght)) {
-	section.row.single:not(.mimic-multi-column-sections) div.column & {
+.has-sectionally-responsive-font(@fntsz, @lnhght) when (isem(@fntsz)) and (isem(@lnhght)),
+ (isunit(@fntsz, rem)) and (isunit(@lnhght, rem)),
+ (ispixel(@fntsz)) and (ispixel(@lnhght)){
+	.row.single:not(.mimic-multi-column-sections) .column & {
 		.has-responsive-font(@fntsz, @lnhght);
 	}
-	section.row.single.mimic-two-column-sections div.column & {
+	.row.single.mimic-two-column-sections .column & {
 		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt);
 	}
-	section.row.side-right div.column &,
-	section.row.side-left div.column &,
-	section.row.halves div.column & {
+	.row.side-right.column &,
+	.row.side-left .column &,
+	.row.halves .column & {
 		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt);
 	}
-	section.row.thirds div.column &,
-	section.row.quarters div.column & {
+	.row.thirds .column &,
+	.row.quarters .column & {
 		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt-2);
 	}
 }
