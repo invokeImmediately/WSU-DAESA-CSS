@@ -8,9 +8,8 @@
  *         └-----------------------------------------------------------------------------------------┘
  */
 ul {
-	@prnt: div.column;
 	.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
-	@{prnt} & {
+	.column & {
 		padding-bottom: 0;
 		ol,
 		ul {
@@ -29,7 +28,7 @@ ul {
 			}
 		}
 	}
-	@prnt p + & {
+	.column p + & {
 		margin-top: (@v-btm-mrgns / 2);
 	}
 	&.content-boxes {
@@ -60,7 +59,7 @@ ul {
 				 left: 10px;
 				width: 106px;
 			}
-			& > div.content {
+			& > .content {
 				position: relative;
 				 left: 121px;
 				width: ~"calc(100% - 136px)";
@@ -95,9 +94,8 @@ ul {
  *         └-----------------------------------------------------------------------------------------┘
  */
 ol {
-	@prnt: div.column;
 	.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
-	@{prnt} & {
+	.column & {
 		padding-bottom: 0;
 		li {
 			line-height: inherit;
@@ -120,16 +118,18 @@ ol {
  *         └-----------------------------------------------------------------------------------------┘
  */
 dl.faq {
-    div.column & {
+    .column & {
+		position: relative;
 		dt {
 			position: relative;
-			width: calc(~"100% - 50px");
+			width: calc(~"100% - 52px");
 			padding: 5px 40px 5px 10px;
 			margin: 5px 0;
 			border: 1px solid @hex-lighter-gray-mnchrmtc-shftd-drkr;
 			background-color: @hex-lighter-gray;
 			.has-responsive-font(@v-p-sz, @v-p-lnhght);
 			font-weight: bold;
+			cursor: pointer;
 			.transition(~"all 0.25s linear");
 			&:after {
 				content: "";
@@ -206,8 +206,40 @@ dl.faq {
 				margin-bottom: @v-btm-mrgns;
 			}
 		}
+		& > .expand-all-button,
+		& > .collapse-all-button {
+			display: none;
+			position: absolute;
+			top: 0;
+			padding: 5px;
+			border: 1px solid @hex-lighter-gray-mnchrmtc-shftd-drkr;
+			background-color: @hex-lighter-gray;
+			.has-mono-font;
+			.has-responsive-font(12px, 12px, @v-fnt-sclng-fctrs-alt);
+			cursor: pointer;
+			&:hover {
+				background-color: @hex-dark-gray;
+				color: @hex-white;
+			}
+			.transform(~"translateY(-100%) translateY(-5px)");
+			.transition(~"background-color 0.3s ease, border 0.3s ease, color 0.3s ease");
+		}
+		&.blue > .expand-all-button,
+		&.blue > .collapse-all-button {
+			background-color: @hex-lightest-blue-mnchrmtc-shftd-lghtr;
+			border-color: @hex-lightest-blue-mnchrmtc-shftd-drkr;			
+			&:hover {
+				background-color: @hex-dark-blue;
+			}
+		}
+		& > .expand-all-button {
+			left: 0;
+		}
+		& > .collapse-all-button {
+			right: 0;
+		}
 	}
-	div.column &.toggled dd {
+	.column &.toggled dd {
         display: none;
     }
 }
