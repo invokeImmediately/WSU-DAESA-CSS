@@ -1,5 +1,5 @@
 /*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
- *  │ ++++++++ div.interactively-flipped-panels ++++++++++++++++++++++++++++++++++++++++++++++++++ │
+ *  │ ++++++++ .interactively-flipped-panels +++++++++++++++++++++++++++++++++++++++++++++++++++++ │
  *  ├----------------------------------------------------------------------------------------------┤
  *  │ Content container that gradually fades into full view, persists for a short time, and then   │
  *  │ rapidly fades out, either automatically via CSS3, or upon user interaction via JavaScript.   │
@@ -7,15 +7,17 @@
  */
 @ifp-desktop-max: ~"(max-width: 1205px)";
 @ifp-desktop-min: ~"(min-width: 792px)";
-div.interactively-flipped-panels {
+.interactively-flipped-panels {
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    margin-top: 1em;
+	&:not(.no-top-margin) {
+		margin-top: 1em;
+	}
     margin-bottom: 1em;
     background-color: @hex-dark-gray;
-    div.container {
+    .container {
         position: relative;
         top: 0;
         left: 0;
@@ -23,7 +25,8 @@ div.interactively-flipped-panels {
         height: 0;
         padding-bottom: 48%;
         padding-bottom: ~"calc(((50% * 0.6) * 0.8 - 1.5em) * 2 + 3em)";
-        margin: 1em auto;
+		margin-right: auto;
+        margin-left: auto;
         background: @hex-white;
         overflow: hidden;
         @media all {
@@ -48,7 +51,7 @@ div.interactively-flipped-panels {
                 padding-bottom: ~"calc((100% * 0.8) * 4)";
             }
         }
-        div.panel-wrapper {
+        .panel-wrapper {
             float: left;
             position: relative;
             height: 0;
@@ -121,11 +124,11 @@ div.interactively-flipped-panels {
                     }
                 }
             }
-            div.panel {
+            .panel {
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                div.front {
+                .front {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -152,7 +155,7 @@ div.interactively-flipped-panels {
                         }
                     }
                 }
-                div.rear {
+                .rear {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -265,8 +268,8 @@ div.interactively-flipped-panels {
                         padding-bottom: ~"calc(100% * 0.8)";
                     }
                 }
-                div.panel {
-                    div.front {
+                .panel {
+                    .front {
                         opacity: 0;
 						z-index: 0;
                         @media all {
@@ -290,7 +293,7 @@ div.interactively-flipped-panels {
                             }
                         }
                     }
-                    div.rear {
+                    .rear {
                         opacity: 1;
                         @media all {
                             @media (min-width: 481px) {
