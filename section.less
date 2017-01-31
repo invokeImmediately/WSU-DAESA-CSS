@@ -3,14 +3,14 @@
  *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
 section {
-    &.column-one-with-bottom-margin > div.one {
+    &.column-one-with-bottom-margin > .column.one {
         margin-bottom: 2rem;
     }
     &:not(.row).article-header {
         height: 120px;
         margin-bottom: 1rem;
 		background-size: auto 100% !important;
-		div.header-content {
+		.header-content {
             position: relative;
              top: 50%;
             margin-right: 1rem;
@@ -34,7 +34,7 @@ section {
 			}
         }
         @media screen {
-            div.header-content {
+            .header-content {
                 h1, h2 {
                     &:extend(.has-alt-font);
                     color: @hex-white;
@@ -65,7 +65,7 @@ section {
         }
 		@media print {
 			background: transparent !important;
-            div.header-content {
+            .header-content {
 				margin-left: 0;
 				margin-right: 0;
                 h2,
@@ -76,7 +76,7 @@ section {
 		}
     }
     &.halves {
-        div.column {
+        .column {
             p:not([class*="center"]) {
                 text-align: left;
             }
@@ -89,7 +89,7 @@ section {
         }
     }
     &.single.large-format-friendly, &.row.single.large-format-friendly {
-        div.column.one {
+        .column.one {
             @media (min-width: @v-lrgfrmt-thrshld) {
                 float: none;
                 .margin-centered;
@@ -106,7 +106,7 @@ section {
         }
     }
     &.side-right {
-        div.column.two {
+        .column.two {
             p {
                 text-align: left;
             }
@@ -117,10 +117,10 @@ section {
                     &:first-child {
                         padding-top: (@v-dflt-spcng / 2);
                     }
-                    div.column.one {
+                    .column.one {
                         width: @v-w-cnstrn-lrg;
                     }
-                    div.column.two {
+                    .column.two {
                         width: ~"calc(100% - " @v-w-cnstrn-lrg ~")";
                         height: 0;
                         position: relative;
@@ -137,14 +137,14 @@ section {
                     }
                 }
                 @media (max-width: @v-lrgfrmt-thrshld) {
-                    div.column.one {
+                    .column.one {
                         width: 100%;
                         max-width: @v-w-cnstrn-lrg;
                         float: none;
                         .margin-centered;
                         padding-right: 2rem;
                     }
-                    div.column.two {
+                    .column.two {
                         display: none;
                     }
                 }
@@ -153,7 +153,7 @@ section {
     }
     &.side-right.pad-top.large-format-friendly, &.row.side-right.pad-top.large-format-friendly {
         @media all and (min-width: 1050px) {
-            div.column.two:before {
+            .column.two:before {
                 top: 1rem;
             }
         }
@@ -179,7 +179,7 @@ section {
                 }
             }
         }
-        div.column {
+        .column {
             p {
                 @media all {
                     @media (min-width: (@v-rghtclmn-thrshld+1)) {
@@ -194,25 +194,26 @@ section {
     }
 }
 
-div.column section:not(:last-child) {
+.column section:not(:last-child) {
     & > *:last-child:not(.vpue-jump-bar) {
         padding-bottom: 0;
     }
 }
 
 main section.row {
-    & > div.column,
-	& > div.column > article > div.article-body,
-	& > div.column > article > div.article-summary,
-	& > div.column > section,
-	& > div.column table > tbody > tr > td {
+    & > .column,
+	& > .column > article > .article-body,
+	& > .column > article > .article-summary,
+	& > .column > section,
+	& > .column table > tbody > tr > td {
         & > p:not(.no-btm-margin),
 		& > section > p:not(.no-btm-margin),
 		& > ul:not(.no-btm-margin),
 		& > section > ul:not(.no-btm-margin),
 		& > ol:not(.no-btm-margin),
 		& > section > ol:not(.no-btm-margin),
-		& > div.gform_wrapper li.gfield_html > p:not(:last-child) {
+		& > .gform_wrapper .gfield_html > p:not(:last-child),
+		& > .gform_confirmation_wrapper p:not(:last-child) {
             margin-bottom: @v-btm-mrgns;
         }
 		& > p + ul:not(.spaces-top-full),
@@ -223,10 +224,10 @@ main section.row {
         }
     }
 	&:last-child {
-		& > div.column,
-		& > div.column > article > div.article-body,
-		& > div.column > article > div.article-summary,
-		& > div.column > section {
+		& > .column,
+		& > .column > article > .article-body,
+		& > .column > article > .article-summary,
+		& > .column > section {
 			& > p:last-child,
 			& > section > p:last-child,
 			& > ul:last-child,
@@ -237,7 +238,7 @@ main section.row {
 			}
 		}
 	}
-	& > div.column table > tbody > tr > td {
+	& > .column table > tbody > tr > td {
 		& > p:last-child,
 		& > section > p:last-child,
 		& > ul:last-child,
@@ -423,12 +424,12 @@ main section.row {
     }
 }
 
-section.has-linked-columns:not(.gutter) {
+.row.has-linked-columns:not(.gutter) {
 	.spaces-top-half;
 	&:last-child {
 		margin-bottom: @v-dflt-spcng;
 	}
-	div.column {
+	.column {
 		position: relative;
 		height: 0;
 		padding-bottom: ~"calc(33% - @{v-dflt-spcng}) !important";
@@ -724,7 +725,7 @@ section.has-linked-columns:not(.gutter) {
 			border-top: 1px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.7);
 			margin-top: 0 !important;
 		}
-		div.column {
+		.column {
 			padding-bottom: ~"calc(33% - @{v-dflt-spcng}) !important";
 			background-size: auto 100%;
 			@media all {
@@ -892,7 +893,7 @@ section.has-linked-columns:not(.gutter) {
 		}
 	}
 	&.for-faculty {
-		div.column {
+		.column {
 			&:not(:first-child) {
 				@media all {
 					@media (min-width: (@v-rghtclmn-thrshld + 1)) {
@@ -935,7 +936,7 @@ section.has-linked-columns:not(.gutter) {
 			border-top: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
 		}
 		&.quarters {
-			div.column {
+			.column {
 				@media (max-width: @v-rghtclmn-thrshld) {
 					background-size: auto 100%;
 					&:hover {
