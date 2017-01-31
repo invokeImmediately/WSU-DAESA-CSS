@@ -1,8 +1,8 @@
 /*     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
- *     │ ++++++++ div.column +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+ *     │ ++++++++ .column +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
  *     │ ++++++++ PARAGRAPHS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
  *     ├-------------------------------------------------------------------------------------------------┤
- *     │ Styling for paragraph elements intended as children of div.column elements as defined in the    │
+ *     │ Styling for paragraph elements intended as children of .column elements as defined in the    │
  *     │ WSU Spine theme for WordPress.                                                                  │
  *     │  ╘═» This file assumes [//github.com/invokeImmediately/WSU-UE---CSS/color-palette.less] has     │
  *     │       already been imported.                                                                    │
@@ -10,28 +10,28 @@
  */
 p {
 	.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
-	div.column & {
+	.column & {
 		padding-bottom: 0;
 		text-align: left;
 	}
-	div.column &.centered {
+	.column &.centered {
 		text-align: center;
 	}
-	div.column &.align-left {
+	.column &.align-left {
 		text-align: left;
 	}
-	div.column &.btm-margin-override:not(:last-child) {
-		margin-bottom: 0;
+	.column &.btm-margin-override:not(:last-child) {
+		margin-bottom: 0 !important;
 	}
-	div.column &.double-margins:not(:last-child) {
-		margin-bottom: @v-btm-mrgns * 2;
+	.column &.double-margins:not(:last-child) {
+		margin-bottom: @v-btm-mrgns * 2 !important;
 	}	
-	div.column &.half-margins:not(:last-child) {
-		margin-bottom: @v-btm-mrgns / 2;
+	.column &.half-margins:not(:last-child) {
+		margin-bottom: @v-btm-mrgns / 2 !important;
 	}	
 	&.article-deck {
 		.has-sectionally-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
-		div.column & {
+		.column & {
 			color: @hex-dark-green;
 			strong {
 				color: @hex-green;
@@ -43,13 +43,13 @@ p {
 		&.home {
 			.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), @v-p-lnhght);
 		}
-		div.column & {
+		.column & {
 			.has-subst-font.serif;
 			font-size: @v-artcl-tgln-sz;
 			line-height: @v-artcl-tgln-lnhght;
 			font-weight: @v-artcl-tgln-wght;
 		}
-		div.column &.sans {
+		.column &.sans {
 			&:extend(.has-alt-font);
 			color: @hex-black;
 			font-weight: 300;
@@ -63,19 +63,19 @@ p {
 		&:not(.has-no-bordering) {
 			.has-pull-quote-bordering;
 		}
-		div.column h1 + &,
-		div.column h2 + &,
-		div.column h3 + &,
-		div.column h4 + &,
-		div.column h5 + &,
-		div.column h6 + & {
+		.column h1 + &,
+		.column h2 + &,
+		.column h3 + &,
+		.column h4 + &,
+		.column h5 + &,
+		.column h6 + & {
 			margin-top: (@v-btm-mrgns * 4 / 3);
 		}
 	}
-	div.column &.no-bottom-pad {
-		padding-bottom: 0;
+	.column &.no-bottom-pad {
+		padding-bottom: 0 !important;
 	}
-	div.column &.vpue-jump-bar {
+	.column &.vpue-jump-bar {
 		padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
 		margin: @v-dflt-spcng;
 		.rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
@@ -129,27 +129,27 @@ p {
 	}
 	&.vpue-jump-back {
 		.has-sectionally-responsive-font(@v-p-jmpbck-sz, @v-p-lnhght);
-		div.column & {
+		.column & {
 			padding-bottom: @v-btm-pads / 3;
 			margin-bottom: @v-btm-mrgns / 3;
 		}
 	}
 	&.article-media-contacts {
 		.has-sectionally-responsive-font(0.8rem, @v-p-lnhght);
-		div.column & {
+		.column & {
 			padding-left: 2em;
 			text-align: left;
 		}
-		body.single-post div.column & + :not(.article-media-contacts) {
+		body.single-post .column & + :not(.article-media-contacts) {
 			padding-top: 15px;
 			border-top: 1px solid rgba(127,127,127,0.2);
 		}
 	}
-	div.column &.fine-print {
+	.column &.fine-print {
 		.has-smllr-txt;
 	}
 	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	div.column &.banner-text-gray-with-towers {
+	.column &.banner-text-gray-with-towers {
 		color: @hex-darkest-gray;
 		background-color: rgba(141,149,154,0.5);
 		border: 32px solid transparent;
@@ -167,7 +167,7 @@ p {
 			}
 		}
 	}
-	div.column &.banner-text {
+	.column &.banner-text {
 		padding: 7px;
 		.margin-centered;
 		 margin-bottom: @v-dflt-spcng;
@@ -194,7 +194,7 @@ p {
 		}
 	}
 	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	div.column &.banner-text-orange-with-towers {
+	.column &.banner-text-orange-with-towers {
 		margin-bottom: 15px;
 		padding: 7px;
 		color: @hex-darkest-orange;
