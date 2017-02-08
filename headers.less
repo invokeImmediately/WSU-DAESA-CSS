@@ -8,7 +8,7 @@
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h1>…</h1> selectors ············································································· │
 h1 {
-	div.column & {
+	.column & {
 		&:extend(.has-dflt-font);
 		padding-bottom: 0;
 		margin-top: 1.5rem;
@@ -22,20 +22,20 @@ h1 {
 			text-align: center;
 		}
 	}
-	div.column &:first-child,
-	div.column header:first-child + & {
+	.column &:first-child,
+	.column header:first-child + & {
 		margin-top: 0;
 	}
 }
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h2>…</h2> selectors ············································································· │
 h2 {
-	div.column & {
+	.column & {
 		&:extend(.has-dflt-font);
 		padding: 0 0 0 .1em;
 		margin-top: 1.5rem;
-		 margin-bottom: .75rem;
-		 margin-left: -.1em;
+		margin-bottom: .75rem;
+		margin-left: -.1em;
 		font-size: @v-h2-sz;
 		.has-responsive-font(@v-h2-sz, @v-hX-lnhght, @v-fnt-sclng-fctrs-alt);
 		line-height: 1.375em;
@@ -80,15 +80,15 @@ h2 {
 			margin-top: 0;
 		}
 	}
-	div.column &:first-child,
-	div.column header:first-child + &,
-	div.column header:first-child + &.fancy.with-top-border:not(:first-child) {
+	.column &:first-child,
+	.column header:first-child + &,
+	.column header:first-child + &.fancy.with-top-border:not(:first-child) {
 		margin-top: 0;
 	}
-	div.column h1 + & {
+	.column h1 + & {
 		font-style: italic;
 	}
-	div.column hr:not(.subSection) + h2 {
+	.column hr:not(.subSection) + h2 {
 		margin-top: 0;
 	}
 }
@@ -100,7 +100,7 @@ h2.article-title a {
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h3>…</h3> selectors ············································································· │
 h3 {
-	div.column & {
+	.column & {
 		&:extend(.has-dflt-font);
 		padding: 0 0 0 .1em;
 		margin-top: 1.5rem;
@@ -145,10 +145,10 @@ h3 {
 			}
 		}
 	}
-	div.column &:first-child,
-	div.column header:first-child + &,
-	div.column header:first-child + &.fancy.with-top-border:not(:first-child),
-	div.column hr:not(.subSection) + &
+	.column &:first-child,
+	.column header:first-child + &,
+	.column header:first-child + &.fancy.with-top-border:not(:first-child),
+	.column hr:not(.subSection) + &
 	{
 		margin-top: 0;
 	}
@@ -157,7 +157,7 @@ h3 {
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <h4>…</h4> selectors ············································································· │
 h4 {
-	div.column & {
+	.column & {
 		&:extend(.has-dflt-font);
 		padding: 0;
 		margin-top: 1rem;
@@ -170,15 +170,15 @@ h4 {
 			text-align: center;
 		}
 		&.fancy {
-			&:extend(div.column h3.fancy all);
+			&:extend(.column h3.fancy all);
 		}
 		&.gray {
 			color: @hex-darker-gray;
 		}
 	}
-	div.column &:first-child,
-	div.column header:first-child + &,
-	div.column hr:not(.subSection) + &
+	.column &:first-child,
+	.column header:first-child + &,
+	.column hr:not(.subSection) + &
 	{
 		margin-top: 0;
 	}
@@ -186,7 +186,7 @@ h4 {
 
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <hN>…</hN> selectors ············································································· │
-div.column {
+.column {
 	h1.crimson, h2.crimson {
 		color: @hex-crimson;
 	}
@@ -194,7 +194,7 @@ div.column {
 
 section {
 	&.side-right, &.row.side-right {
-		div.column.one h2.fancy, div.column.one h3.fancy {
+		.column.one h2.fancy, .column.one h3.fancy {
 			@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
 				margin-right: 0;
 			}
@@ -203,12 +203,12 @@ section {
 }
 
 header.article-header {
-	body.blog div.column & + * {
+	body.blog .column & + * {
 		padding-top: 15px;
 		border-top: 1px solid rgba(127,127,127,0.2);
 	}
-	div.column & h1.article-title,
-	div.column & h2.article-title {
+	.column & h1.article-title,
+	.column & h2.article-title {
 		.has-responsive-font((@v-p-sz * 1.5), @v-hX-lnhght);
 	}
 }
@@ -216,12 +216,12 @@ header.article-header {
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· <header>…<header> selectors ······································································ │
 header.main-header {
-	span.sup-header-default {
+	.sup-header-default {
 		margin-bottom: .5rem;
 		.has-responsive-font(0.9rem, false, @v-fnt-sclng-fctrs-alt-2);
 	}
-	span.sub-header-default,
-	sub.sub-header {
+	.sub-header-default,
+	.sub-header {
 		.has-responsive-font((2.5rem * 16 / 17), 0.9em, @v-fnt-sclng-fctrs-alt-2);
 	}
 	&.centered {
@@ -238,27 +238,23 @@ header.main-header {
 			text-align: left;
 		}
 	}
-	div.header-group { text-align: inherit; }
-	div.header-group.centered {
+	.header-group { text-align: inherit; }
+	.header-group.centered {
 		@media (min-width: @v-lrgfrmt-thrshld) {
 			width: 100%;
 			left: 50%;
-			transform: translateX(-50%);
-			 -webkit-transform: translateX(-50%);
-			 -ms-transform: translateX(-50%);
+			.transform(~"translateX(-50%)");
 		}
 		@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
 			width: 100%;
 			left: 50%;
-			transform: translateX(-50%);
-			 -webkit-transform: translateX(-50%);
-			 -ms-transform: translateX(-50%);
+			.transform(~"translateX(-50%)");
 		}
 	}
 }
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· Hide all <header><h2>…</h2></header> inserted by the WSU Spine Page Builder Template ············· │
-div.column {
+.column {
 	& > header:first-child {
 		display: none;
 	}
