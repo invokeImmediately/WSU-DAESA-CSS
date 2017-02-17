@@ -1,0 +1,47 @@
+/*     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+ *     │ ++++++++ MAIN +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+ *     ├-------------------------------------------------------------------------------------------------┤
+ *     │ Rule-sets for styling main elements within OUE pages built using the WSU Spine theme for        │
+ *     │ WordPress.                                                                                      │
+ *     │  ╘═» This file assumes the following LESS files have been imported upstream:                    │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                            │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                         │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                 │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                │
+ *     ├-------------------------------------------------------------------------------------------------┤
+ */
+/*         ┌-----------------------------------------------------------------------------------------┐
+ *         │ ···· Style rule-sets wrapped in INCLUSIONAL MIXINS ···································· │
+ *         └-----------------------------------------------------------------------------------------┘
+ */
+.use-main-pseudo-footer(@background-ruleset) when (isruleset(@background-ruleset)) {
+	main > .page {
+		position: relative;
+	}
+
+	body.blog main > footer {
+		position: relative;
+		padding-bottom: 3rem;
+	}
+
+	main > .page > section:last-child {
+		padding-bottom: 2rem;
+	}
+
+	main > .page:after,
+	body.blog main > footer:after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100%;
+		width: auto;
+		height: 100vh;
+		padding: 0.25rem 1rem;
+		@background-ruleset();
+		visibility: visible;
+		.transform(translateY(-2rem));
+	}
+}
+/*     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+ */
