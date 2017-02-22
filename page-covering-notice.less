@@ -81,22 +81,30 @@ div.page-covering-notice-js {
     z-index: 99352;
     .rgb-white(); background-color: rgba(@rval,@gval,@bval,0.95);
     text-align: center;
+	&.left-aligned {
+		text-align: left;
+	}
     div.notice-content {
         position: absolute;
-         top: 50%;
-         left: 50%;
-        text-align: center;
-        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+		width: 100%;
+		padding: 2rem;
+        text-align: inherit;
+        .transform(~"translate(-50%,-50%)");
     }
     div.notice-content img {
         margin: 0 auto 20px;
     }
     div.notice-content p {
         font-size: 2rem !important;
-        line-height: 1.35em !important;
+		@media all and (max-width: @v-lg-mbl-thrshld) {
+			font-size: 1rem !important;
+		}
+        line-height: 1.275em !important;
 		text-align: inherit !important;
 		& + p {
-			margin-top: 2.7rem !important;
+			margin-top: 1em !important;
 		}
     }
 }
