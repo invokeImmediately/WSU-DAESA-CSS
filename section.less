@@ -1,6 +1,14 @@
 /*     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
- *     │ ++++ SECTION selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+ *     │ ++++++++ SECTIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+ *     ├-------------------------------------------------------------------------------------------------┤
+ *     │ Rule-sets for styling section elements within OUE pages built using the WSU Spine theme for     │
+ *     │ WordPress.                                                                                      │
+ *     │  ╘═» This file assumes the following LESS files have been imported upstream:                    │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                            │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                         │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                 │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                │
+ *     ├-------------------------------------------------------------------------------------------------┤
  */
 section {
     &.column-one-with-bottom-margin > .column.one {
@@ -200,6 +208,10 @@ section {
     }
 }
 
+/*         ┌-----------------------------------------------------------------------------------------┐
+ *         │ ···· SPACING OVERWRITES to improve responsive design ·································· │
+ *         └-----------------------------------------------------------------------------------------┘
+ */
 main section.row {
     & > .column,
 	& > .column > article > .article-body,
@@ -424,6 +436,10 @@ main section.row {
     }
 }
 
+/*         ┌-----------------------------------------------------------------------------------------┐
+ *         │ ···· LINKED COLUMNS content group ····················································· │
+ *         └-----------------------------------------------------------------------------------------┘
+ */
 .use-linked-columns() {
 	.row.has-linked-columns:not(.gutter) {
 		.spaces-top-half;
@@ -893,6 +909,42 @@ main section.row {
 				}
 			}
 		}
+		&.has-title {
+			margin-top: (@v-dflt-spcng * 3 / 2);
+			.column:first-child {
+				& > header:first-child {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: @v-dflt-spcng;
+					border-bottom: 1px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.7);
+					background-color: @hex-dark-gray;
+					.transform(~"translateY(-100%)");
+					& > :first-child {
+						margin: 0 !important;
+						color: @hex-white;
+						font-size: @v-clmn-sz;
+						line-height: @v-dflt-spcng;
+						text-align: center;
+						text-transform: none;
+					}
+				}
+			}
+			&.halves {
+				.column:first-child > header:first-child {
+					@media all {
+						@media (min-width: (@v-rghtclmn-thrshld + 1)) {
+							width: 200%;
+						}
+						@media (max-width: @v-rghtclmn-thrshld) {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+		// TODO: move to UCORE custom file; it is unnecessary to include this in all OUE sites.
 		&.for-faculty {
 			.column {
 				&:not(:first-child) {
@@ -960,3 +1012,6 @@ main section.row {
 		}
 	}
 }
+/*     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+ */
+ 
