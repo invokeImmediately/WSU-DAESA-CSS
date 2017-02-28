@@ -10,280 +10,283 @@
  *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                │
  *     ├-------------------------------------------------------------------------------------------------┤
  */
+.declare-hyperlink-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 /*         ┌-----------------------------------------------------------------------------------------┐
  *         │ ···· HYPERLINK elements contained within .column classed elements ····················· │
  *         └-----------------------------------------------------------------------------------------┘
  */
-.column {
-	a {
-		border-bottom-right-radius: 0.25em;
-		border-bottom-left-radius: 0.25em;
-		border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 1);
-		box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), .15);
-		color: @hex-crimson;
-		text-decoration: none;
-		.transition(~"all .3s ease");
-		@media print {
-			box-shadow: none;
-		}
-		&:hover {
-			border-bottom-right-radius: 0;
-			 border-bottom-left-radius: 0;
-			border-color: transparent;
-			box-shadow: inset 0 -0.3125em 0 transparent;
-			background-color: rgba(red(@hex-soft-crimson), green(@hex-soft-crimson), blue(@hex-soft-crimson),
-							  .3);
-			color: @hex-light-crimson;
-			text-shadow: 0.0625em 0.0625em 0.0625em rgba(red(@hex-crimson), green(@hex-crimson),
-			  blue(@hex-crimson), .3);
-		}
-		&.subtle-link {
-			border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 0);
-			box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),
-						  0);
-			&.no-highlight:hover {
-				background-color: rgba(red(@hex-soft-crimson), green(@hex-soft-crimson),
-									blue(@hex-soft-crimson), 0);				
-			}
-		}
-		&.pop-out-link {
-			.transition(~"color .4s linear, background .4s ease-in, font-size .25s linear");
-			&.subtle-link {
-				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),
-							     0);
-				box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson),
-							  blue(@hex-crimson), 0);
-			}
-			&:hover {
-				.rgb-accent-orange(); background-color: rgba(@rval, @gval, @bval, .1);
-				font-size: 1.05em;
-				line-height: ~"calc(1.05em * 1.05)";
-				color: @hex-accent-orange;
-			}
-		}
-		&.dark-red-button {
-			display: block;
-			padding: .5em 1em;
-			border-radius: 0;
-			color: @hex-white;
-			background-color: @hex-crimson;
-			text-transform: uppercase;
-			font-size: 1em;
-			font-weight: bold;
-			letter-spacing: 0.0625em;
-			.transition("~background-color .3333s linear");
-			&:hover {
-				background-color: @hex-light-crimson;
-			}
-		}
-		img {
-			.rgb-dark-gray(); border: 0.0625em solid rgba(@rval, @gval, @bval, .5);
-			box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval, .25);
+	.column {
+		a {
+			border-bottom-right-radius: 0.25em;
+			border-bottom-left-radius: 0.25em;
+			border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 1);
+			box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), .15);
+			color: @hex-crimson;
 			text-decoration: none;
-			.transition(~"border .4s linear, box-shadow .4s ease-in");
+			.transition(~"all .3s ease");
+			@media print {
+				box-shadow: none;
+			}
 			&:hover {
-				border: 0.0625em solid @hex-crimson;
-				.rgb-crimson(); box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval, .3333);
+				border-bottom-right-radius: 0;
+				 border-bottom-left-radius: 0;
+				border-color: transparent;
+				box-shadow: inset 0 -0.3125em 0 transparent;
+				background-color: rgba(red(@hex-soft-crimson), green(@hex-soft-crimson), blue(@hex-soft-crimson),
+								  .3);
+				color: @hex-light-crimson;
+				text-shadow: 0.0625em 0.0625em 0.0625em rgba(red(@hex-crimson), green(@hex-crimson),
+				  blue(@hex-crimson), .3);
 			}
-		}
-		&[data-title] {
-			position: relative;
-			&:hover:after {
-				content:attr(data-title);
-				position: absolute;
-				 left: 5px;
-				 top: 100%;
-				width: 220px;
-				border: 1px solid @hex-dark-orange;
-				padding: 4px 8px;
-				background: @hex-lightest-orange;
-				 background: -webkit-linear-gradient(top, @hex-lightest-orange, @hex-white);
-				 background: -moz-linear-gradient(top, @hex-lightest-orange, @hex-white);
-				 background: -o-linear-gradient(top, @hex-lightest-orange, @hex-white);
-				 background: linear-gradient(top, @hex-lightest-orange, @hex-white);
-				color: @hex-darker-gray;
-				z-index: 20;
-			}
-		}
-	}
-	&:hover a.loud-link {
-		border-bottom: 0.0625em solid rgba(red(@hex-light-crimson), green(@hex-light-crimson),
-					   blue(@hex-light-crimson), .2);
-		box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-light-crimson), green(@hex-light-crimson),
-					blue(@hex-light-crimson), .2);
-	}
-	h1 > a,
-	h2 > a,
-	h3 > a,
-	h4 > a {
-		line-height: 1.35em;
-		&:not(.stays-underlined), &:not(.stays-underlined):hover {
-			border-bottom: none;
-			box-shadow: none;
-		}
-		&:not(.stays-underlined):hover {
-			background: transparent;
-		}
-	}
-}
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· CSS3-DRIVEN TOOLTIPS ····························································· │
- *         └-----------------------------------------------------------------------------------------┘
- */
-a.vpue-tooltip {
-    position: relative;
-    border-bottom: dotted 1px #b67233;
-    outline: none;
-    text-decoration: none;
-    color: #b67233;
-    strong {
-        line-height: 30px;
-    }
-    & > span {
-        position: absolute;
-        width: 300px;
-        padding: 10px 20px;
-        margin-top: 20px;
-         margin-left: -100px;
-        opacity: 0;
-        visibility: hidden;
-        z-index: 10;
-        border-radius: 3px;
-        .rgb-dark-orange(); box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
-         -webkit-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
-         -moz-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
-        font-family: inherit;
-        font-size: .9em;
-        font-style: normal;
-        transition-property: opacity, margin-top, visibility, margin-left;
-         -webkit-transition-property: opacity, margin-top, visibility, margin-left;
-         -moz-transition-property: opacity, margin-top, visibility, margin-left;
-         -o-transition-property: opacity, margin-top, visibility, margin-left;
-        transition-duration: 0.4s, 0.3s, 0.4s, .3s;
-         -webkit-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
-         -moz-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
-         -o-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
-        transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
-         -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
-         -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
-         -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
-    }
-    &:hover > span {
-        display: inline;
-        margin-top: 40px;
-         margin-left: -90px;
-        overflow: visible;
-        opacity: 1;
-        visibility: visible;
-        text-decoration: none;
-    }
-    span b {
-        display: block;
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        margin-top: -19px;
-         margin-left: 40px;
-        transform: rotate(-45deg);
-         -webkit-transform: rotate(-45deg);
-         -moz-transform: rotate(-45deg);
-         -ms-transform: rotate(-45deg);
-         -o-transform: rotate(-45deg);
-        box-shadow: inset 0 1px 0 @hex-white;
-         -webkit-box-shadow: inset -1px 1px 0 @hex-white;
-         -moz-box-shadow: inset 0 1px 0 @hex-white;
-         -o-box-shadow: inset 0 1px 0 @hex-white;
-    /*display: none;*/
-    }
-    & > span {
-        background: @hex-lightest-orange;
-         background: -webkit-linear-gradient(top,@hex-lightest-orange,@hex-white);
-         background: -moz-linear-gradient(top,@hex-lightest-orange,@hex-white);
-         background: -o-linear-gradient(top,@hex-lightest-orange,@hex-white);
-         background: linear-gradient(top,@hex-lightest-orange,@hex-white);
-        border: 1px solid @hex-dark-orange;
-        color: @hex-dark-gray;
-    }
-    span b {
-        background: @hex-lightest-orange;
-        border-top: 1px solid @hex-dark-orange;
-         border-right: 1px solid @hex-dark-orange;
-    }
-}
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· INCLUSIONAL MIXINS ······························································· │
- *         └-----------------------------------------------------------------------------------------┘
- */
-.use-glass-button-layout() {
-	.column a {
-		&.recommend-button,
-		&.glass-button {
-			display:block;
-			position: relative;
-			padding: 1em;
-			border-radius: 7px;
-			& {
-				@shadow-clr: returned;
-				.getRgbaForProp(@shadow-clr, @hex-black, 0.5);
-				box-shadow: 0 2px 2px @@shadow-clr;
-			}
-			.transition(~"all 0.3s ease");			
-			&:before {
-				content: "";
-				position: absolute;
-				top: 2px;
-				 right: 2px;
-				 left: 2px;
-				height: 50%;
-				border-top-left-radius: 5px;
-				border-top-right-radius: 5px;
-				& {
-					@color-top: returned; .getRgbaForProp(@color-top, @hex-white, 0.7);
-					@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-white, 0.1);
-					background: linear-gradient(@@color-top, @@color-btm);
+			&.subtle-link {
+				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 0);
+				box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),
+							  0);
+				&.no-highlight:hover {
+					background-color: rgba(red(@hex-soft-crimson), green(@hex-soft-crimson),
+										blue(@hex-soft-crimson), 0);				
 				}
 			}
-			&:after {
-				content: "";
-				position: absolute;
-				bottom: 0;
-				 right: 2px;
-				 left: 2px;
-				height: 50%;
-				border-bottom-left-radius: 7px;
-				 border-bottom-right-radius: 7px;
-				& {
-					@color-top: returned; .getRgbaForProp(@color-top, @hex-black, 0);
-					@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-black, 0.1);
-					background: linear-gradient(@@color-top, @@color-btm);
+			&.pop-out-link {
+				.transition(~"color .4s linear, background .4s ease-in, font-size .25s linear");
+				&.subtle-link {
+					border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),
+									 0);
+					box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson),
+								  blue(@hex-crimson), 0);
 				}
-			}			
-			&.crimson {
+				&:hover {
+					.rgb-accent-orange(); background-color: rgba(@rval, @gval, @bval, .1);
+					font-size: 1.05em;
+					line-height: ~"calc(1.05em * 1.05)";
+					color: @hex-accent-orange;
+				}
+			}
+			&.dark-red-button {
+				display: block;
+				padding: .5em 1em;
+				border-radius: 0;
+				color: @hex-white;
 				background-color: @hex-crimson;
-				color: white;
+				text-transform: uppercase;
+				font-size: 1em;
+				font-weight: bold;
+				letter-spacing: 0.0625em;
+				.transition("~background-color .3333s linear");
 				&:hover {
 					background-color: @hex-light-crimson;
-					& {
-						@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.25);
-						@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-light-crimson, 0.3333);
-						box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
-					}
 				}
 			}
-			&.yellow {
-				background-color: @hex-accent-yellow;
-				color: @hex-black;
+			img {
+				.rgb-dark-gray(); border: 0.0625em solid rgba(@rval, @gval, @bval, .5);
+				box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval, .25);
+				text-decoration: none;
+				.transition(~"border .4s linear, box-shadow .4s ease-in");
 				&:hover {
-					background-color: #ffde1c;
+					border: 0.0625em solid @hex-crimson;
+					.rgb-crimson(); box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval, .3333);
+				}
+			}
+			&[data-title] {
+				position: relative;
+				&:hover:after {
+					content:attr(data-title);
+					position: absolute;
+					 left: 5px;
+					 top: 100%;
+					width: 220px;
+					border: 1px solid @hex-dark-orange;
+					padding: 4px 8px;
+					background: @hex-lightest-orange;
+					 background: -webkit-linear-gradient(top, @hex-lightest-orange, @hex-white);
+					 background: -moz-linear-gradient(top, @hex-lightest-orange, @hex-white);
+					 background: -o-linear-gradient(top, @hex-lightest-orange, @hex-white);
+					 background: linear-gradient(top, @hex-lightest-orange, @hex-white);
+					color: @hex-darker-gray;
+					z-index: 20;
+				}
+			}
+		}
+		&:hover a.loud-link {
+			border-bottom: 0.0625em solid rgba(red(@hex-light-crimson), green(@hex-light-crimson),
+						   blue(@hex-light-crimson), .2);
+			box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-light-crimson), green(@hex-light-crimson),
+						blue(@hex-light-crimson), .2);
+		}
+		h1 > a,
+		h2 > a,
+		h3 > a,
+		h4 > a {
+			line-height: 1.35em;
+			&:not(.stays-underlined), &:not(.stays-underlined):hover {
+				border-bottom: none;
+				box-shadow: none;
+			}
+			&:not(.stays-underlined):hover {
+				background: transparent;
+			}
+		}
+	}
+	/*         ┌-----------------------------------------------------------------------------------------┐
+	 *         │ ···· CSS3-DRIVEN TOOLTIPS ····························································· │
+	 *         └-----------------------------------------------------------------------------------------┘
+	 */
+	a.vpue-tooltip {
+		position: relative;
+		border-bottom: dotted 1px #b67233;
+		outline: none;
+		text-decoration: none;
+		color: #b67233;
+		strong {
+			line-height: 30px;
+		}
+		& > span {
+			position: absolute;
+			width: 300px;
+			padding: 10px 20px;
+			margin-top: 20px;
+			 margin-left: -100px;
+			opacity: 0;
+			visibility: hidden;
+			z-index: 10;
+			border-radius: 3px;
+			.rgb-dark-orange(); box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
+			 -webkit-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
+			 -moz-box-shadow: 2px 2px 2px rgba(@rval, @gval, @bval,0.5);
+			font-family: inherit;
+			font-size: .9em;
+			font-style: normal;
+			transition-property: opacity, margin-top, visibility, margin-left;
+			 -webkit-transition-property: opacity, margin-top, visibility, margin-left;
+			 -moz-transition-property: opacity, margin-top, visibility, margin-left;
+			 -o-transition-property: opacity, margin-top, visibility, margin-left;
+			transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+			 -webkit-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+			 -moz-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+			 -o-transition-duration: 0.4s, 0.3s, 0.4s, .3s;
+			transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+			 -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+			 -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+			 -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+		}
+		&:hover > span {
+			display: inline;
+			margin-top: 40px;
+			 margin-left: -90px;
+			overflow: visible;
+			opacity: 1;
+			visibility: visible;
+			text-decoration: none;
+		}
+		span b {
+			display: block;
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			margin-top: -19px;
+			 margin-left: 40px;
+			transform: rotate(-45deg);
+			 -webkit-transform: rotate(-45deg);
+			 -moz-transform: rotate(-45deg);
+			 -ms-transform: rotate(-45deg);
+			 -o-transform: rotate(-45deg);
+			box-shadow: inset 0 1px 0 @hex-white;
+			 -webkit-box-shadow: inset -1px 1px 0 @hex-white;
+			 -moz-box-shadow: inset 0 1px 0 @hex-white;
+			 -o-box-shadow: inset 0 1px 0 @hex-white;
+		/*display: none;*/
+		}
+		& > span {
+			background: @hex-lightest-orange;
+			 background: -webkit-linear-gradient(top,@hex-lightest-orange,@hex-white);
+			 background: -moz-linear-gradient(top,@hex-lightest-orange,@hex-white);
+			 background: -o-linear-gradient(top,@hex-lightest-orange,@hex-white);
+			 background: linear-gradient(top,@hex-lightest-orange,@hex-white);
+			border: 1px solid @hex-dark-orange;
+			color: @hex-dark-gray;
+		}
+		span b {
+			background: @hex-lightest-orange;
+			border-top: 1px solid @hex-dark-orange;
+			 border-right: 1px solid @hex-dark-orange;
+		}
+	}
+	/*         ┌-----------------------------------------------------------------------------------------┐
+	 *         │ ···· INCLUSIONAL MIXINS ······························································· │
+	 *         └-----------------------------------------------------------------------------------------┘
+	 */
+	.use-glass-button-layout() {
+		.column a {
+			&.recommend-button,
+			&.glass-button {
+				display:block;
+				position: relative;
+				padding: 1em;
+				border-radius: 7px;
+				& {
+					@shadow-clr: returned;
+					.getRgbaForProp(@shadow-clr, @hex-black, 0.5);
+					box-shadow: 0 2px 2px @@shadow-clr;
+				}
+				.transition(~"all 0.3s ease");			
+				&:before {
+					content: "";
+					position: absolute;
+					top: 2px;
+					 right: 2px;
+					 left: 2px;
+					height: 50%;
+					border-top-left-radius: 5px;
+					border-top-right-radius: 5px;
 					& {
-						@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.25);
-						@glow-clr: returned-2; .getRgbaForProp(@glow-clr, #ffde1c, 0.8);
-						box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
+						@color-top: returned; .getRgbaForProp(@color-top, @hex-white, 0.7);
+						@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-white, 0.1);
+						background: linear-gradient(@@color-top, @@color-btm);
+					}
+				}
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: 0;
+					 right: 2px;
+					 left: 2px;
+					height: 50%;
+					border-bottom-left-radius: 7px;
+					 border-bottom-right-radius: 7px;
+					& {
+						@color-top: returned; .getRgbaForProp(@color-top, @hex-black, 0);
+						@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-black, 0.1);
+						background: linear-gradient(@@color-top, @@color-btm);
+					}
+				}			
+				&.crimson {
+					background-color: @hex-crimson;
+					color: white;
+					&:hover {
+						background-color: @hex-light-crimson;
+						& {
+							@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.25);
+							@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-light-crimson, 0.3333);
+							box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
+						}
+					}
+				}
+				&.yellow {
+					background-color: @hex-accent-yellow;
+					color: @hex-black;
+					&:hover {
+						background-color: #ffde1c;
+						& {
+							@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.25);
+							@glow-clr: returned-2; .getRgbaForProp(@glow-clr, #ffde1c, 0.8);
+							box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
+						}
 					}
 				}
 			}
 		}
 	}
 }
+.declare-hyperlink-rulesets(@grid-behavior);
 /*     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
  */

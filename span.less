@@ -2,97 +2,100 @@
  *     │ ++++ SPAN selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
  *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
-span {
-    &.accentuated-text {
-        &:extend(.has-alt-font);
-        font-weight: 700;
-        font-size: 1.3em;
-        line-height: normal;
-        color: saturate(@hex-dark-blue,100%);
-		&.darker {
-			color: @hex-dark-blue;
+.declare-span-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+	span {
+		&.accentuated-text {
+			&:extend(.has-alt-font);
+			font-weight: 700;
+			font-size: 1.3em;
+			line-height: normal;
+			color: saturate(@hex-dark-blue,100%);
+			&.darker {
+				color: @hex-dark-blue;
+			}
+			&.brighter {
+				color: saturate(@hex-blue,100%);
+			}
+			&.gray {
+				color: @hex-dark-gray;
+				&.brighter {
+					color: @hex-less-dark-gray;
+				}
+			}
 		}
-        &.brighter {
-            color: saturate(@hex-blue,100%);
-        }
-        &.gray {
-            color: @hex-dark-gray;
-            &.brighter {
-                color: @hex-less-dark-gray;
-            }
-        }
-    }
-	&.callout {
-		&:extend(div.callout all);
+		&.callout {
+			&:extend(div.callout all);
+		}
+		&.has-tool-tip,
+		&.has-tooltip {
+			position: relative;
+			margin-bottom: -3px;
+			.rgb-accent-blue(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.25);
+			color: @hex-accent-blue;
+			transition-property: color, background, border-color;
+			 -webkit-transition-property: color, background, border-color;
+			transition-duration: .3s, .3s, .3s;
+			 -webkit-transition-duration: .3s, .3s, .3s;
+			transition-timing-function: ease, ease, ease;
+			 -webkit-transition-timing-function: ease, ease, ease;
+			&:hover {
+				.rgb-accent-blue(); background-color: rgba(@rval,@gval,@bval,0.2);
+				border-color: rgba(@rval,@gval,@bval,0.67);
+				color: @hex-darker-blue;
+			}
+		}
+		&.hides-with-spine {
+			@media all and (max-width: @v-spn-thrshld) {
+				display: none;
+			}
+		}
+		&.hides-from-spine {
+			@media all and (min-width: (@v-spn-thrshld + 1)) {
+				display: none;
+			}
+		}
+		&.hides-with-rghtclmn {
+			@media all and (max-width: @v-rghtclmn-thrshld) {
+				display: none;
+			}
+		}
+		&.hides-from-rghtclmn {
+			@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+				display: none;
+			}
+		}
+		&.shrink-text-on-mobile {
+			@media all and (max-width: @v-lg-mbl-thrshld) {
+				font-size: 0.9em;
+			}	
+		}
+		&.shrink-text-on-tablet {
+			@media all and (max-width: @v-tblt-thrshld) {
+				font-size: 0.9em;
+			}	
+		}
 	}
-    &.has-tool-tip,
-	&.has-tooltip {
-		position: relative;
-        margin-bottom: -3px;
-        .rgb-accent-blue(); border-bottom: 1px dotted rgba(@rval,@gval,@bval,0.25);
-        color: @hex-accent-blue;
-        transition-property: color, background, border-color;
-         -webkit-transition-property: color, background, border-color;
-        transition-duration: .3s, .3s, .3s;
-         -webkit-transition-duration: .3s, .3s, .3s;
-        transition-timing-function: ease, ease, ease;
-         -webkit-transition-timing-function: ease, ease, ease;
-        &:hover {
-            .rgb-accent-blue(); background-color: rgba(@rval,@gval,@bval,0.2);
-            border-color: rgba(@rval,@gval,@bval,0.67);
-            color: @hex-darker-blue;
-        }
-    }
-    &.hides-with-spine {
-        @media all and (max-width: @v-spn-thrshld) {
-            display: none;
-        }
-    }
-    &.hides-from-spine {
-        @media all and (min-width: (@v-spn-thrshld + 1)) {
-            display: none;
-        }
-    }
-    &.hides-with-rghtclmn {
-        @media all and (max-width: @v-rghtclmn-thrshld) {
-            display: none;
-        }
-    }
-    &.hides-from-rghtclmn {
-        @media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
-            display: none;
-        }
-    }
-	&.shrink-text-on-mobile {
-        @media all and (max-width: @v-lg-mbl-thrshld) {
-            font-size: 0.9em;
-        }	
-	}
-	&.shrink-text-on-tablet {
-        @media all and (max-width: @v-tblt-thrshld) {
-            font-size: 0.9em;
-        }	
-	}
-}
 
-.use-tool-tip-indicator-icon(@icon-url) when (isurl(@icon-url)) {
-	span.has-tool-tip,
-	span.has-tooltip {
-		&:after {
-			content: "";
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 10px;
-			height: 10px;
-			background: @icon-url no-repeat center center/100% 100%;
-			opacity: 1.0;
-			.transition(~"all 0.3s ease");
-			.transform(~"translate(100%, -25%)");
+	.use-tool-tip-indicator-icon(@icon-url) when (isurl(@icon-url)) {
+		span.has-tool-tip,
+		span.has-tooltip {
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 10px;
+				height: 10px;
+				background: @icon-url no-repeat center center/100% 100%;
+				opacity: 1.0;
+				.transition(~"all 0.3s ease");
+				.transform(~"translate(100%, -25%)");
+			}
+			&:hover:after {
+				opacity: 0;
+			}
 		}
-		&:hover:after {
-			opacity: 0;
-		}
+		.use-qtip-indicator-icon(@icon-url);
 	}
-	.use-qtip-indicator-icon(@icon-url);
 }
+.declare-span-rulesets(@grid-behavior);

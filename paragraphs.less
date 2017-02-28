@@ -10,204 +10,207 @@
  *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                │
  *     ├-------------------------------------------------------------------------------------------------┤
  */
-p {
-	.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
-	.column & {
-		padding-bottom: 0;
-		text-align: left;
-	}
-	.column &.centered {
-		text-align: center;
-	}
-	.column &.align-left {
-		text-align: left;
-	}
-	.column &.btm-margin-override:not(:last-child) {
-		margin-bottom: 0 !important;
-	}
-	.column &.double-margins:not(:last-child) {
-		margin-bottom: @v-btm-mrgns * 2 !important;
-	}	
-	.column &.half-margins:not(:last-child) {
-		margin-bottom: @v-btm-mrgns / 2 !important;
-	}	
-	&.article-deck {
-		.has-sectionally-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
+.declare-p-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+	p {
+		.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
 		.column & {
-			color: @hex-dark-green;
-			strong {
-				color: @hex-green;
-			}
-		}
-	}
-	&.article-tagline {
-		.has-sectionally-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
-		&.home {
-			.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), @v-p-lnhght);
-		}
-		.column & {
-			.has-subst-font.serif;
-			font-size: @v-artcl-tgln-sz;
-			line-height: @v-artcl-tgln-lnhght;
-			font-weight: @v-artcl-tgln-wght;
-		}
-		.column &.sans {
-			&:extend(.has-alt-font);
-			color: @hex-black;
-			font-weight: 300;
-			// letter-spacing: 0.5px; // Removed on 2016-06-10 to improve readability of text.
-			& > span.lead-in {
-				color: @hex-dark-blue;
-				font-weight: 700;
-				letter-spacing: normal;                    
-			}
-		}
-		&:not(.has-no-bordering) {
-			.has-pull-quote-bordering;
-		}
-		.column h1 + &,
-		.column h2 + &,
-		.column h3 + &,
-		.column h4 + &,
-		.column h5 + &,
-		.column h6 + & {
-			margin-top: (@v-btm-mrgns * 4 / 3);
-		}
-	}
-	.column &.no-bottom-pad {
-		padding-bottom: 0 !important;
-	}
-	.column &.vpue-jump-bar {
-		padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
-		margin: @v-dflt-spcng;
-		.rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
-		border: 1px solid rgba(red(@hex-dark-blue), green(@hex-dark-blue), blue(@hex-dark-blue), 0.5);
-		border-radius: 10px;
-		// font-size: 0.92em; // Removed as per request of MSL made on 2016-06-07
-		color: @hex-darker-gray;
-		text-align: center;
-		box-shadow: 1px 1px 3px rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.3);
-		span.title {
-			font-size: (1em / 0.92 / 0.92);
-			line-height: 2em;
-			font-weight: bold;
-			font-variant: small-caps;
-		}
-		&.floating {
-			display: none;
-			position: fixed;
-			top: 0;
-			left: 50%;
-			width: 50%;
-			padding-top: (@v-dflt-spcng / 5);
-			padding-bottom: (@v-dflt-spcng * 0.375);
-			margin-top: 0;
-			margin-right: 0;
-			margin-left: 0;
-			background-color: rgba(red(@hex-turquoise-opaque), green(@hex-turquoise-opaque), blue(@hex-turquoise-opaque), 0.95);
-			font-size: (@v-p-sz * 0.8) !important;
-			box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-			.transform(~"translateX(-50%)");
-			@media all {
-				@media (max-width: @v-spn-thrshld) {
-					top: 51px;
-				}
-			}
-			z-index: 99163;
-			span.title {
-				display: none;
-			}
-			br:first-of-type {
-				display: none;
-			}
-			@media all and (max-width: @v-lg-mbl-thrshld) {
-				.transform(~"translateX(-50%) translateY(-100%) translateY(20px)");
-				.transition(~"all 0.3s ease");
-				&:hover {
-					.transform(~"translateX(-50%)");
-				}
-			}
-		}
-	}
-	&.vpue-jump-back {
-		.has-sectionally-responsive-font(@v-p-jmpbck-sz, @v-p-lnhght);
-		.column & {
-			padding-bottom: @v-btm-pads / 3;
-			margin-bottom: @v-btm-mrgns / 3;
-		}
-	}
-	&.article-media-contacts {
-		.has-sectionally-responsive-font(0.8rem, @v-p-lnhght);
-		.column & {
-			padding-left: 2em;
+			padding-bottom: 0;
 			text-align: left;
 		}
-		body.single-post .column & + :not(.article-media-contacts) {
-			padding-top: 15px;
-			border-top: 1px solid rgba(127,127,127,0.2);
+		.column &.centered {
+			text-align: center;
 		}
-	}
-	.column &.fine-print {
-		.has-smllr-txt;
-	}
-	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	.column &.banner-text-gray-with-towers {
-		color: @hex-darkest-gray;
-		background-color: rgba(141,149,154,0.5);
-		border: 32px solid transparent;
-		-webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-		-o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-		border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-		margin-bottom: 15px;
-		padding: 7px;
-		@media all {
-			@media (min-width: @v-lrgfrmt-thrshld) {
-				font-size: @v-bnnr-txt-sz;
-			}
-			@media (max-width: (@v-lrgfrmt-thrshld - 1)) {
-				font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+		.column &.align-left {
+			text-align: left;
+		}
+		.column &.btm-margin-override:not(:last-child) {
+			margin-bottom: 0 !important;
+		}
+		.column &.double-margins:not(:last-child) {
+			margin-bottom: @v-btm-mrgns * 2 !important;
+		}	
+		.column &.half-margins:not(:last-child) {
+			margin-bottom: @v-btm-mrgns / 2 !important;
+		}	
+		&.article-deck {
+			.has-sectionally-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
+			.column & {
+				color: @hex-dark-green;
+				strong {
+					color: @hex-green;
+				}
 			}
 		}
-	}
-	.column &.banner-text {
-		padding: 7px;
-		.margin-centered;
-		 margin-bottom: @v-dflt-spcng;
-		.rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.5);
-		border: 1px solid @hex-darkest-gray;
-		line-height: @v-p-lnhght;
-		color: @hex-darkest-gray;
-		.has-responsive-font(@v-bnnr-txt-sz, @v-p-lnhght);
-		&.orange {
-			.rgb-orange(); background-color: rgba(@rval, @gval, @bval, 0.5);
-			border: 1px solid @hex-darkest-orange;
+		&.article-tagline {
+			.has-sectionally-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
+			&.home {
+				.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), @v-p-lnhght);
+			}
+			.column & {
+				.has-subst-font.serif;
+				font-size: @v-artcl-tgln-sz;
+				line-height: @v-artcl-tgln-lnhght;
+				font-weight: @v-artcl-tgln-wght;
+			}
+			.column &.sans {
+				&:extend(.has-alt-font);
+				color: @hex-black;
+				font-weight: 300;
+				// letter-spacing: 0.5px; // Removed on 2016-06-10 to improve readability of text.
+				& > span.lead-in {
+					color: @hex-dark-blue;
+					font-weight: 700;
+					letter-spacing: normal;                    
+				}
+			}
+			&:not(.has-no-bordering) {
+				.has-pull-quote-bordering;
+			}
+			.column h1 + &,
+			.column h2 + &,
+			.column h3 + &,
+			.column h4 + &,
+			.column h5 + &,
+			.column h6 + & {
+				margin-top: (@v-btm-mrgns * 4 / 3);
+			}
 		}
-		&.blue {
-			background-color: rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue), 0.3);
-			border: 1px solid @hex-darkest-blue;
+		.column &.no-bottom-pad {
+			padding-bottom: 0 !important;
 		}
-		&.yellow {
-			.rgb-yellow(); background-color: rgba(@rval, @gval, @bval, 0.5);
-			border: 1px solid @hex-darkest-yellow;
+		.column &.vpue-jump-bar {
+			padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
+			margin: @v-dflt-spcng;
+			.rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
+			border: 1px solid rgba(red(@hex-dark-blue), green(@hex-dark-blue), blue(@hex-dark-blue), 0.5);
+			border-radius: 10px;
+			// font-size: 0.92em; // Removed as per request of MSL made on 2016-06-07
+			color: @hex-darker-gray;
+			text-align: center;
+			box-shadow: 1px 1px 3px rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.3);
+			span.title {
+				font-size: (1em / 0.92 / 0.92);
+				line-height: 2em;
+				font-weight: bold;
+				font-variant: small-caps;
+			}
+			&.floating {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 50%;
+				width: 50%;
+				padding-top: (@v-dflt-spcng / 5);
+				padding-bottom: (@v-dflt-spcng * 0.375);
+				margin-top: 0;
+				margin-right: 0;
+				margin-left: 0;
+				background-color: rgba(red(@hex-turquoise-opaque), green(@hex-turquoise-opaque), blue(@hex-turquoise-opaque), 0.95);
+				font-size: (@v-p-sz * 0.8) !important;
+				box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+				.transform(~"translateX(-50%)");
+				@media all {
+					@media (max-width: @v-spn-thrshld) {
+						top: 51px;
+					}
+				}
+				z-index: 99163;
+				span.title {
+					display: none;
+				}
+				br:first-of-type {
+					display: none;
+				}
+				@media all and (max-width: @v-lg-mbl-thrshld) {
+					.transform(~"translateX(-50%) translateY(-100%) translateY(20px)");
+					.transition(~"all 0.3s ease");
+					&:hover {
+						.transform(~"translateX(-50%)");
+					}
+				}
+			}
 		}
-		&.green {
-			.rgb-green(); background-color: rgba(@rval, @gval, @bval, 0.5);
-			border: 1px solid @hex-darkest-green;
+		&.vpue-jump-back {
+			.has-sectionally-responsive-font(@v-p-jmpbck-sz, @v-p-lnhght);
+			.column & {
+				padding-bottom: @v-btm-pads / 3;
+				margin-bottom: @v-btm-mrgns / 3;
+			}
 		}
-	}
-	// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-	.column &.banner-text-orange-with-towers {
-		padding: 7px;
-		margin-bottom: 15px;
-		border: 32px solid transparent;
-		color: @hex-darkest-orange;
-		.rgb-orange(); background-color: rgba(@rval,@gval,@bval,0.5);
-		 -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-		 -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-		border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-		.has-responsive-font(@v-bnnr-txt-sz, @v-p-lnhght);
+		&.article-media-contacts {
+			.has-sectionally-responsive-font(0.8rem, @v-p-lnhght);
+			.column & {
+				padding-left: 2em;
+				text-align: left;
+			}
+			body.single-post .column & + :not(.article-media-contacts) {
+				padding-top: 15px;
+				border-top: 1px solid rgba(127,127,127,0.2);
+			}
+		}
+		.column &.fine-print {
+			.has-smllr-txt;
+		}
+		// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
+		.column &.banner-text-gray-with-towers {
+			color: @hex-darkest-gray;
+			background-color: rgba(141,149,154,0.5);
+			border: 32px solid transparent;
+			-webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+			-o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+			border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+			margin-bottom: 15px;
+			padding: 7px;
+			@media all {
+				@media (min-width: @v-lrgfrmt-thrshld) {
+					font-size: @v-bnnr-txt-sz;
+				}
+				@media (max-width: (@v-lrgfrmt-thrshld - 1)) {
+					font-size: @v-bnnr-txt-sz * @v-scl-dwn;
+				}
+			}
+		}
+		.column &.banner-text {
+			padding: 7px;
+			.margin-centered;
+			 margin-bottom: @v-dflt-spcng;
+			.rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.5);
+			border: 1px solid @hex-darkest-gray;
+			line-height: @v-p-lnhght;
+			color: @hex-darkest-gray;
+			.has-responsive-font(@v-bnnr-txt-sz, @v-p-lnhght);
+			&.orange {
+				.rgb-orange(); background-color: rgba(@rval, @gval, @bval, 0.5);
+				border: 1px solid @hex-darkest-orange;
+			}
+			&.blue {
+				background-color: rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue), 0.3);
+				border: 1px solid @hex-darkest-blue;
+			}
+			&.yellow {
+				.rgb-yellow(); background-color: rgba(@rval, @gval, @bval, 0.5);
+				border: 1px solid @hex-darkest-yellow;
+			}
+			&.green {
+				.rgb-green(); background-color: rgba(@rval, @gval, @bval, 0.5);
+				border: 1px solid @hex-darkest-green;
+			}
+		}
+		// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
+		.column &.banner-text-orange-with-towers {
+			padding: 7px;
+			margin-bottom: 15px;
+			border: 32px solid transparent;
+			color: @hex-darkest-orange;
+			.rgb-orange(); background-color: rgba(@rval,@gval,@bval,0.5);
+			 -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+			 -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+			border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+			.has-responsive-font(@v-bnnr-txt-sz, @v-p-lnhght);
+		}
 	}
 }
+.declare-p-rulesets(@grid-behavior);
 /*     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
  

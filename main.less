@@ -10,38 +10,41 @@
  *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                │
  *     ├-------------------------------------------------------------------------------------------------┤
  */
+.declare-main-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 /*         ┌-----------------------------------------------------------------------------------------┐
  *         │ ···· Style rule-sets wrapped in INCLUSIONAL MIXINS ···································· │
  *         └-----------------------------------------------------------------------------------------┘
  */
-.use-main-pseudo-footer(@background-ruleset) when (isruleset(@background-ruleset)) {
-	main > .page {
-		position: relative;
-	}
+	.use-main-pseudo-footer(@background-ruleset) when (isruleset(@background-ruleset)) {
+		main > .page {
+			position: relative;
+		}
 
-	body.blog main > footer {
-		position: relative;
-		padding-bottom: 3rem;
-	}
+		body.blog main > footer {
+			position: relative;
+			padding-bottom: 3rem;
+		}
 
-	main > .page > section:last-child {
-		padding-bottom: 2rem;
-	}
+		main > .page > section:last-child {
+			padding-bottom: 2rem;
+		}
 
-	main > .page:after,
-	body.blog main > footer:after {
-		content: "";
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 100%;
-		width: auto;
-		height: 100vh;
-		padding: 0.25rem 1rem;
-		@background-ruleset();
-		visibility: visible;
-		.transform(translateY(-2rem));
+		main > .page:after,
+		body.blog main > footer:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 100%;
+			width: auto;
+			height: 100vh;
+			padding: 0.25rem 1rem;
+			@background-ruleset();
+			visibility: visible;
+			.transform(translateY(-2rem));
+		}
 	}
 }
+.declare-main-rulesets(@grid-behavior);
 /*     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
  */

@@ -10,15 +10,222 @@
  *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                │
  *     ├-------------------------------------------------------------------------------------------------┤
  */
-.column {
-	table {
-		&.plain {
+.declare-table-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+	.column {
+		table {
+			&.plain {
+				background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat
+				 fixed left top;
+				border-collapse: separate;
+				border-spacing: 0;
+				border-top: 1px solid @hex-dark-gray;
+				border-bottom: 1px solid @hex-dark-gray;
+				thead {
+					tr {
+						th {
+							padding-top: .25rem;
+							padding-left: .25rem;
+							padding-bottom: .25rem;
+							border-top: 1px solid @hex-white;
+							border-bottom: 1px solid #B6BCBF;
+							text-align: inherit;
+						}
+					}
+				}
+				tbody {
+					tr {
+						td {
+							padding-top: .25rem;
+							padding-left: .25rem;
+							padding-bottom: .25rem;
+							background-color: @hex-bright-gray;
+							border-top: 1px solid @hex-white;
+							border-bottom: 1px solid @hex-light-gray;
+							text-align: inherit;
+							vertical-align: top;
+						}
+					}
+					tr:nth-of-type(2n) {
+						td {
+							padding-top: .25rem;
+							padding-left: .25rem;
+							padding-bottom: .25rem;
+							background-color: @hex-white;
+							border-top: 1px solid @hex-bright-gray;
+							border-bottom: 1px solid @hex-lighter-gray;
+							text-align: inherit;
+							vertical-align: top;
+						}
+					}
+				}
+			}
+			&.peopleList {
+				width: 100%;
+				background: @hex-white;
+				border-collapse: separate;
+				border-spacing: 0;
+				border-top: 1px solid #e5e5e5;
+				tbody {
+					td {
+						width: 80%;
+						padding-bottom: 3pt;
+						padding-top: 3pt;
+						border-bottom: 1px solid #e5e5e5;
+						vertical-align: middle;
+						/* background: #c75d61; */
+					
+						&:first-of-type {
+							width: 20%;
+							text-align: center;
+						}
+					}
+				}
+			}
+			&.wsu-blue-theme {
+				width: 100%;
+				border-collapse:separate;
+				border-spacing:0;
+				border-top: 1px solid @hex-dark-blue;
+				&:not(.no-bottom-border) { border-bottom: 1px solid @hex-dark-blue; }
+				@media all {
+					@media (min-width: 891px) {
+						font-size: 14px;
+					}
+					@media (max-width: 890px) {
+						font-size: 12px;
+					}
+				}
+				& > thead > tr {
+					& > th {
+						padding: 3px;
+						background-color: @hex-darker-blue;
+						vertical-align: bottom;
+						color: @hex-white;
+					}
+					&.supra-header-row > th {
+						padding-top: 1em;
+						 padding-right: 0.5em;
+						 padding-left: 1.5em;
+						background-color: @hex-darkest-blue;
+						vertical-align: bottom;
+						text-indent: -1em;
+						font-variant: small-caps;
+						font-weight: bold;
+						color: @hex-white;
+					}
+				}
+				&:not(.has-row-spans) > tbody {
+					& > tr:nth-child(2n) > td {
+						padding-top: 3px;
+						 padding-right: 0.5em;
+						 padding-bottom: 0.5em;
+						 padding-left: 1.5em;
+						background-color: @hex-white;
+						text-indent: -1em;
+						vertical-align: top;
+						line-height: normal;
+					}
+					& > tr:nth-child(2n + 1) > td {
+						padding-top: 3px;
+						 padding-right: 0.5em;
+						 padding-bottom: 0.5em;
+						 padding-left: 1.5em;
+						background-color: @hex-lightest-blue;
+						text-indent: -1em;
+						vertical-align: top;
+						line-height: normal;
+					}
+				}
+				&.has-row-spans {
+					& > tbody:nth-child(2n) > tr > td {
+						padding-top: 3px;
+						 padding-right: 0.5em;
+						 padding-bottom: 0.5em;
+						 padding-left: 1.5em;
+						background-color: @hex-white;
+						text-indent: -1em;
+						vertical-align: top;
+						line-height: normal;
+					}
+					& > tbody:nth-child(2n + 1) > tr > td {
+						padding-top: 3px;
+						 padding-right: 0.5em;
+						 padding-bottom: 0.5em;
+						 padding-left: 1.5em;
+						background-color: @hex-lightest-blue;
+						text-indent: -1em;
+						vertical-align: top;
+						line-height: normal;
+					}
+				}
+			}
+			&.wsu-gray-theme {
+				width: 100%;
+				border-collapse:separate;
+				border-spacing:0;
+				border-top: 1px solid @hex-darker-gray;
+				 border-bottom: 1px solid @hex-darker-gray;
+				vertical-align: top;
+				@media all {
+					@media (min-width: 891px) {
+						font-size: 14px;
+					}
+					@media (max-width: 890px) {
+						font-size: 12px;
+					}
+				}
+				//font-variant: small-caps;
+				& > thead > tr {
+					& > th {
+						padding: 3px;
+						background-color: @hex-dark-gray;
+						vertical-align: top;
+						color: @hex-white;
+					}
+					&.sub-heading-row > th {
+						padding: 3px;
+						background-color: @hex-black;
+						vertical-align: bottom;
+						text-indent: -1em;
+						//font-variant: small-caps;
+						font-weight: bold;
+						color: @hex-white;
+					}
+				}
+				& > tbody {
+					& > tr:nth-child(2n) > td {
+						padding: 3px;
+						background-color: @hex-white;
+						vertical-align: top;
+						line-height: normal;
+					}
+					& > tr:nth-child(2n + 1) > td {
+						padding: 3px;
+						background-color: @hex-lighter-gray;
+						vertical-align: top;
+						line-height: normal;
+					}
+				}
+			}
+		}
+	}
+
+/*         ┌-----------------------------------------------------------------------------------------┐
+ *         │ ···· INCLUSIONAL MIXINS ······························································· │
+ *         └-----------------------------------------------------------------------------------------┘
+ */
+	.use-award-recipients-tables() {
+		.column table.award-recipients {
 			background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat
-             fixed left top;
+			 fixed left top;
 			border-collapse: separate;
 			border-spacing: 0;
 			border-top: 1px solid @hex-dark-gray;
 			border-bottom: 1px solid @hex-dark-gray;
+			line-height: @v-p-lnhght;
+			@media screen and (max-width: @v-lg-mbl-thrshld) {
+				font-size: 12px;
+			}
 			thead {
 				tr {
 					th {
@@ -37,18 +244,6 @@
 						padding-top: .25rem;
 						padding-left: .25rem;
 						padding-bottom: .25rem;
-						background-color: @hex-bright-gray;
-						border-top: 1px solid @hex-white;
-						border-bottom: 1px solid @hex-light-gray;
-						text-align: inherit;
-						vertical-align: top;
-					}
-				}
-				tr:nth-of-type(2n) {
-					td {
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
 						background-color: @hex-white;
 						border-top: 1px solid @hex-bright-gray;
 						border-bottom: 1px solid @hex-lighter-gray;
@@ -57,300 +252,108 @@
 					}
 				}
 			}
-		}
-		&.peopleList {
-			width: 100%;
-			background: @hex-white;
-			border-collapse: separate;
-			border-spacing: 0;
-			border-top: 1px solid #e5e5e5;
-			tbody {
-				td {
-					width: 80%;
-					padding-bottom: 3pt;
-					padding-top: 3pt;
-					border-bottom: 1px solid #e5e5e5;
-					vertical-align: middle;
-					/* background: #c75d61; */
-				
-					&:first-of-type {
-						width: 20%;
-						text-align: center;
+			tbody:nth-of-type(2n) {
+				tr {
+					td {
+						padding-top: .25rem;
+						padding-left: .25rem;
+						padding-bottom: .25rem;
+						background-color: @hex-bright-gray;
+						border-top: 1px solid @hex-white;
+						border-bottom: 1px solid @hex-light-gray;
+						text-align: inherit;
+						vertical-align: top;
 					}
 				}
 			}
 		}
-        &.wsu-blue-theme {
-            width: 100%;
-            border-collapse:separate;
-            border-spacing:0;
-            border-top: 1px solid @hex-dark-blue;
-            &:not(.no-bottom-border) { border-bottom: 1px solid @hex-dark-blue; }
-            @media all {
-                @media (min-width: 891px) {
-                    font-size: 14px;
-                }
-                @media (max-width: 890px) {
-                    font-size: 12px;
-                }
-            }
-            & > thead > tr {
-                & > th {
-                    padding: 3px;
-                    background-color: @hex-darker-blue;
-                    vertical-align: bottom;
-                    color: @hex-white;
-                }
-                &.supra-header-row > th {
-                    padding-top: 1em;
-                     padding-right: 0.5em;
-                     padding-left: 1.5em;
-                    background-color: @hex-darkest-blue;
-                    vertical-align: bottom;
-                    text-indent: -1em;
-                    font-variant: small-caps;
-                    font-weight: bold;
-                    color: @hex-white;
-                }
-            }
-            &:not(.has-row-spans) > tbody {
-                & > tr:nth-child(2n) > td {
-                    padding-top: 3px;
-                     padding-right: 0.5em;
-                     padding-bottom: 0.5em;
-                     padding-left: 1.5em;
-                    background-color: @hex-white;
-                    text-indent: -1em;
-                    vertical-align: top;
-                    line-height: normal;
-                }
-                & > tr:nth-child(2n + 1) > td {
-                    padding-top: 3px;
-                     padding-right: 0.5em;
-                     padding-bottom: 0.5em;
-                     padding-left: 1.5em;
-                    background-color: @hex-lightest-blue;
-                    text-indent: -1em;
-                    vertical-align: top;
-                    line-height: normal;
-                }
-            }
-            &.has-row-spans {
-                & > tbody:nth-child(2n) > tr > td {
-                    padding-top: 3px;
-                     padding-right: 0.5em;
-                     padding-bottom: 0.5em;
-                     padding-left: 1.5em;
-                    background-color: @hex-white;
-                    text-indent: -1em;
-                    vertical-align: top;
-                    line-height: normal;
-                }
-                & > tbody:nth-child(2n + 1) > tr > td {
-                    padding-top: 3px;
-                     padding-right: 0.5em;
-                     padding-bottom: 0.5em;
-                     padding-left: 1.5em;
-                    background-color: @hex-lightest-blue;
-                    text-indent: -1em;
-                    vertical-align: top;
-                    line-height: normal;
-                }
-            }
-        }
-        &.wsu-gray-theme {
-            width: 100%;
-            border-collapse:separate;
-            border-spacing:0;
-            border-top: 1px solid @hex-darker-gray;
-             border-bottom: 1px solid @hex-darker-gray;
-            vertical-align: top;
-            @media all {
-                @media (min-width: 891px) {
-                    font-size: 14px;
-                }
-                @media (max-width: 890px) {
-                    font-size: 12px;
-                }
-            }
-            //font-variant: small-caps;
-            & > thead > tr {
-                & > th {
-                    padding: 3px;
-                    background-color: @hex-dark-gray;
-                    vertical-align: top;
-                    color: @hex-white;
-                }
-                &.sub-heading-row > th {
-                    padding: 3px;
-                    background-color: @hex-black;
-                    vertical-align: bottom;
-                    text-indent: -1em;
-                    //font-variant: small-caps;
-                    font-weight: bold;
-                    color: @hex-white;
-                }
-            }
-            & > tbody {
-                & > tr:nth-child(2n) > td {
-                    padding: 3px;
-                    background-color: @hex-white;
-                    vertical-align: top;
-                    line-height: normal;
-                }
-                & > tr:nth-child(2n + 1) > td {
-                    padding: 3px;
-                    background-color: @hex-lighter-gray;
-                    vertical-align: top;
-                    line-height: normal;
-                }
-            }
-        }
 	}
-}
 
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· INCLUSIONAL MIXINS ······························································· │
- *         └-----------------------------------------------------------------------------------------┘
- */
-.use-award-recipients-tables() {
-	.column table.award-recipients {
-		background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat
-		 fixed left top;
-		border-collapse: separate;
-		border-spacing: 0;
-		border-top: 1px solid @hex-dark-gray;
-		border-bottom: 1px solid @hex-dark-gray;
-		line-height: @v-p-lnhght;
-		@media screen and (max-width: @v-lg-mbl-thrshld) {
-			font-size: 12px;
-		}
-		thead {
-			tr {
-				th {
-					padding-top: .25rem;
-					padding-left: .25rem;
-					padding-bottom: .25rem;
-					border-top: 1px solid @hex-white;
-					border-bottom: 1px solid #B6BCBF;
-					text-align: inherit;
-				}
-			}
-		}
-		tbody {
-			tr {
-				td {
-					padding-top: .25rem;
-					padding-left: .25rem;
-					padding-bottom: .25rem;
-					background-color: @hex-white;
-					border-top: 1px solid @hex-bright-gray;
-					border-bottom: 1px solid @hex-lighter-gray;
-					text-align: inherit;
-					vertical-align: top;
-				}
-			}
-		}
-		tbody:nth-of-type(2n) {
-			tr {
-				td {
-					padding-top: .25rem;
-					padding-left: .25rem;
-					padding-bottom: .25rem;
-					background-color: @hex-bright-gray;
-					border-top: 1px solid @hex-white;
-					border-bottom: 1px solid @hex-light-gray;
-					text-align: inherit;
-					vertical-align: top;
-				}
-			}
-		}
-	}
-}
-
-.use-navigational-map-tables() {
-	.column table.navigational-map {
-		width: 100%;
-		margin: 0 auto;
-		margin-bottom: 20px;
-		font-size: 13px;
-		text-align: left;
-		color: @hex-crimson;
-		a {
-			border-bottom: 1px dotted rgba(152,30,50,0.0);
-			color: inherit;
-			box-shadow: none;
-		}
-		th,
-		td {
-			max-width: 200px;
-		}
-		th {
-			border-bottom: 1px solid @hex-light-gray;
-			font-size: 1.1em;
-			line-height: @v-p-lnhght;
-			font-weight: bold;
-			text-transform: uppercase;
-			vertical-align: bottom;
-			&.table-spacer {
-				width: 15px;
-			}
-			&:nth-child(4n+1) {
-				color: #4e2a32;
-				a:hover {
-					background-color: rgba(239,120,121,0.2);
-				}
-			}
-			&:nth-child(4n+3) {
-				color: #781d31;
-				a:hover {
-					background-color: rgba(239,120,121,0.3);
-					color: #d13c59;
-				}
-			}
+	.use-navigational-map-tables() {
+		.column table.navigational-map {
+			width: 100%;
+			margin: 0 auto;
+			margin-bottom: 20px;
+			font-size: 13px;
+			text-align: left;
+			color: @hex-crimson;
 			a {
-				&:extend(.column a.subtle-link);
+				border-bottom: 1px dotted rgba(152,30,50,0.0);
+				color: inherit;
+				box-shadow: none;
 			}
-		}
-		td {
-			p {
-				padding-top: 2px;
-				padding-bottom: 3px;
+			th,
+			td {
+				max-width: 200px;
+			}
+			th {
+				border-bottom: 1px solid @hex-light-gray;
+				font-size: 1.1em;
+				line-height: @v-p-lnhght;
+				font-weight: bold;
+				text-transform: uppercase;
+				vertical-align: bottom;
+				&.table-spacer {
+					width: 15px;
+				}
+				&:nth-child(4n+1) {
+					color: #4e2a32;
+					a:hover {
+						background-color: rgba(239,120,121,0.2);
+					}
+				}
+				&:nth-child(4n+3) {
+					color: #781d31;
+					a:hover {
+						background-color: rgba(239,120,121,0.3);
+						color: #d13c59;
+					}
+				}
 				a {
 					&:extend(.column a.subtle-link);
 				}
-				font-size: inherit;
-				text-align: inherit;
-				&:not(:last-child) {
-					margin-bottom: 0 !important;
-					border-bottom: 1px solid @hex-lighter-gray;
+			}
+			td {
+				p {
+					padding-top: 2px;
+					padding-bottom: 3px;
+					a {
+						&:extend(.column a.subtle-link);
+					}
+					font-size: inherit;
+					text-align: inherit;
+					&:not(:last-child) {
+						margin-bottom: 0 !important;
+						border-bottom: 1px solid @hex-lighter-gray;
+					}
+				}
+				&:nth-child(4n+3) {
+					color: #c60c30
 				}
 			}
-			&:nth-child(4n+3) {
-				color: #c60c30
-			}
-		}
-		@media screen {
-			@media (max-width: 695px), (min-width: (@v-spn-thrshld + 1)) and (max-width: 895px) {
-				display: block;
-				thead, tr, th {
+			@media screen {
+				@media (max-width: 695px), (min-width: (@v-spn-thrshld + 1)) and (max-width: 895px) {
 					display: block;
-				}
-				tbody {
-					display: none;
-				}
-				th {
-					max-width: none;
-					border: none;
-					text-align: center;
-					text-transform: none;
-					&.table-spacer, br {
+					thead, tr, th {
+						display: block;
+					}
+					tbody {
 						display: none;
+					}
+					th {
+						max-width: none;
+						border: none;
+						text-align: center;
+						text-transform: none;
+						&.table-spacer, br {
+							display: none;
+						}
 					}
 				}
 			}
 		}
 	}
 }
+.declare-table-rulesets(@grid-behavior);
 /*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
  */
