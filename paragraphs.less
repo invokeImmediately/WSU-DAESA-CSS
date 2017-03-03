@@ -121,11 +121,39 @@
 				br:first-of-type {
 					display: none;
 				}
-				@media all and (max-width: @v-lg-mbl-thrshld) {
-					.transform(~"translateX(-50%) translateY(-100%) translateY(20px)");
-					.transition(~"all 0.3s ease");
-					&:hover {
-						.transform(~"translateX(-50%)");
+				@media all {
+					@media (min-width: (@v-spn-thrshld + 1)) {
+						body.admin-bar & {
+							top: 32px;
+						}
+					}
+					@media (max-width: @v-spn-thrshld) {
+						padding-bottom: ~"calc(" (@v-dflt-spcng * 0.375) ~" + 5px)";
+						.transform(~"translateX(-50%) translateY(-100%) translateY(15px)");
+						.transition(~"all 0.3s ease");
+						&:after {
+							content: "";
+							position: absolute;
+							left: 50%;
+							bottom: 0;
+							width: 0;
+							height: 0;
+							border-top: 5px solid @hex-darkest-gray;
+							border-right: 5px solid transparent;
+							border-bottom: 5px solid transparent;
+							border-left: 5px solid transparent;
+							.transform(~"translate(-50%, 0)");
+						}
+						&:hover {
+							.transform(~"translateX(-50%)");
+							&:after {
+								border-top: 5px solid transparent;
+								border-right: 5px solid transparent;
+								border-bottom: 5px solid @hex-darkest-gray;
+								border-left: 5px solid transparent;
+								.transform(~"translate(-50%, -5px)");
+							}
+						}
 					}
 				}
 			}
