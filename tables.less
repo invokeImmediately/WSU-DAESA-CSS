@@ -137,25 +137,35 @@
 					}
 				}
 				&.has-row-spans {
-					& > tbody:nth-child(2n) > tr > td {
-						padding-top: 3px;
-						 padding-right: 0.5em;
-						 padding-bottom: 0.5em;
-						 padding-left: 1.5em;
-						background-color: @hex-white;
-						text-indent: -1em;
-						vertical-align: top;
-						line-height: normal;
+					& > tbody:nth-child(2n) > tr {
+						& > td {
+							padding-top: 3px;
+							 padding-right: 0.5em;
+							 padding-bottom: 0.5em;
+							 padding-left: 1.5em;
+							background-color: @hex-white;
+							text-indent: -1em;
+							vertical-align: top;
+							line-height: normal;
+						}
+						&.alt > td {
+							background-color: #f2f2f2;
+						}
 					}
-					& > tbody:nth-child(2n + 1) > tr > td {
-						padding-top: 3px;
-						 padding-right: 0.5em;
-						 padding-bottom: 0.5em;
-						 padding-left: 1.5em;
-						background-color: @hex-lightest-blue;
-						text-indent: -1em;
-						vertical-align: top;
-						line-height: normal;
+					& > tbody:nth-child(2n + 1) > tr {
+						& > td {
+							padding-top: 3px;
+							 padding-right: 0.5em;
+							 padding-bottom: 0.5em;
+							 padding-left: 1.5em;
+							background-color: @hex-lightest-blue;
+							text-indent: -1em;
+							vertical-align: top;
+							line-height: normal;
+						}
+						&.alt > td {
+							background-color: #c3d6d9;
+						}
 					}
 				}
 			}
