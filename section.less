@@ -530,6 +530,12 @@
 						.transition(~"all 0.3s linear");
 					}
 				}
+				&.bg-pinned-at-top {
+					background-position: center top;
+				}
+				&.bg-pinned-toward-top {
+					background-position: center 25%;
+				}
 				&.bg-pinned-at-left {
 					background-position: left top;
 				}
@@ -746,12 +752,19 @@
 				.column {
 					padding-bottom: ~"calc(33% - @{v-dflt-spcng}) !important";
 					background-size: auto 100%;
+					&:hover {
+						background-size: auto 110%;
+						//background-size: 110% auto;
+					}
 					@media all {
 						@media (min-width: (@v-rghtclmn-thrshld + 1)) and (max-width: (@v-tblt-thrshld)) {
 							padding-bottom: ~"calc(40% - @{v-dflt-spcng}) !important";
 						}
 						@media (max-width: @v-rghtclmn-thrshld) {
 							background-size: 100% auto;
+							&:hover {
+								background-size: 110% auto;
+							}
 						}
 						@media (max-width: (@v-lg-mbl-thrshld - 80)) {
 							& > :first-child:not(header),
@@ -764,9 +777,6 @@
 								bottom: (@v-dflt-spcng / 4);
 							}
 						}
-					}
-					&:hover {
-						background-size: auto 110%;
 					}
 					&.has-crimson-bg {
 						&:after {
@@ -910,6 +920,15 @@
 					}
 				}
 			}
+			&.thirds {
+				.column {
+					@media all {
+						@media (max-width: (@v-lg-mbl-thrshld)) {
+							padding-bottom: ~"calc(40% - @{v-dflt-spcng}) !important";
+						}
+					}
+				}
+			}
 			&.has-title {
 				margin-top: (@v-dflt-spcng * 3 / 2);
 				.column:first-child {
@@ -944,10 +963,45 @@
 						}
 					}
 				}
+				&.thirds {
+					.column:first-child > header:first-child {
+						@media all {
+							@media (min-width: (@v-rghtclmn-thrshld + 1)) {
+								width: 300%;
+							}
+							@media (max-width: @v-rghtclmn-thrshld) {
+								width: 100%;
+							}
+						}
+					}
+				}
+				&.quarters {
+					.column:first-child > header:first-child {
+						@media all {
+							@media (min-width: (@v-rghtclmn-thrshld + 1)) {
+								width: 400%;
+							}
+							@media (max-width: @v-rghtclmn-thrshld) {
+								width: 200%;
+							}
+						}
+					}
+				}
 			}
 			// TODO: move to UCORE custom file; it is unnecessary to include this in all OUE sites.
 			&.for-faculty {
+				&.has-title {
+					&.quarters {
+						margin-top: ~"calc(" (@v-dflt-spcng * 3 / 2) ~" + 10px)";
+						.column:first-child > header:first-child {
+							border-bottom: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
+						}
+					}
+				}
 				.column {
+					&:hover {
+						background-size: auto 110%;
+					}
 					&:not(:first-child) {
 						@media all {
 							@media (min-width: (@v-rghtclmn-thrshld + 1)) {
