@@ -18,8 +18,26 @@
 	.use-main-pseudo-footer(@background-ruleset) when (isruleset(@background-ruleset)) {
 		main > .page {
 			position: relative;
+			overflow-y: hidden;
 		}
-
+		
+		//TODO: deal with mobile screen profiles better.
+		body {
+			&.blog {
+				&:not(.home) main > .page {
+					min-height: ~"calc(100vh - 85px)";
+				}
+			}
+			&.page {
+				&.home main > .page {
+					min-height: ~"calc(100vh - 142px)";
+				}
+				&:not(.home) main > .page {
+					min-height: ~"calc(100vh - 85px)";
+				}
+			}
+		}
+		
 		body.blog main > footer {
 			position: relative;
 			padding-bottom: 3rem;
@@ -37,7 +55,7 @@
 			right: 0;
 			top: 100%;
 			width: auto;
-			height: 100vh;
+			height: 1.5rem;
 			padding: 0.25rem 1rem;
 			@background-ruleset();
 			visibility: visible;
