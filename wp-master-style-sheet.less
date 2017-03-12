@@ -75,6 +75,12 @@
         z-index: -1;
         .animation(animFlashHighlight; 1.325s; linear; .175s; 1);
         .keyframes(animFlashHighlight; @rules-flash-highlight);
+		.row:not(.clear-none)& {
+			content: "";
+			width: auto;
+			height: auto;
+			visibility: visible;
+		}
     }
 }
 //
