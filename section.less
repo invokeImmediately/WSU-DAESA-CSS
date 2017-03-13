@@ -221,18 +221,23 @@
 		& > .column table > tbody > tr > td {
 			& > p:not(.no-btm-margin),
 			& > section > p:not(.no-btm-margin),
+			& > div > p:not(.no-btm-margin),
 			& > ul:not(.no-btm-margin),
 			& > section > ul:not(.no-btm-margin),
+			& > div > ul:not(.no-btm-margin),
 			& > ol:not(.no-btm-margin),
 			& > section > ol:not(.no-btm-margin),
+			& > div > ol:not(.no-btm-margin),
 			& > .gform_wrapper .gfield_html > p:not(:last-child),
 			& > .gform_confirmation_wrapper p:not(:last-child) {
 				margin-bottom: @v-btm-mrgns;
 			}
 			& > p + ul:not(.spaces-top-full),
 			& > section > p + ul:not(.spaces-top-full),
+			& > div > p + ul:not(.spaces-top-full),
 			& > p + ol:not(.spaces-top-full),
-			& > section > p + ol:not(.spaces-top-full) {
+			& > section > p + ol:not(.spaces-top-full),
+			& > div > p + ol:not(.spaces-top-full) {
 				margin-top: (-2 * @v-btm-mrgns / 3);
 			}
 		}
@@ -243,10 +248,13 @@
 			& > .column > section {
 				& > p:last-child,
 				& > section > p:last-child,
+				& > div > p:last-child,
 				& > ul:last-child,
 				& > section > ul:last-child,
+				& > div > ul:last-child,
 				& > ol:last-child,
-				& > section > ol:last-child {
+				& > section > ol:last-child,
+				& > div > ol:last-child {
 					margin-bottom: 0;
 				}
 			}
@@ -254,10 +262,13 @@
 		& > .column table > tbody > tr > td {
 			& > p:last-child,
 			& > section > p:last-child,
+			& > div > p:last-child,
 			& > ul:last-child,
 			& > section > ul:last-child,
+			& > div > ul:last-child,
 			& > ol:last-child,
-			& > section > ol:last-child {
+			& > section > ol:last-child,
+			& > div > ol:last-child {
 				margin-bottom: 0;
 			}
 		}
