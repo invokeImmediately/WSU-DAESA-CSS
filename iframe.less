@@ -21,11 +21,15 @@
 		height: 0;
 		&.portrait {
 			padding-bottom: 129.4118%;
-			padding-bottom: ~"calc(129.4118% + 56px)"; // Add some extra height for Chrome
+			padding-bottom: ~"calc(129.4118% + 56px)"; // Add some extra height for Chrome's PDF viewer toolbar
 		}
 		&.landscape {
 			padding-bottom: 77.2727%;
-			padding-bottom: ~"calc(77.2727% + 56px)"; // Add some extra height for Chrome
+			padding-bottom: ~"calc(77.2727% + 56px)"; // Add some extra height for Chrome PDF viewer toolbar
+			&.show-two-pages {
+				padding-bottom: 154.5454%;
+				padding-bottom: ~"calc(154.5454% + 56px)"; // Add some extra height for Chrome PDF viewer toolbar
+			}
 		}
 		& > iframe {
 			position: absolute;
