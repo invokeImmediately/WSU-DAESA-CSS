@@ -26,10 +26,11 @@
 							display: flex;
 							flex-direction: column;
 							justify-content: center;
-							height: ~"calc(3.9em + 16px)";
+							height: ~"calc(2.6em + 16px)";
 							@media screen {
 								@media (max-width: @v-lg-mbl-thrshld) {
 									width: 100%;
+									height: ~"calc(1.3em + 16px)";
 								}
 							}
 							background-color: #eff0f1;
@@ -37,7 +38,7 @@
 							.transition(~"all 0.2s ease");
 							& > a {
 								display: inline-block;
-								max-width: 200px;
+								max-width: 140px;
 								@media screen {
 									@media (max-width: @v-lg-mbl-thrshld) {
 										max-width: none;
@@ -148,6 +149,12 @@
 						td {
 							display: block;
 							padding: 1em;
+							hr {
+								margin-top: 1.5rem;
+								margin-bottom: 1.25rem;
+								border-top: 1px solid rgba(94,106,113,.25);
+								border-bottom: 1px solid rgba(160,160,160,.125);
+							}
 						}
 					}
 				}
