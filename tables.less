@@ -103,15 +103,18 @@
 						color: @hex-white;
 					}
 					&.supra-header-row > th {
-						padding-top: 1em;
-						 padding-right: 0.5em;
-						 padding-left: 1.5em;
+						@font-increase: 0.4em;
+						padding-top: (1em - @font-increase);
+						padding-right: 0.5em;
+						padding-bottom: @font-increase;
+						padding-left: 1.5em;
 						background-color: @hex-darkest-blue;
 						vertical-align: bottom;
 						text-indent: -1em;
 						font-variant: small-caps;
 						font-weight: bold;
 						color: @hex-white;
+						font-size: (1em + @font-increase);
 					}
 				}
 				&:not(.has-row-spans) > tbody {
