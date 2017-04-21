@@ -61,7 +61,7 @@
 //     │ ++++ Purely CLASS SPECIFIC CSS3 rule-sets +++++++++++++++++++++++++++++++++++++++++++++++++++++ │
 //     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 //
-:target {
+:target:not(.no-anchor-highlighting) {
     position: relative;
     &:before {
         content: "";
@@ -364,13 +364,15 @@ cite.article-author {
 		}
 	}
 	&.boxed {
+		@clr-bxd-drk: @hex-crimson;
+		@clr-bxd-lght: @hex-light-crimson;
 		padding-left: 44px;
 		padding-top: 5px;
 		padding-bottom: 5px;
 		margin-left: 0 !important;
 		margin-right: 0 !important;
 		margin-bottom: 0 !important;
-		background-color: rgba(red(@hex-light-crimson), green(@hex-light-crimson), blue(@hex-light-crimson), 0.1);
+		background-color: rgba(red(@clr-bxd-lght), green(@clr-bxd-lght), blue(@clr-bxd-lght), 0.1);
 		&:after,
 		&:before {
 			content: "+";
@@ -384,7 +386,7 @@ cite.article-author {
 			line-height: 16px;
 			.has-mono-font;
 			text-align: center;
-			background-color: @hex-crimson;
+			background-color: @clr-bxd-drk;
 			color: @hex-white;
 			.transform(~"translate(-50%, -50%)");
 		}
@@ -397,16 +399,16 @@ cite.article-author {
 			opacity: 0;
 		}
 		&:hover {
-			background-color: rgba(red(@hex-light-crimson), green(@hex-light-crimson), blue(@hex-light-crimson), 0.3);
+			background-color: rgba(red(@clr-bxd-lght), green(@clr-bxd-lght), blue(@clr-bxd-lght), 0.3);
 			&:after,
 			&:before {
-				background-color: screen(@hex-crimson, #444444);
+				background-color: screen(@clr-bxd-drk, #444444);
 			}
 		}
 		&.activated {
-			background-color: rgba(red(@hex-light-crimson), green(@hex-light-crimson), blue(@hex-light-crimson), 0.2);
+			background-color: rgba(red(@clr-bxd-lght), green(@clr-bxd-lght), blue(@clr-bxd-lght), 0.2);
 			&:hover {
-				background-color: rgba(red(@hex-light-crimson), green(@hex-light-crimson), blue(@hex-light-crimson), 0.3);
+				background-color: rgba(red(@clr-bxd-lght), green(@clr-bxd-lght), blue(@clr-bxd-lght), 0.3);
 			}
 			&:after {
 				opacity: 0;
@@ -417,9 +419,9 @@ cite.article-author {
 		}
 		& + .toggled-panel {
 			padding: (@v-btm-mrgns / 2);
-			border-right: 1px solid rgba(red(@hex-light-crimson), green(@hex-light-crimson), blue(@hex-light-crimson), 0.2);
-			border-bottom: 1px solid rgba(red(@hex-light-crimson), green(@hex-light-crimson), blue(@hex-light-crimson), 0.2);
-			border-left: 1px solid rgba(red(@hex-light-crimson), green(@hex-light-crimson), blue(@hex-light-crimson), 0.2);
+			border-right: 1px solid rgba(red(@clr-bxd-lght), green(@clr-bxd-lght), blue(@clr-bxd-lght), 0.2);
+			border-bottom: 1px solid rgba(red(@clr-bxd-lght), green(@clr-bxd-lght), blue(@clr-bxd-lght), 0.2);
+			border-left: 1px solid rgba(red(@clr-bxd-lght), green(@clr-bxd-lght), blue(@clr-bxd-lght), 0.2);
 			margin-top: 0 !important;
 			padding-top: @v-btm-mrgns !important;
 			& > :last-child {
@@ -429,6 +431,34 @@ cite.article-author {
 		& + &,
 		& + .toggled-panel + & {
 			margin-top: (@v-btm-mrgns / 2);
+		}
+		&.blue {
+			@clr-bxd-drk-blue: #0076bd;
+			@clr-bxd-lght-blue: @hex-accent-blue;
+			background-color: rgba(red(@clr-bxd-lght-blue), green(@clr-bxd-lght-blue), blue(@clr-bxd-lght-blue), 0.1);
+			color: @clr-bxd-drk-blue;
+			&:after,
+			&:before {
+				background-color: @clr-bxd-drk-blue;
+			}
+			&:hover {
+				background-color: rgba(red(@clr-bxd-lght-blue), green(@clr-bxd-lght-blue), blue(@clr-bxd-lght-blue), 0.3);
+				&:after,
+				&:before {
+					background-color: screen(@clr-bxd-drk-blue, #444444);
+				}
+			}
+			&.activated {
+				background-color: rgba(red(@clr-bxd-lght-blue), green(@clr-bxd-lght-blue), blue(@clr-bxd-lght-blue), 0.2);
+				&:hover {
+					background-color: rgba(red(@clr-bxd-lght-blue), green(@clr-bxd-lght-blue), blue(@clr-bxd-lght-blue), 0.3);
+				}
+			}
+			& + .toggled-panel {
+				border-right: 1px solid rgba(red(@clr-bxd-lght-blue), green(@clr-bxd-lght-blue), blue(@clr-bxd-lght-blue), 0.2);
+				border-bottom: 1px solid rgba(red(@clr-bxd-lght-blue), green(@clr-bxd-lght-blue), blue(@clr-bxd-lght-blue), 0.2);
+				border-left: 1px solid rgba(red(@clr-bxd-lght-blue), green(@clr-bxd-lght-blue), blue(@clr-bxd-lght-blue), 0.2);
+			}
 		}
 	}
 }
