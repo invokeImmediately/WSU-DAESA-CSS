@@ -256,7 +256,7 @@
 // ├---------------------------------------------------------------------------------------------------------┤
 // │ ···· Hide all <header><h2>…</h2></header> inserted by the WSU Spine Page Builder Template ············· │
 	.column {
-		& > header:first-child {
+		&:not(.show-header) > header:first-child {
 			display: none;
 		}
 		header:first-child + h1, header:first-child + h2.fancy.with-top-border,
