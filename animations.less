@@ -177,12 +177,26 @@
 };
 
 .fade-in-from-top {
+	opacity: 0;
     .animation(anim-fade-in-from-top; 1s; linear; 0s; 1);
     .keyframes(anim-fade-in-from-top; @rules-fade-in-from-top);
+	&.delayed.fast {
+		.animation(anim-fade-in-from-top; 0.5s; linear; 0.5s; 1);
+	}
+}
+
+.js-fade-in-from-top {
+	position: relative;
+	opacity: 0;
 }
 
 .fade-in-from-left {
     .animation(anim-fade-in-from-left; 1s; linear; 0s; 1);
+    .keyframes(anim-fade-in-from-left; @rules-fade-in-from-left);
+}
+
+.fade-in-from-left.fast {
+    .animation(anim-fade-in-from-left; 0.5s; linear; 0s; 1);
     .keyframes(anim-fade-in-from-left; @rules-fade-in-from-left);
 }
 
