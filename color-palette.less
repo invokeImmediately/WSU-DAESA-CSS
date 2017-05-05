@@ -29,6 +29,9 @@
     @returned-4: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
 
+.getRgbaStr(@color: #000; @opacity: 1) when (iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
+	@rgba: rgba(red(@color), green(@color), blue(@color), @opacity);
+}
 // -----------------------------------------------------------------------------------------------------------
 //   WSU Color Palette from https://brand.wsu.edu
 // ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --
