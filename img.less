@@ -109,6 +109,20 @@ img {
             }
         }
     }
+	&.show-on-mobile {
+		@media all {
+			@media (min-width: (@v-lg-mbl-thrshld + 1)) {
+				display: none;
+			}
+		}
+	}
+	&.hide-on-mobile {
+		@media all {
+			@media (max-width: (@v-lg-mbl-thrshld)) {
+				display: none;
+			}
+		}
+	}
 }
 
 figure {
