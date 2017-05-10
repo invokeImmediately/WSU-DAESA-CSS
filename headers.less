@@ -296,21 +296,36 @@
 					padding-left: 0;
 					padding-right: 0;			
 					background: @hex-dark-gray;
-					& > h1 {
+					& > :first-child,
+					header:first-child + * {
 						position: absolute;
 						top: 50%;
 						right: @v-dflt-spcng;
 						left: @v-dflt-spcng;
-						margin-bottom: 0.35em;
-						color: @hex-white;
 						.transform(~"translateY(-50%)");
 						@media (max-width: @v-rghtclmn-thrshld) {
-							font-size: 6.5vw;
 							right: (@v-dflt-spcng / 2);
 							left: (@v-dflt-spcng / 2);
 						}
 					}
-					& > :not(h1) {
+					h1 {
+						margin-top: 0;
+						color: @hex-white;
+						@media (max-width: @v-rghtclmn-thrshld) {
+							font-size: 6.5vw;
+						}
+					}
+					p.parent-page {
+						margin-bottom: 0.125em;
+						color: @hex-bright-gray;
+						@media (max-width: @v-rghtclmn-thrshld) {
+							font-size: 3.25vw;
+						}
+					}
+					& > :not(:first-child):not(header:first-child + *) {
+						display: none;
+					}
+					& > :not(h1):not(div) {
 						display: none;
 					}
 				}
