@@ -193,17 +193,19 @@
 			}
 			&.has-label-spacer {
 				& > div.ginput_container {
-					@media only screen and (min-width: 641px) {
-						margin-top: 21px;
-					}
-					@media only screen and (min-width: (@v-tblt-thrshld + 1)) {
-						margin-top: 23px;
-					}
-					@media only screen and (min-width: (@v-spn-thrshld + 1)) {
-						margin-top: 21px;
-					}
-					@media only screen and (min-width: @v-dsktp-thrshld) {
-						margin-top: 23px;
+					@media only screen {
+						@media (min-width: 641px) {
+							margin-top: 21px;
+						}
+						@media (min-width: (@v-tblt-thrshld + 1)) {
+							margin-top: 23px;
+						}
+						@media (min-width: (@v-spn-thrshld + 1)) {
+							margin-top: 21px;
+						}
+						@media (min-width: @v-dsktp-thrshld) {
+							margin-top: 23px;
+						}
 					}
 				}
 			}

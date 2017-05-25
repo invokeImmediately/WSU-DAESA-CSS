@@ -226,30 +226,34 @@
 			.has-responsive-font((2.5rem * 16 / 17), 0.9em, @v-fnt-sclng-fctrs-alt-2);
 		}
 		&.centered {
-			@media (min-width: @v-lrgfrmt-thrshld) {
-				text-align: center;
-			}
-			@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-				text-align: left;
-			}
-			@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
-				text-align: center;
-			}
-			@media (max-width: @v-tblt-thrshld) {
-				text-align: left;
+			@media all {
+				@media (min-width: @v-lrgfrmt-thrshld) {
+					text-align: center;
+				}
+				@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+					text-align: left;
+				}
+				@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+					text-align: center;
+				}
+				@media (max-width: @v-tblt-thrshld) {
+					text-align: left;
+				}
 			}
 		}
 		.header-group { text-align: inherit; }
 		.header-group.centered {
-			@media (min-width: @v-lrgfrmt-thrshld) {
-				width: 100%;
-				left: 50%;
-				.transform(~"translateX(-50%)");
-			}
-			@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
-				width: 100%;
-				left: 50%;
-				.transform(~"translateX(-50%)");
+			@media all {
+				@media (min-width: @v-lrgfrmt-thrshld) {
+					width: 100%;
+					left: 50%;
+					.transform(~"translateX(-50%)");
+				}
+				@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+					width: 100%;
+					left: 50%;
+					.transform(~"translateX(-50%)");
+				}
 			}
 		}
 	}
@@ -303,7 +307,7 @@
 						right: @v-dflt-spcng;
 						left: @v-dflt-spcng;
 						.transform(~"translateY(-50%)");
-						@media (max-width: @v-rghtclmn-thrshld) {
+						@media all and (max-width: @v-rghtclmn-thrshld) {
 							right: (@v-dflt-spcng / 2);
 							left: (@v-dflt-spcng / 2);
 						}
@@ -311,14 +315,14 @@
 					h1 {
 						margin-top: 0;
 						color: @hex-white;
-						@media (max-width: @v-rghtclmn-thrshld) {
+						@media all and (max-width: @v-rghtclmn-thrshld) {
 							font-size: 6.5vw;
 						}
 					}
 					p.parent-page {
 						margin-bottom: 0.125em;
 						color: @hex-bright-gray;
-						@media (max-width: @v-rghtclmn-thrshld) {
+						@media all and (max-width: @v-rghtclmn-thrshld) {
 							font-size: 3.25vw;
 						}
 					}
@@ -340,7 +344,7 @@
 					background-size: cover;
 				}
 				&.one, &.two {
-					@media (max-width: @v-rghtclmn-thrshld) {
+					@media all and (max-width: @v-rghtclmn-thrshld) {
 						float: left;
 						clear: none;
 					}

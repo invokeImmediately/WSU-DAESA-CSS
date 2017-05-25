@@ -139,12 +139,14 @@ section.pad-top {
 			font-size: smaller !important;
 		}
 		.large-format-friendly {
-			@media (min-width: @v-lrgfrmt-thrshld) {
-				.margin-centered;
-				max-width: @v-w-cnstrn-lrg;
-			}
-			@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
-				max-width: (@v-tblt-thrshld + 1);
+			@media all {
+				@media (min-width: @v-lrgfrmt-thrshld) {
+					.margin-centered;
+					max-width: @v-w-cnstrn-lrg;
+				}
+				@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+					max-width: (@v-tblt-thrshld + 1);
+				}
 			}
 		}
 	}

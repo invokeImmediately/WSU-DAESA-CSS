@@ -101,7 +101,7 @@ img {
         margin-bottom: 15px;
         .rgb-dark-gray(); border: 1px solid rgba(@rval,@gval,@bval,.5);
         .rgb-black(); box-shadow: 2px 2px 2px rgba(@rval,@gval,@bval,0.5);
-        @media screen {
+        @media all {
             @media (max-width: (@v-lrgfrmt-thrshld - 1)) {
                 img.symbolic-image {
                     width: 96px;
@@ -134,10 +134,7 @@ figure {
 
 .column {
 	.decoration {
-		@media print {
-			display: none;
-		}
-		@media screen {
+		@media all {
 			display: block;
 			position: relative;
 			float: right;
@@ -153,6 +150,9 @@ figure {
 				padding-bottom: 40%;
 				margin-left: 0;
 			}
+		}
+		@media print {
+			display: none;
 		}
 	}
 }
