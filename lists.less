@@ -44,38 +44,40 @@
 			padding-left: 0;
 			& > li {
 				position: relative;
-				min-height: 320px;
-				border-radius: 4px;
-				.rgb-black(); box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
-				 -webkit-box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
-				border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
-				background-color: @hex-white;
 				list-style-type: none;
-				@media all and (max-width: @v-bckgrnd-thrshld) {
-					overflow-x: auto;
-				}
-				p {
-					.has-responsive-font((@v-p-sz * @v-scl-dwn), @v-p-lnhght);
-					&.email {
-						font-size: 0.9em;
-						font-weight: bold;
+				&:not(.blank) {
+					min-height: 320px;
+					border-radius: 4px;
+					.rgb-black(); box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
+					 -webkit-box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
+					border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
+					background-color: @hex-white;
+					@media all and (max-width: @v-bckgrnd-thrshld) {
+						overflow-x: auto;
 					}
-				}
-				& > img {
-					position: absolute;
-					 top: 10px;
-					 left: 10px;
-					width: 106px;
-				}
-				& > .content {
-					position: relative;
-					 left: 121px;
-					width: ~"calc(100% - 136px)";
-					min-width: 189px;
-					padding: 10px 10px 10px 5px;
-				}
-				& + li {
-					margin-top: @v-dflt-spcng;
+					p {
+						.has-responsive-font((@v-p-sz * @v-scl-dwn), @v-p-lnhght);
+						&.email {
+							font-size: 0.9em;
+							font-weight: bold;
+						}
+					}
+					& > img {
+						position: absolute;
+						 top: 10px;
+						 left: 10px;
+						width: 106px;
+					}
+					& > .content {
+						position: relative;
+						 left: 121px;
+						width: ~"calc(100% - 136px)";
+						min-width: 189px;
+						padding: 10px 10px 10px 5px;
+					}
+					& + li {
+						margin-top: @v-dflt-spcng;
+					}
 				}
 			}
 		}
@@ -89,6 +91,7 @@
 				}
 			}
 			& > li {
+				list-style-type: none;
 				@media print {
 					position: relative !important;
 					display:block !important;
@@ -107,6 +110,30 @@
 				}
 				&.gutter-sizer {
 					width: 2% !important;
+				}
+			}
+			&.blank {
+				padding: 0;
+				margin-top: @v-btm-mrgns !important;
+				font-size: 1rem !important;
+				& > li {
+					float: left;
+					width: 48.5%;
+					margin-bottom: 3%;
+					list-style-type: none;
+					@media all and (max-width: @v-rghtclmn-thrshld) {
+						width: 96%;
+						margin-bottom: 6%;
+					}
+					@media all and (max-width: @v-bckgrnd-thrshld) {
+						overflow-x: visible;
+					}
+					& + li {
+						margin-top: 0;
+					}
+					&.gutter-sizer {
+						width: 3% !important;
+					}
 				}
 			}
 		}
