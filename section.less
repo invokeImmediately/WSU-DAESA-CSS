@@ -1,15 +1,21 @@
 /*!  ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*    │ ++++++++ SECTIONS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*    ├------------------------------------------------------------------------------------------------------------------┤
-*    │ Rule-sets for styling section elements within OUE pages built using the Builder template within the Spine theme  │
-*    │ for WordPress.                                                                                                   │
-*    │  ╘═» This file assumes the following LESS files have been imported upstream:                                     │
-*    │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                             │
-*    │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                          │
-*    │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                                  │
-*    │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                                 │
-*    ├------------------------------------------------------------------------------------------------------------------┤
+*    │ SECTIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*    └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 */
+//       ┌----------------------------------------------------------------------------------------------------------┐
+//       │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                       │
+//       │                                                                                                          │
+//       │ DESCRIPTION: Rule-sets for styling section elements within OUE pages built using the Builder template    │
+//       │ within the Spine theme for WordPress.                                                                    │
+//       │                                                                                                          │
+//       │ DEPENDENCIES:                                                                                            │
+//       │  ╘═» This file assumes the following LESS files have been imported upstream:                             │
+//       │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                     │
+//       │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                  │
+//       │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                          │
+//       │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                         │
+//       └----------------------------------------------------------------------------------------------------------┘
+//
 .declare-section-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	section {
 		&.column-one-with-bottom-margin > .column.one {
