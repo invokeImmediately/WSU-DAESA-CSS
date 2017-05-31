@@ -150,9 +150,18 @@ section.pad-top {
 			}
 		}
 	}
-
-	main > div.page > section.row:last-child > div.column {
-		padding-bottom: @v-dflt-spcng;
+	
+	//TODO: Move to section.less
+	main > .page > .row:last-child {
+		& > .column:last-child {
+			padding-bottom: @v-dflt-spcng;
+		}
+		//TODO: extend to all multi-column formats
+		&.halves > .column:first-child {
+			@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+				padding-bottom: @v-dflt-spcng;
+			}
+		}
 	}
 }
 .declare-column-rulesets(@grid-behavior);
