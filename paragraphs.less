@@ -209,14 +209,16 @@
 			}
 			&:not(.has-no-bordering) {
 				.has-pull-quote-bordering;
-			}
-			.column h1 + &,
-			.column h2 + &,
-			.column h3 + &,
-			.column h4 + &,
-			.column h5 + &,
-			.column h6 + & {
-				margin-top: (@v-btm-mrgns * 4 / 3);
+				&:not(.alt) {
+					.column h1 + &,
+					.column h2 + &,
+					.column h3 + &,
+					.column h4 + &,
+					.column h5 + &,
+					.column h6 + & {
+						margin-top: (@v-btm-mrgns * 4 / 3);
+					}
+				}
 			}
 		}
 		&.vpue-jump-back {
