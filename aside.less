@@ -1,17 +1,58 @@
-/*     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
- *     │ ++++ ASIDE selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
- */
+/*!   ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+*     │ ASIDES layouts ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*     └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+//           ┌------------------------------------------------------------------------------------------------------┐
+//           │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                   │
+//           │                                                                                                      │
+//           │ DESCRIPTION: Contains rule-sets for styling paragraph elements within OUE pages built using the WSU  │
+//           │              Spine theme for WordPress.                                                              │
+//           │                                                                                                      │
+//           │ DEPENDENCIES:                                                                                        │
+//           │  ╘═» This file assumes the following LESS files have been imported upstream:                         │
+//           │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                 │
+//           │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                              │
+//           │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                      │
+//           │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                     │
+//           └------------------------------------------------------------------------------------------------------┘
+//
 .declare-aside-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	aside {
 		&.widget {
-			box-shadow: 0 0 0 1px rgba(255,255,255,.9), 0 0 0 2px rgba(0,0,0,.2), 3px 4px 4px rgba(0,0,0,.25) !important;
+			box-shadow:	0 0 0 1px rgba(255,255,255,.9),
+						0 0 0 2px rgba(0,0,0,.2),
+						3px 4px 4px rgba(0,0,0,.25) !important;
 			& + aside.widget {
 				margin-top: @v-dflt-spcng;
 			}
 			header {
 				font-weight: bold;
 				font-size: 1rem;
+			}
+			&.widget_recent_entries {
+				font-size: 0.8rem;
+				ul {
+					padding: 0.75em 0 0 1em;
+					li {
+						padding-bottom: 0.5em;
+						a {
+							border-bottom: none;
+							box-shadow: none;
+						}
+					}
+				}
+				.post-date {
+					&:before {
+						font-weight: bold;
+						content: "/ ";
+					}
+				}
+			}
+			&.widget_tag_cloud {
+				a {
+					border-bottom: none;
+					box-shadow: none;
+				}
 			}
 		}
 		&.widget_archive {
@@ -30,7 +71,7 @@
 			background: @hex-bright-orange;
 			color: #464e54;
 			font-size: .8rem;
-			box-shadow: 1px 1px 2px rgba(109,68,31,0.5);
+			box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 			&:first-child + h1,
 			&:first-child + h2,
 			&:first-child+h3,
@@ -71,7 +112,7 @@
 		}
 		.row.single .column &.article-sidebar {
 			// TODO: add meqia queries to properly handle reducing of margins as screen size gets smaller
-			// TODO: add support for arrow indicator icons
+			// TODO: add inclusional mixin support for arrow indicator icons
 			@media all {
 				@media (max-width: (@v-rghtclmn-thrshld)) {
 					position: absolute;
@@ -96,6 +137,32 @@
 				text-align: left;
 			}
 		}
+		body.single-post #wsuwp-main .row .column.one & {
+			@spacing: @v-dflt-spcng / 4;
+			float: right;
+			clear: right;
+			width: 33%;
+			padding: @spacing;
+			margin-top: @spacing;
+			margin-bottom: @spacing;
+			margin-left: @spacing;
+			border-left: 4px solid @hex-lighter-gray;
+			background: @hex-bright-gray;
+			font-size: 0.9rem;
+			@media all {
+				@media (max-width: (@v-rghtclmn-thrshld)) {
+					width: 94%;
+					width: ~"calc(100% - @{spacing} * 2)";
+					margin-top: @spacing * 2;
+					margin-bottom: @spacing * 4;
+				}
+			}
+		}
+		body.blog .article-summary & {
+			display: none;
+		}
 	}
 }
 .declare-aside-rulesets(@grid-behavior);
+/*!   └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
