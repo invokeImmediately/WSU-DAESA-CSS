@@ -1,20 +1,22 @@
-/*     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
- *     │ ++++++++ LISTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *     ├-------------------------------------------------------------------------------------------------┤
- *     │ Rule-sets for styling list elements within OUE pages built using the WSU Spine theme for        │
- *     │ WordPress.                                                                                      │
- *     │  ╘═» This file assumes the following LESS files have been imported upstream:                    │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                            │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                         │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                 │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                │
- *     ├-------------------------------------------------------------------------------------------------┤
- */
+/*!   ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+*     │ LIST layouts ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*     └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+//           ┌------------------------------------------------------------------------------------------------------┐
+//           │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                   │
+//           │                                                                                                      │
+//           │ DESCRIPTION: Rulesets for styling list elements within OUE pages built using the WSU Spine theme for │
+//           │ WordPress.                                                                                           │
+//           │                                                                                                      │
+//           │ DEPENDENCIES:                                                                                        │
+//           │  ╘═» This file assumes the following LESS files have been imported upstream:                         │
+//           │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                 │
+//           │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                              │
+//           │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                      │
+//           │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                     │
+//           └------------------------------------------------------------------------------------------------------┘
+//
 .declare-lists-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· UNORDERED list elements ·························································· │
- *         └-----------------------------------------------------------------------------------------┘
- */
 	ul {
 		.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
 		.column & {
@@ -45,39 +47,37 @@
 			& > li {
 				position: relative;
 				list-style-type: none;
-				&:not(.blank) {
-					min-height: 320px;
-					border-radius: 4px;
-					.rgb-black(); box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
-					 -webkit-box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
-					border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
-					background-color: @hex-white;
-					@media all and (max-width: @v-bckgrnd-thrshld) {
-						overflow-x: auto;
+				min-height: 320px;
+				border-radius: 4px;
+				.rgb-black(); box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
+				 -webkit-box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
+				border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
+				background-color: @hex-white;
+				@media all and (max-width: @v-bckgrnd-thrshld) {
+					overflow-x: auto;
+				}
+				p {
+					.has-responsive-font((@v-p-sz * @v-scl-dwn), @v-p-lnhght);
+					&.email {
+						font-size: 0.9em;
+						font-weight: bold;
 					}
-					p {
-						.has-responsive-font((@v-p-sz * @v-scl-dwn), @v-p-lnhght);
-						&.email {
-							font-size: 0.9em;
-							font-weight: bold;
-						}
-					}
-					& > img {
-						position: absolute;
-						 top: 10px;
-						 left: 10px;
-						width: 106px;
-					}
-					& > .content {
-						position: relative;
-						 left: 121px;
-						width: ~"calc(100% - 136px)";
-						min-width: 189px;
-						padding: 10px 10px 10px 5px;
-					}
-					& + li {
-						margin-top: @v-dflt-spcng;
-					}
+				}
+				& > img {
+					position: absolute;
+					 top: 10px;
+					 left: 10px;
+					width: 106px;
+				}
+				& > .content {
+					position: relative;
+					 left: 121px;
+					width: ~"calc(100% - 136px)";
+					min-width: 189px;
+					padding: 10px 10px 10px 5px;
+				}
+				& + li {
+					margin-top: @v-dflt-spcng;
 				}
 			}
 		}
@@ -141,10 +141,6 @@
 		}
 	}
 
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· ORDERED list elements ···························································· │
- *         └-----------------------------------------------------------------------------------------┘
- */
 	ol {
 		.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
 		.column & {
@@ -165,10 +161,6 @@
 		}
 	}
 
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· DEFINITION list elements and children ············································ │
- *         └-----------------------------------------------------------------------------------------┘
- */
 	dl.faq {
 		.column & {
 			position: relative;
@@ -301,5 +293,5 @@
 	}
 }
 .declare-lists-rulesets(@grid-behavior);
-/*     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
- */
+/*!   └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
