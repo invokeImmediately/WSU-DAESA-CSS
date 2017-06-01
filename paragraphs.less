@@ -8,7 +8,7 @@
 //       │ DESCRIPTION: Contains rule-sets for styling paragraph elements within OUE pages built using the WSU      │
 //       │              Spine theme for WordPress.                                                                  │
 //       │                                                                                                          │
-//       │ DEPENDENCIES                                                                                             │
+//       │ DEPENDENCIES:                                                                                            │
 //       │  ╘═» This file assumes the following LESS files have been imported upstream:                             │
 //       │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                     │
 //       │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                  │
@@ -239,6 +239,9 @@
 			.column & {
 				padding-left: 2em;
 				text-align: left;
+				&:first-child {
+					margin-top: @v-btm-mrgns;
+				}
 			}
 			body.single-post .column & + :not(.article-media-contacts) {
 				padding-top: 15px;
