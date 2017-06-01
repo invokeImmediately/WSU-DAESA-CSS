@@ -1,23 +1,27 @@
-// ┌────────────────────────────────────────────────┐
-// │ VARIABLE NAMING GLOSSARY                       │
-// │ TL;DR = "Remove vowels unless otherwise noted" │
-// └────────────────────────────────────────────────┘
-// artcl = article
-// bttm = bottom
-// cnstrn = constrain
-// dflt = default
-// dwn = down
-// lnhght = line height
-// lrg = large
-// nrml = normal
-// p = paragraph
-// scl = scale
-// sz = size
-// tgln = tagline
-// v = variable
-// w = width
-// wght = weight
-// ■
+//    ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐ 
+//    │ LESS VARIABLE DEFINITONS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//    └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+//
+//      ┌────────────────────────────────────────────────┐
+//      │ VARIABLE NAMING GLOSSARY                       │
+//      │ TL;DR = "Remove vowels unless otherwise noted" │
+//      └────────────────────────────────────────────────┘
+//      artcl = article
+//      bttm = bottom
+//      cnstrn = constrain
+//      dflt = default
+//      dwn = down
+//      lnhght = line height
+//      lrg = large
+//      nrml = normal
+//      p = paragraph
+//      scl = scale
+//      sz = size
+//      tgln = tagline
+//      v = variable
+//      w = width
+//      wght = weight
+//      ■
 @v-root-font-sz: 17px;
 @v-w-cnstrn-lrg: 800px;
 @v-w-cnstrn-nrml: 660px;
@@ -27,33 +31,33 @@
 @v-btm-mrgns: (@v-dflt-spcng / 2); // Base size of paragraph default bottom margins
 @v-btm-pads: (@v-dflt-spcng / 2); // Base size of paragraph default bottom pads
 @v-p-sz: 1em; // Base font size of paragraph elements
-@v-p-lnhght: 1.275em; // Base line height of paragraph elements
+@v-p-lnhght: 1.375em; // Base line height of paragraph elements
 
 @v-hX-lnhght: 1.1em; // Base line height of heading elements
 @v-h4-lnhght: 1.2em; // Base line height of h4 elements specifically
-@v-h1-sz: @v-p-sz * 3 * 16 / 17;
-@v-h2-sz: @v-p-sz * 2.2 * 16 / 17;
-@v-h3-sz: @v-p-sz * 1.7 * 16 / 17;
-@v-h4-sz: @v-p-sz * 1.4 * 16 / 17;
+@v-h1-sz: @v-p-sz * 3 * 16 / 17; // Default h1 element font size
+@v-h2-sz: @v-p-sz * 2.2 * 16 / 17; // Default h2 element font size
+@v-h3-sz: @v-p-sz * 1.7 * 16 / 17; // Default h3 element font size
+@v-h4-sz: @v-p-sz * 1.4 * 16 / 17; // Default h4 element font size
 
-@v-artcl-deck-sz: 1.2em;
-@v-artcl-tgln-sz: 1.305em;
-@v-artcl-tgln-lnhght: 1.275em;
-@v-artcl-tgln-wght: 500;
+@v-artcl-deck-sz: 1.2em; // Default article deck font size
+@v-artcl-tgln-sz: 1.305em; // Default article tagline font size
+@v-artcl-tgln-lnhght: 1.275em; // Default article tagline line height
+@v-artcl-tgln-wght: 500; // Default article tagline weight
 
-@v-bnnr-txt-sz: 1.25em;
+@v-bnnr-txt-sz: 1.25em; // Default banner text font size
 
-@v-p-jmpbck-sz: 0.6875em;
+@v-p-jmpbck-sz: 0.6875em; // Default font size of jump back/to top shortcut links
 
-@sz-xxxlrg: 2;
-@sz-xxlrg: 1.75;
-@sz-xlrg: 1.5;
-@sz-lrg: 1.25;
-@sz-nrml: 1;
-@sz-smll: 0.75;
-@sz-xsmll: 0.5;
-@sz-xxsmll: 0.25;
-@sz-xxxsmll: 0.125;
+@sz-xxxlrg: 2; // XXXL scaling factor
+@sz-xxlrg: 1.75; // XXL scaling factor
+@sz-xlrg: 1.5; // XL scaling factor
+@sz-lrg: 1.25; // Large scaling factor
+@sz-nrml: 1; // Normal, 1x scaling factor
+@sz-smll: 0.75; // Small scaling factor
+@sz-xsmll: 0.5; // XS scaling factor
+@sz-xxsmll: 0.25; // XXS scaling factor
+@sz-xxxsmll: 0.125; // XXXS scaling factor
 
 // Variables related to responsive design
 @v-mbl-thrshld: 360px; // Viewport size at which mobile-friendly styling for smaller, cheaper phones kicks in
@@ -69,8 +73,8 @@
 @v-rghtclmn-thrshld: 693px; // Viewport width at which column two of the sidebar-right builder section switches to a stacked mode
 //@v-scl-dwn: 0.92195445;
 @v-scl-dwn: 0.938; // Scaling factor by which font size reduces as a smaller format is reached
-@v-scl-up: (1 / @v-scl-dwn);
+@v-scl-up: (1 / @v-scl-dwn); // Scaling factor by which font size expands as a larger format is reached
 
-@v-fnt-sclng-fctrs: @v-scl-up, 1.0, @v-scl-up, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn);
-@v-fnt-sclng-fctrs-alt: 1.0, 1.0, 1.0, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn);
-@v-fnt-sclng-fctrs-alt-2: 1.0, @v-scl-dwn, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn), (@v-scl-dwn * @v-scl-dwn);
+@v-fnt-sclng-fctrs: @v-scl-up, 1.0, @v-scl-up, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn); // A list defining the sequence by which responsive websites set font sizes as different screen sizes are encountered
+@v-fnt-sclng-fctrs-alt: 1.0, 1.0, 1.0, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn); // An alternate list of font scaling factors
+@v-fnt-sclng-fctrs-alt-2: 1.0, @v-scl-dwn, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn), (@v-scl-dwn * @v-scl-dwn); // An additional alternate list of font scaling factors
