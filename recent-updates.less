@@ -5,11 +5,20 @@
  * ===============================================================================================================
  */
 .declare-recent-updates-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+	.row.single.has-recent-updates {
+		margin-top: @v-dflt-spcng;
+		margin-bottom: @v-dflt-spcng;
+		background-color: @hex-bright-gray;
+	}
+
 	div.recent-updates {
 		position: relative;
 		left: 0;
 		top: 0;
-		height: 2em;
+		height: 4em;
+		@media all and (max-width: @v-rghtclmn-thrshld) {
+			height: 7em;
+		}
 		p + p {
 			margin-top: 0;
 		}	
