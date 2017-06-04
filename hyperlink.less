@@ -239,8 +239,8 @@
 					border-top-left-radius: 5px;
 					border-top-right-radius: 5px;
 					& {
-						@color-top: returned; .getRgbaForProp(@color-top, @hex-white, 0.7);
-						@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-white, 0.1);
+						@color-top: returned; .getRgbaForProp(@color-top, @hex-white, 0.35);
+						@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-white, 0.025);
 						background: linear-gradient(@@color-top, @@color-btm);
 					}
 				}
@@ -255,7 +255,7 @@
 					 border-bottom-right-radius: 7px;
 					& {
 						@color-top: returned; .getRgbaForProp(@color-top, @hex-black, 0);
-						@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-black, 0.1);
+						@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-black, 0.25);
 						background: linear-gradient(@@color-top, @@color-btm);
 					}
 				}			
@@ -265,9 +265,10 @@
 					&:hover {
 						background-color: @hex-light-crimson;
 						& {
-							@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.25);
+							//@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.25);
 							@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-light-crimson, 0.3333);
-							box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
+							//box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
+							box-shadow: 0 0 18px @@glow-clr;
 						}
 					}
 				}
