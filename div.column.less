@@ -1,16 +1,25 @@
+/*!       ┌-----------------------------------------------------------------------------------------------------------┐
+*         │ ···· (div).column rulesets ·············································································· │
+*         └-----------------------------------------------------------------------------------------------------------┘
+*/
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
+//        │                                                                                                           │
+//        │ DESCRIPTION: Contains rulesets for styling (div).column elements within OUE pages built using the WSU     │
+//        │              Spine theme for WordPress.                                                                   │
+//        │                                                                                                           │
+//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                           │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                        │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                               │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 section.pad-top {
     &.half-pad, div.column.half-pad {
         padding-top: (@v-dflt-spcng / 2);
     }
 }
 
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· div.column ······································································· │
- *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- *         │ Highly specific styling applied to div.column container elements as specified in the    │
- *         │ WSU Spine WordPress Theme.                                                              │
- *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- */
 .declare-column-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	.column {
 		font-size: @v-clmn-sz;
@@ -19,10 +28,6 @@ section.pad-top {
 		&:nth-child(1) {
 			margin-top: 0;
 		}
-/*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- *         │············ GENERIC CLASSES for div.column content containers ························· │
- *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- */
 		&.hides-overflow {
 			overflow: hidden;
 		}
@@ -35,10 +40,6 @@ section.pad-top {
 		&.with-right-margin {
 			margin-right: 2rem;
 		}    
-/*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- *         │···· HORIZONTAL RULE children of div.column elements ··································· │
- *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
- */
 		//TODO: move to new hr-dedicated LESS file
 		hr {
 			height: 0;
@@ -105,21 +106,12 @@ section.pad-top {
 				border-top-width: 2px;
 			}
 		}
-	/*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
-	 *         │ ···· SECTION children of div.column elements ·········································· │
-	 *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
-	 */
 		section {
 			position: relative;
 			&+section:not(.no-top-margin) {
 				margin-top: @v-dflt-spcng;
 			}
 		}
-		
-	/*         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
-	 *         │ ···· ADDITIONAL CLASSES for elements contained within div.column elements ············· │
-	 *         ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
-	 */
 		.crimson-text {
 			color: @hex-crimson;
 		}
@@ -152,7 +144,8 @@ section.pad-top {
 	}
 	
 	//TODO: Move to section.less
-	main > .page > .row:last-child {
+	body.home main > .page > .row:last-child,
+	body.page main > .page > .row:last-child {
 		& > .column:last-child {
 			padding-bottom: @v-dflt-spcng;
 		}
@@ -162,12 +155,23 @@ section.pad-top {
 				padding-bottom: @v-dflt-spcng;
 			}
 		}
+		&.thirds {
+			& > .column:first-child, {
+				@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+					padding-bottom: @v-dflt-spcng;
+				}
+			}
+			& > .column:nth-child(2), {
+				@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+					padding-bottom: @v-dflt-spcng;
+				}
+			}
+		}
 	}
 }
 .declare-column-rulesets(@grid-behavior);
-/*         └-----------------------------------------------------------------------------------------┘        
- */
 
+// TODO: move to separate div.callout file
 div.callout {
 	.set-widths(auto, 80px, 230px);
 	height: auto;
