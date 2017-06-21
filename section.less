@@ -1,21 +1,21 @@
-/*!  ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*    │ SECTIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*    └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+*       │ SECTIONS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//       ┌----------------------------------------------------------------------------------------------------------┐
-//       │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                       │
-//       │                                                                                                          │
-//       │ DESCRIPTION: Rule-sets for styling section elements within OUE pages built using the Builder template    │
-//       │ within the Spine theme for WordPress.                                                                    │
-//       │                                                                                                          │
-//       │ DEPENDENCIES:                                                                                            │
-//       │  ╘═» This file assumes the following LESS files have been imported upstream:                             │
-//       │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                     │
-//       │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                  │
-//       │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                          │
-//       │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                         │
-//       └----------------------------------------------------------------------------------------------------------┘
-//
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
+//        │                                                                                                           │
+//        │ DESCRIPTION: Rule-sets for styling section elements within OUE pages built using the Builder template     │
+//        │ within the Spine theme for WordPress.                                                                     │
+//        │                                                                                                           │
+//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                      │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                   │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                           │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                          │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                       │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 .declare-section-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	section {
 		&.column-one-with-bottom-margin > .column.one {
@@ -69,15 +69,9 @@
 						border: 1px solid white;
 						color: @hex-white;
 						.textShadow3D(@hex-white,2px);
-						/*.rgb-black(); text-shadow: 0 .5px 0 #aaa, 0 1px 0 #888,
-						 0 1.5px .5px rgba(@rval,@gval,@bval,.1),
-						 0 0 2.5px rgba(@rval,@gval,@bval,.1),
-						 0 .5px 1.5px rgba(@rval,@gval,@bval,.3),
-						 0 1px 2.5px rgba(@rval,@gval,@bval,.2),
-						 0 0 .5px #000, 0 1.5px 1px #000;*/
-						 & > mark.highlight {
+						& > mark.highlight {
 							.textShadow3D(#AEC7CB,2px);
-						 }
+						}
 					}
 				}
 			}
@@ -220,10 +214,10 @@
 		}
 	}
 
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· SPACING OVERWRITES to improve responsive design ·································· │
- *         └-----------------------------------------------------------------------------------------┘
- */
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· SPACING OVERWRITES to improve responsive design ···················································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 	main section.row {
 		& > .column,
 		& > .column > article > .article-body,
@@ -253,22 +247,48 @@
 			}
 		}
 		&:last-child {
-			& > .column,
-			& > .column > article > .article-body,
-			& > .column > article > .article-summary,
-			& > .column > section {
-				& > p:last-child,
-				& > section > p:last-child,
-				& > div > p:last-child,
-				& > ul:last-child,
-				& > section > ul:last-child,
-				& > div > ul:last-child,
-				& > ol:last-child,
-				& > section > ol:last-child,
-				& > div > ol:last-child {
-					margin-bottom: 0;
+			& > .column {
+				&,
+				& > .column > article > .article-body,
+				& > .column > article > .article-summary,
+				& > .column > section {
+					& > p:last-child,
+					& > section > p:last-child,
+					& > div > p:last-child,
+					& > ul:last-child,
+					& > section > ul:last-child,
+					& > div > ul:last-child,
+					& > ol:last-child,
+					& > section > ol:last-child,
+					& > div > ol:last-child {
+						margin-bottom: 0;
+					}
 				}
 			}
+			&.halves,
+			&.thirds,
+			&.quarters,
+			&.side-right,
+			&.side-left {
+				& > .column:not(:last-child),
+				& > .column:not(:last-child) > article > .article-body,
+				& > .column:not(:last-child) > article > .article-summary,
+				& > .column:not(:last-child) > section {
+					& > p:last-child,
+					& > section > p:last-child,
+					& > div > p:last-child,
+					& > ul:last-child,
+					& > section > ul:last-child,
+					& > div > ul:last-child,
+					& > ol:last-child,
+					& > section > ol:last-child,
+					& > div > ol:last-child {
+						@media all and (max-width: @v-rghtclmn-thrshld) {
+							margin-bottom: @v-btm-mrgns;
+						}
+					}
+				}
+			}*/
 		}
 		& > .column table > tbody > tr > td {
 			& > p:last-child,
@@ -459,10 +479,10 @@
 		}
 	}
 
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· LINKED COLUMNS content group ····················································· │
- *         └-----------------------------------------------------------------------------------------┘
- */
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· LINKED COLUMNS content group ······································································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 	.use-linked-columns() {
 		.row.has-linked-columns:not(.gutter) {
 			.spaces-top-half;
@@ -1091,6 +1111,4 @@
 	}
 }
 .declare-section-rulesets(@grid-behavior);
-/*!  └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-*/
  
