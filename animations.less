@@ -1,9 +1,16 @@
-//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
-//     │ ++++ ANIMATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-//     │   LESS mixins designed for efficiently declaring animations, transitions, and transformations   │
-//     │   with automatic cross-platform support.                                                        │
-//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
-//
+/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+*       │ ++++ ANIMATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
+//        │                                                                                                           │
+//        │ DESCRIPTION: LESS mixins designed for efficiently declaring CSS3 animations, transitions, and             │
+//        │              transformations with automatic cross-platform support.                                       │
+//        │                                                                                                           │
+//        │ DEPENDENCIES: This file has no upstream LESS dependencies.                                                │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 .keyframes(@name; @ruleset) {
     @-webkit-keyframes @name { @ruleset(); }
     @-moz-keyframes @name { @ruleset(); }
