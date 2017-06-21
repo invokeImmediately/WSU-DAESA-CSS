@@ -1,13 +1,25 @@
-// ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-// │ ++++++++ H1-H6 & HEADER selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-// ├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-// │ Styling for h1-h6 and header elements within WSU Office of Undergraduate Education websites             │
-// │ built using the WSU Spine theme for WordPress.                                                          │
-// │  ╘═» This file assumes [//github.com/invokeImmediately/WSU-UE---CSS/color-palette.less] has             │
-// │       already been imported.                                                                            │
-// ├---------------------------------------------------------------------------------------------------------┤
-// │ ···· <h1>…</h1> selectors ············································································· │
+/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+*       │ ++++ H1-H6 & HEADER rulesets ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
+//        │                                                                                                           │
+//        │ DESCRIPTION: Contains rule-sets for styling elements associated with input forms on OUE website pages     │
+//        │              built using the WSU Spine theme for WordPress.                                               │
+//        │                                                                                                           │
+//        │ DEPENDENCIES: This file has no LESS dependencies.                                                         │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                           │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                        │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                               │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 .declare-heading-and-header-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· h1 selectors ······················································································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 	h1 {
 		.column & {
 			&:extend(.has-dflt-font);
@@ -28,8 +40,11 @@
 			margin-top: 0;
 		}
 	}
-// ├---------------------------------------------------------------------------------------------------------┤
-// │ ···· <h2>…</h2> selectors ············································································· │
+
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· h2 selectors ······················································································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 	h2 {
 		.column & {
 			&:extend(.has-dflt-font);
@@ -49,36 +64,38 @@
 			&.centered {
 				text-align: center;
 			}
-			&.fancy {
-				position: relative;
-				padding: 0.3333rem 0.5rem;
-				margin-left: -0.5rem;
-				margin-bottom: (@v-dflt-spcng / 2);
-				margin-right: -0.5rem;
-				.rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.2);
-				&.with-top-border {
-					padding-top: 0.5rem;
-					&:not(:first-child) {
-						margin-top: @v-dflt-spcng;
-					}
-					&::before {
-						content: "";
-						position: absolute;
-							top: 0;
-							left: 0;
-						width: 100%;
-						height: 0;
-						.rgb-darker-gray(); border-top: 1px solid rgba(@rval,@gval,@bval,0.6667);
-						 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
-						border-top-width: 2px;
-					}
-				}	
-			}
 			&.narrower-top-margin {
 				margin-top: 1.25rem;
 			}
 			&.no-top-margin {
 				margin-top: 0;
+			}
+		}
+		.column &.fancy,
+		.column.show-header.has-fancy-header > header:first-child > & {
+			position: relative;
+			padding: 0.3333rem 0.5rem;
+			margin-left: -0.5rem;
+			margin-bottom: (@v-dflt-spcng / 2);
+			margin-right: -0.5rem;
+			.rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.2);
+		}
+		.column &.fancy.with-top-border,
+		.column.show-header.has-fancy-header > header:first-child > & {
+			padding-top: 0.5rem;
+			&:not(:first-child) {
+				margin-top: @v-dflt-spcng;
+			}
+			&::before {
+				content: "";
+				position: absolute;
+					top: 0;
+					left: 0;
+				width: 100%;
+				height: 0;
+				.rgb-darker-gray(); border-top: 1px solid rgba(@rval,@gval,@bval,0.6667);
+				 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
+				border-top-width: 2px;
 			}
 		}
 		.column &:first-child,
@@ -98,8 +115,11 @@
 	h2.article-title a {
 		border-bottom: none;
 	}
-// ├---------------------------------------------------------------------------------------------------------┤
-// │ ···· <h3>…</h3> selectors ············································································· │
+
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· h3 selectors ······················································································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 	h3 {
 		.column & {
 			&:extend(.has-dflt-font);
@@ -121,31 +141,37 @@
 			&.no-top-margin {
 				margin-top: 0;
 			}
-			&.fancy {
-				position: relative;
-				padding: 0.3333rem 0.5rem;
-				margin-left: 0;
-				margin-bottom: (@v-dflt-spcng / 2);
-				margin-right: 0;
-				.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.075);
-				&.with-top-border {
-					padding-top: 0.4375rem;
-					&:not(:first-child) {
-						margin-top: @v-dflt-spcng;
-					}
-					&::before {
-						content: "";
-						position: absolute;
-							top: 0;
-							left: 0;
-						width: 100%;
-						height: 0;
-						.rgb-crimson(); border-top: 1px solid rgba(@rval,@gval,@bval,0.67);
-						 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
-					 }
-				}
-			}
 		}
+		.column &.lowercase,
+		.column.show-header.has-lowercase-header > header:first-child > & {
+			text-transform: none;
+		}
+		.column &.fancy,
+		.column.show-header.has-fancy-header > header:first-child > & {
+			position: relative;
+			padding: 0.3333rem 0.5rem;
+			margin-left: 0;
+			margin-bottom: (@v-dflt-spcng / 2);
+			margin-right: 0;
+			.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.075);
+		}
+		.column &.fancy.with-top-border,
+		.column.show-header.has-fancy-header > header:first-child > & {
+			padding-top: 0.4375rem;
+			&:not(:first-child) {
+				margin-top: @v-dflt-spcng;
+			}
+			&::before {
+				content: "";
+				position: absolute;
+					top: 0;
+					left: 0;
+				width: 100%;
+				height: 0;
+				.rgb-crimson(); border-top: 1px solid rgba(@rval,@gval,@bval,0.67);
+				 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
+			}
+		}		
 		.column &:first-child,
 		.column header:first-child + &,
 		.column header:first-child + &.fancy.with-top-border:not(:first-child),
@@ -155,8 +181,10 @@
 		}
 	}
 
-// ├---------------------------------------------------------------------------------------------------------┤
-// │ ···· <h4>…</h4> selectors ············································································· │
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· h4 selectors ······················································································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 	h4 {
 		.column & {
 			&:extend(.has-dflt-font);
@@ -185,8 +213,10 @@
 		}
 	}
 
-// ├---------------------------------------------------------------------------------------------------------┤
-// │ ···· <hN>…</hN> selectors ············································································· │
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· hN selectors ······················································································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 	.column {
 		h1.crimson, h2.crimson {
 			color: @hex-crimson;
@@ -214,8 +244,10 @@
 		}
 	}
 
-// ├---------------------------------------------------------------------------------------------------------┤
-// │ ···· <header>…<header> selectors ······································································ │
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· header selectors ··················································································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 	header.main-header {
 		.sup-header-default {
 			margin-bottom: .5rem;
@@ -257,8 +289,11 @@
 			}
 		}
 	}
-// ├---------------------------------------------------------------------------------------------------------┤
-// │ ···· Hide all <header><h2>…</h2></header> inserted by the WSU Spine Page Builder Template ············· │
+
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· <header><h2>…</h2></header> selectors ······························································ │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
 	.column {
 		&:not(.show-header) > header:first-child {
 			display: none;
@@ -270,7 +305,10 @@
 	}
 }
 .declare-heading-and-header-rulesets(@grid-behavior);
-// └─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· OPTIONAL LAYOUT: Sectional article headers ························································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
 
 .use-sectional-article-headers() {
 	body.page.has-short-main-header main {
