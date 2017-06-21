@@ -1,27 +1,38 @@
-//    ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐ 
-//    │ LESS VARIABLE DEFINITONS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-//    └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-//
-//      ┌────────────────────────────────────────────────┐
-//      │ VARIABLE NAMING GLOSSARY                       │
-//      │ TL;DR = "Remove vowels unless otherwise noted" │
-//      └────────────────────────────────────────────────┘
-//      artcl = article
-//      bttm = bottom
-//      cnstrn = constrain
-//      dflt = default
-//      dwn = down
-//      lnhght = line height
-//      lrg = large
-//      nrml = normal
-//      p = paragraph
-//      scl = scale
-//      sz = size
-//      tgln = tagline
-//      v = variable
-//      w = width
-//      wght = weight
-//      ■
+//      ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+//      │ ++++ LESS VARIABLE DEFINITONS: ALL OTHER VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+//      └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
+//        │                                                                                                           │
+//        │ DESCRIPTION: LESS variables and parametric mixins designed for inclusion in dependencies to specify       │
+//        │              coloring of backgrounds, borders, text, and outlines.                                        │
+//        │                                                                                                           │
+//        │ DEPENDENCIES: This file has no upstream LESS dependencies.                                                │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· VARIABLE NAMING GLOSSARY ··········································································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+//          TL;DR = "Remove vowels unless otherwise noted"
+//          ----------------------------------------------
+//          artcl = article
+//          bttm = bottom
+//          cnstrn = constrain
+//          dflt = default
+//          dwn = down
+//          lnhght = line height
+//          lrg = large
+//          nrml = normal
+//          p = paragraph
+//          scl = scale
+//          sz = size
+//          tgln = tagline
+//          v = variable
+//          w = width
+//          wght = weight
+//          ■
+
 @v-root-font-sz: 17px;
 @v-w-cnstrn-lrg: 800px;
 @v-w-cnstrn-nrml: 660px;
@@ -63,13 +74,13 @@
 @v-mbl-thrshld: 360px; // Viewport size at which mobile-friendly styling for smaller, cheaper phones kicks in
 @v-lg-mbl-thrshld: 480px; // Viewport size at which mobile-friendly styling for larger, pricier phones kicks in
 @v-tblt-thrshld: 791px; // Viewport size at which tablet-friendly styling kicks in
-@v-bckgrnd-thrshld: 1205px; // Body background no longer visible at this width
+@v-bckgrnd-thrshld: (@v-spn-thrshld + 216px); // Body background no longer visible at this width
 @v-lrgfrmt-thrshld: 1050px; // Viewport size at which large-format-friendly styling kicks in
 @v-wdscrn-bckgrnd: 1440px; // Viewport width at which wide-screen backgrounds activate
 @v-wuxga-width: 1920px; // Viewport width corresponding to the WUXGA screen resolution standard
 @v-wqxga-width: 2560px; // Viewport width corresponding to the WQXGA screen resolution standard
-@v-dsktp-thrshld: 1073px; // Viewport size at which font sizing for desktop-sized displays kicks in
 @v-spn-thrshld: 989px; // Viewport width at which the WSU spine switches to a mobile/tablet-friendly mode
+@v-dsktp-thrshld: 1073px; // Viewport size at which font sizing for desktop-sized displays kicks in
 @v-rghtclmn-thrshld: 693px; // Viewport width at which column two of the sidebar-right builder section switches to a stacked mode
 //@v-scl-dwn: 0.92195445;
 @v-scl-dwn: 0.938; // Scaling factor by which font size reduces as a smaller format is reached
