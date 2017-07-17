@@ -1,10 +1,19 @@
-/*         ┌-----------------------------------------------------------------------------------------┐
-           │ ···· Builder Template Slideshows ······················································ │
-           ├---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- ┤
-           │ Styling modifications of builder template slideshows added through the WordPress        │
-           │ interface.                                                                              │
-           └-----------------------------------------------------------------------------------------┘        
+/*!       ┌-----------------------------------------------------------------------------------------------------------┐
+*         │ ···· Builder Template Slideshows ········································································ │
+*         └-----------------------------------------------------------------------------------------------------------┘
 */
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
+//        │                                                                                                           │
+//        │ DESCRIPTION: Styling modifications of builder template slideshows added through the WordPress interface.  │
+//        │                                                                                                           │
+//        │ DEPENDENCIES:  This file assumes the following LESS files have been imported upstream:                    │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                           │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                        │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                               │
+//        │   • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                            │
+//        └-----------------------------------------------------------------------------------------------------------┘
+	
 .declare-slideshow-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	.column {
 		.builder-section-content.cycle-slideshow {
@@ -22,13 +31,12 @@
 
 		.builder-banner-content {
 			padding: 0 0 10px 0;
-			font-size: 1rem;
-			line-height: 1.35rem;
+			font-size: 1.5rem;
+			line-height: 1.35em;
 			border: 0;
 			.transition(~"font-size .15s linear, line-height .15s linear");
 			&:hover {
-				font-size: 1.3333rem;
-				line-height: 1.799955rem;
+				font-size: 2rem;
 				& > div.builder-banner-inner-content {
 					.rgb-black(); background-color: rgba(@rval,@gval,@bval,0.9);
 				}
@@ -44,8 +52,8 @@
 			line-height: inherit;
 			p {
 				padding: 10px;
-				font-size: inherit;
-				line-height: inherit;
+				font-size: inherit !important;
+				line-height: inherit !important;
 				text-align: center;
 				&:last-child:not(.no-bottom-pad) {
 					padding-bottom: 10px;
@@ -76,14 +84,13 @@
 	@media all {
 		@media (max-width: (@v-bckgrnd-thrshld - 1)) {
 			.column .builder-banner-content {
-				font-size: 1.3278vw;
-				line-height: 1.79253vw;
+				font-size: 2.1179vw;
+				line-height: 2.8592vw;
 				&:hover {
-					font-size: 1.7704vw;
-					line-height: 2.39004vw;
+					font-size: 2.8239vw;
+					line-height: 3.8122vw;
 				}
-			}    
-				
+			}
 			.column .builder-banner-inner-content p {
 				padding: 1.0vw;
 				&:last-child:not(.no-bottom-pad) {
@@ -91,18 +98,26 @@
 				}
 			}
 		}
-
 		@media (max-width: @v-spn-thrshld) {
 			.column .builder-banner-content {
-				font-size: 12px;
-				line-height: 16.2px;
+				font-size: 2.5784vw;
+				line-height: 3.4808vw;
 				&:hover {
-					font-size: 14px;
-					line-height: 18.9px;
+					font-size: 3.4379vw;
+					line-height: 4.6411vw;
 				}
 			}    
 		}
-
+		@media (max-width: @v-lg-mbl-thrshld) {
+			.column .builder-banner-content {
+				font-size: 5.1568vw;
+				line-height: 6.9616vw;
+				&:hover {
+					font-size: 6.8758vw;
+					line-height: 9.2822vw;
+				}
+			}    
+		}
 		// TODO: Move back to wp-master-style-sheet.less
 		@media (min-width: 906px) {
 			.readability-controlled {
