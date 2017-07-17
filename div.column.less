@@ -151,9 +151,13 @@ section.pad-top {
 			padding-bottom: @v-dflt-spcng;
 		}
 		//TODO: extend to all multi-column formats
-		&.halves > .column:first-child {
-			@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
-				padding-bottom: @v-dflt-spcng;
+		&.halves > .column,
+		&.side-right > .column,
+		&.side-left > .column {
+			&:first-child {
+				@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+					padding-bottom: @v-dflt-spcng;
+				}
 			}
 		}
 		&.thirds {
