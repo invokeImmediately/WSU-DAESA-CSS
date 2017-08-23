@@ -87,18 +87,30 @@
 
 .spaces-top(@sclng-fctr: 1.0) {
     margin-top: (@v-dflt-spcng * @sclng-fctr);
+	&.forces-spacing {
+		margin-top: (@v-dflt-spcng * @sclng-fctr) !important;
+	}
 }
 
 .spaces-rgt(@sclng-fctr: 1.0) {
     margin-right: (@v-dflt-spcng * @sclng-fctr);
+	&.forces-spacing {
+		margin-right: (@v-dflt-spcng * @sclng-fctr) !important;
+	}
 }
 
 .spaces-btm(@sclng-fctr: 1.0) {
     margin-bottom: (@v-dflt-spcng * @sclng-fctr);
+	&.forces-spacing {
+		margin-bottom: (@v-dflt-spcng * @sclng-fctr) !important;
+	}
 }
 
 .spaces-lft(@sclng-fctr: 1.0) {
     margin-left: (@v-dflt-spcng * @sclng-fctr);
+	&.forces-spacing {
+		margin-left: (@v-dflt-spcng * @sclng-fctr) !important;
+	}
 }
 
 .declare-spacing-class(@class-str, @spacing-factor) {
@@ -217,6 +229,39 @@
         padding-right: (2rem * @i);
     }
     .generate-indents(@n, (@i + 1));
+}
+
+.has-responsive-padding(@padding-top: 0, @padding-rgt: 0, @padding-btm: 0, @padding-lft: 0) {
+	.set-responsive-padding-top(@top-pad) when (isem(@top-pad)), (isunit(@top-pad, rem)), (ispixel(@top-pad))  {
+		padding-top: @top-pad;
+	}
+	.set-responsive-padding-rgt(@right-pad) when (isem(@right-pad)), (isunit(@right-pad, rem)), (ispixel(@right-pad)) {
+		padding-right: @right-pad;
+	}
+	.set-responsive-padding-btm(@bottom-pad) when (isem(@bottom-pad)), (isunit(@bottom-pad, rem)), (ispixel(@bottom-pad)) {
+		padding-bottom: @bottom-pad;
+	}
+	.set-responsive-padding-lft(@left-pad) when (isem(@left-pad)), (isunit(@left-pad, rem)), (ispixel(@left-pad)) {
+		padding-left: @left-pad;
+	}
+	.set-responsive-padding-top(@padding-top);
+	.set-responsive-padding-rgt(@padding-rgt);
+	.set-responsive-padding-btm(@padding-btm);
+	.set-responsive-padding-lft(@padding-lft);
+	@media all {
+		@media (max-width:@v-lg-mbl-thrshld) {
+			.set-responsive-padding-top(@padding-top / 2);
+			.set-responsive-padding-rgt(@padding-rgt / 2);
+			.set-responsive-padding-btm(@padding-btm / 2);
+			.set-responsive-padding-lft(@padding-lft / 2);
+		}
+		@media (max-width:@v-mbl-thrshld) {
+			.set-responsive-padding-top(@padding-top / 4);
+			.set-responsive-padding-rgt(@padding-rgt / 4);
+			.set-responsive-padding-btm(@padding-btm / 4);
+			.set-responsive-padding-lft(@padding-lft / 4);
+		}
+	} 
 }
 
 //        ┌-----------------------------------------------------------------------------------------------------------┐
