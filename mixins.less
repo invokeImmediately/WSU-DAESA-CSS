@@ -256,7 +256,7 @@
     .rgb-darkest-gray(); border: 1px solid rgba(@rval, @gval, @bval, 0.5);
 }
 
-.has-pull-quote-bordering {
+.has-pull-quote-bordering(@coloring) when (iscolor(@coloring)) {
 	&:not(.alt) {
 		position: relative;
 		padding-top: (@v-btm-mrgns / 3) !important;
@@ -278,25 +278,21 @@
 		&:before {
 			top: (-1 * @v-btm-mrgns / 3);
 			height: 5px;
-			border-top: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
-						blue(@hex-darker-gray), 1);
+			& { border-top: 5px solid @rgba; .getRgbaStr(@coloring, 1); }
 		}
 		&:after {
 			bottom: (-1 * @v-btm-mrgns / 3);
 			height: 1px;
 			width: 33%;
-			border-top: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
-						blue(@hex-darker-gray), (0.25 / 0.33));
+			& { border-top: 1px solid @rgba; .getRgbaStr(@coloring, (0.25 / 0.33)); }
 		}
 	}
 	&.alt {
 		position: relative;
 		padding-left: (@v-btm-mrgns * 3 / 4) !important;
 		padding-right: (@v-btm-mrgns * 3 / 4) !important;
-		border-right: 1px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
-					blue(@hex-darker-gray), (0.25 / 0.33 / 4));
-		border-left: 5px solid rgba(red(@hex-darker-gray), green(@hex-darker-gray),
-					blue(@hex-darker-gray), 1);
+		& { border-right: 1px solid @rgba; .getRgbaStr(@coloring, (0.25 / 0.33 / 4)); }
+		& { border-left: 5px solid @rgba; .getRgbaStr(@coloring, 1); }
 		&:before,
 		&:after {
 			content: "";
@@ -307,13 +303,11 @@
 		}
 		&:before {
 			right: 1px;
-			background-color: rgba(red(@hex-darker-gray), green(@hex-darker-gray),
-								   blue(@hex-darker-gray), (0.25 / 0.33 / 2));
+			& { background-color: @rgba; .getRgbaStr(@coloring, (0.25 / 0.33 / 2)); }
 		}
 		&:after {
 			right: 3px;
-			background-color: rgba(red(@hex-darker-gray), green(@hex-darker-gray),
-								   blue(@hex-darker-gray), (0.25 / 0.33));
+			& { background-color: @rgba; .getRgbaStr(@coloring, (0.25 / 0.33 / 2)); }
 		}
 	}
 }
@@ -404,7 +398,6 @@
 		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt-2);
 	}
 }
-
 
 //        ┌-----------------------------------------------------------------------------------------------------------┐
 //        │ ···· Iterative ruleset applications ····································································· │
