@@ -214,7 +214,7 @@
 				}
 			}
 			&:not(.has-no-bordering) {
-				.has-pull-quote-bordering;
+				.has-pull-quote-bordering(@hex-darker-gray);
 				&:not(.alt) {
 					.column h1 + &,
 					.column h2 + &,
@@ -225,6 +225,16 @@
 						margin-top: (@v-btm-mrgns * 4 / 3);
 					}
 				}
+				&.crimson {
+					.has-pull-quote-bordering(@hex-crimson);
+					color: @hex-crimson;
+					.has-gray-text {
+						color: @hex-darker-gray;
+					}
+				}
+			}
+			&.bold {
+				font-weight: bold;
 			}
 		}
 		&.vpue-jump-back {
