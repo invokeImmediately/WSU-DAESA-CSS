@@ -335,6 +335,15 @@
 			}
 		}
 	}
+	.add-download-notice(@download-notice-bg-clr, @download-notice-stripe-clr, @download-icon-url) when
+		(iscolor(@download-notice-bg-clr)) and (iscolor(@download-notice-stripe-clr)) and (isurl(@download-icon-url)) {
+		.column p.notice.download {
+			background-color: @download-notice-bg-clr;
+			&:before {
+				background: @download-notice-stripe-clr @download-icon-url 4px @v-btm-mrgns no-repeat;
+			}		
+		}
+	}
 }
 /*!  └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 */
