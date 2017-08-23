@@ -1,0 +1,77 @@
+/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+*       │ ARTICLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
+//        │                                                                                                           │
+//        │ DESCRIPTION: Rule-sets for styling section elements within OUE pages built using the Builder template     │
+//        │ within the Spine theme for WordPress.                                                                     │
+//        │                                                                                                           │
+//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                      │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                   │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                           │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                          │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                       │
+//        └-----------------------------------------------------------------------------------------------------------┘
+.declare-article-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+
+	.column article.post {
+		padding: 1em;
+		border: 1px solid rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.3333);
+		border-radius: 5px;
+		background-color: @hex-white;
+		box-shadow: 1px 2px 3px rgba(red(@hex-black), green(@hex-black), blue(@hex-black),.25);
+		& + article.post {
+			margin-top: 1.5em;
+		}
+	}	
+
+	.use-article-notices(@url-gold-texture, @url-ruby-texture)
+		when (isurl(@url-gold-texture))	and (isurl(@url-ruby-texture)) {
+		.row.article-notice {
+			&.has-countdown {
+				display: none;
+			}
+			.column {
+				border-bottom-right-radius: 15px;
+				border-bottom-left-radius: 15px;
+				background: @hex-gold @url-gold-texture no-repeat scroll left top;
+				background-size: cover;
+				.rgb-black(); box-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.3);
+				color: @hex-darker-gray;
+				& > p {
+					&:extend(.has-alt-font);
+					font-size: (@v-p-sz * @v-scl-up  * @v-scl-up);
+					letter-spacing: 0.5px;
+					color: @hex-darker-gray;
+					.rgb-white(); text-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.5);
+				}
+				& > :first-child {
+					padding-top: @v-btm-pads !important;
+					@media all and (max-width: @v-rghtclmn-thrshld) {
+						padding-top: (@v-btm-pads / 3) !important;
+					}
+				}
+				& > :last-child {
+					padding-bottom: @v-btm-pads !important;
+					margin-bottom: 0 !important;
+					@media all and (max-width: @v-rghtclmn-thrshld) {
+						padding-bottom: (@v-btm-pads / 3) !important;
+					}
+				}
+			}
+			&.ruby .column {
+				background: @hex-light-crimson @url-ruby-texture no-repeat scroll left top;
+				font-size: 1.5rem;
+				& > p {
+					.has-responsive-padding(0, @v-dflt-spcng, 0, @v-dflt-spcng);
+					color: @hex-white;
+					.rgb-black(); text-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.5);
+				}
+			}
+		}
+	}
+}
+.declare-article-rulesets(@grid-behavior);
