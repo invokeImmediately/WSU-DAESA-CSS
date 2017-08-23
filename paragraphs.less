@@ -312,6 +312,28 @@
 			border-bottom-right-radius: 10px;
 			&{ background: @rgba @icon-url 4px @v-btm-mrgns no-repeat; .getRgbaStr(@hex-crimson, 0.3333); }
 		}
+		&.linked {
+			a {
+				display: none;
+				&:first-of-type {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					border-bottom: none;
+					color: transparent;
+					box-shadow: none;
+					z-index: 1;
+					&:hover {
+						background-color: rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.33);
+						text-shadow: none;
+						.transition(~"all 0.3s linear");
+					}
+				}
+			}
+		}
 	}
 }
 /*!  └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
