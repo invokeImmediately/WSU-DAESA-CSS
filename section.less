@@ -802,6 +802,15 @@
 					}
 				}
 			}
+			&.single {
+				.column {
+					& > :first-child:not(header),
+					& > header:first-child + *,
+					& > .shift-to-bottom:first-of-type {
+						max-width: none;
+					}
+				}
+			}
 			&.thirds,
 			&.quarters {
 				& + &.thirds,
