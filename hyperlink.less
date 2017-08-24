@@ -233,8 +233,8 @@
 					content: "";
 					position: absolute;
 					top: 2px;
-					 right: 2px;
-					 left: 2px;
+					right: 2px;
+					left: 2px;
 					height: 50%;
 					border-top-left-radius: 5px;
 					border-top-right-radius: 5px;
@@ -248,8 +248,8 @@
 					content: "";
 					position: absolute;
 					bottom: 0;
-					 right: 2px;
-					 left: 2px;
+					right: 2px;
+					left: 2px;
 					height: 50%;
 					border-bottom-left-radius: 7px;
 					 border-bottom-right-radius: 7px;
@@ -282,6 +282,24 @@
 							@glow-clr: returned-2; .getRgbaForProp(@glow-clr, #ffde1c, 0.8);
 							box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
 						}
+					}
+				}
+				.icon {
+					&,
+					& + .label {
+						display: inline-block;
+						box-sizing: border-box;
+						vertical-align: middle;
+					}
+					width: 55px;
+					padding-right: 1em;
+					border: 0;
+					box-shadow: none;
+					& + .label {
+						display: inline-block;
+						box-sizing: border-box;
+						width: 100%;
+						width: ~"calc(100% - 55px - 1em)";
 					}
 				}
 			}
