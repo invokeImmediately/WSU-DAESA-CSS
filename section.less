@@ -497,6 +497,20 @@
 			padding-left: (1rem / 4);
 		}
 	}
+	
+	@media all and (max-width: @v-rghtclmn-thrshld) {
+		.row:not(.pad-top) {
+			&.halves,
+			&.thirds,
+			&.quarters,
+			&.side-right,
+			&.side-left {
+				.one ~ .column {
+					margin-top: @v-dflt-spcng;
+				}
+			}
+		}
+	}
 
 //        ┌-----------------------------------------------------------------------------------------------------------┐
 //        │ ···· LINKED COLUMNS content group ······································································· │
