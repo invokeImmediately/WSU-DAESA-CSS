@@ -215,23 +215,34 @@
 		}
 	}
 
-	.row {
-		&.has-gray-background {
-			background-color: @hex-bright-gray;
-		}
-		&.has-crimson-background {
-			background-color: @hex-bright-gray;
-			.column {
-				color: @hex-white;
-			}
-		}
-		&.has-blue-background {
-			background-color: @hex-accent-blue;
-			.column {
-				color: @hex-white;
-			}
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ ···· COLORING THEMES for builder sections ······························································· │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
+	@class-setup-matrix: has-charcoal-background @hex-charcoal-gray @hex-white,
+		has-gray-background @hex-bright-gray none,
+		has-crimson-background @hex-crimson @hex-white,
+		has-blue-background @hex-accent-blue @hex-white;
+	.specify-section-coloring(@bg-clr, @fg-clr) when (iscolor(@bg-clr)) and (iscolor(@fg-clr)) {
+		background-color: @bg-clr;
+		.column {
+			color: @fg-clr;
 		}
 	}
+	.specify-section-coloring(@bg-clr, @fg-clr) when (iscolor(@bg-clr)) and not (iscolor(@fg-clr)) {
+		background-color: @bg-clr;
+	}
+	.setup-coloring-classes(@matrix, @idx: 1) when (@idx <= length(@matrix)){
+		@class-list: extract(@matrix, @idx);
+		@class-name: extract(@class-list, 1);
+		@class-bg-clr: extract(@class-list, 2);
+		@class-fg-clr: extract(@class-list, 3);
+		.row.@{class-name} {
+			.specify-section-coloring(@class-bg-clr, @class-fg-clr);
+		}
+		.setup-coloring-classes(@matrix, @idx + 1);
+	}
+	.setup-coloring-classes(@class-setup-matrix);
 
 //        ┌-----------------------------------------------------------------------------------------------------------┐
 //        │ ···· SPACING OVERWRITES to improve responsive design ···················································· │
