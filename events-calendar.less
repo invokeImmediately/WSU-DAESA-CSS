@@ -1,0 +1,261 @@
+/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+*       │ ARTICLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
+//        │                                                                                                           │
+//        │ DESCRIPTION: Rule-sets for styling section elements within OUE pages built using the Builder template     │
+//        │ within the Spine theme for WordPress.                                                                     │
+//        │                                                                                                           │
+//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                      │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                   │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                           │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                          │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                       │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
+.declare-events-calendar-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+
+	.use-events-calendar(@sub-header-text) when (isstring(@sub-header-text)) {
+
+		body.tribe-theme-spine {
+			.main-header {
+				.header-group {
+					width: ~"calc(90%)";
+					width: ~"calc(100% - @{v-dflt-spcng})";
+					.sub-header {
+						color: transparent !important;
+						a {
+							display: none;
+						}
+						&:before {
+							content: "@{sub-header-text}";
+							position: absolute;
+							color: @hex-white;
+						}
+					}
+				}
+			}
+		}
+
+		#tribe-events {
+			.column & ul li {
+				list-style-image: none;
+			}
+			.workshop-note {
+				font-size: 0.9em;
+				color: @hex-dark-yellow;
+			}
+		}
+
+		.tribe-events-calendar {
+			td.tribe-events-past,
+			td.tribe-events-present,
+			td.tribe-events-future {
+				div[id*=tribe-events-daynum-] > a {
+					border-bottom: none;
+					box-shadow: none;
+					border-bottom-color: @hex-crimson;
+					&:hover {					
+						border-bottom-right-radius: 0.25em;
+						border-bottom-left-radius: 0.25em;
+						& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@hex-crimson, 1); }
+						& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@hex-crimson, .15); }
+						color: @hex-light-crimson;
+					}
+				}
+			}
+		}
+
+		#tribe-bar-views {
+			a {
+				border-bottom: none;
+				box-shadow: none;
+				text-shadow: none;
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+			li.tribe-bar-active a {
+				border-bottom: 0.0625em solid transparent;
+				&:hover {
+					border-bottom-right-radius: 0.25em;
+					border-bottom-left-radius: 0.25em;
+					& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@hex-crimson, 1); }
+					& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@hex-crimson, .15); }
+					color: @hex-light-crimson !important;
+				}
+			}
+		}
+
+		.type-tribe_events[class*=post-] {
+			.tribe-events-event-image {
+				position: relative;
+				float: left;
+				height: 0;
+				padding-bottom: 30%;
+				.tribe-events-single & {
+					width: 30%;
+					margin-right: 3%;
+					@media all {
+						@media (min-width: 601px) {
+							width: 20%;
+							padding-bottom: 20%;
+						}
+					}
+				}
+				a {
+					display: block;
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					border-bottom: none;
+					box-shadow: none;
+					z-index: 1;
+				}
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+			.tribe-events-cal-links {
+				clear: left;
+			}
+		}
+
+		.tribe-related-events-thumbnail {
+			max-width: 198px;
+			a {
+				border: none;
+				box-shadow: none;
+				text-shadow: none;
+				&:hover {
+					box-shadow: none;
+					text-shadow: none;
+					background-color: transparent;
+				}
+			}
+			.tribe-events-single ul.tribe-related-events & img {
+				border: 0.0625em solid transparent;
+				&:hover {
+					border: .0625em solid @hex-crimson;
+				}
+			}
+		}
+
+		.tribe-events-event-meta {
+			padding-top: @v-dflt-spcng * 3 / 4;
+		}
+
+		.recurring-info-tooltip,
+		.tribe-events-calendar .tribe-events-tooltip,
+		.tribe-events-shortcode.view-week .tribe-events-tooltip,
+		.tribe-events-week .tribe-events-tooltip {
+			padding: .75em 1em;
+			.workshop-note {
+				display: none;
+			}
+		}
+		
+		#tribe-events-content {
+			@title-color: #58111d;
+			&.tribe-events-month {
+				border-radius: 10px;
+				background-color: @title-color;
+				.tribe-events-page-title {
+					color: @hex-white;
+					margin-top: @v-dflt-spcng * 3 / 4;
+					a {
+						color: @hex-light-crimson;
+						border-bottom: 1px solid transparent;
+						&:hover {
+							color: tint(@hex-light-crimson, 50%);
+							border-bottom-color: tint(@hex-light-crimson, 50%);
+						}
+					}
+				}
+				.tribe-events-calendar {
+					background-color: @hex-white;
+					th {
+						background-color: @hex-crimson;
+					}
+				}
+				#tribe-events-footer {
+					a {
+						padding-right: 3px;
+						padding-left: 3px;
+						border-bottom: .0625em solid @hex-white;
+						& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@hex-white,.3333); }
+						color: @hex-white;
+						&:hover {
+							border-radius: 4px;
+							border-bottom: .0625em solid transparent;
+							box-shadow: inset 0 -0.3125em 0 transparent;
+							.getRgbaStr(@hex-white, 0.75);
+							background-color: @rgba;
+							color: @hex-light-crimson;
+						}
+					}
+					.tribe-events-sub-nav .tribe-events-nav-previous {
+						margin-left: 5px;
+					}
+				}
+			}
+			&.tribe-events-list {
+				.tribe-events-page-title {
+					padding-bottom: 0.5em;
+					padding-top: 0.42em;
+					border-radius: 10px;
+					background-color: @title-color;
+					color: @hex-white;
+					a {
+						color: @hex-light-crimson;
+						border-bottom: 1px solid transparent;
+						&:hover {
+							color: tint(@hex-light-crimson, 50%);
+							border-bottom-color: tint(@hex-light-crimson, 50%);
+						}
+					}
+				}
+				.tribe-events-list-separator-month span {
+					padding-bottom: 0.2em;
+					border-radius: 4px;
+					background-color: @hex-crimson;
+					color: white;
+				}
+			}
+		}
+		
+		.tribe-events-before-html {
+			.single-tribe_events & .calendar-intro-message {
+				display: none;
+			}
+		}
+		
+		.wsuwp-content-syndicate-event {
+			.content-item-event-date {
+				font-weight: bold;
+				&:after {
+					content: ":";
+				}
+			}
+			.content-item-event-venue {
+				&:before {
+					content: "in "
+				}
+			}
+		}
+		.wsuwp-content-syndicate-list {
+			&:empty {
+				&:after {
+					content: "None.";
+				}
+			}
+		}
+	}
+
+}
+.declare-events-calendar-rulesets(@grid-behavior);
