@@ -19,8 +19,8 @@
 		a {
 			border-bottom-right-radius: 0.25em;
 			border-bottom-left-radius: 0.25em;
-			border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 1);
-			box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), .15);
+			& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@hex-crimson, 1); }
+			& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@hex-crimson, .15); }
 			color: @hex-crimson;
 			text-decoration: none;
 			.transition(~"all .3s ease");
@@ -29,7 +29,7 @@
 			}
 			&:hover {
 				border-bottom-right-radius: 0;
-				 border-bottom-left-radius: 0;
+				border-bottom-left-radius: 0;
 				border-color: transparent;
 				box-shadow: inset 0 -0.3125em 0 transparent;
 				background-color: rgba(red(@hex-soft-crimson), green(@hex-soft-crimson), blue(@hex-soft-crimson),
