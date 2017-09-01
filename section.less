@@ -335,6 +335,18 @@
 		}
 	}
 
+	.h1-header + section.pad-top {
+		& .column {
+			padding-top: @v-dflt-spcng;
+		}
+		&.short .column {
+			padding-top: (@v-dflt-spcng / 2);
+		}
+		&.tall .column {
+			padding-top: (@v-dflt-spcng * 2);
+		}
+	}
+	
 	@media only screen and (min-width:(@v-lg-mbl-thrshld + 1)) and (max-width:@v-rghtclmn-thrshld) {
 		.gutter .column:not(.gutterless),
 		.guttered {
