@@ -146,10 +146,6 @@
 			}
 		}
 
-		.tribe-events-event-meta {
-			padding-top: @v-dflt-spcng * 3 / 4;
-		}
-
 		.recurring-info-tooltip,
 		.tribe-events-calendar .tribe-events-tooltip,
 		.tribe-events-shortcode.view-week .tribe-events-tooltip,
@@ -183,7 +179,21 @@
 						background-color: @hex-crimson;
 					}
 				}
+				#tribe-events-header {
+					&:before,
+					&:after {
+						@media only screen and (max-width: 768px) {
+							display: none;
+						}
+					}
+				}
 				#tribe-events-footer {
+					&:before,
+					&:after {
+						@media only screen and (max-width: 768px) {
+							display: none;
+						}
+					}
 					a {
 						padding-right: 3px;
 						padding-left: 3px;
@@ -198,9 +208,62 @@
 							background-color: @rgba;
 							color: @hex-light-crimson;
 						}
+						@media only screen and (max-width: 768px) {
+							border-bottom: 1px solid transparent;
+							box-shadow: inset 0 -0.3125em 0 transparent;
+						}
 					}
 					.tribe-events-sub-nav .tribe-events-nav-previous {
 						margin-left: 5px;
+						@media only screen and (max-width: 768px) {
+							margin-left: 0;
+						}
+					}
+				}
+				.tribe-events-sub-nav li a {
+					@media only screen and (max-width: 768px) {
+						background-color: transparent;
+					}				
+				}
+				#tribe-mobile-container {
+					padding: @v-dflt-spcng / 4;
+					.tribe-mobile-day {
+						.tribe-mobile-day-heading {
+							padding-top: @v-dflt-spcng / 4;
+							padding-right: @v-dflt-spcng / 4;
+							padding-left: @v-dflt-spcng / 4;
+							margin-bottom: 0;
+							margin-left: 0;
+							border-top-left-radius: 7px;
+							border-top-right-radius: 7px;
+						}
+						.tribe-events-mobile {
+							padding-right: @v-dflt-spcng / 4;
+							padding-left: @v-dflt-spcng / 4;
+							border-bottom-right-radius: 7px;
+							border-bottom-left-radius: 7px;
+						}
+						.tribe-mobile-day-heading,
+						.tribe-events-mobile {
+							background-color: @hex-white;
+							font-size: 0.925rem;
+						}
+					}
+				}
+			}
+			&.tribe-events-day {
+				.tribe-events-day-time-slot > h5:first-child {
+					background-color: @hex-darker-gray;
+				}
+			}
+			&.tribe-events-single {
+				.tribe-events-event-meta {
+					padding-top: @v-dflt-spcng * 3 / 4;
+				}
+				.tribe-events-schedule {
+					margin-top: 0.375em;
+					h2 {
+						font-size:1.3rem;
 					}
 				}
 			}
@@ -225,6 +288,17 @@
 					border-radius: 4px;
 					background-color: @hex-crimson;
 					color: white;
+				}
+				.tribe-event-schedule-details {
+					font-size: 1.3rem;
+				}
+				.tribe-events-venue-details {
+					font-size: 1.3rem;
+					margin-top: 0;
+					&:before {
+						content: "Location: ";
+						font-weight: bold;
+					}
 				}
 			}
 		}
