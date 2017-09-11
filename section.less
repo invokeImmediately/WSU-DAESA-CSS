@@ -848,6 +848,14 @@
 					}
 				}
 			}
+			&.halves {
+				#binder.max-1386 & {
+					@media all and (min-width: 1205px) {
+						padding-bottom: 0 !important;
+						height: 327px;
+					}
+				}
+			}
 			&.thirds,
 			&.quarters {
 				& + &.thirds,
@@ -1031,6 +1039,22 @@
 					@media all {
 						@media (max-width: (@v-lg-mbl-thrshld)) {
 							padding-bottom: ~"calc(40% - @{v-dflt-spcng}) !important";
+						}
+					}
+					#binder.max-1386 & {
+						@media all and (min-width: 1205px) {
+							padding-bottom: 0 !important;
+							height: 330px;
+						}
+					}
+				}
+			}
+			&.quarters {
+				.column {
+					#binder.max-1386 & {
+						@media all and (min-width: 1205px) {
+							padding-bottom: 0 !important;
+							height: 293px;
 						}
 					}
 				}
