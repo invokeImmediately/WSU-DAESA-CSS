@@ -350,174 +350,182 @@
 	@media only screen and (min-width:(@v-lg-mbl-thrshld + 1)) and (max-width:@v-rghtclmn-thrshld) {
 		.gutter .column:not(.gutterless),
 		.guttered {
-			padding-left: 2rem;
-			padding-right: 2rem
+			padding-left: @v-dflt-spcng;
+			padding-right: @v-dflt-spcng
 		}
 	   .single.gutter .column:not(.gutterless) {
-			padding-left: 2rem;
-			padding-right: 2rem
+			padding-left: @v-dflt-spcng;
+			padding-right: @v-dflt-spcng
 		}
 		.halves.gutter .column.one:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
 		.side-left.gutter .column.one:not(.gutterless),
 		.side-right.gutter .column.one:not(.gutterless) {
-			padding-right: 2rem
+			padding-right: @v-dflt-spcng
 		}
 		.halves.gutter .column.two:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
 		.side-left.gutter .column.two:not(.gutterless),
 		.side-right.gutter .column.two:not(.gutterless) {
-			padding-left: 2rem
+			padding-left: @v-dflt-spcng
 		}
 		.thirds.gutter .column.one:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
 		.triptych.gutter .column.one:not(.gutterless) {
-			padding-right: 2rem
+			padding-right: @v-dflt-spcng
 		}
 		.thirds.gutter .column.two:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
 		.triptych.gutter .column.two:not(.gutterless) {
-			padding-left: 2rem;
-			padding-right: 2rem
+			padding-left: @v-dflt-spcng;
+			padding-right: @v-dflt-spcng
 		}
 		.thirds.gutter .column.three:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
 		.triptych.gutter .column.three:not(.gutterless) {
-			padding-left: 2rem
+			padding-left: @v-dflt-spcng
 		}
 		.quarters.gutter .column.one:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
-			padding-right: 1rem
+			padding-right: (@v-dflt-spcng / 2)
 		}
 		.quarters.gutter .column.two:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
-			padding-left: 1rem;
-			padding-right: 2rem
+			padding-left: (@v-dflt-spcng / 2);
+			padding-right: @v-dflt-spcng
 		}
 		.quarters.gutter .column.three:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
-			padding-left: 2rem;
-			padding-right: 1rem
+			padding-left: @v-dflt-spcng;
+			padding-right: (@v-dflt-spcng / 2)
 		}
 		.quarters.gutter .column.four:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
-			padding-left: 1rem
+			padding-left: (@v-dflt-spcng / 2)
 		}
 	}
 
 	@media only screen and (min-width:(@v-mbl-thrshld + 1)) and (max-width:@v-lg-mbl-thrshld) {
 		.gutter .column:not(.gutterless),
 		.guttered {
-			padding-left: (2rem / 2);
-			padding-right: (2rem / 2);
+			padding-left: (@v-dflt-spcng / 2);
+			padding-right: (@v-dflt-spcng / 2);
 		}
 		.single.gutter .column:not(.gutterless) {
-			padding-left: (2rem / 2);
-			padding-right: (2rem / 2);
+			padding-left: (@v-dflt-spcng / 2);
+			padding-right: (@v-dflt-spcng / 2);
 		}
 		.halves.gutter .column.one:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
 		.side-left.gutter .column.one:not(.gutterless),
 		.side-right.gutter .column.one:not(.gutterless) {
-			padding-right: (2rem / 2);
+			padding-right: (@v-dflt-spcng / 2);
 		}
 		.halves.gutter .column.two:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
 		.side-left.gutter .column.two:not(.gutterless),
 		.side-right.gutter .column.two:not(.gutterless) {
-			padding-left: (2rem / 2);
+			padding-left: (@v-dflt-spcng / 2);
 		}
 		.thirds.gutter .column.one:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
 		.triptych.gutter .column.one:not(.gutterless) {
-			padding-right: (2rem / 2);
+			padding-right: (@v-dflt-spcng / 2);
 		}
 		.thirds.gutter .column.two:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
 		.triptych.gutter .column.two:not(.gutterless) {
-			padding-left: (2rem / 2);
-			padding-right: (2rem / 2);
+			padding-left: (@v-dflt-spcng / 2);
+			padding-right: (@v-dflt-spcng / 2);
 		}
 		.thirds.gutter .column.three:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
 		.triptych.gutter .column.three:not(.gutterless) {
-			padding-left: (2rem / 2);
+			padding-left: (@v-dflt-spcng / 2);
 		}
 		.quarters.gutter .column.one:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
-			padding-right: (1rem / 2);
+			padding-right: (@v-dflt-spcng / 2 / 2);
 		}
 		.quarters.gutter .column.two:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
-			padding-left: (1rem / 2);
-			padding-right: (2rem / 2);
+			padding-left: (@v-dflt-spcng / 2 / 2);
+			padding-right: (@v-dflt-spcng / 2);
 		}
 		.quarters.gutter .column.three:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
-			padding-left: (2rem / 2);
-			padding-right: (1rem / 2);
+			padding-left: (@v-dflt-spcng / 2);
+			padding-right: (@v-dflt-spcng / 2 / 2);
 		}
 		.quarters.gutter .column.four:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
-			padding-left: (1rem / 2);
+			padding-left: (@v-dflt-spcng / 2 / 2);
+		}
+		section.gutter > header {
+			padding-left: (@v-dflt-spcng / 2);
+			padding-right: (@v-dflt-spcng / 2);
 		}
 	}
 
 	@media only screen and (max-width:@v-mbl-thrshld) {
 		.gutter .column:not(.gutterless),
 		.guttered {
-			padding-left: (2rem / 4);
-			padding-right: (2rem / 4);
+			padding-left: (@v-dflt-spcng / 4);
+			padding-right: (@v-dflt-spcng / 4);
 		}
 		.single.gutter .column:not(.gutterless) {
-			padding-left: (2rem / 4);
-			padding-right: (2rem / 4);
+			padding-left: (@v-dflt-spcng / 4);
+			padding-right: (@v-dflt-spcng / 4);
 		}
 		.halves.gutter .column.one:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
 		.side-left.gutter .column.one:not(.gutterless),
 		.side-right.gutter .column.one:not(.gutterless) {
-			padding-right: (2rem / 4);
+			padding-right: (@v-dflt-spcng / 4);
 		}
 		.halves.gutter .column.two:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
 		.side-left.gutter .column.two:not(.gutterless),
 		.side-right.gutter .column.two:not(.gutterless) {
-			padding-left: (2rem / 4);
+			padding-left: (@v-dflt-spcng / 4);
 		}
 		.thirds.gutter .column.one:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
 		.triptych.gutter .column.one:not(.gutterless) {
-			padding-right: (2rem / 4);
+			padding-right: (@v-dflt-spcng / 4);
 		}
 		.thirds.gutter .column.two:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
 		.triptych.gutter .column.two:not(.gutterless) {
-			padding-left: (2rem / 4);
-			padding-right: (2rem / 4);
+			padding-left: (@v-dflt-spcng / 4);
+			padding-right: (@v-dflt-spcng / 4);
 		}
 		.thirds.gutter .column.three:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
 		.triptych.gutter .column.three:not(.gutterless) {
-			padding-left: (2rem / 4);
+			padding-left: (@v-dflt-spcng / 4);
 		}
 		.quarters.gutter .column.one:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
-			padding-right: (1rem / 4);
+			padding-right: (@v-dflt-spcng / 2 / 4);
 		}
 		.quarters.gutter .column.two:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
-			padding-left: (1rem / 4);
-			padding-right: (2rem / 4);
+			padding-left: (@v-dflt-spcng / 2 / 4);
+			padding-right: (@v-dflt-spcng / 4);
 		}
 		.quarters.gutter .column.three:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
-			padding-left: (2rem / 4);
-			padding-right: (1rem / 4);
+			padding-left: (@v-dflt-spcng / 4);
+			padding-right: (@v-dflt-spcng / 2 / 4);
 		}
 		.quarters.gutter .column.four:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
-			padding-left: (1rem / 4);
+			padding-left: (@v-dflt-spcng / 2 / 4);
+		}
+		section.gutter > header {
+			padding-left: (@v-dflt-spcng / 4);
+			padding-right: (@v-dflt-spcng / 4);
 		}
 	}
 	
