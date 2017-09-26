@@ -121,7 +121,9 @@
 		h2 > a,
 		h3 > a,
 		h4 > a {
-			line-height: 1.35em;
+			&.stays-underlined {
+				line-height: 1.35em;
+			}
 			&:not(.stays-underlined), &:not(.stays-underlined):hover {
 				border-bottom: none;
 				box-shadow: none;
