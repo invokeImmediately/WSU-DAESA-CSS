@@ -143,6 +143,9 @@
 		& + .toggled-panel + & {
 			margin-top: (@v-btm-mrgns / 2);
 		}
+		& + .toggled-panel + :not(.drop-down-toggle) {
+			margin-top: @v-btm-mrgns;			
+		}
 		&.blue {
 			@clr-bxd-drk-blue: #0076bd;
 			@clr-bxd-lght-blue: @hex-accent-blue;
