@@ -295,10 +295,11 @@
 				.tribe-events-venue-details {
 					font-size: 1.3rem;
 					margin-top: 0;
+					/*! TODO: Replace with a JavaScript-based solution b/c some events lack a venue, but the plugin loads empty HTML tags regardless.
 					&:before {
 						content: "Location: ";
 						font-weight: bold;
-					}
+					}*/
 				}
 			}
 		}
@@ -343,13 +344,11 @@
 				display: -webkit-box;
 				display: -ms-flexbox;
 				display: flex;
+				flex-flow: row wrap;
 				position: relative;
 				padding: 0;
 				list-style-type: none;
 				font-size: 0.925rem;
-				@media all and (max-width: @v-tblt-thrshld) {
-					flex-wrap: wrap;
-				}
 			}
 
 			.wsuwp-content-syndicate-item,
@@ -376,8 +375,8 @@
 			.wsuwp-content-syndicate-event {
 				box-sizing: border-box;
 				-webkit-box-flex: 1;
-					-ms-flex: 1 0 25%;
-						flex: 1 0 25%;
+					-ms-flex: 1 0 33%;
+						flex: 1 0 33%;
 				@media all and (max-width: @v-tblt-thrshld) {
 						-webkit-box-flex: 1;
 							-ms-flex: 1 0 50%;
@@ -385,9 +384,10 @@
 				}
 				list-style: none;
 				padding: .5em 1em 0 0;
+				margin: .5em 0;
 				-webkit-transition: background .4s;
 				transition: background .4s;
-				width: 25%;
+				width: 33%;
 			}
 
 			.content-item-event-date {
