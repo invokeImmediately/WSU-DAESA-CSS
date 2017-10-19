@@ -106,6 +106,16 @@ html {
 */
 body {
     &:extend(.has-dflt-font);
+	&.use-max-width-1386 {
+		#binder.max-1188 {
+			@media only screen and (min-width: 990px) {
+				max-width: 1386px;
+				.row {
+					max-width: 1386px;
+				}
+			}
+		}
+	}
 }
 
 //      ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
