@@ -1,0 +1,89 @@
+/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+*       │ EVENTS CALENDAR PLUGIN ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+//        ┌-----------------------------------------------------------------------------------------------------------┐
+//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
+//        │                                                                                                           │
+//        │ DESCRIPTION: Rule-sets for styling elements associated with the events calendar plugin in OUE pages built │
+//        │ using the Builder template within the Spine theme for WordPress.                                          │
+//        │                                                                                                           │
+//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                      │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                   │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                           │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                          │
+//        │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                       │
+//        └-----------------------------------------------------------------------------------------------------------┘
+
+.declare-on-this-page-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+
+	.use-on-this-page-sections(@back-to-otp-icon) when (isurl(@back-to-otp-icon)) {
+
+		#on-this-page {
+			@otp-background: #2f3438;
+			@highlight-color: #23272a;
+			background-color: @otp-background;
+			.column {
+				background-color: inherit;
+			}
+			h2 {
+				color: @hex-white;
+				padding-left: @v-dflt-spcng;
+				padding-bottom: (@v-dflt-spcng / 3);
+				font-size: 1.7rem;
+			}
+			ul {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				border-top: 1px solid @otp-background;
+				border-left: 1px solid @otp-background;
+				background-color: inherit;
+				list-style-type: none;
+			}
+			li {
+				float: left;
+				margin-top: 0 !important;
+				list-style-image: none;
+				padding: 0;
+				a {
+					display: inline-block;
+					color: white;
+					text-align: center;
+					padding: 14px 16px;
+					border-right: 1px solid @otp-background;
+					border-bottom: 1px solid @otp-background;
+					border-radius: 0;
+					background-color: @hex-darker-gray;
+					box-shadow: none;
+					&:hover {
+						border-color: @otp-background;
+						background-color: @highlight-color;
+						text-shadow: none;
+					}
+					@media all and (max-width: @v-tblt-thrshld) {
+						padding: 8px 10px;
+					}
+				}
+			}
+		}
+
+		.back-to-otp {
+			position: relative;
+			padding-left: 1rem;
+			font-size: 0.9em;
+			&:before {
+				content: "";
+				position: absolute;
+				width: 1rem;
+				left: -3px;
+				height: .9rem;
+				background: url(@back-to-otp-icon) center center/auto 100% no-repeat;
+			}
+		}
+
+	}
+
+}
+.declare-on-this-page-rulesets(@grid-behavior);
