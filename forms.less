@@ -139,6 +139,11 @@
 					display: none !important;
 				}
 			}
+			.top_label li ul.gfield_radio {
+				@media only screen and (min-width: 641px) {
+					width: 100%;
+				}
+			}
 			#extensions_message {
 				padding-left: 1rem;
 			}
@@ -159,13 +164,13 @@
 		}
 		li.gfield {
 			&.uses-rich-editor {
-				div.tmce-active {
-					div.mce-menubar {
+				.tmce-active {
+					.mce-menubar {
 						display: none;
 					}
-					div.mce-toolbar-grp > div.mce-stack-layout {
-						& > div.mce-toolbar.mce-first {
-							div.mce-btn {
+					.mce-toolbar-grp > .mce-stack-layout {
+						& > .mce-toolbar.mce-first {
+							.mce-btn {
 								&[aria-label="Blockquote"],
 								&[aria-label="Insert/edit link"],
 								&[aria-label="Remove link"],
@@ -177,11 +182,11 @@
 								}
 							}
 						}
-						& > div.mce-toolbar.mce-last {
+						& > .mce-toolbar.mce-last {
 							display: none;
 						}
 					}
-					div.mce-statusbar {
+					.mce-statusbar {
 						display: none;
 					}
 				}
@@ -253,7 +258,6 @@
 			}
 			div.ginput_container_textarea > textarea {
 				font-size: 16px;
-				font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
 			}
 		}
 		ul.gform_fields {
