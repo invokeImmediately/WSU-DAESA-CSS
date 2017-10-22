@@ -30,8 +30,8 @@
 			h2 {
 				color: @hex-white;
 				padding-left: @v-dflt-spcng;
-				padding-bottom: (@v-dflt-spcng / 3);
 				font-size: 1.7rem;
+				margin-bottom: (@v-dflt-spcng / 2);
 			}
 			ul {
 				margin: 0;
@@ -72,14 +72,14 @@
 		.back-to-otp {
 			position: relative;
 			padding-left: 1rem;
-			font-size: 0.9em;
+			font-size: 0.9em !important;
 			&:before {
 				content: "";
 				position: absolute;
 				width: 1rem;
 				left: -3px;
 				height: .9rem;
-				background: url(@back-to-otp-icon) center center/auto 100% no-repeat;
+				background: @back-to-otp-icon center center/auto 100% no-repeat;
 			}
 		}
 
