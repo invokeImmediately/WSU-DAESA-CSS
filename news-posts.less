@@ -47,14 +47,14 @@ body.single-post {
 }
 
 .wsuwp-content-syndicate-list {
-	.column & {
+	body.page:not(.uses-default-syndicate-plugin-layout) .column & {
 		list-style-type: none;
 		padding: 0;
 	}
 }
 
 .wsuwp-content-syndicate-item {
-	.page.home .column & {
+	.page.home:not(.uses-default-syndicate-plugin-layout) .column & {
 		float: left;
 		box-sizing: border-box;
 		width: 50%;
