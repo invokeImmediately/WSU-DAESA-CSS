@@ -42,7 +42,7 @@
 			}
 			&.floats-left,
 			&.floats-right {
-				@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+				@media all and (min-width: (@column-floating-threshold + 1)) {
 					width: 33.3333%;
 				}
 			}
@@ -170,7 +170,7 @@
 			// TODO: add meqia queries to reduce margins as screen size gets smaller
 			// TODO: add inclusional mixin support for arrow indicator icons
 			@media all {
-				@media (max-width: (@v-rghtclmn-thrshld)) {
+				@media (max-width: (@column-floating-threshold)) {
 					position: absolute;
 					top: 0px;
 					right: -2rem;
@@ -217,7 +217,7 @@
 				margin-top: @spacing;
 				margin-bottom: @spacing;
 				@media all {
-					@media (max-width: (@v-rghtclmn-thrshld)) {
+					@media (max-width: (@column-floating-threshold)) {
 						width: 94%;
 						width: ~"calc(100% - @{spacing} * 2)";
 						margin-top: @spacing * 2;

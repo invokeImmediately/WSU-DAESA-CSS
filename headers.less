@@ -248,7 +248,7 @@
 	section {
 		&.side-right, &.row.side-right {
 			.column.one h2.fancy, .column.one h3.fancy {
-				@media all and (min-width: (@v-rghtclmn-thrshld + 1)) {
+				@media all and (min-width: (@column-floating-threshold + 1)) {
 					margin-right: 0;
 				}
 			}
@@ -281,16 +281,16 @@
 		}
 		&.centered {
 			@media all {
-				@media (min-width: @v-lrgfrmt-thrshld) {
+				@media (min-width: @large-format-threshold) {
 					text-align: center;
 				}
-				@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+				@media (min-width: (@spine-threshold + 1)) and (max-width: (@large-format-threshold - 1)) {
 					text-align: left;
 				}
-				@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+				@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
 					text-align: center;
 				}
-				@media (max-width: @v-tblt-thrshld) {
+				@media (max-width: @tablet-screen-width) {
 					text-align: left;
 				}
 			}
@@ -298,12 +298,12 @@
 		.header-group { text-align: inherit; }
 		.header-group.centered {
 			@media all {
-				@media (min-width: @v-lrgfrmt-thrshld) {
+				@media (min-width: @large-format-threshold) {
 					width: 100%;
 					left: 50%;
 					.transform(~"translateX(-50%)");
 				}
-				@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+				@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
 					width: 100%;
 					left: 50%;
 					.transform(~"translateX(-50%)");
@@ -363,7 +363,7 @@
 	.row.halves.article-header {
 		height: 230px;
 		@media all {
-			@media (max-width: @v-lg-mbl-thrshld) {
+			@media (max-width: @large-mobile-screen-width) {
 				height: 340px;
 			}
 		}
@@ -392,7 +392,7 @@
 						#5e6a71
 					);
 				@media all {
-					@media (max-width: @v-lg-mbl-thrshld) {
+					@media (max-width: @large-mobile-screen-width) {
 						right: 0;
 						height: 50%;
 						top: 50%;
@@ -413,13 +413,13 @@
 					left: @v-dflt-spcng;
 					.transform(~"translateY(-50%)");
 					@media all {
-						@media (max-width: @v-rghtclmn-thrshld) {
+						@media (max-width: @column-floating-threshold) {
 							right: (@v-dflt-spcng / 2);
 						}
-						@media (max-width: @v-lg-mbl-thrshld) {
+						@media (max-width: @large-mobile-screen-width) {
 							left: (@v-dflt-spcng / 2);
 						}
-						@media (max-width: @v-mbl-thrshld) {
+						@media (max-width: @mobile-screen-width) {
 							left: (@v-dflt-spcng / 4);
 						}
 						@media print {
@@ -437,7 +437,7 @@
 					line-height: .95em;
 					text-shadow: 0 0 4px @hex-black, 0 0 4px @hex-black, 0 0 4px @hex-black,
 						0 0 4px @hex-black, 0 0 4px @hex-black;
-					@media all and (max-width: @v-rghtclmn-thrshld) {
+					@media all and (max-width: @column-floating-threshold) {
 						font-size: 6.5vw;
 					}
 					& + .subtitle {
@@ -447,7 +447,7 @@
 						font-weight: bold;
 						text-transform: uppercase;
 						text-shadow: 0 0 2px @hex-black, 0 0 2px @hex-black, 0 0 2px @hex-black;
-						@media all and (max-width: @v-rghtclmn-thrshld) {
+						@media all and (max-width: @column-floating-threshold) {
 							font-size: 4vw;
 						}
 					}
@@ -455,7 +455,7 @@
 				.parent-page {
 					margin-bottom: 0.125em;
 					color: @hex-bright-gray;
-					@media all and (max-width: @v-rghtclmn-thrshld) {
+					@media all and (max-width: @column-floating-threshold) {
 						font-size: 3.25vw;
 					}
 				}
@@ -477,7 +477,7 @@
 				background-position: center center;
 				background-size: cover;
 				@media all {
-					@media (max-width: @v-lg-mbl-thrshld) {
+					@media (max-width: @large-mobile-screen-width) {
 						left: 0;
 						height: 50%;
 						top: 0;
@@ -488,7 +488,7 @@
 				}
 			}
 			&.one, &.two {
-				@media all and (max-width: @v-rghtclmn-thrshld) {
+				@media all and (max-width: @column-floating-threshold) {
 					float: left;
 					clear: none;
 				}
@@ -514,7 +514,7 @@
 				width: 100%;
 				padding: 2rem 2rem 0;
 				@media all {
-					@media (max-width:@v-lg-mbl-thrshld) {
+					@media (max-width:@large-mobile-screen-width) {
 						padding-left: .5rem;
 						padding-right: .5rem;
 					}

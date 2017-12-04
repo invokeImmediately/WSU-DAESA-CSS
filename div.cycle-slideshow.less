@@ -18,11 +18,11 @@
 	.column {
 		.builder-section-content.cycle-slideshow {
 			@media all {
-				@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-lg-mbl-thrshld) {
+				@media (min-width: (@mobile-screen-width + 1)) and (max-width: @large-mobile-screen-width) {
 					margin-left: (-2rem / 2);
 					margin-right: (-2rem / 2);
 				}
-				@media (max-width: @v-mbl-thrshld) {
+				@media (max-width: @mobile-screen-width) {
 					margin-left: (-2rem / 4);
 					margin-right: (-2rem / 4);
 				}
@@ -82,7 +82,7 @@
 	}
 
 	@media all {
-		@media (max-width: (@v-bckgrnd-thrshld - 1)) {
+		@media (max-width: (@background-width-threshold - 1)) {
 			.column .builder-banner-content {
 				font-size: 2.1179vw;
 				line-height: 2.8592vw;
@@ -98,7 +98,7 @@
 				}
 			}
 		}
-		@media (max-width: @v-spn-thrshld) {
+		@media (max-width: @spine-threshold) {
 			.column .builder-banner-content {
 				font-size: 2.5784vw;
 				line-height: 3.4808vw;
@@ -108,7 +108,7 @@
 				}
 			}    
 		}
-		@media (max-width: @v-lg-mbl-thrshld) {
+		@media (max-width: @large-mobile-screen-width) {
 			.column .builder-banner-content {
 				font-size: 5.1568vw;
 				line-height: 6.9616vw;

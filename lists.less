@@ -54,7 +54,7 @@
 				 -webkit-box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
 				border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
 				background-color: @hex-white;
-				@media all and (max-width: @v-bckgrnd-thrshld) {
+				@media all and (max-width: @background-width-threshold) {
 					overflow-x: auto;
 				}
 				p {
@@ -123,11 +123,11 @@
 					margin-bottom: 3%;
 					list-style-type: none;
 					@media all {
-						@media (max-width: @v-rghtclmn-thrshld) {
+						@media (max-width: @column-floating-threshold) {
 							width: 96%;
 							margin-bottom: 6%;
 						}
-						@media (max-width: @v-bckgrnd-thrshld) {
+						@media (max-width: @background-width-threshold) {
 							overflow-x: visible;
 						}
 					}

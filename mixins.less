@@ -249,13 +249,13 @@
 	.set-responsive-padding-btm(@padding-btm);
 	.set-responsive-padding-lft(@padding-lft);
 	@media all {
-		@media (max-width:@v-lg-mbl-thrshld) {
+		@media (max-width:@large-mobile-screen-width) {
 			.set-responsive-padding-top(@padding-top / 2);
 			.set-responsive-padding-rgt(@padding-rgt / 2);
 			.set-responsive-padding-btm(@padding-btm / 2);
 			.set-responsive-padding-lft(@padding-lft / 2);
 		}
-		@media (max-width:@v-mbl-thrshld) {
+		@media (max-width:@mobile-screen-width) {
 			.set-responsive-padding-top(@padding-top / 4);
 			.set-responsive-padding-rgt(@padding-rgt / 4);
 			.set-responsive-padding-btm(@padding-btm / 4);
@@ -374,22 +374,22 @@
   (ispixel(@fntsz)) and (ispixel(@lnhght)) and (length(@sclng-fctrs) = 6) {
 	@media all {
 		line-height: @lnhght;
-		@media (min-width: @v-dsktp-thrshld) {
+		@media (min-width: @desktop-width) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 1));
 		}
-		@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-dsktp-thrshld - 1)) {
+		@media (min-width: (@spine-threshold + 1)) and (max-width: (@desktop-width - 1)) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 2));
 		}
-		@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+		@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 3));
 		}
-		@media (min-width: (@v-lg-mbl-thrshld + 1)) and (max-width: @v-tblt-thrshld) {
+		@media (min-width: (@large-mobile-screen-width + 1)) and (max-width: @tablet-screen-width) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 4));
 		}
-		@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-lg-mbl-thrshld) {
+		@media (min-width: (@mobile-screen-width + 1)) and (max-width: @large-mobile-screen-width) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 5));
 		}
-		@media (max-width: @v-mbl-thrshld) {
+		@media (max-width: @mobile-screen-width) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 6));
 		}
 	}
@@ -401,22 +401,22 @@
   (ispixel(@fntsz)) and (@lnhght = false) and (length(@sclng-fctrs) = 6) {
 	@media all {
 		font-size: @fntsz;
-		@media (min-width: @v-dsktp-thrshld) {
+		@media (min-width: @desktop-width) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 1));
 		}
-		@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-dsktp-thrshld - 1)) {
+		@media (min-width: (@spine-threshold + 1)) and (max-width: (@desktop-width - 1)) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 2));
 		}
-		@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+		@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 3));
 		}
-		@media (min-width: (@v-lg-mbl-thrshld + 1)) and (max-width: @v-tblt-thrshld) {
+		@media (min-width: (@large-mobile-screen-width + 1)) and (max-width: @tablet-screen-width) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 4));
 		}
-		@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-lg-mbl-thrshld) {
+		@media (min-width: (@mobile-screen-width + 1)) and (max-width: @large-mobile-screen-width) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 5));
 		}
-		@media (max-width: @v-mbl-thrshld) {
+		@media (max-width: @mobile-screen-width) {
 			font-size: (@fntsz * extract(@sclng-fctrs, 6));
 		}
 	}
@@ -450,10 +450,10 @@
 
 .declare-mobile-layout(@lg-mobile-ruleset, @nrml-mobile-ruleset) when (isruleset(@lg-mobile-ruleset))
 		and (isruleset(@nrml-mobile-ruleset)){
-	@media only screen and (min-width:(@v-mbl-thrshld + 1)) and (max-width:@v-lg-mbl-thrshld) {
+	@media only screen and (min-width:(@mobile-screen-width + 1)) and (max-width:@large-mobile-screen-width) {
 		@lg-mobile-ruleset();
 	}
-	@media only screen and (max-width:@v-mbl-thrshld) {
+	@media only screen and (max-width:@mobile-screen-width) {
 		@nrml-mobile-ruleset();
 	}
 }
@@ -631,22 +631,22 @@
   and (length(@sclng-fctrs) = 6) {
 	@media all {
 		@{property}: @value;
-		@media (min-width: @v-dsktp-thrshld) {
+		@media (min-width: @desktop-width) {
 			@{property}: (@value * extract(@sclng-fctrs, 1));
 		}
-		@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-dsktp-thrshld - 1)) {
+		@media (min-width: (@spine-threshold + 1)) and (max-width: (@desktop-width - 1)) {
 			@{property}: (@value * extract(@sclng-fctrs, 2));
 		}
-		@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: @v-spn-thrshld) {
+		@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
 			@{property}: (@value * extract(@sclng-fctrs, 3));
 		}
-		@media (min-width: (@v-lg-mbl-thrshld + 1)) and (max-width: @v-tblt-thrshld) {
+		@media (min-width: (@large-mobile-screen-width + 1)) and (max-width: @tablet-screen-width) {
 			@{property}: (@value * extract(@sclng-fctrs, 4));
 		}
-		@media (min-width: (@v-mbl-thrshld + 1)) and (max-width: @v-lg-mbl-thrshld) {
+		@media (min-width: (@mobile-screen-width + 1)) and (max-width: @large-mobile-screen-width) {
 			@{property}: (@value * extract(@sclng-fctrs, 5));
 		}
-		@media (max-width: @v-mbl-thrshld) {
+		@media (max-width: @mobile-screen-width) {
 			@{property}: (@value * extract(@sclng-fctrs, 6));
 		}
 	}

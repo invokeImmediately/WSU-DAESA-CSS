@@ -95,7 +95,7 @@
 				}
 			}
 			&.large-format-friendly, &.row.large-format-friendly {
-				@media all and (min-width: @v-lrgfrmt-thrshld) {
+				@media all and (min-width: @large-format-threshold) {
 					.margin-centered;
 					max-width: @v-w-cnstrn-lrg !important;
 				}
@@ -104,15 +104,15 @@
 		&.single.large-format-friendly, &.row.single.large-format-friendly {
 			.column.one {
 				@media all {
-					@media (min-width: @v-lrgfrmt-thrshld) {
+					@media (min-width: @large-format-threshold) {
 						float: none;
 						.margin-centered;
 						max-width: @v-w-cnstrn-lrg;
 					}
-					@media (min-width: (@v-spn-thrshld + 1)) and (max-width: (@v-lrgfrmt-thrshld - 1)) {
+					@media (min-width: (@spine-threshold + 1)) and (max-width: (@large-format-threshold - 1)) {
 						max-width: @v-w-cnstrn-lrg;
 					}
-					@media (min-width: (@v-tblt-thrshld + 1)) and (max-width: (@v-spn-thrshld)) {
+					@media (min-width: (@tablet-screen-width + 1)) and (max-width: (@spine-threshold)) {
 						float: none;
 						.margin-centered;
 						max-width: @v-w-cnstrn-lrg;
@@ -128,7 +128,7 @@
 			}
 			&.large-format-friendly, &.row.side-right.large-format-friendly {
 				@media all {
-					@media (min-width: (@v-lrgfrmt-thrshld + 1)) {
+					@media (min-width: (@large-format-threshold + 1)) {
 						&:first-child {
 							padding-top: (@v-dflt-spcng / 2);
 						}
@@ -151,7 +151,7 @@
 							}
 						}
 					}
-					@media (max-width: @v-lrgfrmt-thrshld) {
+					@media (max-width: @large-format-threshold) {
 						.column.one {
 							width: 100%;
 							max-width: @v-w-cnstrn-lrg;
@@ -176,20 +176,20 @@
 		&.thirds {
 			img.show-when-adjacent {
 				@media all {
-					@media (min-width: (@v-rghtclmn-thrshld+1)) {
+					@media (min-width: (@column-floating-threshold+1)) {
 						width: 100%;
 					}
-					@media (max-width: @v-rghtclmn-thrshld) {
+					@media (max-width: @column-floating-threshold) {
 						display: none;
 					}
 				}
 			}
 			img.show-when-stacked {
 				@media all {
-					@media (min-width: (@v-rghtclmn-thrshld+1)) {
+					@media (min-width: (@column-floating-threshold+1)) {
 						display: none;
 					}
-					@media (max-width: @v-rghtclmn-thrshld) {
+					@media (max-width: @column-floating-threshold) {
 						width: 100%;
 					}
 				}
@@ -197,10 +197,10 @@
 			.column {
 				p {
 					@media all {
-						@media (min-width: (@v-rghtclmn-thrshld+1)) {
+						@media (min-width: (@column-floating-threshold+1)) {
 							text-align: left;
 						}
-						@media (max-width: @v-mbl-thrshld) {
+						@media (max-width: @mobile-screen-width) {
 							text-align: left;
 						}
 					}
@@ -313,7 +313,7 @@
 					& > ol:last-child,
 					& > section > ol:last-child,
 					& > div > ol:last-child {
-						@media all and (max-width: @v-rghtclmn-thrshld) {
+						@media all and (max-width: @column-floating-threshold) {
 							margin-bottom: @v-btm-mrgns;
 						}
 					}
@@ -347,7 +347,7 @@
 		}
 	}
 	
-	@media only screen and (min-width:(@v-lg-mbl-thrshld + 1)) and (max-width:@v-rghtclmn-thrshld) {
+	@media only screen and (min-width:(@large-mobile-screen-width + 1)) and (max-width:@column-floating-threshold) {
 		.gutter .column:not(.gutterless),
 		.guttered {
 			padding-left: @v-dflt-spcng;
@@ -405,7 +405,7 @@
 		}
 	}
 
-	@media only screen and (min-width:(@v-mbl-thrshld + 1)) and (max-width:@v-lg-mbl-thrshld) {
+	@media only screen and (min-width:(@mobile-screen-width + 1)) and (max-width:@large-mobile-screen-width) {
 		.gutter .column:not(.gutterless),
 		.guttered {
 			padding-left: (@v-dflt-spcng / 2);
@@ -467,7 +467,7 @@
 		}
 	}
 
-	@media only screen and (max-width:@v-mbl-thrshld) {
+	@media only screen and (max-width:@mobile-screen-width) {
 		.gutter .column:not(.gutterless),
 		.guttered {
 			padding-left: (@v-dflt-spcng / 4);
@@ -529,7 +529,7 @@
 		}
 	}
 	
-	@media all and (max-width: @v-rghtclmn-thrshld) {
+	@media all and (max-width: @column-floating-threshold) {
 		.row:not(.pad-top) {
 			&.halves,
 			&.thirds,
@@ -561,10 +561,10 @@
 				text-align: center;
 				&:not(:first-child) {
 					@media all {
-						@media (min-width: (@v-rghtclmn-thrshld + 1)) {
+						@media (min-width: (@column-floating-threshold + 1)) {
 							border-left: 1px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.7);
 						}
-						@media (max-width: @v-rghtclmn-thrshld) {
+						@media (max-width: @column-floating-threshold) {
 							border-top: 1px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.7);
 						}
 					}
@@ -575,7 +575,7 @@
 					position: absolute;
 					left: 50%;
 					width: ~"calc(100% - @{v-dflt-spcng})";
-					max-width: @v-lg-mbl-thrshld;
+					max-width: @large-mobile-screen-width;
 					word-break: break-word;
 					color: @hex-white;
 					text-shadow: 1px 1px 0 @hex-black, 2px 2px 2px rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.5),
@@ -879,16 +879,16 @@
 						//background-size: 110% auto;
 					}
 					@media all {
-						@media (min-width: (@v-rghtclmn-thrshld + 1)) and (max-width: (@v-tblt-thrshld)) {
+						@media (min-width: (@column-floating-threshold + 1)) and (max-width: (@tablet-screen-width)) {
 							padding-bottom: ~"calc(40% - @{v-dflt-spcng}) !important";
 						}
-						@media (max-width: @v-rghtclmn-thrshld) {
+						@media (max-width: @column-floating-threshold) {
 							background-size: 100% auto;
 							&:hover {
 								background-size: 110% auto;
 							}
 						}
-						@media (max-width: (@v-lg-mbl-thrshld - 80)) {
+						@media (max-width: (@large-mobile-screen-width - 80)) {
 							& > :first-child:not(header),
 							& > header:first-child + * {
 								&.shift-to-top {
@@ -906,7 +906,7 @@
 								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
 								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 50%,
 								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),1) 80%);
-							@media all and (max-width: @v-lg-mbl-thrshld) {
+							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
 									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 40%,
@@ -926,7 +926,7 @@
 								rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.0),
 								rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.2) 50%,
 								rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),1) 80%);
-							@media all and (max-width: @v-lg-mbl-thrshld) {
+							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.0),
 									rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.2) 40%,
@@ -946,7 +946,7 @@
 								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.0),
 								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.2) 50%,
 								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),1) 80%);
-							@media all and (max-width: @v-lg-mbl-thrshld) {
+							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.0),
 									rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.2) 40%,
@@ -966,7 +966,7 @@
 								rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.0),
 								rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.2) 50%,
 								rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),1) 80%);
-							@media all and (max-width: @v-lg-mbl-thrshld) {
+							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.0),
 									rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.2) 40%,
@@ -986,7 +986,7 @@
 								rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.0),
 								rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.2) 50%,
 								rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),1) 80%);
-							@media all and (max-width: @v-lg-mbl-thrshld) {
+							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.0),
 									rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.2) 40%,
@@ -1006,7 +1006,7 @@
 								rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.0),
 								rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.2) 50%,
 								rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),1) 80%);
-							@media all and (max-width: @v-lg-mbl-thrshld) {
+							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.0),
 									rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.2) 40%,
@@ -1026,7 +1026,7 @@
 								rgba(0, 173, 164, 0.0),
 								rgba(0, 173, 164, 0.2) 50%,
 								rgba(0, 173, 164, 1) 80%);
-							@media all and (max-width: @v-lg-mbl-thrshld) {
+							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(0, 173, 164, 0.0),
 									rgba(0, 173, 164, 0.2) 40%,
@@ -1045,7 +1045,7 @@
 			&.thirds {
 				.column {
 					@media all {
-						@media (max-width: (@v-lg-mbl-thrshld)) {
+						@media (max-width: (@large-mobile-screen-width)) {
 							padding-bottom: ~"calc(40% - @{v-dflt-spcng}) !important";
 						}
 					}
@@ -1092,10 +1092,10 @@
 				&.halves {
 					.column:first-child > header:first-child {
 						@media all {
-							@media (min-width: (@v-rghtclmn-thrshld + 1)) {
+							@media (min-width: (@column-floating-threshold + 1)) {
 								width: 200%;
 							}
-							@media (max-width: @v-rghtclmn-thrshld) {
+							@media (max-width: @column-floating-threshold) {
 								width: 100%;
 							}
 						}
@@ -1104,10 +1104,10 @@
 				&.thirds {
 					.column:first-child > header:first-child {
 						@media all {
-							@media (min-width: (@v-rghtclmn-thrshld + 1)) {
+							@media (min-width: (@column-floating-threshold + 1)) {
 								width: 300%;
 							}
-							@media (max-width: @v-rghtclmn-thrshld) {
+							@media (max-width: @column-floating-threshold) {
 								width: 100%;
 							}
 						}
@@ -1116,10 +1116,10 @@
 				&.quarters {
 					.column:first-child > header:first-child {
 						@media all {
-							@media (min-width: (@v-rghtclmn-thrshld + 1)) {
+							@media (min-width: (@column-floating-threshold + 1)) {
 								width: 400%;
 							}
-							@media (max-width: @v-rghtclmn-thrshld) {
+							@media (max-width: @column-floating-threshold) {
 								width: 200%;
 							}
 						}
@@ -1142,10 +1142,10 @@
 					}
 					&:not(:first-child) {
 						@media all {
-							@media (min-width: (@v-rghtclmn-thrshld + 1)) {
+							@media (min-width: (@column-floating-threshold + 1)) {
 								border-left: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
 							}
-							@media (max-width: @v-rghtclmn-thrshld) {
+							@media (max-width: @column-floating-threshold) {
 								border-top: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
 							}
 						}
@@ -1156,7 +1156,7 @@
 								rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.0),
 								rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.2) 50%,
 								rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.7) 70%);
-							@media all and (max-width: @v-lg-mbl-thrshld) {
+							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to top,
 									rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.0),
 									rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.2) 40%,
@@ -1168,7 +1168,7 @@
 								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
 								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 50%,
 								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.7) 70%);
-							@media all and (max-width: @v-lg-mbl-thrshld) {
+							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to top,
 									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
 									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 40%,
@@ -1183,7 +1183,7 @@
 				}
 				&.quarters {
 					.column {
-						@media all and (max-width: @v-rghtclmn-thrshld) {
+						@media all and (max-width: @column-floating-threshold) {
 							background-size: auto 100%;
 							&:hover {
 								background-size: auto 110%;
