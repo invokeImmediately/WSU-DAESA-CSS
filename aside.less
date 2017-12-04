@@ -1,20 +1,21 @@
-/*!  ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*    │ ASIDE layouts ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*    └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/*!  ┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+*    │ ASIDE layouts +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*    └─────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//       ┌----------------------------------------------------------------------------------------------------------┐
-//       │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                       │
-//       │                                                                                                          │
-//       │ DESCRIPTION: Contains rule-sets for styling aide elements within OUE pages built using the WSU Spine     │
-//       │              theme for WordPress.                                                                        │
-//       │                                                                                                          │
-//       │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                    │
-//       │   • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                          │
-//       │   • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                       │
-//       │   • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                               │
-//       │   • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                              │
-//       │   • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                           │
-//       └----------------------------------------------------------------------------------------------------------┘
+//       ┌-------------------------------------------------------------------------------------┐
+//       │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)  │
+//       │                                                                                     │
+//       │ DESCRIPTION: Contains rule-sets for styling aide elements within OUE pages built    │
+//       │              using the WSU Spine theme for WordPress.                               │
+//       │                                                                                     │
+//       │ DEPENDENCIES: This file assumes the following LESS files have been imported         │
+//       │ upstream:                                                                           │
+//       │   • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                     │
+//       │   • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                  │
+//       │   • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                          │
+//       │   • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                         │
+//       │   • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                      │
+//       └-------------------------------------------------------------------------------------┘
 
 .declare-aside-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	aside {
@@ -166,7 +167,7 @@
 			}
 		}
 		.row.single .column &.article-sidebar {
-			// TODO: add meqia queries to properly handle reducing of margins as screen size gets smaller
+			// TODO: add meqia queries to reduce margins as screen size gets smaller
 			// TODO: add inclusional mixin support for arrow indicator icons
 			@media all {
 				@media (max-width: (@v-rghtclmn-thrshld)) {
@@ -188,7 +189,8 @@
 				padding: (@v-dflt-spcng / 2);
 				& { background: @rgba; .getRgbaStr(@hex-lighter-gray, 0.8); }
 				border-radius: 4px;
-				.box-shadow(~"0px 0px 0px 1px rgba(255, 255, 255, 0.9), 0px 0px 0px 2px rgba(0, 0, 0, 0.2)");
+				.box-shadow(~"0px 0px 0px 1px rgba(255, 255, 255, 0.9),
+					0px 0px 0px 2px rgba(0, 0, 0, 0.2)");
 				p:not(.centered) {
 					text-align: left;
 				}
@@ -199,20 +201,39 @@
 			@spacing: @v-dflt-spcng / 4;
 			float: right;
 			clear: right;
-			width: 33%;
 			padding: @spacing;
-			margin-top: @spacing;
-			margin-bottom: @spacing;
 			margin-left: @spacing;
-			border-left: 4px solid @hex-lighter-gray;
-			background: @hex-light-gray;
+			border-left: 4px solid @hex-light-gray;
+			background: @hex-lighter-gray;
 			font-size: 0.9rem;
-			@media all {
-				@media (max-width: (@v-rghtclmn-thrshld)) {
-					width: 94%;
-					width: ~"calc(100% - @{spacing} * 2)";
-					margin-top: @spacing * 2;
-					margin-bottom: @spacing * 4;
+			&.full-width {
+				width: 94%;
+				width: ~"calc(100% - @{spacing} * 2)";
+				margin-top: @spacing * 2;
+				margin-bottom: @spacing * 4;
+			}
+			&:not(.full-width) {
+				width: 33%;
+				margin-top: @spacing;
+				margin-bottom: @spacing;
+				@media all {
+					@media (max-width: (@v-rghtclmn-thrshld)) {
+						width: 94%;
+						width: ~"calc(100% - @{spacing} * 2)";
+						margin-top: @spacing * 2;
+						margin-bottom: @spacing * 4;
+					}
+				}
+			}
+			& > h2:first-child,
+			& > h3:first-child,
+			& > h4:first-child {
+				padding: @spacing;
+				margin: (-1 * @spacing);
+				background-color: @hex-crimson;
+				color: @hex-white;
+				& + * {
+					margin-top: (@spacing * 2);
 				}
 			}
 		}
