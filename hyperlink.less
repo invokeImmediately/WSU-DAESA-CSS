@@ -1,19 +1,19 @@
-/*     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
- *     │ ++++++++ HYPERLINKS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *     ├-------------------------------------------------------------------------------------------------┤
- *     │ Rule-sets for styling hyperlink elements within OUE pages built using the WSU Spine theme for   │
- *     │ WordPress.                                                                                      │
- *     │  ╘═» This file assumes the following LESS files have been imported upstream:                    │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                            │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                         │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                 │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                │
- *     ├-------------------------------------------------------------------------------------------------┤
+/*     ┌───────────────────────────────────────────────────────────────────────────────────────┐
+ *     │ ++++++++ HYPERLINKS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+ *     ├---------------------------------------------------------------------------------------┤
+ *     │ Rule-sets for styling hyperlink elements within OUE pages built using the WSU Spine   │
+ *     │ theme for WordPress.                                                                  │
+ *     │  ╘═» This file assumes the following LESS files have been imported upstream:          │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                  │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less               │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                       │
+ *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                      │
+ *     ├---------------------------------------------------------------------------------------┤
  */
 .declare-hyperlink-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-/*         ┌-----------------------------------------------------------------------------------------┐
- *         │ ···· HYPERLINK elements contained within .column classed elements ····················· │
- *         └-----------------------------------------------------------------------------------------┘
+/*         ┌-------------------------------------------------------------------------------┐
+ *         │ ···· HYPERLINK elements contained within .column classed elements ··········· │
+ *         └-------------------------------------------------------------------------------┘
  */
 	.column {
 		a {
@@ -32,16 +32,17 @@
 				border-bottom-left-radius: 0;
 				border-color: transparent;
 				box-shadow: inset 0 -0.3125em 0 transparent;
-				background-color: rgba(red(@hex-soft-crimson), green(@hex-soft-crimson), blue(@hex-soft-crimson),
-								  .3);
+				background-color: rgba(red(@hex-soft-crimson), green(@hex-soft-crimson), 
+								  blue(@hex-soft-crimson), .3);
 				color: @hex-light-crimson;
-				text-shadow: 0.0625em 0.0625em 0.0625em rgba(red(@hex-crimson), green(@hex-crimson),
-				  blue(@hex-crimson), .3);
+				text-shadow: 0.0625em 0.0625em 0.0625em rgba(red(@hex-crimson), 
+					green(@hex-crimson), blue(@hex-crimson), .3);
 			}
 			&.subtle-link {
-				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 0);
-				box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),
-							  0);
+				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), 
+					blue(@hex-crimson), 0);
+				box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), 
+					blue(@hex-crimson), 0);
 				&.no-highlight:hover {
 					background-color: rgba(red(@hex-soft-crimson), green(@hex-soft-crimson),
 										blue(@hex-soft-crimson), 0);				
@@ -50,8 +51,8 @@
 			&.pop-out-link {
 				.transition(~"color .4s linear, background .4s ease-in, font-size .25s linear");
 				&.subtle-link {
-					border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),
-									 0);
+					border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), 
+						blue(@hex-crimson), 0);
 					box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson),
 								  blue(@hex-crimson), 0);
 				}
@@ -112,10 +113,10 @@
 			}
 		}
 		&:hover a.loud-link {
-			border-bottom: 0.0625em solid rgba(red(@hex-light-crimson), green(@hex-light-crimson),
-						   blue(@hex-light-crimson), .2);
-			box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-light-crimson), green(@hex-light-crimson),
-						blue(@hex-light-crimson), .2);
+			border-bottom: 0.0625em solid rgba(red(@hex-light-crimson), green(@hex-light-crimson), 
+				blue(@hex-light-crimson), .2);
+			box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-light-crimson), 
+				green(@hex-light-crimson), blue(@hex-light-crimson), .2);
 		}
 		h1 > a,
 		h2 > a,
@@ -133,9 +134,9 @@
 			}
 		}
 	}
-	/*         ┌-----------------------------------------------------------------------------------------┐
-	 *         │ ···· CSS3-DRIVEN TOOLTIPS ····························································· │
-	 *         └-----------------------------------------------------------------------------------------┘
+	/*         ┌---------------------------------------------------------------------------┐
+	 *         │ ···· CSS3-DRIVEN TOOLTIPS ················································│
+	 *         └---------------------------------------------------------------------------┘
 	 */
 	a.vpue-tooltip {
 		position: relative;
@@ -217,9 +218,9 @@
 			 border-right: 1px solid @hex-dark-orange;
 		}
 	}
-	/*         ┌-----------------------------------------------------------------------------------------┐
-	 *         │ ···· INCLUSIONAL MIXINS ······························································· │
-	 *         └-----------------------------------------------------------------------------------------┘
+	/*         ┌---------------------------------------------------------------------------┐
+	 *         │ ···· INCLUSIONAL MIXINS ················································· │
+	 *         └---------------------------------------------------------------------------┘
 	 */
 	.use-glass-button-layout() {
 		.column a {
@@ -229,6 +230,7 @@
 				position: relative;
 				padding: 1em;
 				border-radius: 7px;
+				border-bottom: none;
 				& {
 					@shadow-clr: returned;
 					.getRgbaForProp(@shadow-clr, @hex-black, 0.5);
@@ -290,6 +292,17 @@
 						}
 					}
 				}
+				&.gray {
+					background-color: @hex-darkest-gray;
+					color: white;
+					&:hover {
+						background-color: @hex-gray;
+						& {
+							@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-darkest-gray, 0.3333);
+							box-shadow: 0 0 18px @@glow-clr;
+						}
+					}
+				}
 				.icon {
 					&,
 					& + .label {
@@ -313,5 +326,5 @@
 	}
 }
 .declare-hyperlink-rulesets(@grid-behavior);
-/*     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
+/*     └───────────────────────────────────────────────────────────────────────────────────────┘
  */
