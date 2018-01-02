@@ -74,6 +74,7 @@
 			border-left: 8px solid transparent;
 		}
 	}
+
 	&.boxed {
 		@clr-bxd-drk: @hex-crimson;
 		@clr-bxd-lght: @hex-light-crimson;
@@ -174,5 +175,18 @@
 				border-left: 1px solid rgba(red(@clr-bxd-lght-blue), green(@clr-bxd-lght-blue), blue(@clr-bxd-lght-blue), 0.2);
 			}
 		}
+	}
+
+	& + .toggled-panel {
+		opacity: 1;
+		overflow: hidden;
+		.transition(~"all 0.5s ease");
+	}
+
+	&:not(.activated) + .toggled-panel {
+		height: 0 !important;
+		padding: 0 !important;
+		border: none !important;
+		opacity: 0 !important;			
 	}
 }
