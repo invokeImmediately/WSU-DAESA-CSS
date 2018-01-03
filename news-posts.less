@@ -61,6 +61,9 @@ body.single-post {
 		padding: 0 @v-dflt-spcng @v-dflt-spcng 0;
 		line-height: @v-p-lnhght;
 		list-style-image: none !important;
+		&:nth-child(odd) {
+			clear: left;
+		}
 
 		.content-item-title {
 			font-size: 1.33333333em;
