@@ -15,28 +15,36 @@
  *         │ ···· PDF WRAPPERS of iframes ·························································· │
  *         └-----------------------------------------------------------------------------------------┘
  */
-	.column .pdf-wrapper {
-		position: relative;
-		width: 100%;
-		height: 0;
-		&.portrait {
-			padding-bottom: 129.4118%;
-			padding-bottom: ~"calc(129.4118% + 56px)"; // Add some extra height for Chrome's PDF viewer toolbar
-		}
-		&.landscape {
-			padding-bottom: 77.2727%;
-			padding-bottom: ~"calc(77.2727% + 56px)"; // Add some extra height for Chrome PDF viewer toolbar
-			&.show-two-pages {
-				padding-bottom: 154.5454%;
-				padding-bottom: ~"calc(154.5454% + 56px)"; // Add some extra height for Chrome PDF viewer toolbar
+	.column {
+		.pdf-wrapper,
+		.youtube-wrapper {
+			position: relative;
+			width: 100%;
+			height: 0;
+			& > iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
 			}
 		}
-		& > iframe {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
+		.pdf-wrapper {
+			&.portrait {
+				padding-bottom: 129.4118%;
+				padding-bottom: ~"calc(129.4118% + 56px)"; // Add some extra height for Chrome's PDF viewer toolbar
+			}
+			&.landscape {
+				padding-bottom: 77.2727%;
+				padding-bottom: ~"calc(77.2727% + 56px)"; // Add some extra height for Chrome PDF viewer toolbar
+				&.show-two-pages {
+					padding-bottom: 154.5454%;
+					padding-bottom: ~"calc(154.5454% + 56px)"; // Add some extra height for Chrome PDF viewer toolbar
+				}
+			}
+		}
+		.youtube-wrapper {
+			padding-bottom: 56.25%;
 		}
 	}
 }
