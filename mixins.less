@@ -1,27 +1,46 @@
-//      ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-//      │ ++++ MIXINS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-//      │   LESS mixins designed for inclusion within dependencies, regardless of semantics, to specify                 │
-//      │   spacing, padding, sizing, textual flow, and responsive behaviors.                                           │
-//      └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+// ┌───────────────────────────────────────────────────────────────────────────────────────────────┐
+// │ ++++ MIXINS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+// │   LESS mixins designed for inclusion within classes contained in LESS dependencies, regard-   │
+// │   less of semantics, to specify spacing, padding, sizing, textual flow, and responsive behav- │ 
+// │   iors.                                                                                       │
+// └───────────────────────────────────────────────────────────────────────────────────────────────┘
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
-//        │                                                                                                           │
-//        │ DESCRIPTION: Contains CSS classes designed for inclusion within larger rulesets as mixins, as well as     │
-//        |              advanced LESS constructs whose functionality is driven by mixin guarding.                    │
-//        │                                                                                                           │
-//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
-//        │   • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                            │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//   ┌---------------------------------------------------------------------------------------------┐
+//   │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)          │
+//   │                                                                                             │
+//   │ DESCRIPTION: Contains CSS classes designed for inclusion within larger rulesets as mixins,  │
+//   │ as well as advanced LESS constructs whose functionality is driven by mixin guarding.        │
+//   │                                                                                             │
+//   │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:       │
+//   │   • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                              │
+//   └---------------------------------------------------------------------------------------------┘
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· Mixins for broadly controlling content layout. ····················································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//   ┌---------------------------------------------------------------------------------------------┐
+//   │ TABLE OF CONTENTS                                                                           │
+//   │     §1: Visibility Control ..................................................... Line 33    │
+//   │     §2: Element Sizing................................................................42    │
+//   │     §3: Spacing.......................................................................83    │
+//   │     §4: Padding......................................................................191    │
+//   │     §5: Typography...................................................................297    │
+//   │     §6: Borders......................................................................325    │
+//   │     §7: More typography..............................................................390    │
+//   │     §8: Responsive layouts...........................................................476    │
+//   │     §9: Iteratively specified rulesets...............................................491    │
+//   │     §10: Interpolated property specifications........................................656    │
+//   └---------------------------------------------------------------------------------------------┘
+
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §1: Visibility Control ······················································ │
+//     └-------------------------------------------------------------------------------------------┘
 
 .initially-hidden, 
 .column .initially-hidden {
     display: none;
 }
+
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §2: Element Sizing ·························································· │
+//     └-------------------------------------------------------------------------------------------┘
 
 .set-widths(@wdth, @mn-wdth: "na", @mx-wdth: "na") when (@mn-wdth > 0) and (isnumber(@mn-wdth))
   and (@mx-wdth = "na") {
@@ -60,9 +79,9 @@
 	.set-pstn-lft(@pstn-lft);
 }
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· Spacing ···························································································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §3: Spacing ································································· │
+//     └-------------------------------------------------------------------------------------------┘
 
 .margin-centered,
 .column .margin-centered {
@@ -132,13 +151,16 @@
 	}
 }
 
-@spacing-class-list: @sz-xxxsmll, 8th, @sz-xxsmll, qrtr, @sz-xsmll, half, @sz-nrml, nrml, @sz-xxxlrg, full;
+@spacing-class-list: @sz-xxxsmll, 8th, @sz-xxsmll, qrtr, @sz-xsmll, half, @sz-nrml, nrml, 
+	@sz-xxxlrg, full;
 
-.setup-spacing-classes(extract(@spacing-class-list, length(@spacing-class-list)), extract(@spacing-class-list, length(@spacing-class-list) - 1), length(@spacing-class-list));
+.setup-spacing-classes(extract(@spacing-class-list, length(@spacing-class-list)), 
+	extract(@spacing-class-list, length(@spacing-class-list) - 1), length(@spacing-class-list));
 
 .setup-spacing-classes(@class-str, @spacing-factor, @idx) when (@idx >= 4) {
 	.declare-spacing-class(@class-str, @spacing-factor);
-	.setup-spacing-classes(extract(@spacing-class-list, @idx - 2), extract(@spacing-class-list, @idx - 3), @idx - 2);
+	.setup-spacing-classes(extract(@spacing-class-list, @idx - 2), extract(@spacing-class-list, 
+		@idx - 3), @idx - 2);
 }
 
 .setup-spacing-classes(@class-str, @spacing-factor, @idx) when (@idx = 2) {
@@ -165,9 +187,9 @@
 	.spaces-lft(0) !important;
 }
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· Padding ···························································································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §4: Padding ································································· │
+//     └-------------------------------------------------------------------------------------------┘
 
 .pads-top(@sclng-fctr: 1.0) {
     padding-top: (@v-dflt-spcng * @sclng-fctr);
@@ -204,13 +226,16 @@
 	}
 }
 
-@padding-class-list: @sz-xxxsmll, 8th, @sz-xxsmll, qrtr, @sz-xsmll, half, @sz-nrml, nrml, @sz-xxxlrg, full;
+@padding-class-list: @sz-xxxsmll, 8th, @sz-xxsmll, qrtr, @sz-xsmll, half, @sz-nrml, nrml, 
+	@sz-xxxlrg, full;
 
-.setup-padding-classes(extract(@padding-class-list, length(@padding-class-list)), extract(@padding-class-list, length(@padding-class-list) - 1), length(@padding-class-list));
+.setup-padding-classes(extract(@padding-class-list, length(@padding-class-list)), 
+	extract(@padding-class-list, length(@padding-class-list) - 1), length(@padding-class-list));
 
 .setup-padding-classes(@class-str, @padding-factor, @idx) when (@idx >= 4) {
 	.declare-padding-class(@class-str, @padding-factor);
-	.setup-padding-classes(extract(@padding-class-list, @idx - 2), extract(@padding-class-list, @idx - 3), @idx - 2);
+	.setup-padding-classes(extract(@padding-class-list, @idx - 2), extract(@padding-class-list, 
+		@idx - 3), @idx - 2);
 }
 
 .setup-padding-classes(@class-str, @padding-factor, @idx) when (@idx = 2) {
@@ -232,16 +257,20 @@
 }
 
 .has-responsive-padding(@padding-top: 0, @padding-rgt: 0, @padding-btm: 0, @padding-lft: 0) {
-	.set-responsive-padding-top(@top-pad) when (isem(@top-pad)), (isunit(@top-pad, rem)), (ispixel(@top-pad))  {
+	.set-responsive-padding-top(@top-pad) when (isem(@top-pad)), (isunit(@top-pad, rem)), 
+			(ispixel(@top-pad))  {
 		padding-top: @top-pad;
 	}
-	.set-responsive-padding-rgt(@right-pad) when (isem(@right-pad)), (isunit(@right-pad, rem)), (ispixel(@right-pad)) {
+	.set-responsive-padding-rgt(@right-pad) when (isem(@right-pad)), (isunit(@right-pad, rem)), 
+			(ispixel(@right-pad)) {
 		padding-right: @right-pad;
 	}
-	.set-responsive-padding-btm(@bottom-pad) when (isem(@bottom-pad)), (isunit(@bottom-pad, rem)), (ispixel(@bottom-pad)) {
+	.set-responsive-padding-btm(@bottom-pad) when (isem(@bottom-pad)), (isunit(@bottom-pad, rem)), 
+			(ispixel(@bottom-pad)) {
 		padding-bottom: @bottom-pad;
 	}
-	.set-responsive-padding-lft(@left-pad) when (isem(@left-pad)), (isunit(@left-pad, rem)), (ispixel(@left-pad)) {
+	.set-responsive-padding-lft(@left-pad) when (isem(@left-pad)), (isunit(@left-pad, rem)), 
+			(ispixel(@left-pad)) {
 		padding-left: @left-pad;
 	}
 	.set-responsive-padding-top(@padding-top);
@@ -264,9 +293,9 @@
 	} 
 }
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· Textual rendering ·················································································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §5: Typography ······························································ │
+//     └-------------------------------------------------------------------------------------------┘
 
 .breaks-words,
 .column .breaks-words {
@@ -292,9 +321,9 @@
     text-transform: uppercase;
 }
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· Bordering ·························································································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §6: Borders ································································· │
+//     └-------------------------------------------------------------------------------------------┘
 
 .soft-gray-border,
 .column .soft-gray-border {
@@ -357,10 +386,9 @@
 	}
 }
 	
-
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· Typography ························································································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §7: More typography ························································· │
+//     └-------------------------------------------------------------------------------------------┘
 
 .has-responsive-font(@fntsz, @lnhght, @sclng-fctrs: @v-fnt-sclng-fctrs) when (isem(@fntsz))
   and (isem(@lnhght)) and (length(@sclng-fctrs) = 6),
@@ -444,13 +472,14 @@
 	}
 }
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· Responsive design ·················································································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §8: Responsive layouts ······················································ │
+//     └-------------------------------------------------------------------------------------------┘
 
-.declare-mobile-layout(@lg-mobile-ruleset, @nrml-mobile-ruleset) when (isruleset(@lg-mobile-ruleset))
-		and (isruleset(@nrml-mobile-ruleset)){
-	@media only screen and (min-width:(@mobile-screen-width + 1)) and (max-width:@large-mobile-screen-width) {
+.declare-mobile-layout(@lg-mobile-ruleset, @nrml-mobile-ruleset) 
+		when (isruleset(@lg-mobile-ruleset)) and (isruleset(@nrml-mobile-ruleset)){
+	@media only screen and (min-width:(@mobile-screen-width + 1)) 
+			and (max-width:@large-mobile-screen-width) {
 		@lg-mobile-ruleset();
 	}
 	@media only screen and (max-width:@mobile-screen-width) {
@@ -458,19 +487,19 @@
 	}
 }
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· Iterative ruleset applications ····································································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §9: Iteratively specified rulesets ·········································· │
+//     └-------------------------------------------------------------------------------------------┘
 
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 1) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 1) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr: extract(@slctr-list,1);
 	@{slctr} {
 		@ruleset-to-apply();
 	}
 }
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 2) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 2) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr-1: extract(@slctr-list,1);
 	@slctr-2: extract(@slctr-list,2);
 	@{slctr-1},
@@ -478,8 +507,8 @@
 		@ruleset-to-apply();
 	}
 }
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 3) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 3) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr-1: extract(@slctr-list,1);
 	@slctr-2: extract(@slctr-list,2);
 	@slctr-3: extract(@slctr-list,3);
@@ -489,8 +518,8 @@
 		@ruleset-to-apply();
 	}
 }
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 4) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 4) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr-1: extract(@slctr-list,1);
 	@slctr-2: extract(@slctr-list,2);
 	@slctr-3: extract(@slctr-list,3);
@@ -502,8 +531,8 @@
 		@ruleset-to-apply();
 	}
 }
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 5) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 5) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr-1: extract(@slctr-list,1);
 	@slctr-2: extract(@slctr-list,2);
 	@slctr-3: extract(@slctr-list,3);
@@ -517,8 +546,8 @@
 		@ruleset-to-apply();
 	}
 }
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 6) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 6) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr-1: extract(@slctr-list,1);
 	@slctr-2: extract(@slctr-list,2);
 	@slctr-3: extract(@slctr-list,3);
@@ -534,8 +563,8 @@
 		@ruleset-to-apply();
 	}
 }
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 7) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 7) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr-1: extract(@slctr-list,1);
 	@slctr-2: extract(@slctr-list,2);
 	@slctr-3: extract(@slctr-list,3);
@@ -553,8 +582,8 @@
 		@ruleset-to-apply();
 	}
 }
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 8) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 8) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr-1: extract(@slctr-list,1);
 	@slctr-2: extract(@slctr-list,2);
 	@slctr-3: extract(@slctr-list,3);
@@ -574,8 +603,8 @@
 		@ruleset-to-apply();
 	}
 }
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 9) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 9) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr-1: extract(@slctr-list,1);
 	@slctr-2: extract(@slctr-list,2);
 	@slctr-3: extract(@slctr-list,3);
@@ -597,8 +626,8 @@
 		@ruleset-to-apply();
 	}
 }
-.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 10) and
- (isruleset(@ruleset-to-apply)) {
+.apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 10) 
+		and (isruleset(@ruleset-to-apply)) {
 	@slctr-1: extract(@slctr-list,1);
 	@slctr-2: extract(@slctr-list,2);
 	@slctr-3: extract(@slctr-list,3);
@@ -623,12 +652,12 @@
 	}
 }
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· Interpolated property specifications ······························································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//     ┌-------------------------------------------------------------------------------------------┐
+//     │ ···· MIXINS §10: Interpolated property specifications ··································· │
+//     └-------------------------------------------------------------------------------------------┘
 
-.has-responsive-property(@property, @value, @sclng-fctrs: @v-fnt-sclng-fctrs) when (isnumber(@value))
-  and (length(@sclng-fctrs) = 6) {
+.has-responsive-property(@property, @value, @sclng-fctrs: @v-fnt-sclng-fctrs) 
+		when (isnumber(@value))	and (length(@sclng-fctrs) = 6) {
 	@media all {
 		@{property}: @value;
 		@media (min-width: @desktop-width) {
