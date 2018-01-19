@@ -71,7 +71,8 @@
 .set-pstn-lft(@pstn) when not (@pstn = "na") {
 	left: @pstn;
 }
-.set-position(@pstn: "na", @pstn-top: "na", @pstn-rgt: "na", @pstn-btm: "na", @pstn-lft: "na") when not (@pstn = "na") {
+.set-position(@pstn: "na", @pstn-top: "na", @pstn-rgt: "na", @pstn-btm: "na", @pstn-lft: "na") when 
+		not (@pstn = "na") {
 	position: @pstn;
 	.set-pstn-top(@pstn-top);
 	.set-pstn-rgt(@pstn-rgt);
