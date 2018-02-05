@@ -411,6 +411,32 @@
 **     └-------------------------------------------------------------------------------------------┘
 */
 
+.responsive-fSize(@fSize, @scale) when
+		(isem(@fSize)) and (length(@scale) = 6),
+		(isunit(@fSize, rem)) and (length(@scale) = 6),
+		(ispixel(@fSize)) and (length(@scale) = 6) {
+	@media all {
+		@media (min-width: @desktop-width) {
+			font-size: (@fSize * extract(@scale, 1));
+		}
+		@media (min-width: (@spine-threshold + 1)) and (max-width: (@desktop-width - 1)) {
+			font-size: (@fSize * extract(@scale, 2));
+		}
+		@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
+			font-size: (@fSize * extract(@scale, 3));
+		}
+		@media (min-width: (@large-mobile-screen-width + 1)) and (max-width: @tablet-screen-width) {
+			font-size: (@fSize * extract(@scale, 4));
+		}
+		@media (min-width: (@mobile-screen-width + 1)) and (max-width: @large-mobile-screen-width) {
+			font-size: (@fSize * extract(@scale, 5));
+		}
+		@media (max-width: @mobile-screen-width) {
+			font-size: (@fSize * extract(@scale, 6));
+		}
+	}
+}
+
 .has-responsive-font(@fntsz, @lnhght, @sclng-fctrs: @v-fnt-sclng-fctrs) when (isem(@fntsz))
   and (isem(@lnhght)) and (length(@sclng-fctrs) = 6),
   (isem(@fntsz)) and (isunit(@lnhght, rem)) and (length(@sclng-fctrs) = 6),
