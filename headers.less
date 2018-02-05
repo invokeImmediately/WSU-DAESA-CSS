@@ -550,7 +550,54 @@
 **     └───────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
-/*!      >>> ···· §8.1, Accessibility friendly classes: Typography ·························· <<< */
+/*!      >>> ···· §8.1, Accessibility friendly classes: Spacing ····························· <<< */
+
+// §8.1a: LESS variables
+@hN--spacing-0: 0em;
+@hN--spacing-1: .25em;
+@hN--spacing-2: .5em;
+@hN--spacing-3: .75em;
+@hN--spacing-4: 1em;
+@hN--spacing-5: 1.25em;
+@hN--spacing-6: 1.5em;
+@hN--spacing-7: 1.75em;
+@hN--spacing-8: 2em;
+@hN--spacing-array: @hN--spacing-0, @hN--spacing-1, @hN--spacing-2, @hN--spacing-3, @hN--spacing-4, 
+	@hN--spacing-5, @hN--spacing-6, @hN--spacing-7, @hN--spacing-8;
+
+// §8.1b: Utility classes
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	.column * + & {
+		.hN--spacing-loop(@idx, @spacing) when (@idx >= 0) and (@idx <= length(@spacing)) {
+			.hN--spacing-loop((@idx-1), @spacing);
+			&.hN--spacing-@{idx} {
+				margin-top: extract(@spacing, @idx);
+			}
+		}
+		.hN--spacing-loop(length(@hN--spacing-array), @hN--spacing-array);
+	}
+}
+
+// §8.1c: Default styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	.column & {
+		.hN--spacing-4;
+	}
+}
+
+/*!      >>> ···· §8.2, Accessibility friendly classes: Typography - font sizing ············ <<< */
+
+// §8.2a: LESS variables
 @hN--fSize-1: 1.4em;
 @hN--fSize-2: 1.6em;
 @hN--fSize-3: 1.8em;
@@ -560,6 +607,61 @@
 @hN--fSize-array: @hN--fSize-1, @hN--fSize-2, @hN--fSize-3, @hN--fSize-4, @hN--fSize-5,
 	@hN--fSize-6;
 
+// §8.2b: Utility classes
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	// hN typography: Font-sizing
+	.column & {
+		.hN--size-loop(@idx, @sizes, @font-scale) when (@idx > 0)
+				and (@idx <= length(@sizes)) {
+			.hN--size-loop((@idx - 1), @sizes, @font-scale);
+			&.hN--fSize-@{idx} {
+				.responsive-fSize(extract(@sizes, @idx), @font-scale);
+			}
+		}
+		.hN--size-loop(length(@hN--fSize-array), @hN--fSize-array, @hN--responsive-fScale);
+	}
+}
+
+// §8.2c: Default styles
+h1 {
+	.column & {
+		.hN--fSize-1;
+	}
+}
+h2 {
+	.column & {
+		.hN--fSize-2;
+	}
+}
+h3 {
+	.column & {
+		.hN--fSize-3;
+	}
+}
+h4 {
+	.column & {
+		.hN--fSize-4;
+	}
+}
+h5 {
+	.column & {
+		.hN--fSize-5;
+	}
+}
+h6 {
+	.column & {
+		.hN--fSize-6;
+	}
+}
+
+/*!      >>> ···· §8.3, Accessibility friendly classes: Typography - line heights ··········· <<< */
+
+// §8.3a: LESS variables
 @hN--lHeight-1: 1em
 @hN--lHeight-2: 1.1em
 @hN--lHeight-3: 1.2em
@@ -573,6 +675,7 @@
 @hN--downscale: 0.938;
 @hN--responsive-fScale: 1.0, 1.0, 1.0, 1.0, @hN--downscale, pow(@hN--downscale, 2);
 
+// §8.3b: Utility classes
 h1,
 h2,
 h3,
@@ -580,19 +683,6 @@ h4,
 h5,
 h6 {
 	.column & {
-		line-height: @hN--lHeight-2;
-
-		// hN typography: font-sizing
-		.hN--size-loop(@idx, @sizes, @font-scale) when (@idx > 0)
-				and (@idx <= length(@sizes)) {
-			.hN--size-loop((@idx - 1), @sizes, @font-scale);
-			&.hN--fSize-@{idx} {
-				.responsive-fSize(extract(@sizes, @idx), @font-scale);
-			}
-		}
-		.hN--size-loop(length(@hN--fSize-array), @hN--fSize-array, @hN--responsive-fScale);
-
-		// hN typography: line heights
 		.hN--lHeight-loop(@idx, @heights) when (@idx > 0) 
 				and (@idx <= length(@sizes)) {
 			.hN--lHeight-loop((@idx - 1), @heights);
@@ -606,6 +696,29 @@ h6 {
 			line-height: @hN--lHeight-5;
 		}
 	}
+}
+
+// §8.3c: Default styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	.column & {
+		.hN--lHeight-2;
+	}
+}
+
+/*!      >>> ···· §8.4, Accessibility friendly classes: Child elements ······················ <<< */
+
+// hN children: Hyperlinks
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	.column & > a {
 		border-bottom: none;
 		box-shadow: none;
