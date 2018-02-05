@@ -565,6 +565,8 @@
 @hN--lHeight-5: 1.375em
 @hN--lHeight-6: 1.4em
 @hN--lHeight-7: 1.5em
+@hN--lHeight-array: @hN--lHeight-1, @hN--lHeight-2, @hN--lHeight-3, @hN--lHeight-4, @hN--lHeight-5,
+	@hN--lHeight-6, @hN--lHeight-7;
 
 @hN--downscale: 0.938;
 @hN--responsive-fScale: 1.0, 1.0, 1.0, 1.0, @hN--downscale, pow(@hN--downscale, 2);
@@ -578,6 +580,7 @@ h6 {
 	.column & {
 		line-height: @hN--lHeight-2;
 
+		// hN typography: font-sizing
 		.hN--size-loop(@idx, @sizes, @font-scale) when (@idx > 0)
 				and (@idx <= length(@sizes)) {
 			.hN--size-loop((@idx - 1), @sizes, @font-scale);
@@ -585,8 +588,19 @@ h6 {
 				.responsive-fSize(extract(@sizes, @idx), @font-scale);
 			}
 		}
-		.hN--size-loop(6, @hN--fSize-array, @hN--responsive-fScale);
+		.hN--size-loop(length(@hN--fSize-array), @hN--fSize-array, @hN--responsive-fScale);
 
+		// hN typography: line heights
+		.hN--lHeight-loop(@idx, @heights) when (@idx > 0) 
+				and (@idx <= length(@sizes)) {
+			.hN--lHeight-loop((@idx - 1), @heights);
+			&.hN--lHeight-@{idx} {
+				line-height: extract(@heights, @idx);
+			}
+		}
+		.hN--lHeight-loop(length(@hN--lHeight-array), @hN--lHeight-array);
+
+		// hN 
 		&.hN--linked {
 			line-height: @hN--lHeight-5;
 		}
