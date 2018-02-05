@@ -549,16 +549,25 @@
 **     │ ···· OUE HEADINGS/HEADERS §8: Accessibility friendly classes ···························· │
 **     └───────────────────────────────────────────────────────────────────────────────────────────┘
 */
-@hN-1x-size: 1.4em;
-@hN-2x-size: 1.6em;
-@hN-3x-size: 1.8em;
-@hN-4x-size: 2.0em;
-@hN-5x-size: 2.2em;
-@hN-6x-size: 2.4em;
-@hN-line-height: 1.1em
-@hN-size-array: @hN-1x-size, @hN-2x-size, @hN-3x-size, @hN-4x-size, @hN-5x-size, @hN-6x-size;
-@hN-downscale: 0.938;
-@hN-font-scale: 1.0, 1.0, 1.0, 1.0, @hN-downscale, pow(@hN-downscale, 2);
+@hN--fSize-1: 1.4em;
+@hN--fSize-2: 1.6em;
+@hN--fSize-3: 1.8em;
+@hN--fSize-4: 2.0em;
+@hN--fSize-5: 2.2em;
+@hN--fSize-6: 2.4em;
+@hN--fSize-array: @hN--fSize-1, @hN--fSize-2, @hN--fSize-3, @hN--fSize-4, @hN--fSize-5,
+	@hN--fSize-6;
+
+@hN--lHeight-1: 1em
+@hN--lHeight-2: 1.1em
+@hN--lHeight-3: 1.2em
+@hN--lHeight-4: 1.3em
+@hN--lHeight-5: 1.375em
+@hN--lHeight-6: 1.4em
+@hN--lHeight-7: 1.5em
+
+@hN--downscale: 0.938;
+@hN--responsive-fScale: 1.0, 1.0, 1.0, 1.0, @hN--downscale, pow(@hN--downscale, 2);
 
 h1,
 h2,
@@ -566,16 +575,17 @@ h3,
 h4,
 h5,
 h6 {
-	// TODO: write cleaner implementation via mixin loop
 	.column & {
-		.hN-size-loop(@idx, @sizes, @line-height, @font-scale) when (@idx > 0)
+		line-height: @hN--lHeight-2;
+
+		.hN--size-loop(@idx, @sizes, @font-scale) when (@idx > 0)
 				and (@idx <= length(@sizes)) {
-			.hN-size-loop(@idx - 1, @sizes, @line-height, @font-scale);
-			&.hN--@{idx}x-size {
-				.has-responsive-font(extract(@sizes, @idx), @line-height, @font-scale);
+			.hN--size-loop((@idx - 1), @sizes, @font-scale);
+			&.hN--fSize-@{idx} {
+				.responsive-fSize(extract(@sizes, @idx), @font-scale);
 			}
 		}
-		.hN-size-loop(6, @hN-size-array, @hN-line-height, @hN-font-scale);
+		.hN--size-loop(6, @hN--fSize-array, @hN--responsive-fScale);
 	}
 }
 
