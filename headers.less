@@ -586,6 +586,18 @@ h6 {
 			}
 		}
 		.hN--size-loop(6, @hN--fSize-array, @hN--responsive-fScale);
+
+		&.hN--linked {
+			line-height: @hN--lHeight-5;
+		}
+	}
+	.column & > a {
+		border-bottom: none;
+		box-shadow: none;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;			
+		}
 	}
 }
 
