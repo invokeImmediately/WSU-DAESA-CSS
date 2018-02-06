@@ -713,6 +713,7 @@ h6 {
 
 /*!      >>> ···· §8.4, Accessibility friendly classes: Coloring ···························· <<< */
 
+// §8.4a: Utility classes
 h1,
 h2,
 h3,
@@ -720,32 +721,155 @@ h4,
 h5,
 h6 {
 	.column & {
+		&.hN--solid {
+			position: relative;
+			padding: .1em .25em .11em;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 0;
+			}
+		}
 		&.hN--white {
 			color: @hex-white;
-			&.hN--solid {
-				position: relative;
-				padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 11 / 40);
-				& { background-color: @rgba; .getRgbaStr(@hex-black, 0.9); }
-				& { .rgb-black(); background: linear-gradient(to right,
-					rgba(@rval, @gval, @bval, 0.67),
-					rgba(@rval, @gval, @bval, 0.75) 5%,
-					rgba(@rval, @gval, @bval, 0.75) 50%,
-					rgba(@rval, @gval, @bval, 1)
-				); }
-				& { border-bottom: 2px solid @rgba; .getRgbaStr(@hex-black, 0.333); }
-				&::before {
-					content: "";
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 0;
+			&.hN--solid,
+			&.hN--solid.hN--bg-black {
+				& {
+					.getRgbaStr(@hex-black, 0.9);
+					background-color: @rgba;
+				}
+				& {
 					.rgb-black();
-					border-top: 1px solid rgba(@rval,@gval,@bval,1);
+					background: linear-gradient(to right,
+						rgba(@rval, @gval, @bval, 0.8) 50%,
+						rgba(@rval, @gval, @bval, 1));
+				}
+				& {
+					.getRgbaStr(@hex-black, 0.333);
+					border-bottom: 2px solid @rgba;
+				}
+				&::before {
+					.rgb-black();
+					border-top: 2px solid rgba(@rval,@gval,@bval,1);
+					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.5);
+				}
+			}
+			&.hN--solid.hN--bg-crimson {
+				& {
+					.getRgbaStr(@hex-crimson, 0.9);
+					background-color: @rgba;
+				}
+				& {
+					background: linear-gradient(to right,
+						@hex-crimson 50%,
+						@hex-dark-crimson);
+				}
+				& {
+					.getRgbaStr(@hex-dark-crimson, 0.5);
+					border-bottom: 2px solid @rgba;
+				}
+				&::before {
+					.rgb-dark-crimson();
+					border-top: 2px solid rgba(@rval,@gval,@bval,1);
 					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.5);
 				}
 			}
 		}
+		&.hN--gray {
+			color: @hex-darker-gray;
+			&.hN--solid {
+				& {
+					.getRgbaStr(@hex-dark-gray, 0.2);
+					background-color: @rgba;
+				}
+				& {
+					.rgb-dark-gray();
+					background: linear-gradient(to right,
+						transparent,
+						rgba(@rval, @gval, @bval, 0.075) 5%,
+						rgba(@rval, @gval, @bval, 0.075) 50%,
+						rgba(@rval, @gval, @bval, 0.225));
+				}
+				& {
+					.getRgbaStr(@hex-dark-gray, 0.075);
+					border-bottom: 2px solid @rgba;
+				}
+				&::before {
+					.rgb-darker-gray();
+					border-top: 2px solid rgba(@rval,@gval,@bval,0.6667);
+					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
+				}
+			}			
+		}
+		&.hN--crimson {
+			color: @hex-crimson;
+			&.hN--solid {
+				& {
+					.getRgbaStr(@hex-light-crimson, 0.075);
+					background-color: @rgba;
+				}
+				& {
+					.rgb-light-crimson()
+					background: linear-gradient(to right,
+						transparent,
+						rgba(@rval, @gval, @bval, 0.075) 5%,
+						rgba(@rval, @gval, @bval, 0.075) 50%,
+						rgba(@rval, @gval, @bval, 0.225));
+				}
+				& {
+					.getRgbaStr(@hex-light-crimson, 0.075);
+					border-bottom: 2px solid @rgba;
+				}
+				&::before {
+					.rgb-crimson();
+					border-top: 2px solid rgba(@rval,@gval,@bval,0.6667);
+					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
+				}
+			}			
+		}
+	}
+}
+
+// §8.4b: Defaults
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	.column & {
+		&:extend(.column h1.hN--gray);
+	}
+}
+
+h1 {
+	.column &.hN--solid {
+		&:extend(.column h1.hN--white);
+		&:extend(.column h1.hN--white.hN--solid);
+	}
+}
+
+h2 {
+	.column &.hN--solid {
+		&:extend(.column h1.hN--white);
+		&:extend(.column h1.hN--white.hN--solid.hN--bg-crimson);
+	}
+}
+
+h3 {
+	.column &.hN--solid {
+		&:extend(.column h1.hN--gray);		
+		&:extend(.column h1.hN--gray.hN--solid);
+	}
+}
+
+h4 {
+	.column &.hN--solid {
+		&:extend(.column h1.hN--crimson);		
+		&:extend(.column h1.hN--crimson.hN--solid);
 	}
 }
 
