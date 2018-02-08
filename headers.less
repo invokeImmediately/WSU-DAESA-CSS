@@ -23,7 +23,7 @@
 
 	h1 {
 		// Prepend: body:not(.use-bem-styles)
-		.column & {
+		body:not(.use-a11y-styles) .column & {
 			&:extend(.has-dflt-font);
 			padding-bottom: 0;
 			margin-top: 1.5rem;
@@ -37,8 +37,8 @@
 				text-align: center;
 			}
 		}
-		.column &:first-child,
-		.column header:first-child + & {
+		body:not(.use-a11y-styles) .column &:first-child,
+		body:not(.use-a11y-styles) .column header:first-child + & {
 			margin-top: 0;
 		}
 	}
@@ -49,7 +49,7 @@
 */
 
 	h2 {
-		.column & {
+		body:not(.use-a11y-styles) .column & {
 			&:extend(.has-dflt-font);
 			padding: 0 0 0 .1em;
 			margin-top: 1.5rem;
@@ -74,9 +74,9 @@
 				margin-top: 0;
 			}
 		}
-		.column &.fancy,
-		.column &.solid,
-		.column.show-header.has-fancy-header > header:first-child > & {
+		body:not(.use-a11y-styles) .column &.fancy,
+		body:not(.use-a11y-styles) .column &.solid,
+		body:not(.use-a11y-styles) .column.show-header.has-fancy-header > header:first-child > & {
 			position: relative;
 			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 11 / 40);
 			margin-left: (-1 * @v-dflt-spcng / 4);
@@ -91,9 +91,9 @@
 			); }
 			& { border-bottom: 2px solid @rgba; .getRgbaStr(@hex-dark-gray, 0.075); }
 		}
-		.column &.fancy.with-top-border,
-		.column &.solid,
-		.column.show-header.has-fancy-header > header:first-child > & {
+		body:not(.use-a11y-styles) .column &.fancy.with-top-border,
+		body:not(.use-a11y-styles) .column &.solid,
+		body:not(.use-a11y-styles) .column.show-header.has-fancy-header > header:first-child > & {
 			padding-top: 0.5rem;
 			&:not(:first-child) {
 				margin-top: @v-dflt-spcng;
@@ -110,22 +110,22 @@
 				border-top-width: 2px;
 			}
 		}
-		.column &:first-child,
-		.column header:first-child + &,
-		.column header:first-child + &.fancy.with-top-border:not(:first-child),
-		.column header:first-child + &.solid:not(:first-child) {
+		body:not(.use-a11y-styles) .column &:first-child,
+		body:not(.use-a11y-styles) .column header:first-child + &,
+		body:not(.use-a11y-styles) .column header:first-child + &.fancy.with-top-border:not(:first-child),
+		body:not(.use-a11y-styles) .column header:first-child + &.solid:not(:first-child) {
 			margin-top: 0;
 		}
-		.column h1 + & {
+		body:not(.use-a11y-styles) .column h1 + & {
 			font-style: italic;
 		}
-		.column hr:not(.subSection) + h2 {
+		body:not(.use-a11y-styles) .column hr:not(.subSection) + h2 {
 			margin-top: 0;
 		}
 	}
 
 	// TODO: move to hyperlink.less
-	h2.article-title a {
+	body:not(.use-a11y-styles) h2.article-title a {
 		border-bottom: none;
 	}
 
@@ -135,7 +135,7 @@
 */
 
 	h3 {
-		.column & {
+		body:not(.use-a11y-styles) .column & {
 			&:extend(.has-dflt-font);
 			padding: 0 0 0 .1em;
 			margin-top: 1.5rem;
@@ -156,13 +156,13 @@
 				margin-top: 0;
 			}
 		}
-		.column &.lowercase,
-		.column.show-header.has-lowercase-header > header:first-child > & {
+		body:not(.use-a11y-styles) .column &.lowercase,
+		body:not(.use-a11y-styles) .column.show-header.has-lowercase-header > header:first-child > & {
 			text-transform: none;
 		}
-		.column &.fancy,
-		.column &.solid,
-		.column.show-header.has-fancy-header > header:first-child > & {
+		body:not(.use-a11y-styles) .column &.fancy,
+		body:not(.use-a11y-styles) .column &.solid,
+		body:not(.use-a11y-styles) .column.show-header.has-fancy-header > header:first-child > & {
 			position: relative;
 			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 9 / 40) 0;
 			margin-left: 0;
@@ -177,9 +177,9 @@
 			); }
 			& { border-bottom: 2px solid @rgba; .getRgbaStr(@hex-light-crimson, 0.075); }
 		}
-		.column &.fancy.with-top-border,
-		.column &.solid,
-		.column.show-header.has-fancy-header > header:first-child > & {
+		body:not(.use-a11y-styles) .column &.fancy.with-top-border,
+		body:not(.use-a11y-styles) .column &.solid,
+		body:not(.use-a11y-styles) .column.show-header.has-fancy-header > header:first-child > & {
 			padding-top: 0.4375rem;
 			&:not(:first-child) {
 				margin-top: @v-dflt-spcng;
@@ -195,11 +195,11 @@
 				 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
 			}
 		}		
-		.column &:first-child,
-		.column header:first-child + &,
-		.column header:first-child + &.fancy.with-top-border:not(:first-child),
-		.column header:first-child + &.solid:not(:first-child),
-		.column hr:not(.subSection) + &
+		body:not(.use-a11y-styles) .column &:first-child,
+		body:not(.use-a11y-styles) .column header:first-child + &,
+		body:not(.use-a11y-styles) .column header:first-child + &.fancy.with-top-border:not(:first-child),
+		body:not(.use-a11y-styles) .column header:first-child + &.solid:not(:first-child),
+		body:not(.use-a11y-styles) .column hr:not(.subSection) + &
 		{
 			margin-top: 0;
 		}
@@ -211,7 +211,7 @@
 */
 
 	h4 {
-		.column & {
+		body:not(.use-a11y-styles) .column & {
 			&:extend(.has-dflt-font);
 			padding: 0;
 			margin-top: 1rem;
@@ -224,15 +224,15 @@
 				text-align: center;
 			}
 			&.fancy {
-				&:extend(.column h3.fancy all);
+				&:extend(body:not(.use-a11y-styles) .column h3.fancy all);
 			}
 			&.gray {
 				color: @hex-darker-gray;
 			}
 		}
-		.column &:first-child,
-		.column header:first-child + &,
-		.column hr:not(.subSection) + &
+		body:not(.use-a11y-styles) .column &:first-child,
+		body:not(.use-a11y-styles) .column header:first-child + &,
+		body:not(.use-a11y-styles) .column hr:not(.subSection) + &
 		{
 			margin-top: 0;
 		}
@@ -243,13 +243,13 @@
 **     └───────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
-	.column {
+	body:not(.use-a11y-styles) .column {
 		h1.crimson, h2.crimson {
 			color: @hex-crimson;
 		}
 	}
 
-	section {
+	body:not(.use-a11y-styles) section {
 		&.side-right, &.row.side-right {
 			.column.one h2.fancy,
 			.column.one h3.fancy {
@@ -553,6 +553,8 @@
 /*!      >>> ···· §8.1, Accessibility friendly classes: Spacing ····························· <<< */
 
 // §8.1a: LESS variables
+@hN--parent: ~"body.use-a11y-styles .column";
+
 @hN--spacing-0: 0em;
 @hN--spacing-1: .25em;
 @hN--spacing-2: .5em;
@@ -572,9 +574,9 @@ h3,
 h4,
 h5,
 h6 {
-	.column * + & {
+	@{hN--parent} * + & {
 		.hN--spacing-loop(@idx, @spacing) when (@idx >= 0) and (@idx <= length(@spacing)) {
-			.hN--spacing-loop((@idx-1), @spacing);
+			.hN--spacing-loop((@idx - 1), @spacing);
 			&.hN--spacing-@{idx} {
 				margin: 0;
 				margin-top: extract(@spacing, @idx);
@@ -591,10 +593,11 @@ h3,
 h4,
 h5,
 h6 {
-	.column & {
-		&:extend(.column h1.hN--spacing-4);
+	@{hN--parent} & {
+		&:extend(@{hN--parent} h1.hN--spacing-4);
 	}
 }
+
 
 /*!      >>> ···· §8.2, Accessibility friendly classes: Typography - font sizing ············ <<< */
 
@@ -616,7 +619,7 @@ h4,
 h5,
 h6 {
 	// hN typography: Font-sizing
-	.column & {
+	@{parent} & {
 		.hN--size-loop(@idx, @sizes, @font-scale) when (@idx > 0)
 				and (@idx <= length(@sizes)) {
 			.hN--size-loop((@idx - 1), @sizes, @font-scale);
@@ -630,32 +633,32 @@ h6 {
 
 // §8.2c: Default styles
 h1 {
-	.column & {
+	@{parent} & {
 		&:extend(.column h1.hN--fSize-1);
 	}
 }
 h2 {
-	.column & {
+	@{parent} & {
 		&:extend(.column h1.hN--fSize-2);
 	}
 }
 h3 {
-	.column & {
+	@{parent} & {
 		&:extend(.column h1.hN--fSize-3);
 	}
 }
 h4 {
-	.column & {
+	@{parent} & {
 		&:extend(.column h1.hN--fSize-4);
 	}
 }
 h5 {
-	.column & {
+	@{parent} & {
 		&:extend(.column h1.hN--fSize-5);
 	}
 }
 h6 {
-	.column & {
+	@{parent} & {
 		&:extend(.column h1.hN--fSize-6);
 	}
 }
