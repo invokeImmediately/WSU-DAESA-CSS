@@ -553,6 +553,8 @@
 /*!      >>> ···· §8.1, Accessibility friendly classes: Spacing ····························· <<< */
 
 // §8.1a: LESS variables
+@hN--parent: ~"body.use-a11y-styles .column";
+
 @hN--spacing-1: 0em;
 @hN--spacing-2: .25em;
 @hN--spacing-3: .5em;
@@ -572,11 +574,10 @@ h3,
 h4,
 h5,
 h6 {
-	.column * + & {
+	@{hN--parent} * + & {
 		.hN--spacing-loop(@idx, @spacing) when (@idx >= 0) and (@idx <= length(@spacing)) {
 			.hN--spacing-loop((@idx - 1), @spacing);
 			&.hN--spacing-@{idx} {
-				margin: 0;
 				margin-top: extract(@spacing, @idx);
 			}
 		}
@@ -591,8 +592,9 @@ h3,
 h4,
 h5,
 h6 {
-	.column & {
-		&:extend(.column h1.hN--spacing-4);
+	@{hN--parent} * + & {
+		margin: 0;
+		margin-top: @hN--spacing-5;
 	}
 }
 
