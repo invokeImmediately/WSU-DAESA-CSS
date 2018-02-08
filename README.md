@@ -1,6 +1,6 @@
 # WSU-UE---CSS
-This repository contains precompiled CSS, written in the [LESS language](http://lesscss.org/features/), for defining styles that are common to all of the WordPress websites of WSU Office of Undergraduate Education (OUE). It is designed to be included as a git submodule on repositories dedicated to the development of a particular OUE website. Moreover, the CSS compiled from this repository is meant to be applied as add-on CSS in the [WSU WordPress spine parent theme](https://github.com/washingtonstateuniversity/WSUWP-spine-parent-theme).
-## OUE Websites that Utilize this Project
+This repository contains precompiled CSS, written in the [LESS language](http://lesscss.org/features/), for defining styles common to all WordPress websites of the [WSU Office of Undergraduate Education (OUE)](https://vpue.wsu.edu). It is designed to be included as a git submodule on repositories dedicated to the development of a particular OUE website. Moreover, the CSS compiled from this repository is meant to be applied as add-on CSS in the [WSU WordPress spine parent theme](https://github.com/washingtonstateuniversity/WSUWP-spine-parent-theme).
+## WSU OUE Websites Utilizing this Project
 * [Academic Success and Career Center](https://ascc.wsu.edu)
 * [Common Reading program](https://commonreading.wsu.edu)
 * [Distinguished Scholarships program](https://distinguishedscholarships.wsu.edu)
