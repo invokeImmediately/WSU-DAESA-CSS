@@ -553,19 +553,17 @@
 /*!      >>> ···· §8.1, Accessibility friendly classes: Spacing ····························· <<< */
 
 // §8.1a: LESS variables
-@hN--parent: ~"body.use-a11y-styles .column";
-
-@hN--spacing-0: 0em;
-@hN--spacing-1: .25em;
-@hN--spacing-2: .5em;
-@hN--spacing-3: .75em;
-@hN--spacing-4: 1em;
-@hN--spacing-5: 1.25em;
-@hN--spacing-6: 1.5em;
-@hN--spacing-7: 1.75em;
-@hN--spacing-8: 2em;
-@hN--spacing-array: @hN--spacing-0, @hN--spacing-1, @hN--spacing-2, @hN--spacing-3, @hN--spacing-4, 
-	@hN--spacing-5, @hN--spacing-6, @hN--spacing-7, @hN--spacing-8;
+@hN--spacing-1: 0em;
+@hN--spacing-2: .25em;
+@hN--spacing-3: .5em;
+@hN--spacing-4: .75em;
+@hN--spacing-5: 1em;
+@hN--spacing-6: 1.25em;
+@hN--spacing-7: 1.5em;
+@hN--spacing-8: 1.75em;
+@hN--spacing-9: 2em;
+@hN--spacing-array: @hN--spacing-1, @hN--spacing-2, @hN--spacing-3, @hN--spacing-4, @hN--spacing-5, 
+	@hN--spacing-6, @hN--spacing-7, @hN--spacing-8, @hN--spacing-9;
 
 // §8.1b: Utility classes
 h1,
@@ -574,7 +572,7 @@ h3,
 h4,
 h5,
 h6 {
-	@{hN--parent} * + & {
+	.column * + & {
 		.hN--spacing-loop(@idx, @spacing) when (@idx >= 0) and (@idx <= length(@spacing)) {
 			.hN--spacing-loop((@idx - 1), @spacing);
 			&.hN--spacing-@{idx} {
@@ -593,11 +591,10 @@ h3,
 h4,
 h5,
 h6 {
-	@{hN--parent} & {
-		&:extend(@{hN--parent} h1.hN--spacing-4);
+	.column & {
+		&:extend(.column h1.hN--spacing-4);
 	}
 }
-
 
 /*!      >>> ···· §8.2, Accessibility friendly classes: Typography - font sizing ············ <<< */
 
@@ -619,7 +616,7 @@ h4,
 h5,
 h6 {
 	// hN typography: Font-sizing
-	@{parent} & {
+	.column & {
 		.hN--size-loop(@idx, @sizes, @font-scale) when (@idx > 0)
 				and (@idx <= length(@sizes)) {
 			.hN--size-loop((@idx - 1), @sizes, @font-scale);
@@ -633,32 +630,32 @@ h6 {
 
 // §8.2c: Default styles
 h1 {
-	@{parent} & {
+	.column & {
 		&:extend(.column h1.hN--fSize-1);
 	}
 }
 h2 {
-	@{parent} & {
+	.column & {
 		&:extend(.column h1.hN--fSize-2);
 	}
 }
 h3 {
-	@{parent} & {
+	.column & {
 		&:extend(.column h1.hN--fSize-3);
 	}
 }
 h4 {
-	@{parent} & {
+	.column & {
 		&:extend(.column h1.hN--fSize-4);
 	}
 }
 h5 {
-	@{parent} & {
+	.column & {
 		&:extend(.column h1.hN--fSize-5);
 	}
 }
 h6 {
-	@{parent} & {
+	.column & {
 		&:extend(.column h1.hN--fSize-6);
 	}
 }
