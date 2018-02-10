@@ -1,27 +1,51 @@
-/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*       │ SECTIONS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-*/
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
-//        │                                                                                                           │
-//        │ DESCRIPTION: Rule-sets for styling section elements within OUE pages built using the Builder template     │
-//        │ within the Spine theme for WordPress.                                                                     │
-//        │                                                                                                           │
-//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                      │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                   │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                           │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                          │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                       │
-//        └-----------------------------------------------------------------------------------------------------------┘
+//  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+//  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+//  │                                                                                            │
+//  │ DESCRIPTION: Rule-sets for styling section elements within OUE pages built using the       │
+//  │ Builder template within the Spine theme for WordPress.                                     │
+//  │                                                                                            │
+//  │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:      │
+//  │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                       │
+//  │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                    │
+//  │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                            │
+//  │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                           │
+//  │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                        │
+//  └────────────────────────────────────────────────────────────────────────────────────────────┘
 
+/*
+* TABLE OF CONTENTS:
+* -----------------
+*   oue-sections-1.0: Styles for sectioning content across OUE websites.........................32
+*   oue-sections-1.1: Utility classes...........................................................38
+*   oue-sections-1.2: Legacy article headers....................................................47
+*   oue-sections-1.3: Large-format friendly sections...........................................117
+*   oue-sections-1.4: Styles for "Thirds" Spine builder sections...............................206
+*   oue-sections-1.5: Section coloring.........................................................252
+*   oue-sections-1.6: Spacing overrides to improve responsive design...........................282
+*   oue-sections-1.7: Gutter padding overrides to improve mobile design........................387
+*   oue-sections-1.8: Column stacking overrides to improve mobile design.......................576
+*   oue-sections-1.9: Linked column styling....................................................595
+*/
+
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.0: Styles for sectioning content across OUE websites
+*/
 .declare-section-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-	//TODO: Recode to rely on class-based selection logic.
+
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.1: Utility classes
+*/
+	// TODO: Recode to rely on class-based selection logic.
 	section {
 		&.column-one-with-bottom-margin > .column.one {
 			margin-bottom: 2rem;
 		}
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.2: Legacy article headers
+*/
 		&:not(.row).article-header {
 			height: 120px;
 			margin-bottom: 1rem;
@@ -88,6 +112,10 @@
 				}
 			}
 		}
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.3: Large-format friendly sections
+*/
 		&.halves {
 			.column {
 				p:not([class*="center"]) {
@@ -173,6 +201,10 @@
 				}
 			}
 		}
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.4: Styles for "Thirds" Spine builder sections
+*/
 		&.thirds {
 			img.show-when-adjacent {
 				@media all {
@@ -215,9 +247,10 @@
 		}
 	}
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· COLORING THEMES for builder sections ······························································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.5: Section coloring
+*/
 
 	@class-setup-matrix: has-charcoal-background @hex-charcoal-gray @hex-white,
 		has-gray-background @hex-bright-gray none,
@@ -244,11 +277,13 @@
 	}
 	.setup-coloring-classes(@class-setup-matrix);
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· SPACING OVERWRITES to improve responsive design ···················································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.6: Spacing overrides to improve responsive design of WSU Spine builder template
+*/
 
-	main section.row {
+	// TODO: Remove once styles under body.use-a11y-styles have been developed and tested.
+	body:not(.use-a11y-styles) main section.row {
 		& > .column,
 		& > .column > article > .article-body,
 		& > .column > article > .article-summary,
@@ -347,7 +382,13 @@
 		}
 	}
 	
-	@media only screen and (min-width:(@large-mobile-screen-width + 1)) and (max-width:@column-floating-threshold) {
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.7: Gutter padding overrides to improve mobile design of WSU Spine builder template
+*/
+
+	@media only screen and (min-width:(@large-mobile-screen-width + 1))
+			and (max-width:@column-floating-threshold) {
 		.gutter .column:not(.gutterless),
 		.guttered {
 			padding-left: @v-dflt-spcng;
@@ -405,7 +446,8 @@
 		}
 	}
 
-	@media only screen and (min-width:(@mobile-screen-width + 1)) and (max-width:@large-mobile-screen-width) {
+	@media only screen and (min-width:(@mobile-screen-width + 1))
+			and (max-width:@large-mobile-screen-width) {
 		.gutter .column:not(.gutterless),
 		.guttered {
 			padding-left: (@v-dflt-spcng / 2);
@@ -528,7 +570,12 @@
 			padding-right: (@v-dflt-spcng / 4);
 		}
 	}
-	
+
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.8: Column stacking overrides to improve mobile design of WSU Spine builder template
+*/
+
 	@media all and (max-width: @column-floating-threshold) {
 		.row:not(.pad-top) {
 			&.halves,
@@ -543,9 +590,11 @@
 		}
 	}
 
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ ···· LINKED COLUMNS content group ······································································· │
-//        └-----------------------------------------------------------------------------------------------------------┘
+/*!
+* --------------------------------------------------------------------------------------------------
+* oue-sections-1.9: Linked column styling
+*/
+
 	.use-linked-columns() {
 		.row.has-linked-columns:not(.gutter) {
 			.spaces-top-half;
@@ -691,29 +740,37 @@
 				&.has-crimson-bg {
 					&:after {
 						background: linear-gradient(to bottom,
-							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
-							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 50%,
-							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),1));
+							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 0.0),
+							rgba(red(@hex-crimson), green(@hex-crimson),
+								blue(@hex-crimson),0.2) 50%,
+							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 1));
 					}
 					&:before {
 						background: linear-gradient(to top,
 							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
-							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 50%,
+							rgba(red(@hex-crimson), green(@hex-crimson), 
+								blue(@hex-crimson),0.2) 50%,
 							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),1));
 					}
 				}
 				&.has-gray-bg {
 					&:after {
 						background: linear-gradient(to bottom,
-							rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.0),
-							rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.2) 50%,
-							rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),1));
+							rgba(red(@hex-light-gray), green(@hex-light-gray), 
+								blue(@hex-light-gray), 0.0),
+							rgba(red(@hex-light-gray), green(@hex-light-gray), 
+								blue(@hex-light-gray), 0.2) 50%,
+							rgba(red(@hex-light-gray), green(@hex-light-gray), 
+								blue(@hex-light-gray), 1));
 					}
 					&:before {
 						background: linear-gradient(to top,
-							rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.0),
-							rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.2) 50%,
-							rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),1));
+							rgba(red(@hex-light-gray), green(@hex-light-gray), 
+								blue(@hex-light-gray),0.0),
+							rgba(red(@hex-light-gray), green(@hex-light-gray), 
+								blue(@hex-light-gray),0.2) 50%,
+							rgba(red(@hex-light-gray), green(@hex-light-gray), 
+								blue(@hex-light-gray),1));
 					}
 					&:hover {
 						& > :first-child:not(header),
@@ -729,15 +786,21 @@
 				&.has-yellow-bg {
 					&:after {
 						background: linear-gradient(to bottom,
-							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.0),
-							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.2) 50%,
-							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),1));
+							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+								blue(@hex-accent-yellow), 0.0),
+							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+								blue(@hex-accent-yellow), 0.2) 50%,
+							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+								blue(@hex-accent-yellow), 1));
 					}
 					&:before {
 						background: linear-gradient(to top,
-							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.0),
-							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.2) 50%,
-							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),1));
+							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+								blue(@hex-accent-yellow), 0.0),
+							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+								blue(@hex-accent-yellow), 0.2) 50%,
+							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+								blue(@hex-accent-yellow), 1));
 					}
 					&:hover {
 						& > :first-child:not(header),
@@ -753,15 +816,21 @@
 				&.has-blue-bg {
 					&:after {
 						background: linear-gradient(to bottom,
-							rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.0),
-							rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.2) 50%,
-							rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),1));
+							rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+								blue(@hex-accent-blue), 0.0),
+							rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+								blue(@hex-accent-blue), 0.2) 50%,
+							rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+								blue(@hex-accent-blue), 1));
 					}
 					&:before {
 						background: linear-gradient(to top,
-							rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.0),
-							rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.2) 50%,
-							rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),1));
+							rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+								blue(@hex-accent-blue), 0.0),
+							rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+								blue(@hex-accent-blue), 0.2) 50%,
+							rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+								blue(@hex-accent-blue), 1));
 					}
 					&:hover {
 						& > :first-child:not(header),
@@ -777,15 +846,21 @@
 				&.has-green-bg {
 					&:after {
 						background: linear-gradient(to bottom,
-							rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.0),
-							rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.2) 50%,
-							rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),1));
+							rgba(red(@hex-accent-green), green(@hex-accent-green), 
+								blue(@hex-accent-green), 0.0),
+							rgba(red(@hex-accent-green), green(@hex-accent-green), 
+								blue(@hex-accent-green), 0.2) 50%,
+							rgba(red(@hex-accent-green), green(@hex-accent-green), 
+								blue(@hex-accent-green), 1));
 					}
 					&:before {
 						background: linear-gradient(to top,
-							rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.0),
-							rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.2) 50%,
-							rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),1));
+							rgba(red(@hex-accent-green), green(@hex-accent-green), 
+								blue(@hex-accent-green), 0.0),
+							rgba(red(@hex-accent-green), green(@hex-accent-green), 
+								blue(@hex-accent-green), 0.2) 50%,
+							rgba(red(@hex-accent-green), green(@hex-accent-green), 
+								blue(@hex-accent-green), 1));
 					}
 					&:hover {
 						& > :first-child:not(header),
@@ -801,15 +876,21 @@
 				&.has-orange-bg {
 					&:after {
 						background: linear-gradient(to bottom,
-							rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.0),
-							rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.2) 50%,
-							rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),1));
+							rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+								blue(@hex-accent-orange), 0.0),
+							rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+								blue(@hex-accent-orange), 0.2) 50%,
+							rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+								blue(@hex-accent-orange), 1));
 					}
 					&:before {
 						background: linear-gradient(to top,
-							rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.0),
-							rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.2) 50%,
-							rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),1));
+							rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+								blue(@hex-accent-orange), 0.0),
+							rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+								blue(@hex-accent-orange), 0.2) 50%,
+							rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+								blue(@hex-accent-orange), 1));
 					}
 					&:hover {
 						& > :first-child:not(header),
@@ -868,7 +949,8 @@
 			&.quarters {
 				& + &.thirds,
 				& + &.quarters {
-					border-top: 1px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.7);
+					border-top: 1px solid rgba(red(@hex-white), green(@hex-white), 
+						blue(@hex-white), 0.7);
 					margin-top: 0 !important;
 				}
 				.column {
@@ -879,7 +961,8 @@
 						//background-size: 110% auto;
 					}
 					@media all {
-						@media (min-width: (@column-floating-threshold + 1)) and (max-width: (@tablet-screen-width)) {
+						@media (min-width: (@column-floating-threshold + 1)) 
+								and (max-width: (@tablet-screen-width)) {
 							padding-bottom: ~"calc(40% - @{v-dflt-spcng}) !important";
 						}
 						@media (max-width: @column-floating-threshold) {
@@ -903,121 +986,175 @@
 					&.has-crimson-bg {
 						&:after {
 							background: linear-gradient(to bottom,
-								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
-								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 50%,
-								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),1) 80%);
+								rgba(red(@hex-crimson), green(@hex-crimson), 
+									blue(@hex-crimson), 0.0),
+								rgba(red(@hex-crimson), green(@hex-crimson), 
+									blue(@hex-crimson), 0.2) 50%,
+								rgba(red(@hex-crimson), green(@hex-crimson), 
+									blue(@hex-crimson), 1) 80%);
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
-									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
-									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 40%,
-									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),1) 67%);
+									rgba(red(@hex-crimson), green(@hex-crimson), 
+										blue(@hex-crimson), 0.0),
+									rgba(red(@hex-crimson), green(@hex-crimson), 
+										blue(@hex-crimson), 0.2) 40%,
+									rgba(red(@hex-crimson), green(@hex-crimson), 
+										blue(@hex-crimson), 1) 67%);
 							}
 						}
 						&:before {
 							background: linear-gradient(to top,
-								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
-								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 50%,
-								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),1) 80%);
+								rgba(red(@hex-crimson), green(@hex-crimson), 
+									blue(@hex-crimson), 0.0),
+								rgba(red(@hex-crimson), green(@hex-crimson), 
+									blue(@hex-crimson), 0.2) 50%,
+								rgba(red(@hex-crimson), green(@hex-crimson), 
+									blue(@hex-crimson), 1) 80%);
 						}
 					}
 					&.has-gray-bg {
 						&:after {
 							background: linear-gradient(to bottom,
-								rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.0),
-								rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.2) 50%,
-								rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),1) 80%);
+								rgba(red(@hex-light-gray), green(@hex-light-gray), 
+									blue(@hex-light-gray), 0.0),
+								rgba(red(@hex-light-gray), green(@hex-light-gray), 
+									blue(@hex-light-gray), 0.2) 50%,
+								rgba(red(@hex-light-gray), green(@hex-light-gray), 
+									blue(@hex-light-gray), 1) 80%);
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
-									rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.0),
-									rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.2) 40%,
-									rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),1) 67%);
+									rgba(red(@hex-light-gray), green(@hex-light-gray), 
+										blue(@hex-light-gray), 0.0),
+									rgba(red(@hex-light-gray), green(@hex-light-gray), 
+										blue(@hex-light-gray), 0.2) 40%,
+									rgba(red(@hex-light-gray), green(@hex-light-gray), 
+										blue(@hex-light-gray), 1) 67%);
 							}
 						}
 						&:before {
 							background: linear-gradient(to top,
-								rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.0),
-								rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),0.2) 50%,
-								rgba(red(@hex-light-gray), green(@hex-light-gray), blue(@hex-light-gray),1) 80%);
+								rgba(red(@hex-light-gray), green(@hex-light-gray), 
+									blue(@hex-light-gray), 0.0),
+								rgba(red(@hex-light-gray), green(@hex-light-gray), 
+									blue(@hex-light-gray), 0.2) 50%,
+								rgba(red(@hex-light-gray), green(@hex-light-gray), 
+									blue(@hex-light-gray), 1) 80%);
 						}
 					}
 					&.has-yellow-bg {
 						&:after {
 							background: linear-gradient(to bottom,
-								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.0),
-								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.2) 50%,
-								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),1) 80%);
+								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+									blue(@hex-accent-yellow), 0.0),
+								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+									blue(@hex-accent-yellow), 0.2) 50%,
+								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+									blue(@hex-accent-yellow), 1) 80%);
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
-									rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.0),
-									rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.2) 40%,
-									rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),1) 67%);
+									rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+										blue(@hex-accent-yellow), 0.0),
+									rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+										blue(@hex-accent-yellow), 0.2) 40%,
+									rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+										blue(@hex-accent-yellow), 1) 67%);
 							}
 						}
 						&:before {
 							background: linear-gradient(to top,
-								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.0),
-								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),0.2) 50%,
-								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), blue(@hex-accent-yellow),1) 80%);
+								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+									blue(@hex-accent-yellow), 0.0),
+								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+									blue(@hex-accent-yellow), 0.2) 50%,
+								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
+									blue(@hex-accent-yellow), 1) 80%);
 						}
 					}
 					&.has-blue-bg {
 						&:after {
 							background: linear-gradient(to bottom,
-								rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.0),
-								rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.2) 50%,
-								rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),1) 80%);
+								rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+									blue(@hex-accent-blue), 0.0),
+								rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+									blue(@hex-accent-blue), 0.2) 50%,
+								rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+									blue(@hex-accent-blue), 1) 80%);
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
-									rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.0),
-									rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.2) 40%,
-									rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),1) 67%);
+									rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+										blue(@hex-accent-blue), 0.0),
+									rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+										blue(@hex-accent-blue), 0.2) 40%,
+									rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+										blue(@hex-accent-blue), 1) 67%);
 							}
 						}
 						&:before {
 							background: linear-gradient(to top,
-								rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.0),
-								rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),0.2) 50%,
-								rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue),1) 80%);
+								rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+									blue(@hex-accent-blue), 0.0),
+								rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+									blue(@hex-accent-blue), 0.2) 50%,
+								rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+									blue(@hex-accent-blue), 1) 80%);
 						}
 					}
 					&.has-green-bg {
 						&:after {
 							background: linear-gradient(to bottom,
-								rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.0),
-								rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.2) 50%,
-								rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),1) 80%);
+								rgba(red(@hex-accent-green), green(@hex-accent-green), 
+									blue(@hex-accent-green), 0.0),
+								rgba(red(@hex-accent-green), green(@hex-accent-green), 
+									blue(@hex-accent-green), 0.2) 50%,
+								rgba(red(@hex-accent-green), green(@hex-accent-green), 
+									blue(@hex-accent-green), 1) 80%);
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
-									rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.0),
-									rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.2) 40%,
-									rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),1) 67%);
+									rgba(red(@hex-accent-green), green(@hex-accent-green), 
+										blue(@hex-accent-green), 0.0),
+									rgba(red(@hex-accent-green), green(@hex-accent-green), 
+										blue(@hex-accent-green), 0.2) 40%,
+									rgba(red(@hex-accent-green), green(@hex-accent-green), 
+										blue(@hex-accent-green), 1) 67%);
 							}
 						}
 						&:before {
 							background: linear-gradient(to top,
-								rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.0),
-								rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),0.2) 50%,
-								rgba(red(@hex-accent-green), green(@hex-accent-green), blue(@hex-accent-green),1) 80%);
+								rgba(red(@hex-accent-green), green(@hex-accent-green), 
+									blue(@hex-accent-green), 0.0),
+								rgba(red(@hex-accent-green), green(@hex-accent-green), 
+									blue(@hex-accent-green), 0.2) 50%,
+								rgba(red(@hex-accent-green), green(@hex-accent-green), 
+									blue(@hex-accent-green), 1) 80%);
 						}
 					}
 					&.has-orange-bg {
 						&:after {
 							background: linear-gradient(to bottom,
-								rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.0),
-								rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.2) 50%,
-								rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),1) 80%);
+								rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+									blue(@hex-accent-orange), 0.0),
+								rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+									blue(@hex-accent-orange), 0.2) 50%,
+								rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+									blue(@hex-accent-orange), 1) 80%);
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
-									rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.0),
-									rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.2) 40%,
-									rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),1) 67%);
+									rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+										blue(@hex-accent-orange), 0.0),
+									rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+										blue(@hex-accent-orange), 0.2) 40%,
+									rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+										blue(@hex-accent-orange), 1) 67%);
 							}
 						}
 						&:before {
 							background: linear-gradient(to top,
-								rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.0),
-								rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),0.2) 50%,
-								rgba(red(@hex-accent-orange), green(@hex-accent-orange), blue(@hex-accent-orange),1) 80%);
+								rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+									blue(@hex-accent-orange), 0.0),
+								rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+									blue(@hex-accent-orange), 0.2) 50%,
+								rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
+									blue(@hex-accent-orange), 1) 80%);
 						}
 					}
 					&.has-cyan-bg {
@@ -1076,7 +1213,8 @@
 						top: 0;
 						left: 0;
 						height: @v-dflt-spcng;
-						border-bottom: 1px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.7);
+						border-bottom: 1px solid rgba(red(@hex-white), green(@hex-white), 
+							blue(@hex-white), 0.7);
 						background-color: @hex-dark-gray;
 						.transform(~"translateY(-100%)");
 						& > :first-child {
@@ -1132,7 +1270,8 @@
 					&.quarters {
 						margin-top: ~"calc(" (@v-dflt-spcng * 3 / 2) ~" + 10px)";
 						.column:first-child > header:first-child {
-							border-bottom: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
+							border-bottom: 10px solid rgba(red(@hex-white), green(@hex-white), 
+								blue(@hex-white), 1);
 						}
 					}
 				}
@@ -1143,43 +1282,55 @@
 					&:not(:first-child) {
 						@media all {
 							@media (min-width: (@column-floating-threshold + 1)) {
-								border-left: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
+								border-left: 10px solid rgba(red(@hex-white), green(@hex-white), 
+									blue(@hex-white), 1);
 							}
 							@media (max-width: @column-floating-threshold) {
-								border-top: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
+								border-top: 10px solid rgba(red(@hex-white), green(@hex-white), 
+									blue(@hex-white), 1);
 							}
 						}
 					}
 					&.has-black-bg {
 						&:after {
 							background: linear-gradient(to top,
-								rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.0),
-								rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.2) 50%,
-								rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.7) 70%);
+								rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.0),
+								rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.2) 50%,
+								rgba(red(@hex-black), green(@hex-black), 
+									blue(@hex-black), 0.7) 70%);
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to top,
-									rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.0),
-									rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.2) 40%,
-									rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.7) 67%);
+									rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.0),
+									rgba(red(@hex-black), green(@hex-black), 
+										blue(@hex-black), 0.2) 40%,
+									rgba(red(@hex-black), green(@hex-black), 
+										blue(@hex-black), 0.7) 67%);
 							}
 						}
 						&:before {
 							background: linear-gradient(to top,
-								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
-								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 50%,
-								rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.7) 70%);
+								rgba(red(@hex-crimson), green(@hex-crimson), 
+									blue(@hex-crimson), 0.0),
+								rgba(red(@hex-crimson), green(@hex-crimson), 
+									blue(@hex-crimson), 0.2) 50%,
+								rgba(red(@hex-crimson), green(@hex-crimson), 
+									blue(@hex-crimson), 0.7) 70%);
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to top,
-									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
-									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.2) 40%,
-									rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.7) 67%);
+									rgba(red(@hex-crimson), green(@hex-crimson), 
+										blue(@hex-crimson), 0.0),
+									rgba(red(@hex-crimson), green(@hex-crimson), 
+										blue(@hex-crimson), 0.2) 40%,
+									rgba(red(@hex-crimson), green(@hex-crimson), 
+										blue(@hex-crimson), 0.7) 67%);
 							}
 						}
 					}
 				}
 				& + &.thirds,
 				& + &.quarters {
-					border-top: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1);
+					border-top: 10px solid rgba(red(@hex-white), green(@hex-white), 
+						blue(@hex-white), 1);
 				}
 				&.quarters {
 					.column {
@@ -1193,11 +1344,13 @@
 							}
 							&:nth-child(3),
 							&:nth-child(4) {
-								border-top: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1) !important;
+								border-top: 10px solid rgba(red(@hex-white), green(@hex-white), 
+									blue(@hex-white), 1) !important;
 							}
 							&:nth-child(2),
 							&:nth-child(4) {
-								border-left: 10px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 1) !important;
+								border-left: 10px solid rgba(red(@hex-white), green(@hex-white), 
+									blue(@hex-white), 1) !important;
 							}
 						}
 					}
@@ -1207,4 +1360,3 @@
 	}
 }
 .declare-section-rulesets(@grid-behavior);
- 
