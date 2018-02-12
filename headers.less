@@ -602,10 +602,10 @@ h6 {
 
 // §8.2a: LESS variables
 @hN--fSize-1: 1.4em;
-@hN--fSize-2: 1.6em;
-@hN--fSize-3: 1.8em;
-@hN--fSize-4: 2.0em;
-@hN--fSize-5: 2.2em;
+@hN--fSize-2: 1.5em;
+@hN--fSize-3: 1.6em;
+@hN--fSize-4: 1.8em;
+@hN--fSize-5: 2.1em;
 @hN--fSize-6: 2.4em;
 @hN--fSize-array: @hN--fSize-1, @hN--fSize-2, @hN--fSize-3, @hN--fSize-4, @hN--fSize-5,
 	@hN--fSize-6;
@@ -618,47 +618,47 @@ h4,
 h5,
 h6 {
 	// hN typography: Font-sizing
-	.column & {
-		.hN--size-loop(@idx, @sizes, @font-scale) when (@idx > 0)
+	@{hN--parent} & {
+		.hN--size-loop(@idx, @sizes) when (@idx > 0)
 				and (@idx <= length(@sizes)) {
-			.hN--size-loop((@idx - 1), @sizes, @font-scale);
+			.hN--size-loop((@idx - 1), @sizes);
 			&.hN--fSize-@{idx} {
-				.responsive-fSize(extract(@sizes, @idx), @font-scale);
+				font-size: extract(@sizes, @idx);
 			}
 		}
-		.hN--size-loop(length(@hN--fSize-array), @hN--fSize-array, @hN--responsive-fScale);
+		.hN--size-loop(length(@hN--fSize-array), @hN--fSize-array);
 	}
 }
 
 // §8.2c: Default styles
 h1 {
-	.column & {
-		&:extend(.column h1.hN--fSize-1);
+	@{hN--parent} & {
+		font-size: @hN--fSize-6;
 	}
 }
 h2 {
-	.column & {
-		&:extend(.column h1.hN--fSize-2);
+	@{hN--parent} & {
+		font-size: @hN--fSize-5;
 	}
 }
 h3 {
-	.column & {
-		&:extend(.column h1.hN--fSize-3);
+	@{hN--parent} & {
+		font-size: @hN--fSize-4;
 	}
 }
 h4 {
-	.column & {
-		&:extend(.column h1.hN--fSize-4);
+	@{hN--parent} & {
+		font-size: @hN--fSize-3;
 	}
 }
 h5 {
-	.column & {
-		&:extend(.column h1.hN--fSize-5);
+	@{hN--parent} & {
+		font-size: @hN--fSize-2;
 	}
 }
 h6 {
-	.column & {
-		&:extend(.column h1.hN--fSize-6);
+	@{hN--parent} & {
+		font-size: @hN--fSize-1;
 	}
 }
 
@@ -675,9 +675,6 @@ h6 {
 @hN--lHeight-array: @hN--lHeight-1, @hN--lHeight-2, @hN--lHeight-3, @hN--lHeight-4, @hN--lHeight-5,
 	@hN--lHeight-6, @hN--lHeight-7;
 
-@hN--downscale: 0.938;
-@hN--responsive-fScale: 1.0, 1.0, 1.0, 1.0, @hN--downscale, pow(@hN--downscale, 2);
-
 // §8.3b: Utility classes
 h1,
 h2,
@@ -685,7 +682,7 @@ h3,
 h4,
 h5,
 h6 {
-	.column & {
+	@{hN--parent} & {
 		.hN--lHeight-loop(@idx, @heights) when (@idx > 0) 
 				and (@idx <= length(@sizes)) {
 			.hN--lHeight-loop((@idx - 1), @heights);
@@ -708,8 +705,8 @@ h3,
 h4,
 h5,
 h6 {
-	.column & {
-		&:extend(.column h1.hN--lHeight-2);
+	@{hN--parent} & {
+		line-height: @hN--lHeight-2;
 	}
 }
 
@@ -722,7 +719,7 @@ h3,
 h4,
 h5,
 h6 {
-	.column & {
+	@{hN--parent} & {
 		&.hN--solid {
 			position: relative;
 			padding: .1em .25em .11em;
@@ -842,34 +839,34 @@ h3,
 h4,
 h5,
 h6 {
-	.column & {
+	@{hN--parent} & {
 		&:extend(.column h1.hN--gray);
 	}
 }
 
 h1 {
-	.column &.hN--solid {
+	@{hN--parent} &.hN--solid {
 		&:extend(.column h1.hN--white);
 		&:extend(.column h1.hN--white.hN--solid);
 	}
 }
 
 h2 {
-	.column &.hN--solid {
+	@{hN--parent} &.hN--solid {
 		&:extend(.column h1.hN--white);
 		&:extend(.column h1.hN--white.hN--solid.hN--bg-crimson);
 	}
 }
 
 h3 {
-	.column &.hN--solid {
+	@{hN--parent} &.hN--solid {
 		&:extend(.column h1.hN--gray);		
 		&:extend(.column h1.hN--gray.hN--solid);
 	}
 }
 
 h4 {
-	.column &.hN--solid {
+	@{hN--parent} &.hN--solid {
 		&:extend(.column h1.hN--crimson);		
 		&:extend(.column h1.hN--crimson.hN--solid);
 	}
