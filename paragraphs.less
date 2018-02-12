@@ -401,6 +401,7 @@
 @p--lHeight-1: 1.25em;
 @p--lHeight-2: 1.375em;
 @p--lHeight-3: 1.5em;
+@p--lHeight-array: @p--lHeight-1, @p--lHeight-2, @p--lHeight-3;
 
 // §3.1b: Defaults
 
@@ -409,5 +410,19 @@ p {
 		max-width: 80ch;
 		font-size: @v-p-sz;
 		line-height: @p--lHeight-3;
+	}
+}
+
+// §3.1c: Utility classes
+p {
+	@{p--parent} & {	
+		.p--lHeight-loop(@idx, @heights) when (@idx > 0) 
+				and (@idx <= length(@heights)) {
+			.p--lHeight-loop((@idx - 1), @heights);
+			&.p--lHeight-@{idx} {
+				line-height: extract(@heights, @idx);
+			}
+		}
+		.p--lHeight-loop(length(@p--lHeight-array), @p--lHeight-array);
 	}
 }
