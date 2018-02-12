@@ -1,25 +1,35 @@
-/*!  ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*    │ PARAGRAPHS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*    └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/*!  ┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+*    │ ++++ PARAGRAPHS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
+*    └─────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//       ┌----------------------------------------------------------------------------------------------------------┐
-//       │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                       │
-//       │                                                                                                          │
-//       │ DESCRIPTION: Contains rule-sets for styling paragraph elements within OUE pages built using the WSU      │
-//       │              Spine theme for WordPress.                                                                  │
-//       │                                                                                                          │
-//       │ DEPENDENCIES:                                                                                            │
-//       │  ╘═» This file assumes the following LESS files have been imported upstream:                             │
-//       │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                     │
-//       │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                  │
-//       │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                          │
-//       │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                         │
-//       └----------------------------------------------------------------------------------------------------------┘
+//     ┌-----------------------------------------------------------------------------------------┐
+//     │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)      │
+//     │                                                                                         │
+//     │ DESCRIPTION: Contains rule-sets for styling paragraph elements within OUE pages built   │
+//     │              using the WSU Spine theme for WordPress.                                   │
+//     │                                                                                         │
+//     │ DEPENDENCIES:                                                                           │
+//     │  ╘═» This file assumes the following LESS files have been imported upstream:            │
+//     │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                    │
+//     │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                 │
+//     │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                         │
+//     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                        │
+//     └-----------------------------------------------------------------------------------------┘
 //
+
+// TODO: Add table of contents
+
 .declare-p-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	p {
-		.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
-		.column & {
+		// TODO: Remove when no longer needed
+		body:not(.use-a11y-stlyes) & {
+			.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
+		}
+/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
+**     │ ···· OUE PARAGRAPHS §1: Legacy utility classes ·········································· │
+**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+		body:not(.use-a11y-stlyes) .column & {
 			padding-bottom: 0;
 			text-align: left;
 			&.no-bottom-pad {
@@ -184,7 +194,7 @@
 			}
 		}
 		// TODO: make generic & move into separate file
-		&.article-deck {
+		body:not(.use-a11y-stlyes) &.article-deck {
 			.has-sectionally-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
 			.column & {
 				color: @hex-dark-green;
@@ -194,7 +204,7 @@
 			}
 		}
 		// TODO: make generic & move into separate file
-		&.article-tagline {
+		body:not(.use-a11y-stlyes) &.article-tagline {
 			.has-sectionally-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
 			&.home {
 				.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), @v-p-lnhght);
@@ -241,14 +251,14 @@
 				font-weight: bold;
 			}
 		}
-		&.vpue-jump-back {
+		body:not(.use-a11y-stlyes) &.vpue-jump-back {
 			.has-sectionally-responsive-font(@v-p-jmpbck-sz, @v-p-lnhght);
 			.column & {
 				padding-bottom: @v-btm-pads / 3;
 				margin-bottom: @v-btm-mrgns / 3;
 			}
 		}
-		&.article-media-contacts {
+		body:not(.use-a11y-stlyes) &.article-media-contacts {
 			.has-sectionally-responsive-font(0.8rem, @v-p-lnhght);
 			.column & {
 				padding-left: 2em;
@@ -294,6 +304,10 @@
 }
 .declare-p-rulesets(@grid-behavior);
 
+/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
+**     │ ···· OUE PARAGRAPHS §2: Paragraph based notices ········································· │
+**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+*/
 .use-paragraph-notices(@icon-url) when (isurl(@icon-url)) {
 	.column p.notice {
 		position: relative;
@@ -372,6 +386,28 @@
 		}
 	}
 }
-/*!  └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
+**     │ ···· OUE PARAGRAPHS §3: Accessibility friendly classes ·································· │
+**     └───────────────────────────────────────────────────────────────────────────────────────────┘
 */
- 
+
+@p--parent: ~"body.use-a11y-stlyes .column";
+
+/*!      >>> ···· §3.1, Accessibility friendly classes: Typograhy ··························· <<< */
+
+// §3.1a: LESS variables
+
+@p--lHeight-1: 1.25em;
+@p--lHeight-2: 1.375em;
+@p--lHeight-3: 1.5em;
+
+// §3.1b: Defaults
+
+p {
+	@{p--parent} & {
+		max-width: 80ch;
+		font-size: @v-p-sz;
+		line-height: @p--lHeight-3;
+	}
+}
