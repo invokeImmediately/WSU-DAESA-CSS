@@ -684,7 +684,7 @@ h5,
 h6 {
 	@{hN--parent} & {
 		.hN--lHeight-loop(@idx, @heights) when (@idx > 0) 
-				and (@idx <= length(@sizes)) {
+				and (@idx <= length(@heights)) {
 			.hN--lHeight-loop((@idx - 1), @heights);
 			&.hN--lHeight-@{idx} {
 				line-height: extract(@heights, @idx);
