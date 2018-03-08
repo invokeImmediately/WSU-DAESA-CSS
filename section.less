@@ -13,38 +13,41 @@
 //  └────────────────────────────────────────────────────────────────────────────────────────────┘
 
 /*
-* TABLE OF CONTENTS:
-* -----------------
-*   oue-sections-1.0: Styles for sectioning content across OUE websites.........................32
-*   oue-sections-1.1: Utility classes...........................................................38
-*   oue-sections-1.2: Legacy article headers....................................................47
-*   oue-sections-1.3: Large-format friendly sections...........................................117
-*   oue-sections-1.4: Styles for "Thirds" Spine builder sections...............................206
-*   oue-sections-1.5: Section coloring.........................................................252
-*   oue-sections-1.6: Spacing overrides to improve responsive design...........................282
-*   oue-sections-1.7: Gutter padding overrides to improve mobile design........................387
-*   oue-sections-1.8: Column stacking overrides to improve mobile design.......................576
-*   oue-sections-1.9: Linked column styling....................................................595
+** TABLE OF CONTENTS:
+** -----------------
+**   OUE SECTIONS §0: Styles for sectioning content across OUE websites........................37
+**   OUE SECTIONS §1: Utility classes..........................................................42
+**   OUE SECTIONS §2: Legacy article headers...................................................50
+**   OUE SECTIONS §3: Large-format friendly sections..........................................119
+**   OUE SECTIONS §4: Styles for "Thirds" Spine builder sections..............................208
+**   OUE SECTIONS §5: Section coloring........................................................253
+**   OUE SECTIONS §6: Spacing overrides to improve responsive design of.......................282
+**                    WSU Spine builder template
+**   OUE SECTIONS §7: Gutter padding overrides to improve mobile design of....................386
+**                    WSU Spine builder template
+**   OUE SECTIONS §8: Column stacking overrides to improve mobile design of...................573
+**                    WSU Spine builder template
+**   OUE SECTIONS §9: Linked column styling...................................................592
+**   OUE SECTIONS §10: Accessibility friendly utility classes................................1362
+**      OUE SECTIONS §10.1: Font-sizing variables for columns................................1366
+**      OUE SECTIONS §10.2: Default font sizes for column elements...........................1379
 */
 
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.0: Styles for sectioning content across OUE websites
-*/
+/*! ------------------------------------------------------------------------------------------------
+***  OUE SECTIONS §0: Styles for sectioning content across OUE websites
+**/
 .declare-section-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.1: Utility classes
-*/
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §1: Utility classes
+**/
 	// TODO: Recode to rely on class-based selection logic.
 	section {
 		&.column-one-with-bottom-margin > .column.one {
 			margin-bottom: 2rem;
 		}
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.2: Legacy article headers
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §2: Legacy article headers
 */
 		&:not(.row).article-header {
 			height: 120px;
@@ -112,10 +115,9 @@
 				}
 			}
 		}
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.3: Large-format friendly sections
-*/
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §3: Large-format friendly sections
+**/
 		&.halves {
 			.column {
 				p:not([class*="center"]) {
@@ -201,10 +203,10 @@
 				}
 			}
 		}
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.4: Styles for "Thirds" Spine builder sections
-*/
+
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §4: Styles for "Thirds" Spine builder sections
+**/
 		&.thirds {
 			img.show-when-adjacent {
 				@media all {
@@ -247,10 +249,9 @@
 		}
 	}
 
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.5: Section coloring
-*/
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §5: Section coloring
+**/
 
 	@class-setup-matrix: has-charcoal-background @hex-charcoal-gray @hex-white,
 		has-gray-background @hex-bright-gray none,
@@ -277,10 +278,9 @@
 	}
 	.setup-coloring-classes(@class-setup-matrix);
 
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.6: Spacing overrides to improve responsive design of WSU Spine builder template
-*/
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §6: Spacing overrides to improve responsive design of WSU Spine builder template
+**/
 
 	// TODO: Remove once styles under body.use-a11y-styles have been developed and tested.
 	body:not(.use-a11y-styles) main section.row {
@@ -382,9 +382,8 @@
 		}
 	}
 	
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.7: Gutter padding overrides to improve mobile design of WSU Spine builder template
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §7: Gutter padding overrides to improve mobile design of WSU Spine builder template
 */
 
 	@media only screen and (min-width:(@large-mobile-screen-width + 1))
@@ -449,8 +448,7 @@
 	@media only screen and (min-width:(@mobile-screen-width + 1))
 			and (max-width:@large-mobile-screen-width) {
 		.gutter .column:not(.gutterless),
-		.guttered {
-			padding-left: (@v-dflt-spcng / 2);
+		.guttered {			padding-left: (@v-dflt-spcng / 2);
 			padding-right: (@v-dflt-spcng / 2);
 		}
 		.single.gutter .column:not(.gutterless) {
@@ -571,10 +569,10 @@
 		}
 	}
 
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.8: Column stacking overrides to improve mobile design of WSU Spine builder template
-*/
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §8: Column stacking overrides to improve mobile design of WSU Spine builder 
+*** template
+**/
 
 	@media all and (max-width: @column-floating-threshold) {
 		.row:not(.pad-top) {
@@ -590,10 +588,9 @@
 		}
 	}
 
-/*!
-* --------------------------------------------------------------------------------------------------
-* oue-sections-1.9: Linked column styling
-*/
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §9: Linked column styling
+**/
 
 	.use-linked-columns() {
 		.row.has-linked-columns:not(.gutter) {
@@ -1360,3 +1357,44 @@
 	}
 }
 .declare-section-rulesets(@grid-behavior);
+
+/*! ------------------------------------------------------------------------------------------------
+*** OUE SECTIONS §10: Accessibility friendly utility classes
+**/
+
+//    ··························································································
+//    OUE SECTIONS §10.1: Font-sizing variables for columns
+
+// TODO: Remove "body.use-a11y-styles" when no longer needed
+@col--fSize-1: 1.125rem; // i.e., ~18px when root font size is 17px
+@col--fSize-2: 1rem;
+@col--fSize-3: .9412rem; // i.e., ~16px when root font size is 17px
+@col--fSize-4: .8824rem; // i.e., ~15px when root font size is 17px
+@col--fSize-5: .8236rem; // i.e., ~14px when root font size is 17px
+
+// TODO: Use a guarded mixin to generate series of font-sizing utility classes.
+// @col--fSize-array: ;
+
+//    ··························································································
+//    OUE SECTIONS §10.2: Default font sizes for column elements
+
+body.use-a11y-styles .row {
+	&.single .column,
+	&.halves .column,
+	&.thirds .column,
+	&.quarters .column,
+	&.side-right .column,
+	&.side-left .column {
+		font-size: @col--fSize-1;
+		@media all{
+			@media (max-width: @desktop-width) {
+				font-size: @col--fSize-2;
+			}
+			@media (max-width: @tablet-screen-width) {
+				font-size: @col--fSize-3;
+			}
+		}
+	}
+}
+
+// TODO: Update TOC
