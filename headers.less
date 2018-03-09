@@ -550,7 +550,7 @@
 **     └───────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
-/*!      >>> ···· §8.1, Accessibility friendly classes: Spacing ····························· <<< */
+/*!      >>> ···· §8.1, Accessibility friendly classes: Spacing ································· */
 
 // §8.1a: LESS variables
 @hN--parent: ~"body.use-a11y-styles .column";
@@ -592,13 +592,16 @@ h3,
 h4,
 h5,
 h6 {
+	@{hN--parent} & {
+		padding: 0;
+	}
 	@{hN--parent} * + & {
 		margin: 0;
 		margin-top: @hN--spacing-5;
 	}
 }
 
-/*!      >>> ···· §8.2, Accessibility friendly classes: Typography - font sizing ············ <<< */
+/*!      >>> ···· §8.2, Accessibility friendly classes: Typography - font sizing ················ */
 
 // §8.2a: LESS variables
 @hN--fSize-1: 1.4em;
@@ -662,7 +665,7 @@ h6 {
 	}
 }
 
-/*!      >>> ···· §8.3, Accessibility friendly classes: Typography - line heights ··········· <<< */
+/*!      >>> ···· §8.3, Accessibility friendly classes: Typography - line heights ··············· */
 
 // §8.3a: LESS variables
 @hN--lHeight-1: 1em;
@@ -710,7 +713,7 @@ h6 {
 	}
 }
 
-/*!      >>> ···· §8.4, Accessibility friendly classes: Coloring ···························· <<< */
+/*!      >>> ···· §8.4, Accessibility friendly classes: Coloring ································ */
 
 // §8.4a: Utility classes
 h1,
@@ -872,7 +875,7 @@ h4 {
 	}
 }
 
-/*!      >>> ···· §8.5, Accessibility friendly classes: Child elements ······················ <<< */
+/*!      >>> ···· §8.5, Accessibility friendly classes: Child elements ·························· */
 
 // hN children: Hyperlinks
 h1,
