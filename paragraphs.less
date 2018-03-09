@@ -22,14 +22,14 @@
 .declare-p-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	p {
 		// TODO: Remove when no longer needed
-		body:not(.use-a11y-stlyes) & {
+		& {
 			.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
 		}
 /*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
 **     │ ···· OUE PARAGRAPHS §1: Legacy utility classes ·········································· │
 **     └───────────────────────────────────────────────────────────────────────────────────────────┘
 */
-		body:not(.use-a11y-stlyes) .column & {
+		.column & {
 			padding-bottom: 0;
 			text-align: left;
 			&.no-bottom-pad {
@@ -194,7 +194,7 @@
 			}
 		}
 		// TODO: make generic & move into separate file
-		body:not(.use-a11y-stlyes) &.article-deck {
+		&.article-deck {
 			.has-sectionally-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
 			.column & {
 				color: @hex-dark-green;
@@ -204,7 +204,7 @@
 			}
 		}
 		// TODO: make generic & move into separate file
-		body:not(.use-a11y-stlyes) &.article-tagline {
+		&.article-tagline {
 			.has-sectionally-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
 			&.home {
 				.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), @v-p-lnhght);
@@ -251,14 +251,14 @@
 				font-weight: bold;
 			}
 		}
-		body:not(.use-a11y-stlyes) &.vpue-jump-back {
+		&.vpue-jump-back {
 			.has-sectionally-responsive-font(@v-p-jmpbck-sz, @v-p-lnhght);
 			.column & {
 				padding-bottom: @v-btm-pads / 3;
 				margin-bottom: @v-btm-mrgns / 3;
 			}
 		}
-		body:not(.use-a11y-stlyes) &.article-media-contacts {
+		&.article-media-contacts {
 			.has-sectionally-responsive-font(0.8rem, @v-p-lnhght);
 			.column & {
 				padding-left: 2em;
