@@ -282,16 +282,12 @@
 *** OUE SECTIONS §6: Spacing overrides to improve responsive design of WSU Spine builder template
 **/
 
-	// TODO: Remove once styles under body.use-a11y-styles have been developed and tested.
-	body:not(.use-a11y-styles) main section.row {
+	main section.row {
 		& > .column,
 		& > .column > article > .article-body,
 		& > .column > article > .article-summary,
 		& > .column > section,
 		& > .column table > tbody > tr > td {
-			& > p:not(.no-btm-margin),
-			& > section > p:not(.no-btm-margin),
-			& > div > p:not(.no-btm-margin),
 			& > ul:not(.no-btm-margin),
 			& > section > ul:not(.no-btm-margin),
 			& > div > ul:not(.no-btm-margin),
@@ -317,9 +313,6 @@
 				& > .column > article > .article-body,
 				& > .column > article > .article-summary,
 				& > .column > section {
-					& > p:last-child,
-					& > section > p:last-child,
-					& > div > p:last-child,
 					& > ul:last-child,
 					& > section > ul:last-child,
 					& > div > ul:last-child,
@@ -330,6 +323,7 @@
 					}
 				}
 			}
+			// TODO: Check and see if these are correct.
 			&.halves,
 			&.thirds,
 			&.quarters,
@@ -339,15 +333,7 @@
 				& > .column:not(:last-child) > article > .article-body,
 				& > .column:not(:last-child) > article > .article-summary,
 				& > .column:not(:last-child) > section {
-					& > p:last-child,
-					& > section > p:last-child,
-					& > div > p:last-child,
-					& > ul:last-child,
-					& > section > ul:last-child,
-					& > div > ul:last-child,
-					& > ol:last-child,
-					& > section > ol:last-child,
-					& > div > ol:last-child {
+					& > :last-child {
 						@media all and (max-width: @column-floating-threshold) {
 							margin-bottom: @v-btm-mrgns;
 						}
