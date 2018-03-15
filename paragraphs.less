@@ -322,7 +322,10 @@ plate-v3.png) 32 32 round;
 			width: 32px;
 			border-top-right-radius: 10px;
 			border-bottom-right-radius: 10px;
-			&{ background: @rgba @icon-url 4px @v-btm-mrgns no-repeat; .getRgbaStr(@hex-crimson, 0.3333); }
+			& {
+				.getRgbaStr(@hex-crimson, 0.3333);
+				background: @rgba @icon-url 4px @v-btm-mrgns no-repeat; 
+			}
 		}
 		&.linked {
 			a {
@@ -341,7 +344,8 @@ plate-v3.png) 32 32 round;
 					box-shadow: none;
 					z-index: 1;
 					&:hover {
-						background-color: rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.33);
+						background-color: rgba(red(@hex-white), green(@hex-white), 
+							blue(@hex-white), 0.33);
 						text-shadow: none;
 						.transition(~"all 0.3s linear");
 					}
@@ -350,32 +354,38 @@ plate-v3.png) 32 32 round;
 			.hyperlink-simulator {
 				border-bottom-right-radius: 0.25em;
 				border-bottom-left-radius: 0.25em;
-				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 1);
-				box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), .15);
+				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), 
+					blue(@hex-crimson), 1);
+				box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), 
+					blue(@hex-crimson), .15);
 				color: @hex-crimson;
 			}
 		}
 	}
-	.add-download-notice(@download-notice-bg-clr, @download-notice-stripe-clr, @download-icon-url) when
-		(iscolor(@download-notice-bg-clr)) and (iscolor(@download-notice-stripe-clr)) and (isurl(@download-icon-url)) {
+	.add-download-notice(@download-notice-bg-clr, @download-notice-stripe-clr, @download-icon-url) 
+			when (iscolor(@download-notice-bg-clr)) and (iscolor(@download-notice-stripe-clr)) 
+			and (isurl(@download-icon-url)) {
 		.column p.notice.download {
 			background-color: @download-notice-bg-clr;
 			&:before {
-				background: @download-notice-stripe-clr @download-icon-url 4px @v-btm-mrgns no-repeat;
+				background: @download-notice-stripe-clr @download-icon-url 4px @v-btm-mrgns 
+					no-repeat;
 			}		
 		}
 	}
-	.add-new-notice-class(@new-notice-class, @new-notice-bg-clr, @new-notice-stripe-clr, @new-notice-icon-url,
-			@stripe-width: 32px, @icon-width: 24px, @icon-top-margin: @v-btm-mrgns) when (iscolor(@new-notice-bg-clr)) and
-			(iscolor(@new-notice-stripe-clr)) and (isurl(@new-notice-icon-url)) and (ispixel(@stripe-width)) and
-			(ispixel(@icon-width)) and (isnumber(@icon-top-margin)) {
+	.add-new-notice-class(@new-notice-class, @new-notice-bg-clr, @new-notice-stripe-clr, 
+			@new-notice-icon-url, @stripe-width: 32px, @icon-width: 24px, 
+			@icon-top-margin: @v-btm-mrgns) when (iscolor(@new-notice-bg-clr)) and
+			(iscolor(@new-notice-stripe-clr)) and (isurl(@new-notice-icon-url)) and 
+			(ispixel(@stripe-width)) and (ispixel(@icon-width)) and (isnumber(@icon-top-margin)) {
 		.column p.notice.@{new-notice-class} {
 			background-color: @new-notice-bg-clr;
 			padding-right: ~"calc(@{v-btm-mrgns} + @{stripe-width})";
 			&:before {
 				width: @stripe-width;
 				@icon-spacing: (@stripe-width - @icon-width) / 2;
-				background: @new-notice-stripe-clr @new-notice-icon-url @icon-spacing @icon-top-margin no-repeat;
+				background: @new-notice-stripe-clr @new-notice-icon-url @icon-spacing 
+					@icon-top-margin no-repeat;
 			}
 		}
 	}
