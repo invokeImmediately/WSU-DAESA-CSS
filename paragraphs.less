@@ -401,18 +401,107 @@ plate-v3.png) 32 32 round;
 
 @p--parent: ~".column"; // Parental-mediated specificity adjustment variable
 
+
 /*!     ····························································································
-***     >>> §3.1: Typography: Line-Heights
+***     >>> §3.1: Spacing
 **/
 
 ///     §3.1a: LESS variables
+
+@p--pSize-1: 0; // i.e., padding-size-1
+@p--pSize-2: .125em;
+@p--pSize-3: .25em;
+@p--pSize-4: .375em;
+@p--pSize-5: .5em;
+@p--pSize-6: .625em;
+@p--pSize-7: .75em;
+@p--pSize-8: .875em;
+@p--pSize-9: 1em;
+@p--pSize-10: 1.125em;
+@p--pSize-11: 1.25em;
+@p--pSize-12: 1.375em;
+@p--pSize-13: 1.5em;
+@p--pSize-14: 1.625em;
+@p--pSize-15: 1.75em;
+@p--pSize-16: 1.875em;
+@p--pSize-17: 2em;
+@p--pSize-array: @p--pSize-1, @p--pSize-2, @p--pSize-3, @p--pSize-4, @p--pSize-5, @p--pSize-6, 
+	@p--pSize-7, @p--pSize-8, @p--pSize-9, @p--pSize-10, @p--pSize-11, @p--pSize-12, @p--pSize-13, 
+	@p--pSize-14, @p--pSize-15, @p--pSize-16, @p--pSize-17;
+
+@p--mSize-1: @p--pSize-1; // i.e., margin-size-1
+@p--mSize-2: @p--pSize-2;
+@p--mSize-3: @p--pSize-3;
+@p--mSize-4: @p--pSize-4;
+@p--mSize-5: @p--pSize-5;
+@p--mSize-6: @p--pSize-6;
+@p--mSize-7: @p--pSize-7;
+@p--mSize-8: @p--pSize-8;
+@p--mSize-9: @p--pSize-9;
+@p--mSize-10: @p--pSize-10;
+@p--mSize-11: @p--pSize-11;
+@p--mSize-12: @p--pSize-12;
+@p--mSize-13: @p--pSize-13;
+@p--mSize-14: @p--pSize-14;
+@p--mSize-15: @p--pSize-15;
+@p--mSize-16: @p--pSize-16;
+@p--mSize-17: @p--pSize-17;
+@p--mSize-array: @p--mSize-1, @p--mSize-2, @p--mSize-3, @p--mSize-4, @p--mSize-5, @p--mSize-6, 
+	@p--mSize-7, @p--mSize-8, @p--mSize-9, @p--mSize-10, @p--mSize-11, @p--mSize-12, @p--mSize-13, 
+	@p--mSize-14, @p--mSize-15, @p--mSize-16, @p--mSize-17;
+
+///     §3.1b: Utility classes
+
+p {
+	@{p--parent} & {	
+		.p--pSize-loop(@idx, @pSizes) when (@idx > 0) and (@idx <= length(@pSizes)) {
+			.p--pSize-loop((@idx - 1), @pSizes);
+			&.p--pTop-@{idx} {
+				padding-top: extract(@pSizes, @idx);
+			}
+			&.p--pRgt-@{idx} {
+				padding-right: extract(@pSizes, @idx);
+			}
+			&.p--pBtm-@{idx} {
+				padding-bottom: extract(@pSizes, @idx);
+			}
+			&.p--pLft-@{idx} {
+				padding-left: extract(@pSizes, @idx);
+			}
+		}
+		.p--pSize-loop(length(@p--pSize-array), @p--pSize-array);
+
+		.p--mSize-loop(@idx, @mSizes) when (@idx > 0) and (@idx <= length(@mSizes)) {
+			.p--mSize-loop((@idx - 1), @mSizes);
+			&.p--mTop-@{idx} {
+				margin-top: extract(@mSizes, @idx);
+			}
+			&.p--mRgt-@{idx} {
+				margin-right: extract(@mSizes, @idx);
+			}
+			&.p--mBtm-@{idx} {
+				margin-bottom: extract(@mSizes, @idx);
+			}
+			&.p--mLft-@{idx} {
+				margin-left: extract(@mSizes, @idx);
+			}
+		}
+		.p--mSize-loop(length(@p--mSize-array), @p--mSize-array);
+	}
+}
+
+/*!     ····························································································
+***     >>> §3.2: Typography: Line-Heights
+**/
+
+///     §3.2a: LESS variables
 
 @p--lHeight-1: 1.25em;
 @p--lHeight-2: 1.375em;
 @p--lHeight-3: 1.5em;
 @p--lHeight-array: @p--lHeight-1, @p--lHeight-2, @p--lHeight-3;
 
-///     §3.1b: Utility classes
+///     §3.2b: Utility classes
 
 p {
 	@{p--parent} & {	
@@ -428,13 +517,17 @@ p {
 }
 
 /*!     ····························································································
-***     >>> §3.2: Style Defaults
+***     >>> §3.3: Style Defaults
 **/
 
 p {
 	@{p--parent} & {
 		max-width: 80ch;
+		padding: @p--pSize-1;
 		font-size: @v-p-sz;
 		line-height: @p--lHeight-3;
 	}
+	@{p--parent} * + & {
+		margin-top: @p--mSize-9;
+	}	
 }
