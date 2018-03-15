@@ -14,12 +14,7 @@
 
 .declare-p-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	p {
-		// TODO: Remove when no longer needed
-		& {
-			.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
-		}
 		.column & {
-			padding-bottom: 0;
 			text-align: left;
 			&.no-bottom-pad {
 				padding-bottom: 0 !important;
@@ -48,12 +43,14 @@
 				padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
 				margin: @v-dflt-spcng;
 				.rgb-turquoise(); background-color: rgba(@rval,@gval,@bval,0.5);
-				border: 1px solid rgba(red(@hex-dark-blue), green(@hex-dark-blue), blue(@hex-dark-blue), 0.5);
+				border: 1px solid rgba(red(@hex-dark-blue), green(@hex-dark-blue), 
+					blue(@hex-dark-blue), 0.5);
 				border-radius: 10px;
 				// font-size: 0.92em; // Removed as per request of MSL made on 2016-06-07
 				color: @hex-darker-gray;
 				text-align: center;
-				box-shadow: 1px 1px 3px rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.3);
+				box-shadow: 1px 1px 3px rgba(red(@hex-black), green(@hex-black), 
+					blue(@hex-black), 0.3);
 				span.title {
 					font-size: (1em / 0.92 / 0.92);
 					line-height: 2em;
@@ -71,7 +68,8 @@
 					margin-top: 0;
 					margin-right: 0;
 					margin-left: 0;
-					background-color: rgba(red(@hex-turquoise-opaque), green(@hex-turquoise-opaque), blue(@hex-turquoise-opaque), 0.95);
+					background-color: rgba(red(@hex-turquoise-opaque), 
+						green(@hex-turquoise-opaque), blue(@hex-turquoise-opaque), 0.95);
 					font-size: (@v-p-sz * 0.8) !important;
 					box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 					.transform(~"translateX(-50%)");
@@ -129,9 +127,12 @@
 				color: @hex-darkest-gray;
 				background-color: rgba(141,149,154,0.5);
 				border: 32px solid transparent;
-				-webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-				-o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
-				border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Template.png) 32 32 round;
+				-webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Bor
+der-Template.png) 32 32 round;
+				-o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-T
+emplate.png) 32 32 round;
+				border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Temp
+late.png) 32 32 round;
 				margin-bottom: 15px;
 				padding: 7px;
 				@media all {
@@ -157,7 +158,8 @@
 					border: 1px solid @hex-darkest-orange;
 				}
 				&.blue {
-					background-color: rgba(red(@hex-accent-blue), green(@hex-accent-blue), blue(@hex-accent-blue), 0.3);
+					background-color: rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
+						blue(@hex-accent-blue), 0.3);
 					border: 1px solid @hex-darkest-blue;
 				}
 				&.yellow {
@@ -176,9 +178,12 @@
 				border: 32px solid transparent;
 				color: @hex-darkest-orange;
 				.rgb-orange(); background-color: rgba(@rval,@gval,@bval,0.5);
-				 -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-				 -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
-				border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Template-v3.png) 32 32 round;
+				 -webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-B
+order-Template-v3.png) 32 32 round;
+				 -o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border
+-Template-v3.png) 32 32 round;
+				border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Tem
+plate-v3.png) 32 32 round;
 				.has-responsive-font(@v-bnnr-txt-sz, @v-p-lnhght);
 			}
 		}
