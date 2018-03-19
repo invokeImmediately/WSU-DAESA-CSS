@@ -23,7 +23,7 @@
 
 	h1 {
 		// Prepend: body:not(.use-bem-styles)
-		body:not(.use-a11y-styles) .column & {
+		.column & {
 			&:extend(.has-dflt-font);
 			padding-bottom: 0;
 			margin-top: 1.5rem;
@@ -37,8 +37,8 @@
 				text-align: center;
 			}
 		}
-		body:not(.use-a11y-styles) .column &:first-child,
-		body:not(.use-a11y-styles) .column header:first-child + & {
+		.column &:first-child,
+		.column header:first-child + & {
 			margin-top: 0;
 		}
 	}
@@ -49,7 +49,7 @@
 */
 
 	h2 {
-		body:not(.use-a11y-styles) .column & {
+		.column & {
 			&:extend(.has-dflt-font);
 			padding: 0 0 0 .1em;
 			margin-top: 1.5rem;
@@ -74,9 +74,9 @@
 				margin-top: 0;
 			}
 		}
-		body:not(.use-a11y-styles) .column &.fancy,
-		body:not(.use-a11y-styles) .column &.solid,
-		body:not(.use-a11y-styles) .column.show-header.has-fancy-header > header:first-child > & {
+		.column &.fancy,
+		.column &.solid,
+		.column.show-header.has-fancy-header > header:first-child > & {
 			position: relative;
 			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 11 / 40);
 			margin-left: (-1 * @v-dflt-spcng / 4);
@@ -91,9 +91,9 @@
 			); }
 			& { border-bottom: 2px solid @rgba; .getRgbaStr(@hex-dark-gray, 0.075); }
 		}
-		body:not(.use-a11y-styles) .column &.fancy.with-top-border,
-		body:not(.use-a11y-styles) .column &.solid,
-		body:not(.use-a11y-styles) .column.show-header.has-fancy-header > header:first-child > & {
+		.column &.fancy.with-top-border,
+		.column &.solid,
+		.column.show-header.has-fancy-header > header:first-child > & {
 			padding-top: 0.5rem;
 			&:not(:first-child) {
 				margin-top: @v-dflt-spcng;
@@ -110,22 +110,22 @@
 				border-top-width: 2px;
 			}
 		}
-		body:not(.use-a11y-styles) .column &:first-child,
-		body:not(.use-a11y-styles) .column header:first-child + &,
-		body:not(.use-a11y-styles) .column header:first-child + &.fancy.with-top-border:not(:first-child),
-		body:not(.use-a11y-styles) .column header:first-child + &.solid:not(:first-child) {
+		.column &:first-child,
+		.column header:first-child + &,
+		.column header:first-child + &.fancy.with-top-border:not(:first-child),
+		.column header:first-child + &.solid:not(:first-child) {
 			margin-top: 0;
 		}
-		body:not(.use-a11y-styles) .column h1 + & {
+		.column h1 + & {
 			font-style: italic;
 		}
-		body:not(.use-a11y-styles) .column hr:not(.subSection) + h2 {
+		.column hr:not(.subSection) + h2 {
 			margin-top: 0;
 		}
 	}
 
 	// TODO: move to hyperlink.less
-	body:not(.use-a11y-styles) h2.article-title a {
+	h2.article-title a {
 		border-bottom: none;
 	}
 
@@ -135,7 +135,7 @@
 */
 
 	h3 {
-		body:not(.use-a11y-styles) .column & {
+		.column & {
 			&:extend(.has-dflt-font);
 			padding: 0 0 0 .1em;
 			margin-top: 1.5rem;
@@ -156,13 +156,13 @@
 				margin-top: 0;
 			}
 		}
-		body:not(.use-a11y-styles) .column &.lowercase,
-		body:not(.use-a11y-styles) .column.show-header.has-lowercase-header > header:first-child > & {
+		.column &.lowercase,
+		.column.show-header.has-lowercase-header > header:first-child > & {
 			text-transform: none;
 		}
-		body:not(.use-a11y-styles) .column &.fancy,
-		body:not(.use-a11y-styles) .column &.solid,
-		body:not(.use-a11y-styles) .column.show-header.has-fancy-header > header:first-child > & {
+		.column &.fancy,
+		.column &.solid,
+		.column.show-header.has-fancy-header > header:first-child > & {
 			position: relative;
 			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 9 / 40) 0;
 			margin-left: 0;
@@ -177,9 +177,9 @@
 			); }
 			& { border-bottom: 2px solid @rgba; .getRgbaStr(@hex-light-crimson, 0.075); }
 		}
-		body:not(.use-a11y-styles) .column &.fancy.with-top-border,
-		body:not(.use-a11y-styles) .column &.solid,
-		body:not(.use-a11y-styles) .column.show-header.has-fancy-header > header:first-child > & {
+		.column &.fancy.with-top-border,
+		.column &.solid,
+		.column.show-header.has-fancy-header > header:first-child > & {
 			padding-top: 0.4375rem;
 			&:not(:first-child) {
 				margin-top: @v-dflt-spcng;
@@ -195,11 +195,11 @@
 				 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
 			}
 		}		
-		body:not(.use-a11y-styles) .column &:first-child,
-		body:not(.use-a11y-styles) .column header:first-child + &,
-		body:not(.use-a11y-styles) .column header:first-child + &.fancy.with-top-border:not(:first-child),
-		body:not(.use-a11y-styles) .column header:first-child + &.solid:not(:first-child),
-		body:not(.use-a11y-styles) .column hr:not(.subSection) + &
+		.column &:first-child,
+		.column header:first-child + &,
+		.column header:first-child + &.fancy.with-top-border:not(:first-child),
+		.column header:first-child + &.solid:not(:first-child),
+		.column hr:not(.subSection) + &
 		{
 			margin-top: 0;
 		}
@@ -211,7 +211,7 @@
 */
 
 	h4 {
-		body:not(.use-a11y-styles) .column & {
+		.column & {
 			&:extend(.has-dflt-font);
 			padding: 0;
 			margin-top: 1rem;
@@ -224,15 +224,15 @@
 				text-align: center;
 			}
 			&.fancy {
-				&:extend(body:not(.use-a11y-styles) .column h3.fancy all);
+				&:extend(.column h3.fancy all);
 			}
 			&.gray {
 				color: @hex-darker-gray;
 			}
 		}
-		body:not(.use-a11y-styles) .column &:first-child,
-		body:not(.use-a11y-styles) .column header:first-child + &,
-		body:not(.use-a11y-styles) .column hr:not(.subSection) + &
+		.column &:first-child,
+		.column header:first-child + &,
+		.column hr:not(.subSection) + &
 		{
 			margin-top: 0;
 		}
@@ -243,13 +243,13 @@
 **     └───────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
-	body:not(.use-a11y-styles) .column {
+	.column {
 		h1.crimson, h2.crimson {
 			color: @hex-crimson;
 		}
 	}
 
-	body:not(.use-a11y-styles) section {
+	section {
 		&.side-right, &.row.side-right {
 			.column.one h2.fancy,
 			.column.one h3.fancy {
