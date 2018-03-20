@@ -83,6 +83,12 @@
 	@fSize-41, @fSize-42, @fSize-43, @fSize-44, @fSize-45, @fSize-46, @fSize-47, @fSize-48, 
 	@fSize-49, @fSize-50, @fSize-51;
 
+// Semantic font-sizing Less variables.
+@fSize--min: 1;
+@fSize--body-text: ceil(unit(@v-p-sz - extract(@fSize-array,1)) / unit(extract(@fSize-array,2) 
+	- extract(@fSize-array,1))) + 1;;
+@fSize--max: length(@fSize-array);
+
 // Utility mixin for defining font sizes downstream.
 .set-fSize(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
 		and (@idx <= length(@fSize-array)) {
