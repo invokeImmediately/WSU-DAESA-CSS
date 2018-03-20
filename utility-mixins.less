@@ -1,10 +1,10 @@
-//  ┌----------------------------------------------------------------------------------------------┐
-//  │ FILE-NAME: utility-mixins.less                                                               │
-//  │                                                                                              │
-//  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
-//  │                                                                                              │
-//  │ DESCRIPTION: ...                                                                             │
-//  └----------------------------------------------------------------------------------------------┘
+/// ┌----------------------------------------------------------------------------------------------┐
+/// │ FILE-NAME: utility-mixins.less                                                               │
+/// │                                                                                              │
+/// │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+/// │                                                                                              │
+/// │ DESCRIPTION: ...                                                                             │
+/// └----------------------------------------------------------------------------------------------┘
 
 /*  ------------------------------------------------------------------------------------------------
 **  OUE UTILITY MIXINS §1: Typography
@@ -14,6 +14,7 @@
 **      >>> §1.1: Typograhy: Font Sizing
 */
 
+// Standard font-sizing options for all OUE websites.
 @fSize-1: 0.75em;
 @fSize-2: 0.775em;
 @fSize-3: 0.8em;
@@ -66,6 +67,17 @@
 @fSize-50: 1.975em;
 @fSize-51: 2em;
 
-.set-fSize(@fSize) when (isem(@fSize)) {
-	font-size: @fSize;
+// OUE font-sizing array.
+@fSize-array: @fSize-1, @fSize-2, @fSize-3, @fSize-4, @fSize-5, @fSize-6, @fSize-7, @fSize-8, 
+	@fSize-9, @fSize-10, @fSize-11, @fSize-12, @fSize-13, @fSize-14, @fSize-15, @fSize-16, 
+	@fSize-17, @fSize-18, @fSize-19, @fSize-20, @fSize-21, @fSize-22, @fSize-23, @fSize-24, 
+	@fSize-25, @fSize-26, @fSize-27, @fSize-28, @fSize-29, @fSize-30, @fSize-31, @fSize-32, 
+	@fSize-33, @fSize-34, @fSize-35, @fSize-36, @fSize-37, @fSize-38, @fSize-39, @fSize-40, 
+	@fSize-41, @fSize-42, @fSize-43, @fSize-44, @fSize-45, @fSize-46, @fSize-47, @fSize-48, 
+	@fSize-49, @fSize-50, @fSize-51;
+
+// Utility mixin for defining font sizes downstream.
+.set-fSize(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
+		and (@idx <= length(@fSize-array)) {
+	font-size: extract(@fSize-array, @fSize);
 }
