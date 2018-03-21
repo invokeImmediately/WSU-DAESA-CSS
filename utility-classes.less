@@ -1,0 +1,101 @@
+/// ┌----------------------------------------------------------------------------------------------┐
+/// │ FILE-NAME: utility-classes.less                                                              │
+/// │                                                                                              │
+/// │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+/// │                                                                                              │
+/// │ DESCRIPTION: ...                                                                             │
+/// └----------------------------------------------------------------------------------------------┘
+
+/* 
+**  TABLE OF CONTENTS:
+**  -----------------
+**    OUE UTILITY CLASSES §1: Typography.......................................................17
+**        >>> §1.1: Typograhy: Font Sizing.....................................................21
+*/
+
+/*!   ----------------------------------------------------------------------------------------------
+***    OUE UTILITY CLASSES §1: Typography
+**/
+
+/*!     ····························································································
+***     >>> §1.1: Typograhy: Font Sizing
+***
+***         NOTES:
+***           * Units of "mx" stand for "milli-fold" and function similar to magnification units. 
+***             Thus, 1000mx = 1x, where x is the standard font-size for body-text. Thus, 1000mx 
+***             means the same font-size as the default font-size for body text. 2000mx would be 
+***             twice the size of body text.
+**/
+
+@fSize-1--class: ~"750mx";
+@fSize-2--class: ~"775mx";
+@fSize-3--class: ~"800mx";
+@fSize-4--class: ~"825mx";
+@fSize-5--class: ~"850mx";
+@fSize-6--class: ~"875mx";
+@fSize-7--class: ~"900mx";
+@fSize-8--class: ~"925mx";
+@fSize-9--class: ~"950mx";
+@fSize-10--class: ~"975mx";
+@fSize-11--class: ~"1000mx";
+@fSize-12--class: ~"1025mx";
+@fSize-13--class: ~"1050mx";
+@fSize-14--class: ~"1075mx";
+@fSize-15--class: ~"1100mx";
+@fSize-16--class: ~"1125mx";
+@fSize-17--class: ~"1150mx";
+@fSize-18--class: ~"1175mx";
+@fSize-19--class: ~"1200mx";
+@fSize-20--class: ~"1225mx";
+@fSize-21--class: ~"1250mx";
+@fSize-22--class: ~"1275mx";
+@fSize-23--class: ~"1300mx";
+@fSize-24--class: ~"1325mx";
+@fSize-25--class: ~"1350mx";
+@fSize-26--class: ~"1375mx";
+@fSize-27--class: ~"1400mx";
+@fSize-28--class: ~"1425mx";
+@fSize-29--class: ~"1450mx";
+@fSize-30--class: ~"1475mx";
+@fSize-31--class: ~"1500mx";
+@fSize-32--class: ~"1525mx";
+@fSize-33--class: ~"1550mx";
+@fSize-34--class: ~"1575mx";
+@fSize-35--class: ~"1600mx";
+@fSize-36--class: ~"1625mx";
+@fSize-37--class: ~"1650mx";
+@fSize-38--class: ~"1675mx";
+@fSize-39--class: ~"1700mx";
+@fSize-40--class: ~"1725mx";
+@fSize-41--class: ~"1750mx";
+@fSize-42--class: ~"1775mx";
+@fSize-43--class: ~"1800mx";
+@fSize-44--class: ~"1825mx";
+@fSize-45--class: ~"1850mx";
+@fSize-46--class: ~"1875mx";
+@fSize-47--class: ~"1900mx";
+@fSize-48--class: ~"1925mx";
+@fSize-49--class: ~"1950mx";
+@fSize-50--class: ~"1975mx";
+@fSize-51--class: ~"2000mx";
+
+@fSize--class-array: @fSize-1--class, @fSize-2--class, @fSize-3--class, @fSize-4--class, 
+	@fSize-5--class, @fSize-6--class, @fSize-7--class, @fSize-8--class, @fSize-9--class, 
+	@fSize-10--class, @fSize-11--class, @fSize-12--class, @fSize-13--class, @fSize-14--class, 
+	@fSize-15--class, @fSize-16--class, @fSize-17--class, @fSize-18--class, @fSize-19--class, 
+	@fSize-20--class, @fSize-21--class, @fSize-22--class, @fSize-23--class, @fSize-24--class, 
+	@fSize-25--class, @fSize-26--class, @fSize-27--class, @fSize-28--class, @fSize-29--class, 
+	@fSize-30--class, @fSize-31--class, @fSize-32--class, @fSize-33--class, @fSize-34--class, 
+	@fSize-35--class, @fSize-36--class, @fSize-37--class, @fSize-38--class, @fSize-39--class, 
+	@fSize-40--class, @fSize-41--class, @fSize-42--class, @fSize-43--class, @fSize-44--class, 
+	@fSize-45--class, @fSize-46--class, @fSize-47--class, @fSize-48--class, @fSize-49--class, 
+	@fSize-50--class, @fSize-51--class;
+
+.fSize-loop(@idx) when (@idx > 0) and (@idx <= length(@fSize-array)) {
+	.fSize-loop((@idx - 1));
+	@class-name: extract(@fSize--class-array, @idx);
+	.font-size--@{class-name} {
+		.set-fSize(@idx);
+	}
+}
+.fSize-loop(length(@fSize-array));
