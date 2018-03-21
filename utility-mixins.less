@@ -92,5 +92,5 @@
 // Utility mixin for defining font sizes downstream.
 .set-fSize(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
 		and (@idx <= length(@fSize-array)) {
-	font-size: extract(@fSize-array, @fSize);
+	font-size: extract(@fSize-array, @idx);
 }
