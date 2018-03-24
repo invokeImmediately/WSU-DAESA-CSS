@@ -1,24 +1,29 @@
-/// ┌----------------------------------------------------------------------------------------------┐
-/// │ FILE-NAME: utility-mixins.less                                                               │
-/// │                                                                                              │
-/// │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
-/// │                                                                                              │
-/// │ DESCRIPTION: ...                                                                             │
-/// └----------------------------------------------------------------------------------------------┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: utility-mixins.less                                                              │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: ...                                                                           │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
 
-/* 
-**  TABLE OF CONTENTS:
-**  -----------------
+/*  ================================================================================================
+**  OUE UTILITY MIXINS
+*/
+
+/*    ───────────────────────────────────────────────────────────────────────────────────────────
+**    TABLE OF CONTENTS:
+**    ───────────────────────────────────────────────────────────────────────────────────────────
 **    OUE UTILITY MIXINS §1: Typography.........................................................17
 **        >>> §1.1: Typograhy: Font Sizing......................................................21
 */
 
-/*  ------------------------------------------------------------------------------------------------
-**  OUE UTILITY MIXINS §1: Typography
+/*    ----------------------------------------------------------------------------------------------
+**    OUE UTILITY MIXINS §1: Typography
 */
 
 /*      ····························································································
-**      >>> §1.1: Typograhy: Font Sizing
+**      >>> §1.1: Font Sizing
 */
 
 // Standard font-sizing options for all OUE websites.
@@ -86,11 +91,55 @@
 // Semantic font-sizing Less variables.
 @fSize--min: 1;
 @fSize--body-text: ceil(unit(@v-p-sz - extract(@fSize-array,1)) / unit(extract(@fSize-array,2) 
-	- extract(@fSize-array,1))) + 1;;
+	- extract(@fSize-array,1))) + 1;
 @fSize--max: length(@fSize-array);
 
 // Utility mixin for defining font sizes downstream.
 .set-fSize(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
 		and (@idx <= length(@fSize-array)) {
 	font-size: extract(@fSize-array, @idx);
+}
+
+/*      ····························································································
+**      >>> §1.1: Line heights
+*/
+
+// Standard line-height options for all OUE websites.
+@lHeight-1: 1em;
+@lHeight-2: 1.025em;
+@lHeight-3: 1.05em;
+@lHeight-4: 1.075em;
+@lHeight-5: 1.1em;
+@lHeight-6: 1.125em;
+@lHeight-7: 1.15em;
+@lHeight-8: 1.175em;
+@lHeight-9: 1.2em;
+@lHeight-10: 1.225em;
+@lHeight-11: 1.25em;
+@lHeight-12: 1.275em;
+@lHeight-13: 1.3em;
+@lHeight-14: 1.325em;
+@lHeight-15: 1.35em;
+@lHeight-16: 1.375em;
+@lHeight-17: 1.4em;
+@lHeight-18: 1.425em;
+@lHeight-19: 1.45em;
+@lHeight-20: 1.475em;
+@lHeight-21: 1.5em;
+
+// OUE font-sizing array.
+@lHeight-array: @lHeight-1, @lHeight-2, @lHeight-3, @lHeight-4, @lHeight-5, @lHeight-6, @lHeight-7, 
+	@lHeight-8, @lHeight-9, @lHeight-10, @lHeight-11, @lHeight-12, @lHeight-13, @lHeight-14, 
+	@lHeight-15, @lHeight-16, @lHeight-17, @lHeight-18, @lHeight-19, @lHeight-20, @lHeight-21;
+
+// Semantic font-sizing Less variables.
+@lHeight--min: 1;
+@lHeight--body-text: ceil(unit(@body-text--lHeight - extract(@lHeight-array,1)) / 
+	unit(extract(@lHeight-array,2) - extract(@lHeight-array,1))) + 1;
+@lHeight--max: length(@lHeight-array);
+
+// Utility mixin for defining font sizes downstream.
+.set-lHeight(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
+		and (@idx <= length(@lHeight-array)) {
+	font-size: extract(@lHeight-array, @idx);
 }

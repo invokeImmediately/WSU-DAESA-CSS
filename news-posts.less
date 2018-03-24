@@ -1,28 +1,25 @@
-/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*       │ NEWS POSTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: news-posts.less                                                                  │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Includes styles for elements associated with form nodes within OUE pages      │
+**  │   built using the WSU Spine theme for WordPress. Styles are designed to accompany or       │
+**  │   supersede styling associated with the Spine parent theme.                                │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
-//        │                                                                                                           │
-//        │ DESCRIPTION: Rule-sets for styling elements associated with the news posts in OUE pages built using the   │
-//        │ Builder template within the Spine theme for WordPress.                                                    │
-//        │                                                                                                           │
-//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                      │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                   │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                           │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                          │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                       │
-//        └-----------------------------------------------------------------------------------------------------------┘
+
+/*  ================================================================================================
+**  STYLES FOR OUE NEWS POSTS
+*/
 
 .article-body {
 	position: relative;
-	line-height: @v-p-lnhght;
+	line-height: @body-text--lHeight;
 }
 
 .article-summary {
-	line-height: @v-p-lnhght;
+	line-height: @body-text--lHeight;
     aside.article-sidebar,
 	img,
 	object,
@@ -59,7 +56,7 @@ body.single-post {
 		box-sizing: border-box;
 		width: 50%;
 		padding: 0 @v-dflt-spcng @v-dflt-spcng 0;
-		line-height: @v-p-lnhght;
+		line-height: @body-text--lHeight;
 		list-style-image: none !important;
 		&:nth-child(odd) {
 			clear: left;

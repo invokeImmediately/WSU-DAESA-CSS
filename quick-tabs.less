@@ -1,8 +1,20 @@
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: quick-tabs.less                                                                  │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Embodies styles for quick-tabs containers, which possess a row of tabs        │
+**  │   situated above a content viewing panel such that user interaction with the tabs switches │
+**  │   the content option currently being viewed.                                               │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  STYLES FOR QUICK TAB CONTAINERS ON WSU OFFICE OF UNDERGRADUATE EDUCATION WEBSITES
+*/
+
 .declare-quick-tabs-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	.include-quick-tabs-layout(@included: false) when (@included = true) {
-		//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
-		//     │ ++++ Quick Tab tabs +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-		//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 		section.row.single.quick-tabs > div.column {
 			& > h3:first-child {
 				display: none;
@@ -18,7 +30,7 @@
 						border-top-right-radius: 7px;
 						border-top-left-radius: 7px;
 						background-color: #8d959a;
-						.has-responsive-font(@v-p-sz * @v-scl-dwn, @v-p-lnhght);
+						.has-responsive-font(@v-p-sz * @v-scl-dwn, @body-text--lHeight);
 						list-style-type: none;
 						overflow: hidden;
 						& > li {
@@ -79,14 +91,16 @@
 									border-bottom: 1px solid #dfe1e3;
 								}
 								&.activated {
-									background: linear-gradient(rgba(198, 12, 48, 0.5),rgba(198, 12, 48, 0.5)), linear-gradient(#eff0f1,#eff0f1);
+									background: linear-gradient(rgba(198, 12, 48, 0.5), 
+										rgba(198, 12, 48, 0.5)), linear-gradient(#eff0f1,#eff0f1);
 									border-bottom: 1px solid @hex-white;
 									cursor: auto;
 								}
 							}
 							&:first-child {
 								&:not(.deactivated) {
-									background: linear-gradient(rgba(198, 12, 48, 0.5),rgba(198, 12, 48, 0.5)), linear-gradient(#eff0f1,#eff0f1);
+									background: linear-gradient(rgba(198, 12, 48, 0.5), 
+										rgba(198, 12, 48, 0.5)), linear-gradient(#eff0f1,#eff0f1);
 									border-bottom: 1px solid @hex-white;
 									cursor: auto;
 									& > a {
@@ -112,9 +126,6 @@
 			}
 		}
 
-		//     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
-		//     │ ++++ Quick-Tabs content panels ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-		//     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 		section.row.single.quick-tabs > div.column {
 			& > h3:first-child + h4 + ul + h4 + table {
 				display: block;

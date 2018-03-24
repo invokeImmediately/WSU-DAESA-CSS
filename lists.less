@@ -1,51 +1,78 @@
-/*!   ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*     │ LIST layouts ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*     └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: lists.less                                                                       │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Encompasses styles for elements associated with form nodes within OUE pages   │
+**  │   built using the WSU Spine theme for WordPress. Styles are designed to accompany or       │
+**  │   supersede styling associated with the Spine parent theme.                                │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//           ┌------------------------------------------------------------------------------------------------------┐
-//           │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                   │
-//           │                                                                                                      │
-//           │ DESCRIPTION: Rulesets for styling list elements within OUE pages built using the WSU Spine theme for │
-//           │ WordPress.                                                                                           │
-//           │                                                                                                      │
-//           │ DEPENDENCIES:                                                                                        │
-//           │  ╘═» This file assumes the following LESS files have been imported upstream:                         │
-//           │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                 │
-//           │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                              │
-//           │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                      │
-//           │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                     │
-//           └------------------------------------------------------------------------------------------------------┘
-//
+
+/*  ================================================================================================
+**  STYLES FOR OUE LISTS
+*/
+
+/*!   ----------------------------------------------------------------------------------------------
+***   OUE-LISTS §1: List elements
+**/
+
 .declare-lists-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+
 	ul {
-		.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
+
+		.has-sectionally-responsive-font(@v-p-sz, @body-text--lHeight);
+
 		.column & {
+
 			padding-right: 0;
 			padding-bottom: 0;
 			ol,
 			ul {
+
 				font-size: inherit  !important;
+
 			}
+
 			&.centered {
+
 				text-align: center;
+
 			}
+
 			& + p {
+
 				margin-top: @v-btm-mrgns;
+
 			}
+
 			li {
+
 				line-height: inherit;
+
 				&.no-bottom-pad {
+
 					padding-bottom: 0;
+
 				}
+
 			}
+
 		}
+
 		.column p + & {
+
 			margin-top: (@v-btm-mrgns / 2);
+
 		}
+
 		&.content-boxes {
+
 			padding-right: 0;
 			padding-left: 0;
+
 			& > li {
+
 				position: relative;
 				list-style-type: none;
 				min-height: 320px;
@@ -54,130 +81,216 @@
 				 -webkit-box-shadow: 0 1px 2px 0 rgba(@rval, @gval, @bval, 0.22);
 				border-top: 1px solid rgba(@rval, @gval, @bval, 0.1);
 				background-color: @hex-white;
+
 				@media all and (max-width: @background-width-threshold) {
+
 					overflow-x: auto;
+
 				}
+
 				p {
-					.has-responsive-font((@v-p-sz * @v-scl-dwn), @v-p-lnhght);
+
+					.has-responsive-font((@v-p-sz * @v-scl-dwn), @body-text--lHeight);
+
 					&.email {
+
 						font-size: 0.9em;
 						font-weight: bold;
+
 					}
+
 				}
+
 				& > img {
+
 					position: absolute;
 					 top: 10px;
 					 left: 10px;
 					width: 106px;
+
 				}
+
 				& > .content {
+
 					position: relative;
 					 left: 121px;
 					width: ~"calc(100% - 136px)";
 					min-width: 189px;
 					padding: 10px 10px 10px 5px;
+
 				}
+
 				& + li {
+
 					margin-top: @v-dflt-spcng;
+
 				}
+
 			}
+
 		}
+
 		&.external-links li {
+
 			list-style-image: url(/wp-content/uploads/sites/906/2015/08/external-link-bullet.png);
+
 		}
+
 		&.cascaded-layout {
+
 			@media print {
+
 				&[style] {
+
 					height: auto !important;
+
 				}
+
 			}
+
 			& > li {
+
 				list-style-type: none;
+
 				@media print {
+
 					position: relative !important;
 					display:block !important;
 					left:0 !important;
 					top: auto !important;
 					width: 100% !important;
 					float: left;
+
 				}
+
 				&.cascade-sizer, &.gutter-sizer {
+
 					height: 0 !important;
 					min-height: 0 !important;
 					padding: 0 !important;
 					border: none !important;
 					background: none !important;
 					box-shadow: none !important;
+
 				}
+
 				&.gutter-sizer {
+
 					width: 2% !important;
+
 				}
+
 			}
+
 			&.blank {
+
 				padding: 0;
 				margin-top: @v-btm-mrgns !important;
 				font-size: 1rem !important;
+
 				& > li {
+
 					float: left;
 					width: 48.5%;
 					margin-bottom: 3%;
 					list-style-type: none;
+
 					@media all {
+
 						@media (max-width: @column-floating-threshold) {
+
 							width: 96%;
 							margin-bottom: 6%;
+
 						}
+
 						@media (max-width: @background-width-threshold) {
+
 							overflow-x: visible;
+
 						}
+
 					}
+
 					& + li {
+
 						margin-top: 0;
+
 					}
+
 					&.gutter-sizer {
+
 						width: 3% !important;
+
 					}
+
 				}
+
 			}
+
 		}
+
 	}
 
 	ol {
-		.has-sectionally-responsive-font(@v-p-sz, @v-p-lnhght);
+
+		.has-sectionally-responsive-font(@v-p-sz, @body-text--lHeight);
+
 		.column & {
+
 			padding-right: 0;
 			padding-bottom: 0;
+
 			li {
+
 				line-height: inherit;
+
 			}
+
 			ol,
 			ul {
+
 				font-size: inherit !important;
+
 			}
+
 			ol {
+
 				list-style-type: lower-alpha;
+
 				ol {
+
 					list-style-type: lower-roman;
+
 				}
+
 			}
+
 		}
+
 	}
 
 	dl.faq {
+
 		.column & {
+
 			position: relative;
+
 			dt {
+
 				position: relative;
 				width: calc(~"100% - 52px");
 				padding: 5px 40px 5px 10px;
 				margin: 5px 0;
 				border: 1px solid @hex-lighter-gray-mnchrmtc-shftd-drkr;
 				background-color: @hex-lighter-gray;
-				.has-responsive-font(@v-p-sz, @v-p-lnhght);
+				.has-responsive-font(@v-p-sz, @body-text--lHeight);
 				font-weight: bold;
 				cursor: pointer;
 				.transition(~"all 0.25s linear");
+
 				&:after {
+
 					content: "";
 					position: absolute;
 					top: 50%;
@@ -190,54 +303,87 @@
 					border-left: 8px solid transparent;
 					.transform(~"translateY(-50%)");
 					.transition(~"all 0.3s ease");
+
 				}
+
 				&:hover {
+
 					background-color: @hex-dark-gray;
 					color: @hex-white;
+
 					&:after {
+
 						border-top: 8px solid @hex-white;
 						border-right: 8px solid transparent;
 						border-bottom: none;
 						border-left: 8px solid transparent;
+
 					}
+
 				}
+
 				&.activated {
+
 					background-color: @hex-lghtr-gry-0pt2-crmsn;
 					color: @hex-darker-gray;
 					border-color: @hex-drknd-lghtr-gry-0pt2-crmsn;
+
 					&:after {
+
 						border-top: none;
 						border-right: 8px solid transparent;
 						border-bottom: 8px solid @hex-dark-gray;
 						border-left: 8px solid transparent;
+
 					}
+
 					&:hover {
+
 						background-color: @hex-drk-gry-0pt2-crmsn;
 						color: @hex-white;
+
 						&:after {
+
 							border-top: none;
 							border-right: 8px solid transparent;
 							border-bottom: 8px solid @hex-white;
 							border-left: 8px solid transparent;
+
 						}
+
 					}
+
 				}
+
 			}
+
 			&.blue dt {
+
 				background-color: @hex-lightest-blue-mnchrmtc-shftd-lghtr;
 				border-color: @hex-lightest-blue-mnchrmtc-shftd-drkr;			
 				&:hover {
+
 					background-color: @hex-dark-blue;
+
 				}
+
 				&.activated {
+
 					background-color: @hex-lghtr-gry-0pt2-crmsn;
 					border-color: @hex-drknd-lghtr-gry-0pt2-crmsn;
+
 					&:hover {
+
 						background-color: @hex-drk-gry-0pt2-crmsn;
+
 					}
+
 				}
+
 			}
+
 			dd {
+
 				display: block;
 				max-height: 0;
 				padding-right: @v-btm-mrgns;
@@ -245,22 +391,35 @@
 				margin-top: 0;
 				overflow: hidden;
 				opacity: 0;
-				.transition(~"margin 0.4s cubic-bezier(.02, .01, .47, 1), opacity 0.4s cubic-bezier(.02, .01, .47, 1)");
+				.transition(~"margin 0.4s cubic-bezier(.02, .01, .47, 1), opacity 0.4s cubic-bezier(
+.02, .01, .47, 1)");
+
 				&.revealed {
+
 					margin-top: (@v-btm-mrgns / 4);
 					margin-bottom: @v-btm-mrgns;
 					opacity: 1;
+
 				}
+
 				& > p + p {
+
 					margin-top: @v-btm-mrgns;
+
 				}
+
 				& > p + ul,
 				& > p + ol {
+
 					margin-top: (@v-btm-mrgns / 2);
+
 				}
+
 			}
+
 			& > .expand-all-button,
 			& > .collapse-all-button {
+
 				display: none;
 				position: absolute;
 				top: 0;
@@ -270,30 +429,48 @@
 				.has-mono-font;
 				.has-responsive-font(12px, 12px, @v-fnt-sclng-fctrs-alt);
 				cursor: pointer;
+
 				&:hover {
+
 					background-color: @hex-dark-gray;
 					color: @hex-white;
+
 				}
+
 				.transform(~"translateY(-100%) translateY(-5px)");
 				.transition(~"background-color 0.3s ease, border 0.3s ease, color 0.3s ease");
+
 			}
+
 			&.blue > .expand-all-button,
 			&.blue > .collapse-all-button {
+
 				background-color: @hex-lightest-blue-mnchrmtc-shftd-lghtr;
 				border-color: @hex-lightest-blue-mnchrmtc-shftd-drkr;			
 				&:hover {
+
 					background-color: @hex-dark-blue;
+
 				}
+
 			}
+
 			& > .expand-all-button {
+
 				left: 0;
+
 			}
+
 			& > .collapse-all-button {
+
 				right: 0;
+
 			}
+
 		}
+
 	}
+
 }
+
 .declare-lists-rulesets(@grid-behavior);
-/*!   └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-*/

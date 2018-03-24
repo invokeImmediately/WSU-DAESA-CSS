@@ -1,21 +1,27 @@
-//  ┌--------------------------------------------------------------------------------------------┐
-//  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-//  │                                                                                            │
-//  │ DESCRIPTION: Contains styles for paragraph elements within OUE pages built using the WSU   │
-//  │              Spine theme for WordPress. Styles are designed to accompany or supersede      │
-//  │              styling associated with the Spine parent theme.                               │
-//  └--------------------------------------------------------------------------------------------┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: paragraphs.less                                                                  │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Contains styles for paragraph elements within OUE pages built using the WSU   │
+**  │   Spine theme for WordPress. Styles are designed to accompany or supersede styling         │
+**  │   associated with the Spine parent theme.                                                  │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  STYLES FOR OUE PARAGRAPHS
+*/
 
 // TODO: Add table of contents
 
-/*! ------------------------------------------------------------------------------------------------
-*** OUE PARAGRAPHS §1: Legacy style declarations (prior to a11y redesign)
-**/
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-PARAGRAPHS §1: Legacy style declarations (prior to a11y redesign)
+*/
 
 .declare-p-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	p {
 		.column & {
-			text-align: left;
 			&.no-bottom-pad {
 				padding-bottom: 0 !important;
 			}
@@ -150,9 +156,9 @@ late.png) 32 32 round;
 				 margin-bottom: @v-dflt-spcng;
 				.rgb-dark-gray(); background-color: rgba(@rval, @gval, @bval, 0.5);
 				border: 1px solid @hex-darkest-gray;
-				line-height: @v-p-lnhght;
+				line-height: @body-text--lHeight;
 				color: @hex-darkest-gray;
-				.has-responsive-font(@v-bnnr-txt-sz, @v-p-lnhght);
+				.has-responsive-font(@v-bnnr-txt-sz, @body-text--lHeight);
 				&.orange {
 					.rgb-orange(); background-color: rgba(@rval, @gval, @bval, 0.5);
 					border: 1px solid @hex-darkest-orange;
@@ -184,12 +190,12 @@ order-Template-v3.png) 32 32 round;
 -Template-v3.png) 32 32 round;
 				border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Tem
 plate-v3.png) 32 32 round;
-				.has-responsive-font(@v-bnnr-txt-sz, @v-p-lnhght);
+				.has-responsive-font(@v-bnnr-txt-sz, @body-text--lHeight);
 			}
 		}
 		// TODO: make generic & move into separate file
 		&.article-deck {
-			.has-sectionally-responsive-font(@v-artcl-deck-sz, @v-p-lnhght);
+			.has-sectionally-responsive-font(@v-artcl-deck-sz, @body-text--lHeight);
 			.column & {
 				color: @hex-dark-green;
 				strong {
@@ -199,9 +205,10 @@ plate-v3.png) 32 32 round;
 		}
 		// TODO: make generic & move into separate file
 		&.article-tagline {
-			.has-sectionally-responsive-font(@v-artcl-tgln-sz, @v-p-lnhght);
+			.has-sectionally-responsive-font(@v-artcl-tgln-sz, @body-text--lHeight);
 			&.home {
-				.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), @v-p-lnhght);
+				.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), 
+					@body-text--lHeight);
 			}
 			.column & {
 				.has-subst-font.serif;
@@ -246,14 +253,14 @@ plate-v3.png) 32 32 round;
 			}
 		}
 		&.vpue-jump-back {
-			.has-sectionally-responsive-font(@v-p-jmpbck-sz, @v-p-lnhght);
+			.has-sectionally-responsive-font(@v-p-jmpbck-sz, @body-text--lHeight);
 			.column & {
 				padding-bottom: @v-btm-pads / 3;
 				margin-bottom: @v-btm-mrgns / 3;
 			}
 		}
 		&.article-media-contacts {
-			.has-sectionally-responsive-font(0.8rem, @v-p-lnhght);
+			.has-sectionally-responsive-font(0.8rem, @body-text--lHeight);
 			.column & {
 				padding-left: 2em;
 				text-align: left;
