@@ -18,19 +18,19 @@
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 **    OUE-SECTIONS §1: Utility classes.........................................................39
 **    OUE-SECTIONS §2: Legacy article headers..................................................49
-**    OUE-SECTIONS §3: Large-format friendly sections.........................................120
-**    OUE-SECTIONS §4: Styles for "Thirds" Spine builder sections.............................212
-**    OUE-SECTIONS §5: Section coloring.......................................................258
-**    OUE-SECTIONS §6: Spacing overrides to improve responsive design of......................287
+**    OUE-SECTIONS §3: Large-format friendly sections.........................................132
+**    OUE-SECTIONS §4: Styles for "Thirds" Spine builder sections.............................234
+**    OUE-SECTIONS §5: Section coloring.......................................................285
+**    OUE-SECTIONS §6: Spacing overrides to improve responsive design of......................319
 **                     WSU Spine builder template
-**    OUE-SECTIONS §7: Gutter padding overrides to improve mobile design of...................369
+**    OUE-SECTIONS §7: Gutter padding overrides to improve mobile design of...................405
 **                     WSU Spine builder template
-**    OUE-SECTIONS §8: Column stacking overrides to improve mobile design of..................557
+**    OUE-SECTIONS §8: Column stacking overrides to improve mobile design of..................626
 **                     WSU Spine builder template
-**    OUE-SECTIONS §9: Linked column styling..................................................576
-**    OUE-SECTIONS §10: Accessibility friendly utility classes...............................1351
-**       >>> §10.1: Font-sizing variables for columns........................................1355
-**       >>> §10.2: Default font sizes for column elements...................................1369
+**    OUE-SECTIONS §9: Linked column styling..................................................645
+**    OUE-SECTIONS §10: Accessibility friendly utility classes...............................1528
+**       >>> §10.1: Font-sizing variables for columns........................................1532
+**       >>> §10.2: Default font sizes for column elements...................................1546
 */
 
 .declare-section-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
@@ -52,26 +52,31 @@
 		&:not(.row).article-header {
 			height: 120px;
 			margin-bottom: 1rem;
+			background-size: auto 100% !important;
+
 			body.blog & {
 				margin-bottom: 0;
 			}
-			background-size: auto 100% !important;
+
 			.header-content {
 				position: relative;
 				 top: 50%;
 				margin-right: 1rem;
 				margin-left: 1rem;
 				transform: translateY(-50%);
+
 				h1 {
 					font-size: 4.118rem;
 					line-height: 1.071em;
 				}
+
 				h2 {
 					margin-bottom: .75rem;
 					font-size: 2.826rem;
 					line-height: 0.8em;
 					text-transform: uppercase;
 				}
+
 				h3 {
 					margin-top: 0;
 					margin-bottom: 0;
@@ -79,32 +84,39 @@
 					text-transform: uppercase;
 				}
 			}
+
 			@media all {
 				.header-content {
 					h1, h2 {
 						&:extend(.has-alt-font);
 						color: @hex-white;
 					}
+
 					h1 {
 						.textShadow3D(@hex-white,6px);
 					}
+
 					h2 {
 						.textShadow3D(@hex-white,4px);
 					}
+
 					h3 {
 						padding: .1rem .2rem .2rem;
 						.rgb-crimson(); background-color: rgba(@rval,@gval,@bval,0.95);
 						border: 1px solid white;
 						color: @hex-white;
 						.textShadow3D(@hex-white,2px);
+
 						& > mark.highlight {
 							.textShadow3D(#AEC7CB,2px);
 						}
 					}
 				}
 			}
+
 			@media print {
 				background: transparent !important;
+
 				.header-content {
 					margin-left: 0;
 					margin-right: 0;
@@ -126,6 +138,7 @@
 					text-align: left;
 				}
 			}
+
 			&.large-format-friendly, &.row.large-format-friendly {
 				@media all and (min-width: @large-format-threshold) {
 					.margin-centered;
@@ -133,6 +146,7 @@
 				}
 			}
 		}
+
 		&.single.large-format-friendly, &.row.single.large-format-friendly {
 			.column.one {
 				@media all {
@@ -154,26 +168,31 @@
 				}
 			}
 		}
+
 		&.side-right {
 			.column.two {
 				p {
 					text-align: left;
 				}
 			}
+
 			&.large-format-friendly, &.row.side-right.large-format-friendly {
 				@media all {
 					@media (min-width: (@large-format-threshold + 1)) {
 						&:first-child {
 							padding-top: (@v-dflt-spcng / 2);
 						}
+
 						.column.one {
 							width: @v-w-cnstrn-lrg;
 						}
+
 						.column.two {
 							width: ~"calc(100% - " @v-w-cnstrn-lrg ~")";
 							height: 0;
 							position: relative;
 							opacity: 0;
+
 							&:before {
 								content: "";
 								position: absolute;
@@ -185,6 +204,7 @@
 							}
 						}
 					}
+
 					@media (max-width: @large-format-threshold) {
 						.column.one {
 							width: 100%;
@@ -193,6 +213,7 @@
 							.margin-centered;
 							padding-right: 2rem;
 						}
+
 						.column.two {
 							display: none;
 						}
@@ -200,6 +221,7 @@
 				}
 			}
 		}
+
 		&.side-right.pad-top.large-format-friendly, &.row.side-right.pad-top.large-format-friendly {
 			@media all and (min-width: 1050px) {
 				.column.two:before {
@@ -218,27 +240,32 @@
 					@media (min-width: (@column-floating-threshold+1)) {
 						width: 100%;
 					}
+
 					@media (max-width: @column-floating-threshold) {
 						display: none;
 					}
 				}
 			}
+
 			img.show-when-stacked {
 				@media all {
 					@media (min-width: (@column-floating-threshold+1)) {
 						display: none;
 					}
+
 					@media (max-width: @column-floating-threshold) {
 						width: 100%;
 					}
 				}
 			}
+
 			.column {
 				p {
 					@media all {
 						@media (min-width: (@column-floating-threshold+1)) {
 							text-align: left;
 						}
+
 						@media (max-width: @mobile-screen-width) {
 							text-align: left;
 						}
@@ -262,20 +289,25 @@
 		has-gray-background @hex-bright-gray none,
 		has-crimson-background @hex-crimson @hex-white,
 		has-blue-background @hex-accent-blue @hex-white;
+
 	.specify-section-coloring(@bg-clr, @fg-clr) when (iscolor(@bg-clr)) and (iscolor(@fg-clr)) {
 		background-color: @bg-clr;
+
 		.column {
 			color: @fg-clr;
 		}
 	}
+
 	.specify-section-coloring(@bg-clr, @fg-clr) when (iscolor(@bg-clr)) and not (iscolor(@fg-clr)) {
 		background-color: @bg-clr;
 	}
+
 	.setup-coloring-classes(@matrix, @idx: 1) when (@idx <= length(@matrix)){
 		@class-list: extract(@matrix, @idx);
 		@class-name: extract(@class-list, 1);
 		@class-bg-clr: extract(@class-list, 2);
 		@class-fg-clr: extract(@class-list, 3);
+
 		.row.@{class-name} {
 			.specify-section-coloring(@class-bg-clr, @class-fg-clr);
 		}
@@ -304,6 +336,7 @@
 				margin-bottom: @v-btm-mrgns;
 			}
 		}
+
 		&:last-child {
 			& > .column {
 				&,
@@ -338,6 +371,7 @@
 				}
 			}
 		}
+
 		& > .column table > tbody > tr > td {
 			& > p:last-child,
 			& > section > p:last-child,
@@ -357,9 +391,11 @@
 		& .column {
 			padding-top: @v-dflt-spcng;
 		}
+
 		&.short .column {
 			padding-top: (@v-dflt-spcng / 2);
 		}
+
 		&.tall .column {
 			padding-top: (@v-dflt-spcng * 2);
 		}
@@ -377,52 +413,62 @@
 			padding-left: @v-dflt-spcng;
 			padding-right: @v-dflt-spcng
 		}
+
 	   .single.gutter .column:not(.gutterless) {
 			padding-left: @v-dflt-spcng;
 			padding-right: @v-dflt-spcng
 		}
+
 		.halves.gutter .column.one:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
 		.side-left.gutter .column.one:not(.gutterless),
 		.side-right.gutter .column.one:not(.gutterless) {
 			padding-right: @v-dflt-spcng
 		}
+
 		.halves.gutter .column.two:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
 		.side-left.gutter .column.two:not(.gutterless),
 		.side-right.gutter .column.two:not(.gutterless) {
 			padding-left: @v-dflt-spcng
 		}
+
 		.thirds.gutter .column.one:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
 		.triptych.gutter .column.one:not(.gutterless) {
 			padding-right: @v-dflt-spcng
 		}
+
 		.thirds.gutter .column.two:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
 		.triptych.gutter .column.two:not(.gutterless) {
 			padding-left: @v-dflt-spcng;
 			padding-right: @v-dflt-spcng
 		}
+
 		.thirds.gutter .column.three:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
 		.triptych.gutter .column.three:not(.gutterless) {
 			padding-left: @v-dflt-spcng
 		}
+
 		.quarters.gutter .column.one:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
 			padding-right: (@v-dflt-spcng / 2)
 		}
+
 		.quarters.gutter .column.two:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2);
 			padding-right: @v-dflt-spcng
 		}
+
 		.quarters.gutter .column.three:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
 			padding-left: @v-dflt-spcng;
 			padding-right: (@v-dflt-spcng / 2)
 		}
+
 		.quarters.gutter .column.four:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2)
@@ -432,59 +478,71 @@
 	@media only screen and (min-width:(@mobile-screen-width + 1))
 			and (max-width:@large-mobile-screen-width) {
 		.gutter .column:not(.gutterless),
-		.guttered {			padding-left: (@v-dflt-spcng / 2);
+		.guttered {
+			padding-left: (@v-dflt-spcng / 2);
 			padding-right: (@v-dflt-spcng / 2);
 		}
+
 		.single.gutter .column:not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2);
 			padding-right: (@v-dflt-spcng / 2);
 		}
+
 		.halves.gutter .column.one:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
 		.side-left.gutter .column.one:not(.gutterless),
 		.side-right.gutter .column.one:not(.gutterless) {
 			padding-right: (@v-dflt-spcng / 2);
 		}
+
 		.halves.gutter .column.two:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
 		.side-left.gutter .column.two:not(.gutterless),
 		.side-right.gutter .column.two:not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2);
 		}
+
 		.thirds.gutter .column.one:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
 		.triptych.gutter .column.one:not(.gutterless) {
 			padding-right: (@v-dflt-spcng / 2);
 		}
+
 		.thirds.gutter .column.two:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
 		.triptych.gutter .column.two:not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2);
 			padding-right: (@v-dflt-spcng / 2);
 		}
+
 		.thirds.gutter .column.three:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
 		.triptych.gutter .column.three:not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2);
 		}
+
 		.quarters.gutter .column.one:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
 			padding-right: (@v-dflt-spcng / 2 / 2);
 		}
+
 		.quarters.gutter .column.two:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2 / 2);
 			padding-right: (@v-dflt-spcng / 2);
 		}
+
 		.quarters.gutter .column.three:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2);
 			padding-right: (@v-dflt-spcng / 2 / 2);
 		}
+
 		.quarters.gutter .column.four:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2 / 2);
 		}
+
 		section.gutter > header {
 			padding-left: (@v-dflt-spcng / 2);
 			padding-right: (@v-dflt-spcng / 2);
@@ -497,56 +555,67 @@
 			padding-left: (@v-dflt-spcng / 4);
 			padding-right: (@v-dflt-spcng / 4);
 		}
+
 		.single.gutter .column:not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 4);
 			padding-right: (@v-dflt-spcng / 4);
 		}
+
 		.halves.gutter .column.one:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
 		.side-left.gutter .column.one:not(.gutterless),
 		.side-right.gutter .column.one:not(.gutterless) {
 			padding-right: (@v-dflt-spcng / 4);
 		}
+
 		.halves.gutter .column.two:not(.gutterless),
 		.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
 		.side-left.gutter .column.two:not(.gutterless),
 		.side-right.gutter .column.two:not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 4);
 		}
+
 		.thirds.gutter .column.one:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
 		.triptych.gutter .column.one:not(.gutterless) {
 			padding-right: (@v-dflt-spcng / 4);
 		}
+
 		.thirds.gutter .column.two:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
 		.triptych.gutter .column.two:not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 4);
 			padding-right: (@v-dflt-spcng / 4);
 		}
+
 		.thirds.gutter .column.three:not(.gutterless),
 		.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
 		.triptych.gutter .column.three:not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 4);
 		}
+
 		.quarters.gutter .column.one:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
 			padding-right: (@v-dflt-spcng / 2 / 4);
 		}
+
 		.quarters.gutter .column.two:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2 / 4);
 			padding-right: (@v-dflt-spcng / 4);
 		}
+
 		.quarters.gutter .column.three:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 4);
 			padding-right: (@v-dflt-spcng / 2 / 4);
 		}
+
 		.quarters.gutter .column.four:not(.gutterless),
 		.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
 			padding-left: (@v-dflt-spcng / 2 / 4);
 		}
+
 		section.gutter > header {
 			padding-left: (@v-dflt-spcng / 4);
 			padding-right: (@v-dflt-spcng / 4);
@@ -579,9 +648,11 @@
 	.use-linked-columns() {
 		.row.has-linked-columns:not(.gutter) {
 			.spaces-top-half;
+
 			&:last-child {
 				margin-bottom: @v-dflt-spcng;
 			}
+
 			.column {
 				position: relative;
 				height: 0;
@@ -589,18 +660,21 @@
 				background-position: center center;
 				background-size: 100% auto;
 				text-align: center;
+
 				&:not(:first-child) {
 					@media all {
 						@media (min-width: (@column-floating-threshold + 1)) {
 							border-left: 1px solid rgba(red(@hex-white), green(@hex-white), 
 								blue(@hex-white), 0.7);
 						}
+
 						@media (max-width: @column-floating-threshold) {
 							border-top: 1px solid rgba(red(@hex-white), green(@hex-white), 
 								blue(@hex-white), 0.7);
 						}
 					}
 				}
+
 				& > :first-child:not(header),
 				& > header:first-child + *,
 				& > .shift-to-bottom:first-of-type {
@@ -616,15 +690,18 @@
 					pointer-events: none;
 					z-index: 2;
 				}
+
 				& > :first-child:not(header),
 				& > header:first-child + * {
 					top: 50%;
 					.transform(~"translate(-50%, -50%)");
+
 					&.shift-to-top {
 						top: (@v-dflt-spcng / 2);
 						.transform(~"translateX(-50%)");
 					}
 				}
+
 				& > .shift-to-bottom:first-of-type {
 					bottom: (@v-dflt-spcng / 2);
 					border-top: 1px solid @hex-white;
@@ -633,6 +710,7 @@
 						blue(@hex-black), 0.3333) inset;
 					.transform(~"translateX(-50%)");
 				}
+
 				&:hover {
 					background-size: 110% auto;
 					.transition(~"all 1s ease");
@@ -642,16 +720,20 @@
 						color: @hex-light-crimson;
 						.transition(~"all 0.3s linear");
 					}
+
 					& > .shift-to-bottom:first-of-type {
 						border-top: 1px solid @hex-light-crimson;
 					}
 				}
+
 				* {
 					text-align: inherit;
 				}
+
 				a {
 					display: none;
 				}
+
 				& > :last-child > a:first-of-type {
 					display: block;
 					position: absolute;
@@ -663,6 +745,7 @@
 					color: transparent;
 					box-shadow: none;
 					z-index: 1;
+
 					&:hover {
 						background-color: rgba(red(@hex-white), green(@hex-white), 
 							blue(@hex-white), 0.33);
@@ -670,24 +753,31 @@
 						.transition(~"all 0.3s linear");
 					}
 				}
+
 				&.bg-pinned-at-top {
 					background-position: center top;
 				}
+
 				&.bg-pinned-toward-top {
 					background-position: center 25%;
 				}
+
 				&.bg-pinned-at-left {
 					background-position: left top;
 				}
+
 				&.bg-pinned-toward-left {
 					background-position: 25% top;
 				}
+
 				&.bg-pinned-at-right {
 					background-position: right top;
 				}
+
 				&.bg-pinned-toward-right {
 					background-position: 75% top;
 				}
+
 				&.has-crimson-bg,
 				&.has-gray-bg,
 				&.has-yellow-bg,
@@ -707,22 +797,27 @@
 						pointer-events: none;
 						opacity: 1;
 					}
+
 					&:before {
 						opacity: 0;
 					}
+
 					&:hover {
 						&:after,
 						&:before {
 							.transition(~"all 0.3s linear");
 						}
+
 						&:after {
 							opacity: 0;
 						}
+
 						&:before {
 							opacity: 1;
 						}
 					}
 				}
+
 				&.has-crimson-bg {
 					&:after {
 						background: linear-gradient(to bottom,
@@ -731,6 +826,7 @@
 								blue(@hex-crimson),0.2) 50%,
 							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson), 1));
 					}
+
 					&:before {
 						background: linear-gradient(to top,
 							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),0.0),
@@ -739,6 +835,7 @@
 							rgba(red(@hex-crimson), green(@hex-crimson), blue(@hex-crimson),1));
 					}
 				}
+
 				&.has-gray-bg {
 					&:after {
 						background: linear-gradient(to bottom,
@@ -749,6 +846,7 @@
 							rgba(red(@hex-light-gray), green(@hex-light-gray), 
 								blue(@hex-light-gray), 1));
 					}
+
 					&:before {
 						background: linear-gradient(to top,
 							rgba(red(@hex-light-gray), green(@hex-light-gray), 
@@ -758,17 +856,20 @@
 							rgba(red(@hex-light-gray), green(@hex-light-gray), 
 								blue(@hex-light-gray),1));
 					}
+
 					&:hover {
 						& > :first-child:not(header),
 						& > header:first-child + *,
 						& > .shift-to-bottom:first-of-type {
 							color: @hex-light-gray;
 						}
+
 						& > .shift-to-bottom:first-of-type {
 							border-top: 1px solid @hex-light-gray;
 						}
 					}
 				}
+
 				&.has-yellow-bg {
 					&:after {
 						background: linear-gradient(to bottom,
@@ -779,6 +880,7 @@
 							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
 								blue(@hex-accent-yellow), 1));
 					}
+
 					&:before {
 						background: linear-gradient(to top,
 							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
@@ -788,17 +890,20 @@
 							rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
 								blue(@hex-accent-yellow), 1));
 					}
+
 					&:hover {
 						& > :first-child:not(header),
 						& > header:first-child + *,
 						& > .shift-to-bottom:first-of-type {
 							color: @hex-accent-yellow;
 						}
+
 						& > .shift-to-bottom:first-of-type {
 							border-top: 1px solid @hex-accent-yellow;
 						}
 					}
 				}
+
 				&.has-blue-bg {
 					&:after {
 						background: linear-gradient(to bottom,
@@ -809,6 +914,7 @@
 							rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
 								blue(@hex-accent-blue), 1));
 					}
+
 					&:before {
 						background: linear-gradient(to top,
 							rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
@@ -818,17 +924,20 @@
 							rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
 								blue(@hex-accent-blue), 1));
 					}
+
 					&:hover {
 						& > :first-child:not(header),
 						& > header:first-child + *,
 						& > .shift-to-bottom:first-of-type {
 							color: @hex-accent-blue;
 						}
+
 						& > .shift-to-bottom:first-of-type {
 							border-top: 1px solid @hex-accent-blue;
 						}
 					}
 				}
+
 				&.has-green-bg {
 					&:after {
 						background: linear-gradient(to bottom,
@@ -839,6 +948,7 @@
 							rgba(red(@hex-accent-green), green(@hex-accent-green), 
 								blue(@hex-accent-green), 1));
 					}
+
 					&:before {
 						background: linear-gradient(to top,
 							rgba(red(@hex-accent-green), green(@hex-accent-green), 
@@ -848,17 +958,20 @@
 							rgba(red(@hex-accent-green), green(@hex-accent-green), 
 								blue(@hex-accent-green), 1));
 					}
+
 					&:hover {
 						& > :first-child:not(header),
 						& > header:first-child + *,
 						& > .shift-to-bottom:first-of-type {
 							color: @hex-accent-green;
 						}
+
 						& > .shift-to-bottom:first-of-type {
 							border-top: 1px solid @hex-accent-green;
 						}
 					}
 				}
+
 				&.has-orange-bg {
 					&:after {
 						background: linear-gradient(to bottom,
@@ -869,6 +982,7 @@
 							rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
 								blue(@hex-accent-orange), 1));
 					}
+
 					&:before {
 						background: linear-gradient(to top,
 							rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
@@ -878,17 +992,20 @@
 							rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
 								blue(@hex-accent-orange), 1));
 					}
+
 					&:hover {
 						& > :first-child:not(header),
 						& > header:first-child + *,
 						& > .shift-to-bottom:first-of-type {
 							color: @hex-accent-orange;
 						}
+
 						& > .shift-to-bottom:first-of-type {
 							border-top: 1px solid @hex-accent-orange;
 						}
 					}
 				}
+
 				&.has-cyan-bg {
 					&:after {
 						background: linear-gradient(to bottom,
@@ -896,24 +1013,28 @@
 							rgba(0, 173, 164, 0.2) 50%,
 							rgba(0, 173, 164, 1));
 					}
+
 					&:before {
 						background: linear-gradient(to top,
 							rgba(0, 173, 164, 0.0),
 							rgba(0, 173, 164, 0.2) 50%,
 							rgba(0, 173, 164, 1));
 					}
+
 					&:hover {
 						& > :first-child:not(header),
 						& > header:first-child + *,
 						& > .shift-to-bottom:first-of-type {
 							color: #00ada4;
 						}
+
 						& > .shift-to-bottom:first-of-type {
 							border-top: 1px solid #00ada4;
 						}
 					}
 				}
 			}
+
 			&.single {
 				.column {
 					& > :first-child:not(header),
@@ -923,6 +1044,7 @@
 					}
 				}
 			}
+
 			&.halves {
 				#binder.max-1386 & {
 					@media all and (min-width: 1205px) {
@@ -931,6 +1053,7 @@
 					}
 				}
 			}
+
 			&.thirds,
 			&.quarters {
 				& + &.thirds,
@@ -939,24 +1062,30 @@
 						blue(@hex-white), 0.7);
 					margin-top: 0 !important;
 				}
+
 				.column {
 					padding-bottom: ~"calc(33% - @{v-dflt-spcng}) !important";
 					background-size: auto 100%;
+
 					&:hover {
 						background-size: auto 110%;
 						//background-size: 110% auto;
 					}
+
 					@media all {
 						@media (min-width: (@column-floating-threshold + 1)) 
 								and (max-width: (@tablet-screen-width)) {
 							padding-bottom: ~"calc(40% - @{v-dflt-spcng}) !important";
 						}
+
 						@media (max-width: @column-floating-threshold) {
 							background-size: 100% auto;
+
 							&:hover {
 								background-size: 110% auto;
 							}
 						}
+
 						@media (max-width: (@large-mobile-screen-width - 80)) {
 							& > :first-child:not(header),
 							& > header:first-child + * {
@@ -964,11 +1093,13 @@
 									top: (@v-dflt-spcng / 4);
 								}
 							}
+
 							& > .shift-to-bottom:first-of-type {
 								bottom: (@v-dflt-spcng / 4);
 							}
 						}
 					}
+
 					&.has-crimson-bg {
 						&:after {
 							background: linear-gradient(to bottom,
@@ -978,6 +1109,7 @@
 									blue(@hex-crimson), 0.2) 50%,
 								rgba(red(@hex-crimson), green(@hex-crimson), 
 									blue(@hex-crimson), 1) 80%);
+
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-crimson), green(@hex-crimson), 
@@ -988,6 +1120,7 @@
 										blue(@hex-crimson), 1) 67%);
 							}
 						}
+
 						&:before {
 							background: linear-gradient(to top,
 								rgba(red(@hex-crimson), green(@hex-crimson), 
@@ -998,6 +1131,7 @@
 									blue(@hex-crimson), 1) 80%);
 						}
 					}
+
 					&.has-gray-bg {
 						&:after {
 							background: linear-gradient(to bottom,
@@ -1007,6 +1141,7 @@
 									blue(@hex-light-gray), 0.2) 50%,
 								rgba(red(@hex-light-gray), green(@hex-light-gray), 
 									blue(@hex-light-gray), 1) 80%);
+
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-light-gray), green(@hex-light-gray), 
@@ -1017,6 +1152,7 @@
 										blue(@hex-light-gray), 1) 67%);
 							}
 						}
+
 						&:before {
 							background: linear-gradient(to top,
 								rgba(red(@hex-light-gray), green(@hex-light-gray), 
@@ -1027,6 +1163,7 @@
 									blue(@hex-light-gray), 1) 80%);
 						}
 					}
+
 					&.has-yellow-bg {
 						&:after {
 							background: linear-gradient(to bottom,
@@ -1036,6 +1173,7 @@
 									blue(@hex-accent-yellow), 0.2) 50%,
 								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
 									blue(@hex-accent-yellow), 1) 80%);
+
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
@@ -1046,6 +1184,7 @@
 										blue(@hex-accent-yellow), 1) 67%);
 							}
 						}
+
 						&:before {
 							background: linear-gradient(to top,
 								rgba(red(@hex-accent-yellow), green(@hex-accent-yellow), 
@@ -1056,6 +1195,7 @@
 									blue(@hex-accent-yellow), 1) 80%);
 						}
 					}
+
 					&.has-blue-bg {
 						&:after {
 							background: linear-gradient(to bottom,
@@ -1065,6 +1205,7 @@
 									blue(@hex-accent-blue), 0.2) 50%,
 								rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
 									blue(@hex-accent-blue), 1) 80%);
+
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
@@ -1075,6 +1216,7 @@
 										blue(@hex-accent-blue), 1) 67%);
 							}
 						}
+
 						&:before {
 							background: linear-gradient(to top,
 								rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
@@ -1085,6 +1227,7 @@
 									blue(@hex-accent-blue), 1) 80%);
 						}
 					}
+
 					&.has-green-bg {
 						&:after {
 							background: linear-gradient(to bottom,
@@ -1094,6 +1237,7 @@
 									blue(@hex-accent-green), 0.2) 50%,
 								rgba(red(@hex-accent-green), green(@hex-accent-green), 
 									blue(@hex-accent-green), 1) 80%);
+
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-accent-green), green(@hex-accent-green), 
@@ -1104,6 +1248,7 @@
 										blue(@hex-accent-green), 1) 67%);
 							}
 						}
+
 						&:before {
 							background: linear-gradient(to top,
 								rgba(red(@hex-accent-green), green(@hex-accent-green), 
@@ -1114,6 +1259,7 @@
 									blue(@hex-accent-green), 1) 80%);
 						}
 					}
+
 					&.has-orange-bg {
 						&:after {
 							background: linear-gradient(to bottom,
@@ -1123,6 +1269,7 @@
 									blue(@hex-accent-orange), 0.2) 50%,
 								rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
 									blue(@hex-accent-orange), 1) 80%);
+
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
@@ -1133,6 +1280,7 @@
 										blue(@hex-accent-orange), 1) 67%);
 							}
 						}
+
 						&:before {
 							background: linear-gradient(to top,
 								rgba(red(@hex-accent-orange), green(@hex-accent-orange), 
@@ -1143,12 +1291,14 @@
 									blue(@hex-accent-orange), 1) 80%);
 						}
 					}
+
 					&.has-cyan-bg {
 						&:after {
 							background: linear-gradient(to bottom,
 								rgba(0, 173, 164, 0.0),
 								rgba(0, 173, 164, 0.2) 50%,
 								rgba(0, 173, 164, 1) 80%);
+
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to bottom,
 									rgba(0, 173, 164, 0.0),
@@ -1156,6 +1306,7 @@
 									rgba(0, 173, 164, 1) 67%);
 							}
 						}
+
 						&:before {
 							background: linear-gradient(to top,
 								rgba(0, 173, 164, 0.0),
@@ -1165,6 +1316,7 @@
 					}
 				}
 			}
+
 			&.thirds {
 				.column {
 					@media all {
@@ -1172,6 +1324,7 @@
 							padding-bottom: ~"calc(40% - @{v-dflt-spcng}) !important";
 						}
 					}
+
 					#binder.max-1386 & {
 						@media all and (min-width: 1205px) {
 							padding-bottom: 0 !important;
@@ -1180,6 +1333,7 @@
 					}
 				}
 			}
+
 			&.quarters {
 				.column {
 					#binder.max-1386 & {
@@ -1190,8 +1344,10 @@
 					}
 				}
 			}
+
 			&.has-title {
 				margin-top: (@v-dflt-spcng * 3 / 2);
+
 				.column:first-child {
 					& > header:first-child {
 						display: block;
@@ -1203,6 +1359,7 @@
 							blue(@hex-white), 0.7);
 						background-color: @hex-dark-gray;
 						.transform(~"translateY(-100%)");
+
 						& > :first-child {
 							margin: 0 !important;
 							color: @hex-white;
@@ -1213,36 +1370,42 @@
 						}
 					}
 				}
+
 				&.halves {
 					.column:first-child > header:first-child {
 						@media all {
 							@media (min-width: (@column-floating-threshold + 1)) {
 								width: 200%;
 							}
+
 							@media (max-width: @column-floating-threshold) {
 								width: 100%;
 							}
 						}
 					}
 				}
+
 				&.thirds {
 					.column:first-child > header:first-child {
 						@media all {
 							@media (min-width: (@column-floating-threshold + 1)) {
 								width: 300%;
 							}
+
 							@media (max-width: @column-floating-threshold) {
 								width: 100%;
 							}
 						}
 					}
 				}
+
 				&.quarters {
 					.column:first-child > header:first-child {
 						@media all {
 							@media (min-width: (@column-floating-threshold + 1)) {
 								width: 400%;
 							}
+
 							@media (max-width: @column-floating-threshold) {
 								width: 200%;
 							}
@@ -1255,28 +1418,33 @@
 				&.has-title {
 					&.quarters {
 						margin-top: ~"calc(" (@v-dflt-spcng * 3 / 2) ~" + 10px)";
+
 						.column:first-child > header:first-child {
 							border-bottom: 10px solid rgba(red(@hex-white), green(@hex-white), 
 								blue(@hex-white), 1);
 						}
 					}
 				}
+
 				.column {
 					&:hover {
 						background-size: auto 110%;
 					}
+
 					&:not(:first-child) {
 						@media all {
 							@media (min-width: (@column-floating-threshold + 1)) {
 								border-left: 10px solid rgba(red(@hex-white), green(@hex-white), 
 									blue(@hex-white), 1);
 							}
+
 							@media (max-width: @column-floating-threshold) {
 								border-top: 10px solid rgba(red(@hex-white), green(@hex-white), 
 									blue(@hex-white), 1);
 							}
 						}
 					}
+
 					&.has-black-bg {
 						&:after {
 							background: linear-gradient(to top,
@@ -1284,6 +1452,7 @@
 								rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.2) 50%,
 								rgba(red(@hex-black), green(@hex-black), 
 									blue(@hex-black), 0.7) 70%);
+
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to top,
 									rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.0),
@@ -1293,6 +1462,7 @@
 										blue(@hex-black), 0.7) 67%);
 							}
 						}
+
 						&:before {
 							background: linear-gradient(to top,
 								rgba(red(@hex-crimson), green(@hex-crimson), 
@@ -1301,6 +1471,7 @@
 									blue(@hex-crimson), 0.2) 50%,
 								rgba(red(@hex-crimson), green(@hex-crimson), 
 									blue(@hex-crimson), 0.7) 70%);
+
 							@media all and (max-width: @large-mobile-screen-width) {
 								background: linear-gradient(to top,
 									rgba(red(@hex-crimson), green(@hex-crimson), 
@@ -1313,26 +1484,32 @@
 						}
 					}
 				}
+
 				& + &.thirds,
 				& + &.quarters {
 					border-top: 10px solid rgba(red(@hex-white), green(@hex-white), 
 						blue(@hex-white), 1);
 				}
+
 				&.quarters {
 					.column {
 						@media all and (max-width: @column-floating-threshold) {
 							background-size: auto 100%;
+
 							&:hover {
 								background-size: auto 110%;
 							}
+
 							&:nth-child(2) {
 								border-top: none !important;
 							}
+
 							&:nth-child(3),
 							&:nth-child(4) {
 								border-top: 10px solid rgba(red(@hex-white), green(@hex-white), 
 									blue(@hex-white), 1) !important;
 							}
+
 							&:nth-child(2),
 							&:nth-child(4) {
 								border-left: 10px solid rgba(red(@hex-white), green(@hex-white), 
@@ -1377,10 +1554,12 @@
 	&.side-right .column,
 	&.side-left .column {
 		font-size: @col--fSize-1;
+
 		@media all{
 			@media (max-width: @desktop-width) {
 				font-size: @col--fSize-2;
 			}
+
 			@media (max-width: @tablet-screen-width) {
 				font-size: @col--fSize-3;
 			}
