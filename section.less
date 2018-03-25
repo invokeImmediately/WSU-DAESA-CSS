@@ -1,54 +1,54 @@
-//  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-//  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-//  │                                                                                            │
-//  │ DESCRIPTION: Rule-sets for styling section elements within OUE pages built using the       │
-//  │ Builder template within the Spine theme for WordPress.                                     │
-//  │                                                                                            │
-//  │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:      │
-//  │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                       │
-//  │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                    │
-//  │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                            │
-//  │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                           │
-//  │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                        │
-//  └────────────────────────────────────────────────────────────────────────────────────────────┘
-
-/*
-** TABLE OF CONTENTS:
-** -----------------
-**   OUE SECTIONS §0: Styles for sectioning content across OUE websites........................37
-**   OUE SECTIONS §1: Utility classes..........................................................42
-**   OUE SECTIONS §2: Legacy article headers...................................................50
-**   OUE SECTIONS §3: Large-format friendly sections..........................................119
-**   OUE SECTIONS §4: Styles for "Thirds" Spine builder sections..............................208
-**   OUE SECTIONS §5: Section coloring........................................................253
-**   OUE SECTIONS §6: Spacing overrides to improve responsive design of.......................282
-**                    WSU Spine builder template
-**   OUE SECTIONS §7: Gutter padding overrides to improve mobile design of....................386
-**                    WSU Spine builder template
-**   OUE SECTIONS §8: Column stacking overrides to improve mobile design of...................573
-**                    WSU Spine builder template
-**   OUE SECTIONS §9: Linked column styling...................................................592
-**   OUE SECTIONS §10: Accessibility friendly utility classes................................1362
-**      OUE SECTIONS §10.1: Font-sizing variables for columns................................1366
-**      OUE SECTIONS §10.2: Default font sizes for column elements...........................1379
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: sections.less                                                                    │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Includes styles for section elements of WSU Office of Undergraduate Education │
+**  │   web pages built using the builder template of the Spine parent theme of WSUWP. Styles    │
+**  │   are designed to accompany or supersede styling associated with the theme.                │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
-/*! ------------------------------------------------------------------------------------------------
-***  OUE SECTIONS §0: Styles for sectioning content across OUE websites
-**/
+/*  ================================================================================================
+**  STYLES FOR OUE SECTION ELEMENTS
+*/
+
+/*    ─────────────────────────────────────────────────────────────────────────────────────────── 
+**    TABLE OF CONTENTS:
+**    ───────────────────────────────────────────────────────────────────────────────────────────
+**    OUE-SECTIONS §1: Utility classes.........................................................39
+**    OUE-SECTIONS §2: Legacy article headers..................................................49
+**    OUE-SECTIONS §3: Large-format friendly sections.........................................120
+**    OUE-SECTIONS §4: Styles for "Thirds" Spine builder sections.............................212
+**    OUE-SECTIONS §5: Section coloring.......................................................258
+**    OUE-SECTIONS §6: Spacing overrides to improve responsive design of......................287
+**                     WSU Spine builder template
+**    OUE-SECTIONS §7: Gutter padding overrides to improve mobile design of...................369
+**                     WSU Spine builder template
+**    OUE-SECTIONS §8: Column stacking overrides to improve mobile design of..................557
+**                     WSU Spine builder template
+**    OUE-SECTIONS §9: Linked column styling..................................................576
+**    OUE-SECTIONS §10: Accessibility friendly utility classes...............................1351
+**       >>> §10.1: Font-sizing variables for columns........................................1355
+**       >>> §10.2: Default font sizes for column elements...................................1369
+*/
+
 .declare-section-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §1: Utility classes
-**/
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §1: Utility classes
+*/
+
 	// TODO: Recode to rely on class-based selection logic.
 	section {
 		&.column-one-with-bottom-margin > .column.one {
 			margin-bottom: 2rem;
 		}
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §2: Legacy article headers
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §2: Legacy article headers
 */
+
 		&:not(.row).article-header {
 			height: 120px;
 			margin-bottom: 1rem;
@@ -115,9 +115,11 @@
 				}
 			}
 		}
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §3: Large-format friendly sections
-**/
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §3: Large-format friendly sections
+*/
+
 		&.halves {
 			.column {
 				p:not([class*="center"]) {
@@ -139,10 +141,12 @@
 						.margin-centered;
 						max-width: @v-w-cnstrn-lrg;
 					}
-					@media (min-width: (@spine-threshold + 1)) and (max-width: (@large-format-threshold - 1)) {
+					@media (min-width: (@spine-threshold + 1)) and (max-width: 
+							(@large-format-threshold - 1)) {
 						max-width: @v-w-cnstrn-lrg;
 					}
-					@media (min-width: (@tablet-screen-width + 1)) and (max-width: (@spine-threshold)) {
+					@media (min-width: (@tablet-screen-width + 1)) and (max-width: 
+							(@spine-threshold)) {
 						float: none;
 						.margin-centered;
 						max-width: @v-w-cnstrn-lrg;
@@ -204,9 +208,10 @@
 			}
 		}
 
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §4: Styles for "Thirds" Spine builder sections
-**/
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §4: Styles for "Thirds" Spine builder sections
+*/
+
 		&.thirds {
 			img.show-when-adjacent {
 				@media all {
@@ -249,9 +254,9 @@
 		}
 	}
 
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §5: Section coloring
-**/
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §5: Section coloring
+*/
 
 	@class-setup-matrix: has-charcoal-background @hex-charcoal-gray @hex-white,
 		has-gray-background @hex-bright-gray none,
@@ -278,9 +283,9 @@
 	}
 	.setup-coloring-classes(@class-setup-matrix);
 
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §6: Spacing overrides to improve responsive design of WSU Spine builder template
-**/
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §6: Spacing overrides to improve responsive design of WSU Spine builder template
+*/
 
 	main section.row {
 		& > .column,
@@ -360,8 +365,9 @@
 		}
 	}
 	
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §7: Gutter padding overrides to improve mobile design of WSU Spine builder template
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §7: Gutter padding overrides to improve mobile design of WSU Spine builder 
+**    template
 */
 
 	@media only screen and (min-width:(@large-mobile-screen-width + 1))
@@ -547,10 +553,10 @@
 		}
 	}
 
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §8: Column stacking overrides to improve mobile design of WSU Spine builder 
-*** template
-**/
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §8: Column stacking overrides to improve mobile design of WSU Spine builder 
+**    template
+*/
 
 	@media all and (max-width: @column-floating-threshold) {
 		.row:not(.pad-top) {
@@ -566,9 +572,9 @@
 		}
 	}
 
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §9: Linked column styling
-**/
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §9: Linked column styling
+*/
 
 	.use-linked-columns() {
 		.row.has-linked-columns:not(.gutter) {
@@ -586,10 +592,12 @@
 				&:not(:first-child) {
 					@media all {
 						@media (min-width: (@column-floating-threshold + 1)) {
-							border-left: 1px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.7);
+							border-left: 1px solid rgba(red(@hex-white), green(@hex-white), 
+								blue(@hex-white), 0.7);
 						}
 						@media (max-width: @column-floating-threshold) {
-							border-top: 1px solid rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.7);
+							border-top: 1px solid rgba(red(@hex-white), green(@hex-white), 
+								blue(@hex-white), 0.7);
 						}
 					}
 				}
@@ -602,8 +610,9 @@
 					max-width: @large-mobile-screen-width;
 					word-break: break-word;
 					color: @hex-white;
-					text-shadow: 1px 1px 0 @hex-black, 2px 2px 2px rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.5),
-									0 0 18px rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.9), ;
+					text-shadow: 1px 1px 0 @hex-black, 2px 2px 2px rgba(red(@hex-black), 
+						green(@hex-black), blue(@hex-black), 0.5), 0 0 18px rgba(red(@hex-black), 
+						green(@hex-black), blue(@hex-black), 0.9);
 					pointer-events: none;
 					z-index: 2;
 				}
@@ -620,7 +629,8 @@
 					bottom: (@v-dflt-spcng / 2);
 					border-top: 1px solid @hex-white;
 					margin-bottom: 0 !important;
-					box-shadow: 0 1px 0 0 rgba(red(@hex-black), green(@hex-black), blue(@hex-black), 0.3333) inset;
+					box-shadow: 0 1px 0 0 rgba(red(@hex-black), green(@hex-black), 
+						blue(@hex-black), 0.3333) inset;
 					.transform(~"translateX(-50%)");
 				}
 				&:hover {
@@ -654,7 +664,8 @@
 					box-shadow: none;
 					z-index: 1;
 					&:hover {
-						background-color: rgba(red(@hex-white), green(@hex-white), blue(@hex-white), 0.33);
+						background-color: rgba(red(@hex-white), green(@hex-white), 
+							blue(@hex-white), 0.33);
 						text-shadow: none;
 						.transition(~"all 0.3s linear");
 					}
@@ -1336,12 +1347,13 @@
 }
 .declare-section-rulesets(@grid-behavior);
 
-/*! ------------------------------------------------------------------------------------------------
-*** OUE SECTIONS §10: Accessibility friendly utility classes
-**/
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-SECTIONS §10: Accessibility friendly utility classes
+*/
 
-///   ··························································································
-///   OUE SECTIONS §10.1: Font-sizing variables for columns
+/*      ····························································································
+**      >>> §10.1: Font-sizing variables for columns
+*/
 
 // TODO: Remove "body.use-a11y-styles" when no longer needed
 @col--fSize-1: 1.125rem; // i.e., ~18px when root font size is 17px
@@ -1353,8 +1365,9 @@
 // TODO: Use a guarded mixin to generate series of font-sizing utility classes.
 // @col--fSize-array: ;
 
-///   ··························································································
-///   OUE SECTIONS §10.2: Default font sizes for column elements
+/*      ····························································································
+**      >>> §10.2: Default font sizes for column elements
+*/
 
 .row {
 	&.single .column,
@@ -1374,5 +1387,3 @@
 		}
 	}
 }
-
-// TODO: Update TOC
