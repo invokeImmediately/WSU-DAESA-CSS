@@ -1,13 +1,24 @@
-/*     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
- *     │ ++++ IMG selectors ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
- */
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: img.less                                                                         │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Consists of styles for image elements of WSU Office of Undergraduate          │
+**  │   Education web pages built using the builder template of the Spine parent theme of WSUWP. │
+**  │   Styles are designed to accompany or supersede styling associated with the theme.         │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING OUE SECTION ELEMENTS
+*/
+
 .setup-autoscaled-classes(@scaling) when (isnumber(@scaling)) and (@scaling > 0) {
     &.autoScaledTo@{scaling},
 	&.auto-scaled.to-@{scaling} {
         width: ~"@{scaling}%";
     }	
-	.setup-autoscaled-classes((@scaling - 10));
+	.setup-autoscaled-classes((@scaling - 5));
 }
 
 .setup-fixedwidth-classes(@width, @cutoff) when (isnumber(@width)) and (isnumber(@cutoff))
@@ -15,7 +26,7 @@
 	&.width-fixed.to-@{width} {
         width: ~"@{width}px";
     }	
-	.setup-fixedwidth-classes((@width - 16), @cutoff);
+	.setup-fixedwidth-classes((@width - 8), @cutoff);
 }
 
 img {
@@ -24,7 +35,8 @@ img {
 	&.auto-scaled {
         width: 100%;
     }
-    &.autoScaled-byHeight {
+    &.autoScaled-byHeight,
+    &.auto-scaled.by-height {
         height: 100%;
         width: auto;
     }
@@ -40,7 +52,7 @@ img {
 	&.auto-scaled.to-25 {
         width: 25%;
     }
-	.setup-fixedwidth-classes(256, 96);
+	.setup-fixedwidth-classes(384, 96);
     &.shiftToCenter, &.shift-to-center {
         &:extend(.margin-centered);
         display: block;
