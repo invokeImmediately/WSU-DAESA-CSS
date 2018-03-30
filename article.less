@@ -1,20 +1,18 @@
-/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*       │ ARTICLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: article.less                                                                     │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Consists of styles for section elements of WSU Office of Undergraduate        │
+**  │   Education web pages built using the builder template of the Spine parent theme of WSUWP. │
+**  │   Styles are designed to accompany or supersede styling associated with the theme.         │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
-//        │                                                                                                           │
-//        │ DESCRIPTION: Rule-sets for styling article elements within OUE pages built using the Builder template     │
-//        │ within the Spine theme for WordPress.                                                                     │
-//        │                                                                                                           │
-//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                      │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                   │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                           │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                          │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                       │
-//        └-----------------------------------------------------------------------------------------------------------┘
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING OUE ARTICLE ELEMENTS
+*/
+
 .declare-article-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 
 	.column article.post {
@@ -53,7 +51,7 @@
 		.row.side-right .column.two& {
 			header {
 				padding: (@v-dflt-spcng / 2) @v-dflt-spcng;
-				margin-right: (-1.005 * @v-dflt-spcng); // Added a compensation for rounding error in Chrome.
+				margin-right: (-1.005 * @v-dflt-spcng); // Compensate for rounding error in Chrome.
 				margin-bottom: @v-dflt-spcng;
 			}
 		}

@@ -1,23 +1,22 @@
-/*   ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*    │ MAIN +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*    └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-*/	
-//       ┌----------------------------------------------------------------------------------------------------------┐
-//       │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                       │
-//       │                                                                                                          │
-//       │ DESCRIPTION: Contains rule-sets for styling the main element within OUE pages built using the WSU Spine  │
-//       │              theme for WordPress.                                                                        │
-//       │                                                                                                          │
-//       │ DEPENDENCIES: This file has no LESS dependencies.                                                        │
-//       └----------------------------------------------------------------------------------------------------------┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: main.less                                                                        │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Includes styles for the main element of WSU Office of Undergraduate Education │
+**  │   web pages built using the builder template of the Spine parent theme of WSUWP. Styles    │
+**  │   are designed to accompany or supersede styling associated with the theme.                │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING THE OUE MAIN ELEMENT
+*/
 
 .declare-main-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-	.use-main-pseudo-footer(@background-ruleset, @height) when (isruleset(@background-ruleset)) and (ispixel(@height)) {
+	.use-main-pseudo-footer(@background-ruleset, @height) when (isruleset(@background-ruleset)) 
+			and (ispixel(@height)) {
 // TODO: Remove this comment if/when default style rules are ever included.
-/*!  ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*    │ MAIN +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*    └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-*/	
 		main {
 			padding-bottom: @height;
 			@background-ruleset();

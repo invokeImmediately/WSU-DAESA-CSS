@@ -1,10 +1,18 @@
-/*  ┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
- *  │ ++++++++ .interactively-flipped-panels +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *  ├--------------------------------------------------------------------------------------------------------┤
- *  │ Content container that gradually fades into full view, persists for a short time, and then rapidly     │
- *  │ fades out, either automatically via CSS3, or upon user interaction via JavaScript.                     │
- *  ├--------------------------------------------------------------------------------------------------------┤
- */
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: interactively-flipped-panels                                                     │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Incorporates styles for content containers that gradually fade into full      │
+**  │ view, persist for a short time, and then rapidly fade out, either automatically via CSS3,  │
+**  │ or upon user interaction via JavaScript thereafter.                                        │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING OUE SECTION ELEMENTS
+*/
+
 .declare-interactively-flipped-panels-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	@ifp-desktop-max: ~"(max-width: 1205px)";
 	@ifp-desktop-min: ~"(min-width: 792px)";
@@ -344,5 +352,3 @@
 	}
 }
 .declare-interactively-flipped-panels-rulesets(@grid-behavior);
-/*     └─────────────────────────────────────────────────────────────────────────────────────────────────────┘
- */

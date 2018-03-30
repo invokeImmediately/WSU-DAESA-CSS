@@ -1,15 +1,17 @@
-/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*       │ ++++ ANIMATIONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: animations.less                                                                  │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Includes styles for effecting CSS3 animations on elements of WSU Office of    │
+**  │   Undergraduate Education web pages built using the builder template of the Spine parent   │
+**  │   theme of WSUWP.                                                                          │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
-//        │                                                                                                           │
-//        │ DESCRIPTION: LESS mixins designed for efficiently declaring CSS3 animations, transitions, and             │
-//        │              transformations with automatic cross-platform support.                                       │
-//        │                                                                                                           │
-//        │ DEPENDENCIES: This file has no upstream LESS dependencies.                                                │
-//        └-----------------------------------------------------------------------------------------------------------┘
+
+/*  ================================================================================================
+**  CSS3 ANIMATIONS FOR OUE ELEMENTS
+*/
 
 .keyframes(@name; @ruleset) {
     @-webkit-keyframes @name { @ruleset(); }
@@ -17,19 +19,22 @@
     @keyframes @name { @ruleset(); }
 }
 
-.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when (@name = none) and (@delay = 0s) {
+.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when 
+		(@name = none) and (@delay = 0s) {
     -webkit-animation: @name;
        -moz-animation: @name;
             animation: @name;
 }
 
-.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when not (@name = none) and (@delay = 0s) {
+.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when 
+		not (@name = none) and (@delay = 0s) {
     -webkit-animation: @name @duration @timing @iterations;
        -moz-animation: @name @duration @timing @iterations;
             animation: @name @duration @timing @iterations;
 }
 
-.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when not (@name = none) and not (@delay = 0s) {
+.animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when 
+		not (@name = none) and not (@delay = 0s) {
     -webkit-animation: @name @duration @timing @iterations;
        -moz-animation: @name @duration @timing @iterations;
             animation: @name @duration @timing @iterations;

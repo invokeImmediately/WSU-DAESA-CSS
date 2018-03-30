@@ -1,33 +1,38 @@
-/// ┌----------------------------------------------------------------------------------------------┐
-/// │ FILE-NAME: utility-classes.less                                                              │
-/// │                                                                                              │
-/// │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
-/// │                                                                                              │
-/// │ DESCRIPTION: ...                                                                             │
-/// └----------------------------------------------------------------------------------------------┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: utility-classes.less                                                             │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: ...                                                                           │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
 
-/* 
-**  TABLE OF CONTENTS:
-**  -----------------
+/*  ================================================================================================
+**  OUE UTILITY CLASSES
+*/
+
+/*    ───────────────────────────────────────────────────────────────────────────────────────────
+**    TABLE OF CONTENTS:
+**    ───────────────────────────────────────────────────────────────────────────────────────────
 **    OUE UTILITY CLASSES §1: Typography.......................................................17
 **        >>> §1.1: Typograhy: Font Sizing.....................................................21
 */
 
-/*!   ----------------------------------------------------------------------------------------------
-***    OUE UTILITY CLASSES §1: Typography
-**/
+/*    ----------------------------------------------------------------------------------------------
+**     OUE UTILITY CLASSES §1: Typography
+*/
 
-/*!     ····························································································
-***     >>> §1.1: Typograhy: Font Sizing
-***
-***     NOTES:
-***     * Units of "mx" stand for "milli-fold" and function similar to magnification units. Thus, 
-***       1000mx = 1x, where x is the standard font-size for body-text. Thus, 1000mx means the same 
-***       font-size as the default font-size for body text. 2000mx would be twice the size of body 
-***       text.
-***     * Depends on the utiltiy mixin .set-fSize(...) and the Less variable @fSize-array, which 
-***       are both defined in utility-mixins.less.
-**/
+/*      ····························································································
+**      >>> §1.1: Typograhy: Font Sizing
+** 
+**      NOTES:
+**      • Units of "mx" stand for "milli-fold" and function similar to magnification units. Thus, 
+**        1000mx = 1x, where x is the standard font-size for body-text. Thus, 1000mx means the same 
+**        font-size as the default font-size for body text. 2000mx would be twice the size of body 
+**        text.
+**      • Depends on the utiltiy mixin .set-fSize(...) and the Less variable @fSize-array, which 
+**        are both defined in utility-mixins.less.
+*/
 
 @fSize-1--class: ~"750mx";
 @fSize-2--class: ~"775mx";
@@ -101,3 +106,49 @@
 	}
 }
 .fSize-loop(length(@fSize-array));
+
+/*!     ····························································································
+***     >>> §1.2: Typograhy: Line heights
+***
+***     NOTES:
+***     * See line 24 for explanation of "mx" units.
+***     * Depends on the utiltiy mixin .set-lHeight(...) and the Less variable @lHeight-array, 
+***       which are both defined in utility-mixins.less.
+**/
+
+@lHeight-1--class: ~"1000mx";
+@lHeight-2--class: ~"1025mx";
+@lHeight-3--class: ~"1050mx";
+@lHeight-4--class: ~"1075mx";
+@lHeight-5--class: ~"1100mx";
+@lHeight-6--class: ~"1125mx";
+@lHeight-7--class: ~"1150mx";
+@lHeight-8--class: ~"1175mx";
+@lHeight-9--class: ~"1200mx";
+@lHeight-10--class: ~"1225mx";
+@lHeight-11--class: ~"1250mx";
+@lHeight-12--class: ~"1275mx";
+@lHeight-13--class: ~"1300mx";
+@lHeight-14--class: ~"1325mx";
+@lHeight-15--class: ~"1350mx";
+@lHeight-16--class: ~"1375mx";
+@lHeight-17--class: ~"1400mx";
+@lHeight-18--class: ~"1425mx";
+@lHeight-19--class: ~"1450mx";
+@lHeight-20--class: ~"1475mx";
+@lHeight-21--class: ~"1500mx";
+
+@lHeight--class-array: @lHeight-1--class, @lHeight-2--class, @lHeight-3--class, @lHeight-4--class, 
+	@lHeight-5--class, @lHeight-6--class, @lHeight-7--class, @lHeight-8--class, @lHeight-9--class, 
+	@lHeight-10--clas, s, @lHeight-11--class, @lHeight-12--class, @lHeight-13--class, 
+	@lHeight-14--class, @lHeight-15--class, @lHeight-16--class, @lHeight-17--class, 
+	@lHeight-18--class, @lHeight-19--class, @lHeight-20--class, @lHeight-21--class;
+
+.lHeight-loop(@idx) when (@idx > 0) and (@idx <= length(@lHeight-array)) {
+	.lHeight-loop((@idx - 1));
+	@class-name: extract(@lHeight--class-array, @idx);
+	.line-height--@{class-name} {
+		.set-lHeight(@idx);
+	}
+}
+.lHeight-loop(length(@lHeight-array));

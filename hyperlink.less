@@ -1,20 +1,32 @@
-/*     ┌───────────────────────────────────────────────────────────────────────────────────────┐
- *     │ ++++++++ HYPERLINKS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *     ├---------------------------------------------------------------------------------------┤
- *     │ Rule-sets for styling hyperlink elements within OUE pages built using the WSU Spine   │
- *     │ theme for WordPress.                                                                  │
- *     │  ╘═» This file assumes the following LESS files have been imported upstream:          │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                  │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less               │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                       │
- *     │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                      │
- *     ├---------------------------------------------------------------------------------------┤
- */
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: hyperlink.less                                                                   │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Involves styles for hyperlink elements of WSU Office of Undergraduate         │
+**  │   Education web pages built using the builder template of the Spine parent theme of WSUWP. │
+**  │   Styles are designed to accompany or supersede styling associated with the theme.         │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING OUE HYPERLINK ELEMENTS
+*/
+
+/*    ─────────────────────────────────────────────────────────────────────────────────────────── 
+**    TABLE OF CONTENTS:
+**    ───────────────────────────────────────────────────────────────────────────────────────────
+**    OUE-HYPERLINKS §1: Hyperlinks contained in columns.......................................27
+**    OUE-HYPERLINKS §2: CSS3-driven tooltips via hyperlink elements..........................137
+**    OUE-HYPERLINKS §3: Inclusional hyperlink styling via Less mixins........................222
+*/
+
 .declare-hyperlink-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-/*         ┌-------------------------------------------------------------------------------┐
- *         │ ···· HYPERLINK elements contained within .column classed elements ··········· │
- *         └-------------------------------------------------------------------------------┘
- */
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HYPERLINKS §1: Hyperlinks contained in columns
+*/
+
 	.column {
 		a {
 			border-bottom-right-radius: 0.25em;
@@ -120,10 +132,11 @@
 				green(@hex-light-crimson), blue(@hex-light-crimson), .2);
 		}
 	}
-	/*         ┌---------------------------------------------------------------------------┐
-	 *         │ ···· CSS3-DRIVEN TOOLTIPS ················································│
-	 *         └---------------------------------------------------------------------------┘
-	 */
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HYPERLINKS §2: CSS3-driven tooltips via hyperlink elements
+*/
+
 	a.vpue-tooltip {
 		position: relative;
 		border-bottom: dotted 1px #b67233;
@@ -204,10 +217,11 @@
 			 border-right: 1px solid @hex-dark-orange;
 		}
 	}
-	/*         ┌---------------------------------------------------------------------------┐
-	 *         │ ···· INCLUSIONAL MIXINS ················································· │
-	 *         └---------------------------------------------------------------------------┘
-	 */
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HYPERLINKS §3: Inclusional hyperlink styling via Less mixins
+*/
+
 	.use-glass-button-layout() {
 		.column a {
 			&.recommend-button,
@@ -312,5 +326,3 @@
 	}
 }
 .declare-hyperlink-rulesets(@grid-behavior);
-/*     └───────────────────────────────────────────────────────────────────────────────────────┘
- */

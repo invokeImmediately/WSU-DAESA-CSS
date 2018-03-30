@@ -1,24 +1,54 @@
-/*!┌───────────────────────────────────────────────────────────────────────────────────────────────┐
-** │ ++++ HEADINGS & HEADERS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-** │   Style rules applied to headings & headers to override default styling in, and extend styl-  │
-** │   ing options beyond, the WSU Spine Theme for WordPress.                                      │
-** └───────────────────────────────────────────────────────────────────────────────────────────────┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: headers.less                                                                     │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Embodies styles for heading and header elements of WSU Office of              │
+**  │   Undergraduate Education web pages built using the builder template of the Spine parent   │
+**  │   theme of WSUWP. Styles are designed to accompany or supersede styling associated with    │
+**  │   the theme.                                                                               │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//   ┌─────────────────────────────────────────────────────────────────────────────────────────────┐
-//   │ AUTHOR: Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)          │
-//   │                                                                                             │
-//   │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:       │
-//   │   • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                             │
-//   │   • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                          │
-//   │   • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                 │
-//   │   • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                              │
-//   └─────────────────────────────────────────────────────────────────────────────────────────────┘
+
+/*    ─────────────────────────────────────────────────────────────────────────────────────────── 
+**    TABLE OF CONTENTS:
+**    ───────────────────────────────────────────────────────────────────────────────────────────
+**    OUE-HEADINGS §1: [h1] elements...........................................................51
+**    OUE-HEADINGS §2: [h2] elements...........................................................77
+**    OUE-HEADINGS §3: [h3] elements..........................................................162
+**    OUE-HEADINGS §4: [h4] elements..........................................................237
+**    OUE-HEADINGS §5: [hN] elements..........................................................269
+**    OUE-HEADINGS §6: [header] elements......................................................301
+**    OUE-HEADINGS §7: (Legacy) Sectional article headers (inclusional via Less mixin)........360
+**    OUE-HEADINGS §8: Accessibility friendly classes.........................................574
+**      >>> §8.1: Spacing.....................................................................578
+**        ├> §8.1a: LESS variables............................................................581
+**        ├> §8.1b: Utility classes...........................................................597
+**        └> §8.1c: Default styles............................................................615
+**      >>> §8.2: Font sizing.................................................................632
+**        ├> §8.2a: LESS variables............................................................635
+**        ├> §8.2b: Utility classes...........................................................645
+**        └> §8.2c: Default styles............................................................665
+**      >>> §8.3: Line heights................................................................698
+**        ├> §8.3a: LESS variables............................................................701
+**        ├> §8.3b: Utility classes...........................................................712
+**        └> §8.3c: Default styles............................................................735
+**      >>> §8.4: Coloring....................................................................748
+**        ├> §8.4a: Utility classes...........................................................751
+**        └> §8.4b: Defaults..................................................................871
+**      >>> §8.5: Child elements..............................................................912
+**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers...........................934
+*/
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING OUE HEADING & HEADER ELEMENTS
+*/
 
 .declare-heading-and-header-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 
-/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-**     │ ···· OUE HEADINGS/HEADERS §1: [h1] Elements ············································· │
-**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §1: [h1] elements
 */
 
 	h1 {
@@ -43,9 +73,8 @@
 		}
 	}
 
-/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-**     │ ···· OUE HEADINGS/HEADERS §2: [h2] Elements ············································· │
-**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §2: [h2] elements
 */
 
 	h2 {
@@ -129,9 +158,8 @@
 		border-bottom: none;
 	}
 
-/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-**     │ ···· OUE HEADINGS/HEADERS §3: [h3] Elements ············································· │
-**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §3: [h3] elements
 */
 
 	h3 {
@@ -205,9 +233,8 @@
 		}
 	}
 
-/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-**     │ ···· OUE HEADINGS/HEADERS §4: [h4] Elements ············································· │
-**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §4: [h4] elements
 */
 
 	h4 {
@@ -238,9 +265,8 @@
 		}
 	}
 
-/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-**     │ ···· OUE HEADINGS/HEADERS §5: [hN] Elements ············································· │
-**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §5: [hN] elements
 */
 
 	.column {
@@ -271,9 +297,8 @@
 		}
 	}
 
-/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-**     │ ···· OUE HEADINGS/HEADERS §7: [header] Elements & Children ······························ │
-**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §6: [header] elements
 */
 
 	header.main-header {
@@ -290,7 +315,8 @@
 				@media (min-width: @large-format-threshold) {
 					text-align: center;
 				}
-				@media (min-width: (@spine-threshold + 1)) and (max-width: (@large-format-threshold - 1)) {
+				@media (min-width: (@spine-threshold + 1)) and 
+						(max-width: (@large-format-threshold - 1)) {
 					text-align: left;
 				}
 				@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
@@ -330,11 +356,10 @@
 }
 .declare-heading-and-header-rulesets(@grid-behavior);
 
-/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-**     │ ···· OUE HEADINGS/HEADERS §7: (Legacy) Sectional Article Headers ························ │
-**     │ ···· (INCLUSIONAL VIA MIXIN) ···························································· │
-**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §7: (Legacy) Sectional article headers (inclusional via Less mixin)
 */
+
 .use-sectional-article-headers() {
 	.page.has-short-main-header {
 		.main-header {
@@ -545,29 +570,31 @@
 	}
 }
 
-/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-**     │ ···· OUE HEADINGS/HEADERS §8: Accessibility friendly classes ···························· │
-**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §8: Accessibility friendly classes
 */
 
-/*!      >>> ···· §8.1, Accessibility friendly classes: Spacing ································· */
+/*      ····························································································
+**      >>> §8.1: Spacing
+*/
 
-// §8.1a: LESS variables
-@hN--parent: ~"body.use-a11y-styles .column";
+//        ├> §8.1a: LESS variables
+@hN--parent: ~".column";
 
-@hN--spacing-1: 0em;
-@hN--spacing-2: .25em;
-@hN--spacing-3: .5em;
-@hN--spacing-4: .75em;
-@hN--spacing-5: 1em;
-@hN--spacing-6: 1.25em;
-@hN--spacing-7: 1.5em;
-@hN--spacing-8: 1.75em;
-@hN--spacing-9: 2em;
+@hN--spacing-: 0em;
+@hN--spacing-: .25em;
+@hN--spacing-: .25em;
+@hN--spacing-: .5em;
+@hN--spacing-: .75em;
+@hN--spacing-: 1em;
+@hN--spacing-: 1.25em;
+@hN--spacing-: 1.5em;
+@hN--spacing-: 1.75em;
+@hN--spacing-: 2em;
 @hN--spacing-array: @hN--spacing-1, @hN--spacing-2, @hN--spacing-3, @hN--spacing-4, @hN--spacing-5, 
 	@hN--spacing-6, @hN--spacing-7, @hN--spacing-8, @hN--spacing-9;
 
-// §8.1b: Utility classes
+//        ├> §8.1b: Utility classes
 h1,
 h2,
 h3,
@@ -585,7 +612,7 @@ h6 {
 	}
 }
 
-// §8.1c: Default styles
+//        └> §8.1c: Default styles
 h1,
 h2,
 h3,
@@ -601,19 +628,21 @@ h6 {
 	}
 }
 
-/*!      >>> ···· §8.2, Accessibility friendly classes: Typography - font sizing ················ */
+/*      ····························································································
+**      >>> §8.2: Font sizing
+*/
 
-// §8.2a: LESS variables
+//        ├> §8.2a: LESS variables
 @hN--fSize-1: 1.4em;
 @hN--fSize-2: 1.5em;
 @hN--fSize-3: 1.6em;
 @hN--fSize-4: 1.8em;
 @hN--fSize-5: 2.1em;
 @hN--fSize-6: 2.4em;
-@hN--fSize-array: @hN--fSize-1, @hN--fSize-2, @hN--fSize-3, @hN--fSize-4, @hN--fSize-5,
+@hN--fSize-array: @hN--fSize-1, @hN--fSize-2, @hN--fSize-3, @hN--fSize-4, @hN--fSize-5, 
 	@hN--fSize-6;
 
-// §8.2b: Utility classes
+//        ├> §8.2b: Utility classes
 h1,
 h2,
 h3,
@@ -633,7 +662,7 @@ h6 {
 	}
 }
 
-// §8.2c: Default styles
+//        └> §8.2c: Default styles
 h1 {
 	@{hN--parent} & {
 		font-size: @hN--fSize-6;
@@ -665,9 +694,11 @@ h6 {
 	}
 }
 
-/*!      >>> ···· §8.3, Accessibility friendly classes: Typography - line heights ··············· */
+/*      ····························································································
+**      >>> §8.3: Line heights
+*/
 
-// §8.3a: LESS variables
+//        ├> §8.3a: LESS variables
 @hN--lHeight-1: 1em;
 @hN--lHeight-2: 1.1em;
 @hN--lHeight-3: 1.2em;
@@ -678,7 +709,7 @@ h6 {
 @hN--lHeight-array: @hN--lHeight-1, @hN--lHeight-2, @hN--lHeight-3, @hN--lHeight-4, @hN--lHeight-5,
 	@hN--lHeight-6, @hN--lHeight-7;
 
-// §8.3b: Utility classes
+//        ├> §8.3b: Utility classes
 h1,
 h2,
 h3,
@@ -701,7 +732,7 @@ h6 {
 	}
 }
 
-// §8.3c: Default styles
+//        └> §8.3c: Default styles
 h1,
 h2,
 h3,
@@ -713,9 +744,11 @@ h6 {
 	}
 }
 
-/*!      >>> ···· §8.4, Accessibility friendly classes: Coloring ································ */
+/*      ····························································································
+**      >>> §8.4: Coloring
+*/
 
-// §8.4a: Utility classes
+//        ├> §8.4a: Utility classes
 h1,
 h2,
 h3,
@@ -835,7 +868,7 @@ h6 {
 	}
 }
 
-// §8.4b: Defaults
+//        └> §8.4b: Defaults
 h1,
 h2,
 h3,
@@ -875,7 +908,9 @@ h4 {
 	}
 }
 
-/*!      >>> ···· §8.5, Accessibility friendly classes: Child elements ·························· */
+/*      ····························································································
+**      >>> §8.5: Child elements
+*/
 
 // hN children: Hyperlinks
 h1,
@@ -894,11 +929,11 @@ h6 {
 	}
 }
 
-/*!    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-**     │ ···· OUE HEADINGS/HEADERS §9: Article Header Blocks, Elements, & Modifiers ·············· │
-**     │ ···· (INCLUSIONAL VIA MIXIN) ···························································· │
-**     └───────────────────────────────────────────────────────────────────────────────────────────┘
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers
 */
+
 // TODO: Finish writing.
 // .page.use-bem-styles { ... }
 // .article-header--2-columns

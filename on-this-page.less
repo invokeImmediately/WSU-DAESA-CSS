@@ -1,20 +1,17 @@
-/*!     ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-*       │ EVENTS CALENDAR PLUGIN ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
-*       └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: main.less                                                                        │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Comprised of styles for on-this-page table of contents constructs found in    │
+**  │   WSU Office of Undergraduate Education web pages built using the builder template of the  │
+**  │   Spine parent theme of WSUWP.                                                             │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
-//        │                                                                                                           │
-//        │ DESCRIPTION: Rule-sets for styling elements associated with the events calendar plugin in OUE pages built │
-//        │ using the Builder template within the Spine theme for WordPress.                                          │
-//        │                                                                                                           │
-//        │ DEPENDENCIES: This file assumes the following LESS files have been imported upstream:                     │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                      │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                   │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/fonts.less                                           │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                          │
-//        │        • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                       │
-//        └-----------------------------------------------------------------------------------------------------------┘
+
+/*  ================================================================================================
+**  STYLES FOR ON-THIS-PAGE TABLE OF CONTENTS CONSTRUCTS ON OUE WEBSITES
+*/
 
 .declare-on-this-page-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 
@@ -24,15 +21,18 @@
 			@otp-background: #2f3438;
 			@highlight-color: #23272a;
 			background-color: @otp-background;
+
 			.column {
 				background-color: inherit;
 			}
+
 			h2 {
 				color: @hex-white;
 				padding-left: @v-dflt-spcng;
 				font-size: 1.7rem;
 				margin-bottom: (@v-dflt-spcng / 2);
 			}
+
 			ul {
 				margin: 0;
 				padding: 0;
@@ -42,11 +42,13 @@
 				background-color: inherit;
 				list-style-type: none;
 			}
+
 			li {
 				float: left;
 				margin-top: 0 !important;
 				list-style-image: none;
 				padding: 0;
+
 				a {
 					display: inline-block;
 					color: white;
@@ -57,11 +59,13 @@
 					border-radius: 0;
 					background-color: @hex-darker-gray;
 					box-shadow: none;
+
 					&:hover {
 						border-color: @otp-background;
 						background-color: @highlight-color;
 						text-shadow: none;
 					}
+
 					@media all and (max-width: @tablet-screen-width) {
 						padding: 8px 10px;
 					}
@@ -73,6 +77,7 @@
 			position: relative;
 			padding-left: 1rem;
 			font-size: 0.9em !important;
+
 			&:before {
 				content: "";
 				position: absolute;
@@ -82,8 +87,6 @@
 				background: @back-to-otp-icon center center/auto 100% no-repeat;
 			}
 		}
-
 	}
-
 }
 .declare-on-this-page-rulesets(@grid-behavior);

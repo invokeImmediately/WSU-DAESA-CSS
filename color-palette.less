@@ -1,6 +1,21 @@
-// -----------------------------------------------------------------------------------------------------------
-//   COLOR FUNCTIONS
-// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: color-palette.less                                                               │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: ...                                                                           │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  COLOR PALETTE LESS VARIABLES & MIXIN FUNCTIONS FOR OUE WEBSITES
+*/
+
+// TODO: Add TOC
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-COLORS §1: Color functions
+*/
 
 // Set a specified property to rgba(…).
 .setRgbaToProp(@property; @color: #000; @opacity: 1) {
@@ -12,53 +27,68 @@
 //
 //     & { @some-variable: returned; .getRgbaForProp(@some-variable, #000, 0.25);
 //     box-shadow: 0 2px 2px @@some-variable; }
-.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned) and (iscolor(@color))
- and (@opacity >= 0) and (@opacity <= 1) {
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned) and 
+		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
     @returned: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
-.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-2) and (iscolor(@color))
- and (@opacity >= 0) and (@opacity <= 1) {
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-2) and 
+		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
     @returned-2: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
-.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-3) and (iscolor(@color))
- and (@opacity >= 0) and (@opacity <= 1) {
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-3) and 
+		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
     @returned-3: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
-.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-4) and (iscolor(@color))
- and (@opacity >= 0) and (@opacity <= 1) {
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-4) and 
+		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
     @returned-4: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
 
-.getRgbaStr(@color: #000; @opacity: 1) when (iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
+.getRgbaStr(@color: #000; @opacity: 1) when (iscolor(@color)) and (@opacity >= 0) and 
+		(@opacity <= 1) {
 	@rgba: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
-// -----------------------------------------------------------------------------------------------------------
-//   WSU Color Palette from https://brand.wsu.edu
-// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-COLORS §1: Color palette variables (mainly from https://brand.wsu.edu)
+**
+**    Notes:
+**    • The majority of the palette is based on the WSU color palette, which is available at 
+**      https://brand.wsu.edu
+*/
+
+/*      ····························································································
+**      >>> §1.1: Grays
+*/
+
 @hex-white: #fff;
 .rgb-white() {
 	@rval: 255;
 	@gval: 255;
 	@bval: 255;
 }
+
 @hex-black: #000;
 .rgb-black() {
 	@rval: 0;
 	@gval: 0;
 	@bval: 0;
 }
+
 @hex-bright-gray: #eff0f1;
 .rgb-bright-gray() {
 	@rval: 239;
 	@gval: 240;
 	@bval: 241;
 }
+
 @hex-lighter-gray: #d7dadb;
 .rgb-lighter-gray() {
 	@rval: 215;
 	@gval: 218;
 	@bval: 219;
 }
+
 @hex-lighter-gray-mnchrmtc-shftd-drkr: #afb5b7;
 @hex-light-gray: #b5babe;
 .rgb-light-gray() {
@@ -66,186 +96,493 @@
 	@gval: 186;
 	@bval: 190;
 }
+
 @hex-gray: #8d959a;
 .rgb-gray() {
 	@rval: 141;
 	@gval: 149;
 	@bval: 154;
 }
+
 @hex-less-dark-gray: #6a7880;
 .rgb-gray() {
 	@rval: 106;
 	@gval: 120;
 	@bval: 128;
 }
+
 @hex-dark-gray: #5e6a71;
 .rgb-dark-gray() {
 	@rval: 94;
 	@gval: 106;
 	@bval: 113;
 }
+
 @hex-darker-gray: #464e54;
 .rgb-darker-gray() {
 	@rval: 70;
 	@gval: 78;
 	@bval: 84;
 }
+
 @hex-charcoal-gray: #2f3438;
 .rgb-charcoal-gray() {
 	@rval: 47;
 	@gval: 52;
 	@bval: 56;
 }
+
 @hex-darkest-gray: #2a3033;
 .rgb-darkest-gray() {
 	@rval: 42;
 	@gval: 48;
 	@bval: 51;
 }
+
+@hex-dark-grayish-pink: #360b12;
+.rgb-dark-grayish-pink() {
+    @rval: 54;
+    @gval: 11;
+    @bval: 18;
+}
+
+/*      ····························································································
+**      >>> §1.2: Crimsons
+*/
+
 @hex-crimson: #981e32;
 .rgb-crimson() {
 	@rval: 152;
 	@gval: 30;
 	@bval: 50;
 }
+
 @hex-light-crimson: #c60c30;
 .rgb-light-crimson() {
 	@rval: 198;
 	@gval: 12;
 	@bval: 48;
 }
+
 @hex-soft-crimson: #ef7879;
 .rgb-light-crimson() {
 	@rval: 219;
 	@gval: 120;
 	@bval: 121;
 }
+
 @hex-dark-crimson: #4f101a;
 .rgb-dark-crimson() {
 	@rval: 79;
 	@gval: 16;
 	@bval: 26;
 }
+
+@hex-crimson-scale-darkest: #58111d;
+.rgb-crimson-scale-darkest() {
+    @rval: 88;
+    @gval: 17;
+    @rval: 29;
+}
+
+@hex-crimson-scale-darker: #6d1624;
+.rgb-crimson-scale-darker() {
+    @rval: 109;
+    @gval: 22;
+    @rval: 36;
+}
+
+@hex-crimson-scale-dark: #831a2b;
+.rgb-crimson-scale-dark() {
+    @rval: 131;
+    @gval: 26;
+    @rval: 43;
+}
+
+@hex-crimson-scale-light: #ad2239;
+.rgb-crimson-scale-light() {
+    @rval: 173;
+    @gval: 34;
+    @rval: 57;
+}
+
+@hex-crimson-scale-lighter: #c32640;
+.rgb-crimson-scale-lighter() {
+    @rval: 195;
+    @gval: 38;
+    @rval: 64;
+}
+
+@hex-crimson-scale-lightest: #d62d49;
+.rgb-crimson-scale-lightest() {
+    @rval: 214;
+    @gval: 45;
+    @rval: 73;
+}
+
+@hex-crimson-alts-bluest: #981e51;
+.rgb-crimson-alts-bluest() {
+    @rval: 152;
+    @gval: 30;
+    @rval: 81;
+}
+
+@hex-crimson-alts-bluer: #981e46;
+.rgb-crimson-alts-bluer() {
+    @rval: 152;
+    @gval: 30;
+    @rval: 70;
+}
+
+@hex-crimson-alts-blue: #981e3c;
+.rgb-crimson-alts-blue() {
+    @rval: 152;
+    @gval: 30;
+    @rval: 60;
+}
+
+@hex-crimson-alts-orange: #981e28;
+.rgb-crimson-alts-orange() {
+    @rval: 152;
+    @gval: 30;
+    @rval: 40;
+}
+
+@hex-crimson-alts-oranger: #981e1e;
+.rgb-crimson-alts-oranger() {
+    @rval: 152;
+    @gval: 30;
+    @rval: 30;
+}
+
+@hex-crimson-alts-orangest: #98291e;
+.rgb-crimson-alts-orangest() {
+    @rval: 152;
+    @gval: 41;
+    @rval: 30;
+}
+
+@hex-crimson-shades-brightest: #c92842;
+.rgb-crimson-shades-brightest() {
+    @rval: 201;
+    @gval: 40;
+    @rval: 66;
+}
+
+@hex-crimson-shades-brighter: #b9243d;
+.rgb-crimson-shades-brighter() {
+    @rval: 185;
+    @gval: 36;
+    @rval: 61;
+}
+
+@hex-crimson-shades-bright: #a82137;
+.rgb-crimson-shades-bright() {
+    @rval: 168;
+    @gval: 33;
+    @rval: 55;
+}
+
+@hex-crimson-shades-dim: #881b2d;
+.rgb-crimson-shades-dim() {
+    @rval: 136;
+    @gval: 27;
+    @rval: 45;
+}
+
+@hex-crimson-shades-shady: #771827;
+.rgb-crimson-shades-shady() {
+    @rval: 119;
+    @gval: 24;
+    @rval: 39;
+}
+
+@hex-crimson-shades-shadowy: #671422;
+.rgb-crimson-shades-shadowy() {
+    @rval: 103;
+    @gval: 20;
+    @rval: 34;
+}
+
+@hex-crimson-shades-dusky: #56111c;
+.rgb-crimson-shades-dusky() {
+    @rval: 86;
+    @gval: 17;
+    @rval: 28;
+}
+
+@hex-crimson-shades-dark: #460e17;
+.rgb-crimson-shades-dark() {
+    @rval: 70;
+    @gval: 14;
+    @rval: 23;
+}
+
+@hex-crimson-shades-darker: #360b12;
+.rgb-crimson-shades-darker() {
+    @rval: 54;
+    @gval: 11;
+    @rval: 18;
+}
+
+@hex-crimson-shades-black: #25070c;
+.rgb-crimson-shades-black() {
+    @rval: 37;
+    @gval: 7;
+    @rval: 12;
+}
+
+@hex-crimson-shades-blacker: #150407;
+.rgb-crimson-shades-blacker() {
+    @rval: 21;
+    @gval: 4;
+    @rval: 7;
+}
+
+@hex-crimson-shades-blackest: #050102;
+.rgb-crimson-shades-blackest() {
+    @rval: 5;
+    @gval: 1;
+    @rval: 2;
+}
+
+@hex-crimson-tints-light: #d62f4a;
+.rgb-crimson-tints-light() {
+    @rval: 214;
+    @gval: 47;
+    @rval: 74;
+}
+
+@hex-crimson-tints-lighter: #d93f58;
+.rgb-crimson-tints-lighter() {
+    @rval: 217;
+    @gval: 63;
+    @rval: 88;
+}
+
+@hex-crimson-tints-bright: #dc4f66;
+.rgb-crimson-tints-bright() {
+    @rval: 220;
+    @gval: 79;
+    @rval: 102;
+}
+
+@hex-crimson-tints-brighter: #e06075;
+.rgb-crimson-tints-brighter() {
+    @rval: 224;
+    @gval: 96;
+    @rval: 117;
+}
+
+@hex-crimson-tints-shining: #e37083;
+.rgb-crimson-tints-shining() {
+    @rval: 227;
+    @gval: 112;
+    @rval: 131;
+}
+
+@hex-crimson-tints-brilliant: #e68191;
+.rgb-crimson-tints-brilliant() {
+    @rval: 230;
+    @gval: 129;
+    @rval: 145;
+}
+
+@hex-crimson-tints-radiant: #e9919f;
+.rgb-crimson-tints-radiant() {
+    @rval: 233;
+    @gval: 145;
+    @rval: 159;
+}
+
+@hex-crimson-tints-dazzling: #eda1ae;
+.rgb-crimson-tints-dazzling() {
+    @rval: 237;
+    @gval: 161;
+    @rval: 174;
+}
+
+@hex-crimson-tints-blinding: #f0b2bc;
+.rgb-crimson-tints-blinding() {
+    @rval: 240;
+    @gval: 178;
+    @rval: 188;
+}
+
+@hex-crimson-tints-white: #f3c2ca;
+.rgb-crimson-tints-white() {
+    @rval: 243;
+    @gval: 194;
+    @rval: 202;
+}
+
+@hex-crimson-tints-whiter: #f6d2d8;
+.rgb-crimson-tints-whiter() {
+    @rval: 249;
+    @gval: 227;
+    @rval: 231;
+}
+
+@hex-crimson-tints-whitest: #fdf3f5;
+.rgb-crimson-tints-whitest() {
+    @rval: 253;
+    @gval: 243;
+    @rval: 245;
+}
+
+/*      ····························································································
+**      >>> §1.3: Greens
+*/
+
+
 @hex-bright-green: #f4f2eb;
 .rgb-bright-green() {
 	@rval: 244;
 	@gval: 242;
 	@bval: 235;
 }
+
 @hex-lightest-green: #e3dfcd;
 .rgb-lightest-green() {
 	@rval: 227;
 	@gval: 223;
 	@bval: 205;
 }
+
 @hex-lighter-green: #cbc4a2;
 .rgb-lighter-green() {
 	@rval: 203;
 	@gval: 196;
 	@bval: 162;
 }
+
 @hex-light-green: #afa370;
 .rgb-light-green() {
 	@rval: 175;
 	@gval: 163;
 	@bval: 112;
 }
+
 @hex-green: #8f7e35;
 .rgb-green() {
 	@rval: 143;
 	@gval: 126;
 	@bval: 53;
 }
+
 @hex-dark-green: #72652a;
 .rgb-dark-green() {
 	@rval: 114;
 	@gval: 101;
 	@bval: 42;
 }
+
 @hex-darker-green: #564c20;
 .rgb-darkest-green() {
 	@rval: 86;
 	@gval: 76;
 	@bval: 32;
 }
+
 @hex-darkest-green: #393215;
 .rgb-darkest-green() {
 	@rval: 57;
 	@gval: 50;
 	@bval: 21;
 }
+
 @hex-accent-green: #ada400;
 .rgb-accent-green() {
     @rval: 173;
     @gval: 164;
     @bval: 0;
 }
+
+/*      ····························································································
+**      >>> §1.4: Yellows
+*/
+
 @hex-bright-yellow: #f9f4e7;
 .rgb-bright-yellow() {
 	@rval: 249;
 	@gval: 244;
 	@bval: 231;
 }
+
 @hex-lightest-yellow: #f1e4c4;
 .rgb-lightest-yellow() {
 	@rval: 241;
 	@gval: 228;
 	@bval: 196;
 }
+
 @hex-lighter-yellow: #e5cd93;
 .rgb-lighter-yellow() {
 	@rval: 229;
 	@gval: 205;
 	@bval: 147;
 }
+
 @hex-light-yellow: #d7b258;
 .rgb-light-yellow() {
 	@rval: 215;
 	@gval: 178;
 	@bval: 88;
 }
+
 @hex-yellow: #c69214;
 .rgb-yellow() {
 	@rval: 198;
 	@gval: 146;
 	@bval: 20;
 }
+
 @hex-dark-yellow: #9e7510;
 .rgb-dark-yellow() {
 	@rval: 158;
 	@gval: 117;
 	@bval: 16;
 }
+
 @hex-darker-yellow: #77580c;
 .rgb-darker-yellow() {
 	@rval: 119;
 	@gval: 88;
 	@bval: 12;
 }
+
 @hex-darkest-yellow: #4f3a08;
 .rgb-darkest-yellow() {
 	@rval: 79;
 	@gval: 58;
 	@bval: 8;
 }
+
 @hex-accent-yellow: #ffb81c;
 .rgb-accent-yellow() {
 	@rval: 255;
 	@gval: 184;
 	@bval: 28;
 }
+
+/*      ····························································································
+**      >>> §1.5: Blues
+*/
+
 @hex-bright-blue: #edf3f4;
 .rgb-bright-blue() {
 	@rval: 237;
 	@gval: 243;
 	@bval: 244;
 }
+
 @hex-lightest-blue: #d3e1e3;
 .rgb-lighest-blue() {
 	@rval: 211;
 	@gval: 225;
 	@bval: 227;
 }
+
 @hex-lightest-blue-mnchrmtc-shftd-lghtr: #d8ecf3;
 @hex-lightest-blue-mnchrmtc-shftd-drkr: #9ed0e1;
 @hex-lighter-blue: #aec7cb;
@@ -254,115 +591,139 @@
 	@gval: 199;
 	@bval: 203;
 }
+
 @hex-light-blue: #82a9af;
 .rgb-light-blue() {
 	@rval: 130;
 	@gval: 169;
 	@bval: 175;
 }
+
 @hex-blue: #4f868e;
 .rgb-blue() {
 	@rval: 79;
 	@gval: 134;
 	@bval: 142;
 }
+
 @hex-dark-blue: #3f6b72;
 .rgb-dark-blue() {
 	@rval: 63;
 	@gval: 107;
 	@bval: 114;
 }
+
 @hex-darker-blue: #2f5055;
 .rgb-darker-blue() {
 	@rval: 47;
 	@gval: 80;
 	@bval: 85;
 }
+
 @hex-darkest-blue: #203639;
 .rgb-darkest-blue() {
 	@rval: 32;
 	@gval: 54;
 	@bval: 57;
 }
+
 @hex-accent-blue: #00a5bd;
 .rgb-accent-blue() {
 	@rval: 0;
 	@gval: 165;
 	@bval: 189;
 }
+
 @hex-sky-blue: #8dcbf1;
 .rgb-sky-blue() {
 	@rval: 141;
 	@gval: 203;
 	@bval: 241;
 }
+
 @hex-turquoise: #00a5bd;
 .rgb-turquoise() {
 	@rval: 0;
 	@gval: 165;
 	@bval: 189;
 }
+
 @hex-turquoise-opaque: #7fd0dc;
+
+/*      ····························································································
+**      >>> §1.6: Oranges
+*/
+
 @hex-bright-orange: #f8f1eb;
 .rgb-bright-orange() {
 	@rval: 248;
 	@gval: 241;
 	@bval: 235;
 }
+
 @hex-lightest-orange: #eddccc;
 .rgb-lightest-orange() {
 	@rval: 237;
 	@gval: 220;
 	@bval: 204;
 }
+
 @hex-lighter-orange: #ddbea1;
 .rgb-lighter-orange() {
 	@rval: 221;
 	@gval: 190;
 	@bval: 161;
 }
+
 @hex-light-orange: #cb9b6e;
 .rgb-light-orange() {
 	@rval: 203;
 	@gval: 155;
 	@bval: 110;
 }
+
 @hex-orange: #b67233;
 .rgb-orange() {
 	@rval: 182;
 	@gval: 114;
 	@bval: 51;
 }
+
 @hex-dark-orange: #925b29;
 .rgb-dark-orange() {
 	@rval: 146;
 	@gval: 91;
 	@bval: 41;
 }
+
 @hex-darker-orange: #6d441f;
 .rgb-darker-orange() {
 	@rval: 109;
 	@gval: 68;
 	@bval: 31;
 }
+
 @hex-darkest-orange: #492e14;
 .rgb-darkest-orange() {
 	@rval: 73;
 	@gval: 46;
 	@bval: 20;
 }
+
 @hex-accent-orange: #f6861f;
 .rgb-accent-orange() {
 	@rval: 211;
 	@gval: 130;
 	@bval: 53;
 }
+
 @hex-lghtr-gry-0pt2-crmsn: #d3b0b8;
 .rgb-lghtr-gry-0pt2-crmsn() {
 	@rval: 211;
 	@gval: 176;
 	@bval: 184;
 }
+
 @hex-drknd-lghtr-gry-0pt2-crmsn: #b87f8c;
 @hex-drk-gry-0pt2-crmsn: #725764;
 .rgb-drk-gry-0pt2-crmsn() {
@@ -371,262 +732,13 @@
 	@bval: 100;
 }
 
-// -----------------------------------------------------------------------------------------------------------
-//   Additional colors
-// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --
+/*      ····························································································
+**      >>> §1.7: Golds
+*/
+
 @hex-gold: #e9c024;
 .rgb-gold() {
     @rval: 233;
     @gval: 192;
     @rval: 36;
-}
-
-// -----------------------------------------------------------------------------------------------------------
-//   Color variations associated with primary crimson, #981e32
-// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --
-//
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-//       Monochromatic color scale
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-@hex-crimson-scale-darkest: #58111d;
-.rgb-crimson-scale-darkest() {
-    @rval: 88;
-    @gval: 17;
-    @rval: 29;
-}
-@hex-crimson-scale-darker: #6d1624;
-.rgb-crimson-scale-darker() {
-    @rval: 109;
-    @gval: 22;
-    @rval: 36;
-}
-@hex-crimson-scale-dark: #831a2b;
-.rgb-crimson-scale-dark() {
-    @rval: 131;
-    @gval: 26;
-    @rval: 43;
-}
-@hex-crimson-scale-light: #ad2239;
-.rgb-crimson-scale-light() {
-    @rval: 173;
-    @gval: 34;
-    @rval: 57;
-}
-@hex-crimson-scale-lighter: #c32640;
-.rgb-crimson-scale-lighter() {
-    @rval: 195;
-    @gval: 38;
-    @rval: 64;
-}
-@hex-crimson-scale-lightest: #d62d49;
-.rgb-crimson-scale-lightest() {
-    @rval: 214;
-    @gval: 45;
-    @rval: 73;
-}
-//
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-//       Crimson alternatives
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-@hex-crimson-alts-bluest: #981e51;
-.rgb-crimson-alts-bluest() {
-    @rval: 152;
-    @gval: 30;
-    @rval: 81;
-}
-@hex-crimson-alts-bluer: #981e46;
-.rgb-crimson-alts-bluer() {
-    @rval: 152;
-    @gval: 30;
-    @rval: 70;
-}
-@hex-crimson-alts-blue: #981e3c;
-.rgb-crimson-alts-blue() {
-    @rval: 152;
-    @gval: 30;
-    @rval: 60;
-}
-@hex-crimson-alts-orange: #981e28;
-.rgb-crimson-alts-orange() {
-    @rval: 152;
-    @gval: 30;
-    @rval: 40;
-}
-@hex-crimson-alts-oranger: #981e1e;
-.rgb-crimson-alts-oranger() {
-    @rval: 152;
-    @gval: 30;
-    @rval: 30;
-}
-@hex-crimson-alts-orangest: #98291e;
-.rgb-crimson-alts-orangest() {
-    @rval: 152;
-    @gval: 41;
-    @rval: 30;
-}
-//
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-//       Crimson shades
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-@hex-crimson-shades-brightest: #c92842;
-.rgb-crimson-shades-brightest() {
-    @rval: 201;
-    @gval: 40;
-    @rval: 66;
-}
-@hex-crimson-shades-brighter: #b9243d;
-.rgb-crimson-shades-brighter() {
-    @rval: 185;
-    @gval: 36;
-    @rval: 61;
-}
-@hex-crimson-shades-bright: #a82137;
-.rgb-crimson-shades-bright() {
-    @rval: 168;
-    @gval: 33;
-    @rval: 55;
-}
-@hex-crimson-shades-dim: #881b2d;
-.rgb-crimson-shades-dim() {
-    @rval: 136;
-    @gval: 27;
-    @rval: 45;
-}
-@hex-crimson-shades-shady: #771827;
-.rgb-crimson-shades-shady() {
-    @rval: 119;
-    @gval: 24;
-    @rval: 39;
-}
-@hex-crimson-shades-shadowy: #671422;
-.rgb-crimson-shades-shadowy() {
-    @rval: 103;
-    @gval: 20;
-    @rval: 34;
-}
-@hex-crimson-shades-dusky: #56111c;
-.rgb-crimson-shades-dusky() {
-    @rval: 86;
-    @gval: 17;
-    @rval: 28;
-}
-@hex-crimson-shades-dark: #460e17;
-.rgb-crimson-shades-dark() {
-    @rval: 70;
-    @gval: 14;
-    @rval: 23;
-}
-@hex-crimson-shades-darker: #360b12;
-.rgb-crimson-shades-darker() {
-    @rval: 54;
-    @gval: 11;
-    @rval: 18;
-}
-@hex-crimson-shades-black: #25070c;
-.rgb-crimson-shades-black() {
-    @rval: 37;
-    @gval: 7;
-    @rval: 12;
-}
-@hex-crimson-shades-blacker: #150407;
-.rgb-crimson-shades-blacker() {
-    @rval: 21;
-    @gval: 4;
-    @rval: 7;
-}
-@hex-crimson-shades-blackest: #050102;
-.rgb-crimson-shades-blackest() {
-    @rval: 5;
-    @gval: 1;
-    @rval: 2;
-}
-//
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-//       Crimson tints
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-@hex-crimson-tints-light: #d62f4a;
-.rgb-crimson-tints-light() {
-    @rval: 214;
-    @gval: 47;
-    @rval: 74;
-}
-@hex-crimson-tints-lighter: #d93f58;
-.rgb-crimson-tints-lighter() {
-    @rval: 217;
-    @gval: 63;
-    @rval: 88;
-}
-@hex-crimson-tints-bright: #dc4f66;
-.rgb-crimson-tints-bright() {
-    @rval: 220;
-    @gval: 79;
-    @rval: 102;
-}
-@hex-crimson-tints-brighter: #e06075;
-.rgb-crimson-tints-brighter() {
-    @rval: 224;
-    @gval: 96;
-    @rval: 117;
-}
-@hex-crimson-tints-shining: #e37083;
-.rgb-crimson-tints-shining() {
-    @rval: 227;
-    @gval: 112;
-    @rval: 131;
-}
-@hex-crimson-tints-brilliant: #e68191;
-.rgb-crimson-tints-brilliant() {
-    @rval: 230;
-    @gval: 129;
-    @rval: 145;
-}
-@hex-crimson-tints-radiant: #e9919f;
-.rgb-crimson-tints-radiant() {
-    @rval: 233;
-    @gval: 145;
-    @rval: 159;
-}
-@hex-crimson-tints-dazzling: #eda1ae;
-.rgb-crimson-tints-dazzling() {
-    @rval: 237;
-    @gval: 161;
-    @rval: 174;
-}
-@hex-crimson-tints-blinding: #f0b2bc;
-.rgb-crimson-tints-blinding() {
-    @rval: 240;
-    @gval: 178;
-    @rval: 188;
-}
-@hex-crimson-tints-white: #f3c2ca;
-.rgb-crimson-tints-white() {
-    @rval: 243;
-    @gval: 194;
-    @rval: 202;
-}
-@hex-crimson-tints-whiter: #f6d2d8;
-.rgb-crimson-tints-whiter() {
-    @rval: 249;
-    @gval: 227;
-    @rval: 231;
-}
-@hex-crimson-tints-whitest: #fdf3f5;
-.rgb-crimson-tints-whitest() {
-    @rval: 253;
-    @gval: 243;
-    @rval: 245;
-}
-
-// -----------------------------------------------------------------------------------------------------------
-//   Color variations associated with primary gray, #5e6a71
-// ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --
-//
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-//       Monochromatic shifts of triadic colors
-//     · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·
-@hex-dark-grayish-pink: #360b12;
-.rgb-dark-grayish-pink() {
-    @rval: 54;
-    @gval: 11;
-    @bval: 18;
 }

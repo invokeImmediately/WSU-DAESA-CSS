@@ -1,7 +1,18 @@
-/*     ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
- *     │ ++++ SPAN selectors +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ │
- *     └─────────────────────────────────────────────────────────────────────────────────────────────────┘
- */
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: span.less                                                                        │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Embodies styles for span elements of WSU Office of Undergraduate Education    │
+**  │   web pages built using the builder template of the Spine parent theme of WSUWP. Styles    │
+**  │   are designed to accompany or supersede styling associated with the theme.                │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING SPAN ELEMENTS OF OUE WEBSITES
+*/
+
 .declare-span-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	span {
 		&.accentuated-text {
@@ -10,22 +21,28 @@
 			font-size: 1.3em;
 			line-height: normal;
 			color: saturate(@hex-dark-blue,100%);
+
 			&.darker {
 				color: @hex-dark-blue;
 			}
+
 			&.brighter {
 				color: saturate(@hex-blue,100%);
 			}
+
 			&.gray {
 				color: @hex-dark-gray;
+
 				&.brighter {
 					color: @hex-less-dark-gray;
 				}
 			}
 		}
+
 		&.callout {
 			&:extend(div.callout all);
 		}
+
 		&.has-tool-tip,
 		&.has-tooltip {
 			position: relative;
@@ -38,37 +55,44 @@
 			 -webkit-transition-duration: .3s, .3s, .3s;
 			transition-timing-function: ease, ease, ease;
 			 -webkit-transition-timing-function: ease, ease, ease;
+
 			&:hover {
 				.rgb-accent-blue(); background-color: rgba(@rval,@gval,@bval,0.2);
 				border-color: rgba(@rval,@gval,@bval,0.67);
 				color: @hex-darker-blue;
 			}
 		}
+
 		&.hides-with-spine {
 			@media all and (max-width: @spine-threshold) {
 				display: none;
 			}
 		}
+
 		&.hides-from-spine {
 			@media all and (min-width: (@spine-threshold + 1)) {
 				display: none;
 			}
 		}
+
 		&.hides-with-rghtclmn {
 			@media all and (max-width: @column-floating-threshold) {
 				display: none;
 			}
 		}
+
 		&.hides-from-rghtclmn {
 			@media all and (min-width: (@column-floating-threshold + 1)) {
 				display: none;
 			}
 		}
+
 		&.shrink-text-on-mobile {
 			@media all and (max-width: @large-mobile-screen-width) {
 				font-size: 0.9em;
 			}	
 		}
+
 		&.shrink-text-on-tablet {
 			@media all and (max-width: @tablet-screen-width) {
 				font-size: 0.9em;
@@ -91,6 +115,7 @@
 				.transition(~"all 0.3s ease");
 				.transform(~"translate(100%, -25%)");
 			}
+
 			&:hover:after {
 				opacity: 0;
 			}
