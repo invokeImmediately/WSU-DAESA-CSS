@@ -14,30 +14,30 @@
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 **    OUE-HEADINGS §1: [h1] elements...........................................................51
-**    OUE-HEADINGS §2: [h2] elements...........................................................77
-**    OUE-HEADINGS §3: [h3] elements..........................................................162
-**    OUE-HEADINGS §4: [h4] elements..........................................................237
-**    OUE-HEADINGS §5: [hN] elements..........................................................269
-**    OUE-HEADINGS §6: [header] elements......................................................301
-**    OUE-HEADINGS §7: (Legacy) Sectional article headers (inclusional via Less mixin)........360
-**    OUE-HEADINGS §8: Accessibility friendly classes.........................................574
-**      >>> §8.1: Spacing.....................................................................578
-**        ├> §8.1a: LESS variables............................................................581
-**        ├> §8.1b: Utility classes...........................................................597
-**        └> §8.1c: Default styles............................................................615
-**      >>> §8.2: Font sizing.................................................................632
-**        ├> §8.2a: LESS variables............................................................635
-**        ├> §8.2b: Utility classes...........................................................645
-**        └> §8.2c: Default styles............................................................665
-**      >>> §8.3: Line heights................................................................698
-**        ├> §8.3a: LESS variables............................................................701
-**        ├> §8.3b: Utility classes...........................................................712
-**        └> §8.3c: Default styles............................................................735
-**      >>> §8.4: Coloring....................................................................748
-**        ├> §8.4a: Utility classes...........................................................751
-**        └> §8.4b: Defaults..................................................................871
-**      >>> §8.5: Child elements..............................................................912
-**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers...........................934
+**    OUE-HEADINGS §2: [h2] elements...........................................................79
+**    OUE-HEADINGS §3: [h3] elements..........................................................175
+**    OUE-HEADINGS §4: [h4] elements..........................................................258
+**    OUE-HEADINGS §5: [hN] elements..........................................................295
+**    OUE-HEADINGS §6: [header] elements......................................................328
+**    OUE-HEADINGS §7: (Legacy) Sectional article headers (inclusional via Less mixin)........394
+**    OUE-HEADINGS §8: Accessibility friendly classes.........................................639
+**      >>> §8.1: Spacing.....................................................................643
+**        ├> §8.1a: LESS variables............................................................646
+**        ├> §8.1b: Utility classes...........................................................663
+**        └> §8.1c: Default styles............................................................682
+**      >>> §8.2: Font sizing.................................................................700
+**        ├> §8.2a: LESS variables............................................................703
+**        ├> §8.2b: Utility classes...........................................................713
+**        └> §8.2c: Default styles............................................................734
+**      >>> §8.3: Line heights................................................................772
+**        ├> §8.3a: LESS variables............................................................775
+**        ├> §8.3b: Utility classes...........................................................788
+**        └> §8.3c: Default styles............................................................812
+**      >>> §8.4: Coloring....................................................................825
+**        ├> §8.4a: Utility classes...........................................................828
+**        └> §8.4b: Defaults..................................................................942
+**      >>> §8.5: Child elements..............................................................983
+**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers..........................1006
 */
 
 /*  ================================================================================================
@@ -52,21 +52,23 @@
 */
 
 	h1 {
-		// Prepend: body:not(.use-bem-styles)
 		.column & {
 			&:extend(.has-dflt-font);
-			padding-bottom: 0;
-			margin-top: 1.5rem;
-			margin-bottom: .75rem;
-			font-size: @v-h1-sz;
-			.has-responsive-font(@v-h1-sz, @v-hX-lnhght, @v-fnt-sclng-fctrs-alt);
-			font-weight: 900;
-			text-transform: uppercase;
+
 			color: @hex-darker-gray;
+			font-size: @v-h1-sz;
+			font-weight: 900;
+			.has-responsive-font(@v-h1-sz, @v-hX-lnhght, @v-fnt-sclng-fctrs-alt);
+			margin-bottom: .75rem;
+			margin-top: 1.5rem;
+			padding-bottom: 0;
+			text-transform: uppercase;
+
 			&.centered {
 				text-align: center;
 			}
 		}
+
 		.column &:first-child,
 		.column header:first-child + & {
 			margin-top: 0;
@@ -80,74 +82,85 @@
 	h2 {
 		.column & {
 			&:extend(.has-dflt-font);
-			padding: 0 0 0 .1em;
-			margin-top: 1.5rem;
-			margin-bottom: .75rem;
-			margin-left: -.1em;
+
+			color: @hex-darker-gray;
 			font-size: @v-h2-sz;
+			font-weight: 800;
 			.has-responsive-font(@v-h2-sz, @v-hX-lnhght, @v-fnt-sclng-fctrs-alt);
 			line-height: 1.375em;
-			font-weight: 800;
-			color: @hex-darker-gray;
+			margin-bottom: .75rem;
+			margin-left: -.1em;
+			margin-top: 1.5rem;
+			padding: 0 0 0 .1em;
 			text-transform: uppercase;
+
 			&.article-title {
 				.has-responsive-font((@v-h2-sz * 0.4), @v-hX-lnhght);
 			}
+
 			&.centered {
 				text-align: center;
 			}
+
 			&.narrower-top-margin {
 				margin-top: 1.25rem;
 			}
+
 			&.no-top-margin {
 				margin-top: 0;
 			}
 		}
+
 		.column &.fancy,
 		.column &.solid,
 		.column.show-header.has-fancy-header > header:first-child > & {
-			position: relative;
-			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 11 / 40);
-			margin-left: (-1 * @v-dflt-spcng / 4);
+			&{ background-color: @rgba; .getRgbaStr(@hex-dark-gray, 0.2); }
+			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
+					0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
+					0.225) );
+				.rgb-dark-gray(); }
+			&{ border-bottom: 2px solid @rgba; .getRgbaStr(@hex-dark-gray, 0.075); }
 			margin-bottom: (@v-dflt-spcng / 2);
+			margin-left: (-1 * @v-dflt-spcng / 4);
 			margin-right: (-1 * @v-dflt-spcng / 4);
-			& { background-color: @rgba; .getRgbaStr(@hex-dark-gray, 0.2); }
-			& { .rgb-dark-gray(); background: linear-gradient(to right,
-				transparent,
-				rgba(@rval, @gval, @bval, 0.075) 5%,
-				rgba(@rval, @gval, @bval, 0.075) 50%,
-				rgba(@rval, @gval, @bval, 0.225)
-			); }
-			& { border-bottom: 2px solid @rgba; .getRgbaStr(@hex-dark-gray, 0.075); }
+			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 11 / 40);
+			position: relative;
 		}
+
 		.column &.fancy.with-top-border,
 		.column &.solid,
 		.column.show-header.has-fancy-header > header:first-child > & {
 			padding-top: 0.5rem;
+
 			&:not(:first-child) {
 				margin-top: @v-dflt-spcng;
 			}
+
 			&::before {
-				content: "";
-				position: absolute;
-					top: 0;
-					left: 0;
-				width: 100%;
-				height: 0;
-				.rgb-darker-gray(); border-top: 1px solid rgba(@rval,@gval,@bval,0.6667);
-				 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
+				border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
 				border-top-width: 2px;
+				border-top: 1px solid rgba(@rval,@gval,@bval,0.6667);
+				content: "";
+				height: 0;
+				left: 0;
+				position: absolute;
+				.rgb-darker-gray();
+				top: 0;
+				width: 100%;
 			}
 		}
+
 		.column &:first-child,
 		.column header:first-child + &,
 		.column header:first-child + &.fancy.with-top-border:not(:first-child),
 		.column header:first-child + &.solid:not(:first-child) {
 			margin-top: 0;
 		}
+
 		.column h1 + & {
 			font-style: italic;
 		}
+
 		.column hr:not(.subSection) + h2 {
 			margin-top: 0;
 		}
@@ -165,64 +178,72 @@
 	h3 {
 		.column & {
 			&:extend(.has-dflt-font);
-			padding: 0 0 0 .1em;
-			margin-top: 1.5rem;
+
+			color: @hex-crimson;
+			font-size: @v-h3-sz;
+			font-weight: 600;
+			.has-responsive-font(@v-h3-sz, @v-hX-lnhght, @v-fnt-sclng-fctrs-alt);
 			margin-bottom: .75rem;
 			margin-left: -.1em;
-			font-size: @v-h3-sz;
-			.has-responsive-font(@v-h3-sz, @v-hX-lnhght, @v-fnt-sclng-fctrs-alt);
-			font-weight: 600;
+			margin-top: 1.5rem;
+			padding: 0 0 0 .1em;
 			text-transform: uppercase;
-			color: @hex-crimson;
+
 			&.centered {
 				text-align: center;
 			}
+
 			&.gray {
 				color: @hex-darker-gray;
 			}
+
 			&.no-top-margin {
 				margin-top: 0;
 			}
 		}
+
 		.column &.lowercase,
 		.column.show-header.has-lowercase-header > header:first-child > & {
 			text-transform: none;
 		}
+
 		.column &.fancy,
 		.column &.solid,
 		.column.show-header.has-fancy-header > header:first-child > & {
-			position: relative;
-			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 9 / 40) 0;
-			margin-left: 0;
+			&{ background-color: @rgba; .getRgbaStr(@hex-light-crimson, 0.075); }
+			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
+					0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
+					0.225));
+				.rgb-light-crimson(); }
+			&{ border-bottom: 2px solid @rgba; .getRgbaStr(@hex-light-crimson, 0.075); }
 			margin-bottom: (@v-dflt-spcng / 2);
+			margin-left: 0;
 			margin-right: 0;
-			& { background-color: @rgba; .getRgbaStr(@hex-light-crimson, 0.075); }
-			& { .rgb-light-crimson(); background: linear-gradient(to right,
-				transparent,
-				rgba(@rval, @gval, @bval, 0.075) 5%,
-				rgba(@rval, @gval, @bval, 0.075) 50%,
-				rgba(@rval, @gval, @bval, 0.225)
-			); }
-			& { border-bottom: 2px solid @rgba; .getRgbaStr(@hex-light-crimson, 0.075); }
+			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 9 / 40) 0;
+			position: relative;
 		}
+
 		.column &.fancy.with-top-border,
 		.column &.solid,
 		.column.show-header.has-fancy-header > header:first-child > & {
 			padding-top: 0.4375rem;
+
 			&:not(:first-child) {
 				margin-top: @v-dflt-spcng;
 			}
+
 			&::before {
+				border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
+				border-top: 1px solid rgba(@rval,@gval,@bval,0.67);
 				content: "";
-				position: absolute;
-					top: 0;
-					left: 0;
-				width: 100%;
 				height: 0;
-				.rgb-crimson(); border-top: 1px solid rgba(@rval,@gval,@bval,0.67);
-				 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
+				left: 0;
+				position: absolute;
+				.rgb-crimson();
+				top: 0;
+				width: 100%;
 			}
-		}		
+		}
 		.column &:first-child,
 		.column header:first-child + &,
 		.column header:first-child + &.fancy.with-top-border:not(:first-child),
@@ -240,23 +261,28 @@
 	h4 {
 		.column & {
 			&:extend(.has-dflt-font);
-			padding: 0;
-			margin-top: 1rem;
-			margin-bottom: .5rem;
-			font-size: @v-h4-sz;
-			.has-responsive-font(@v-h4-sz, @v-h4-lnhght, @v-fnt-sclng-fctrs-alt);
-			font-weight: 600;
+
 			color: @hex-crimson;
+			font-size: @v-h4-sz;
+			font-weight: 600;
+			.has-responsive-font(@v-h4-sz, @v-h4-lnhght, @v-fnt-sclng-fctrs-alt);
+			margin-bottom: .5rem;
+			margin-top: 1rem;
+			padding: 0;
+
 			&.centered {
 				text-align: center;
 			}
+
 			&.fancy {
 				&:extend(.column h3.fancy all);
 			}
+
 			&.gray {
 				color: @hex-darker-gray;
 			}
 		}
+
 		.column &:first-child,
 		.column header:first-child + &,
 		.column hr:not(.subSection) + &
@@ -288,9 +314,10 @@
 
 	header.article-header {
 		body.blog .column & + * {
-			padding-top: 15px;
 			border-top: 1px solid rgba(127,127,127,0.2);
+			padding-top: 15px;
 		}
+
 		.column & h1.article-title,
 		.column & h2.article-title {
 			.has-responsive-font((@v-p-sz * 1.5), @v-hX-lnhght);
@@ -303,25 +330,30 @@
 
 	header.main-header {
 		.sup-header-default {
-			margin-bottom: .5rem;
 			.has-responsive-font(0.9rem, false, @v-fnt-sclng-fctrs-alt-2);
+			margin-bottom: .5rem;
 		}
+
 		.sub-header-default,
 		.sub-header {
 			.has-responsive-font((2.5rem * 16 / 17), 0.9em, @v-fnt-sclng-fctrs-alt-2);
 		}
+
 		&.centered {
 			@media all {
 				@media (min-width: @large-format-threshold) {
 					text-align: center;
 				}
+
 				@media (min-width: (@spine-threshold + 1)) and 
 						(max-width: (@large-format-threshold - 1)) {
 					text-align: left;
 				}
+
 				@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
 					text-align: center;
 				}
+
 				@media (max-width: @tablet-screen-width) {
 					text-align: left;
 				}
@@ -331,13 +363,14 @@
 		.header-group.centered {
 			@media all {
 				@media (min-width: @large-format-threshold) {
-					width: 100%;
 					left: 50%;
+					width: 100%;
 					.transform(~"translateX(-50%)");
 				}
+
 				@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
-					width: 100%;
 					left: 50%;
+					width: 100%;
 					.transform(~"translateX(-50%)");
 				}
 			}
@@ -348,6 +381,7 @@
 		&:not(.show-header) > header:first-child {
 			display: none;
 		}
+
 		header:first-child + h1, header:first-child + h2.fancy.with-top-border,
 		 header:first-child + h3.fancy.with-top-border {
 			margin-top: 0;
@@ -364,61 +398,64 @@
 	.page.has-short-main-header {
 		.main-header {
 			height: 85px;
+
 			& > .header-group {
 				padding-bottom: 1em !important;
 			}
 		}
 	}
+
 	.use-short-main-header-on-pages(@header-height: 85px, @header-padding: 1em) {
 		body.page:not(.home) main.spine-blank-template > header.main-header {
 			@header-height: 85px;
+
 			& > div.header-group {
 				padding-bottom: @header-padding !important;
 			}
 		}
 	}
+
 	.row.halves.article-header,
 	.row.single.article-header {
 		position: relative;
+
 		&.gutter .column:not(.gutterless) {
 			padding-left: 0;
 			padding-right: 0;
 		}
+
 		&.pad-top .column {
 			padding-top: 0;
 		}
 	}
+
 	.row.halves.article-header {
 		height: 230px;
+
 		@media all {
 			@media (max-width: @large-mobile-screen-width) {
 				height: 340px;
 			}
 		}
+
 		@media print {
 			height: auto;
 		}
+
 		.column {
 			&.one {
+				background: @hex-dark-gray;
+				background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.4) 50%, 
+					rgba(0,0,0,0.1) ),
+					linear-gradient(to right, #5e6a71, #5e6a71);
+				height: 100%;
+				left: 0;
+				padding-left: 0;
+				padding-right: 0;
 				position: absolute;
 				right: 40%;
-				left: 0;
 				width: auto;
-				height: 100%;			
-				padding-left: 0;
-				padding-right: 0;			
-				background: @hex-dark-gray;
-				background: linear-gradient(
-						to right,
-						rgba(0,0,0,0.5),
-						rgba(0,0,0,0.4) 50%,
-						rgba(0,0,0,0.1)
-					),
-					linear-gradient(
-						to right,
-						#5e6a71,
-						#5e6a71
-					);
+
 				@media all {
 					@media (max-width: @large-mobile-screen-width) {
 						right: 0;
@@ -428,119 +465,142 @@
 							rgba(0,0,0,0.1)), linear-gradient(to right, #5e6a71,#5e6a71);
 					}
 				}
+
 				@media print {
 					position: static;
 					height: auto;
 					padding: @v-dflt-spcng;
 				}
+
 				& > :first-child,
 				header:first-child + * {
-					position: absolute;
-					top: 50%;
-					right: @v-dflt-spcng;
 					left: @v-dflt-spcng;
+					position: absolute;
+					right: @v-dflt-spcng;
+					top: 50%;
 					.transform(~"translateY(-50%)");
+
 					@media all {
 						@media (max-width: @column-floating-threshold) {
 							right: (@v-dflt-spcng / 2);
 						}
+
 						@media (max-width: @large-mobile-screen-width) {
 							left: (@v-dflt-spcng / 2);
 						}
+
 						@media (max-width: @mobile-screen-width) {
 							left: (@v-dflt-spcng / 4);
 						}
+
 						@media print {
 							position: static;
 							.transform(~"none");
 						}
 					}
+
 					& > :last-child {
 						margin-bottom: 0 !important;
 					}
 				}
+
 				h1 {
-					margin: 0;
 					color: @hex-white;
 					line-height: .95em;
+					margin: 0;
 					text-shadow: 0 0 4px @hex-black, 0 0 4px @hex-black, 0 0 4px @hex-black,
 						0 0 4px @hex-black, 0 0 4px @hex-black;
+
 					@media all and (max-width: @column-floating-threshold) {
 						font-size: 6.5vw;
 					}
+
 					& + .subtitle {
 						color: @hex-white;
 						font-size: 1.25em;
-						line-height: 1.1em;
 						font-weight: bold;
-						text-transform: uppercase;
+						line-height: 1.1em;
 						text-shadow: 0 0 2px @hex-black, 0 0 2px @hex-black, 0 0 2px @hex-black;
+						text-transform: uppercase;
+
 						@media all and (max-width: @column-floating-threshold) {
 							font-size: 4vw;
 						}
 					}
 				}
+
 				.parent-page {
-					margin-bottom: 0.125em;
 					color: @hex-bright-gray;
+					margin-bottom: 0.125em;
+
 					@media all and (max-width: @column-floating-threshold) {
 						font-size: 3.25vw;
 					}
 				}
+
 				& > :not(:first-child):not(header:first-child + *) {
 					display: none;
 				}
+
 				& > :not(h1):not(div) {
 					display: none;
 				}
 			}
+
 			&.two {
-				position: absolute;
-				right: 0;
-				left: 60%;
-				width: auto;
-				height: 100%;
-				margin-top: 0 !important;
 				background-color: @hex-gray;
 				background-position: center center;
 				background-size: cover;
+				height: 100%;
+				left: 60%;
+				margin-top: 0 !important;
+				position: absolute;
+				right: 0;
+				width: auto;
+
 				@media all {
 					@media (max-width: @large-mobile-screen-width) {
-						left: 0;
 						height: 50%;
+						left: 0;
 						top: 0;
 					}
 				}
+
 				@media print {
 					display: none;
 				}
 			}
+
 			&.one, &.two {
 				@media all and (max-width: @column-floating-threshold) {
-					float: left;
 					clear: none;
+					float: left;
 				}
 			}
 		}
 	}
+
 	.row.single.article-header {
 		height: 340px;
+
 		.column {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
 			background-color: @hex-gray;
 			background-position: center center;
 			background-size: cover;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+
 			&.show-header > header {
-				box-sizing: border-box;
-				position: absolute;
-				left: 0;
 				bottom: 0;
-				width: 100%;
+				box-sizing: border-box;
+				left: 0;
 				padding: 2rem 2rem 0;
+				position: absolute;
+				width: 100%;
+
 				@media all {
 					@media (max-width:@large-mobile-screen-width) {
 						padding-left: .5rem;
@@ -549,20 +609,25 @@
 				} 
 				& > * {
 					@v-fnt-sclng-hdr: 1.0, 1.0, 1.0, 1.0, 0.714286, 0.510204489796;
+
+					&{ background-color: @rgba;
+						.getRgbaStr(@hex-black, 0.75); }
 					color: @hex-white;
-					padding: 0.25em;
-					margin: 0;
 					.has-responsive-font(3.3rem, 0.9em, @v-fnt-sclng-hdr);
-					& { text-shadow: 1px 1px 8px @rgba; .getRgbaStr(@hex-black, 0.75); }
-					& { background-color: @rgba; .getRgbaStr(@hex-black, 0.75); }
+					margin: 0;
+					padding: 0.25em;
+					&{ text-shadow: 1px 1px 8px @rgba;
+						.getRgbaStr(@hex-black, 0.75); }
+
 					.subtitle {
-						display: block;							
+						&{ background-color: @rgba;
+							.getRgbaStr(@hex-black, 0.75); }
+						display: block;
 						font-size: 0.5em;
-						padding: 0.25em;
-						margin-top: 0.25em;
 						line-height: 1.1em;
+						margin-top: 0.25em;
+						padding: 0.25em;
 						text-transform: none;
-						& { background-color: @rgba; .getRgbaStr(@hex-black, 0.75); }
 					}
 				}
 			}
@@ -581,18 +646,19 @@
 //        ├> §8.1a: LESS variables
 @hN--parent: ~".column";
 
-@hN--spacing-: 0em;
-@hN--spacing-: .25em;
-@hN--spacing-: .25em;
-@hN--spacing-: .5em;
-@hN--spacing-: .75em;
-@hN--spacing-: 1em;
-@hN--spacing-: 1.25em;
-@hN--spacing-: 1.5em;
-@hN--spacing-: 1.75em;
-@hN--spacing-: 2em;
-@hN--spacing-array: @hN--spacing-1, @hN--spacing-2, @hN--spacing-3, @hN--spacing-4, @hN--spacing-5, 
-	@hN--spacing-6, @hN--spacing-7, @hN--spacing-8, @hN--spacing-9;
+// TODO: Add class names
+@hN--spacing-0mx: 0em;
+@hN--spacing-250mx: .25em;
+@hN--spacing-500mx: .5em;
+@hN--spacing-750mx: .75em;
+@hN--spacing-1000mx: 1em;
+@hN--spacing-1250mx: 1.25em;
+@hN--spacing-1500mx: 1.5em;
+@hN--spacing-1750mx: 1.75em;
+@hN--spacing-2000mx: 2em;
+@hN--spacing-array: @hN--spacing-0mx, @hN--spacing-250mx, @hN--spacing-500mx, @hN--spacing-750mx, 
+	@hN--spacing-1000mx, @hN--spacing-1250mx, @hN--spacing-1500mx, @hN--spacing-1750mx, 
+	@hN--spacing-2000mx;
 
 //        ├> §8.1b: Utility classes
 h1,
@@ -604,6 +670,7 @@ h6 {
 	@{hN--parent} * + & {
 		.hN--spacing-loop(@idx, @spacing) when (@idx >= 0) and (@idx <= length(@spacing)) {
 			.hN--spacing-loop((@idx - 1), @spacing);
+
 			&.hN--spacing-@{idx} {
 				margin-top: extract(@spacing, @idx);
 			}
@@ -622,6 +689,7 @@ h6 {
 	@{hN--parent} & {
 		padding: 0;
 	}
+
 	@{hN--parent} * + & {
 		margin: 0;
 		margin-top: @hN--spacing-5;
@@ -654,6 +722,7 @@ h6 {
 		.hN--size-loop(@idx, @sizes) when (@idx > 0)
 				and (@idx <= length(@sizes)) {
 			.hN--size-loop((@idx - 1), @sizes);
+
 			&.hN--fSize-@{idx} {
 				font-size: extract(@sizes, @idx);
 			}
@@ -668,26 +737,31 @@ h1 {
 		font-size: @hN--fSize-6;
 	}
 }
+
 h2 {
 	@{hN--parent} & {
 		font-size: @hN--fSize-5;
 	}
 }
+
 h3 {
 	@{hN--parent} & {
 		font-size: @hN--fSize-4;
 	}
 }
+
 h4 {
 	@{hN--parent} & {
 		font-size: @hN--fSize-3;
 	}
 }
+
 h5 {
 	@{hN--parent} & {
 		font-size: @hN--fSize-2;
 	}
 }
+
 h6 {
 	@{hN--parent} & {
 		font-size: @hN--fSize-1;
@@ -699,15 +773,17 @@ h6 {
 */
 
 //        ├> §8.3a: LESS variables
-@hN--lHeight-1: 1em;
-@hN--lHeight-2: 1.1em;
-@hN--lHeight-3: 1.2em;
-@hN--lHeight-4: 1.3em;
-@hN--lHeight-5: 1.375em;
-@hN--lHeight-6: 1.4em;
-@hN--lHeight-7: 1.5em;
-@hN--lHeight-array: @hN--lHeight-1, @hN--lHeight-2, @hN--lHeight-3, @hN--lHeight-4, @hN--lHeight-5,
-	@hN--lHeight-6, @hN--lHeight-7;
+@hN--lHeight-900mx: .99em;
+@hN--lHeight-1000mx: 1.1em;
+@hN--lHeight-1100mx: 1.21em;
+@hN--lHeight-1200mx: 1.32em;
+@hN--lHeight-1250mx: 1.375em;
+@hN--lHeight-1300mx: 1.43em;
+@hN--lHeight-1350mx: 1.485em;
+@hN--lHeight-1375mx: 1.5125em;
+@hN--lHeight-array: @hN--lHeight-900mx, @hN--lHeight-1000mx, @hN--lHeight-1100mx, 
+	@hN--lHeight-1200mx, @hN--lHeight-1250mx, @hN--lHeight-1300mx, @hN--lHeight-1350mx, 
+	@hN--lHeight-1375mx;
 
 //        ├> §8.3b: Utility classes
 h1,
@@ -720,6 +796,7 @@ h6 {
 		.hN--lHeight-loop(@idx, @heights) when (@idx > 0) 
 				and (@idx <= length(@heights)) {
 			.hN--lHeight-loop((@idx - 1), @heights);
+
 			&.hN--lHeight-@{idx} {
 				line-height: extract(@heights, @idx);
 			}
@@ -759,6 +836,7 @@ h6 {
 		&.hN--solid {
 			position: relative;
 			padding: .1em .25em .11em;
+
 			&::before {
 				content: "";
 				position: absolute;
@@ -768,84 +846,75 @@ h6 {
 				height: 0;
 			}
 		}
+
 		&.hN--white {
 			color: @hex-white;
 			&.hN--solid,
 			&.hN--solid.hN--bg-black {
-				& {
-					.getRgbaStr(@hex-black, 0.9);
-					background-color: @rgba;
-				}
-				& {
-					.rgb-black();
-					background: linear-gradient(to right,
-						rgba(@rval, @gval, @bval, 0.8) 50%,
+				&{ background-color: @rgba;
+					.getRgbaStr(@hex-black, 0.9); }
+				&{ background: linear-gradient(to right, rgba(@rval, @gval, @bval, 0.8) 50%, 
 						rgba(@rval, @gval, @bval, 1));
-				}
-				& {
-					.getRgbaStr(@hex-black, 0.333);
-					border-bottom: 2px solid @rgba;
-				}
+					.rgb-black(); }
+				&{ border-bottom: 2px solid @rgba;
+					.getRgbaStr(@hex-black, 0.333); }
+
 				&::before {
-					.rgb-black();
 					border-top: 2px solid rgba(@rval,@gval,@bval,1);
 					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.5);
+					.rgb-black();
 				}
 			}
+
 			&.hN--solid.hN--bg-crimson {
-				& {
-					.getRgbaStr(@hex-crimson, 0.9);
-					background-color: @rgba;
-				}
-				& {
-					background: linear-gradient(to right,
-						@hex-crimson 50%,
-						@hex-dark-crimson);
-				}
-				& {
-					.getRgbaStr(@hex-dark-crimson, 0.5);
-					border-bottom: 2px solid @rgba;
-				}
+				&{ background-color: @rgba;
+					.getRgbaStr(@hex-crimson, 0.9); }
+				background: linear-gradient(to right, @hex-crimson 50%, @hex-dark-crimson);
+				&{ border-bottom: 2px solid @rgba;
+					.getRgbaStr(@hex-dark-crimson, 0.5); }
+
 				&::before {
-					.rgb-dark-crimson();
-					border-top: 2px solid rgba(@rval,@gval,@bval,1);
 					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.5);
+					border-top: 2px solid rgba(@rval,@gval,@bval,1);
+					.rgb-dark-crimson();
 				}
 			}
 		}
+
 		&.hN--gray {
 			color: @hex-darker-gray;
+
 			&.hN--solid {
-				& {
-					.getRgbaStr(@hex-dark-gray, 0.2);
-					background-color: @rgba;
-				}
-				& {
-					.rgb-dark-gray();
-					background: linear-gradient(to right,
-						transparent,
-						rgba(@rval, @gval, @bval, 0.075) 5%,
-						rgba(@rval, @gval, @bval, 0.075) 50%,
-						rgba(@rval, @gval, @bval, 0.225));
-				}
+				&{ background-color: @rgba;
+					.getRgbaStr(@hex-dark-gray, 0.2); }
+
+				&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
+						0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
+						0.225));
+					.rgb-dark-gray(); }
+
 				& {
 					.getRgbaStr(@hex-dark-gray, 0.075);
 					border-bottom: 2px solid @rgba;
 				}
+
 				&::before {
 					.rgb-darker-gray();
 					border-top: 2px solid rgba(@rval,@gval,@bval,0.6667);
 					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
 				}
-			}			
+			}
 		}
+
 		&.hN--crimson {
 			color: @hex-crimson;
+
 			&.hN--solid {
 				& {
 					.getRgbaStr(@hex-light-crimson, 0.075);
 					background-color: @rgba;
 				}
+
 				& {
 					.rgb-light-crimson();
 					background: linear-gradient(to right,
@@ -854,16 +923,18 @@ h6 {
 						rgba(@rval, @gval, @bval, 0.075) 50%,
 						rgba(@rval, @gval, @bval, 0.225));
 				}
+
 				& {
 					.getRgbaStr(@hex-light-crimson, 0.075);
 					border-bottom: 2px solid @rgba;
 				}
+
 				&::before {
 					.rgb-crimson();
 					border-top: 2px solid rgba(@rval,@gval,@bval,0.6667);
 					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
 				}
-			}			
+			}
 		}
 	}
 }
@@ -896,14 +967,14 @@ h2 {
 
 h3 {
 	@{hN--parent} &.hN--solid {
-		&:extend(.column h1.hN--gray);		
+		&:extend(.column h1.hN--gray);
 		&:extend(.column h1.hN--gray.hN--solid);
 	}
 }
 
 h4 {
 	@{hN--parent} &.hN--solid {
-		&:extend(.column h1.hN--crimson);		
+		&:extend(.column h1.hN--crimson);
 		&:extend(.column h1.hN--crimson.hN--solid);
 	}
 }
@@ -923,8 +994,9 @@ h6 {
 		border-bottom: none;
 		box-shadow: none;
 		text-decoration: underline;
+
 		&:hover {
-			text-decoration: none;			
+			text-decoration: none;
 		}
 	}
 }
