@@ -1,77 +1,86 @@
-/*!       ┌-----------------------------------------------------------------------------------------------------------┐
-*         │ ···· Builder Template Slideshows ········································································ │
-*         └-----------------------------------------------------------------------------------------------------------┘
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: div.cycle-slideshow.less                                                         │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Contains styles for builder template slideshows in WSU Office of              │
+**  │   Undergraduate Education web pages built using the builder template of the Spine parent   │
+**  │   theme of WSUWP. Styles are designed to accompany or supersede styling associated with    │
+**  │   the theme.                                                                               │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
-//        ┌-----------------------------------------------------------------------------------------------------------┐
-//        │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)                        │
-//        │                                                                                                           │
-//        │ DESCRIPTION: Styling modifications of builder template slideshows added through the WordPress interface.  │
-//        │                                                                                                           │
-//        │ DEPENDENCIES:  This file assumes the following LESS files have been imported upstream:                    │
-//        │   • //github.com/invokeImmediately/WSU-UE---CSS/animations.less                                           │
-//        │   • //github.com/invokeImmediately/WSU-UE---CSS/color-palette.less                                        │
-//        │   • //github.com/invokeImmediately/WSU-UE---CSS/mixins.less                                               │
-//        │   • //github.com/invokeImmediately/WSU-UE---CSS/variables.less                                            │
-//        └-----------------------------------------------------------------------------------------------------------┘
-	
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING OUE SECTION ELEMENTS
+*/
+
 .declare-slideshow-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 	.column {
 		.builder-section-content.cycle-slideshow {
 			@media all {
-				@media (min-width: (@mobile-screen-width + 1)) and (max-width: @large-mobile-screen-width) {
-					margin-left: (-2rem / 2);
-					margin-right: (-2rem / 2);
+				@media (min-width: (@mobile-screen-width + 1)) and 
+						(max-width: @large-mobile-screen-width) {
+					margin-left: (-@v-dflt-spcng / 2);
+					margin-right: (-@v-dflt-spcng / 2);
 				}
+
 				@media (max-width: @mobile-screen-width) {
-					margin-left: (-2rem / 4);
-					margin-right: (-2rem / 4);
+					margin-left: (-@v-dflt-spcng / 4);
+					margin-right: (-@v-dflt-spcng / 4);
 				}
 			}
 		}
 
 		.builder-banner-content {
-			padding: 0 0 10px 0;
+			border: 0;
 			font-size: 1.5rem;
 			line-height: 1.35em;
-			border: 0;
+			padding: 0 0 10px 0;
 			.transition(~"font-size .15s linear, line-height .15s linear");
+
 			&:hover {
 				font-size: 2rem;
+
 				& > div.builder-banner-inner-content {
-					.rgb-black(); background-color: rgba(@rval,@gval,@bval,0.9);
+					.rgb-black();
+					background-color: rgba(@rval,@gval,@bval,0.9);
 				}
 			}
 		}
 		
 		.builder-banner-inner-content {
-			position: absolute;
+			background-color: rgba(@rval,@gval,@bval,0.6);
 			bottom: 0;
-			width: 100%;
-			.rgb-black(); background-color: rgba(@rval,@gval,@bval,0.6);
 			font-size: inherit;
 			line-height: inherit;
+			position: absolute;
+			.rgb-black();
+			width: 100%;
+
 			p {
-				padding: 10px;
 				font-size: inherit !important;
 				line-height: inherit !important;
+				padding: 10px;
 				text-align: center;
+
 				&:last-child:not(.no-bottom-pad) {
 					padding-bottom: 10px;
 				}
 			}
+
 			strong {
 				color: #f6861f;
 			}
+
 			a {
-				color: #f6861f;
 				border-bottom: 1px dotted rgba(246,134,31,0.4);
-				transition: color .4s linear, border-color .4s linear;
-				 -webkit-transition: color .4s linear, border-color .4s linear;
-				 -moz-transition: color .4s linear, border-color .4s linear;
-				 -o-transition: color .4s linear, border-color .4s linear;
+				color: #f6861f;
+				.transition(~"color .4s linear, border-color .4s linear");
+
 				&:hover {
+					border-color: rgba(@rval,@gval,@bval,0.4);
 					color: #949b9d;
-					.rgb-gray(); border-color: rgba(@rval,@gval,@bval,0.4);
+					.rgb-gray();
 				}
 			}
 		}
@@ -86,38 +95,46 @@
 			.column .builder-banner-content {
 				font-size: 2.1179vw;
 				line-height: 2.8592vw;
+
 				&:hover {
 					font-size: 2.8239vw;
 					line-height: 3.8122vw;
 				}
 			}
+
 			.column .builder-banner-inner-content p {
 				padding: 1.0vw;
+
 				&:last-child:not(.no-bottom-pad) {
 					padding-bottom: 1.0vw;
 				}
 			}
 		}
+
 		@media (max-width: @spine-threshold) {
 			.column .builder-banner-content {
 				font-size: 2.5784vw;
 				line-height: 3.4808vw;
+
 				&:hover {
 					font-size: 3.4379vw;
 					line-height: 4.6411vw;
 				}
 			}    
 		}
+
 		@media (max-width: @large-mobile-screen-width) {
 			.column .builder-banner-content {
 				font-size: 5.1568vw;
 				line-height: 6.9616vw;
+
 				&:hover {
 					font-size: 6.8758vw;
 					line-height: 9.2822vw;
 				}
 			}    
 		}
+
 		// TODO: Move back to wp-master-style-sheet.less
 		@media (min-width: 906px) {
 			.readability-controlled {
