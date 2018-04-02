@@ -14,7 +14,7 @@
 /*    ───────────────────────────────────────────────────────────────────────────────────────────
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
-**    OUE UTILITY MIXINS §1: Spacing...........................................................27
+**    OUE UTILITY MIXINS §1: Margins...........................................................27
 **        >>> §1.1: In units of "em"...........................................................31
 **        >>> §1.2: In units of "rem"..........................................................37
 **    OUE UTILITY MIXINS §2: Typography........................................................43
@@ -24,20 +24,162 @@
 */
 
 /*    ----------------------------------------------------------------------------------------------
-**    OUE UTILITY MIXINS §1: Spacing
+**    OUE UTILITY MIXINS §1: Margins
 */
 
 /*      ····························································································
 **      >>> §1.1: In units of "em"
 */
 
+// Standard margin options in em units for all OUE websites
 @mSize-1: 0em;
+@mSize-2: 0.1em;
+@mSize-3: 0.2em;
+@mSize-4: 0.3em;
+@mSize-5: 0.4em;
+@mSize-6: 0.5em;
+@mSize-7: 0.6em;
+@mSize-8: 0.7em;
+@mSize-9: 0.8em;
+@mSize-10: 0.9em;
+@mSize-11: 1em;
+@mSize-12: 1.1em;
+@mSize-13: 1.2em;
+@mSize-14: 1.3em;
+@mSize-15: 1.4em;
+@mSize-16: 1.5em;
+@mSize-17: 1.6em;
+@mSize-18: 1.7em;
+@mSize-19: 1.8em;
+@mSize-20: 1.9em;
+@mSize-21: 2em;
+
+// OUE em margins array
+@mSize-array: @mSize-1, @mSize-2, @mSize-3, @mSize-4, @mSize-5, @mSize-6, @mSize-7, @mSize-8, 
+	@mSize-9, @mSize-10, @mSize-11, @mSize-12, @mSize-13, @mSize-14, @mSize-15, @mSize-16, 
+	@mSize-17, @mSize-18, @mSize-19, @mSize-20, @mSize-21;
+
+// Semantic em margins 
+@mSize-0mx: 1;
+@mSize-100mx: 2;
+@mSize-200mx: 3;
+@mSize-300mx: 4;
+@mSize-400mx: 5;
+@mSize-500mx: 6;
+@mSize-600mx: 7;
+@mSize-700mx: 8;
+@mSize-800mx: 9;
+@mSize-900mx: 10;
+@mSize-1000mx: 11;
+@mSize-1100mx: 12;
+@mSize-1200mx: 13;
+@mSize-1300mx: 14;
+@mSize-1400mx: 15;
+@mSize-1500mx: 16;
+@mSize-1600mx: 17;
+@mSize-1700mx: 18;
+@mSize-1800mx: 19;
+@mSize-1900mx: 20;
+@mSize-2000mx: 21;
 
 /*      ····························································································
 **      >>> §1.1: In units of "rem"
 */
 
+// Standard margin options in rem units for all OUE websites.
 @rem-mSize-1: 0rem;
+@rem-mSize-2: 0.1rem;
+@rem-mSize-3: 0.2rem;
+@rem-mSize-4: 0.3rem;
+@rem-mSize-5: 0.4rem;
+@rem-mSize-6: 0.5rem;
+@rem-mSize-7: 0.6rem;
+@rem-mSize-8: 0.7rem;
+@rem-mSize-9: 0.8rem;
+@rem-mSize-10: 0.9rem;
+@rem-mSize-11: 1rem;
+@rem-mSize-12: 1.1rem;
+@rem-mSize-13: 1.2rem;
+@rem-mSize-14: 1.3rem;
+@rem-mSize-15: 1.4rem;
+@rem-mSize-16: 1.5rem;
+@rem-mSize-17: 1.6rem;
+@rem-mSize-18: 1.7rem;
+@rem-mSize-19: 1.8rem;
+@rem-mSize-20: 1.9rem;
+@rem-mSize-21: 2rem;
+@rem-mSize-22: 2.1rem;
+@rem-mSize-23: 2.2rem;
+@rem-mSize-24: 2.3rem;
+@rem-mSize-25: 2.4rem;
+@rem-mSize-26: 2.5rem;
+@rem-mSize-27: 2.6rem;
+@rem-mSize-28: 2.7rem;
+@rem-mSize-29: 2.8rem;
+@rem-mSize-30: 2.9rem;
+@rem-mSize-31: 3rem;
+@rem-mSize-32: 3.1rem;
+@rem-mSize-33: 3.2rem;
+@rem-mSize-34: 3.3rem;
+@rem-mSize-35: 3.4rem;
+@rem-mSize-36: 3.5rem;
+@rem-mSize-37: 3.6rem;
+@rem-mSize-38: 3.7rem;
+@rem-mSize-39: 3.8rem;
+@rem-mSize-40: 3.9rem;
+@rem-mSize-41: 4rem;
+
+// OUE rem margins array
+@rem-mSize-array: @rem-mSize-1, @rem-mSize-2, @rem-mSize-3, @rem-mSize-4, @rem-mSize-5, 
+	@rem-mSize-6, @rem-mSize-7, @rem-mSize-8, @rem-mSize-9, @rem-mSize-10, @rem-mSize-11, 
+	@rem-mSize-12, @rem-mSize-13, @rem-mSize-14, @rem-mSize-15, @rem-mSize-16, @rem-mSize-17, 
+	@rem-mSize-18, @rem-mSize-19, @rem-mSize-20, @rem-mSize-21, @rem-mSize-22, @rem-mSize-23, 
+	@rem-mSize-24, @rem-mSize-25, @rem-mSize-26, @rem-mSize-27, @rem-mSize-28, @rem-mSize-29, 
+	@rem-mSize-30, @rem-mSize-31, @rem-mSize-32, @rem-mSize-33, @rem-mSize-34, @rem-mSize-35, 
+	@rem-mSize-36, @rem-mSize-37, @rem-mSize-38, @rem-mSize-39, @rem-mSize-40, @rem-mSize-41;
+
+// Semantic rem margins 
+@rem-mSize-0mx: 1;
+@rem-mSize-100mx: 2;
+@rem-mSize-200mx: 3;
+@rem-mSize-300mx: 4;
+@rem-mSize-400mx: 5;
+@rem-mSize-500mx: 6;
+@rem-mSize-600mx: 7;
+@rem-mSize-700mx: 8;
+@rem-mSize-800mx: 9;
+@rem-mSize-900mx: 10;
+@rem-mSize-1000mx: 11;
+@rem-mSize-1100mx: 12;
+@rem-mSize-1200mx: 13;
+@rem-mSize-1300mx: 14;
+@rem-mSize-1400mx: 15;
+@rem-mSize-1500mx: 16;
+@rem-mSize-1600mx: 17;
+@rem-mSize-1700mx: 18;
+@rem-mSize-1800mx: 19;
+@rem-mSize-1900mx: 20;
+@rem-mSize-2000mx: 21;
+@rem-mSize-2100mx: 22;
+@rem-mSize-2200mx: 23;
+@rem-mSize-2300mx: 24;
+@rem-mSize-2400mx: 25;
+@rem-mSize-2500mx: 26;
+@rem-mSize-2600mx: 27;
+@rem-mSize-2700mx: 28;
+@rem-mSize-2800mx: 29;
+@rem-mSize-2900mx: 30;
+@rem-mSize-3000mx: 31;
+@rem-mSize-3100mx: 32;
+@rem-mSize-3200mx: 33;
+@rem-mSize-3300mx: 34;
+@rem-mSize-3400mx: 35;
+@rem-mSize-3500mx: 36;
+@rem-mSize-3600mx: 37;
+@rem-mSize-3700mx: 38;
+@rem-mSize-3800mx: 39;
+@rem-mSize-3900mx: 40;
+@rem-mSize-4000mx: 41;
 
 /*    ----------------------------------------------------------------------------------------------
 **    OUE UTILITY MIXINS §2: Typography
