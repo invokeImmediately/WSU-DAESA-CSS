@@ -19,7 +19,13 @@
 */
 
 /*    ----------------------------------------------------------------------------------------------
-**    OUE UTILITY MIXINS §1: Typography
+**    OUE UTILITY MIXINS §1: Spacing
+*/
+
+@mSize-1: 
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE UTILITY MIXINS §2: Typography
 */
 
 /*      ····························································································
@@ -93,6 +99,57 @@
 @fSize--body-text: ceil(unit(@v-p-sz - extract(@fSize-array,1)) / unit(extract(@fSize-array,2) 
 	- extract(@fSize-array,1))) + 1;
 @fSize--max: length(@fSize-array);
+@fSize-750mx: 1;
+@fSize-775mx: 2;
+@fSize-800mx: 3;
+@fSize-825mx: 4;
+@fSize-850mx: 5;
+@fSize-875mx: 6;
+@fSize-900mx: 7;
+@fSize-925mx: 8;
+@fSize-950mx: 9;
+@fSize-975mx: 10;
+@fSize-1000mx: 11;
+@fSize-1025mx: 12;
+@fSize-1050mx: 13;
+@fSize-1075mx: 14;
+@fSize-1100mx: 15;
+@fSize-1125mx: 16;
+@fSize-1150mx: 17;
+@fSize-1175mx: 18;
+@fSize-1200mx: 19;
+@fSize-1225mx: 20;
+@fSize-1250mx: 21;
+@fSize-1275mx: 22;
+@fSize-1300mx: 23;
+@fSize-1325mx: 24;
+@fSize-1350mx: 25;
+@fSize-1375mx: 26;
+@fSize-1400mx: 27;
+@fSize-1425mx: 28;
+@fSize-1450mx: 29;
+@fSize-1475mx: 30;
+@fSize-1500mx: 31;
+@fSize-1525mx: 32;
+@fSize-1550mx: 33;
+@fSize-1575mx: 34;
+@fSize-1600mx: 35;
+@fSize-1625mx: 36;
+@fSize-1650mx: 37;
+@fSize-1675mx: 38;
+@fSize-1700mx: 39;
+@fSize-1725mx: 40;
+@fSize-1750mx: 41;
+@fSize-1775mx: 42;
+@fSize-1800mx: 43;
+@fSize-1825mx: 44;
+@fSize-1850mx: 45;
+@fSize-1875mx: 46;
+@fSize-1900mx: 47;
+@fSize-1925mx: 48;
+@fSize-1950mx: 49;
+@fSize-1975mx: 50;
+@fSize-2000mx: 51;
 
 // Utility mixin for defining font sizes downstream.
 .set-fSize(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
