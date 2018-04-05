@@ -83,8 +83,8 @@
 @mSize-2000mx: 21;
 
 // Utility mixins for defining margin sizes downstream.
-.set-mSize(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
-		and (@idx <= length(@mSize-array)) and (isstring(@which-dir)) {
+.set-mSize(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+		not (ispercentage(@idx)) and (@idx <= length(@mSize-array)) and (isstring(@which-dir)) {
 	.set-mSize__parse-dir(@size, @dir) when (@dir = "bottom") {
 		margin-bottom: @size;
 	}
@@ -101,8 +101,8 @@
 		margin-top: @size;
 	}
 
-	.set-mSize__parse-dir(@size, @dir) when (not(@dir = "bottom")) and (not(@dir = "left")) and 
-			(not(@dir = "right")) and (not(@dir = "top")) {
+	.set-mSize__parse-dir(@size, @dir) when not (@dir = "bottom") and not (@dir = "left") and 
+			not(@dir = "right") and not (@dir = "top") {
 		/*! Less error: .set-mSize__parse-dir => Invalid @dir */
 	}
 
@@ -110,7 +110,15 @@
 	.set-mSize__parse-dir(@mSize__this, @which-dir);
 }
 
+.set-mSize(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and 
+		not (ispercentage(@idx)) and (@idx <= length(@mSize-array))) and (isstring(@which-dir)) {
+	/*! Less error: .set-mSize__parse-dir => Invalid @idx */
+}
 
+.set-mSize(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+		not (ispercentage(@idx)) and (@idx <= length(@mSize-array)) and not (isstring(@which-dir)) {
+	/*! Less error: .set-mSize__parse-dir => Invalid @which-dir */
+}
 
 /*      ····························································································
 **      >>> §1.1: In units of "rem"
