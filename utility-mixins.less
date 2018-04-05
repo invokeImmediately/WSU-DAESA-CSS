@@ -82,6 +82,36 @@
 @mSize-1900mx: 20;
 @mSize-2000mx: 21;
 
+// Utility mixins for defining margin sizes downstream.
+.set-mSize(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
+		and (@idx <= length(@mSize-array)) and (isstring(@which-dir)) {
+	.set-mSize__parse-dir(@size, @dir) when (@dir = "bottom") {
+		margin-bottom: @size;
+	}
+
+	.set-mSize__parse-dir(@size, @dir) when (@dir = "left") {
+		margin-left: @size;
+	}
+
+	.set-mSize__parse-dir(@size, @dir) when (@dir = "right") {
+		margin-right: @size;
+	}
+
+	.set-mSize__parse-dir(@size, @dir) when (@dir = "top") {
+		margin-top: @size;
+	}
+
+	.set-mSize__parse-dir(@size, @dir) when (not(@dir = "bottom")) and (not(@dir = "left")) and 
+			(not(@dir = "right")) and (not(@dir = "top")) {
+		/*! Less error: .set-mSize__parse-dir => Invalid @dir */
+	}
+
+	@mSize__this: extract(@mSize-array, @idx);
+	.set-mSize__parse-dir(@mSize__this, @which-dir);
+}
+
+
+
 /*      ····························································································
 **      >>> §1.1: In units of "rem"
 */
@@ -351,9 +381,31 @@
 @lHeight--body-text: ceil(unit(@body-text--lHeight - extract(@lHeight-array,1)) / 
 	unit(extract(@lHeight-array,2) - extract(@lHeight-array,1))) + 1;
 @lHeight--max: length(@lHeight-array);
+@lHeight-667mx: 1;
+@lHeight-683mx: 2;
+@lHeight-700mx: 3;
+@lHeight-717mx: 4;
+@lHeight-733mx: 5;
+@lHeight-750mx: 6;
+@lHeight-767mx: 7;
+@lHeight-783mx: 8;
+@lHeight-800mx: 9;
+@lHeight-817mx: 10;
+@lHeight-833mx: 11;
+@lHeight-850mx: 12;
+@lHeight-867mx: 13;
+@lHeight-883mx: 14;
+@lHeight-900mx: 15;
+@lHeight-917mx: 16;
+@lHeight-933mx: 17;
+@lHeight-950mx: 18;
+@lHeight-967mx: 19;
+@lHeight-983mx: 20;
+@lHeight-1000mx: 21;
 
 // Utility mixin for defining font sizes downstream.
 .set-lHeight(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
 		and (@idx <= length(@lHeight-array)) {
 	font-size: extract(@lHeight-array, @idx);
 }
+
