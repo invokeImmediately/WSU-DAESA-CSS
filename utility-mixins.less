@@ -450,7 +450,7 @@
 @lHeight-1000mx: 21;
 
 // Utility mixin for defining font sizes downstream.
-.set-lHeight(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
+.line-height(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
 		and (@idx <= length(@lHeight-array)) {
-	font-size: extract(@lHeight-array, @idx);
+	line-height: extract(@lHeight-array, @idx);
 }
