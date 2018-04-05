@@ -385,7 +385,7 @@
 @fSize-2000mx: 51;
 
 // Utility mixin for defining font sizes downstream.
-.set-fSize(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
+.font-size(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
 		and (@idx <= length(@fSize-array)) {
 	font-size: extract(@fSize-array, @idx);
 }
