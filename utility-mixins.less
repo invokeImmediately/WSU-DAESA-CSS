@@ -17,9 +17,12 @@
 **    OUE UTILITY MIXINS §1: Margins...........................................................27
 **        >>> §1.1: In units of "em"...........................................................31
 **        >>> §1.2: In units of "rem"..........................................................37
-**    OUE UTILITY MIXINS §2: Typography........................................................43
-**        >>> §2.1: Typograhy: Font Sizing.....................................................47
-**        >>> §2.2: Line heights..............................................................176
+**    §2: Spacing..............................................................................??
+**        >>> §2.1: In units of "em"...........................................................??
+**        >>> §2.2: In units of "rem"..........................................................??
+**    §3: Typography...........................................................................??
+**        >>> §3.1: Typograhy: Font Sizing.....................................................??
+**        >>> §3.2: Line heights...............................................................??
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -121,7 +124,7 @@
 }
 
 /*      ····························································································
-**      >>> §1.1: In units of "rem"
+**      >>> §1.2: In units of "rem"
 */
 
 // Standard margin options in rem units for all OUE websites.
@@ -178,46 +181,46 @@
 
 // Semantic rem margins 
 @rem-mSize-0mx: 1;
-@rem-mSize-100mx: 2;
-@rem-mSize-200mx: 3;
-@rem-mSize-300mx: 4;
-@rem-mSize-400mx: 5;
-@rem-mSize-500mx: 6;
-@rem-mSize-600mx: 7;
-@rem-mSize-700mx: 8;
-@rem-mSize-800mx: 9;
-@rem-mSize-900mx: 10;
-@rem-mSize-1000mx: 11;
-@rem-mSize-1100mx: 12;
-@rem-mSize-1200mx: 13;
-@rem-mSize-1300mx: 14;
-@rem-mSize-1400mx: 15;
-@rem-mSize-1500mx: 16;
-@rem-mSize-1600mx: 17;
-@rem-mSize-1700mx: 18;
-@rem-mSize-1800mx: 19;
-@rem-mSize-1900mx: 20;
-@rem-mSize-2000mx: 21;
-@rem-mSize-2100mx: 22;
-@rem-mSize-2200mx: 23;
-@rem-mSize-2300mx: 24;
-@rem-mSize-2400mx: 25;
-@rem-mSize-2500mx: 26;
-@rem-mSize-2600mx: 27;
-@rem-mSize-2700mx: 28;
-@rem-mSize-2800mx: 29;
-@rem-mSize-2900mx: 30;
-@rem-mSize-3000mx: 31;
-@rem-mSize-3100mx: 32;
-@rem-mSize-3200mx: 33;
-@rem-mSize-3300mx: 34;
-@rem-mSize-3400mx: 35;
-@rem-mSize-3500mx: 36;
-@rem-mSize-3600mx: 37;
-@rem-mSize-3700mx: 38;
-@rem-mSize-3800mx: 39;
-@rem-mSize-3900mx: 40;
-@rem-mSize-4000mx: 41;
+@rem-mSize-50mx: 2;
+@rem-mSize-100mx: 3;
+@rem-mSize-150mx: 4;
+@rem-mSize-200mx: 5;
+@rem-mSize-250mx: 6;
+@rem-mSize-300mx: 7;
+@rem-mSize-350mx: 8;
+@rem-mSize-400mx: 9;
+@rem-mSize-450mx: 10;
+@rem-mSize-500mx: 11;
+@rem-mSize-550mx: 12;
+@rem-mSize-600mx: 13;
+@rem-mSize-650mx: 14;
+@rem-mSize-700mx: 15;
+@rem-mSize-750mx: 16;
+@rem-mSize-800mx: 17;
+@rem-mSize-850mx: 18;
+@rem-mSize-900mx: 19;
+@rem-mSize-950mx: 20;
+@rem-mSize-1000mx: 21;
+@rem-mSize-1050mx: 22;
+@rem-mSize-1100mx: 23;
+@rem-mSize-1150mx: 24;
+@rem-mSize-1200mx: 25;
+@rem-mSize-1250mx: 26;
+@rem-mSize-1300mx: 27;
+@rem-mSize-1350mx: 28;
+@rem-mSize-1400mx: 29;
+@rem-mSize-1450mx: 30;
+@rem-mSize-1500mx: 31;
+@rem-mSize-1550mx: 32;
+@rem-mSize-1600mx: 33;
+@rem-mSize-1650mx: 34;
+@rem-mSize-1700mx: 35;
+@rem-mSize-1750mx: 36;
+@rem-mSize-1800mx: 37;
+@rem-mSize-1850mx: 38;
+@rem-mSize-1900mx: 39;
+@rem-mSize-1950mx: 40;
+@rem-mSize-2000mx: 41;
 
 // Utility mixins for defining margin sizes downstream.
 .margins-rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
@@ -258,11 +261,105 @@
 }
 
 /*    ----------------------------------------------------------------------------------------------
-**    OUE UTILITY MIXINS §2: Typography
+**    OUE UTILITY MIXINS §2: Spacing
 */
 
 /*      ····························································································
-**      >>> §2.1: Font Sizing
+**      >>> §2.1: In units of "em"
+*/
+
+// Semantic em spacing sizes (based on @mSize-array)
+@spacing-0mx: 1;
+@spacing-100mx: 2;
+@spacing-200mx: 3;
+@spacing-300mx: 4;
+@spacing-400mx: 5;
+@spacing-500mx: 6;
+@spacing-600mx: 7;
+@spacing-700mx: 8;
+@spacing-800mx: 9;
+@spacing-900mx: 10;
+@spacing-1000mx: 11;
+@spacing-1100mx: 12;
+@spacing-1200mx: 13;
+@spacing-1300mx: 14;
+@spacing-1400mx: 15;
+@spacing-1500mx: 16;
+@spacing-1600mx: 17;
+@spacing-1700mx: 18;
+@spacing-1800mx: 19;
+@spacing-1900mx: 20;
+@spacing-2000mx: 21;
+
+// Utility mixin for defining spacing downstream.
+.spacing(@idx) when (isnumber(@idx)) and not (ispercentage(@idx)) and 
+		(@idx <= length(@mSize-array)) {
+	* + & {
+		margin-top: extract(@mSize-array, @idx);
+	}
+}
+
+/*      ····························································································
+**      >>> §2.2: In units of "rem"
+*/
+
+// Semantic rem spacing sizes (based on @rem-mSize-array) 
+@rem-spacing-0mx: 1;
+@rem-spacing-50mx: 2;
+@rem-spacing-100mx: 3;
+@rem-spacing-150mx: 4;
+@rem-spacing-200mx: 5;
+@rem-spacing-250mx: 6;
+@rem-spacing-300mx: 7;
+@rem-spacing-350mx: 8;
+@rem-spacing-400mx: 9;
+@rem-spacing-450mx: 10;
+@rem-spacing-500mx: 11;
+@rem-spacing-550mx: 12;
+@rem-spacing-600mx: 13;
+@rem-spacing-650mx: 14;
+@rem-spacing-700mx: 15;
+@rem-spacing-750mx: 16;
+@rem-spacing-800mx: 17;
+@rem-spacing-850mx: 18;
+@rem-spacing-900mx: 19;
+@rem-spacing-950mx: 20;
+@rem-spacing-1000mx: 21;
+@rem-spacing-1050mx: 22;
+@rem-spacing-1100mx: 23;
+@rem-spacing-1150mx: 24;
+@rem-spacing-1200mx: 25;
+@rem-spacing-1250mx: 26;
+@rem-spacing-1300mx: 27;
+@rem-spacing-1350mx: 28;
+@rem-spacing-1400mx: 29;
+@rem-spacing-1450mx: 30;
+@rem-spacing-1500mx: 31;
+@rem-spacing-1550mx: 32;
+@rem-spacing-1600mx: 33;
+@rem-spacing-1650mx: 34;
+@rem-spacing-1700mx: 35;
+@rem-spacing-1750mx: 36;
+@rem-spacing-1800mx: 37;
+@rem-spacing-1850mx: 38;
+@rem-spacing-1900mx: 39;
+@rem-spacing-1950mx: 40;
+@rem-spacing-2000mx: 41;
+
+// Utility mixin for defining spacing downstream.
+.rem-spacing(@idx) when (isnumber(@idx)) and not (ispercentage(@idx)) and 
+		(@idx <= length(@rem-mSize-array)) {
+	* + & {
+		margin-top: extract(@rem-mSize-array, @idx);
+	}
+}
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE UTILITY MIXINS §3: Typography
+*/
+
+/*      ····························································································
+**      >>> §3.1: Font Sizing
 */
 
 // Standard font-sizing options for all OUE websites.
@@ -391,7 +488,7 @@
 }
 
 /*      ····························································································
-**      >>> §2.2: Line heights
+**      >>> §3.2: Line heights
 */
 
 // Standard line-height options for all OUE websites.
