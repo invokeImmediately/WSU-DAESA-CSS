@@ -14,8 +14,10 @@
 /*    ───────────────────────────────────────────────────────────────────────────────────────────
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
-**    OUE UTILITY CLASSES §1: Typography.......................................................17
-**        >>> §1.1: Typograhy: Font Sizing.....................................................21
+**    OUE UTILITY CLASSES §1: Typography.......................................................25
+**        >>> §1.1: Font Sizing................................................................29
+**        >>> §1.2: Line Heights..............................................................114
+**        >>> §1.3: Bolding...................................................................160
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -153,3 +155,32 @@
 	}
 }
 .lHeight-loop(length(@lHeight-array));
+
+/*!     ····························································································
+***     >>> §1.3: Typograhy: Bolding
+**/
+
+// TODO: Add utility classes
+@fWeight-1--class: ~"light";
+@fWeight-1--value: @fWeight-light;
+@fWeight-2--class: ~"normal";
+@fWeight-2--value: @fWeight-normal;
+@fWeight-3--class: ~"semi-bold";
+@fWeight-3--value: @fWeight-semi-bold;
+@fWeight-4--class: ~"bold";
+@fWeight-4--value: @fWeight-bold;
+@fWeight-5--class: ~"extra-bold";
+@fWeight-5--value: @fWeight-extra-bold;
+
+@fWeight--array: @fWeight-1--class @fWeight-1--value, @fWeight-2--class @fWeight-2--value, 
+	@fWeight-3--class @fWeight-3--value, @fWeight-4--class @fWeight-4--value, 
+	@fWeight-5--class @fWeight-5--value;
+
+.fWeight-loop(@idx) when (@idx > 0) and (@idx <= length(@fWeight--array)) {
+	.fWeight-loop((@idx - 1));
+	@class-name: extract(extract(@fWeight--array, @idx), 1);
+	@value: extract(extract(@fWeight--array, @idx), 2);
+	.font-weight--@{class-name} {
+		.font-weight(@value);
+	}
+}
