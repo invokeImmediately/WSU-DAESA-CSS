@@ -56,12 +56,7 @@
 			&:extend(.has-dflt-font);
 
 			color: @hex-darker-gray;
-			font-size: @v-h1-sz;
 			font-weight: 900;
-			.has-responsive-font(@v-h1-sz, @v-hX-lnhght, @v-fnt-sclng-fctrs-alt);
-			margin-bottom: .75rem;
-			margin-top: 1.5rem;
-			padding-bottom: 0;
 			text-transform: uppercase;
 
 			&.centered {
@@ -84,14 +79,8 @@
 			&:extend(.has-dflt-font);
 
 			color: @hex-darker-gray;
-			font-size: @v-h2-sz;
 			font-weight: 800;
-			.has-responsive-font(@v-h2-sz, @v-hX-lnhght, @v-fnt-sclng-fctrs-alt);
 			line-height: 1.375em;
-			margin-bottom: .75rem;
-			margin-left: -.1em;
-			margin-top: 1.5rem;
-			padding: 0 0 0 .1em;
 			text-transform: uppercase;
 
 			&.article-title {
@@ -180,13 +169,7 @@
 			&:extend(.has-dflt-font);
 
 			color: @hex-crimson;
-			font-size: @v-h3-sz;
 			font-weight: 600;
-			.has-responsive-font(@v-h3-sz, @v-hX-lnhght, @v-fnt-sclng-fctrs-alt);
-			margin-bottom: .75rem;
-			margin-left: -.1em;
-			margin-top: 1.5rem;
-			padding: 0 0 0 .1em;
 			text-transform: uppercase;
 
 			&.centered {
@@ -266,9 +249,6 @@
 			font-size: @v-h4-sz;
 			font-weight: 600;
 			.has-responsive-font(@v-h4-sz, @v-h4-lnhght, @v-fnt-sclng-fctrs-alt);
-			margin-bottom: .5rem;
-			margin-top: 1rem;
-			padding: 0;
 
 			&.centered {
 				text-align: center;
@@ -643,129 +623,43 @@
 **      >>> §8.1: Spacing
 */
 
-//        ├> §8.1a: LESS variables
-@hN--parent: ~".column";
-
-// TODO: Add class names
-@hN--spacing-0mx: 0em;
-@hN--spacing-250mx: .25em;
-@hN--spacing-500mx: .5em;
-@hN--spacing-750mx: .75em;
-@hN--spacing-1000mx: 1em;
-@hN--spacing-1250mx: 1.25em;
-@hN--spacing-1500mx: 1.5em;
-@hN--spacing-1750mx: 1.75em;
-@hN--spacing-2000mx: 2em;
-@hN--spacing-array: @hN--spacing-0mx, @hN--spacing-250mx, @hN--spacing-500mx, @hN--spacing-750mx, 
-	@hN--spacing-1000mx, @hN--spacing-1250mx, @hN--spacing-1500mx, @hN--spacing-1750mx, 
-	@hN--spacing-2000mx;
-
-//        ├> §8.1b: Utility classes
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	@{hN--parent} * + & {
-		.hN--spacing-loop(@idx, @spacing) when (@idx >= 0) and (@idx <= length(@spacing)) {
-			.hN--spacing-loop((@idx - 1), @spacing);
-
-			&.hN--spacing-@{idx} {
-				margin-top: extract(@spacing, @idx);
-			}
-		}
-		.hN--spacing-loop(length(@hN--spacing-array), @hN--spacing-array);
-	}
-}
-
-//        └> §8.1c: Default styles
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	@{hN--parent} & {
-		padding: 0;
-	}
-
-	@{hN--parent} * + & {
-		margin: 0;
-		margin-top: @hN--spacing-5;
-	}
+	padding: 0;
+	margin: 0;
+	.spacing(@spacing-1000mx);
 }
 
 /*      ····························································································
 **      >>> §8.2: Font sizing
 */
 
-//        ├> §8.2a: LESS variables
-@hN--fSize-1: 1.4em;
-@hN--fSize-2: 1.5em;
-@hN--fSize-3: 1.6em;
-@hN--fSize-4: 1.8em;
-@hN--fSize-5: 2.1em;
-@hN--fSize-6: 2.4em;
-@hN--fSize-array: @hN--fSize-1, @hN--fSize-2, @hN--fSize-3, @hN--fSize-4, @hN--fSize-5, 
-	@hN--fSize-6;
-
-//        ├> §8.2b: Utility classes
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	// hN typography: Font-sizing
-	@{hN--parent} & {
-		.hN--size-loop(@idx, @sizes) when (@idx > 0)
-				and (@idx <= length(@sizes)) {
-			.hN--size-loop((@idx - 1), @sizes);
-
-			&.hN--fSize-@{idx} {
-				font-size: extract(@sizes, @idx);
-			}
-		}
-		.hN--size-loop(length(@hN--fSize-array), @hN--fSize-array);
-	}
-}
-
-//        └> §8.2c: Default styles
 h1 {
-	@{hN--parent} & {
-		font-size: @hN--fSize-6;
-	}
+	.font-size(@fSize-2400mx);
 }
 
 h2 {
-	@{hN--parent} & {
-		font-size: @hN--fSize-5;
-	}
+	.font-size(@fSize-2100mx);
 }
 
 h3 {
-	@{hN--parent} & {
-		font-size: @hN--fSize-4;
-	}
+	.font-size(@fSize-1800mx);
 }
 
 h4 {
-	@{hN--parent} & {
-		font-size: @hN--fSize-3;
-	}
+	.font-size(@fSize-1600mx);
 }
 
 h5 {
-	@{hN--parent} & {
-		font-size: @hN--fSize-2;
-	}
+	.font-size(@fSize-1500mx);
 }
 
 h6 {
-	@{hN--parent} & {
-		font-size: @hN--fSize-1;
-	}
+	.font-size(@fSize-1400mx);
 }
 
 /*      ····························································································
