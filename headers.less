@@ -14,30 +14,24 @@
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 **    OUE-HEADINGS §1: [h1] elements...........................................................51
-**    OUE-HEADINGS §2: [h2] elements...........................................................79
-**    OUE-HEADINGS §3: [h3] elements..........................................................175
-**    OUE-HEADINGS §4: [h4] elements..........................................................258
-**    OUE-HEADINGS §5: [hN] elements..........................................................295
-**    OUE-HEADINGS §6: [header] elements......................................................328
-**    OUE-HEADINGS §7: (Legacy) Sectional article headers (inclusional via Less mixin)........394
-**    OUE-HEADINGS §8: Accessibility friendly classes.........................................639
-**      >>> §8.1: Spacing.....................................................................643
-**        ├> §8.1a: LESS variables............................................................646
-**        ├> §8.1b: Utility classes...........................................................663
-**        └> §8.1c: Default styles............................................................682
-**      >>> §8.2: Font sizing.................................................................700
-**        ├> §8.2a: LESS variables............................................................703
-**        ├> §8.2b: Utility classes...........................................................713
-**        └> §8.2c: Default styles............................................................734
-**      >>> §8.3: Line heights................................................................772
-**        ├> §8.3a: LESS variables............................................................775
-**        ├> §8.3b: Utility classes...........................................................788
-**        └> §8.3c: Default styles............................................................812
-**      >>> §8.4: Coloring....................................................................825
-**        ├> §8.4a: Utility classes...........................................................828
-**        └> §8.4b: Defaults..................................................................942
-**      >>> §8.5: Child elements..............................................................983
-**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers..........................1006
+**    OUE-HEADINGS §2: [h2] elements...........................................................74
+**    OUE-HEADINGS §3: [h3] elements..........................................................164
+**    OUE-HEADINGS §4: [h4] elements..........................................................241
+**    OUE-HEADINGS §5: [hN] elements..........................................................275
+**    OUE-HEADINGS §6: [header] elements......................................................308
+**    OUE-HEADINGS §7: (Legacy) Sectional article headers.....................................374
+**    OUE-HEADINGS §8: Accessibility friendly classes.........................................619
+**      >>> §8.1: Spacing.....................................................................623
+**      >>> §8.2: Font sizing.................................................................638
+**      >>> §8.3: Line heights................................................................666
+**        ├> §8.3a: LESS variables............................................................669
+**        ├> §8.3b: Utility classes...........................................................682
+**        └> §8.3c: Default styles............................................................706
+**      >>> §8.4: Coloring....................................................................719
+**        ├> §8.4a: Utility classes...........................................................722
+**        └> §8.4b: Defaults..................................................................836
+**      >>> §8.5: Child elements..............................................................877
+**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers...........................900
 */
 
 /*  ================================================================================================
@@ -726,108 +720,106 @@ h3,
 h4,
 h5,
 h6 {
-	@{hN--parent} & {
-		&.hN--solid {
-			position: relative;
-			padding: .1em .25em .11em;
+	&.solid {
+		padding: .1em .25em .11em;
+		position: relative;
+
+		&::before {
+			content: "";
+			left: 0;
+			height: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+
+	&.white-text {
+		color: @hex-white;
+		&.solid,
+		&.solid.black-background {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-black, 0.9); }
+			&{ background: linear-gradient(to right, rgba(@rval, @gval, @bval, 0.8) 50%, 
+					rgba(@rval, @gval, @bval, 1));
+				.rgb-black(); }
+			&{ border-bottom: 2px solid @rgba;
+				.getRgbaStr(@hex-black, 0.333); }
 
 			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 0;
+				border-top: 2px solid rgba(@rval, @gval, @bval,1);
+				border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.5);
+				.rgb-black();
 			}
 		}
 
-		&.hN--white {
-			color: @hex-white;
-			&.hN--solid,
-			&.hN--solid.hN--bg-black {
-				&{ background-color: @rgba;
-					.getRgbaStr(@hex-black, 0.9); }
-				&{ background: linear-gradient(to right, rgba(@rval, @gval, @bval, 0.8) 50%, 
-						rgba(@rval, @gval, @bval, 1));
-					.rgb-black(); }
-				&{ border-bottom: 2px solid @rgba;
-					.getRgbaStr(@hex-black, 0.333); }
+		&.solid.crimson-background {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-crimson, 0.9); }
+			background: linear-gradient(to right, @hex-crimson 50%, @hex-dark-crimson);
+			&{ border-bottom: 2px solid @rgba;
+				.getRgbaStr(@hex-dark-crimson, 0.5); }
 
-				&::before {
-					border-top: 2px solid rgba(@rval,@gval,@bval,1);
-					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.5);
-					.rgb-black();
-				}
-			}
-
-			&.hN--solid.hN--bg-crimson {
-				&{ background-color: @rgba;
-					.getRgbaStr(@hex-crimson, 0.9); }
-				background: linear-gradient(to right, @hex-crimson 50%, @hex-dark-crimson);
-				&{ border-bottom: 2px solid @rgba;
-					.getRgbaStr(@hex-dark-crimson, 0.5); }
-
-				&::before {
-					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.5);
-					border-top: 2px solid rgba(@rval,@gval,@bval,1);
-					.rgb-dark-crimson();
-				}
+			&::before {
+				border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
+				border-top: 2px solid rgba(@rval, @gval, @bval, 1);
+				.rgb-dark-crimson();
 			}
 		}
+	}
 
-		&.hN--gray {
-			color: @hex-darker-gray;
+	&.gray-text {
+		color: @hex-darker-gray;
 
-			&.hN--solid {
-				&{ background-color: @rgba;
-					.getRgbaStr(@hex-dark-gray, 0.2); }
+		&.solid {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-dark-gray, 0.2); }
 
-				&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
-						0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
-						0.225));
-					.rgb-dark-gray(); }
+			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
+					0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
+					0.225));
+				.rgb-dark-gray(); }
 
-				& {
-					.getRgbaStr(@hex-dark-gray, 0.075);
-					border-bottom: 2px solid @rgba;
-				}
+			& {
+				.getRgbaStr(@hex-dark-gray, 0.075);
+				border-bottom: 2px solid @rgba;
+			}
 
-				&::before {
-					.rgb-darker-gray();
-					border-top: 2px solid rgba(@rval,@gval,@bval,0.6667);
-					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
-				}
+			&::before {
+				.rgb-darker-gray();
+				border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
+				border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
 			}
 		}
+	}
 
-		&.hN--crimson {
-			color: @hex-crimson;
+	&.crimson-text {
+		color: @hex-crimson;
 
-			&.hN--solid {
-				& {
-					.getRgbaStr(@hex-light-crimson, 0.075);
-					background-color: @rgba;
-				}
+		&.solid {
+			& {
+				.getRgbaStr(@hex-light-crimson, 0.075);
+				background-color: @rgba;
+			}
 
-				& {
-					.rgb-light-crimson();
-					background: linear-gradient(to right,
-						transparent,
-						rgba(@rval, @gval, @bval, 0.075) 5%,
-						rgba(@rval, @gval, @bval, 0.075) 50%,
-						rgba(@rval, @gval, @bval, 0.225));
-				}
+			& {
+				.rgb-light-crimson();
+				background: linear-gradient(to right,
+					transparent,
+					rgba(@rval, @gval, @bval, 0.075) 5%,
+					rgba(@rval, @gval, @bval, 0.075) 50%,
+					rgba(@rval, @gval, @bval, 0.225));
+			}
 
-				& {
-					.getRgbaStr(@hex-light-crimson, 0.075);
-					border-bottom: 2px solid @rgba;
-				}
+			& {
+				.getRgbaStr(@hex-light-crimson, 0.075);
+				border-bottom: 2px solid @rgba;
+			}
 
-				&::before {
-					.rgb-crimson();
-					border-top: 2px solid rgba(@rval,@gval,@bval,0.6667);
-					border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
-				}
+			&::before {
+				.rgb-crimson();
+				border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
+				border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
 			}
 		}
 	}
@@ -840,38 +832,54 @@ h3,
 h4,
 h5,
 h6 {
-	@{hN--parent} & {
-		&:extend(.column h1.hN--gray);
-	}
+	&:extend(h1.gray-text);
 }
 
 h1 {
-	@{hN--parent} &.hN--solid {
-		&:extend(.column h1.hN--white);
-		&:extend(.column h1.hN--white.hN--solid);
+	&.solid {
+		&:extend(h1.white-text);
+		&:extend(h1.white-text.solid);
+
+		&::before {
+			&:extend(h1.white-text.solid::before);
+		}
 	}
 }
 
 h2 {
-	@{hN--parent} &.hN--solid {
-		&:extend(.column h1.hN--white);
-		&:extend(.column h1.hN--white.hN--solid.hN--bg-crimson);
+	&.solid {
+		&:extend(h1.white-text);
+		&:extend(h1.white-text.solid.crimson-background all);
+
+		&::before {
+			&:extend(h1.white-text.solid.crimson-background::before);
+		}
 	}
 }
 
 h3 {
-	@{hN--parent} &.hN--solid {
-		&:extend(.column h1.hN--gray);
-		&:extend(.column h1.hN--gray.hN--solid);
+	&.solid {
+		&:extend(h1.gray-text);
+		&:extend(h1.gray-text.solid);
+
+		&::before {
+			&:extend(h1.gray-text.solid::before);
+		}
 	}
 }
 
 h4 {
-	@{hN--parent} &.hN--solid {
-		&:extend(.column h1.hN--crimson);
-		&:extend(.column h1.hN--crimson.hN--solid);
+	&.solid {
+		&:extend(h1.crimson-text);
+		&:extend(h1.crimson-text.solid);
+
+		&::before {
+			&:extend(h1.crimson-text.solid::before);
+		}
 	}
 }
+
+// TODO: Populate coloring classes for h5 and h6
 
 /*      ····························································································
 **      >>> §8.5: Child elements
