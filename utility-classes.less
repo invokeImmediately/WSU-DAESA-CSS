@@ -151,7 +151,7 @@
 	.lHeight-loop((@idx - 1));
 	@class-name: extract(@lHeight--class-array, @idx);
 	.line-height--@{class-name} {
-		.set-lHeight(@idx);
+		.line-height(@idx);
 	}
 }
 .lHeight-loop(length(@lHeight-array));
