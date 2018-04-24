@@ -33,7 +33,7 @@
 **        1000mx = 1x, where x is the standard font-size for body-text. Thus, 1000mx means the same 
 **        font-size as the default font-size for body text. 2000mx would be twice the size of body 
 **        text.
-**      • Depends on the utiltiy mixin .set-fSize(...) and the Less variable @fSize-array, which 
+**      • Depends on the utiltiy mixin .font-size(...) and the Less variable @fSize-array, which 
 **        are both defined in utility-mixins.less.
 */
 
@@ -105,7 +105,7 @@
 	.fSize-loop((@idx - 1));
 	@class-name: extract(@fSize--class-array, @idx);
 	.font-size--@{class-name} {
-		.set-fSize(@idx);
+		.font-size(@idx);
 	}
 }
 .fSize-loop(length(@fSize-array));
@@ -160,7 +160,6 @@
 ***     >>> §1.3: Typograhy: Bolding
 **/
 
-// TODO: Add utility classes
 @fWeight-1--class: ~"light";
 @fWeight-1--value: @fWeight-light;
 @fWeight-2--class: ~"normal";
