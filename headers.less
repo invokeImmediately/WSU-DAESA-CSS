@@ -47,7 +47,7 @@
 			&:extend(.has-dflt-font);
 
 			color: @hex-darker-gray;
-			font-weight: 900;
+			font-weight: 700;
 			text-transform: uppercase;
 
 			&.centered {
@@ -70,7 +70,7 @@
 			&:extend(.has-dflt-font);
 
 			color: @hex-darker-gray;
-			font-weight: 800;
+			font-weight: 700;
 			line-height: 1.375em;
 			text-transform: uppercase;
 
@@ -91,8 +91,6 @@
 			}
 		}
 
-		.column &.fancy,
-		.column &.solid,
 		.column.show-header.has-fancy-header > header:first-child > & {
 			&{ background-color: @rgba; .getRgbaStr(@hex-dark-gray, 0.2); }
 			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
@@ -107,8 +105,6 @@
 			position: relative;
 		}
 
-		.column &.fancy.with-top-border,
-		.column &.solid,
 		.column.show-header.has-fancy-header > header:first-child > & {
 			padding-top: 0.5rem;
 
@@ -131,9 +127,7 @@
 		}
 
 		.column &:first-child,
-		.column header:first-child + &,
-		.column header:first-child + &.fancy.with-top-border:not(:first-child),
-		.column header:first-child + &.solid:not(:first-child) {
+		.column header:first-child + & {
 			margin-top: 0;
 		}
 
@@ -160,7 +154,7 @@
 			&:extend(.has-dflt-font);
 
 			color: @hex-crimson;
-			font-weight: 600;
+			font-weight: 700;
 			text-transform: uppercase;
 
 			&.centered {
@@ -181,8 +175,6 @@
 			text-transform: none;
 		}
 
-		.column &.fancy,
-		.column &.solid,
 		.column.show-header.has-fancy-header > header:first-child > & {
 			&{ background-color: @rgba; .getRgbaStr(@hex-light-crimson, 0.075); }
 			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
@@ -197,8 +189,6 @@
 			position: relative;
 		}
 
-		.column &.fancy.with-top-border,
-		.column &.solid,
 		.column.show-header.has-fancy-header > header:first-child > & {
 			padding-top: 0.4375rem;
 
@@ -220,8 +210,6 @@
 		}
 		.column &:first-child,
 		.column header:first-child + &,
-		.column header:first-child + &.fancy.with-top-border:not(:first-child),
-		.column header:first-child + &.solid:not(:first-child),
 		.column hr:not(.subSection) + &
 		{
 			margin-top: 0;
@@ -239,7 +227,6 @@
 			color: @hex-crimson;
 			font-size: @v-h4-sz;
 			font-weight: 600;
-			.has-responsive-font(@v-h4-sz, @v-h4-lnhght, @v-fnt-sclng-fctrs-alt);
 
 			&.centered {
 				text-align: center;
