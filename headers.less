@@ -15,20 +15,20 @@
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 **    OUE-HEADINGS §1: [h1] elements...........................................................42
 **    OUE-HEADINGS §2: [h2] elements...........................................................65
-**    OUE-HEADINGS §3: [h3] elements..........................................................155
-**    OUE-HEADINGS §4: [h4] elements..........................................................232
-**    OUE-HEADINGS §5: [hN] elements..........................................................266
-**    OUE-HEADINGS §6: [header] elements......................................................299
-**    OUE-HEADINGS §7: (Legacy) Sectional article headers.....................................365
-**    OUE-HEADINGS §8: Accessibility friendly classes.........................................610
-**      >>> §8.1: Spacing.....................................................................614
-**      >>> §8.2: Font sizing.................................................................629
-**      >>> §8.3: Line heights................................................................657
-**      >>> §8.4: Coloring....................................................................674
-**        ├> §8.4a: Utility classes...........................................................677
-**        └> §8.4b: Defaults..................................................................789
-**      >>> §8.5: Child elements..............................................................846
-**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers...........................869
+**    OUE-HEADINGS §3: [h3] elements..........................................................149
+**    OUE-HEADINGS §4: [h4] elements..........................................................220
+**    OUE-HEADINGS §5: [hN] elements..........................................................253
+**    OUE-HEADINGS §6: [header] elements......................................................286
+**    OUE-HEADINGS §7: (Legacy) Sectional article headers.....................................352
+**    OUE-HEADINGS §8: Accessibility friendly classes.........................................597
+**      >>> §8.1: Spacing.....................................................................601
+**      >>> §8.2: Font sizing.................................................................616
+**      >>> §8.3: Line heights................................................................644
+**      >>> §8.4: Coloring....................................................................661
+**        ├> §8.4a: Defaults..................................................................664
+**        └> §8.4b: Utility classes...........................................................754
+**      >>> §8.5: Child elements..............................................................857
+**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers...........................880
 */
 
 /*  ================================================================================================
@@ -661,7 +661,97 @@ h6 {
 **      >>> §8.4: Coloring
 */
 
-//        ├> §8.4a: Utility classes
+//        ├> §8.4a: Defaults
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: @hex-darker-gray;
+}
+
+h1 {
+	&.solid {
+		&{ background-color: @rgba;
+			.getRgbaStr(@hex-black, 0.9); }
+		&{ background: linear-gradient(to right, rgba(@rval, @gval, @bval, 0.8) 50%, 
+				rgba(@rval, @gval, @bval, 1));
+			.rgb-black(); }
+		&{ border-bottom: 2px solid @rgba;
+			.getRgbaStr(@hex-black, 0.333); }
+		color: @hex-white;
+
+		&::before {
+			border-top: 2px solid rgba(@rval, @gval, @bval,1);
+			border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.5);
+			.rgb-black();
+		}
+	}
+}
+
+h2 {
+	&.solid {
+		&{ background-color: @rgba;
+			.getRgbaStr(@hex-crimson, 0.9); }
+		background: linear-gradient(to right, @hex-crimson 50%, @hex-dark-crimson);
+		&{ border-bottom: 2px solid @rgba;
+			.getRgbaStr(@hex-dark-crimson, 0.5); }
+		color: @hex-white;
+
+		&::before {
+			border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
+			border-top: 2px solid rgba(@rval, @gval, @bval, 1);
+			.rgb-dark-crimson();
+		}
+	}
+}
+
+h3 {
+	&.solid {
+		&{ background-color: @rgba;
+			.getRgbaStr(@hex-light-crimson, 0.075); }
+		&{ background: linear-gradient(to right,
+				transparent,
+				rgba(@rval, @gval, @bval, 0.075) 5%,
+				rgba(@rval, @gval, @bval, 0.075) 50%,
+				rgba(@rval, @gval, @bval, 0.225));
+			.rgb-light-crimson(); }
+		&{ border-bottom: 2px solid @rgba;
+			.getRgbaStr(@hex-light-crimson, 0.075); }
+		color: @hex-crimson;
+
+		&::before {
+			.rgb-crimson();
+			border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
+			border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
+		}
+	}
+}
+
+h4 {
+	&.solid {
+		&{ background-color: @rgba;
+			.getRgbaStr(@hex-dark-gray, 0.2); }
+		&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
+				0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
+				0.225));
+			.rgb-dark-gray(); }
+		& { border-bottom: 2px solid @rgba;
+			.getRgbaStr(@hex-dark-gray, 0.075); }
+		color: @hex-darker-gray;
+
+		&::before {
+			.rgb-darker-gray();
+			border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
+			border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
+		}
+	}
+}
+
+// TODO: Apply default coloring styles to h5 and h6
+
+//        └> §8.4b: Utility classes
 h1,
 h2,
 h3,
@@ -722,16 +812,12 @@ h6 {
 		&.solid {
 			&{ background-color: @rgba;
 				.getRgbaStr(@hex-dark-gray, 0.2); }
-
 			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
 					0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
 					0.225));
 				.rgb-dark-gray(); }
-
-			& {
-				.getRgbaStr(@hex-dark-gray, 0.075);
-				border-bottom: 2px solid @rgba;
-			}
+			&{ border-bottom: 2px solid @rgba;
+				.getRgbaStr(@hex-dark-gray, 0.075); }
 
 			&::before {
 				.rgb-darker-gray();
@@ -745,24 +831,16 @@ h6 {
 		color: @hex-crimson;
 
 		&.solid {
-			& {
-				.getRgbaStr(@hex-light-crimson, 0.075);
-				background-color: @rgba;
-			}
-
-			& {
-				.rgb-light-crimson();
-				background: linear-gradient(to right,
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-light-crimson, 0.075); }
+			&{ background: linear-gradient(to right,
 					transparent,
 					rgba(@rval, @gval, @bval, 0.075) 5%,
 					rgba(@rval, @gval, @bval, 0.075) 50%,
 					rgba(@rval, @gval, @bval, 0.225));
-			}
-
-			& {
-				.getRgbaStr(@hex-light-crimson, 0.075);
-				border-bottom: 2px solid @rgba;
-			}
+				.rgb-light-crimson(); }
+			&{ border-bottom: 2px solid @rgba;
+				.getRgbaStr(@hex-light-crimson, 0.075); }
 
 			&::before {
 				.rgb-crimson();
@@ -773,61 +851,7 @@ h6 {
 	}
 }
 
-//        └> §8.4b: Defaults
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	&:extend(h1.gray-text);
-}
-
-h1 {
-	&.solid {
-		&:extend(h1.white-text);
-		&:extend(h1.white-text.solid);
-
-		&::before {
-			&:extend(h1.white-text.solid::before);
-		}
-	}
-}
-
-h2 {
-	&.solid {
-		&:extend(h1.white-text);
-		&:extend(h1.white-text.solid.crimson-background all);
-
-		&::before {
-			&:extend(h1.white-text.solid.crimson-background::before);
-		}
-	}
-}
-
-h3 {
-	&.solid {
-		&:extend(h1.gray-text);
-		&:extend(h1.gray-text.solid);
-
-		&::before {
-			&:extend(h1.gray-text.solid::before);
-		}
-	}
-}
-
-h4 {
-	&.solid {
-		&:extend(h1.crimson-text);
-		&:extend(h1.crimson-text.solid);
-
-		&::before {
-			&:extend(h1.crimson-text.solid::before);
-		}
-	}
-}
-
-// TODO: Populate coloring classes for h5 and h6
+// TODO: Create additional coloring classes
 
 /*      ····························································································
 **      >>> §8.5: Child elements
