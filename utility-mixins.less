@@ -22,8 +22,8 @@
 **        >>> §2.2: In units of "rem".........................................................304
 **    §3: Typography..........................................................................359
 **        >>> §3.1: Typograhy: Font Sizing....................................................363
-**        >>> §3.2: Line heights..............................................................527
-**        >>> §3.3: Bolding...................................................................592
+**        >>> §3.2: Line heights..............................................................566
+**        >>> §3.3: Bolding...................................................................631
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -446,7 +446,7 @@
 @fSize-80: 2.375em;
 @fSize-81: 2.4em;
 
-//OUE font-sizing array.
+// OUE font-sizing array.
 @fSize-array: @fSize-1, @fSize-2, @fSize-3, @fSize-4, @fSize-5, @fSize-6, @fSize-7, @fSize-8, 
 	@fSize-9, @fSize-10, @fSize-11, @fSize-12, @fSize-13, @fSize-14, @fSize-15, @fSize-16, 
 	@fSize-17, @fSize-18, @fSize-19, @fSize-20, @fSize-21, @fSize-22, @fSize-23, @fSize-24, 
@@ -459,11 +459,13 @@
 	@fSize-73, @fSize-74, @fSize-75, @fSize-76, @fSize-77, @fSize-78, @fSize-79, @fSize-80, 
 	@fSize-81;
 
-// Semantic font-sizing Less variables.
+// Semantic font-sizing Less variables: Miscellaneous
 @fSize--min: 1;
 @fSize--body-text: ceil(unit(@v-p-sz - extract(@fSize-array,1)) / unit(extract(@fSize-array,2) 
 	- extract(@fSize-array,1))) + 1;
 @fSize--max: length(@fSize-array);
+
+// Semantic font-sizing Less variables: Units of mx
 @fSize-400mx: 1;
 @fSize-425mx: 2;
 @fSize-450mx: 3;
@@ -545,6 +547,14 @@
 @fSize-2350mx: 79;
 @fSize-2375mx: 80;
 @fSize-2400mx: 81;
+
+// Semantic font-sizing Less variables: With reference to heading sizes
+@h1-font-size: @fSize-2400mx;
+@h2-font-size: @fSize-2100mx;
+@h3-font-size: @fSize-1800mx;
+@h4-font-size: @fSize-1600mx;
+@h5-font-size: @fSize-1500mx;
+@h6-font-size: @fSize-1400mx;
 
 // Utility mixin for defining font sizes downstream.
 .font-size(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
