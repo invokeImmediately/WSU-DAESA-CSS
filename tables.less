@@ -10,6 +10,8 @@
 **  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
+// TODO: Add table of contents to code documentation
+
 /*  ================================================================================================
 **  STYLES FOR TABULAR DATA ELEMENTS ON WSU OFFICE OF UNDERGADUATE EDUCATION WEBSITES
 */
@@ -19,13 +21,9 @@
 */
 
 .declare-table-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-
 	.column {
-
 		table {
-
 			&.plain {
-
 				background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat
 				 fixed left top;
 				border-collapse: separate;
@@ -34,30 +32,21 @@
 				border-bottom: 1px solid @hex-dark-gray;
 
 				thead {
-
 					tr {
-
 						th {
-
 							padding-top: .25rem;
 							padding-left: .25rem;
 							padding-bottom: .25rem;
 							border-top: 1px solid @hex-white;
 							border-bottom: 1px solid #B6BCBF;
 							text-align: inherit;
-
 						}
-
 					}
-
 				}
 
 				tbody {
-
 					tr {
-
 						td {
-
 							padding-top: .25rem;
 							padding-left: .25rem;
 							padding-bottom: .25rem;
@@ -66,15 +55,11 @@
 							border-bottom: 1px solid @hex-light-gray;
 							text-align: inherit;
 							vertical-align: top;
-
 						}
-
 					}
 
 					tr:nth-of-type(2n) {
-
 						td {
-
 							padding-top: .25rem;
 							padding-left: .25rem;
 							padding-bottom: .25rem;
@@ -83,88 +68,69 @@
 							border-bottom: 1px solid @hex-lighter-gray;
 							text-align: inherit;
 							vertical-align: top;
-
 						}
-
 					}
-
 				}
-
 			}
 
 			&.peopleList {
-
-				width: 100%;
 				background: @hex-white;
 				border-collapse: separate;
 				border-spacing: 0;
 				border-top: 1px solid #e5e5e5;
+				width: 100%;
+
 				tbody {
-
 					td {
-
-						width: 80%;
+						/* background: #c75d61; */
+						border-bottom: 1px solid #e5e5e5;
 						padding-bottom: 3pt;
 						padding-top: 3pt;
-						border-bottom: 1px solid #e5e5e5;
-						vertical-align: middle;
-						/* background: #c75d61; */
+						vertical-align: top;
+						width: 80%;
 					
 						&:first-of-type {
-
-							width: 20%;
 							text-align: center;
-
+							width: 20%;
 						}
 
+						&:not(:first-of-type) {
+							padding-top: 0.5em;
+						}
 					}
-
 				}
-
 			}
 
 			&.wsu-blue-theme {
-
 				width: 100%;
 				border-collapse:separate;
 				border-spacing:0;
 				border-top: 1px solid @hex-dark-blue;
 				&:not(.no-bottom-border) {
-
 					border-bottom: 1px solid @hex-dark-blue;
-
 				}
 
 				@media all {
-
 					@media (min-width: 891px) {
-
 						font-size: 14px;
-
 					}
 
 					@media (max-width: 890px) {
-
 						font-size: 12px;
-
 					}
-
 				}
 
 				& > thead > tr {
-
 					& > th {
-
-						padding: 3px;
 						background-color: @hex-darker-blue;
-						vertical-align: bottom;
 						color: @hex-white;
-
+						padding: 3px;
+						vertical-align: bottom;
 					}
 
 					&.supra-header-row > th {
-
 						@font-increase: 0.4em;
+
 						padding-top: (1em - @font-increase);
 						padding-right: 0.5em;
 						padding-bottom: @font-increase;
@@ -176,169 +142,125 @@
 						font-weight: bold;
 						color: @hex-white;
 						font-size: (1em + @font-increase);
-
 					}
-
 				}
 
 				&:not(.has-row-spans) > tbody {
-
 					& > tr:nth-child(2n) > td {
-
-						padding-top: 3px;
-						 padding-right: 0.5em;
-						 padding-bottom: 0.5em;
-						 padding-left: 1.5em;
 						background-color: @hex-white;
+						line-height: normal;
+						padding-bottom: 0.5em;
+						padding-left: 1.5em;
+						padding-right: 0.5em;
+						padding-top: 3px;
 						text-indent: -1em;
 						vertical-align: top;
-						line-height: normal;
-
 					}
 
 					& > tr:nth-child(2n + 1) > td {
-
-						padding-top: 3px;
-						 padding-right: 0.5em;
-						 padding-bottom: 0.5em;
-						 padding-left: 1.5em;
 						background-color: @hex-lightest-blue;
+						line-height: normal;
+						padding-bottom: 0.5em;
+						padding-left: 1.5em;
+						padding-right: 0.5em;
+						padding-top: 3px;
 						text-indent: -1em;
 						vertical-align: top;
-						line-height: normal;
-
 					}
-
 				}
 
 				&.has-row-spans {
-
 					& > tbody:nth-child(2n) > tr {
-
 						& > td {
-
-							padding-top: 3px;
-							 padding-right: 0.5em;
-							 padding-bottom: 0.5em;
-							 padding-left: 1.5em;
 							background-color: @hex-white;
+							line-height: normal;
+							padding-bottom: 0.5em;
+							padding-left: 1.5em;
+							padding-right: 0.5em;
+							padding-top: 3px;
 							text-indent: -1em;
 							vertical-align: top;
-							line-height: normal;
-
 						}
 
 						&.alt > td {
-
 							background-color: #f2f2f2;
-
 						}
-
 					}
 
 					& > tbody:nth-child(2n + 1) > tr {
-
 						& > td {
-
-							padding-top: 3px;
-							 padding-right: 0.5em;
-							 padding-bottom: 0.5em;
-							 padding-left: 1.5em;
 							background-color: @hex-lightest-blue;
+							line-height: normal;
+							padding-bottom: 0.5em;
+							padding-left: 1.5em;
+							padding-right: 0.5em;
+							padding-top: 3px;
 							text-indent: -1em;
 							vertical-align: top;
-							line-height: normal;
-
 						}
 
 						&.alt > td {
-
 							background-color: #c3d6d9;
-
 						}
-
 					}
-
 				}
-
 			}
 
 			&.wsu-gray-theme {
-
-				width: 100%;
+				border-bottom: 1px solid @hex-darker-gray;
 				border-collapse:separate;
 				border-spacing:0;
 				border-top: 1px solid @hex-darker-gray;
-				 border-bottom: 1px solid @hex-darker-gray;
 				vertical-align: top;
+				width: 100%;
+
 				@media all {
-
 					@media (min-width: 891px) {
-
 						font-size: 14px;
-
 					}
 
 					@media (max-width: 890px) {
-
 						font-size: 12px;
-
 					}
-
 				}
 
 				//font-variant: small-caps;
 				& > thead > tr {
-
 					& > th {
-
-						padding: 3px;
 						background-color: @hex-dark-gray;
-						vertical-align: top;
 						color: @hex-white;
-
+						padding: 3px;
+						vertical-align: top;
 					}
 
 					&.sub-heading-row > th {
-
-						padding: 3px;
 						background-color: @hex-black;
-						vertical-align: bottom;
-						text-indent: -1em;
+						color: @hex-white;
 						//font-variant: small-caps;
 						font-weight: bold;
-						color: @hex-white;
-
+						padding: 3px;
+						text-indent: -1em;
+						vertical-align: bottom;
 					}
-
 				}
 
 				& > tbody {
-
 					& > tr:nth-child(2n) > td {
-
-						padding: 3px;
 						background-color: @hex-white;
-						vertical-align: top;
 						line-height: normal;
-
+						padding: 3px;
+						vertical-align: top;
 					}
 
 					& > tr:nth-child(2n + 1) > td {
-
-						padding: 3px;
 						background-color: @hex-lighter-gray;
-						vertical-align: top;
 						line-height: normal;
-
+						padding: 3px;
+						vertical-align: top;
 					}
-
 				}
-
 			}
-
 		}
-
 	}
 
 /*    ----------------------------------------------------------------------------------------------
@@ -346,53 +268,41 @@
 */
 
 	.use-award-recipients-tables() {
-
 		.column table.award-recipients {
-
-			background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat
-			 fixed left top;
+			background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) 
+				repeat fixed left top;
+			border-bottom: 1px solid @hex-dark-gray;
 			border-collapse: separate;
 			border-spacing: 0;
 			border-top: 1px solid @hex-dark-gray;
-			border-bottom: 1px solid @hex-dark-gray;
 			line-height: @body-text--lHeight;
+			
 			@media all and (max-width: @large-mobile-screen-width) {
-
 				font-size: 12px;
-
 			}
 
 			thead {
-
 				tr {
-
 					th {
-
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
-						border-top: 1px solid @hex-white;
 						border-bottom: 1px solid #B6BCBF;
+						border-top: 1px solid @hex-white;
+						padding-bottom: .25rem;
+						padding-left: .25rem;
+						padding-top: .25rem;
 						text-align: inherit;
-
 					}
-
 				}
-
 			}
 
 			tbody {
-
 				tr {
-
 					td {
-
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
 						background-color: @hex-white;
-						border-top: 1px solid @hex-bright-gray;
 						border-bottom: 1px solid @hex-lighter-gray;
+						border-top: 1px solid @hex-bright-gray;
+						padding-bottom: .25rem;
+						padding-left: .25rem;
+						padding-top: .25rem;
 						text-align: inherit;
 						vertical-align: top;
 
@@ -403,46 +313,35 @@
 			}
 
 			tbody:nth-of-type(2n) {
-
 				tr {
-
 					td {
-
-						padding-top: .25rem;
-						padding-left: .25rem;
-						padding-bottom: .25rem;
 						background-color: @hex-bright-gray;
-						border-top: 1px solid @hex-white;
 						border-bottom: 1px solid @hex-light-gray;
+						border-top: 1px solid @hex-white;
+						padding-bottom: .25rem;
+						padding-left: .25rem;
+						padding-top: .25rem;
 						text-align: inherit;
 						vertical-align: top;
-
 					}
-
 				}
-
 			}
-
 		}
-
 	}
 
 	.use-navigational-map-tables() {
-
 		.column table.navigational-map {
-
 			width: 100%;
 			margin: 0 auto;
 			margin-bottom: 20px;
 			font-size: 13px;
 			text-align: left;
 			color: @hex-crimson;
-			a {
 
+			a {
 				border-bottom: 1px dotted rgba(152,30,50,0.0);
 				color: inherit;
 				box-shadow: none;
-
 			}
 
 			th,
@@ -453,121 +352,86 @@
 			}
 
 			th {
-
 				border-bottom: 1px solid @hex-light-gray;
 				font-size: 1.1em;
 				line-height: @body-text--lHeight;
 				font-weight: bold;
 				text-transform: uppercase;
 				vertical-align: bottom;
+
 				&.table-spacer {
-
 					width: 15px;
-
 				}
 
 				&:nth-child(4n+1) {
-
 					color: #4e2a32;
+
 					a:hover {
-
 						background-color: rgba(239,120,121,0.2);
-
 					}
-
 				}
 
 				&:nth-child(4n+3) {
-
 					color: #781d31;
 					a:hover {
-
 						background-color: rgba(239,120,121,0.3);
 						color: #d13c59;
-
 					}
-
 				}
 
 				a {
-
 					&:extend(.column a.subtle-link);
-
 				}
-
 			}
 
 			td {
-
 				p {
-
 					padding-top: 2px;
 					padding-bottom: 3px;
 					a {
-
 						&:extend(.column a.subtle-link);
-
 					}
 
 					font-size: inherit;
 					text-align: inherit;
 					&:not(:last-child) {
-
 						margin-bottom: 0 !important;
 						border-bottom: 1px solid @hex-lighter-gray;
-
 					}
-
 				}
 
 				&:nth-child(4n+3) {
-
 					color: #c60c30
-
 				}
-
 			}
 
 			@media all {
-
 				@media (max-width: 695px), (min-width: (@spine-threshold + 1)) and 
 						(max-width: 895px) {
-
 					display: block;
+
 					thead, tr, th {
-
 						display: block;
-
 					}
 
 					tbody {
-
 						display: none;
-
 					}
 
 					th {
-
 						max-width: none;
 						border: none;
 						text-align: center;
 						text-transform: none;
+
 						&.table-spacer, br {
-
 							display: none;
-
 						}
-
 					}
-
 				}
-
 			}
-
 		}
-
 	}
-
 }
 
 .declare-table-rulesets(@grid-behavior);
