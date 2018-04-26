@@ -797,6 +797,22 @@ h6 {
 			}
 		}
 
+		&.solid.dark-crimson-background {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-crimson-scale-darker, 0.9); }
+			background: linear-gradient(to right, 
+				@hex-crimson-scale-darker 50%, 
+				@hex-darker-crimson);
+			&{ border-bottom: 2px solid @rgba;
+				.getRgbaStr(@hex-darker-crimson, 0.5); }
+
+			&::before {
+				border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
+				border-top: 2px solid rgba(@rval, @gval, @bval, 1);
+				.rgb-darker-crimson();
+			}
+		}
+
 		&.solid.crimson-background {
 			&{ background-color: @rgba;
 				.getRgbaStr(@hex-crimson, 0.9); }
