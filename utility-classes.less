@@ -276,8 +276,8 @@
 
 .spacing-loop(@idx) when (@idx > 0) and (@idx <= length(@mSize-array)) {
 	.spacing-loop((@idx - 1));
-	@class-name: extract(extract(@spacing--array, 1));
-	@value-idx: extract(extract(@spacing--array, 2));
+	@class-name: extract(extract(@spacing--array, @idx), 1);
+	@value-idx: extract(extract(@spacing--array, @idx), 2);
 	.spacing--@{class-name} {
 		.spacing(@value-idx);
 	}
