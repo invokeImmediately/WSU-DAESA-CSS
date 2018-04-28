@@ -29,27 +29,7 @@
 
 	.column {
 		a {
-			border-bottom-right-radius: 0.25em;
-			border-bottom-left-radius: 0.25em;
-			& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@hex-crimson, 1); }
-			& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@hex-crimson, .15); }
-			color: @hex-crimson;
-			text-decoration: none;
-			.transition(~"all .3s ease");
-			@media print {
-				box-shadow: none;
-			}
-			&:hover {
-				border-bottom-right-radius: 0;
-				border-bottom-left-radius: 0;
-				border-color: transparent;
-				box-shadow: inset 0 -0.3125em 0 transparent;
-				background-color: rgba(red(@hex-soft-crimson), green(@hex-soft-crimson), 
-								  blue(@hex-soft-crimson), .3);
-				color: @hex-light-crimson;
-				text-shadow: 0.0625em 0.0625em 0.0625em rgba(red(@hex-crimson), 
-					green(@hex-crimson), blue(@hex-crimson), .3);
-			}
+			// TODO: Replace with .non-text-link
 			&.subtle-link {
 				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), 
 					blue(@hex-crimson), 0);
@@ -236,7 +216,9 @@
 					.getRgbaForProp(@shadow-clr, @hex-black, 0.5);
 					box-shadow: 0 2px 2px @@shadow-clr;
 				}
-				.transition(~"all 0.3s ease");			
+				.transition(~"all 0.3s ease");
+
+				// TODO: Combine before & after into one style; free up after for other functions
 				&:before {
 					content: "";
 					position: absolute;
@@ -326,3 +308,41 @@
 	}
 }
 .declare-hyperlink-rulesets(@grid-behavior);
+
+a {
+	.column & {
+		border: 1px solid transparent;
+		border-bottom-color: @hex-crimson;
+		border-bottom-left-radius: 0.25em;
+		border-bottom-right-radius: 0.25em;
+		&{ box-shadow: inset 0 -2px 0 @rgba; 
+			.getRgbaStr(@hex-light-crimson, .5); }
+		text-decoration: none;
+		.transition(~"all .25s ease");
+
+		&:hover {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-light-crimson, .15); }
+			border-color: @hex-light-crimson;
+			border-radius: 0;
+			box-shadow: inset 0 -2px 0 transparent;
+			&{ text-shadow: 1px 1px 2px @rgba;
+				.getRgbaStr(@hex-crimson, .3); }
+		}
+
+		@media print {
+			border: none;
+			box-shadow: none;
+			text-decoration: underline;
+		}
+	}
+}
+
+.add-icon__non-text-link(@icon) when (isurl(@icon)) {
+	a {
+		.column &.non-text-link {
+			  // Hyperlink icon
+			  // Underlined?
+		}
+	}
+}
