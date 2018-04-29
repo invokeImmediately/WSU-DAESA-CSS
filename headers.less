@@ -689,7 +689,6 @@ h2 {
 		&{ border-bottom: 2px solid @rgba;
 			.getRgbaStr(@hex-dark-crimson, 0.5); }
 		color: @hex-white;
-		.margins-rem(@rem-mSize-400mx, "right");
 
 		&::before {
 			border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
@@ -712,7 +711,6 @@ h3 {
 		&{ border-bottom: 2px solid @rgba;
 			.getRgbaStr(@hex-light-crimson, 0.075); }
 		color: @hex-crimson;
-		.margins-rem(@rem-mSize-800mx, "right");
 
 		&::before {
 			.rgb-crimson();
@@ -733,25 +731,12 @@ h4 {
 		& { border-bottom: 2px solid @rgba;
 			.getRgbaStr(@hex-dark-gray, 0.075); }
 		color: @hex-darker-gray;
-		.margins-rem(@rem-mSize-1200mx, "right");
 
 		&::before {
 			.rgb-darker-gray();
 			border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
 			border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
 		}
-	}
-}
-
-h5 {
-	&.solid {
-		.margins-rem(@rem-mSize-1600mx, "right");
-	}
-}
-
-h6 {
-	&.solid {
-		.margins-rem(@rem-mSize-2000mx, "right");
 	}
 }
 
