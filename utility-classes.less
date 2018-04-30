@@ -280,7 +280,9 @@
 	@class-name: extract(extract(@spacing--array, @idx), 1);
 	@value-idx: extract(extract(@spacing--array, @idx), 2);
 	.spacing--@{class-name} {
-		.spacing(@value-idx);
+		.column * + & {
+			margin-top: extract(@mSize-array, @value-idx);
+		}
 	}
 }
 .spacing-loop(length(@mSize-array));
