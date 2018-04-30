@@ -48,13 +48,23 @@
 				}
 			}
 		}
+
+		.builder-slide > a,
+		.builder-slide > .builder-banner-content {
+			bottom: 0;
+			box-sizing: border-box;
+			position: absolute;
+			width: 100%;
+		}
+
+		.builder-slide > a {
+			height: auto;
+		}
 		
 		.builder-banner-inner-content {
 			background-color: rgba(@rval,@gval,@bval,0.6);
-			bottom: 0;
 			font-size: inherit;
 			line-height: inherit;
-			position: absolute;
 			.rgb-black();
 			width: 100%;
 
