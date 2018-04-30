@@ -882,12 +882,16 @@ h4,
 h5,
 h6 {
 	.column & > a {
-		border-bottom: none;
+		@lHeight-temp: extract(@lHeight-array, @lHeight-933mx);
+
+		border-bottom: 1px solid transparent;
 		box-shadow: none;
-		.line-height(@lHeight-917mx);
+		.line-height(@lHeight-933mx);
+		line-height: ~"calc(@{lHeight-temp} + 1px)";
 		text-decoration: underline;
 
 		&:hover {
+			border-bottom: 1px solid @hex-crimson;
 			text-decoration: none;
 		}
 	}
