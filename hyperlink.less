@@ -211,9 +211,10 @@
 					border-top-right-radius: 5px;
 					& {
 						@color-top: returned; .getRgbaForProp(@color-top, @hex-white, 0.35);
-						@color-btm-mid: returned-2; .getRgbaForProp(@color-btm, @hex-white, 0.025);
-						@color-top-mid: returned-3; .getRgbaForProp(@color-top, @hex-black, 0);
-						@color-btm: returned-3; .getRgbaForProp(@color-btm, @hex-black, 0.25);
+						@color-btm-mid: returned-2; .getRgbaForProp(@color-btm-mid, @hex-white, 
+							0.025);
+						@color-top-mid: returned-3; .getRgbaForProp(@color-top-mid, @hex-black, 0);
+						@color-btm: returned-4; .getRgbaForProp(@color-btm, @hex-black, 0.25);
 						background: linear-gradient(to bottom, @@color-top, @@color-btm-mid 50%,
 							transparent 50%, @color-top-mid 50%, @color-btm);
 					}
