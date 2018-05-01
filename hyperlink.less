@@ -319,7 +319,10 @@ a {
 a:focus {
 	border: 2px dotted white;
 	outline: 2px dotted blue;
-	position: relative;
+	
+	.column & {
+		position: relative;
+	}
 
 	.column &::after {
 		border: 9px solid transparent;
