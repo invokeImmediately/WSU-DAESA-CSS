@@ -429,9 +429,6 @@ rder-Template-v3.png) 32 32 round;
 **      >>> §3.0: Global Less variables
 */
 
-@p--parent: ~".column"; // Parental-mediated specificity adjustment variable
-
-
 /*      ····························································································
 **      >>> §3.1: Spacing
 */
@@ -440,6 +437,7 @@ rder-Template-v3.png) 32 32 round;
 **        └> §3.1a: Less variables
 */
 
+// TODO: Remove; rely instead on universal utility classes
 @p--pSize-1: 0; // i.e., padding-size-1
 @p--pSize-2: .125em;
 @p--pSize-3: .25em;
@@ -461,6 +459,7 @@ rder-Template-v3.png) 32 32 round;
 	@p--pSize-7, @p--pSize-8, @p--pSize-9, @p--pSize-10, @p--pSize-11, @p--pSize-12, @p--pSize-13, 
 	@p--pSize-14, @p--pSize-15, @p--pSize-16, @p--pSize-17;
 
+// TODO: Remove; rely instead on universal utility classes
 @p--mSize-1: @p--pSize-1; // i.e., margin-size-1
 @p--mSize-2: @p--pSize-2;
 @p--mSize-3: @p--pSize-3;
@@ -487,41 +486,39 @@ rder-Template-v3.png) 32 32 round;
 */
 
 p {
-	@{p--parent} & {	
-		.p--pSize-loop(@idx, @pSizes) when (@idx > 0) and (@idx <= length(@pSizes)) {
-			.p--pSize-loop((@idx - 1), @pSizes);
-			&.p--pTop-@{idx} {
-				padding-top: extract(@pSizes, @idx);
-			}
-			&.p--pRgt-@{idx} {
-				padding-right: extract(@pSizes, @idx);
-			}
-			&.p--pBtm-@{idx} {
-				padding-bottom: extract(@pSizes, @idx);
-			}
-			&.p--pLft-@{idx} {
-				padding-left: extract(@pSizes, @idx);
-			}
+	.p--pSize-loop(@idx, @pSizes) when (@idx > 0) and (@idx <= length(@pSizes)) {
+		.p--pSize-loop((@idx - 1), @pSizes);
+		&.p--pTop-@{idx} {
+			padding-top: extract(@pSizes, @idx);
 		}
-		.p--pSize-loop(length(@p--pSize-array), @p--pSize-array);
-
-		.p--mSize-loop(@idx, @mSizes) when (@idx > 0) and (@idx <= length(@mSizes)) {
-			.p--mSize-loop((@idx - 1), @mSizes);
-			&.p--mTop-@{idx} {
-				margin-top: extract(@mSizes, @idx);
-			}
-			&.p--mRgt-@{idx} {
-				margin-right: extract(@mSizes, @idx);
-			}
-			&.p--mBtm-@{idx} {
-				margin-bottom: extract(@mSizes, @idx);
-			}
-			&.p--mLft-@{idx} {
-				margin-left: extract(@mSizes, @idx);
-			}
+		&.p--pRgt-@{idx} {
+			padding-right: extract(@pSizes, @idx);
 		}
-		.p--mSize-loop(length(@p--mSize-array), @p--mSize-array);
+		&.p--pBtm-@{idx} {
+			padding-bottom: extract(@pSizes, @idx);
+		}
+		&.p--pLft-@{idx} {
+			padding-left: extract(@pSizes, @idx);
+		}
 	}
+	.p--pSize-loop(length(@p--pSize-array), @p--pSize-array);
+
+	.p--mSize-loop(@idx, @mSizes) when (@idx > 0) and (@idx <= length(@mSizes)) {
+		.p--mSize-loop((@idx - 1), @mSizes);
+		&.p--mTop-@{idx} {
+			margin-top: extract(@mSizes, @idx);
+		}
+		&.p--mRgt-@{idx} {
+			margin-right: extract(@mSizes, @idx);
+		}
+		&.p--mBtm-@{idx} {
+			margin-bottom: extract(@mSizes, @idx);
+		}
+		&.p--mLft-@{idx} {
+			margin-left: extract(@mSizes, @idx);
+		}
+	}
+	.p--mSize-loop(length(@p--mSize-array), @p--mSize-array);
 }
 
 /*!     ····························································································
@@ -532,6 +529,7 @@ p {
 **        └> §3.2a: Less variables
 */
 
+// TODO: Remove; rely instead on universal utility classes
 @p--fSize-1: 0.75em;
 @p--fSize-2: 0.78125em;
 @p--fSize-3: 0.8125em;
@@ -586,16 +584,14 @@ p {
 */
 
 p {
-	@{p--parent} & {	
-		.p--fSize-loop(@idx, @fSizes) when (@idx > 0) 
-				and (@idx <= length(@fSizes)) {
-			.p--fSize-loop((@idx - 1), @fSizes);
-			&.p--fSize-@{idx} {
-				font-size: extract(@fSizes, @idx);
-			}
+	.p--fSize-loop(@idx, @fSizes) when (@idx > 0) 
+			and (@idx <= length(@fSizes)) {
+		.p--fSize-loop((@idx - 1), @fSizes);
+		&.p--fSize-@{idx} {
+			font-size: extract(@fSizes, @idx);
 		}
-		.p--fSize-loop(length(@p--fSize-array), @p--fSize-array);
 	}
+	.p--fSize-loop(length(@p--fSize-array), @p--fSize-array);
 }
 
 /*!     ····························································································
@@ -633,13 +629,11 @@ p {
 **/
 
 p {
-	@{p--parent} & {
-		font-size: @v-p-sz;
-		line-height: @p--lHeight-3;
-		max-width: 80ch;
-		padding: @p--pSize-1;
-	}
-	@{p--parent} * + & {
-		margin-top: @p--mSize-9;
+	font-size: @v-p-sz;
+	line-height: @p--lHeight-3;
+	max-width: 80ch;
+	padding: @p--pSize-1;
+	.column * + & {
+		margin-top: extract(@mSize-array, @mSize-1000mx);
 	}	
 }
