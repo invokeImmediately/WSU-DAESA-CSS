@@ -16,11 +16,12 @@
 /*    ─────────────────────────────────────────────────────────────────────────────────────────── 
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
-**    §1: Legacy styles for columnar hyperlinks................................................29
-**    §2: CSS3-driven tooltips via hyperlink elements.........................................119
-**    §3: Inclusional hyperlink styling via Less mixins.......................................204
-**    §4: A11y friendly default style for columnar hyperlinks.................................315
-**    §5: A11y friendly default style for columnar hyperlinks.................................315
+**    §1: Legacy styles for columnar hyperlinks................................................31
+**    §2: CSS3-driven tooltips via hyperlink elements..........................................99
+**    §3: Inclusional hyperlink styling via Less mixins.......................................184
+**    §4: A11y friendly default style for columnar hyperlinks.................................284
+**    §5: In-focus hyperlinks.................................................................317
+**    §6: §6: Links for non-text elements.....................................................336
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -313,7 +314,26 @@ a {
 }
 
 /*    ----------------------------------------------------------------------------------------------
-**    §5: A11y friendly default style for columnar hyperlinks
+**    §5: In-focus hyperlinks
+*/
+a:focus {
+	border: 2px dotted white;
+	outline: 2px dotted blue;
+	position: relative;
+
+	.column &::after {
+		border: 9px solid transparent;
+		border-left-color: blue;
+		content: "";
+		left: 0;
+		position: absolute;
+		top: 0;
+		.transform(~"translateX(-50%) translateX(-4px)");
+	}
+}
+
+/*    ----------------------------------------------------------------------------------------------
+**    §6: Links for non-text elements
 */
 
 a {
