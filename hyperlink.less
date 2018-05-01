@@ -200,36 +200,24 @@
 				.transition(~"all 0.3s ease");
 
 				// TODO: Combine before & after into one style; free up after for other functions
-				&:before {
+				&::before {
 					content: "";
 					position: absolute;
 					top: 2px;
 					right: 2px;
 					left: 2px;
-					height: 50%;
+					bottom: 2px;
 					border-top-left-radius: 5px;
 					border-top-right-radius: 5px;
 					& {
 						@color-top: returned; .getRgbaForProp(@color-top, @hex-white, 0.35);
-						@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-white, 0.025);
-						background: linear-gradient(@@color-top, @@color-btm);
+						@color-btm-mid: returned-2; .getRgbaForProp(@color-btm, @hex-white, 0.025);
+						@color-top-mid: returned-3; .getRgbaForProp(@color-top, @hex-black, 0);
+						@color-btm: returned-3; .getRgbaForProp(@color-btm, @hex-black, 0.25);
+						background: linear-gradient(to bottom, @@color-top, @@color-btm-mid 50%,
+							transparent 50%, @color-top-mid 50%, @color-btm);
 					}
 				}
-				&:after {
-					content: "";
-					position: absolute;
-					bottom: 0;
-					right: 2px;
-					left: 2px;
-					height: 50%;
-					border-bottom-left-radius: 7px;
-					 border-bottom-right-radius: 7px;
-					& {
-						@color-top: returned; .getRgbaForProp(@color-top, @hex-black, 0);
-						@color-btm: returned-2; .getRgbaForProp(@color-btm, @hex-black, 0.25);
-						background: linear-gradient(@@color-top, @@color-btm);
-					}
-				}			
 				&.crimson {
 					background-color: @hex-crimson;
 					color: white;
@@ -237,7 +225,8 @@
 						background-color: @hex-light-crimson;
 						& {
 							//@shadow-clr: returned; .getRgbaForProp(@shadow-clr, @hex-black, 0.25);
-							@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-light-crimson, 0.3333);
+							@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-light-crimson, 
+								0.3333);
 							//box-shadow: 0 2px 2px @@shadow-clr, 0 0 18px @@glow-clr;
 							box-shadow: 0 0 18px @@glow-clr;
 						}
@@ -261,7 +250,8 @@
 					&:hover {
 						background-color: @hex-gray;
 						& {
-							@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-darkest-gray, 0.3333);
+							@glow-clr: returned-2; .getRgbaForProp(@glow-clr, @hex-darkest-gray, 
+								0.3333);
 							box-shadow: 0 0 18px @@glow-clr;
 						}
 					}
