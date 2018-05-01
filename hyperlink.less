@@ -317,14 +317,16 @@ a {
 **    §5: In-focus hyperlinks
 */
 a:focus {
-	border: 2px dotted white;
-	outline: 2px dotted blue;
+	body.user-is-tabbing & {
+		border: 2px dotted white;
+		outline: 2px dotted blue;
+	}
 	
-	.column & {
+	body.user-is-tabbing .column & {
 		position: relative;
 	}
 
-	.column &::after {
+	body.user-is-tabbing .column &::after {
 		border: 9px solid transparent;
 		border-left-color: blue;
 		content: "";
