@@ -612,16 +612,14 @@ p {
 */
 
 p {
-	@{p--parent} & {	
-		.p--lHeight-loop(@idx, @heights) when (@idx > 0) 
-				and (@idx <= length(@heights)) {
-			.p--lHeight-loop((@idx - 1), @heights);
-			&.p--lHeight-@{idx} {
-				line-height: extract(@heights, @idx);
-			}
+	.p--lHeight-loop(@idx, @heights) when (@idx > 0) 
+			and (@idx <= length(@heights)) {
+		.p--lHeight-loop((@idx - 1), @heights);
+		&.p--lHeight-@{idx} {
+			line-height: extract(@heights, @idx);
 		}
-		.p--lHeight-loop(length(@p--lHeight-array), @p--lHeight-array);
 	}
+	.p--lHeight-loop(length(@p--lHeight-array), @p--lHeight-array);
 }
 
 /*!     ····························································································
