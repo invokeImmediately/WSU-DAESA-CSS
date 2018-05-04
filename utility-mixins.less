@@ -59,9 +59,8 @@
 	@pct-width-12, @pct-width-13, @pct-width-14, @pct-width-15, @pct-width-16, @pct-width-17, 
 	@pct-width-18, @pct-width-19, @pct-width-20;
 
-.width--pct(@idx) when when (isnumber(@idx)) and not (ispixel(@idx)) and
-		not (ispercentage(@idx)) and (@idx <= length(@pct-width-array)) and
-		(isstring(@which-dir)) {
+.width--pct(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and	not (ispercentage(@idx)) and
+		(@idx <= length(@pct-width-array)) and (isstring(@which-dir)) {
 	width: extract(@pct-width-array, @idx);
 }
 
