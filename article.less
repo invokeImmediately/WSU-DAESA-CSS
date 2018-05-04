@@ -13,113 +13,130 @@
 **  SEMANTIC CSS FOR STYLING OUE ARTICLE ELEMENTS
 */
 
-.declare-article-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-
+@{oue-rules-wrapper} {
 	.column article.post {
-		padding: 1em;
+		background-color: @hex-white;
 		border: 1px solid rgba(red(@hex-black), green(@hex-black), blue(@hex-black),0.3333);
 		border-radius: 5px;
-		background-color: @hex-white;
 		box-shadow: 1px 2px 3px rgba(red(@hex-black), green(@hex-black), blue(@hex-black),.25);
+		padding: 1em;
+
 		& + article.post {
 			margin-top: 1.5em;
 		}
-	}	
+	}
 
 	.new-article-section {
 		.row.h1-header& {
 			padding: (@v-dflt-spcng / 2);
+
 			h1,
 			h2,
 			h3,
 			h4,
 			h5,
 			h6 {
-				padding: 0;
-				margin: 0;
 				color: inherit;
+				margin: 0;
+				padding: 0;
 				text-align: center;
 			}
 		}
+
 		.row.side-right .column.one& {
 			header {
-				padding: (@v-dflt-spcng / 2) @v-dflt-spcng;
 				margin-bottom: @v-dflt-spcng;
 				margin-left: (-1 * @v-dflt-spcng);
+				padding: (@v-dflt-spcng / 2) @v-dflt-spcng;
 			}
 		}
+
 		.row.side-right .column.two& {
 			header {
-				padding: (@v-dflt-spcng / 2) @v-dflt-spcng;
-				margin-right: (-1.005 * @v-dflt-spcng); // Compensate for rounding error in Chrome.
 				margin-bottom: @v-dflt-spcng;
+				margin-right: (-1.005 * @v-dflt-spcng); // Compensate for rounding error in Chrome.
+				padding: (@v-dflt-spcng / 2) @v-dflt-spcng;
 			}
 		}
+
 		.row.side-right .column.one&,
 		.row.side-right .column.two& {
 			header {
 				background-color: @hex-charcoal-gray;
 				color: @hex-white;
+
 				@lg-mbl-rs: {
-					padding-right: (@v-dflt-spcng / 2);
 					padding-left: (@v-dflt-spcng / 2);
-					margin-right: (-1 * @v-dflt-spcng / 2);
+					padding-right: (@v-dflt-spcng / 2);
 					margin-left: (-1 * @v-dflt-spcng / 2);
+					margin-right: (-1 * @v-dflt-spcng / 2);
 				};
 				@mbl-rs: {
-					padding-right: (@v-dflt-spcng / 4);
 					padding-left: (@v-dflt-spcng / 4);
-					margin-right: (-1 * @v-dflt-spcng / 4);
+					padding-right: (@v-dflt-spcng / 4);
 					margin-left: (-1 * @v-dflt-spcng / 4);
+					margin-right: (-1 * @v-dflt-spcng / 4);
 				};
 				.declare-mobile-layout(@lg-mbl-rs, @mbl-rs);
 				& > * {
-					padding: 0;
-					margin: 0;
 					color: inherit;
+					margin: 0;
+					padding: 0;
 					text-align: center;
 				}
 			}
 		}
 	}
 
-	.use-article-notices(@url-gold-texture, @url-ruby-texture)
-		when (isurl(@url-gold-texture))	and (isurl(@url-ruby-texture)) {
+	.use-article-notices(@url-gold-texture, @url-ruby-texture) when (isurl(@url-gold-texture))
+			and (isurl(@url-ruby-texture)) {
 		.row.article-notice {
 			&.has-countdown {
 				display: none;
 			}
+
 			.column {
-				border-bottom-right-radius: 15px;
-				border-bottom-left-radius: 15px;
+				.rgb-black();
+
 				background: @hex-gold @url-gold-texture no-repeat scroll left top;
 				background-size: cover;
-				.rgb-black(); box-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.3);
+				border-bottom-left-radius: 15px;
+				border-bottom-right-radius: 15px;
+				box-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.3);
 				color: @hex-darker-gray;
+
 				& > p {
 					&:extend(.has-alt-font);
+					.rgb-white();
+
+					color: @hex-darker-gray;
 					font-size: (@v-p-sz * @v-scl-up  * @v-scl-up);
 					letter-spacing: 0.5px;
-					color: @hex-darker-gray;
-					.rgb-white(); text-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.5);
+					text-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.5);
 				}
+
 				& > :first-child {
 					padding-top: @v-btm-pads !important;
+
 					@media all and (max-width: @column-floating-threshold) {
 						padding-top: (@v-btm-pads / 3) !important;
 					}
 				}
+
 				& > :last-child {
-					padding-bottom: @v-btm-pads !important;
 					margin-bottom: 0 !important;
+					padding-bottom: @v-btm-pads !important;
+
 					@media all and (max-width: @column-floating-threshold) {
 						padding-bottom: (@v-btm-pads / 3) !important;
 					}
 				}
 			}
+
 			&.ruby .column {
 				background: @hex-light-crimson @url-ruby-texture no-repeat scroll left top;
 				font-size: 1.5rem;
+
 				& > p {
 					.has-responsive-padding(0, @v-dflt-spcng, 0, @v-dflt-spcng);
 					color: @hex-white;
@@ -129,4 +146,3 @@
 		}
 	}
 }
-.declare-article-rulesets(@grid-behavior);
