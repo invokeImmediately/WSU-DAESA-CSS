@@ -17,22 +17,63 @@
 /*    ───────────────────────────────────────────────────────────────────────────────────────────
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
-**    OUE UTILITY CLASSES §1: Typography.......................................................30
+**    §1: Widths...............................................................................30
+**    §2: Typography...........................................................................30
 **        >>> §1.1: Font Sizing................................................................34
 **        >>> §1.2: Line Heights..............................................................180
 **        >>> §1.3: Bolding...................................................................226
 **        >>> §1.4: Text transformation.......................................................255
-**    §2: Spacing.............................................................................266
-**    §3: Floating............................................................................289
+**    §3: Spacing.............................................................................266
+**    §4: Floating............................................................................289
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 */
 
 /*    ----------------------------------------------------------------------------------------------
-**     OUE UTILITY CLASSES §1: Typography
+**    §1: Widths
+*/
+@pct-width-1--class: ~"5pct";
+@pct-width-2--class: ~"10pct";
+@pct-width-3--class: ~"15pct";
+@pct-width-4--class: ~"20pct";
+@pct-width-5--class: ~"25pct";
+@pct-width-6--class: ~"30pct";
+@pct-width-7--class: ~"35pct";
+@pct-width-8--class: ~"40pct";
+@pct-width-9--class: ~"45pct";
+@pct-width-10--class: ~"50pct";
+@pct-width-11--class: ~"55pct";
+@pct-width-12--class: ~"60pct";
+@pct-width-13--class: ~"65pct";
+@pct-width-14--class: ~"70pct";
+@pct-width-15--class: ~"75pct";
+@pct-width-16--class: ~"80pct";
+@pct-width-17--class: ~"85pct";
+@pct-width-18--class: ~"90pct";
+@pct-width-19--class: ~"95pct";
+@pct-width-20--class: ~"100pct";
+
+@pct-width--class-array: @pct-width-1--class, @pct-width-2--class, @pct-width-3--class,
+	@pct-width-4--class, @pct-width-5--class, @pct-width-6--class, @pct-width-7--class,
+	@pct-width-8--class, @pct-width-9--class, @pct-width-10--class, @pct-width-11--class,
+	@pct-width-12--class, @pct-width-13--class, @pct-width-14--class, @pct-width-15--class,
+	@pct-width-16--class, @pct-width-17--class, @pct-width-18--class, @pct-width-19--class,
+	@pct-width-20--class;
+
+.pct-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pct-width-array)) {
+	.pct-width-loop((@idx - 1));
+	@class-name: extract(@pct-width--class-array, @idx);
+	.width--@{class-name} {
+		.width--pct(@idx);
+	}
+}
+.pct-width-loop(length(@pct-width-array));
+
+/*    ----------------------------------------------------------------------------------------------
+**    §2: Typography
 */
 
 /*      ····························································································
-**      >>> §1.1: Typograhy: Font Sizing
+**      >>> §2.1: Typograhy: Font Sizing
 ** 
 **      NOTES:
 **      • Units of "mx" stand for "milli-fold" and function similar to magnification units. Thus, 
@@ -178,7 +219,7 @@
 }
 
 /*!     ····························································································
-***     >>> §1.2: Typograhy: Line heights
+***     >>> §2.2: Typograhy: Line heights
 ***
 ***     NOTES:
 ***     * See line 24 for explanation of "mx" units.
@@ -224,7 +265,7 @@
 .lHeight-loop(length(@lHeight-array));
 
 /*!     ····························································································
-***     >>> §1.3: Typograhy: Bolding
+***     >>> §2.3: Typograhy: Bolding
 **/
 
 @fWeight-1--class: ~"light";
@@ -253,7 +294,7 @@
 .fWeight-loop(length(@fWeight--array));
 
 /*!     ····························································································
-***     >>> §1.4: Typograhy: Text transformation
+***     >>> §2.4: Typograhy: Text transformation
 **/
 .text-transform--none {
 	text-transform: none;
@@ -264,7 +305,7 @@
 }
 
 /*    ----------------------------------------------------------------------------------------------
-**     OUE UTILITY CLASSES §2: Spacing
+**    §3: Spacing
 */
 
 @spacing--array: ~"0mx" @spacing-0mx, ~"100mx" @spacing-100mx, ~"200mx" @spacing-200mx, 
@@ -288,7 +329,7 @@
 .spacing-loop(length(@mSize-array));
 
 /*    ----------------------------------------------------------------------------------------------
-**     OUE UTILITY CLASSES §3: Floating
+**    §4: Floating
 */
 
 .float--none {
