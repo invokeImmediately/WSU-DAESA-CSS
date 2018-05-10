@@ -294,7 +294,7 @@
 */
 
 .margin-loop(@idx) when (@idx > 0) and (@idx <= length(@mSize-array)) {
-	.spacing-loop((@idx - 1));
+	.margin-loop((@idx - 1));
 	@class-name: extract(extract(@spacing--array, @idx), 1);
 	@value-idx: extract(extract(@spacing--array, @idx), 2);
 	.margin-bottom--@{class-name} {
