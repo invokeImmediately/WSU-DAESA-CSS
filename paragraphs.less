@@ -19,17 +19,7 @@
 **      OUE-PARAGRAPHS §1: Legacy style declarations (prior to a11y redesign)..................36
 **      OUE PARAGRAPHS §2: Paragraph based notices............................................332
 **      OUE PARAGRAPHS §3: Accessibility friendly classes.....................................425
-**        >>> §3.0: Global Less variables.....................................................429
-**        >>> §3.1: Spacing...................................................................436
-**          └> §3.1a: Less variables..........................................................440
-**          └> §3.1b: Utility classes.........................................................486
-**       >>> §3.2: Typograhy: Font Sizing.....................................................528
-**          └> §3.2a: Less variables..........................................................532
-**          └> §3.2b: Utility classes.........................................................585
-**       >>> §3.3: Typography: Line-Heights...................................................602
-**          └> §3.3a: Less variables..........................................................606
-**          └> §3.1b: Utility classes.........................................................615
-**       >>> §3.4: Style Defaults.............................................................632
+**       >>> §3.1: Style Defaults.............................................................632
 */
 
 /*    ----------------------------------------------------------------------------------------------
@@ -425,212 +415,17 @@ rder-Template-v3.png) 32 32 round;
 **    OUE PARAGRAPHS §3: Accessibility friendly classes
 */
 
-/*      ····························································································
-**      >>> §3.0: Global Less variables
-*/
-
-/*      ····························································································
-**      >>> §3.1: Spacing
-*/
-
-/*        ………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………
-**        └> §3.1a: Less variables
-*/
-
-// TODO: Remove; rely instead on universal utility classes
-@p--pSize-1: 0; // i.e., padding-size-1
-@p--pSize-2: .125em;
-@p--pSize-3: .25em;
-@p--pSize-4: .375em;
-@p--pSize-5: .5em;
-@p--pSize-6: .625em;
-@p--pSize-7: .75em;
-@p--pSize-8: .875em;
-@p--pSize-9: 1em;
-@p--pSize-10: 1.125em;
-@p--pSize-11: 1.25em;
-@p--pSize-12: 1.375em;
-@p--pSize-13: 1.5em;
-@p--pSize-14: 1.625em;
-@p--pSize-15: 1.75em;
-@p--pSize-16: 1.875em;
-@p--pSize-17: 2em;
-@p--pSize-array: @p--pSize-1, @p--pSize-2, @p--pSize-3, @p--pSize-4, @p--pSize-5, @p--pSize-6, 
-	@p--pSize-7, @p--pSize-8, @p--pSize-9, @p--pSize-10, @p--pSize-11, @p--pSize-12, @p--pSize-13, 
-	@p--pSize-14, @p--pSize-15, @p--pSize-16, @p--pSize-17;
-
-// TODO: Remove; rely instead on universal utility classes
-@p--mSize-1: @p--pSize-1; // i.e., margin-size-1
-@p--mSize-2: @p--pSize-2;
-@p--mSize-3: @p--pSize-3;
-@p--mSize-4: @p--pSize-4;
-@p--mSize-5: @p--pSize-5;
-@p--mSize-6: @p--pSize-6;
-@p--mSize-7: @p--pSize-7;
-@p--mSize-8: @p--pSize-8;
-@p--mSize-9: @p--pSize-9;
-@p--mSize-10: @p--pSize-10;
-@p--mSize-11: @p--pSize-11;
-@p--mSize-12: @p--pSize-12;
-@p--mSize-13: @p--pSize-13;
-@p--mSize-14: @p--pSize-14;
-@p--mSize-15: @p--pSize-15;
-@p--mSize-16: @p--pSize-16;
-@p--mSize-17: @p--pSize-17;
-@p--mSize-array: @p--mSize-1, @p--mSize-2, @p--mSize-3, @p--mSize-4, @p--mSize-5, @p--mSize-6, 
-	@p--mSize-7, @p--mSize-8, @p--mSize-9, @p--mSize-10, @p--mSize-11, @p--mSize-12, @p--mSize-13, 
-	@p--mSize-14, @p--mSize-15, @p--mSize-16, @p--mSize-17;
-
-/*        ………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………
-**        └> §3.1b: Utility classes
-*/
-
-p {
-	.p--pSize-loop(@idx, @pSizes) when (@idx > 0) and (@idx <= length(@pSizes)) {
-		.p--pSize-loop((@idx - 1), @pSizes);
-		&.p--pTop-@{idx} {
-			padding-top: extract(@pSizes, @idx);
-		}
-		&.p--pRgt-@{idx} {
-			padding-right: extract(@pSizes, @idx);
-		}
-		&.p--pBtm-@{idx} {
-			padding-bottom: extract(@pSizes, @idx);
-		}
-		&.p--pLft-@{idx} {
-			padding-left: extract(@pSizes, @idx);
-		}
-	}
-	.p--pSize-loop(length(@p--pSize-array), @p--pSize-array);
-
-	.p--mSize-loop(@idx, @mSizes) when (@idx > 0) and (@idx <= length(@mSizes)) {
-		.p--mSize-loop((@idx - 1), @mSizes);
-		&.p--mTop-@{idx} {
-			margin-top: extract(@mSizes, @idx);
-		}
-		&.p--mRgt-@{idx} {
-			margin-right: extract(@mSizes, @idx);
-		}
-		&.p--mBtm-@{idx} {
-			margin-bottom: extract(@mSizes, @idx);
-		}
-		&.p--mLft-@{idx} {
-			margin-left: extract(@mSizes, @idx);
-		}
-	}
-	.p--mSize-loop(length(@p--mSize-array), @p--mSize-array);
-}
-
 /*!     ····························································································
-***     >>> §3.2: Typograhy: Font Sizing
-**/
-
-/*        ………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………
-**        └> §3.2a: Less variables
-*/
-
-// TODO: Remove; rely instead on universal utility classes
-@p--fSize-1: 0.75em;
-@p--fSize-2: 0.78125em;
-@p--fSize-3: 0.8125em;
-@p--fSize-4: 0.84375em;
-@p--fSize-5: 0.875em;
-@p--fSize-6: 0.90625em;
-@p--fSize-7: 0.9375em;
-@p--fSize-8: 0.96875em;
-@p--fSize-9: 1em;
-@p--fSize-10: 1.03125em;
-@p--fSize-11: 1.0625em;
-@p--fSize-12: 1.09375em;
-@p--fSize-13: 1.125em;
-@p--fSize-14: 1.15625em;
-@p--fSize-15: 1.1875em;
-@p--fSize-16: 1.21875em;
-@p--fSize-17: 1.25em;
-@p--fSize-18: 1.28125em;
-@p--fSize-19: 1.3125em;
-@p--fSize-20: 1.34375em;
-@p--fSize-21: 1.375em;
-@p--fSize-22: 1.40625em;
-@p--fSize-23: 1.4375em;
-@p--fSize-24: 1.46875em;
-@p--fSize-25: 1.5em;
-@p--fSize-26: 1.53125em;
-@p--fSize-27: 1.5625em;
-@p--fSize-28: 1.59375em;
-@p--fSize-29: 1.625em;
-@p--fSize-30: 1.65625em;
-@p--fSize-31: 1.6875em;
-@p--fSize-32: 1.71875em;
-@p--fSize-33: 1.75em;
-@p--fSize-34: 1.78125em;
-@p--fSize-35: 1.8125em;
-@p--fSize-36: 1.84375em;
-@p--fSize-37: 1.875em;
-@p--fSize-38: 1.90625em;
-@p--fSize-39: 1.9375em;
-@p--fSize-40: 1.96875em;
-@p--fSize-41: 2em;
-@p--fSize-array: @p--fSize-1, @p--fSize-2, @p--fSize-3, @p--fSize-4, @p--fSize-5, @p--fSize-6, 
-	@p--fSize-7, @p--fSize-8, @p--fSize-9, @p--fSize-10, @p--fSize-11, @p--fSize-12, @p--fSize-13, 
-	@p--fSize-14, @p--fSize-15, @p--fSize-16, @p--fSize-17, @p--fSize-18, @p--fSize-19, 
-	@p--fSize-20, @p--fSize-21, @p--fSize-22, @p--fSize-23, @p--fSize-24, @p--fSize-25, 
-	@p--fSize-26, @p--fSize-27, @p--fSize-28, @p--fSize-29, @p--fSize-30, @p--fSize-31, 
-	@p--fSize-32, @p--fSize-33, @p--fSize-34, @p--fSize-35, @p--fSize-36, @p--fSize-37, 
-	@p--fSize-38, @p--fSize-39, @p--fSize-40, @p--fSize-41;
-
-/*        ………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………
-**        └> §3.2b: Utility classes
-*/
-
-p {
-	.p--fSize-loop(@idx, @fSizes) when (@idx > 0) 
-			and (@idx <= length(@fSizes)) {
-		.p--fSize-loop((@idx - 1), @fSizes);
-		&.p--fSize-@{idx} {
-			font-size: extract(@fSizes, @idx);
-		}
-	}
-	.p--fSize-loop(length(@p--fSize-array), @p--fSize-array);
-}
-
-/*!     ····························································································
-***     >>> §3.3: Typography: Line-Heights
-**/
-
-/*        ………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………
-**        └> §3.3a: Less variables
-*/
-
-@p--lHeight-1: 1.25em;
-@p--lHeight-2: 1.375em;
-@p--lHeight-3: 1.5em;
-@p--lHeight-array: @p--lHeight-1, @p--lHeight-2, @p--lHeight-3;
-
-/*        ………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………
-**        └> §3.1b: Utility classes
-*/
-
-p {
-	.p--lHeight-loop(@idx, @heights) when (@idx > 0) 
-			and (@idx <= length(@heights)) {
-		.p--lHeight-loop((@idx - 1), @heights);
-		&.p--lHeight-@{idx} {
-			line-height: extract(@heights, @idx);
-		}
-	}
-	.p--lHeight-loop(length(@p--lHeight-array), @p--lHeight-array);
-}
-
-/*!     ····························································································
-***     >>> §3.4: Style Defaults
+***     >>> §3.1: Style Defaults
 **/
 
 p {
 	font-size: @v-p-sz;
-	line-height: @p--lHeight-3;
+	.font-size(@fSize-1000mx);
+	.line-height(@lHeight-1000mx);
 	max-width: 80ch;
-	padding: @p--pSize-1;
+	padding: 0;
+
 	.column * + & {
 		margin-top: extract(@mSize-array, @mSize-1000mx);
 	}	
