@@ -426,7 +426,11 @@ p {
 	max-width: 80ch;
 	padding: 0;
 
+	& ~ p {
+		padding-bottom: 0;
+	}
+
 	.column * + & {
 		margin-top: extract(@mSize-array, @mSize-1000mx);
-	}	
+	}
 }
