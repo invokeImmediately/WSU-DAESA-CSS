@@ -103,17 +103,15 @@
 			background-size: cover;
 			border-bottom-left-radius: 15px;
 			border-bottom-right-radius: 15px;
-			box-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.3);
-			color: @hex-darker-gray;
+			box-shadow: 0 3px 8px rgba(@rval, @gval, @bval, 0.3);
+			color: @hex-black;
 
 			& > p {
 				&:extend(.has-alt-font);
-				.rgb-white();
 
-				color: @hex-darker-gray;
-				font-size: (@v-p-sz * @v-scl-up  * @v-scl-up);
+				color: inherit;
+				.font-size(@fSize--1400mx);
 				letter-spacing: 0.5px;
-				text-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.5);
 			}
 
 			& > :first-child {
@@ -136,11 +134,10 @@
 
 		&.ruby .column {
 			background: @hex-light-crimson @url-ruby-texture no-repeat scroll left top;
-			font-size: 1.5rem;
+			color: @hex-white;
 
 			& > p {
 				.has-responsive-padding(0, @v-dflt-spcng, 0, @v-dflt-spcng);
-				color: @hex-white;
 				.rgb-black(); text-shadow: 0 1px 1px rgba(@rval, @gval, @bval, 0.5);
 			}
 		}
