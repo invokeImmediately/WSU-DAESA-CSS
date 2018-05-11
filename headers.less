@@ -13,31 +13,30 @@
 /*    ─────────────────────────────────────────────────────────────────────────────────────────── 
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
-**    OUE-HEADINGS §1: [h1] elements...........................................................43
-**    OUE-HEADINGS §2: [h2] elements...........................................................64
-**    OUE-HEADINGS §3: [h3] elements..........................................................145
-**    OUE-HEADINGS §4: [h4] elements..........................................................212
-**    OUE-HEADINGS §5: [hN] elements..........................................................243
-**    OUE-HEADINGS §6: [header] elements......................................................276
-**    OUE-HEADINGS §7: (Legacy) Sectional article headers.....................................342
-**    OUE-HEADINGS §8: Accessibility friendly classes.........................................587
-**      >>> §8.1: Spacing.....................................................................591
-**      >>> §8.2: Font sizing.................................................................606
-**      >>> §8.3: Line heights................................................................635
-**      >>> §8.4: Coloring....................................................................652
-**        ├> §8.4a: Defaults..................................................................655
-**        └> §8.4b: Utility classes...........................................................760
-**      >>> §8.5: Text transformation.........................................................863
-**      >>> §8.6: Child elements..............................................................873
-**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers...........................897
+**    OUE-HEADINGS §1: [h1] elements...........................................................42
+**    OUE-HEADINGS §2: [h2] elements...........................................................63
+**    OUE-HEADINGS §3: [h3] elements..........................................................144
+**    OUE-HEADINGS §4: [h4] elements..........................................................211
+**    OUE-HEADINGS §5: [hN] elements..........................................................242
+**    OUE-HEADINGS §6: [header] elements......................................................275
+**    OUE-HEADINGS §7: Accessibility friendly classes.........................................339
+**      >>> §7.1: Spacing.....................................................................343
+**      >>> §7.2: Font sizing.................................................................358
+**      >>> §7.3: Line heights................................................................387
+**      >>> §7.4: Coloring....................................................................404
+**        ├> §7.4a: Defaults..................................................................407
+**        └> §7.4b: Utility classes...........................................................497
+**      >>> §7.5: Text transformation.........................................................616
+**      >>> §7.6: Child elements..............................................................626
+**    OUE-HEADINGS §8: Article Header Blocks, Elements, & Modifiers...........................654
+**    OUE-HEADINGS §9: (Legacy) Sectional article headers.....................................684
 */
 
 /*  ================================================================================================
 **  SEMANTIC CSS FOR STYLING OUE HEADING & HEADER ELEMENTS
 */
 
-.declare-heading-and-header-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-
+@{oue-rules-wrapper} {
 
 /*    ----------------------------------------------------------------------------------------------
 **    OUE-HEADINGS §1: [h1] elements
@@ -335,11 +334,354 @@
 			margin-top: 0;
 		}
 	}
-}
-.declare-heading-and-header-rulesets(@grid-behavior);
 
 /*    ----------------------------------------------------------------------------------------------
-**    OUE-HEADINGS §7: (Legacy) Sectional article headers (inclusional via Less mixin)
+**    OUE-HEADINGS §7: Accessibility friendly classes
+*/
+
+/*      ····························································································
+**      >>> §7.1: Spacing
+*/
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		padding: 0;
+		margin: 0;
+		.spacing(@spacing-1000mx);
+	}
+
+/*      ····························································································
+**      >>> §7.2: Font sizing
+*/
+
+	// @hN-font-size variables defined in utility-mixins.less
+	h1 {
+		.font-size(@h1-font-size);
+	}
+
+	h2 {
+		.font-size(@h2-font-size);
+	}
+
+	h3 {
+		.font-size(@h3-font-size);
+	}
+
+	h4 {
+		.font-size(@h4-font-size);
+	}
+
+	h5 {
+		.font-size(@h5-font-size);
+	}
+
+	h6 {
+		.font-size(@h6-font-size);
+	}
+
+/*      ····························································································
+**      >>> §7.3: Line heights
+*/
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		.line-height(@lHeight-733mx);
+
+		&.linked-text {
+			.line-height(@lHeight-917mx);
+		}
+	}
+
+/*      ····························································································
+**      >>> §7.4: Coloring
+*/
+
+//        ├> §7.4a: Defaults
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: @hex-crimson;
+	}
+
+	h1 {
+		&.solid {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-black, 0.9); }
+			&{ background: linear-gradient(to right, rgba(@rval, @gval, @bval, 0.8) 50%, 
+					rgba(@rval, @gval, @bval, 1));
+				.rgb-black(); }
+			&{ border-bottom: 2px solid @rgba;
+				.getRgbaStr(@hex-black, 0.333); }
+			color: @hex-white;
+
+			&::before {
+				border-top: 2px solid rgba(@rval, @gval, @bval,1);
+				border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.5);
+				.rgb-black();
+			}
+		}
+	}
+
+	h2 {
+		&.solid {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-crimson, 0.9); }
+			background: linear-gradient(to right, @hex-crimson 50%, @hex-dark-crimson);
+			&{ border-bottom: 2px solid @rgba;
+				.getRgbaStr(@hex-dark-crimson, 0.5); }
+			color: @hex-white;
+
+			&::before {
+				border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
+				border-top: 2px solid rgba(@rval, @gval, @bval, 1);
+				.rgb-dark-crimson();
+			}
+		}
+	}
+
+	h3 {
+		&.solid {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-light-crimson, 0.075); }
+			&{ background: linear-gradient(to right,
+					transparent,
+					rgba(@rval, @gval, @bval, 0.075) 5%,
+					rgba(@rval, @gval, @bval, 0.075) 50%,
+					rgba(@rval, @gval, @bval, 0.225));
+				.rgb-light-crimson(); }
+			&{ border-bottom: 2px solid @rgba;
+				.getRgbaStr(@hex-light-crimson, 0.075); }
+			color: @hex-crimson;
+
+			&::before {
+				.rgb-crimson();
+				border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
+				border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
+			}
+		}
+	}
+
+	h4 {
+		&.solid {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-dark-gray, 0.2); }
+			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
+					0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
+					0.225));
+				.rgb-dark-gray(); }
+			& { border-bottom: 2px solid @rgba;
+				.getRgbaStr(@hex-dark-gray, 0.075); }
+			color: @hex-darker-gray;
+
+			&::before {
+				.rgb-darker-gray();
+				border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
+				border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
+			}
+		}
+	}
+
+// TODO: Apply default coloring styles to h5 and h6
+
+//        └> §7.4b: Utility classes
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		&.solid {
+			padding: .1em .25em .11em;
+			position: relative;
+
+			&::before {
+				content: "";
+				left: 0;
+				height: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+		}
+
+		&.white-text {
+			color: @hex-white;
+			&.solid,
+			&.solid.black-background {
+				&{ background-color: @rgba;
+					.getRgbaStr(@hex-black, 0.9); }
+				&{ background: linear-gradient(to right, rgba(@rval, @gval, @bval, 0.8) 50%, 
+						rgba(@rval, @gval, @bval, 1));
+					.rgb-black(); }
+				&{ border-bottom: 2px solid @rgba;
+					.getRgbaStr(@hex-black, 0.333); }
+
+				&::before {
+					border-top: 2px solid rgba(@rval, @gval, @bval,1);
+					border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.5);
+					.rgb-black();
+				}
+			}
+
+			&.solid.dark-crimson-background {
+				&{ background-color: @rgba;
+					.getRgbaStr(@hex-crimson-scale-darker, 0.9); }
+				background: linear-gradient(to right, 
+					@hex-crimson-scale-darker 50%, 
+					@hex-darker-crimson);
+				&{ border-bottom: 2px solid @rgba;
+					.getRgbaStr(@hex-darker-crimson, 0.5); }
+
+				&::before {
+					border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
+					border-top: 2px solid rgba(@rval, @gval, @bval, 1);
+					.rgb-darker-crimson();
+				}
+			}
+
+			&.solid.crimson-background {
+				&{ background-color: @rgba;
+					.getRgbaStr(@hex-crimson, 0.9); }
+				background: linear-gradient(to right, @hex-crimson 50%, @hex-dark-crimson);
+				&{ border-bottom: 2px solid @rgba;
+					.getRgbaStr(@hex-dark-crimson, 0.5); }
+
+				&::before {
+					border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
+					border-top: 2px solid rgba(@rval, @gval, @bval, 1);
+					.rgb-dark-crimson();
+				}
+			}
+		}
+
+		&.gray-text {
+			color: @hex-darker-gray;
+
+			&.solid {
+				&{ background-color: @rgba;
+					.getRgbaStr(@hex-dark-gray, 0.2); }
+				&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
+						0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
+						0.225));
+					.rgb-dark-gray(); }
+				&{ border-bottom: 2px solid @rgba;
+					.getRgbaStr(@hex-dark-gray, 0.075); }
+
+				&::before {
+					.rgb-darker-gray();
+					border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
+					border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
+				}
+			}
+		}
+
+		&.crimson-text {
+			color: @hex-crimson;
+
+			&.solid {
+				&{ background-color: @rgba;
+					.getRgbaStr(@hex-light-crimson, 0.075); }
+				&{ background: linear-gradient(to right,
+						transparent,
+						rgba(@rval, @gval, @bval, 0.075) 5%,
+						rgba(@rval, @gval, @bval, 0.075) 50%,
+						rgba(@rval, @gval, @bval, 0.225));
+					.rgb-light-crimson(); }
+				&{ border-bottom: 2px solid @rgba;
+					.getRgbaStr(@hex-light-crimson, 0.075); }
+
+				&::before {
+					.rgb-crimson();
+					border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
+					border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
+				}
+			}
+		}
+	}
+
+// TODO: Create additional coloring classes
+
+/*      ····························································································
+**      >>> §7.5: Text transformation
+*/
+
+	h1,
+	h2,
+	h3 {
+		text-transform: uppercase;
+	}
+
+/*      ····························································································
+**      >>> §7.6: Child elements
+*/
+
+	// hN children: Hyperlinks
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		.column & > a {
+			@lHeight-temp: extract(@lHeight-array, @lHeight-933mx);
+
+			border-bottom: 1px solid transparent;
+			box-shadow: none;
+			.line-height(@lHeight-933mx);
+			line-height: ~"calc(@{lHeight-temp} + 1px)";
+			text-decoration: underline;
+
+			&:hover {
+				border-bottom: 1px solid @hex-crimson;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §8: Article Header Blocks, Elements, & Modifiers
+*/
+
+// TODO: Finish writing.
+// .page.use-bem-styles { ... }
+// .article-header--2-columns
+// .article-header--2-columns .article-header__column-1
+// .article-header--2-columns .article-header__column-2
+// .article-header__bread-crumb
+// .article-header__background
+// .article-header__title-text
+// .article-header__title-text
+// .article-header--1/2/3/4x-sized
+// .article-header__subtitle-text
+
+/*!Example from SASS:
+** .person { }
+**  .person__face {
+**    .person--handsome & { }
+**  }
+**.person--handsome { }
+*/
+
+.hN--subtitle {
+	display: block;
+	.font-size(@fSize-400mx);
+	.line-height(@lHeight-917mx);
+}
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-HEADINGS §9: (Legacy) Sectional article headers (inclusional via Less mixin)
 */
 
 .use-sectional-article-headers() {
@@ -581,349 +923,4 @@
 			}
 		}
 	}
-}
-
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-HEADINGS §8: Accessibility friendly classes
-*/
-
-/*      ····························································································
-**      >>> §8.1: Spacing
-*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	padding: 0;
-	margin: 0;
-	.spacing(@spacing-1000mx);
-}
-
-/*      ····························································································
-**      >>> §8.2: Font sizing
-*/
-
-// @hN-font-size variables defined in utility-mixins.less
-h1 {
-	.font-size(@h1-font-size);
-}
-
-h2 {
-	.font-size(@h2-font-size);
-}
-
-h3 {
-	.font-size(@h3-font-size);
-}
-
-h4 {
-	.font-size(@h4-font-size);
-}
-
-h5 {
-	.font-size(@h5-font-size);
-}
-
-h6 {
-	.font-size(@h6-font-size);
-}
-
-/*      ····························································································
-**      >>> §8.3: Line heights
-*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	.line-height(@lHeight-733mx);
-
-	&.linked-text {
-		.line-height(@lHeight-917mx);
-	}
-}
-
-/*      ····························································································
-**      >>> §8.4: Coloring
-*/
-
-//        ├> §8.4a: Defaults
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: @hex-crimson;
-}
-
-h1 {
-	&.solid {
-		&{ background-color: @rgba;
-			.getRgbaStr(@hex-black, 0.9); }
-		&{ background: linear-gradient(to right, rgba(@rval, @gval, @bval, 0.8) 50%, 
-				rgba(@rval, @gval, @bval, 1));
-			.rgb-black(); }
-		&{ border-bottom: 2px solid @rgba;
-			.getRgbaStr(@hex-black, 0.333); }
-		color: @hex-white;
-
-		&::before {
-			border-top: 2px solid rgba(@rval, @gval, @bval,1);
-			border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.5);
-			.rgb-black();
-		}
-	}
-}
-
-h2 {
-	&.solid {
-		&{ background-color: @rgba;
-			.getRgbaStr(@hex-crimson, 0.9); }
-		background: linear-gradient(to right, @hex-crimson 50%, @hex-dark-crimson);
-		&{ border-bottom: 2px solid @rgba;
-			.getRgbaStr(@hex-dark-crimson, 0.5); }
-		color: @hex-white;
-
-		&::before {
-			border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
-			border-top: 2px solid rgba(@rval, @gval, @bval, 1);
-			.rgb-dark-crimson();
-		}
-	}
-}
-
-h3 {
-	&.solid {
-		&{ background-color: @rgba;
-			.getRgbaStr(@hex-light-crimson, 0.075); }
-		&{ background: linear-gradient(to right,
-				transparent,
-				rgba(@rval, @gval, @bval, 0.075) 5%,
-				rgba(@rval, @gval, @bval, 0.075) 50%,
-				rgba(@rval, @gval, @bval, 0.225));
-			.rgb-light-crimson(); }
-		&{ border-bottom: 2px solid @rgba;
-			.getRgbaStr(@hex-light-crimson, 0.075); }
-		color: @hex-crimson;
-
-		&::before {
-			.rgb-crimson();
-			border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
-			border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
-		}
-	}
-}
-
-h4 {
-	&.solid {
-		&{ background-color: @rgba;
-			.getRgbaStr(@hex-dark-gray, 0.2); }
-		&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
-				0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
-				0.225));
-			.rgb-dark-gray(); }
-		& { border-bottom: 2px solid @rgba;
-			.getRgbaStr(@hex-dark-gray, 0.075); }
-		color: @hex-darker-gray;
-
-		&::before {
-			.rgb-darker-gray();
-			border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
-			border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
-		}
-	}
-}
-
-// TODO: Apply default coloring styles to h5 and h6
-
-//        └> §8.4b: Utility classes
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	&.solid {
-		padding: .1em .25em .11em;
-		position: relative;
-
-		&::before {
-			content: "";
-			left: 0;
-			height: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
-		}
-	}
-
-	&.white-text {
-		color: @hex-white;
-		&.solid,
-		&.solid.black-background {
-			&{ background-color: @rgba;
-				.getRgbaStr(@hex-black, 0.9); }
-			&{ background: linear-gradient(to right, rgba(@rval, @gval, @bval, 0.8) 50%, 
-					rgba(@rval, @gval, @bval, 1));
-				.rgb-black(); }
-			&{ border-bottom: 2px solid @rgba;
-				.getRgbaStr(@hex-black, 0.333); }
-
-			&::before {
-				border-top: 2px solid rgba(@rval, @gval, @bval,1);
-				border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.5);
-				.rgb-black();
-			}
-		}
-
-		&.solid.dark-crimson-background {
-			&{ background-color: @rgba;
-				.getRgbaStr(@hex-crimson-scale-darker, 0.9); }
-			background: linear-gradient(to right, 
-				@hex-crimson-scale-darker 50%, 
-				@hex-darker-crimson);
-			&{ border-bottom: 2px solid @rgba;
-				.getRgbaStr(@hex-darker-crimson, 0.5); }
-
-			&::before {
-				border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
-				border-top: 2px solid rgba(@rval, @gval, @bval, 1);
-				.rgb-darker-crimson();
-			}
-		}
-
-		&.solid.crimson-background {
-			&{ background-color: @rgba;
-				.getRgbaStr(@hex-crimson, 0.9); }
-			background: linear-gradient(to right, @hex-crimson 50%, @hex-dark-crimson);
-			&{ border-bottom: 2px solid @rgba;
-				.getRgbaStr(@hex-dark-crimson, 0.5); }
-
-			&::before {
-				border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
-				border-top: 2px solid rgba(@rval, @gval, @bval, 1);
-				.rgb-dark-crimson();
-			}
-		}
-	}
-
-	&.gray-text {
-		color: @hex-darker-gray;
-
-		&.solid {
-			&{ background-color: @rgba;
-				.getRgbaStr(@hex-dark-gray, 0.2); }
-			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
-					0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
-					0.225));
-				.rgb-dark-gray(); }
-			&{ border-bottom: 2px solid @rgba;
-				.getRgbaStr(@hex-dark-gray, 0.075); }
-
-			&::before {
-				.rgb-darker-gray();
-				border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
-				border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
-			}
-		}
-	}
-
-	&.crimson-text {
-		color: @hex-crimson;
-
-		&.solid {
-			&{ background-color: @rgba;
-				.getRgbaStr(@hex-light-crimson, 0.075); }
-			&{ background: linear-gradient(to right,
-					transparent,
-					rgba(@rval, @gval, @bval, 0.075) 5%,
-					rgba(@rval, @gval, @bval, 0.075) 50%,
-					rgba(@rval, @gval, @bval, 0.225));
-				.rgb-light-crimson(); }
-			&{ border-bottom: 2px solid @rgba;
-				.getRgbaStr(@hex-light-crimson, 0.075); }
-
-			&::before {
-				.rgb-crimson();
-				border-top: 2px solid rgba(@rval, @gval, @bval, 0.6667);
-				border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.3333);
-			}
-		}
-	}
-}
-
-// TODO: Create additional coloring classes
-
-/*      ····························································································
-**      >>> §8.5: Text transformation
-*/
-
-h1,
-h2,
-h3 {
-	text-transform: uppercase;
-}
-
-/*      ····························································································
-**      >>> §8.6: Child elements
-*/
-
-// hN children: Hyperlinks
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	.column & > a {
-		@lHeight-temp: extract(@lHeight-array, @lHeight-933mx);
-
-		border-bottom: 1px solid transparent;
-		box-shadow: none;
-		.line-height(@lHeight-933mx);
-		line-height: ~"calc(@{lHeight-temp} + 1px)";
-		text-decoration: underline;
-
-		&:hover {
-			border-bottom: 1px solid @hex-crimson;
-			text-decoration: none;
-		}
-	}
-}
-
-
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-HEADINGS §9: Article Header Blocks, Elements, & Modifiers
-*/
-
-// TODO: Finish writing.
-// .page.use-bem-styles { ... }
-// .article-header--2-columns
-// .article-header--2-columns .article-header__column-1
-// .article-header--2-columns .article-header__column-2
-// .article-header__bread-crumb
-// .article-header__background
-// .article-header__title-text
-// .article-header__title-text
-// .article-header--1/2/3/4x-sized
-// .article-header__subtitle-text
-
-/*!Example from SASS:
-** .person { }
-**  .person__face {
-**    .person--handsome & { }
-**  }
-**.person--handsome { }
-*/
-
-.hN--subtitle {
-	display: block;
-	.font-size(@fSize-400mx);
-	.line-height(@lHeight-917mx);
 }
