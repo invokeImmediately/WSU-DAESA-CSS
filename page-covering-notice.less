@@ -13,8 +13,8 @@
 **  SEMANTIC CSS FOR STYLING PAGE-COVERING NOTICE CONSTRUCTS WITHIN OUE WEBSITES
 */
 
-.declare-page-covering-notice-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-	div.page-covering-notice-css3 {
+@{oue-rules-wrapper} {
+	.page-covering-notice-css3 {
 		position: fixed;
 		 top: 0;
 		 left: 0;
@@ -28,7 +28,7 @@
 		 -webkit-animation-name: anim-page-notice-fade;
 		animation-duration: 4.9s;
 		 -webkit-animation-duration: 4.9s;    
-		div.notice-content {
+		.notice-content {
 			position: absolute;
 			 top: 50%;
 			 left: 50%;
@@ -36,11 +36,11 @@
 			transform: translate(-50%,-50%);
 		}
 
-		div.notice-content img {
+		.notice-content img {
 			margin: 0 auto 20px;
 		}
 
-		div.notice-content p {
+		.notice-content p {
 			font-size: 2rem;
 			line-height: 1.35em;
 		}
@@ -90,7 +90,7 @@
 		}
 	}
 
-	div.page-covering-notice-js {
+	.page-covering-notice-js {
 		display: none;
 		position: fixed;
 		 top: 0;
@@ -105,7 +105,7 @@
 			text-align: left;
 		}
 
-		div.notice-content {
+		.notice-content {
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -115,11 +115,11 @@
 			.transform(~"translate(-50%,-50%)");
 		}
 
-		div.notice-content img {
+		.notice-content img {
 			margin: 0 auto 20px;
 		}
 
-		div.notice-content p {
+		.notice-content p {
 			font-size: 2rem !important;
 
 			@media all and (max-width: @large-mobile-screen-width) {
@@ -134,6 +134,3 @@
 		}
 	}
 }
-.declare-page-covering-notice-rulesets(@grid-behavior);
-/*  └──────────────────────────────────────────────────────────────────────────────────────────────┘
- */
