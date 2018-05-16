@@ -13,7 +13,7 @@
 **  SEMANTIC CSS FOR STYLING OUE SECTION ELEMENTS
 */
 
-@{oue-rules-wrapper} {
+@oue-flipped-panels-ruleset: {
 	@ifp-desktop-max: ~"(max-width: 1205px)";
 	@ifp-desktop-min: ~"(min-width: 792px)";
 	.interactively-flipped-panels {
@@ -350,4 +350,6 @@
 			}
 		}
 	}
-}
+};
+
+.declare-ruleset(@oue-flipped-panels-ruleset, @oue-rules-wrapper);

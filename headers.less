@@ -28,15 +28,15 @@
 **        └> §7.4b: Utility classes...........................................................497
 **      >>> §7.5: Text transformation.........................................................616
 **      >>> §7.6: Child elements..............................................................626
-**    OUE-HEADINGS §8: Article Header Blocks, Elements, & Modifiers...........................654
-**    OUE-HEADINGS §9: (Legacy) Sectional article headers.....................................684
+**    OUE-HEADINGS §8: Article Header Blocks, Elements, & Modifiers...........................656
+**    OUE-HEADINGS §9: (Legacy) Sectional article headers.....................................686
 */
 
 /*  ================================================================================================
 **  SEMANTIC CSS FOR STYLING OUE HEADING & HEADER ELEMENTS
 */
 
-@{oue-rules-wrapper} {
+@oue-heading-ruleset: {
 
 /*    ----------------------------------------------------------------------------------------------
 **    OUE-HEADINGS §1: [h1] elements
@@ -648,7 +648,9 @@
 			}
 		}
 	}
-}
+};
+
+.declare-ruleset(@oue-heading-ruleset, @oue-rules-wrapper);
 
 /*    ----------------------------------------------------------------------------------------------
 **    OUE-HEADINGS §8: Article Header Blocks, Elements, & Modifiers

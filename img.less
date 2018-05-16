@@ -29,7 +29,7 @@
 	.setup-fixedwidth-classes((@width - 8), @cutoff);
 }
 
-@{oue-rules-wrapper} {
+@oue-img-ruleset: {
 	img {
 		height: auto;
 	    &.autoScaled,
@@ -174,4 +174,7 @@
 			}
 		}
 	}
-}
+};
+
+.declare-ruleset(@oue-img-ruleset, @oue-rules-wrapper);
+

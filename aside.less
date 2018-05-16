@@ -13,7 +13,7 @@
 **  SEMANTIC CSS FOR STYLING OUE ASIDE ELEMENTS
 */
 
-@{oue-rules-wrapper} {
+@oue-aside-ruleset: {
 	aside {
 		&.shield-themed {
 			// Settings
@@ -237,4 +237,6 @@
 			display: none;
 		}
 	}
-}
+};
+
+.declare-ruleset(@oue-aside-ruleset, @oue-rules-wrapper);

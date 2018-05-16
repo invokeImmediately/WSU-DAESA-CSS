@@ -13,7 +13,7 @@
 **  SEMANTIC CSS FOR STYLING OUE NEWS POSTS
 */
 
-@{oue-rules-wrapper} {
+@oue-news-ruleset: {
 	.article-body {
 		position: relative;
 		line-height: @body-text--lHeight;
@@ -118,4 +118,6 @@
 			}
 		}
 	}
-}
+};
+
+.declare-ruleset(@oue-news-ruleset, @oue-rules-wrapper);

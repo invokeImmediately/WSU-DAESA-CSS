@@ -13,7 +13,7 @@
 **  SEMANTIC CSS FOR STYLING PAGE-COVERING NOTICE CONSTRUCTS WITHIN OUE WEBSITES
 */
 
-@{oue-rules-wrapper} {
+@oue-page-covering-notice-ruleset: {
 	.page-covering-notice-css3 {
 		position: fixed;
 		 top: 0;
@@ -133,4 +133,6 @@
 			}
 		}
 	}
-}
+};
+
+.declare-ruleset(@oue-page-covering-notice-ruleset, @oue-rules-wrapper);
