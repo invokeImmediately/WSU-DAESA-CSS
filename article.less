@@ -87,7 +87,9 @@
 			}
 		}
 	}
-}
+};
+
+.declare-ruleset(@oue-article-ruleset, @oue-rules-wrapper);
 
 .use-article-notices(@url-gold-texture, @url-ruby-texture) when (isurl(@url-gold-texture))
 		and (isurl(@url-ruby-texture)) {
@@ -143,5 +145,3 @@
 		}
 	}
 };
-
-.declare-ruleset(@oue-article-ruleset, @oue-rules-wrapper);
