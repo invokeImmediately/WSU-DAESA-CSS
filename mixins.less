@@ -730,3 +730,17 @@
 		}
 	}
 }
+
+/*    ----------------------------------------------------------------------------------------------
+**    OUE-MIXINS §12: Declaration of detached rulesets
+*/
+
+.declare-ruleset(@ruleset, @wrapper) when (isruleset(@ruleset)) and (@wrapper = ~"") {
+	@ruleset();
+}
+
+.declare-ruleset(@ruleset, @wrapper) when (isruleset(@ruleset)) and not (@wrapper = ~"") {
+	@{wrapper} {
+		@ruleset();
+	}
+}
