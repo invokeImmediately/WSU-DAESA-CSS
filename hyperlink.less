@@ -392,22 +392,19 @@ a {
 **    §7: Special cases for hyperlinks
 */
 a {
-	.column h1 &,
-	.column h2 &,
-	.column h3 &,
-	.column h4 &,
-	.column h5 &,
-	.column h6 & {
+	.column h1 &:not(.non-text-link),
+	.column h2 &:not(.non-text-link),
+	.column h3 &:not(.non-text-link),
+	.column h4 &:not(.non-text-link),
+	.column h5 &:not(.non-text-link),
+	.column h6 &:not(.non-text-link) {
 		@lHeight-temp: extract(@lHeight-array, @lHeight-933mx);
 
 		border-bottom: 1px solid transparent;
 		box-shadow: none;
 		.line-height(@lHeight-933mx);
 		line-height: ~"calc(@{lHeight-temp} + 1px)";
-
-		&:not(.non-text-link) {
-			text-decoration: underline;
-		}
+		text-decoration: underline;
 
 		&:hover {
 			border-bottom: 1px solid @hex-crimson;
