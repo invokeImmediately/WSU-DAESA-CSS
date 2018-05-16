@@ -16,12 +16,13 @@
 /*    ─────────────────────────────────────────────────────────────────────────────────────────── 
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
-**    §1: Legacy styles for columnar hyperlinks................................................31
-**    §2: CSS3-driven tooltips via hyperlink elements..........................................99
-**    §3: Inclusional hyperlink styling via Less mixins.......................................184
-**    §4: A11y friendly default style for columnar hyperlinks.................................284
-**    §5: In-focus hyperlinks.................................................................317
-**    §6: §6: Links for non-text elements.....................................................336
+**    §1: Legacy styles for columnar hyperlinks................................................32
+**    §2: CSS3-driven tooltips via hyperlink elements..........................................93
+**    §3: Inclusional hyperlink styling via Less mixins.......................................178
+**    §4: A11y friendly default style for columnar hyperlinks.................................278
+**    §5: In-focus hyperlinks.................................................................311
+**    §6: §6: Links for non-text elements.....................................................335
+**    §7: §6: Links for non-text elements.....................................................392
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -35,17 +36,10 @@
 		a {
 			&.pop-out-link {
 				.transition(~"color .4s linear, background .4s ease-in, font-size .25s linear");
-				&.subtle-link {
-					border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), 
-						blue(@hex-crimson), 0);
-					box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson),
-								  blue(@hex-crimson), 0);
-				}
 				&:hover {
-					.rgb-accent-orange(); background-color: rgba(@rval, @gval, @bval, .1);
 					font-size: 1.05em;
-					line-height: ~"calc(1.05em * 1.05)";
-					color: @hex-accent-orange;
+//					line-height: ~"calc(1.05em * 1.05)";
+//					color: @hex-accent-orange;
 				}
 			}
 			&.learn-more {
@@ -390,6 +384,34 @@ a {
 		.column &.non-text-link {
 			  // Hyperlink icon
 			  // Underlined?
+		}
+	}
+}
+
+/*    ----------------------------------------------------------------------------------------------
+**    §7: Special cases for hyperlinks
+*/
+a {
+	.column h1 &,
+	.column h2 &,
+	.column h3 &,
+	.column h4 &,
+	.column h5 &,
+	.column h6 & {
+		@lHeight-temp: extract(@lHeight-array, @lHeight-933mx);
+
+		border-bottom: 1px solid transparent;
+		box-shadow: none;
+		.line-height(@lHeight-933mx);
+		line-height: ~"calc(@{lHeight-temp} + 1px)";
+
+		&:not(.non-text-link) {
+			text-decoration: underline;
+		}
+
+		&:hover {
+			border-bottom: 1px solid @hex-crimson;
+			text-decoration: none;
 		}
 	}
 }
