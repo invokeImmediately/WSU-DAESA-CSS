@@ -17,7 +17,7 @@
 **    OUE-FORMS §1: Form nodes
 */
 
-.declare-forms-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+@oue-forms-ruleset: {
 
 /*      ····························································································
 **      OUE-FORMS §1.1: Form-mediated "Read More" interfaces
@@ -717,7 +717,6 @@
 		.keyframes(gf-fades-in; @frames-simple-fade-in);
 
 	}
+};
 
-}
-
-.declare-forms-rulesets(@grid-behavior);
+.declare-ruleset(@oue-forms-ruleset, @oue-rules-wrapper);
