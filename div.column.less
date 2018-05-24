@@ -19,7 +19,7 @@ section.pad-top {
     }
 }
 
-.declare-column-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+@oue-column-ruleset: {
 	.column {
 		font-size: @v-clmn-sz;
 		color: @v-clmn-clr;
@@ -171,8 +171,9 @@ section.pad-top {
 			}
 		}
 	}
-}
-.declare-column-rulesets(@grid-behavior);
+};
+
+.declare-ruleset(@oue-column-ruleset, @oue-rules-wrapper);
 
 // TODO: move to separate div.callout file
 div.callout {
