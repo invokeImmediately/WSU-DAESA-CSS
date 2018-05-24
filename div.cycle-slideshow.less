@@ -14,7 +14,7 @@
 **  SEMANTIC CSS FOR STYLING OUE SECTION ELEMENTS
 */
 
-.declare-slideshow-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+@oue-slideshow-ruleset: {
 	.column {
 		.builder-section-content.cycle-slideshow {
 			@media all {
@@ -167,5 +167,6 @@
 			}
 		}
 	}
-}
-.declare-slideshow-rulesets(@grid-behavior);
+};
+
+.declare-ruleset(@oue-slideshow-ruleset, @oue-rules-wrapper);
