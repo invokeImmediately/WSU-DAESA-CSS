@@ -21,13 +21,11 @@
 **/
 
 @oue-lists-ruleset: {
-};
-
-.declare-lists-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 
 /**   ----------------------------------------------------------------------------------------------
 ***   §1: Unordered lists
 **/
+
 	ul {
 		.font-size(@fSize-1000mx);
 		.line-height(@lHeight-1000mx);
@@ -374,6 +372,6 @@
 			}
 		}
 	}
-}
+};
 
-.declare-lists-rulesets(@grid-behavior);
+.declare-ruleset(@oue-lists-ruleset, @oue-rules-wrapper);
