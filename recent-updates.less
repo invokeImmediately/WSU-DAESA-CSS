@@ -13,7 +13,7 @@
 **  SEMANTIC CSS FOR STYLING RECENT UPDATE CONSTRUCTS ON OUE WEBSITES
 */
 
-.declare-recent-updates-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+@oue-recent-updates-ruleset: {
 	.has-recent-updates {
 		background-color: @hex-bright-gray;
 		margin-bottom: @v-dflt-spcng;
@@ -252,5 +252,6 @@
 			}
 		}
 	}
-}
-.declare-recent-updates-rulesets(@grid-behavior);
+};
+
+.declare-ruleset(@oue-recent-updates-ruleset, @oue-rules-wrapper);
