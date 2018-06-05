@@ -26,7 +26,7 @@
 **    OUE-PARAGRAPHS §1: Legacy style declarations (prior to a11y redesign)
 */
 
-.declare-p-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+@out-paragraph-ruleset: {
 	p {
 		.column & {
 			&.no-bottom-pad {
@@ -287,36 +287,38 @@ rder-Template-v3.png) 32 32 round;
 			}
 		}
 	}
-	.use-jumpbar-icons(@icon-url) when (isurl(@icon-url)) {
-		.column p.vpue-jump-bar {
-			padding-left: 33px;
-			&:before {
-				background: #2d95a5 @icon-url left center/24px 24px no-repeat;
-				border-bottom-left-radius: 10px;
-				border-top-left-radius: 10px;
-				content: "";
-				height: 100%;
-				left: 0;
-				position: absolute;
-				top: 0;
-				width: 25px;
-			}
-			&.floating {
-				@media all and (max-width: @spine-threshold) {
+};
+
+.declare-ruleset(@oue-paragraph-ruleset, @oue-rules-wrapper);
+
+.use-jumpbar-icons(@icon-url) when (isurl(@icon-url)) {
+	.column p.vpue-jump-bar {
+		padding-left: 33px;
+		&:before {
+			background: #2d95a5 @icon-url left center/24px 24px no-repeat;
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+			content: "";
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 25px;
+		}
+		&.floating {
+			@media all and (max-width: @spine-threshold) {
+				&:before {
+					background-position: left bottom;
+				}
+				&:hover {
 					&:before {
-						background-position: left bottom;
-					}
-					&:hover {
-						&:before {
-							background-position: left center;
-						}
+						background-position: left center;
 					}
 				}
 			}
 		}
 	}
 }
-.declare-p-rulesets(@grid-behavior);
 
 /*    ----------------------------------------------------------------------------------------------
 **    OUE PARAGRAPHS §2: Paragraph based notices
