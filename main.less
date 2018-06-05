@@ -13,14 +13,11 @@
 **  SEMANTIC CSS FOR STYLING THE OUE MAIN ELEMENT
 */
 
-.declare-main-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-	.use-main-pseudo-footer(@background-ruleset, @height) when (isruleset(@background-ruleset)) 
-			and (ispixel(@height)) {
-// TODO: Remove this comment if/when default style rules are ever included.
-		main {
-			padding-bottom: @height;
-			@background-ruleset();
-		}
+.use-main-pseudo-footer(@background-ruleset, @height) when (isruleset(@background-ruleset)) 
+		and (ispixel(@height)) {
+	// TODO: Remove this comment if/when default style rules are ever included.
+	main {
+		padding-bottom: @height;
+		@background-ruleset();
 	}
 }
-.declare-main-rulesets(@grid-behavior);
