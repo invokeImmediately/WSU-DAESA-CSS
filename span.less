@@ -12,8 +12,7 @@
 /*  ================================================================================================
 **  SEMANTIC CSS FOR STYLING SPAN ELEMENTS OF OUE WEBSITES
 */
-
-.declare-span-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+@oue-span-ruleset: {
 	span {
 		&.accentuated-text {
 			&:extend(.has-alt-font);
@@ -99,28 +98,33 @@
 			}	
 		}
 	}
+};
 
-	.use-tool-tip-indicator-icon(@icon-url) when (isurl(@icon-url)) {
-		span.has-tool-tip,
-		span.has-tooltip {
-			&:after {
-				content: "";
-				position: absolute;
-				top: 0;
-				right: 0;
-				width: 10px;
-				height: 10px;
-				background: @icon-url no-repeat center center/100% 100%;
-				opacity: 1.0;
-				.transition(~"all 0.3s ease");
-				.transform(~"translate(100%, -25%)");
-			}
+.declare-ruleset(@oue-span-ruleset, @oue-rules-wrapper);
 
-			&:hover:after {
-				opacity: 0;
-			}
+.use-tool-tip-indicator-icon(@icon-url) when (isurl(@icon-url)) {
+	span.has-tool-tip,
+	span.has-tooltip {
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 10px;
+			height: 10px;
+			background: @icon-url no-repeat center center/100% 100%;
+			opacity: 1.0;
+			.transition(~"all 0.3s ease");
+			.transform(~"translate(100%, -25%)");
 		}
-		.use-qtip-indicator-icon(@icon-url);
+
+		&:hover:after {
+			opacity: 0;
+		}
 	}
+	.use-qtip-indicator-icon(@icon-url);
+}
+
+.declare-span-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
 }
 .declare-span-rulesets(@grid-behavior);
