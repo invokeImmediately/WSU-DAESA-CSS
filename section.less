@@ -30,8 +30,7 @@
 ***      >>> §10.2: Default font sizes for column elements...................................1546
 **/
 
-.declare-section-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
-
+@oue-section-ruleset: {
 /**   ----------------------------------------------------------------------------------------------
 ***   OUE-SECTIONS §1: Utility classes
 **/
@@ -1505,8 +1504,9 @@
 			}
 		}
 	}
-}
-.declare-section-rulesets(@grid-behavior);
+};
+
+.declare-ruleset(@oue-section-ruleset, @oue-rules-wrapper);
 
 /*    ----------------------------------------------------------------------------------------------
 **    OUE-SECTIONS §10: Accessibility friendly utility classes
