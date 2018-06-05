@@ -20,7 +20,7 @@
 **    OUE-TABLES §1: Default styling of tables
 */
 
-.declare-table-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+@oue-table-ruleset: {
 	.column {
 		table {
 			&.plain {
@@ -262,176 +262,176 @@
 			}
 		}
 	}
+};
+
+.declare-ruleset(@oue-table-ruleset, @oue-rules-wrapper);
 
 /*    ----------------------------------------------------------------------------------------------
 **    OUE-TABLES §2: Optional styling of tables via inclusional mixins
 */
 
-	.use-award-recipients-tables() {
-		.column table.award-recipients {
-			background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) 
-				repeat fixed left top;
-			border-bottom: 1px solid @hex-dark-gray;
-			border-collapse: separate;
-			border-spacing: 0;
-			border-top: 1px solid @hex-dark-gray;
-			line-height: @body-text--lHeight;
-			
-			@media all and (max-width: @large-mobile-screen-width) {
-				font-size: 12px;
-			}
+.use-award-recipients-tables() {
+	.column table.award-recipients {
+		background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) 
+			repeat fixed left top;
+		border-bottom: 1px solid @hex-dark-gray;
+		border-collapse: separate;
+		border-spacing: 0;
+		border-top: 1px solid @hex-dark-gray;
+		line-height: @body-text--lHeight;
+		
+		@media all and (max-width: @large-mobile-screen-width) {
+			font-size: 12px;
+		}
 
-			thead {
-				tr {
-					th {
-						border-bottom: 1px solid #B6BCBF;
-						border-top: 1px solid @hex-white;
-						padding-bottom: .25rem;
-						padding-left: .25rem;
-						padding-top: .25rem;
-						text-align: inherit;
-					}
-				}
-			}
-
-			tbody {
-				tr {
-					td {
-						background-color: @hex-white;
-						border-bottom: 1px solid @hex-lighter-gray;
-						border-top: 1px solid @hex-bright-gray;
-						padding-bottom: .25rem;
-						padding-left: .25rem;
-						padding-top: .25rem;
-						text-align: inherit;
-						vertical-align: top;
-
-					}
-
-				}
-
-			}
-
-			tbody:nth-of-type(2n) {
-				tr {
-					td {
-						background-color: @hex-bright-gray;
-						border-bottom: 1px solid @hex-light-gray;
-						border-top: 1px solid @hex-white;
-						padding-bottom: .25rem;
-						padding-left: .25rem;
-						padding-top: .25rem;
-						text-align: inherit;
-						vertical-align: top;
-					}
+		thead {
+			tr {
+				th {
+					border-bottom: 1px solid #B6BCBF;
+					border-top: 1px solid @hex-white;
+					padding-bottom: .25rem;
+					padding-left: .25rem;
+					padding-top: .25rem;
+					text-align: inherit;
 				}
 			}
 		}
-	}
 
-	.use-navigational-map-tables() {
-		.column table.navigational-map {
-			width: 100%;
-			margin: 0 auto;
-			margin-bottom: 20px;
-			font-size: 13px;
-			text-align: left;
-			color: @hex-crimson;
-
-			a {
-				border-bottom: 1px dotted rgba(152,30,50,0.0);
-				color: inherit;
-				box-shadow: none;
-			}
-
-			th,
-			td {
-
-				max-width: 200px;
-
-			}
-
-			th {
-				border-bottom: 1px solid @hex-light-gray;
-				font-size: 1.1em;
-				line-height: @body-text--lHeight;
-				font-weight: bold;
-				text-transform: uppercase;
-				vertical-align: bottom;
-
-				&.table-spacer {
-					width: 15px;
-				}
-
-				&:nth-child(4n+1) {
-					color: #4e2a32;
-
-					a:hover {
-						background-color: rgba(239,120,121,0.2);
-					}
-				}
-
-				&:nth-child(4n+3) {
-					color: #781d31;
-					a:hover {
-						background-color: rgba(239,120,121,0.3);
-						color: #d13c59;
-					}
-				}
-
-				a {
-					&:extend(.column a.subtle-link);
-				}
-			}
-
-			td {
-				p {
-					padding-top: 2px;
-					padding-bottom: 3px;
-					a {
-						&:extend(.column a.subtle-link);
-					}
-
-					font-size: inherit;
+		tbody {
+			tr {
+				td {
+					background-color: @hex-white;
+					border-bottom: 1px solid @hex-lighter-gray;
+					border-top: 1px solid @hex-bright-gray;
+					padding-bottom: .25rem;
+					padding-left: .25rem;
+					padding-top: .25rem;
 					text-align: inherit;
-					&:not(:last-child) {
-						margin-bottom: 0 !important;
-						border-bottom: 1px solid @hex-lighter-gray;
-					}
+					vertical-align: top;
+
 				}
 
-				&:nth-child(4n+3) {
-					color: #c60c30
-				}
 			}
 
-			@media all {
-				@media (max-width: 695px), (min-width: (@spine-threshold + 1)) and 
-						(max-width: 895px) {
-					display: block;
+		}
 
-					thead, tr, th {
-						display: block;
-					}
-
-					tbody {
-						display: none;
-					}
-
-					th {
-						max-width: none;
-						border: none;
-						text-align: center;
-						text-transform: none;
-
-						&.table-spacer, br {
-							display: none;
-						}
-					}
+		tbody:nth-of-type(2n) {
+			tr {
+				td {
+					background-color: @hex-bright-gray;
+					border-bottom: 1px solid @hex-light-gray;
+					border-top: 1px solid @hex-white;
+					padding-bottom: .25rem;
+					padding-left: .25rem;
+					padding-top: .25rem;
+					text-align: inherit;
+					vertical-align: top;
 				}
 			}
 		}
 	}
 }
 
-.declare-table-rulesets(@grid-behavior);
+.use-navigational-map-tables() {
+	.column table.navigational-map {
+		width: 100%;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		font-size: 13px;
+		text-align: left;
+		color: @hex-crimson;
+
+		a {
+			border-bottom: 1px dotted rgba(152,30,50,0.0);
+			color: inherit;
+			box-shadow: none;
+		}
+
+		th,
+		td {
+
+			max-width: 200px;
+
+		}
+
+		th {
+			border-bottom: 1px solid @hex-light-gray;
+			font-size: 1.1em;
+			line-height: @body-text--lHeight;
+			font-weight: bold;
+			text-transform: uppercase;
+			vertical-align: bottom;
+
+			&.table-spacer {
+				width: 15px;
+			}
+
+			&:nth-child(4n+1) {
+				color: #4e2a32;
+
+				a:hover {
+					background-color: rgba(239,120,121,0.2);
+				}
+			}
+
+			&:nth-child(4n+3) {
+				color: #781d31;
+				a:hover {
+					background-color: rgba(239,120,121,0.3);
+					color: #d13c59;
+				}
+			}
+
+			a {
+				&:extend(.column a.subtle-link);
+			}
+		}
+
+		td {
+			p {
+				padding-top: 2px;
+				padding-bottom: 3px;
+				a {
+					&:extend(.column a.subtle-link);
+				}
+
+				font-size: inherit;
+				text-align: inherit;
+				&:not(:last-child) {
+					margin-bottom: 0 !important;
+					border-bottom: 1px solid @hex-lighter-gray;
+				}
+			}
+
+			&:nth-child(4n+3) {
+				color: #c60c30
+			}
+		}
+
+		@media all {
+			@media (max-width: 695px), (min-width: (@spine-threshold + 1)) and 
+					(max-width: 895px) {
+				display: block;
+
+				thead, tr, th {
+					display: block;
+				}
+
+				tbody {
+					display: none;
+				}
+
+				th {
+					max-width: none;
+					border: none;
+					text-align: center;
+					text-transform: none;
+
+					&.table-spacer, br {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
