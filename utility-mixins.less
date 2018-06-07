@@ -314,7 +314,86 @@
 **      >>> §4.1: In units of "em"
 */
 
-// TODO: Finish designing this section.
+// Standard padding options in em units for all OUE websites
+@pSize-1: 0em;
+@pSize-2: 0.25em;
+@pSize-3: 0.5em;
+@pSize-4: 0.75em;
+@pSize-5: 1em;
+@pSize-6: 1.25em;
+@pSize-7: 1.5em;
+@pSize-8: 1.75em;
+@pSize-9: 2em;
+@pSize-10: 2.25em;
+@pSize-11: 2.5em;
+@pSize-12: 2.75em;
+@pSize-13: 3em;
+@pSize-14: 3.25em;
+@pSize-15: 3.5em;
+@pSize-16: 3.75em;
+@pSize-17: 4em;
+
+// OUE em padding array
+@pSize-array: @pSize-1, @pSize-2, @pSize-3, @pSize-4, @pSize-5, @pSize-6, @pSize-7, @pSize-8, 
+	@pSize-9, @pSize-10, @pSize-11, @pSize-12, @pSize-13, @pSize-14, @pSize-15, @pSize-16, 
+	@pSize-17;
+
+// Semantic em padding 
+@pSize-0mx: 1;
+@pSize-250mx: 2;
+@pSize-500mx: 3;
+@pSize-750mx: 4;
+@pSize-1000mx: 5;
+@pSize-1250mx: 6;
+@pSize-1500mx: 7;
+@pSize-1750mx: 8;
+@pSize-2000mx: 9;
+@pSize-2250mx: 10;
+@pSize-2500mx: 11;
+@pSize-2750mx: 12;
+@pSize-3000mx: 13;
+@pSize-3250mx: 14;
+@pSize-3500mx: 15;
+@pSize-3750mx: 16;
+@pSize-4000mx: 17;
+
+// Utility mixins for defining padding sizes downstream.
+.padding(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and (isstring(@which-dir)) {
+	.padding__parse-dir(@size, @dir) when (@dir = "bottom") {
+		padding-bottom: @size;
+	}
+
+	.padding__parse-dir(@size, @dir) when (@dir = "left") {
+		padding-left: @size;
+	}
+
+	.padding__parse-dir(@size, @dir) when (@dir = "right") {
+		padding-right: @size;
+	}
+
+	.padding__parse-dir(@size, @dir) when (@dir = "top") {
+		padding-top: @size;
+	}
+
+	.padding__parse-dir(@size, @dir) when not (@dir = "bottom") and not (@dir = "left") and 
+			not(@dir = "right") and not (@dir = "top") {
+		/*! Less error: .padding__parse-dir => Invalid @dir */
+	}
+
+	@pSize__this: extract(@pSize-array, @idx);
+	.padding__parse-dir(@pSize__this, @which-dir);
+}
+
+.padding(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and 
+		not (ispercentage(@idx)) and (@idx <= length(@pSize-array))) and (isstring(@which-dir)) {
+	/*! Less error: .padding__parse-dir => Invalid @idx */
+}
+
+.padding(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and not (isstring(@which-dir)) {
+	/*! Less error: .padding__parse-dir => Invalid @which-dir */
+}
 
 /*    ----------------------------------------------------------------------------------------------
 **    §5: Typography
