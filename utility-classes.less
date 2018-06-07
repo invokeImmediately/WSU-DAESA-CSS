@@ -347,6 +347,32 @@
 **    §7: PLANNED: Padding
 */
 
+@padding--array: ~"0mx" @pSize-0mx, ~"250mx" @pSize-250mx, ~"500mx" @pSize-500mx,
+	~"750mx" @pSize-750mx, ~"1000mx" @pSize-1000mx, ~"1500mx" @pSize-1500mx,
+	~"2000mx" @pSize-2000mx;
+
+.padding-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+	.padding-loop((@idx - 1));
+	@class-name: extract(extract(@padding--array, @idx), 1);
+	@value-idx: extract(extract(@padding--array, @idx), 2);
+	.padding-bottom--@{class-name} {
+		.padding(@value-idx, "bottom");
+	}
+
+	.padding-left--@{class-name} {
+		.padding(@value-idx, "left");
+	}
+
+	.padding-right--@{class-name} {
+		.padding(@value-idx, "right");
+	}
+
+	.padding-top--@{class-name} {
+		.padding(@value-idx, "top");
+	}
+}
+.padding-loop(length(@padding--array));
+
 /*    ----------------------------------------------------------------------------------------------
 **    §8: PLANNED: Functional CSS
 */
