@@ -30,8 +30,8 @@
 **    §4: Floating............................................................................279
 **    §5: Display.............................................................................295
 **    §6: Margins.............................................................................315
-**    §7: PLANNED: Padding....................................................................347
-**    §8: PLANNED: Functional CSS.............................................................351
+**    §7: Padding.............................................................................351
+**    §8: PLANNED: Functional CSS.............................................................385
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -320,6 +320,10 @@
 	.margin-loop((@idx - 1));
 	@class-name: extract(extract(@spacing--array, @idx), 1);
 	@value-idx: extract(extract(@spacing--array, @idx), 2);
+	.margin--@{class-name} {
+		.margin(@value-idx, "all");
+	}
+
 	.margin-bottom--@{class-name} {
 		.margin(@value-idx, "bottom");
 	}
@@ -344,7 +348,7 @@
 }
 
 /*    ----------------------------------------------------------------------------------------------
-**    §7: PLANNED: Padding
+**    §7: Padding
 */
 
 @padding--array: ~"0mx" @pSize-0mx, ~"250mx" @pSize-250mx, ~"500mx" @pSize-500mx,
@@ -355,6 +359,10 @@
 	.padding-loop((@idx - 1));
 	@class-name: extract(extract(@padding--array, @idx), 1);
 	@value-idx: extract(extract(@padding--array, @idx), 2);
+	.padding--@{class-name} {
+		.padding(@value-idx, "all");
+	}
+
 	.padding-bottom--@{class-name} {
 		.padding(@value-idx, "bottom");
 	}
