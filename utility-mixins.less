@@ -120,6 +120,10 @@
 // Utility mixins for defining margin sizes downstream.
 .margin(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
 		not (ispercentage(@idx)) and (@idx <= length(@mSize-array)) and (isstring(@which-dir)) {
+	.margin__parse-dir(@size, @dir) when (@dir = "all") {
+		margin: @size;
+	}
+
 	.margin__parse-dir(@size, @dir) when (@dir = "bottom") {
 		margin-bottom: @size;
 	}
@@ -136,8 +140,8 @@
 		margin-top: @size;
 	}
 
-	.margin__parse-dir(@size, @dir) when not (@dir = "bottom") and not (@dir = "left") and 
-			not(@dir = "right") and not (@dir = "top") {
+	.margin__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and 
+			not (@dir = "left") and not(@dir = "right") and not (@dir = "top") {
 		/*! Less error: .margin__parse-dir => Invalid @dir */
 	}
 
@@ -205,6 +209,10 @@
 // Utility mixins for defining margin sizes downstream.
 .margins-rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
 		not (ispercentage(@idx)) and (@idx <= length(@rem-mSize-array)) and (isstring(@which-dir)) {
+	.margins-rem__parse-dir(@size, @dir) when (@dir = "all") {
+		margin: @size;
+	}
+
 	.margins-rem__parse-dir(@size, @dir) when (@dir = "bottom") {
 		margin-bottom: @size;
 	}
@@ -221,8 +229,8 @@
 		margin-top: @size;
 	}
 
-	.margins-rem__parse-dir(@size, @dir) when not (@dir = "bottom") and not (@dir = "left") and 
-			not(@dir = "right") and not (@dir = "top") {
+	.margins-rem__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and 
+			not (@dir = "left") and not(@dir = "right") and not (@dir = "top") {
 		/*! Less error: .margins-rem__parse-dir => Invalid @dir */
 	}
 
@@ -360,6 +368,10 @@
 // Utility mixins for defining padding sizes downstream.
 .padding(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and (isstring(@which-dir)) {
+	.padding__parse-dir(@size, @dir) when (@dir = "all") {
+		padding: @size;
+	}
+
 	.padding__parse-dir(@size, @dir) when (@dir = "bottom") {
 		padding-bottom: @size;
 	}
@@ -376,8 +388,8 @@
 		padding-top: @size;
 	}
 
-	.padding__parse-dir(@size, @dir) when not (@dir = "bottom") and not (@dir = "left") and 
-			not(@dir = "right") and not (@dir = "top") {
+	.padding__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and
+			not (@dir = "left") and not(@dir = "right") and not (@dir = "top") {
 		/*! Less error: .padding__parse-dir => Invalid @dir */
 	}
 
@@ -419,6 +431,10 @@
 // Utility mixins for defining padding sizes downstream.
 .padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and (isstring(@which-dir)) {
+	.padding--rem__parse-dir(@size, @dir) when (@dir = "all") {
+		padding: @size;
+	}
+
 	.padding--rem__parse-dir(@size, @dir) when (@dir = "bottom") {
 		padding-bottom: @size;
 	}
@@ -435,8 +451,8 @@
 		padding-top: @size;
 	}
 
-	.padding--rem__parse-dir(@size, @dir) when not (@dir = "bottom") and not (@dir = "left") and 
-			not(@dir = "right") and not (@dir = "top") {
+	.padding--rem__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and 
+			not (@dir = "left") and not(@dir = "right") and not (@dir = "top") {
 		/*! Less error: .padding--rem__parse-dir => Invalid @dir */
 	}
 
