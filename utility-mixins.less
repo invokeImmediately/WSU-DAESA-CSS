@@ -395,6 +395,65 @@
 	/*! Less error: .padding__parse-dir => Invalid @which-dir */
 }
 
+/*      ····························································································
+**      >>> §4.1: In units of "em"
+*/
+
+// Standard padding options in em units for all OUE websites
+@pSize-1--rem: 0rem;
+@pSize-2--rem: 0.5rem;
+@pSize-3--rem: 1rem;
+@pSize-4--rem: 1.5rem;
+@pSize-5--rem: 2rem;
+
+// OUE em padding array
+@pSize-array--rem: @pSize-1--rem, @pSize-2--rem, @pSize-3--rem, @pSize-4--rem, @pSize-5--rem;
+
+// Semantic em padding 
+@pSize-0mx--rem: 1;
+@pSize-500mx--rem: 2;
+@pSize-1000mx--rem: 3;
+@pSize-1500mx--rem: 4;
+@pSize-2000mx--rem: 5;
+
+// Utility mixins for defining padding sizes downstream.
+.padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and (isstring(@which-dir)) {
+	.padding--rem__parse-dir(@size, @dir) when (@dir = "bottom") {
+		padding-bottom: @size;
+	}
+
+	.padding--rem__parse-dir(@size, @dir) when (@dir = "left") {
+		padding-left: @size;
+	}
+
+	.padding--rem__parse-dir(@size, @dir) when (@dir = "right") {
+		padding-right: @size;
+	}
+
+	.padding--rem__parse-dir(@size, @dir) when (@dir = "top") {
+		padding-top: @size;
+	}
+
+	.padding--rem__parse-dir(@size, @dir) when not (@dir = "bottom") and not (@dir = "left") and 
+			not(@dir = "right") and not (@dir = "top") {
+		/*! Less error: .padding--rem__parse-dir => Invalid @dir */
+	}
+
+	@pSize__this: extract(@pSize-array--rem, @idx);
+	.padding--rem__parse-dir(@pSize__this, @which-dir);
+}
+
+.padding--rem(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and 
+		not (ispercentage(@idx)) and (@idx <= length(@pSize-array))) and (isstring(@which-dir)) {
+	/*! Less error: .padding--rem__parse-dir => Invalid @idx */
+}
+
+.padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and not (isstring(@which-dir)) {
+	/*! Less error: .padding--rem__parse-dir => Invalid @which-dir */
+}
+
 /*    ----------------------------------------------------------------------------------------------
 **    §5: Typography
 */
