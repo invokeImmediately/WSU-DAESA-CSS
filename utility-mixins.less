@@ -29,6 +29,7 @@
 **        >>> §5.1: Typograhy: Font Sizing....................................................400
 **        >>> §5.2: Line heights..............................................................603
 **        >>> §5.3: Bolding...................................................................668
+**    §6: Functional CSS......................................................................???
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -755,4 +756,61 @@
 .font-weight(@weight) when (isnumber(@weight)) and not (ispixel(@weight)) 
 		and not (ispercentage(@weight)) {
 	font-weight: @weight;
+}
+
+/*    ----------------------------------------------------------------------------------------------
+**    §6: Functional CSS
+*/
+
+/*      ····························································································
+**      >>> §6.1: Card styling
+*/
+
+@style--card__border-radius: 4px;
+
+.style--card() {
+	background-color: extract(@colors--grays__hex, @colors__accent);
+	border: 1px solid extract(@colors--grays__hex, @colors__dark);
+	box-shadow: 0 1px 8px 1px @rgba;
+	border-radius: @style--card__border-radius;
+	.getRgbaStr(extract(@colors--grays__hex, @colors__darkest), 0.22);
+}
+
+.style--card__title() {
+	background-color: extract(@colors--grays__hex, @colors__lighter);
+	color: extract(@colors--grays__hex, @colors__darker);
+	.getRgbaStr(extract(@colors--grays__hex, @colors__darkest), 0.22);
+	.padding(@pSize-500mx--rem, "all");
+	text-transform: none;
+
+	&:first-child() {
+		border-top-left-radius: (@style--card__border-radius - 1);
+		border-top-right-radius: (@style--card__border-radius - 1);
+		margin: 0;
+	}
+}
+
+.style--card__sub-title() {
+	background-color: extract(@colors--grays__hex, @colors__darkish);
+	color: extract(@colors--grays__hex, @colors__accent);
+	.font-size(@fSize-1100mx);
+	font-weight: 700;
+	.margin(@mSize-0mx, "bottom")
+	.margin(@mSize-0mx, "top")
+	letter-spacing: 1px;
+	.padding(@pSize-500mx--rem, "all");
+	word-spacing: 1px;
+
+	& + * {
+		.margin(@mSize-500mx, "top")
+	}
+}
+
+.style--card__text() {
+	.padding(@pSize-500mx--rem, "left");
+	.padding(@pSize-500mx--rem, "right");
+}
+
+.style--card__list() {
+	.padding(@pSize-500mx--rem, "right");
 }
