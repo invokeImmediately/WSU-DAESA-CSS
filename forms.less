@@ -99,7 +99,10 @@
 	.column {
 		.gform_wrapper {
 			max-width: 990px;
-			.has-responsive-font(16px, @body-text--lHeight, @v-fnt-sclng-fctrs-alt);
+
+			#extensions_message {
+				padding-left: 1rem;
+			}
 
 			.field_sublabel_above {
 				.ginput_complex.ginput_container label {
@@ -107,34 +110,17 @@
 				}
 			}
 
-			.gsection {
-				margin-bottom: 0;
-				margin-top: @v-dflt-spcng;
-			}
-
-			.gfield_checkbox li label, .gfield_radio li label {
-				font-weight: normal;
-			}
-
 			.gfield_checkbox li {
 				margin-bottom: 0;
 			}
 
-			.ginput_complex {
-				span.ginput_full:not(:first-of-type) label, span.ginput_left:not(:first-of-type) 
-						label, span.ginput_right:not(:nth-of-type(2)) label {
-					margin-top: 0.4em;
-				}
+			.gfield_checkbox li label,
+			.gfield_radio li label {
+				font-weight: normal;
 			}
 
-			label.gfield_label {
-				margin-top: 0;
-				margin-bottom: 0;
-				font-size: 1.125em;
-			}
-
-			ul:last-child {
-				padding-bottom: 0;
+			.gfield_description {
+				max-width: 80ch;
 			}
 
 			.gform_body > ul {
@@ -157,6 +143,18 @@
 				}
 			}
 
+			.ginput_complex {
+				span.ginput_full:not(:first-of-type) label, span.ginput_left:not(:first-of-type) 
+						label, span.ginput_right:not(:nth-of-type(2)) label {
+					margin-top: 0.4em;
+				}
+			}
+
+			.gsection {
+				margin-bottom: 0;
+				margin-top: @v-dflt-spcng;
+			}
+
 			.top_label li ul.gfield_radio {
 				@media only screen and (min-width: 641px) {
 					width: 100%;
@@ -164,13 +162,19 @@
 
 			}
 
-			#extensions_message {
-				padding-left: 1rem;
-			}
-
 			h2.fancy {
 				margin-right: 0;
 				margin-left: 0;
+			}
+
+			label.gfield_label {
+				margin-top: 0;
+				margin-bottom: 0;
+				font-size: 1.125em;
+			}
+
+			ul:last-child {
+				padding-bottom: 0;
 			}
 
 			&.gf_browser_chrome .gform_body {
