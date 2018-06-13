@@ -242,7 +242,7 @@ footer.article-footer {
 
 @oue-div-ruleset: {
 	.column {
-		* + div {
+		& > * + div {
 			margin-top: extract(@mSize-array, @spacing-1000mx);
 		}
 	}
