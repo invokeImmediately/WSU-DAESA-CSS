@@ -43,6 +43,26 @@
 		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
     @returned-4: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-5) and 
+		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
+    @returned-5: rgba(red(@color), green(@color), blue(@color), @opacity);
+}
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-6) and 
+		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
+    @returned-6: rgba(red(@color), green(@color), blue(@color), @opacity);
+}
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-7) and 
+		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
+    @returned-7: rgba(red(@color), green(@color), blue(@color), @opacity);
+}
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-8) and 
+		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
+    @returned-8: rgba(red(@color), green(@color), blue(@color), @opacity);
+}
+.getRgbaForProp(@varName; @color: #000; @opacity: 1) when (@varName = returned-9) and 
+		(iscolor(@color)) and (@opacity >= 0) and (@opacity <= 1) {
+    @returned-9: rgba(red(@color), green(@color), blue(@color), @opacity);
+}
 
 .getRgbaStr(@color: #000; @opacity: 1) when (iscolor(@color)) and (@opacity >= 0) and 
 		(@opacity <= 1) {
