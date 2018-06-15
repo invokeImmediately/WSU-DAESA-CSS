@@ -391,7 +391,11 @@
 */
 
 .style--card {
-	.style--card();
+	.style--card--flat();
+}
+
+.style--card--raised {
+	.style--card--raised();
 }
 
 .style-card__title {
@@ -400,12 +404,8 @@
 
 .style--card__sub-title {
 	.style--card__sub-title();
-}
 
-.style--card__text {
-	.style--card__text();
-}
-
-.style--card__list {
-	.style--card__list();
+	.style-card__title + & {
+		.margin(@mSize-0mx, "top")
+	}
 }
