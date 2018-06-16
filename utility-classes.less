@@ -435,16 +435,16 @@
 	}
 }
 
-.bacground-color-class-loop(@class-name, @color-list, @idx) when (@idx > 0) and 
+.background-color-class-loop(@class-name, @color-list, @idx) when (@idx > 0) and 
 		(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
 		length(@color-list)) {
 	.background-color-class-loop(@class-name, @color-list, (@idx - 1));
 	@modifier: extract(@color-modifiers-list, @idx);
 	@color-value: extract(@color-list, @idx);
-	.background-color--@{class-name}--@{modifier} {
+	.bg-color--@{class-name}--@{modifier} {
 		background-color: @color-value;
 	}
-	.background-color--@{class-name}--@{modifier}--25pct {
+	.bg-color--@{class-name}--@{modifier}--25pct {
 		.getRgbaForProp(returned, @color-value, 0.25);
 		background-color: @returned;
 	}
