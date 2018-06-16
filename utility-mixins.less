@@ -796,15 +796,15 @@
 .style--card__title() {
 	background-color: extract(@colors--grays__hex, @colors__lighter);
 	color: extract(@colors--grays__hex, @colors__darker);
-	margin-left: -1 * extract(@mSize-array--rem, @mSize-1000mx--rem);
-	margin-right: -1 * extract(@mSize-array--rem, @mSize-1000mx--rem);
+	margin-left: -1 * extract(@rem-mSize-array, @mSize-1000mx--rem);
+	margin-right: -1 * extract(@rem-mSize-array, @mSize-1000mx--rem);
 	padding: extract(@pSize-array--rem, @pSize-500mx--rem), extract(@pSize-array--rem, 
 		@pSize-1000mx--rem);
 
 	&:first-child {
 		border-top-left-radius: (@style--card__border-radius - 1);
 		border-top-right-radius: (@style--card__border-radius - 1);
-		margin-top: -1 * extract(@mSize-array--rem, @mSize-1000mx--rem);
+		margin-top: -1 * extract(@rem-mSize-array, @mSize-1000mx--rem);
 	}
 }
 
