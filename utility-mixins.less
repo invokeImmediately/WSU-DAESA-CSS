@@ -776,30 +776,30 @@
 
 @style--card__border-radius: 4px;
 
-.style--card() {
+.style--card__() {
 	border-radius: @style--card__border-radius;
 	box-sizing: border-box;
 	padding: extract(@pSize-array--rem, @pSize-1000mx--rem);
 }
 
-.style--card--flat() {
+.style--card--flat__() {
 	background-color: extract(@colors--grays__hex, @colors__accent);
 	box-shadow: 0 0 0 1px @returned, 0 0 0 2px @returned-2, 0 3px 2px 0 @returned-3;
 	.getRgbaForProp(returned, extract(@colors--grays__hex, @colors__accent), 0.9);
 	.getRgbaForProp(returned-2, extract(@colors--grays__hex, @colors__darkest), 0.2);
 	.getRgbaForProp(returned-3, extract(@colors--grays__hex, @colors__darkest), 0.22);
-	.style--card();
+	.style--card__();
 }
 
-.style--card--raised() {
+.style--card--raised__() {
 	background-color: extract(@colors--grays__hex, @colors__accent);
 	border: 1px solid extract(@colors--grays__hex, @colors__dark);
 	box-shadow: 0 @style--card__border-radius 8px 1px @rgba;
 	.getRgbaStr(extract(@colors--grays__hex, @colors__darkest), 0.22);
-	.style--card();
+	.style--card__();
 }
 
-.style--card__title() {
+.style--card__title__() {
 	background-color: extract(@colors--grays__hex, @colors__lighter);
 	color: extract(@colors--grays__hex, @colors__darker);
 	margin-left: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
@@ -814,7 +814,7 @@
 	}
 }
 
-.style--card__sub-title() {
+.style--card__sub-title__() {
 	background-color: extract(@colors--grays__hex, @colors__darkish);
 	color: extract(@colors--grays__hex, @colors__accent);
 	.font-size(@fSize-1100mx);
