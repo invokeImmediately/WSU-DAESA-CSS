@@ -415,27 +415,30 @@
 */
 
 // Standard padding options in em units for all OUE websites
-@pSize-1--rem: 0rem;
+@pSize-1--rem: 0;
 @pSize-2--rem: 0.5rem;
 @pSize-3--rem: 1rem;
 @pSize-4--rem: 1.5rem;
-@pSize-5--rem: 2.5rem;
-@pSize-6--rem: 3rem;
-@pSize-7--rem: 3.5rem;
-@pSize-8--rem: 4rem;
+@pSize-5--rem: 2rem;
+@pSize-6--rem: 2.5rem;
+@pSize-7--rem: 3rem;
+@pSize-8--rem: 3.5rem;
+@pSize-9--rem: 4rem;
 
 // OUE em padding array
-@pSize-array--rem: @pSize-1--rem, @pSize-2--rem, @pSize-3--rem, @pSize-4--rem, @pSize-5--rem;
+@pSize-array--rem: @pSize-1--rem, @pSize-2--rem, @pSize-3--rem, @pSize-4--rem, @pSize-5--rem, 
+	@pSize-6--rem, @pSize-7--rem, @pSize-8--rem, @pSize-9--rem;
 
 // Semantic em padding 
 @pSize-0mx--rem: 1;
 @pSize-250mx--rem: 2;
 @pSize-500mx--rem: 3;
-@pSize-1000mx--rem: 4;
-@pSize-1250mx--rem: 5;
-@pSize-1500mx--rem: 6;
-@pSize-1750mx--rem: 7;
-@pSize-2000mx--rem: 8;
+@pSize-750mx--rem: 4;
+@pSize-1000mx--rem: 5;
+@pSize-1250mx--rem: 6;
+@pSize-1500mx--rem: 7;
+@pSize-1750mx--rem: 8;
+@pSize-2000mx--rem: 9;
 
 // Utility mixins for defining padding sizes downstream.
 .padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
