@@ -351,22 +351,22 @@
 
 // Semantic em padding 
 @pSize-0mx: 1;
-@pSize-250mx: 2;
-@pSize-500mx: 3;
-@pSize-750mx: 4;
-@pSize-1000mx: 5;
-@pSize-1250mx: 6;
-@pSize-1500mx: 7;
-@pSize-1750mx: 8;
-@pSize-2000mx: 9;
-@pSize-2250mx: 10;
-@pSize-2500mx: 11;
-@pSize-2750mx: 12;
-@pSize-3000mx: 13;
-@pSize-3250mx: 14;
-@pSize-3500mx: 15;
-@pSize-3750mx: 16;
-@pSize-4000mx: 17;
+@pSize-125mx: 2;
+@pSize-250mx: 3;
+@pSize-375mx: 4;
+@pSize-500mx: 5;
+@pSize-625mx: 6;
+@pSize-750mx: 7;
+@pSize-875mx: 8;
+@pSize-1000mx: 9;
+@pSize-1125mx: 10;
+@pSize-1250mx: 11;
+@pSize-1375mx: 12;
+@pSize-1500mx: 13;
+@pSize-1625mx: 14;
+@pSize-1750mx: 15;
+@pSize-1875mx: 16;
+@pSize-2000mx: 17;
 
 // Utility mixins for defining padding sizes downstream.
 .padding(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
@@ -419,17 +419,23 @@
 @pSize-2--rem: 0.5rem;
 @pSize-3--rem: 1rem;
 @pSize-4--rem: 1.5rem;
-@pSize-5--rem: 2rem;
+@pSize-5--rem: 2.5rem;
+@pSize-6--rem: 3rem;
+@pSize-7--rem: 3.5rem;
+@pSize-8--rem: 4rem;
 
 // OUE em padding array
 @pSize-array--rem: @pSize-1--rem, @pSize-2--rem, @pSize-3--rem, @pSize-4--rem, @pSize-5--rem;
 
 // Semantic em padding 
 @pSize-0mx--rem: 1;
-@pSize-500mx--rem: 2;
-@pSize-1000mx--rem: 3;
-@pSize-1500mx--rem: 4;
-@pSize-2000mx--rem: 5;
+@pSize-250mx--rem: 2;
+@pSize-500mx--rem: 3;
+@pSize-1000mx--rem: 4;
+@pSize-1250mx--rem: 5;
+@pSize-1500mx--rem: 6;
+@pSize-1750mx--rem: 7;
+@pSize-2000mx--rem: 8;
 
 // Utility mixins for defining padding sizes downstream.
 .padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
@@ -796,15 +802,15 @@
 .style--card__title() {
 	background-color: extract(@colors--grays__hex, @colors__lighter);
 	color: extract(@colors--grays__hex, @colors__darker);
-	margin-left: -1 * extract(@rem-mSize-array, @rem-mSize-1000mx);
-	margin-right: -1 * extract(@rem-mSize-array, @rem-mSize-1000mx);
-	padding: extract(@pSize-array--rem, @pSize-500mx--rem), extract(@pSize-array--rem, 
+	margin-left: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
+	margin-right: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
+	padding: extract(@pSize-array--rem, @pSize-500mx--rem) extract(@pSize-array--rem, 
 		@pSize-1000mx--rem);
 
 	&:first-child {
 		border-top-left-radius: (@style--card__border-radius - 1);
 		border-top-right-radius: (@style--card__border-radius - 1);
-		margin-top: -1 * extract(@rem-mSize-array, @rem-mSize-1000mx);
+		margin-top: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
 	}
 }
 
