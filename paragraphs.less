@@ -30,28 +30,7 @@
 @oue-paragraph-ruleset: {
 	p {
 		.column & {
-			&.no-bottom-pad {
-				padding-bottom: 0 !important;
-			}
-			&.btm-margin-override:not(:last-child) {
-				margin-bottom: 0 !important;
-			}
-			&.double-margins:not(:last-child) {
-				margin-bottom: @v-btm-mrgns * 2 !important;
-			}	
-			&.half-margins:not(:last-child) {
-				margin-bottom: @v-btm-mrgns / 2 !important;
-			}	
-			&.centered {
-				text-align: center !important;
-			}
-			&.align-left {
-				text-align: left;
-			}
-			&.fine-print {
-				.has-smllr-txt;
-			}
-			//TODO: make generic & move into separate file
+			// TODO: Update look & feel, simplify rgba functions
 			&.vpue-jump-bar {
 				.rgb-turquoise();
 				background-color: rgba(@rval,@gval,@bval,0.5);
@@ -136,75 +115,6 @@
 						}
 					}
 				}
-			}
-			// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-			&.banner-text-gray-with-towers {
-				background-color: rgba(141,149,154,0.5);
-				border: 32px solid transparent;
-				border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-Temp
-late.png) 32 32 round;
-				-o-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Border-T
-emplate.png) 32 32 round;
-				-webkit-border-image: url(/wp-content/uploads/sites/906/2015/08/Gray-Clock-Tower-Bor
-der-Template.png) 32 32 round;
-				color: @hex-darkest-gray;
-				margin-bottom: 15px;
-				padding: 7px;
-				@media all {
-					@media (min-width: @large-format-threshold) {
-						font-size: @v-bnnr-txt-sz;
-					}
-					@media (max-width: (@large-format-threshold - 1)) {
-						font-size: @v-bnnr-txt-sz * @v-scl-dwn;
-					}
-				}
-			}
-			&.banner-text {
-				.rgb-dark-gray();
-				background-color: rgba(@rval, @gval, @bval, 0.5);
-				border: 1px solid @hex-darkest-gray;
-				color: @hex-darkest-gray;
-				.has-responsive-font(@v-bnnr-txt-sz, @body-text--lHeight);
-				line-height: @body-text--lHeight;
-				.margin-centered;
-				margin-bottom: @v-dflt-spcng;
-				padding: 7px;
-				&.orange {
-					.rgb-orange();
-					background-color: rgba(@rval, @gval, @bval, 0.5);
-					border: 1px solid @hex-darkest-orange;
-				}
-				&.blue {
-					background-color: rgba(red(@hex-accent-blue), green(@hex-accent-blue), 
-						blue(@hex-accent-blue), 0.3);
-					border: 1px solid @hex-darkest-blue;
-				}
-				&.yellow {
-					.rgb-yellow();
-					background-color: rgba(@rval, @gval, @bval, 0.5);
-					border: 1px solid @hex-darkest-yellow;
-				}
-				&.green {
-					.rgb-green();
-					background-color: rgba(@rval, @gval, @bval, 0.5);
-					border: 1px solid @hex-darkest-green;
-				}
-			}
-			// TODO: Distribute border image code to custom *.LESS files for each WSU-UE website ■
-			&.banner-text-orange-with-towers {
-				.rgb-orange();
-				background-color: rgba(@rval,@gval,@bval,0.5);
-				border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-Tem
-plate-v3.png) 32 32 round;
-				-o-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Border-
-Template-v3.png) 32 32 round;
-				-webkit-border-image: url(/wp-content/uploads/sites/50/2015/09/Orange-Clock-Tower-Bo
-rder-Template-v3.png) 32 32 round;
-				border: 32px solid transparent;
-				color: @hex-darkest-orange;
-				.has-responsive-font(@v-bnnr-txt-sz, @body-text--lHeight);
-				margin-bottom: 15px;
-				padding: 7px;
 			}
 		}
 		// TODO: make generic & move into separate file
