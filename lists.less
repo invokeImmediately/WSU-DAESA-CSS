@@ -181,6 +181,7 @@
 		.column & {
 			padding-right: 0;
 			padding-bottom: 0;
+
 			li {
 				line-height: inherit;
 			}
@@ -197,6 +198,14 @@
 					list-style-type: lower-roman;
 				}
 			}
+		}
+
+		.column * + & {
+			margin-top: extract(@mSize-array, @mSize-1000mx);
+		}
+
+		.column p + & {
+			margin-top: extract(@mSize-array, @mSize-1000mx);
 		}
 	}
 
