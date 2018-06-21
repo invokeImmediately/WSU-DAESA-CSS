@@ -450,6 +450,14 @@
 	}
 }
 
+.define-bg-color-tint(@class-name, @color-list, @idx)  when (@idx > 0) and 
+		(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
+		length(@color-list)) {
+	.bg-color--@{class-name}--tint {
+		background-color: tint(extract(@color-list, @idx), 87%);
+	}	
+}
+
 /*      ····························································································
 **      >>> §9.1: WSU Grays
 */
@@ -467,6 +475,8 @@
 
 .background-color-class-loop(~"crimson", @colors--crimsons__hex, length(@colors--crimsons__hex));
 
+.define-bg-color-tint(~"crimson", @colors--crimsons__hex, @colors__darkish);
+
 /*      ····························································································
 **      >>> §9.3: WSU Greens
 */
@@ -474,6 +484,8 @@
 .color-class-loop(~"green", @colors--greens__hex, length(@colors--greens__hex));
 
 .background-color-class-loop(~"green", @colors--greens__hex, length(@colors--greens__hex));
+
+.define-bg-color-tint(~"green", @colors--greens__hex, @colors__accent);
 
 /*      ····························································································
 **      >>> §9.4: WSU Yellows
@@ -483,6 +495,8 @@
 
 .background-color-class-loop(~"yellow", @colors--yellows__hex, length(@colors--yellows__hex));
 
+.define-bg-color-tint(~"yellow", @colors--yellows__hex, @colors__accent);
+
 /*      ····························································································
 **      >>> §9.5: WSU Blues
 */
@@ -491,6 +505,8 @@
 
 .background-color-class-loop(~"blue", @colors--blues__hex, length(@colors--blues__hex));
 
+.define-bg-color-tint(~"blue", @colors--blues__hex, @colors__accent);
+
 /*      ····························································································
 **      >>> §9.6: WSU Oranges
 */
@@ -498,3 +514,5 @@
 .color-class-loop(~"orange", @colors--oranges__hex, length(@colors--oranges__hex));
 
 .background-color-class-loop(~"orange", @colors--oranges__hex, length(@colors--oranges__hex));
+
+.define-bg-color-tint(~"orange", @colors--oranges__hex, @colors__accent);
