@@ -85,7 +85,7 @@
 		@justification) when (isstring(@class-name)) and (isurl(@icon-url)) and (ispixel(@width)) 
 		and (ispixel(@height)) and (ispixel(@h-margin)) and (@justification = "left") {
 	hr.@{class-name}::before {
-		background: url(@icon-url);
+		background: @icon-url;
 		content: "";
 		height: @height;
 		left: @h-margin;
@@ -99,7 +99,7 @@
 		@justification) when (isstring(@class-name)) and (isurl(@icon-url)) and (ispixel(@width)) 
 		and (ispixel(@height)) and (ispixel(@h-margin)) and (@justification = "right") {
 	hr.@{class-name}::before {
-		background: url(@icon-url);
+		background: @icon-url;
 		content: "";
 		height: @height;
 		position: absolute;
