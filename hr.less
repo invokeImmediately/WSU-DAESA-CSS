@@ -20,8 +20,10 @@
 		border-bottom: 1px solid rgba(160, 160, 160, 0.25);
 		border-top: 1px solid rgba(@rval, @gval, @bval, 0.5);
 		height: 0;
-		.margin(@mSize-2000mx, "bottom")
-		.margin(@mSize-2000mx, "top")
+		.margin(@mSize-2000mx, "bottom");
+		.margin(@mSize-2000mx, "top");
+		overflow: visible;
+		position: relative;
 		.rgb-dark-gray();
 
 		&.subSection,
@@ -78,3 +80,31 @@
 };
 
 .declare-ruleset(@oue-hr-ruleset, @oue-rules-wrapper);
+
+.declare-hr-icon-class(@class-name, @icon-url, @width, @height, @h-margin, @v-margin,
+		@justification) when (isstring(@class-name)) and (isurl(@icon-url)) and (ispixel(@width)) 
+		and (ispixel(@height)) and (ispixel(@h-margin) and (@justification = "left") {
+	hr.@{class-name} {
+		background: url(@icon-url);
+		content: "";
+		height: @height;
+		left: @h-margin;
+		position: absolute;
+		top: @v-margin;
+		width: @width;
+	}
+}
+
+.declare-hr-icon-class(@class-name, @icon-url, @width, @height, @h-margin, @v-margin,
+		@justification) when (isstring(@class-name)) and (isurl(@icon-url)) and (ispixel(@width)) 
+		and (ispixel(@height)) and (ispixel(@h-margin) and (@justification = "left") {
+	hr.@{class-name} {
+		background: url(@icon-url);
+		content: "";
+		height: @height;
+		position: absolute;
+		right: @h-margin;
+		top: @v-margin;
+		width: @width;
+	}
+}
