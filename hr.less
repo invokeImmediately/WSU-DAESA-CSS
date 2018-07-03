@@ -1,0 +1,80 @@
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: hr.less                                                                          │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Involves styles for hr elements of WSU Office of Undergraduate Education web  │
+**  │   pages built using the builder template of the Spine parent theme of WSUWP. Styles are    │
+**  │   designed to accompany or supersede styling associated with the theme.                    │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING OUE ASIDE ELEMENTS
+*/
+
+@oue-hr-ruleset: {
+	hr {
+		background: none;
+		border: 0;
+		border-bottom: 1px solid rgba(160, 160, 160, 0.25);
+		border-top: 1px solid rgba(@rval, @gval, @bval, 0.5);
+		height: 0;
+		.margin(@mSize-2000mx, "bottom")
+		.margin(@mSize-2000mx, "top")
+		.rgb-dark-gray();
+
+		&.subSection,
+		&.sub-section {
+			width: 85%;
+			margin: @v-dflt-spcng auto;
+			background: none;
+			border: 0;
+			.rgb-dark-gray(); border-top: 1px dashed rgba(@rval,@gval,@bval,0.5);
+			border-bottom: 1px dashed rgba(160,160,160,0.25);
+			text-align: center;
+		}
+		&.spacer {
+			border: none;
+		}
+		&.crimson {
+			.rgb-crimson(); border-top: 1px solid rgba(@rval,@gval,@bval,0.67);
+			 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
+		}
+		&.dark-gray {
+			.rgb-darker-gray(); border-top: 1px solid rgba(@rval,@gval,@bval,0.6667);
+			 border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
+		}
+		&.light-gray {
+			.rgb-dark-gray(); border-top: 1px dashed rgba(@rval,@gval,@bval,0.25);
+			border-bottom: 1px dashed rgba(160,160,160,0.125);
+		}
+		&.narrow-top-margin {
+			margin-top: @v-dflt-spcng / 4;
+		}
+		&.half-top-margin {
+			margin-top: @v-dflt-spcng / 2;
+		}
+		&.no-bottom-margin {
+			margin-bottom: 0;
+		}
+		&.narrow-bottom-margin {
+			margin-bottom: @v-dflt-spcng / 4;
+		}
+		&.half-bottom-margin {
+			margin-bottom: @v-dflt-spcng / 2;
+		}
+		&.encroach-horizontal {
+			margin-left: -0.5rem;
+			margin-right: -0.5rem;
+		}
+		&.does-not-clear {
+			clear: none;
+		}
+		&.thicker {
+			border-top-width: 2px;
+		}
+	}
+};
+
+.declare-ruleset(@oue-hr-ruleset, @oue-rules-wrapper);
