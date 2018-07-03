@@ -97,7 +97,7 @@
 
 .declare-hr-icon-class(@class-name, @icon-url, @width, @height, @h-margin, @v-margin,
 		@justification) when (isstring(@class-name)) and (isurl(@icon-url)) and (ispixel(@width)) 
-		and (ispixel(@height)) and (ispixel(@h-margin)) and (@justification = "left") {
+		and (ispixel(@height)) and (ispixel(@h-margin)) and (@justification = "right") {
 	hr.@{class-name}::before {
 		background: url(@icon-url);
 		content: "";
