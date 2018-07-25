@@ -326,9 +326,9 @@
 	.add-download-notice(@download-notice-bg-clr, @download-notice-stripe-clr, @download-icon-url) 
 			when (iscolor(@download-notice-bg-clr)) and (iscolor(@download-notice-stripe-clr)) 
 			and (isurl(@download-icon-url)) {
-		.column p.notice.download {
+		.column .notice.download {
 			background-color: @download-notice-bg-clr;
-			&:before {
+			&::before {
 				background: @download-notice-stripe-clr @download-icon-url 4px @v-btm-mrgns 
 					no-repeat;
 			}		
@@ -339,10 +339,10 @@
 			@icon-top-margin: @v-btm-mrgns) when (iscolor(@new-notice-bg-clr)) and
 			(iscolor(@new-notice-stripe-clr)) and (isurl(@new-notice-icon-url)) and 
 			(ispixel(@stripe-width)) and (ispixel(@icon-width)) and (isnumber(@icon-top-margin)) {
-		.column p.notice.@{new-notice-class} {
+		.column .notice.@{new-notice-class} {
 			background-color: @new-notice-bg-clr;
 			padding-right: ~"calc(@{v-btm-mrgns} + @{stripe-width})";
-			&:before {
+			&::before {
 				width: @stripe-width;
 				@icon-spacing: (@stripe-width - @icon-width) / 2;
 				background: @new-notice-stripe-clr @new-notice-icon-url @icon-spacing 
