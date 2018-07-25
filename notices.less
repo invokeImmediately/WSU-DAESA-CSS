@@ -161,7 +161,8 @@
 			@new-notice-icon-url, @stripe-width: 32px, @icon-width: 24px, 
 			@icon-top-margin: @v-btm-mrgns) when (iscolor(@new-notice-bg-clr)) and
 			(iscolor(@new-notice-stripe-clr)) and (isurl(@new-notice-icon-url)) and 
-			(ispixel(@stripe-width)) and (ispixel(@icon-width)) and (@icon-top-margin="centered")) {
+			(ispixel(@stripe-width)) and (ispixel(@icon-width)) and
+			(@icon-top-margin = "centered") {
 		.column .notice.@{new-notice-class} {
 			background-color: @new-notice-bg-clr;
 			padding-right: ~"calc(@{v-btm-mrgns} + @{stripe-width})";
