@@ -1,0 +1,159 @@
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: notices.less                                                                     │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Functional CSS style rules for presenting notices on OUE web pages built      │
+**  │   using the WSU Spine theme for WordPress.                                                 │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*    ─────────────────────────────────────────────────────────────────────────────────────────── 
+**    TABLE OF CONTENTS:
+**    ───────────────────────────────────────────────────────────────────────────────────────────
+**    §1: Basic notices........................................................................27
+**    §2: Linked notices.......................................................................57
+**    §3: Mixin .add-download-notice..........................................................124
+**    §4: Mixin add-new-notice-class..........................................................140
+*/
+
+/*  ================================================================================================
+**  FUNCTIONAL CSS STYLE RULES FOR PRESENTING OUE NOTICES
+*/
+
+.use-paragraph-notices(@icon-url) when (isurl(@icon-url)) {
+
+/*    ----------------------------------------------------------------------------------------------
+**    §1: Basic notices
+*/
+
+	.column .notice {
+		&{ background-color: @rgba; .getRgbaStr(@hex-light-crimson, 0.2); }
+		border-radius: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: @v-btm-mrgns;
+		padding-right: ~"calc(@{v-btm-mrgns} + 32px)";
+		position: relative;
+		width: 80%;
+		width: ~"calc(90% - 2 * @{v-btm-mrgns} - 32px)";
+
+		&::before {
+			bottom: 0;
+			border-bottom-right-radius: 10px;
+			border-top-right-radius: 10px;
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 32px;
+			& {
+				.getRgbaStr(@hex-crimson, 0.3333);
+				background: @rgba @icon-url 4px @v-btm-mrgns no-repeat; 
+			}
+		}
+
+/*    ----------------------------------------------------------------------------------------------
+**    §2: Linked notices
+*/
+
+		&.linked {
+			a {
+				display: none;
+				&:first-of-type {
+					border-color: transparent;
+					border-radius: 10px;
+					box-shadow: none;
+					color: transparent;
+					display: block;
+					height: 100%;
+					left: 0;
+					position: absolute;
+					top: 0;
+					width: 100%;
+					z-index: 1;
+
+					&::before {
+						@_arrow-width: 3px;
+						@_arrow-spacing: -5px;
+						border-bottom: @_arrow-width solid extract(@colors--crimsons__hex, 
+							@colors__darkish);
+						bottom: @_arrow-spacing;
+						box-sizing: border-box;
+						content: "";
+						height: @_arrow-width;
+						left: 50%;
+						position: absolute;
+						.transform(~"translateX(-50%)");
+						.transition(~"all 0.25s linear");
+						width: 100%;
+					}
+
+					&:hover {
+						background-color: rgba(red(@hex-white), green(@hex-white), 
+							blue(@hex-white), 0.33);
+						text-shadow: none;
+						.transition(~"all 0.25s linear");
+
+						&::before {
+							@_arrow-width: 10px;
+							@_arrow-color: #b96875;
+							border-bottom: @_arrow-width solid @_arrow-color;
+							border-left: @_arrow-width solid transparent;
+							border-right: @_arrow-width solid transparent;
+							border-top: @_arrow-width solid transparent;
+							height: @_arrow-width;
+							width: @_arrow-width;
+						}
+					}
+				}
+			}
+			.hyperlink-simulator {
+				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), 
+					blue(@hex-crimson), 1);
+				border-bottom-left-radius: 0.25em;
+				border-bottom-right-radius: 0.25em;
+				box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), 
+					blue(@hex-crimson), .15);
+				color: @hex-crimson;
+			}
+		}
+	}
+
+/*    ----------------------------------------------------------------------------------------------
+**    §3: Mixin .add-download-notice
+*/
+
+	.add-download-notice(@download-notice-bg-clr, @download-notice-stripe-clr, @download-icon-url) 
+			when (iscolor(@download-notice-bg-clr)) and (iscolor(@download-notice-stripe-clr)) 
+			and (isurl(@download-icon-url)) {
+		.column .notice.download {
+			background-color: @download-notice-bg-clr;
+			&::before {
+				background: @download-notice-stripe-clr @download-icon-url 4px @v-btm-mrgns 
+					no-repeat;
+			}		
+		}
+	}
+
+/*    ----------------------------------------------------------------------------------------------
+**    §4: Mixin add-new-notice-class
+*/
+
+	.add-new-notice-class(@new-notice-class, @new-notice-bg-clr, @new-notice-stripe-clr, 
+			@new-notice-icon-url, @stripe-width: 32px, @icon-width: 24px, 
+			@icon-top-margin: @v-btm-mrgns) when (iscolor(@new-notice-bg-clr)) and
+			(iscolor(@new-notice-stripe-clr)) and (isurl(@new-notice-icon-url)) and 
+			(ispixel(@stripe-width)) and (ispixel(@icon-width)) and (isnumber(@icon-top-margin)) {
+		.column .notice.@{new-notice-class} {
+			background-color: @new-notice-bg-clr;
+			padding-right: ~"calc(@{v-btm-mrgns} + @{stripe-width})";
+			&::before {
+				width: @stripe-width;
+				@icon-spacing: (@stripe-width - @icon-width) / 2;
+				background: @new-notice-stripe-clr @new-notice-icon-url @icon-spacing 
+					@icon-top-margin no-repeat;
+			}
+		}
+	}
+}

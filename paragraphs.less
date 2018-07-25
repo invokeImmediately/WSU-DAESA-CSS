@@ -9,22 +9,21 @@
 **  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
-/*  ================================================================================================
-**  SEMANTIC CSS FOR STYLING OUE PARAGRAPHS
-*/
-
 /*    ───────────────────────────────────────────────────────────────────────────────────────────
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
-**      §1: Legacy style declarations (prior to a11y redesign).................................36
-**       >>> §1.1: Inclusional mixins.........................................................???
-**      §2: Paragraph based notices...........................................................324
-**      §3: Accessibility friendly classes....................................................417
-**       >>> §3.1: Style Defaults.............................................................621
+**      §1: Legacy style declarations (prior to a11y redesign).................................26
+**       >>> §1.1: Inclusional mixins.........................................................205
+**      §2: Accessibility friendly classes....................................................238
+**       >>> §2.1: Style Defaults.............................................................242
+*/
+
+/*  ================================================================================================
+**  SEMANTIC CSS STYLE RULES FOR PRESENTING PARAGRAPHS ON OUE WEBSITES
 */
 
 /*    ----------------------------------------------------------------------------------------------
-**    OUE-PARAGRAPHS §1: Legacy style declarations (prior to a11y redesign)
+**    §1: Legacy style declarations (prior to a11y redesign)
 */
 
 @oue-paragraph-ruleset: {
@@ -202,6 +201,10 @@
 
 .declare-ruleset(@oue-paragraph-ruleset, @oue-rules-wrapper);
 
+/*!     ····························································································
+***     >>> §1.1: Inclusional mixins
+**/
+
 .use-jumpbar-icons(@icon-url) when (isurl(@icon-url)) {
 	.column p.vpue-jump-bar {
 		padding-left: 33px;
@@ -232,132 +235,11 @@
 }
 
 /*    ----------------------------------------------------------------------------------------------
-**    OUE PARAGRAPHS §2: Paragraph based notices
-*/
-
-.use-paragraph-notices(@icon-url) when (isurl(@icon-url)) {
-	.column .notice {
-		&{ background-color: @rgba; .getRgbaStr(@hex-light-crimson, 0.2); }
-		border-radius: 10px;
-		margin-left: auto;
-		margin-right: auto;
-		padding: @v-btm-mrgns;
-		padding-right: ~"calc(@{v-btm-mrgns} + 32px)";
-		position: relative;
-		width: 80%;
-		width: ~"calc(90% - 2 * @{v-btm-mrgns} - 32px)";
-
-		&::before {
-			bottom: 0;
-			border-bottom-right-radius: 10px;
-			border-top-right-radius: 10px;
-			content: "";
-			position: absolute;
-			right: 0;
-			top: 0;
-			width: 32px;
-			& {
-				.getRgbaStr(@hex-crimson, 0.3333);
-				background: @rgba @icon-url 4px @v-btm-mrgns no-repeat; 
-			}
-		}
-		&.linked {
-			a {
-				display: none;
-				&:first-of-type {
-					border-color: transparent;
-					border-radius: 10px;
-					box-shadow: none;
-					color: transparent;
-					display: block;
-					height: 100%;
-					left: 0;
-					position: absolute;
-					top: 0;
-					width: 100%;
-					z-index: 1;
-
-					&::before {
-						@_arrow-width: 3px;
-						@_arrow-spacing: -5px;
-						border-bottom: @_arrow-width solid extract(@colors--crimsons__hex, 
-							@colors__darkish);
-						bottom: @_arrow-spacing;
-						box-sizing: border-box;
-						content: "";
-						height: @_arrow-width;
-						left: 50%;
-						position: absolute;
-						.transform(~"translateX(-50%)");
-						.transition(~"all 0.25s linear");
-						width: 100%;
-					}
-
-					&:hover {
-						background-color: rgba(red(@hex-white), green(@hex-white), 
-							blue(@hex-white), 0.33);
-						text-shadow: none;
-						.transition(~"all 0.25s linear");
-
-						&::before {
-							@_arrow-width: 10px;
-							@_arrow-color: #b96875;
-							border-bottom: @_arrow-width solid @_arrow-color;
-							border-left: @_arrow-width solid transparent;
-							border-right: @_arrow-width solid transparent;
-							border-top: @_arrow-width solid transparent;
-							height: @_arrow-width;
-							width: @_arrow-width;
-						}
-					}
-				}
-			}
-			.hyperlink-simulator {
-				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), 
-					blue(@hex-crimson), 1);
-				border-bottom-left-radius: 0.25em;
-				border-bottom-right-radius: 0.25em;
-				box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), 
-					blue(@hex-crimson), .15);
-				color: @hex-crimson;
-			}
-		}
-	}
-	.add-download-notice(@download-notice-bg-clr, @download-notice-stripe-clr, @download-icon-url) 
-			when (iscolor(@download-notice-bg-clr)) and (iscolor(@download-notice-stripe-clr)) 
-			and (isurl(@download-icon-url)) {
-		.column .notice.download {
-			background-color: @download-notice-bg-clr;
-			&::before {
-				background: @download-notice-stripe-clr @download-icon-url 4px @v-btm-mrgns 
-					no-repeat;
-			}		
-		}
-	}
-	.add-new-notice-class(@new-notice-class, @new-notice-bg-clr, @new-notice-stripe-clr, 
-			@new-notice-icon-url, @stripe-width: 32px, @icon-width: 24px, 
-			@icon-top-margin: @v-btm-mrgns) when (iscolor(@new-notice-bg-clr)) and
-			(iscolor(@new-notice-stripe-clr)) and (isurl(@new-notice-icon-url)) and 
-			(ispixel(@stripe-width)) and (ispixel(@icon-width)) and (isnumber(@icon-top-margin)) {
-		.column .notice.@{new-notice-class} {
-			background-color: @new-notice-bg-clr;
-			padding-right: ~"calc(@{v-btm-mrgns} + @{stripe-width})";
-			&::before {
-				width: @stripe-width;
-				@icon-spacing: (@stripe-width - @icon-width) / 2;
-				background: @new-notice-stripe-clr @new-notice-icon-url @icon-spacing 
-					@icon-top-margin no-repeat;
-			}
-		}
-	}
-}
-
-/*    ----------------------------------------------------------------------------------------------
-**    OUE PARAGRAPHS §3: Accessibility friendly classes
+**    OUE PARAGRAPHS §2: Accessibility friendly classes
 */
 
 /*!     ····························································································
-***     >>> §3.1: Style Defaults
+***     >>> §2.1: Style Defaults
 **/
 
 p {
