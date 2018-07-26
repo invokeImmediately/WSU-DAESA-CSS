@@ -13,15 +13,8 @@
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 **    §1: Main header.........................................................................338
-**      >>> §7.1: Spacing.....................................................................342
-**      >>> §7.2: Font sizing.................................................................357
-**      >>> §7.3: Line heights................................................................386
-**      >>> §7.4: Coloring....................................................................403
-**        ├> §7.4a: Defaults..................................................................406
-**        └> §7.4b: Utility classes...........................................................496
-**      >>> §7.5: Text transformation.........................................................615
-**    OUE-HEADINGS §8: Article Header Blocks, Elements, & Modifiers...........................628
-**    OUE-HEADINGS §9: (Legacy) Sectional article headers.....................................658
+**    §2: Page header blocks, elements, & modifiers...........................................628
+**    §3: Sectional article headers...........................................................658
 **    ──────────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -99,7 +92,7 @@
 .declare-ruleset(@oue-header-ruleset, @oue-rules-wrapper);
 
 /*    ----------------------------------------------------------------------------------------------
-**    §2: Article Header Blocks, Elements, & Modifiers
+**    §2: Page header blocks, elements, & modifiers
 */
 
 // TODO: Finish writing.
@@ -114,19 +107,12 @@
 // .article-header--1/2/3/4x-sized
 // .article-header__subtitle-text
 
-/*!Example from SASS:
-** .person { }
-**  .person__face {
-**    .person--handsome & { }
-**  }
-**.person--handsome { }
-*/
-
-.hN--subtitle {
-	display: block;
-	.font-size(@fSize-400mx);
-	.line-height(@lHeight-917mx);
-}
+//!Example from SASS:
+// .person { }
+//  .person__face {
+//    .person--handsome & { }
+//  }
+//.person--handsome { }
 
 /*    ----------------------------------------------------------------------------------------------
 **    §3: Sectional article headers (inclusional via Less mixin)
