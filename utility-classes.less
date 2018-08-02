@@ -20,27 +20,27 @@
 **    §1: Component-based precompiled CSS......................................................48
 **        >>> §1.1: Card styling...............................................................54
 **        >>> §1.2: Page headers...............................................................78
-**    §2: Widths..............................................................................130
-**        >>> §2.1: Percent widths............................................................134
-**        >>> §2.2: Max widths................................................................174
-**    §3: Typography..........................................................................181
-**        >>> §3.1: Font Sizing...............................................................185
-**        >>> §3.2: Line Heights..............................................................242
-**        >>> §3.3: Bolding...................................................................288
-**        >>> §3.4: Text transformation.......................................................317
-**        >>> §3.5: Text alignment............................................................329
-**    §4: Spacing.............................................................................349
-**    §5: Floating............................................................................370
-**    §6: Display.............................................................................386
-**    §7: Margins.............................................................................406
-**    §8: Padding.............................................................................442
-**    §9: Colors..............................................................................476
-**        >>> §9.1: WSU Grays.................................................................517
-**        >>> §9.2: WSU Crimsons..............................................................526
-**        >>> §9.3: WSU Greens................................................................536
-**        >>> §9.4: WSU Yellows...............................................................546
-**        >>> §9.5: WSU Blues.................................................................556
-**        >>> §9.6: WSU Oranges...............................................................566
+**    §2: Widths..............................................................................137
+**        >>> §2.1: Percent widths............................................................141
+**        >>> §2.2: Max widths................................................................182
+**    §3: Typography..........................................................................189
+**        >>> §3.1: Font Sizing...............................................................193
+**        >>> §3.2: Line Heights..............................................................257
+**        >>> §3.3: Bolding...................................................................304
+**        >>> §3.4: Text transformation.......................................................334
+**        >>> §3.5: Text alignment............................................................348
+**    §4: Spacing.............................................................................372
+**    §5: Floating............................................................................394
+**    §6: Display.............................................................................410
+**    §7: Margins.............................................................................434
+**    §8: Padding.............................................................................475
+**    §9: Colors..............................................................................514
+**        >>> §9.1: WSU Grays.................................................................559
+**        >>> §9.2: WSU Crimsons..............................................................568
+**        >>> §9.3: WSU Greens................................................................578
+**        >>> §9.4: WSU Yellows...............................................................588
+**        >>> §9.5: WSU Blues.................................................................598
+**        >>> §9.6: WSU Oranges...............................................................608
 **    ──────────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -103,24 +103,31 @@
 .page-header {
 	height: 230px;
 	position: relative;
-	width: 1188px;
+	width: 100%;
+	background-position: center center;
+	background-size: auto 100%;
 }
 
 .page-header__column-1 {
 	background-color: @page-header__bg-color;
-	bottom: 0;
+	top: 50%;
 	box-sizing: border-box;
 	color: @page-header__fg-color;
 	display: block;
 	left: 0;
 	margin: 0 extract(@rem-mSize-array, @rem-mSize-1000mx);
 	padding: extract(@pSize-array--rem, @pSize-250mx--rem);
-	position: absolute;
 	text-shadow: 1px 1px 8px @page-header__bg-color;
+	.transform(~"translateY(-50%)");
+
+	.page-header & {
+		position: absolute;
+	}
 }
 
+.page-header__text-breadcrumb,
 .page-header__text-title,
-.page-header__text-breadcrumb {
+.page-header__text-subtitle {
 	color: inherit;
 	text-shadow: inherit;
 }
@@ -164,7 +171,8 @@
 .pct-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pct-width-array)) {
 	.pct-width-loop((@idx - 1));
 	@class-name: extract(@pct-width--class-array, @idx);
-	.width--@{class-name} {
+	.width--@{class-name},
+	.w--@{class-name} {
 		.width--pct(@idx);
 	}
 }
@@ -207,34 +215,41 @@
 	.fSize-loop((@idx - 1));
 	@class-name: extract(extract(@fSize--class-array, @idx), 1);
 	@value-idx: extract(extract(@fSize--class-array, @idx), 2);
-	.font-size--@{class-name} {
+	.font-size--@{class-name},
+	.fs--@{class-name} {
 		.font-size(@value-idx);
 	}
 }
 .fSize-loop(length(@fSize-array));
 
 // Semantic font-sizing with reference to standard heading sizes
-.h1-text-size {
+.h1-text-size,
+.h1-fs {
 	.font-size(@h1-font-size);
 }
 
-.h2-text-size {
+.h2-text-size,
+.h2-fs {
 	.font-size(@h2-font-size);
 }
 
-.h3-text-size {
+.h3-text-size,
+.h3-fs {
 	.font-size(@h3-font-size);
 }
 
-.h4-text-size {
+.h4-text-size,
+.h4-fs {
 	.font-size(@h4-font-size);
 }
 
-.h5-text-size {
+.h5-text-size,
+.h5-fs {
 	.font-size(@h5-font-size);
 }
 
-.h6-text-size {
+.h6-text-size,
+.h6-fs {
 	.font-size(@h6-font-size);
 }
 
@@ -278,7 +293,8 @@
 .lHeight-loop(@idx) when (@idx > 0) and (@idx <= length(@lHeight-array)) {
 	.lHeight-loop((@idx - 1));
 	@class-name: extract(@lHeight--class-array, @idx);
-	.line-height--@{class-name} {
+	.line-height--@{class-name},
+	.lh--@{class-name} {
 		.line-height(@idx);
 	}
 }
@@ -307,7 +323,8 @@
 	.fWeight-loop((@idx - 1));
 	@class-name: extract(extract(@fWeight--array, @idx), 1);
 	@value: extract(extract(@fWeight--array, @idx), 2);
-	.font-weight--@{class-name} {
+	.font-weight--@{class-name},
+	.fw--@{class-name} {
 		.font-weight(@value);
 	}
 }
@@ -317,11 +334,13 @@
 ***     >>> §3.4: Typograhy: Text transformation
 **/
 
-.text-transform--none {
+.text-transform--none,
+.tt--none {
 	text-transform: none;
 }
 
-.text-transform--uppercase {
+.text-transform--uppercase,
+.tt--uppercase {
 	text-transform: uppercase;
 }
 
@@ -329,19 +348,23 @@
 ***     >>> §3.5: Typograhy: Text alignment
 **/
 
-.text-align--center {
+.text-align--center,
+.ta--center {
 	text-align: center;
 }
 
-.text-align--justify {
+.text-align--justify,
+.ta--justify {
 	text-align: justify;
 }
 
-.text-align--left {
+.text-align--left,
+.ta--left {
 	text-align: left;
 }
 
-.text-align--right {
+.text-align--right,
+.ta--right {
 	text-align: left;
 }
 
@@ -358,7 +381,8 @@
 	.spacing-loop((@idx - 1));
 	@class-name: extract(extract(@spacing--array, @idx), 1);
 	@value-idx: extract(extract(@spacing--array, @idx), 2);
-	.spacing--@{class-name} {
+	.spacing--@{class-name},
+	.sv--@{class-name} {
 		.column * + & {
 			margin-top: extract(@mSize-array, @value-idx);
 		}
@@ -386,19 +410,23 @@
 **    §6: Display
 */
 
-.display--block {
+.display--block,
+.dy--block {
 	display: block;
 }
 
-.display--inline {
+.display--inline,
+.dy--inline {
 	display: inline;
 }
 
-.display--inline-block {
+.display--inline-block,
+.dy--inline-block {
 	display: inline-block;
 }
 
-.display--none {
+.display--none,
+.dy--none {
 	display: none;
 }
 
@@ -411,23 +439,28 @@
 	.margin-loop((@idx - 1));
 	@class-name: extract(extract(@spacing--array, @idx), 1);
 	@value-idx: extract(extract(@spacing--array, @idx), 2);
-	.margin--@{class-name} {
+	.margin--@{class-name},
+	.ma--@{class-name} {
 		.margin(@value-idx, "all");
 	}
 
-	.margin-bottom--@{class-name} {
+	.margin-bottom--@{class-name},
+	.mb--@{class-name} {
 		.margin(@value-idx, "bottom");
 	}
 
-	.margin-left--@{class-name} {
+	.margin-left--@{class-name},
+	.ml--@{class-name} {
 		.margin(@value-idx, "left");
 	}
 
-	.margin-right--@{class-name} {
+	.margin-right--@{class-name},
+	.mr--@{class-name} {
 		.margin(@value-idx, "right");
 	}
 
-	.margin-top--@{class-name} {
+	.margin-top--@{class-name},
+	.mt--@{class-name} {
 		.margin(@value-idx, "top");
 	}
 }
@@ -450,23 +483,28 @@
 	.padding-loop((@idx - 1));
 	@class-name: extract(extract(@padding--array, @idx), 1);
 	@value-idx: extract(extract(@padding--array, @idx), 2);
-	.padding--@{class-name} {
+	.padding--@{class-name},
+	.pa--@{class-name} {
 		.padding(@value-idx, "all");
 	}
 
-	.padding-bottom--@{class-name} {
+	.padding-bottom--@{class-name},
+	.pb--@{class-name} {
 		.padding(@value-idx, "bottom");
 	}
 
-	.padding-left--@{class-name} {
+	.padding-left--@{class-name},
+	.pl--@{class-name} {
 		.padding(@value-idx, "left");
 	}
 
-	.padding-right--@{class-name} {
+	.padding-right--@{class-name},
+	.pr--@{class-name} {
 		.padding(@value-idx, "right");
 	}
 
-	.padding-top--@{class-name} {
+	.padding-top--@{class-name},
+	.pt--@{class-name} {
 		.padding(@value-idx, "top");
 	}
 }
@@ -485,7 +523,8 @@
 	.color-class-loop(@class-name, @color-list, (@idx - 1));
 	@modifier: extract(@color-modifiers-list, @idx);
 	@color-value: extract(@color-list, @idx);
-	.color--@{class-name}--@{modifier} {
+	.color--@{class-name}--@{modifier},
+	.c--@{class-name}--@{modifier} {
 		color: @color-value;
 	}
 }
@@ -496,10 +535,12 @@
 	.background-color-class-loop(@class-name, @color-list, (@idx - 1));
 	@modifier: extract(@color-modifiers-list, @idx);
 	@color-value: extract(@color-list, @idx);
-	.bg-color--@{class-name}--@{modifier} {
+	.bg-color--@{class-name}--@{modifier},
+	.bgc--@{class-name}--@{modifier} {
 		background-color: @color-value;
 	}
-	.bg-color--@{class-name}--@{modifier}--25pct {
+	.bg-color--@{class-name}--@{modifier}--25pct,
+	.bgc--@{class-name}--@{modifier}--25pct {
 		.getRgbaForProp(returned, @color-value, 0.25);
 		background-color: @returned;
 	}
@@ -508,7 +549,8 @@
 .define-bg-color-tint(@class-name, @color-list, @idx)  when (@idx > 0) and 
 		(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
 		length(@color-list)) {
-	.bg-color--@{class-name}--tint {
+	.bg-color--@{class-name}--tint,
+	.bgc--@{class-name}--tint {
 		background-color: tint(extract(@color-list, @idx), 87%);
 	}	
 }
