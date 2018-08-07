@@ -18,29 +18,29 @@
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 **    §1: Component-based precompiled CSS......................................................48
-**        >>> §1.1: Card styling...............................................................54
-**        >>> §1.2: Page headers...............................................................78
-**    §2: Widths..............................................................................137
-**        >>> §2.1: Percent widths............................................................141
-**        >>> §2.2: Max widths................................................................182
-**    §3: Typography..........................................................................189
-**        >>> §3.1: Font Sizing...............................................................193
-**        >>> §3.2: Line Heights..............................................................257
-**        >>> §3.3: Bolding...................................................................304
-**        >>> §3.4: Text transformation.......................................................334
-**        >>> §3.5: Text alignment............................................................348
-**    §4: Spacing.............................................................................372
-**    §5: Floating............................................................................394
-**    §6: Display.............................................................................410
-**    §7: Margins.............................................................................434
-**    §8: Padding.............................................................................475
-**    §9: Colors..............................................................................514
-**        >>> §9.1: WSU Grays.................................................................559
-**        >>> §9.2: WSU Crimsons..............................................................568
-**        >>> §9.3: WSU Greens................................................................578
-**        >>> §9.4: WSU Yellows...............................................................588
-**        >>> §9.5: WSU Blues.................................................................598
-**        >>> §9.6: WSU Oranges...............................................................608
+**        >>> §1.1: Card styling...............................................................56
+**        >>> §1.2: Page headers...............................................................80
+**    §2: Widths..............................................................................139
+**        >>> §2.1: Percent widths............................................................143
+**        >>> §2.2: Max widths................................................................184
+**    §3: Typography..........................................................................192
+**        >>> §3.1: Font Sizing...............................................................196
+**        >>> §3.2: Line Heights..............................................................260
+**        >>> §3.3: Bolding...................................................................308
+**        >>> §3.4: Text transformation.......................................................338
+**        >>> §3.5: Text alignment............................................................352
+**    §4: Spacing.............................................................................376
+**    §5: Floating............................................................................396
+**    §6: Display.............................................................................412
+**    §7: Margins.............................................................................436
+**    §8: Padding.............................................................................477
+**    §9: Colors..............................................................................516
+**        >>> §9.1: WSU Grays.................................................................561
+**        >>> §9.2: WSU Crimsons..............................................................570
+**        >>> §9.3: WSU Greens................................................................580
+**        >>> §9.4: WSU Yellows...............................................................590
+**        >>> §9.5: WSU Blues.................................................................600
+**        >>> §9.6: WSU Oranges...............................................................610
 **    ──────────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -50,29 +50,31 @@
 
 // Todo: Separate into component-based Less import file
 
+@oue-utility-classes-ruleset: {
+
 /*      ····························································································
 **      >>> §1.1: Card styling
 */
 
-.style--card {
-	.style--card--flat__();
-}
+	.style--card {
+		.style--card--flat__();
+	}
 
-.style--card--raised {
-	.style--card--raised__();
-}
+	.style--card--raised {
+		.style--card--raised__();
+	}
 
-.style--card__title {
-	.style--card__title__();
-}
+	.style--card__title {
+		.style--card__title__();
+	}
 
-.style--card__sub-title {
-	.style--card__sub-title__();
+	.style--card__sub-title {
+		.style--card__sub-title__();
+	}
 
-	.style-card__title + & {
+	.style-card__title + .style--card__sub-title {
 		.margin(@mSize-0mx, "top")
 	}
-}
 
 /*      ····························································································
 **      >>> §1.1: Page headers
@@ -97,40 +99,40 @@
 //  }
 //.person--handsome { }
 
-@page-header__bg-color: rgba(red(extract(@colors--grays__hex, @colors__darkest)), green(extract(@colors--grays__hex, @colors__darkest)), blue(extract(@colors--grays__hex, @colors__darkest)), 0.75);
-@page-header__fg-color: extract(@colors--grays__hex, @colors__accent);
+	@page-header__bg-color: rgba(red(extract(@colors--grays__hex, @colors__darkest)), green(extract(@colors--grays__hex, @colors__darkest)), blue(extract(@colors--grays__hex, @colors__darkest)), 0.75);
+	@page-header__fg-color: extract(@colors--grays__hex, @colors__accent);
 
-.page-header {
-	height: 230px;
-	position: relative;
-	width: 100%;
-	background-position: center center;
-	background-size: auto 100%;
-}
+	.page-header {
+		height: 230px;
+		position: relative;
+		width: 100%;
+		background-position: center center;
+		background-size: auto 100%;
+	}
 
-.page-header__column-1 {
-	background-color: @page-header__bg-color;
-	top: 50%;
-	box-sizing: border-box;
-	color: @page-header__fg-color;
-	display: block;
-	left: 0;
-	margin: 0 extract(@rem-mSize-array, @rem-mSize-1000mx);
-	padding: extract(@pSize-array--rem, @pSize-250mx--rem);
-	text-shadow: 1px 1px 8px @page-header__bg-color;
-	.transform(~"translateY(-50%)");
+	.page-header__column-1 {
+		background-color: @page-header__bg-color;
+		top: 50%;
+		box-sizing: border-box;
+		color: @page-header__fg-color;
+		display: block;
+		left: 0;
+		margin: 0 extract(@rem-mSize-array, @rem-mSize-1000mx);
+		padding: extract(@pSize-array--rem, @pSize-250mx--rem);
+		text-shadow: 1px 1px 8px @page-header__bg-color;
+		.transform(~"translateY(-50%)");
+	}
 
-	.page-header & {
+	.page-header .page-header__column-1 {
 		position: absolute;
 	}
-}
 
-.page-header__text-breadcrumb,
-.page-header__text-title,
-.page-header__text-subtitle {
-	color: inherit;
-	text-shadow: inherit;
-}
+	.page-header__text-breadcrumb,
+	.page-header__text-title,
+	.page-header__text-subtitle {
+		color: inherit;
+		text-shadow: inherit;
+	}
 
 
 /*    ----------------------------------------------------------------------------------------------
@@ -140,50 +142,51 @@
 /*      ····························································································
 **      >>> §2.1: Percent widths
 */
-@pct-width-1--class: ~"5pct";
-@pct-width-2--class: ~"10pct";
-@pct-width-3--class: ~"15pct";
-@pct-width-4--class: ~"20pct";
-@pct-width-5--class: ~"25pct";
-@pct-width-6--class: ~"30pct";
-@pct-width-7--class: ~"35pct";
-@pct-width-8--class: ~"40pct";
-@pct-width-9--class: ~"45pct";
-@pct-width-10--class: ~"50pct";
-@pct-width-11--class: ~"55pct";
-@pct-width-12--class: ~"60pct";
-@pct-width-13--class: ~"65pct";
-@pct-width-14--class: ~"70pct";
-@pct-width-15--class: ~"75pct";
-@pct-width-16--class: ~"80pct";
-@pct-width-17--class: ~"85pct";
-@pct-width-18--class: ~"90pct";
-@pct-width-19--class: ~"95pct";
-@pct-width-20--class: ~"100pct";
+	@pct-width-1--class: ~"5pct";
+	@pct-width-2--class: ~"10pct";
+	@pct-width-3--class: ~"15pct";
+	@pct-width-4--class: ~"20pct";
+	@pct-width-5--class: ~"25pct";
+	@pct-width-6--class: ~"30pct";
+	@pct-width-7--class: ~"35pct";
+	@pct-width-8--class: ~"40pct";
+	@pct-width-9--class: ~"45pct";
+	@pct-width-10--class: ~"50pct";
+	@pct-width-11--class: ~"55pct";
+	@pct-width-12--class: ~"60pct";
+	@pct-width-13--class: ~"65pct";
+	@pct-width-14--class: ~"70pct";
+	@pct-width-15--class: ~"75pct";
+	@pct-width-16--class: ~"80pct";
+	@pct-width-17--class: ~"85pct";
+	@pct-width-18--class: ~"90pct";
+	@pct-width-19--class: ~"95pct";
+	@pct-width-20--class: ~"100pct";
 
-@pct-width--class-array: @pct-width-1--class, @pct-width-2--class, @pct-width-3--class,
-	@pct-width-4--class, @pct-width-5--class, @pct-width-6--class, @pct-width-7--class,
-	@pct-width-8--class, @pct-width-9--class, @pct-width-10--class, @pct-width-11--class,
-	@pct-width-12--class, @pct-width-13--class, @pct-width-14--class, @pct-width-15--class,
-	@pct-width-16--class, @pct-width-17--class, @pct-width-18--class, @pct-width-19--class,
-	@pct-width-20--class;
+	@pct-width--class-array: @pct-width-1--class, @pct-width-2--class, @pct-width-3--class,
+		@pct-width-4--class, @pct-width-5--class, @pct-width-6--class, @pct-width-7--class,
+		@pct-width-8--class, @pct-width-9--class, @pct-width-10--class, @pct-width-11--class,
+		@pct-width-12--class, @pct-width-13--class, @pct-width-14--class, @pct-width-15--class,
+		@pct-width-16--class, @pct-width-17--class, @pct-width-18--class, @pct-width-19--class,
+		@pct-width-20--class;
 
-.pct-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pct-width-array)) {
-	.pct-width-loop((@idx - 1));
-	@class-name: extract(@pct-width--class-array, @idx);
-	.width--@{class-name},
-	.w--@{class-name} {
-		.width--pct(@idx);
+	.pct-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pct-width-array)) {
+		.pct-width-loop((@idx - 1));
+		@class-name: extract(@pct-width--class-array, @idx);
+		.width--@{class-name},
+		.w--@{class-name} {
+			.width--pct(@idx);
+		}
 	}
-}
-.pct-width-loop(length(@pct-width-array));
+	.pct-width-loop(length(@pct-width-array));
 
 /*      ····························································································
 **      >>> §2.2: Max widths
 */
-.max-width--none {
-	max-width: none;
-}
+	.max-width--none,
+	.mw--none {
+		max-width: none;
+	}
 
 /*    ----------------------------------------------------------------------------------------------
 **    §3: Typography
@@ -203,55 +206,55 @@
 
 // TODO: Reduce number of options to reduce file size
 
-@fSize--class-array: ~"400mx" @fSize-400mx, ~"500mx" @fSize-500mx, ~"600mx" @fSize-600mx,
-	~"700mx" @fSize-700mx, ~"800mx" @fSize-800mx, ~"900mx" @fSize-900mx, ~"1000mx" @fSize-1000mx,
-	~"1100mx" @fSize-1100mx, ~"1200mx" @fSize-1200mx, ~"1300mx" @fSize-1300mx,
-	~"1400mx" @fSize-1400mx, ~"1500mx" @fSize-1500mx, ~"1600mx" @fSize-1600mx,
-	~"1700mx" @fSize-1700mx, ~"1800mx" @fSize-1800mx, ~"1900mx" @fSize-1900mx,
-	~"2000mx" @fSize-2000mx, ~"2100mx" @fSize-2100mx, ~"2200mx" @fSize-2200mx,
-	~"2300mx" @fSize-2300mx, ~"2400mx" @fSize-2400mx;
+	@fSize--class-array: ~"400mx" @fSize-400mx, ~"500mx" @fSize-500mx, ~"600mx" @fSize-600mx,
+		~"700mx" @fSize-700mx, ~"800mx" @fSize-800mx, ~"900mx" @fSize-900mx, ~"1000mx" @fSize-1000mx,
+		~"1100mx" @fSize-1100mx, ~"1200mx" @fSize-1200mx, ~"1300mx" @fSize-1300mx,
+		~"1400mx" @fSize-1400mx, ~"1500mx" @fSize-1500mx, ~"1600mx" @fSize-1600mx,
+		~"1700mx" @fSize-1700mx, ~"1800mx" @fSize-1800mx, ~"1900mx" @fSize-1900mx,
+		~"2000mx" @fSize-2000mx, ~"2100mx" @fSize-2100mx, ~"2200mx" @fSize-2200mx,
+		~"2300mx" @fSize-2300mx, ~"2400mx" @fSize-2400mx;
 
-.fSize-loop(@idx) when (@idx > 0) and (@idx <= length(@fSize-array)) {
-	.fSize-loop((@idx - 1));
-	@class-name: extract(extract(@fSize--class-array, @idx), 1);
-	@value-idx: extract(extract(@fSize--class-array, @idx), 2);
-	.font-size--@{class-name},
-	.fs--@{class-name} {
-		.font-size(@value-idx);
+	.fSize-loop(@idx) when (@idx > 0) and (@idx <= length(@fSize-array)) {
+		.fSize-loop((@idx - 1));
+		@class-name: extract(extract(@fSize--class-array, @idx), 1);
+		@value-idx: extract(extract(@fSize--class-array, @idx), 2);
+		.font-size--@{class-name},
+		.fs--@{class-name} {
+			.font-size(@value-idx);
+		}
 	}
-}
-.fSize-loop(length(@fSize-array));
+	.fSize-loop(length(@fSize-array));
 
-// Semantic font-sizing with reference to standard heading sizes
-.h1-text-size,
-.h1-fs {
-	.font-size(@h1-font-size);
-}
+	// Semantic font-sizing with reference to standard heading sizes
+	.h1-text-size,
+	.h1-fs {
+		.font-size(@h1-font-size);
+	}
 
-.h2-text-size,
-.h2-fs {
-	.font-size(@h2-font-size);
-}
+	.h2-text-size,
+	.h2-fs {
+		.font-size(@h2-font-size);
+	}
 
-.h3-text-size,
-.h3-fs {
-	.font-size(@h3-font-size);
-}
+	.h3-text-size,
+	.h3-fs {
+		.font-size(@h3-font-size);
+	}
 
-.h4-text-size,
-.h4-fs {
-	.font-size(@h4-font-size);
-}
+	.h4-text-size,
+	.h4-fs {
+		.font-size(@h4-font-size);
+	}
 
-.h5-text-size,
-.h5-fs {
-	.font-size(@h5-font-size);
-}
+	.h5-text-size,
+	.h5-fs {
+		.font-size(@h5-font-size);
+	}
 
-.h6-text-size,
-.h6-fs {
-	.font-size(@h6-font-size);
-}
+	.h6-text-size,
+	.h6-fs {
+		.font-size(@h6-font-size);
+	}
 
 /*!     ····························································································
 ***     >>> §3.2: Typograhy: Line heights
@@ -262,354 +265,356 @@
 ***       which are both defined in utility-mixins.less.
 **/
 
-@lHeight-1--class: ~"1000mx";
-@lHeight-2--class: ~"1025mx";
-@lHeight-3--class: ~"1050mx";
-@lHeight-4--class: ~"1075mx";
-@lHeight-5--class: ~"1100mx";
-@lHeight-6--class: ~"1125mx";
-@lHeight-7--class: ~"1150mx";
-@lHeight-8--class: ~"1175mx";
-@lHeight-9--class: ~"1200mx";
-@lHeight-10--class: ~"1225mx";
-@lHeight-11--class: ~"1250mx";
-@lHeight-12--class: ~"1275mx";
-@lHeight-13--class: ~"1300mx";
-@lHeight-14--class: ~"1325mx";
-@lHeight-15--class: ~"1350mx";
-@lHeight-16--class: ~"1375mx";
-@lHeight-17--class: ~"1400mx";
-@lHeight-18--class: ~"1425mx";
-@lHeight-19--class: ~"1450mx";
-@lHeight-20--class: ~"1475mx";
-@lHeight-21--class: ~"1500mx";
+	@lHeight-1--class: ~"1000mx";
+	@lHeight-2--class: ~"1025mx";
+	@lHeight-3--class: ~"1050mx";
+	@lHeight-4--class: ~"1075mx";
+	@lHeight-5--class: ~"1100mx";
+	@lHeight-6--class: ~"1125mx";
+	@lHeight-7--class: ~"1150mx";
+	@lHeight-8--class: ~"1175mx";
+	@lHeight-9--class: ~"1200mx";
+	@lHeight-10--class: ~"1225mx";
+	@lHeight-11--class: ~"1250mx";
+	@lHeight-12--class: ~"1275mx";
+	@lHeight-13--class: ~"1300mx";
+	@lHeight-14--class: ~"1325mx";
+	@lHeight-15--class: ~"1350mx";
+	@lHeight-16--class: ~"1375mx";
+	@lHeight-17--class: ~"1400mx";
+	@lHeight-18--class: ~"1425mx";
+	@lHeight-19--class: ~"1450mx";
+	@lHeight-20--class: ~"1475mx";
+	@lHeight-21--class: ~"1500mx";
 
-@lHeight--class-array: @lHeight-1--class, @lHeight-2--class, @lHeight-3--class, @lHeight-4--class, 
-	@lHeight-5--class, @lHeight-6--class, @lHeight-7--class, @lHeight-8--class, @lHeight-9--class, 
-	@lHeight-10--class, @lHeight-11--class, @lHeight-12--class, @lHeight-13--class, 
-	@lHeight-14--class, @lHeight-15--class, @lHeight-16--class, @lHeight-17--class, 
-	@lHeight-18--class, @lHeight-19--class, @lHeight-20--class, @lHeight-21--class;
+	@lHeight--class-array: @lHeight-1--class, @lHeight-2--class, @lHeight-3--class,
+		@lHeight-4--class, @lHeight-5--class, @lHeight-6--class, @lHeight-7--class,
+		@lHeight-8--class, @lHeight-9--class, @lHeight-10--class, @lHeight-11--class,
+		@lHeight-12--class, @lHeight-13--class, @lHeight-14--class, @lHeight-15--class,
+		@lHeight-16--class, @lHeight-17--class, @lHeight-18--class, @lHeight-19--class,
+		@lHeight-20--class, @lHeight-21--class;
 
-.lHeight-loop(@idx) when (@idx > 0) and (@idx <= length(@lHeight-array)) {
-	.lHeight-loop((@idx - 1));
-	@class-name: extract(@lHeight--class-array, @idx);
-	.line-height--@{class-name},
-	.lh--@{class-name} {
-		.line-height(@idx);
+	.lHeight-loop(@idx) when (@idx > 0) and (@idx <= length(@lHeight-array)) {
+		.lHeight-loop((@idx - 1));
+		@class-name: extract(@lHeight--class-array, @idx);
+		.line-height--@{class-name},
+		.lh--@{class-name} {
+			.line-height(@idx);
+		}
 	}
-}
-.lHeight-loop(length(@lHeight-array));
+	.lHeight-loop(length(@lHeight-array));
 
 /*!     ····························································································
 ***     >>> §3.3: Typograhy: Bolding
 **/
 
-@fWeight-1--class: ~"light";
-@fWeight-1--value: @fWeight-light;
-@fWeight-2--class: ~"normal";
-@fWeight-2--value: @fWeight-normal;
-@fWeight-3--class: ~"semi-bold";
-@fWeight-3--value: @fWeight-semi-bold;
-@fWeight-4--class: ~"bold";
-@fWeight-4--value: @fWeight-bold;
-@fWeight-5--class: ~"extra-bold";
-@fWeight-5--value: @fWeight-extra-bold;
+	@fWeight-1--class: ~"light";
+	@fWeight-1--value: @fWeight-light;
+	@fWeight-2--class: ~"normal";
+	@fWeight-2--value: @fWeight-normal;
+	@fWeight-3--class: ~"semi-bold";
+	@fWeight-3--value: @fWeight-semi-bold;
+	@fWeight-4--class: ~"bold";
+	@fWeight-4--value: @fWeight-bold;
+	@fWeight-5--class: ~"extra-bold";
+	@fWeight-5--value: @fWeight-extra-bold;
 
-@fWeight--array: @fWeight-1--class @fWeight-1--value, @fWeight-2--class @fWeight-2--value, 
-	@fWeight-3--class @fWeight-3--value, @fWeight-4--class @fWeight-4--value, 
-	@fWeight-5--class @fWeight-5--value;
+	@fWeight--array: @fWeight-1--class @fWeight-1--value, @fWeight-2--class @fWeight-2--value, 
+		@fWeight-3--class @fWeight-3--value, @fWeight-4--class @fWeight-4--value, 
+		@fWeight-5--class @fWeight-5--value;
 
-.fWeight-loop(@idx) when (@idx > 0) and (@idx <= length(@fWeight--array)) {
-	.fWeight-loop((@idx - 1));
-	@class-name: extract(extract(@fWeight--array, @idx), 1);
-	@value: extract(extract(@fWeight--array, @idx), 2);
-	.font-weight--@{class-name},
-	.fw--@{class-name} {
-		.font-weight(@value);
+	.fWeight-loop(@idx) when (@idx > 0) and (@idx <= length(@fWeight--array)) {
+		.fWeight-loop((@idx - 1));
+		@class-name: extract(extract(@fWeight--array, @idx), 1);
+		@value: extract(extract(@fWeight--array, @idx), 2);
+		.font-weight--@{class-name},
+		.fw--@{class-name} {
+			.font-weight(@value);
+		}
 	}
-}
-.fWeight-loop(length(@fWeight--array));
+	.fWeight-loop(length(@fWeight--array));
 
 /*!     ····························································································
 ***     >>> §3.4: Typograhy: Text transformation
 **/
 
-.text-transform--none,
-.tt--none {
-	text-transform: none;
-}
+	.text-transform--none,
+	.tt--none {
+		text-transform: none;
+	}
 
-.text-transform--uppercase,
-.tt--uppercase {
-	text-transform: uppercase;
-}
+	.text-transform--uppercase,
+	.tt--uppercase {
+		text-transform: uppercase;
+	}
 
 /*!     ····························································································
 ***     >>> §3.5: Typograhy: Text alignment
 **/
 
-.text-align--center,
-.ta--center {
-	text-align: center;
-}
+	.text-align--center,
+	.ta--center {
+		text-align: center;
+	}
 
-.text-align--justify,
-.ta--justify {
-	text-align: justify;
-}
+	.text-align--justify,
+	.ta--justify {
+		text-align: justify;
+	}
 
-.text-align--left,
-.ta--left {
-	text-align: left;
-}
+	.text-align--left,
+	.ta--left {
+		text-align: left;
+	}
 
-.text-align--right,
-.ta--right {
-	text-align: left;
-}
+	.text-align--right,
+	.ta--right {
+		text-align: left;
+	}
 
 /*    ----------------------------------------------------------------------------------------------
 **    §4: Spacing
 */
 
-@spacing--array: ~"0mx" @spacing-0mx, ~"250mx" @spacing-250mx, ~"500mx" @spacing-500mx,
-	~"750mx" @spacing-750mx, ~"1000mx" @spacing-1000mx, ~"1500mx" @spacing-1500mx,
-	~"2000mx" @spacing-2000mx, ~"2500mx" @spacing-2500mx, ~"3000mx" @spacing-3000mx,
-	~"3500mx" @spacing-3500mx, ~"4000mx" @spacing-4000mx;
+	@spacing--array: ~"0mx" @spacing-0mx, ~"250mx" @spacing-250mx, ~"500mx" @spacing-500mx,
+		~"750mx" @spacing-750mx, ~"1000mx" @spacing-1000mx, ~"1500mx" @spacing-1500mx,
+		~"2000mx" @spacing-2000mx, ~"2500mx" @spacing-2500mx, ~"3000mx" @spacing-3000mx,
+		~"3500mx" @spacing-3500mx, ~"4000mx" @spacing-4000mx;
 
-.spacing-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
-	.spacing-loop((@idx - 1));
-	@class-name: extract(extract(@spacing--array, @idx), 1);
-	@value-idx: extract(extract(@spacing--array, @idx), 2);
-	.spacing--@{class-name},
-	.sv--@{class-name} {
-		.column * + & {
+	.spacing-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+		.spacing-loop((@idx - 1));
+		@class-name: extract(extract(@spacing--array, @idx), 1);
+		@value-idx: extract(extract(@spacing--array, @idx), 2);
+		.column * + .spacing--@{class-name},
+		.column * + .sv--@{class-name} {
 			margin-top: extract(@mSize-array, @value-idx);
 		}
 	}
-}
-.spacing-loop(length(@spacing--array));
+	.spacing-loop(length(@spacing--array));
 
 /*    ----------------------------------------------------------------------------------------------
 **    §5: Floating
 */
 
-.float--none {
-	float: none;
-}
+	.float--none {
+		float: none;
+	}
 
-.float--right {
-	float: right;
-}
+	.float--right {
+		float: right;
+	}
 
-.float--left {
-	float: left;
-}
+	.float--left {
+		float: left;
+	}
 
 /*    ----------------------------------------------------------------------------------------------
 **    §6: Display
 */
 
-.display--block,
-.dy--block {
-	display: block;
-}
+	.display--block,
+	.dy--block {
+		display: block;
+	}
 
-.display--inline,
-.dy--inline {
-	display: inline;
-}
+	.display--inline,
+	.dy--inline {
+		display: inline;
+	}
 
-.display--inline-block,
-.dy--inline-block {
-	display: inline-block;
-}
+	.display--inline-block,
+	.dy--inline-block {
+		display: inline-block;
+	}
 
-.display--none,
-.dy--none {
-	display: none;
-}
+	.display--none,
+	.dy--none {
+		display: none;
+	}
 
 /*    ----------------------------------------------------------------------------------------------
 **    §7: Margins
 */
 
 // NOTE: Reuse @spacing--array for determining what sizes of margin to make available
-.margin-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
-	.margin-loop((@idx - 1));
-	@class-name: extract(extract(@spacing--array, @idx), 1);
-	@value-idx: extract(extract(@spacing--array, @idx), 2);
-	.margin--@{class-name},
-	.ma--@{class-name} {
-		.margin(@value-idx, "all");
-	}
+	.margin-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+		.margin-loop((@idx - 1));
+		@class-name: extract(extract(@spacing--array, @idx), 1);
+		@value-idx: extract(extract(@spacing--array, @idx), 2);
+		.margin--@{class-name},
+		.ma--@{class-name} {
+			.margin(@value-idx, "all");
+		}
 
-	.margin-bottom--@{class-name},
-	.mb--@{class-name} {
-		.margin(@value-idx, "bottom");
-	}
+		.margin-bottom--@{class-name},
+		.mb--@{class-name} {
+			.margin(@value-idx, "bottom");
+		}
 
-	.margin-left--@{class-name},
-	.ml--@{class-name} {
-		.margin(@value-idx, "left");
-	}
+		.margin-left--@{class-name},
+		.ml--@{class-name} {
+			.margin(@value-idx, "left");
+		}
 
-	.margin-right--@{class-name},
-	.mr--@{class-name} {
-		.margin(@value-idx, "right");
-	}
+		.margin-right--@{class-name},
+		.mr--@{class-name} {
+			.margin(@value-idx, "right");
+		}
 
-	.margin-top--@{class-name},
-	.mt--@{class-name} {
-		.margin(@value-idx, "top");
+		.margin-top--@{class-name},
+		.mt--@{class-name} {
+			.margin(@value-idx, "top");
+		}
 	}
-}
-.margin-loop(length(@spacing--array));
+	.margin-loop(length(@spacing--array));
 
-.margin--centered {
-	margin-left: auto;
-	margin-right: auto;
-}
+	.margin--centered {
+		margin-left: auto;
+		margin-right: auto;
+	}
 
 /*    ----------------------------------------------------------------------------------------------
 **    §8: Padding
 */
 
-@padding--array: ~"0mx" @pSize-0mx, ~"250mx" @pSize-250mx, ~"500mx" @pSize-500mx,
-	~"750mx" @pSize-750mx, ~"1000mx" @pSize-1000mx, ~"1500mx" @pSize-1500mx,
-	~"2000mx" @pSize-2000mx;
+	@padding--array: ~"0mx" @pSize-0mx, ~"250mx" @pSize-250mx, ~"500mx" @pSize-500mx,
+		~"750mx" @pSize-750mx, ~"1000mx" @pSize-1000mx, ~"1500mx" @pSize-1500mx,
+		~"2000mx" @pSize-2000mx;
 
-.padding-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
-	.padding-loop((@idx - 1));
-	@class-name: extract(extract(@padding--array, @idx), 1);
-	@value-idx: extract(extract(@padding--array, @idx), 2);
-	.padding--@{class-name},
-	.pa--@{class-name} {
-		.padding(@value-idx, "all");
-	}
+	.padding-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+		.padding-loop((@idx - 1));
+		@class-name: extract(extract(@padding--array, @idx), 1);
+		@value-idx: extract(extract(@padding--array, @idx), 2);
+		.padding--@{class-name},
+		.pa--@{class-name} {
+			.padding(@value-idx, "all");
+		}
 
-	.padding-bottom--@{class-name},
-	.pb--@{class-name} {
-		.padding(@value-idx, "bottom");
-	}
+		.padding-bottom--@{class-name},
+		.pb--@{class-name} {
+			.padding(@value-idx, "bottom");
+		}
 
-	.padding-left--@{class-name},
-	.pl--@{class-name} {
-		.padding(@value-idx, "left");
-	}
+		.padding-left--@{class-name},
+		.pl--@{class-name} {
+			.padding(@value-idx, "left");
+		}
 
-	.padding-right--@{class-name},
-	.pr--@{class-name} {
-		.padding(@value-idx, "right");
-	}
+		.padding-right--@{class-name},
+		.pr--@{class-name} {
+			.padding(@value-idx, "right");
+		}
 
-	.padding-top--@{class-name},
-	.pt--@{class-name} {
-		.padding(@value-idx, "top");
+		.padding-top--@{class-name},
+		.pt--@{class-name} {
+			.padding(@value-idx, "top");
+		}
 	}
-}
-.padding-loop(length(@padding--array));
+	.padding-loop(length(@padding--array));
 
 /*    ----------------------------------------------------------------------------------------------
 **    §9: Colors
 */
 
-@color-modifiers-list: ~"lightest", ~"lighter", ~"light", ~"lightish", ~"darkish", ~"dark", 
-	~"darker", ~"darkest", ~"accent";
+	@color-modifiers-list: ~"lightest", ~"lighter", ~"light", ~"lightish", ~"darkish", ~"dark", 
+		~"darker", ~"darkest", ~"accent";
 
-.color-class-loop(@class-name, @color-list, @idx) when (@idx > 0) and 
-		(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
-		length(@color-list)) {
-	.color-class-loop(@class-name, @color-list, (@idx - 1));
-	@modifier: extract(@color-modifiers-list, @idx);
-	@color-value: extract(@color-list, @idx);
-	.color--@{class-name}--@{modifier},
-	.c--@{class-name}--@{modifier} {
-		color: @color-value;
+	.color-class-loop(@class-name, @color-list, @idx) when (@idx > 0) and 
+			(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
+			length(@color-list)) {
+		.color-class-loop(@class-name, @color-list, (@idx - 1));
+		@modifier: extract(@color-modifiers-list, @idx);
+		@color-value: extract(@color-list, @idx);
+		.color--@{class-name}--@{modifier},
+		.c--@{class-name}--@{modifier} {
+			color: @color-value;
+		}
 	}
-}
 
-.background-color-class-loop(@class-name, @color-list, @idx) when (@idx > 0) and 
-		(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
-		length(@color-list)) {
-	.background-color-class-loop(@class-name, @color-list, (@idx - 1));
-	@modifier: extract(@color-modifiers-list, @idx);
-	@color-value: extract(@color-list, @idx);
-	.bg-color--@{class-name}--@{modifier},
-	.bgc--@{class-name}--@{modifier} {
-		background-color: @color-value;
+	.background-color-class-loop(@class-name, @color-list, @idx) when (@idx > 0) and 
+			(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
+			length(@color-list)) {
+		.background-color-class-loop(@class-name, @color-list, (@idx - 1));
+		@modifier: extract(@color-modifiers-list, @idx);
+		@color-value: extract(@color-list, @idx);
+		.bg-color--@{class-name}--@{modifier},
+		.bgc--@{class-name}--@{modifier} {
+			background-color: @color-value;
+		}
+		.bg-color--@{class-name}--@{modifier}--25pct,
+		.bgc--@{class-name}--@{modifier}--25pct {
+			.getRgbaForProp(returned, @color-value, 0.25);
+			background-color: @returned;
+		}
 	}
-	.bg-color--@{class-name}--@{modifier}--25pct,
-	.bgc--@{class-name}--@{modifier}--25pct {
-		.getRgbaForProp(returned, @color-value, 0.25);
-		background-color: @returned;
-	}
-}
 
-.define-bg-color-tint(@class-name, @color-list, @idx)  when (@idx > 0) and 
-		(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
-		length(@color-list)) {
-	.bg-color--@{class-name}--tint,
-	.bgc--@{class-name}--tint {
-		background-color: tint(extract(@color-list, @idx), 87%);
-	}	
-}
+	.define-bg-color-tint(@class-name, @color-list, @idx)  when (@idx > 0) and 
+			(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
+			length(@color-list)) {
+		.bg-color--@{class-name}--tint,
+		.bgc--@{class-name}--tint {
+			background-color: tint(extract(@color-list, @idx), 87%);
+		}	
+	}
 
 /*      ····························································································
 **      >>> §9.1: WSU Grays
 */
 
-.color-class-loop(~"gray", @colors--grays__hex, length(@colors--grays__hex));
+	.color-class-loop(~"gray", @colors--grays__hex, length(@colors--grays__hex));
 
-.background-color-class-loop(~"gray", @colors--grays__hex, length(@colors--grays__hex));
+	.background-color-class-loop(~"gray", @colors--grays__hex, length(@colors--grays__hex));
 
 // TODO: Finish setting up other color color utility classes
 /*      ····························································································
 **      >>> §9.2: WSU Crimsons
 */
 
-.color-class-loop(~"crimson", @colors--crimsons__hex, length(@colors--crimsons__hex));
+	.color-class-loop(~"crimson", @colors--crimsons__hex, length(@colors--crimsons__hex));
 
-.background-color-class-loop(~"crimson", @colors--crimsons__hex, length(@colors--crimsons__hex));
+	.background-color-class-loop(~"crimson", @colors--crimsons__hex, length(@colors--crimsons__hex));
 
-.define-bg-color-tint(~"crimson", @colors--crimsons__hex, @colors__darkish);
+	.define-bg-color-tint(~"crimson", @colors--crimsons__hex, @colors__darkish);
 
 /*      ····························································································
 **      >>> §9.3: WSU Greens
 */
 
-.color-class-loop(~"green", @colors--greens__hex, length(@colors--greens__hex));
+	.color-class-loop(~"green", @colors--greens__hex, length(@colors--greens__hex));
 
-.background-color-class-loop(~"green", @colors--greens__hex, length(@colors--greens__hex));
+	.background-color-class-loop(~"green", @colors--greens__hex, length(@colors--greens__hex));
 
-.define-bg-color-tint(~"green", @colors--greens__hex, @colors__accent);
+	.define-bg-color-tint(~"green", @colors--greens__hex, @colors__accent);
 
 /*      ····························································································
 **      >>> §9.4: WSU Yellows
 */
 
-.color-class-loop(~"yellow", @colors--yellows__hex, length(@colors--yellows__hex));
+	.color-class-loop(~"yellow", @colors--yellows__hex, length(@colors--yellows__hex));
 
-.background-color-class-loop(~"yellow", @colors--yellows__hex, length(@colors--yellows__hex));
+	.background-color-class-loop(~"yellow", @colors--yellows__hex, length(@colors--yellows__hex));
 
-.define-bg-color-tint(~"yellow", @colors--yellows__hex, @colors__accent);
+	.define-bg-color-tint(~"yellow", @colors--yellows__hex, @colors__accent);
 
 /*      ····························································································
 **      >>> §9.5: WSU Blues
 */
 
-.color-class-loop(~"blue", @colors--blues__hex, length(@colors--blues__hex));
+	.color-class-loop(~"blue", @colors--blues__hex, length(@colors--blues__hex));
 
-.background-color-class-loop(~"blue", @colors--blues__hex, length(@colors--blues__hex));
+	.background-color-class-loop(~"blue", @colors--blues__hex, length(@colors--blues__hex));
 
-.define-bg-color-tint(~"blue", @colors--blues__hex, @colors__accent);
+	.define-bg-color-tint(~"blue", @colors--blues__hex, @colors__accent);
 
 /*      ····························································································
 **      >>> §9.6: WSU Oranges
 */
 
-.color-class-loop(~"orange", @colors--oranges__hex, length(@colors--oranges__hex));
+	.color-class-loop(~"orange", @colors--oranges__hex, length(@colors--oranges__hex));
 
-.background-color-class-loop(~"orange", @colors--oranges__hex, length(@colors--oranges__hex));
+	.background-color-class-loop(~"orange", @colors--oranges__hex, length(@colors--oranges__hex));
 
-.define-bg-color-tint(~"orange", @colors--oranges__hex, @colors__accent);
+	.define-bg-color-tint(~"orange", @colors--oranges__hex, @colors__accent);
+};
+
+.declare-ruleset(@oue-utility-classes-ruleset, @oue-rules-wrapper);
