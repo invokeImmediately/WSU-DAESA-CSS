@@ -179,98 +179,92 @@
 **    §3: A11y friendly default style for columnar hyperlinks
 */
 
-	a {
-		.column & {
-			border: 1px solid transparent;
-			border-bottom-color: @hex-crimson;
-			border-bottom-left-radius: 0.25em;
-			border-bottom-right-radius: 0.25em;
-			&{ box-shadow: inset 0 -2px 0 @rgba; 
-				.getRgbaStr(@hex-light-crimson, .5); }
-			text-decoration: none;
-			.transition(~"all .25s ease");
+	.column a {
+		border: 1px solid transparent;
+		border-bottom-color: @hex-crimson;
+		border-bottom-left-radius: 0.25em;
+		border-bottom-right-radius: 0.25em;
+		&{ box-shadow: inset 0 -2px 0 @rgba; 
+			.getRgbaStr(@hex-light-crimson, .5); }
+		text-decoration: none;
+		.transition(~"all .25s ease");
 
-			&:hover {
-				&{ background-color: @rgba;
-					.getRgbaStr(@hex-light-crimson, .15); }
-				border-color: @hex-light-crimson;
-				border-radius: 0;
-				box-shadow: inset 0 -2px 0 transparent;
-				&{ text-shadow: 1px 1px 2px @rgba;
-					.getRgbaStr(@hex-crimson, .3); }
-			}
+		&:hover {
+			&{ background-color: @rgba;
+				.getRgbaStr(@hex-light-crimson, .15); }
+			border-color: @hex-light-crimson;
+			border-radius: 0;
+			box-shadow: inset 0 -2px 0 transparent;
+			&{ text-shadow: 1px 1px 2px @rgba;
+				.getRgbaStr(@hex-crimson, .3); }
+		}
 
-			@media print {
-				border: none;
-				box-shadow: none;
-				text-decoration: underline;
-			}
+		@media print {
+			border: none;
+			box-shadow: none;
+			text-decoration: underline;
 		}
 	}
 
 /*    ----------------------------------------------------------------------------------------------
 **    §4: In-focus hyperlinks
 */
-	a:focus {
-		body.user-is-tabbing & {
-			border: 2px dotted white;
-			outline: 2px dotted blue;
-		}
+	body.user-is-tabbing a:focus {
+		border: 2px dotted white;
+		outline: 2px dotted blue;
+	}
 		
-		body.user-is-tabbing .column & {
-			position: relative;
-		}
+	body.user-is-tabbing .column a:focus {
+		position: relative;
+	}
 
-		body.user-is-tabbing .column &::after {
-			border: 9px solid transparent;
-			border-left-color: blue;
-			content: "";
-			left: 0;
-			position: absolute;
-			top: 0;
-			.transform(~"translateX(-50%) translateX(-4px)");
-		}
+	body.user-is-tabbing .column a:focus::after {
+		border: 9px solid transparent;
+		border-left-color: blue;
+		content: "";
+		left: 0;
+		position: absolute;
+		top: 0;
+		.transform(~"translateX(-50%) translateX(-4px)");
 	}
 
 /*    ----------------------------------------------------------------------------------------------
 **    §5: Links for non-text elements
 */
 
-	a {
-		.column & {
-			&.non-text-link {
-				border: none;
-				box-shadow: none;
-				position: relative;
+	.column a {
+		&.non-text-link {
+			border: none;
+			box-shadow: none;
+			position: relative;
+
+			&::before {
+				border: 5px solid transparent;
+				border-bottom-color: @hex-light-crimson--tinted;
+				content: "";
+				left: 50%;
+				opacity: 0;
+				position: absolute;
+				top: 100%;
+				.transform(~"translate(-50%, -100%) translateY(2px)");
+				.transition(~"all .25s ease");
+			}
+
+			img {
+				border-bottom: 3px solid @hex-white;
+				box-shadow: 0 3px @hex-crimson;
+				.transition(~"all .25s ease");
+			}
+
+			&:hover {
+				background-color: transparent;
 
 				&::before {
-					border: 5px solid transparent;
-					border-bottom-color: @hex-light-crimson--tinted;
-					content: "";
-					left: 50%;
-					opacity: 0;
-					position: absolute;
-					top: 100%;
-					.transform(~"translate(-50%, -100%) translateY(2px)");
-					.transition(~"all .25s ease");
+					opacity: 1;
 				}
 
 				img {
-					border-bottom: 3px solid @hex-white;
-					box-shadow: 0 3px @hex-crimson;
-					.transition(~"all .25s ease");
-				}
-
-				&:hover {
-					background-color: transparent;
-
-					&::before {
-						opacity: 1;
-					}
-
-					img {
-						box-shadow: 0 3px @hex-light-crimson--tinted;
-					}
+					box-shadow: 0 3px @hex-light-crimson--tinted;
 				}
 			}
 		}
@@ -283,25 +277,23 @@
 /*    ----------------------------------------------------------------------------------------------
 **    §6: Special cases for hyperlinks
 */
-	a {
-		.column h1 &:not(.non-text-link),
-		.column h2 &:not(.non-text-link),
-		.column h3 &:not(.non-text-link),
-		.column h4 &:not(.non-text-link),
-		.column h5 &:not(.non-text-link),
-		.column h6 &:not(.non-text-link) {
-			@lHeight-temp: extract(@lHeight-array, @lHeight-933mx);
+	.column h1 a:not(.non-text-link),
+	.column h2 a:not(.non-text-link),
+	.column h3 a:not(.non-text-link),
+	.column h4 a:not(.non-text-link),
+	.column h5 a:not(.non-text-link),
+	.column h6 a:not(.non-text-link) {
+		@lHeight-temp: extract(@lHeight-array, @lHeight-933mx);
 
-			border-bottom: 1px solid transparent;
-			box-shadow: none;
-			.line-height(@lHeight-933mx);
-			line-height: ~"calc(@{lHeight-temp} + 1px)";
-			text-decoration: underline;
+		border-bottom: 1px solid transparent;
+		box-shadow: none;
+		.line-height(@lHeight-933mx);
+		line-height: ~"calc(@{lHeight-temp} + 1px)";
+		text-decoration: underline;
 
-			&:hover {
-				border-bottom: 1px solid @hex-crimson;
-				text-decoration: none;
-			}
+		&:hover {
+			border-bottom: 1px solid @hex-crimson;
+			text-decoration: none;
 		}
 	}
 };
@@ -411,8 +403,8 @@
 */
 
 .add-icon__non-text-link(@icon) when (isurl(@icon)) {
-	a {
-		.column &.non-text-link {
+	.column a {
+		&.non-text-link {
 			  // Hyperlink icon
 			  // Underlined?
 		}
