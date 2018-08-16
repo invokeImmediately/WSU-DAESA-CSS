@@ -1,21 +1,27 @@
-/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-**  │ FILENAME: paragraphs.less                                                                  │
-**  │                                                                                            │
-**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-**  │                                                                                            │
-**  │ DESCRIPTION: Contains styles for paragraph elements within OUE pages built using the WSU   │
-**  │   Spine theme for WordPress. Styles are designed to accompany or supersede styling         │
-**  │   associated with the Spine parent theme.                                                  │
-**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: paragraphs.less                                                                    │
+**  │                                                                                              │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+**  │                                                                                              │
+**  │ DESCRIPTION: Contains styles for paragraph elements within OUE pages built using the WSU     │
+**  │   Spine theme for WordPress. Styles are designed to accompany or supersede styling           │
+**  │   associated with the Spine parent theme.                                                    │
+**  └──────────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
-/*    ───────────────────────────────────────────────────────────────────────────────────────────
+/*    ──────────────────────────────────────────────────────────────────────────────────────────────
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
-**      §1: Legacy style declarations (prior to a11y redesign).................................26
-**       >>> §1.1: Inclusional mixins.........................................................205
-**      §2: Accessibility friendly classes....................................................238
-**       >>> §2.1: Style Defaults.............................................................242
+**    §1: Legacy style declarations (prior to a11y redesign)...................................32
+**      >>> §1.1: Component-based styling......................................................36
+**         └> §1.1.1: Article decks............................................................42
+**         └> §1.1.2: Article taglines.........................................................58
+**         └> §1.1.3: Navigational jump backs.................................................118
+**         └> §1.1.4: Navigational jump bars..................................................132
+**      >>> §1.2: Style rules declared via inclusional mixins.................................230
+**    §2: Accessibility friendly classes......................................................263
+**      >>> §2.1: Style Defaults..............................................................267
+**    ──────────────────────────────────────────────────────────────────────────────────────────────
 */
 
 /*  ================================================================================================
@@ -26,96 +32,16 @@
 **    §1: Legacy style declarations (prior to a11y redesign)
 */
 
+/*!     ····························································································
+***     >>> §1.1: Component-based styling
+**/
+
 @oue-paragraph-ruleset: {
-	p {
-		.column & {
-			// TODO: Update look & feel, simplify rgba functions
-			&.vpue-jump-bar {
-				.rgb-turquoise();
-				background-color: rgba(@rval,@gval,@bval,0.5);
-				border: 1px solid rgba(red(@hex-dark-blue), green(@hex-dark-blue), 
-					blue(@hex-dark-blue), 0.5);
-				border-radius: 10px;
-				box-shadow: 1px 1px 3px rgba(red(@hex-black), green(@hex-black), 
-					blue(@hex-black), 0.3);
-				color: @hex-darker-gray;
-				margin: @v-dflt-spcng;
-				padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
-				position: relative;
-				// font-size: 0.92em; // Removed as per request of MSL made on 2016-06-07
-				text-align: center;
-				span.title {
-					font-size: (1em / 0.92 / 0.92);
-					font-weight: bold;
-					font-variant: small-caps;
-					line-height: 2em;
-				}
-				&.floating {
-					background-color: rgba(red(@hex-turquoise-opaque), 
-						green(@hex-turquoise-opaque), blue(@hex-turquoise-opaque), 0.95);
-					box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-					display: none;
-					font-size: (@v-p-sz * 0.8) !important;
-					left: 50%;
-					margin-left: 0;
-					margin-right: 0;
-					margin-top: 0;
-					padding-bottom: (@v-dflt-spcng * 0.375);
-					padding-top: (@v-dflt-spcng / 5);
-					position: fixed;
-					top: 0;
-					width: 50%;
-					.transform(~"translateX(-50%)");
-					@media all {
-						@media (max-width: @spine-threshold) {
-							top: 51px;
-						}
-					}
-					z-index: 99163;
-					span.title {
-						display: none;
-					}
-					br:first-of-type {
-						display: none;
-					}
-					@media all {
-						@media (min-width: (@spine-threshold + 1)) {
-							body.admin-bar & {
-								top: 32px;
-							}
-						}
-						@media (max-width: @spine-threshold) {
-							padding-bottom: ~"calc(" (@v-dflt-spcng * 0.375) ~" + 5px)";
-							.transform(~"translateX(-50%) translateY(-100%) translateY(15px)");
-							.transition(~"all 0.3s ease");
-							&:after {
-								border-bottom: 5px solid transparent;
-								border-left: 5px solid transparent;
-								border-right: 5px solid transparent;
-								border-top: 5px solid @hex-darkest-gray;
-								bottom: 0;
-								content: "";
-								height: 0;
-								left: 50%;
-								position: absolute;
-								.transform(~"translate(-50%, 0)");
-								width: 0;
-							}
-							&:hover {
-								.transform(~"translateX(-50%)");
-								&:after {
-									border-bottom: 5px solid @hex-darkest-gray;
-									border-left: 5px solid transparent;
-									border-right: 5px solid transparent;
-									border-top: 5px solid transparent;
-									.transform(~"translate(-50%, -5px)");
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+
+/**     ····························································································
+***      └> §1.1.1: Article decks
+**/
+	.column p {
 		// TODO: make generic & move into separate file
 		&.article-deck {
 			.has-sectionally-responsive-font(@v-artcl-deck-sz, @body-text--lHeight);
@@ -126,43 +52,44 @@
 				}
 			}
 		}
-		// TODO: make generic & move into separate file
+	}
+
+/**     ····························································································
+***      └> §1.1.2: Article taglines
+**/
+
+	.column p {
 		&.article-tagline {
 			.has-sectionally-responsive-font(@v-artcl-tgln-sz, @body-text--lHeight);
-			&.home {
+			.has-subst-font.serif;
+			font-size: @v-artcl-tgln-sz;
+			font-weight: @v-artcl-tgln-wght;
+			line-height: @v-artcl-tgln-lnhght;
+
+			&.home,
+			&.article-tagline--home {
 				.has-sectionally-responsive-font((@v-artcl-tgln-sz * 1.310345), 
 					@body-text--lHeight);
 			}
-			.column & {
-				.has-subst-font.serif;
-				font-size: @v-artcl-tgln-sz;
-				font-weight: @v-artcl-tgln-wght;
-				line-height: @v-artcl-tgln-lnhght;
-			}
-			.column &.sans {
+
+			&.sans,
+			&.article-tagline--sans {
 				&:extend(.has-alt-font);
 				color: @hex-black;
 				font-weight: 300;
 				// letter-spacing: 0.5px; // Removed on 2016-06-10 to improve readability of text.
-				& > span.lead-in {
-					color: @hex-dark-blue;
+				.lead-in,
+				.article-tagline__lead-in {
+					color: extract(@colors--yellows__hex, @colors__darker);
 					font-weight: 700;
 					letter-spacing: normal;                    
 				}
 			}
-			&:not(.has-no-bordering) {
+			&:not(.has-no-bordering):not(.article-tagline--borderless) {
 				.has-pull-quote-bordering(@hex-darker-gray);
-				&:not(.alt) {
-					.column h1 + &,
-					.column h2 + &,
-					.column h3 + &,
-					.column h4 + &,
-					.column h5 + &,
-					.column h6 + & {
-						margin-top: (@v-btm-mrgns * 4 / 3);
-					}
-				}
-				&.crimson {
+
+				&.crimson,
+				&.article-tagline--crimson {
 					.has-pull-quote-bordering(@hex-crimson);
 					color: @hex-crimson;
 					.has-gray-text {
@@ -171,10 +98,27 @@
 				}
 			}
 			&.bold,
-			.has-bold-text {
+			.has-bold-text,
+			.article-tagline__bold {
 				font-weight: bold;
 			}
 		}
+	}
+
+	.column h1 + p.article-tagline:not(.alt),
+	.column h2 + p.article-tagline:not(.alt),
+	.column h3 + p.article-tagline:not(.alt),
+	.column h4 + p.article-tagline:not(.alt),
+	.column h5 + p.article-tagline:not(.alt),
+	.column h6 + p.article-tagline:not(.alt) {
+		margin-top: (@v-btm-mrgns * 4 / 3);
+	}
+
+/**     ····························································································
+***      └> §1.1.3: Navigational jump backs
+**/
+
+	.column p {
 		&.vpue-jump-back {
 			.has-sectionally-responsive-font(@v-p-jmpbck-sz, @body-text--lHeight);
 			.column & {
@@ -182,18 +126,99 @@
 				padding-bottom: @v-btm-pads / 3;
 			}
 		}
-		&.article-media-contacts {
-			.has-sectionally-responsive-font(0.8rem, @body-text--lHeight);
-			.column & {
-				padding-left: 2em;
-				text-align: left;
-				&:first-child {
-					margin-top: @v-btm-mrgns;
-				}
+	}
+
+/**     ····························································································
+***      └> §1.1.4: Navigational jump bars
+**/
+
+	.column p {
+		// TODO: Update look & feel, simplify rgba functions
+		&.vpue-jump-bar {
+			.rgb-turquoise();
+			background-color: rgba(@rval,@gval,@bval,0.5);
+			border: 1px solid rgba(red(@hex-dark-blue), green(@hex-dark-blue), 
+				blue(@hex-dark-blue), 0.5);
+			border-radius: 10px;
+			box-shadow: 1px 1px 3px rgba(red(@hex-black), green(@hex-black), 
+				blue(@hex-black), 0.3);
+			color: @hex-darker-gray;
+			margin: @v-dflt-spcng;
+			padding: 0 (@v-dflt-spcng / 2) (@v-dflt-spcng / 2);
+			position: relative;
+			// font-size: 0.92em; // Removed as per request of MSL made on 2016-06-07
+			text-align: center;
+
+			span.title {
+				font-size: (1em / 0.92 / 0.92);
+				font-weight: bold;
+				font-variant: small-caps;
+				line-height: 2em;
 			}
-			body.single-post .column & + :not(.article-media-contacts) {
-				border-top: 1px solid rgba(127,127,127,0.2);
-				padding-top: 15px;
+
+			&.floating {
+				background-color: rgba(red(@hex-turquoise-opaque), 
+					green(@hex-turquoise-opaque), blue(@hex-turquoise-opaque), 0.95);
+				box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+				display: none;
+				font-size: (@v-p-sz * 0.8) !important;
+				left: 50%;
+				margin-left: 0;
+				margin-right: 0;
+				margin-top: 0;
+				padding-bottom: (@v-dflt-spcng * 0.375);
+				padding-top: (@v-dflt-spcng / 5);
+				position: fixed;
+				top: 0;
+				width: 50%;
+				.transform(~"translateX(-50%)");
+				@media all {
+					@media (max-width: @spine-threshold) {
+						top: 51px;
+					}
+				}
+				z-index: 99163;
+				span.title {
+					display: none;
+				}
+				br:first-of-type {
+					display: none;
+				}
+				@media all {
+					@media (min-width: (@spine-threshold + 1)) {
+						body.admin-bar & {
+							top: 32px;
+						}
+					}
+					@media (max-width: @spine-threshold) {
+						padding-bottom: ~"calc(" (@v-dflt-spcng * 0.375) ~" + 5px)";
+						.transform(~"translateX(-50%) translateY(-100%) translateY(15px)");
+						.transition(~"all 0.3s ease");
+						&:after {
+							border-bottom: 5px solid transparent;
+							border-left: 5px solid transparent;
+							border-right: 5px solid transparent;
+							border-top: 5px solid @hex-darkest-gray;
+							bottom: 0;
+							content: "";
+							height: 0;
+							left: 50%;
+							position: absolute;
+							.transform(~"translate(-50%, 0)");
+							width: 0;
+						}
+						&:hover {
+							.transform(~"translateX(-50%)");
+							&:after {
+								border-bottom: 5px solid @hex-darkest-gray;
+								border-left: 5px solid transparent;
+								border-right: 5px solid transparent;
+								border-top: 5px solid transparent;
+								.transform(~"translate(-50%, -5px)");
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -202,7 +227,7 @@
 .declare-ruleset(@oue-paragraph-ruleset, @oue-rules-wrapper);
 
 /*!     ····························································································
-***     >>> §1.1: Inclusional mixins
+***     >>> §1.2: Style rules declared via inclusional mixins
 **/
 
 .use-jumpbar-icons(@icon-url) when (isurl(@icon-url)) {
