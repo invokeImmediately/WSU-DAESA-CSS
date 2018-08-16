@@ -34,6 +34,7 @@
 		.builder-banner-content {
 			border: 0;
 			font-size: 1.5rem;
+			height: auto;
 			line-height: 1.35em;
 			padding: 0 0 10px 0;
 			position: static;
@@ -44,7 +45,7 @@
 
 				& > div.builder-banner-inner-content {
 					.rgb-black();
-					background-color: rgba(@rval,@gval,@bval,0.9);
+					background-color: rgba(@rval,@gval,@bval,0.975);
 				}
 			}
 		}
@@ -76,7 +77,7 @@
 		}
 		
 		.builder-banner-inner-content {
-			background-color: rgba(@rval,@gval,@bval,0.6);
+			background-color: rgba(@rval,@gval,@bval,0.85);
 			font-size: inherit;
 			line-height: inherit;
 			.rgb-black();
@@ -113,6 +114,27 @@
 		.builder-banner-overlay {
 			display: none;
 		}
+
+		.cycle-next,
+		.cycle-prev {
+			opacity: 1.0;
+
+			&:before {
+				background-color: @rgba;
+				.getRgbaStr(@hex-black, 0.85);
+				border-radius: 1.7rem;
+				padding-bottom:2px;
+
+				@media screen and (max-width: @column-floating-threshold) {
+					border-radius: 15px;
+				}
+			}
+			&:hover::before {
+				background-color: @rgba;
+				.getRgbaStr(@hex-gray, 0.85);
+			}
+		}
+
 	}
 
 	@media all {
