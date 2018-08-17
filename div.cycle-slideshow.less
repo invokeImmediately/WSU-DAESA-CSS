@@ -33,16 +33,13 @@
 
 		.builder-banner-content {
 			border: 0;
+			bottom: 0;
 			font-size: 1.5rem;
 			height: auto;
 			line-height: 1.35em;
-			padding: 0 0 10px 0;
-			position: static;
 			.transition(~"font-size .15s linear, line-height .15s linear");
 
 			&:hover {
-				font-size: 2rem;
-
 				& > div.builder-banner-inner-content {
 					.rgb-black();
 					background-color: rgba(@rval,@gval,@bval,0.975);
@@ -61,6 +58,7 @@
 
 			& > a {
 				border: none;
+				height: 100%;
 
 				&:focus {
 					position: absolute;
@@ -74,12 +72,14 @@
 					padding-bottom: 0;
 				}
 			}
+
+			&:hover {
+				.builder-banner-content {
+					font-size: 2rem;
+				}
+			}
 		}
 
-		.builder-banner-slide > a {
-			height: auto;
-		}
-		
 		.builder-banner-inner-content {
 			background-color: rgba(@rval,@gval,@bval,0.85);
 			font-size: inherit;
@@ -146,11 +146,11 @@
 			.column .builder-banner-content {
 				font-size: 2.1179vw;
 				line-height: 2.8592vw;
+			}
 
-				&:hover {
-					font-size: 2.8239vw;
-					line-height: 3.8122vw;
-				}
+			.column .builder-banner-slide:hover .builder-banner-content {
+				font-size: 2.8239vw;
+				line-height: 3.8122vw;
 			}
 
 			.column .builder-banner-inner-content p {
@@ -166,11 +166,11 @@
 			.column .builder-banner-content {
 				font-size: 2.5784vw;
 				line-height: 3.4808vw;
+			}
 
-				&:hover {
-					font-size: 3.4379vw;
-					line-height: 4.6411vw;
-				}
+			.builder-banner-slide:hover .builder-banner-content {
+				font-size: 3.4379vw;
+				line-height: 4.6411vw;
 			}    
 		}
 
@@ -178,11 +178,11 @@
 			.column .builder-banner-content {
 				font-size: 5.1568vw;
 				line-height: 6.9616vw;
+			}
 
-				&:hover {
-					font-size: 6.8758vw;
-					line-height: 9.2822vw;
-				}
+			.builder-banner-slide:hover .builder-banner-content {
+				font-size: 6.8758vw;
+				line-height: 9.2822vw;
 			}    
 		}
 
