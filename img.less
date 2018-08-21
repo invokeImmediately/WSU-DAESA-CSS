@@ -146,7 +146,6 @@
 	figure {
 		figcaption {
 			font-size: 0.85em;
-			text-align: center;
 		}
 	}
 
@@ -154,19 +153,20 @@
 		.decoration {
 			@media all {
 				display: block;
-				position: relative;
+				background-color: @hex-darker-gray;
 				float: right;
-				width: 30%;
 				height: 0;
-				padding-bottom: 45%;
 				margin-bottom: @v-btm-mrgns;
 				margin-left: @v-btm-mrgns;
-				background-color: @hex-darker-gray;
+				padding-bottom: 45%;
+				position: relative;
+				width: 30%;
+
 				@media (max-width: @large-mobile-screen-width) {
 					float: none;
-					width: 100%;
-					padding-bottom: 40%;
 					margin-left: 0;
+					padding-bottom: 40%;
+					width: 100%;
 				}
 			}
 			@media print {
