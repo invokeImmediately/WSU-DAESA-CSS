@@ -80,25 +80,6 @@
 **      >>> §1.1: Page headers
 */
 
-// TODO: Finish writing.
-// .page.use-bem-styles { ... }
-// .article-header--2-columns
-// .article-header--2-columns .article-header__column-1
-// .article-header--2-columns .article-header__column-2
-// .article-header__bread-crumb
-// .article-header__background
-// .article-header__title-text
-// .article-header__title-text
-// .article-header--1/2/3/4x-sized
-// .article-header__subtitle-text
-
-//!Example from SASS:
-// .person { }
-//  .person__face {
-//    .person--handsome & { }
-//  }
-//.person--handsome { }
-
 	@page-header__bg-color: rgba(red(extract(@colors--grays__hex, @colors__darkest)), green(extract(@colors--grays__hex, @colors__darkest)), blue(extract(@colors--grays__hex, @colors__darkest)), 0.9);
 	@page-header__fg-color: extract(@colors--grays__hex, @colors__accent);
 
@@ -120,11 +101,23 @@
 		box-sizing: border-box;
 		color: @page-header__fg-color;
 		display: block;
-		left: 0;
-		margin: 0 extract(@rem-mSize-array, @rem-mSize-1000mx);
+		left: extract(@rem-mSize-array, @rem-mSize-1000mx);
+		margin: 0;
 		padding: extract(@pSize-array--rem, @pSize-500mx--rem);
+		right: extract(@rem-mSize-array, @rem-mSize-1000mx);
 		text-shadow: 1px 1px 8px @page-header__bg-color;
 		.transform(~"translateY(-50%)");
+
+		.declare-mobile-layout(
+			{
+				left: extract(@rem-mSize-array, @rem-mSize-500mx);
+				right: extract(@rem-mSize-array, @rem-mSize-500mx);
+			},
+			{
+				left: extract(@rem-mSize-array, @rem-mSize-250mx);
+				right: extract(@rem-mSize-array, @rem-mSize-250mx);				
+			}
+		);
 	}
 
 	.page-header__column-1--tx-bottom {
