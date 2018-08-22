@@ -1,0 +1,115 @@
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: components.less                                                                  │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Less import that contains style rules designed according to component-based   │
+**  │  CSS conventions and which are commonly used on all WSU Office of Undergraduate Education  │
+**  │  websites.                                                                                 │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  OUE COMPONENT-BASED CSS
+*/
+
+/*    ──────────────────────────────────────────────────────────────────────────────────────────────
+**    TABLE OF CONTENTS:
+**    ───────────────────────────────────────────────────────────────────────────────────────────
+**    §1: Component-based precompiled CSS......................................................27
+**    §2: Widths...............................................................................51
+**    ──────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+@oue-components-ruleset: {
+
+/*      ····························································································
+**      >>> §1: Card styling
+*/
+
+	.style--card {
+		.style--card--flat__();
+	}
+
+	.style--card--raised {
+		.style--card--raised__();
+	}
+
+	.style--card__title {
+		.style--card__title__();
+	}
+
+	.style--card__sub-title {
+		.style--card__sub-title__();
+	}
+
+	.style-card__title + .style--card__sub-title {
+		.margin(@mSize-0mx, "top")
+	}
+
+/*      ····························································································
+**      >>> §2: Page headers
+*/
+
+	@page-header__bg-color: rgba(red(extract(@colors--grays__hex, @colors__darkest)), green(extract(@colors--grays__hex, @colors__darkest)), blue(extract(@colors--grays__hex, @colors__darkest)), 0.9);
+	@page-header__fg-color: extract(@colors--grays__hex, @colors__accent);
+
+	.page-header {
+		height: 230px;
+		position: relative;
+		width: 100%;
+		background-position: center center;
+		background-size: auto 100%;
+	}
+
+	.page-header--h-450px {
+		height: 450px;
+	}
+
+	.page-header__column-1 {
+		background-color: @page-header__bg-color;
+		top: 50%;
+		box-sizing: border-box;
+		color: @page-header__fg-color;
+		display: block;
+		left: extract(@rem-mSize-array, @rem-mSize-1000mx);
+		margin: 0;
+		padding: extract(@pSize-array--rem, @pSize-500mx--rem);
+		right: extract(@rem-mSize-array, @rem-mSize-1000mx);
+		text-shadow: 1px 1px 8px @page-header__bg-color;
+		.transform(~"translateY(-50%)");
+
+		.declare-mobile-layout(
+			{
+				left: extract(@rem-mSize-array, @rem-mSize-500mx);
+				right: extract(@rem-mSize-array, @rem-mSize-500mx);
+			},
+			{
+				left: extract(@rem-mSize-array, @rem-mSize-250mx);
+				right: extract(@rem-mSize-array, @rem-mSize-250mx);				
+			}
+		);
+	}
+
+	.page-header__column-1--tx-bottom {
+		top: 100%;		
+		.transform(~"translateY(-100%) translateY(-2rem)");
+	}
+
+	.page-header .page-header__column-1 {
+		position: absolute;
+	}
+
+	.fluid .row.single .column.page-header__column-1 {
+		width: auto;
+	}
+
+	.page-header__text-breadcrumb,
+	.page-header__text-title,
+	.page-header__text-subtitle {
+		color: inherit;
+		text-shadow: inherit;
+	}
+};
+
+.declare-ruleset(@oue-components-ruleset, @oue-rules-wrapper);
