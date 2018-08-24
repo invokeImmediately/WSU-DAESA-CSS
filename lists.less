@@ -85,17 +85,28 @@
 
 			& > img {
 				left: 10px;
+				left: ~"calc(.5rem + 10px)";
 				position: absolute;
-				top: 10px;
+				top: 24px;
+				top: ~"calc(1rem + 7px)";
 				width: 106px;
+
+				@media all and (max-width: @large-mobile-screen-width) {
+					left: ~"calc(.5rem + 7px)";
+					width: 84px;
+				}
 			}
 
 			& > .content {
 				left: 121px;
 				min-width: 189px;
-				padding: 10px 10px 10px 5px;
+				padding: 0 0 10px 0;
 				position: relative;
 				width: ~"calc(100% - 136px)";
+
+				@media all and (max-width: @large-mobile-screen-width) {
+					left: 99px;
+				}
 			}
 
 			& + li {
