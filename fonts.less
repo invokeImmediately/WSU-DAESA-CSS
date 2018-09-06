@@ -10,31 +10,63 @@
 **  └────────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
+/*    ──────────────────────────────────────────────────────────────────────────────────────────────
+**    TABLE OF CONTENTS:
+**    ───────────────────────────────────────────────────────────────────────────────────────────
+**    §1: Default & sans font families.........................................................28
+**    §2: Serif font family....................................................................37
+**    §3: Condensed font families..............................................................51
+**    §4: Monospaced font families.............................................................65
+**    ──────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
 /*  ================================================================================================
 **  FUNCTIONAL CSS ASSOCIATED WITH FONT USAGE ON OUE WEBSITES
 */
 
-.has-mono-font {
-    font-family: 'Roboto Mono', monospace, sans-serif;
-    font-weight: 300;
-}
+/*    ----------------------------------------------------------------------------------------------
+**    §1: Default & sans font families
+*/
 
-.has-dflt-font {
+.has-dflt-font,
+.ff--sans {
     font-family: 'Open Sans', 'Lucida Sans', sans-serif;
 }
 
-.has-dflt-font.serif {
+/*    ----------------------------------------------------------------------------------------------
+**    §2: Serif font family
+*/
+
+.has-dflt-font.serif,
+.ff--serif {
     font-family: 'Roboto Slab', 'Palatino', serif;
 }
 
-.has-alt-font {
+.has-subst-font.serif,
+.ff--serif-2 {
+    font-family: 'PT Serif', 'Palatino', serif;
+}
+
+/*    ----------------------------------------------------------------------------------------------
+**    §3: Condensed font families
+*/
+
+.has-alt-font,
+.ff--condensed {
     font-family: 'Open Sans Condensed', 'Lucida Sans', sans-serif;
 }
 
-.has-subst-font {
+.has-subst-font,
+.ff--condensed-2 {
     font-family: 'Roboto Condensed', 'Lucida Sans', sans-serif;
 }
 
-.has-subst-font.serif {
-    font-family: 'PT Serif', 'Palatino', serif;
+/*    ----------------------------------------------------------------------------------------------
+**    §4: Monospaced font families
+*/
+
+.has-mono-font,
+.ff--mono {
+    font-family: 'Roboto Mono', monospace, sans-serif;
+    font-weight: 300;
 }
