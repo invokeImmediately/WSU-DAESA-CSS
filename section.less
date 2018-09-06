@@ -1266,7 +1266,7 @@
 					& > :first-child {
 						margin: 0 !important;
 						color: @hex-white;
-						font-size: @v-clmn-sz;
+						font-size: @column-size;
 						line-height: @v-dflt-spcng;
 						text-align: center;
 						text-transform: none;
@@ -1452,10 +1452,10 @@
 .row {
 	&.single .column,
 	&.halves .column,
-	&.thirds .column,
 	&.quarters .column,
 	&.side-right .column,
-	&.side-left .column {
+	&.side-left .column,
+	&.thirds .column {
 		font-size: @col--fSize-1;
 
 		@media all{
@@ -1467,5 +1467,9 @@
 				font-size: @col--fSize-3;
 			}
 		}
+	}
+
+	&:last-child {
+		.margin(@mSize-2000mx, "bottom");
 	}
 }
