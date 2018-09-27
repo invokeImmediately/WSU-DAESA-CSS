@@ -142,7 +142,7 @@
 	}
 
 	@media all {
-		@media (max-width: (@background-width-threshold - 1)) {
+		@media (max-width: (@background-width-threshold - 1)) and (min-width: (@spine-threshold + 1)) {
 			.column .builder-banner-content {
 				font-size: 2.1179vw;
 				line-height: 2.8592vw;
@@ -162,7 +162,7 @@
 			}
 		}
 
-		@media (max-width: @spine-threshold) {
+		@media (max-width: @spine-threshold) and (min-width: (@large-mobile-screen-width + 1)) {
 			.column .builder-banner-content {
 				font-size: 2.5784vw;
 				line-height: 3.4808vw;
