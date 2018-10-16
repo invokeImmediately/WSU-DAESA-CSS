@@ -16,8 +16,8 @@
 /*    ──────────────────────────────────────────────────────────────────────────────────────────────
 **    TABLE OF CONTENTS:
 **    ───────────────────────────────────────────────────────────────────────────────────────────
-**    §1: Component-based precompiled CSS......................................................27
-**    §2: Widths...............................................................................51
+**    §1: Card styling.........................................................................27
+**    §2: Page headers.........................................................................51
 **    ──────────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -66,9 +66,12 @@
 		height: 450px;
 	}
 
+	.page-header--h-auto {
+		height: auto;
+	}
+
 	.page-header__column-1 {
 		background-color: @page-header__bg-color;
-		top: 50%;
 		box-sizing: border-box;
 		color: @page-header__fg-color;
 		display: block;
@@ -76,6 +79,7 @@
 		margin: 0;
 		padding: extract(@pSize-array--rem, @pSize-500mx--rem);
 		right: extract(@rem-mSize-array, @rem-mSize-1000mx);
+		top: 50%;
 		text-shadow: 1px 1px 8px @page-header__bg-color;
 		.transform(~"translateY(-50%)");
 
@@ -100,9 +104,17 @@
 		position: absolute;
 	}
 
-	.fluid .row.single .column.page-header__column-1 {
-		width: auto;
+	.page-header .page-header__column-1--p-static {
+		position: static;
+		top: 0;
+		.transform(~"none");
 	}
+
+	.fluid .row.single .column.page-header__column-1--p-static {
+		width: 100%;
+	}
+
+	.fluid .row.single 
 
 	.page-header__text-breadcrumb,
 	.page-header__text-title,
