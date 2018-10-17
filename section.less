@@ -18,17 +18,17 @@
 ***   ───────────────────────────────────────────────────────────────────────────────────────────
 ***   OUE-SECTIONS §1: Utility classes.........................................................37
 ***   OUE-SECTIONS §2: Legacy article headers..................................................47
-***   OUE-SECTIONS §3: Halves builder sections................................................130
-***   OUE-SECTIONS §4: Side-right builder sections............................................142
-***   OUE-SECTIONS §5: Thirds builder sections................................................154
-***   OUE-SECTIONS §6: Section coloring.......................................................185
-***   OUE-SECTIONS §7: Spacing overrides to improve responsive design.........................219
-***   OUE-SECTIONS §8: Gutter padding overrides to improve mobile design......................305
-***   OUE-SECTIONS §9: Column stacking overrides to improve mobile design.....................526
-***   OUE-SECTIONS §10: Linked column styling.................................................548
-**    OUE-SECTIONS §11: Accessibility friendly utility classes...............................1431
-**      >>> §11.1: Font-sizing variables for columns.........................................1435
-**      >>> §11.2: Default font sizes for column elements....................................1449
+***   OUE-SECTIONS §3: Halves builder sections................................................131
+***   OUE-SECTIONS §4: Side-right builder sections............................................143
+***   OUE-SECTIONS §5: Thirds builder sections................................................155
+***   OUE-SECTIONS §6: Section coloring.......................................................186
+***   OUE-SECTIONS §7: Spacing overrides to improve responsive design.........................220
+***   OUE-SECTIONS §8: Gutter padding overrides to improve mobile design......................304
+***   OUE-SECTIONS §9: Column stacking overrides to improve mobile design.....................525
+***   OUE-SECTIONS §10: Linked column styling.................................................547
+**    OUE-SECTIONS §11: Accessibility friendly utility classes...............................1430
+**      >>> §11.1: Font-sizing variables for columns.........................................1434
+**      >>> §11.2: Default font sizes for column elements....................................1448
 **/
 
 @oue-section-ruleset: {
@@ -224,7 +224,6 @@
 		& > .column,
 		& > .column > article > .article-body,
 		& > .column > article > .article-summary,
-		& > .column > section,
 		& > .column table > tbody > tr > td {
 			& > ul:not(.no-btm-margin),
 			& > section > ul:not(.no-btm-margin),
@@ -242,8 +241,7 @@
 			& > .column {
 				&,
 				& > .column > article > .article-body,
-				& > .column > article > .article-summary,
-				& > .column > section {
+				& > .column > article > .article-summary {
 					& > ul:last-child,
 					& > section > ul:last-child,
 					& > div > ul:last-child,
