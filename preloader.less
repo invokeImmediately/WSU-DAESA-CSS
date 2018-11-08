@@ -1,0 +1,67 @@
+/** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: preloader.less                                                                     │
+*** │                                                                                              │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+*** │                                                                                              │
+*** │ DESCRIPTION: Contains component-based styling for preloader constructs used to indicate that │
+*** │ content is still loading on WSU Office of Undergraduate Education web pages built using the  │
+*** │ builder template of the Spine parent theme of WSUWP.                                         │
+*** └──────────────────────────────────────────────────────────────────────────────────────────────┘
+**/
+
+/** ================================================================================================
+*** COMPONENT-BASED CSS FOR STYLING OUE PRELOADERS
+**/
+
+.use-preloaders() {
+	.preloader {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 94080;
+	}
+
+	.preloader--dismissed {
+		display: none;
+	}
+
+	.preloader__cycler {
+		border: 3px solid extract(@colors--crimsons__hex, @colors__darkish);
+		border-bottom-color: transparent;
+		border-radius: 50%;
+		border-right-color: transparent;
+		box-sizing: border-box;
+		display: block;
+		height: 198px;
+		left: 50%;
+		margin: -99px 0 0 -99px;
+		position: absolute;
+		top: 50%;
+		width: 198px;
+
+		&::before {
+
+		}
+
+		&::after {
+			
+		}
+	}
+
+
+	.add-preloader-background(@background-url) when (isurl(@background-url)) {
+		.preloader {
+			background: @background-url repeat;
+		}
+	}
+
+	.add-preloader-icon(@icon-url, @icon-width, @icon-height)
+			when (isurl(@background-url))
+			and (ispixel(@icon-width))
+			and (ispixel(@icon-height))
+	{
+
+	}
+}
