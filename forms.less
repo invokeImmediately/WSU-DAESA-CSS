@@ -13,14 +13,26 @@
 **  SEMANTIC CSS FOR STYLING OUE FORMS
 */
 
+/*    ──────────────────────────────────────────────────────────────────────────────────────────────
+**    TABLE OF CONTENTS:
+**    ───────────────────────────────────────────────────────────────────────────────────────────
+**    §1: Form nodes...........................................................................29
+**      >>> §1.1: Form-mediated "Read More" interfaces.........................................35
+**    §2: Gravity forms.......................................................................108
+**      >>> §2.1: Modifications of default GF styling.........................................112
+**      >>> §2.2: Required field highlighting.................................................346
+**      >>> §2.3: Advanced form controls......................................................495
+**    ──────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
 /*    ----------------------------------------------------------------------------------------------
-**    OUE-FORMS §1: Form nodes
+**    §1: Form nodes
 */
 
 @oue-forms-ruleset: {
 
 /*      ····························································································
-**      OUE-FORMS §1.1: Form-mediated "Read More" interfaces
+**      >>> §1.1: Form-mediated "Read More" interfaces
 */
 
 	input.read-more-state {
@@ -92,8 +104,12 @@
 		content: 'Show less';
 	}
 
+/*    ----------------------------------------------------------------------------------------------
+**    §2: Gravity forms
+*/
+
 /*      ····························································································
-**      OUE-FORMS §1.2: Gravity forms
+**      >>> §2.1: Modifications of default GF styling
 */
 
 	.column {
@@ -117,6 +133,20 @@
 			.gfield_checkbox li label,
 			.gfield_radio li label {
 				font-weight: normal;
+			}
+
+			.gfield_checkbox li input,
+			.gfield_checkbox li input[type=checkbox],
+			.gfield_radio li input[type=radio] {
+				vertical-align: top;
+			}
+
+			&.gf_browser_chrome {
+				.gfield_checkbox li input,
+				.gfield_checkbox li input[type=checkbox],
+				.gfield_radio li input[type=radio] {
+					margin-top: 8px;
+				}
 			}
 
 			.gfield_description {
@@ -312,6 +342,10 @@
 			}
 		}
 
+/*      ····························································································
+**      >>> §2.2: Required field highlighting
+*/
+
 		ul.gform_fields {
 			&.top_label {
 				& > li.gfield {
@@ -456,6 +490,10 @@
 			}
 		}
 	}
+
+/*      ····························································································
+**      >>> §2.3: Advanced form controls
+*/
 
 	.oue-gf-actvtr-checkbox {
 		.transition(~"background 0.3s ease");
