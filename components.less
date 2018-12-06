@@ -134,10 +134,12 @@
 
 	@otp__clr--bg: #2f3438;
 	@otp__clr--item-bg: extract(@colors--grays__hex, @colors__darker);
-	@otp__clr--border: extract(@colors--grays__hex, @colors__darkish);
+	@otp__clr--border: extract(@colors--grays__hex, @colors__lightish);
 	@otp__clr--highlight: #23272a;
 	@otp__clr--crimson: #54464e;
 	@otp__clr--crimson-hl: extract(@colors--crimsons__hex, @colors__darkest);
+	@otp__w-border: 8px;
+	@otp__w-gap: 14px;
 
 	.on-this-page {
 		background-color: @otp__clr--bg;
@@ -148,43 +150,41 @@
 
 		.on-this-page__heading {
 			color: @hex-white;
+			font-size: (@default-spacing * .85);
 			padding-left: @default-spacing;
 			padding-bottom: (@default-spacing / 3);
-			font-size: (@default-spacing * .85);
 		}
 
 		.on-this-page__menu {
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
+			background-color: inherit;
 			border-top: 1px solid @otp__clr--bg;
 			border-left: 1px solid @otp__clr--bg;
-			background-color: inherit;
 			list-style-type: none;
+			margin: 0;
+			padding: 0;
 		}
 
 		.on-this-page__menu-item {
 			float: left;
-			margin-top: 0 !important;
+			list-style-image: none;
 			margin-bottom: .75em !important;
 			margin-right: -1px !important;
-			list-style-image: none;
+			margin-top: 0 !important;
 			padding: 0;
 
 			a {
-				display: inline-block;
-				color: white;
-				text-align: center;
-				padding: 14px 16px;
+				background-color: @otp__clr--item-bg;
 				border: 1px solid @otp__clr--border;
 				border-radius: 0;
-				background-color: @otp__clr--item-bg;
 				box-shadow: none;
+				color: white;
+				display: inline-block;
+				padding: 14px 16px;
+				text-align: center;
 
 				&:hover {
-					border-color: @otp__clr--bg;
 					background-color: @otp__clr--highlight;
-					text-shadow: none;
+					text-decoration: underline;
 				}
 
 				@media all and (max-width: @tablet-screen-width) {
@@ -200,6 +200,39 @@
 						background-color: @otp__clr--crimson-hl;
 					}					
 				}
+			}
+
+			&.--related {
+				a {
+					position: relative;
+				}
+
+				a::before {
+					content: "";
+					border-bottom: 1px solid @otp__clr--border;
+					border-top: 1px solid @otp__clr--border;
+					bottom: -1px;
+					left: (-1 * @otp__w-border);
+					position: absolute;
+					right: (-1 * @otp__w-border);
+					top: -1px;
+				}
+
+				&.--start {
+					a::before {
+						left: 0;
+					}
+				}
+
+				&.--end {
+					a::before {
+						right: 0;
+					}
+				}
+			}
+
+			&.--shifted {
+				margin-left: @otp__w-gap;
 			}
 		}
 	}
