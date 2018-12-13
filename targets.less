@@ -1,0 +1,73 @@
+/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+**  │ FILENAME: targets.less                                                                     │
+**  │                                                                                            │
+**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+**  │                                                                                            │
+**  │ DESCRIPTION: Contains styles for elements associated with the events calendar plugin on    │
+**  │   WSU Office of Undergraduate Education web pages built using the builder template of the  │
+**  │   Spine parent theme of WSUWP. Styles are designed to accompany or supersede styling       │
+**  │   associated with the theme.                                                               │
+**  └────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+/*  ================================================================================================
+**  SEMANTIC CSS FOR STYLING TARGET PSEUDOCLASSES
+*/
+
+:target:not(.no-anchor-highlighting) {
+	position: relative;
+
+	&::before {
+		.animation(animFlashHighlight; 1.325s; linear; .175s; 1);
+		background-color: rgba(@rval, @gval, @bval, 0);
+		border: 2px solid rgba(255, 0, 0, 0);
+		bottom: (-1 * @default-spacing / 2);
+		content: "";
+		left: (-1 * @default-spacing / 2);
+		.keyframes(animFlashHighlight; @rules-flash-highlight);
+		position: absolute;
+		.rgb-light-crimson(); 
+		right: (-1 * @default-spacing / 2);
+		top: (-1 * @default-spacing / 2);
+		z-index: -1;
+
+		.row:not(.clear-none)& {
+			content: "";
+			width: auto;
+			height: auto;
+			visibility: visible;
+		}
+	}
+}
+
+@rules-flash-highlight: {
+	0% {
+		.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0);
+		border-color: rgba(255, 0, 0, 0);
+		z-index: 10;
+	}
+	10% {
+		.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.1);
+		border-color: rgba(255, 0, 0, 0.5);
+	}
+	20% {
+		.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0);
+		border-color: rgba(255, 0, 0, 0);
+	}
+	31% {
+		.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.1);
+		border-color: rgba(255, 0, 0, 0.5);
+	}
+	41% {
+		.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0);
+		border-color: rgba(255, 0, 0, 0);
+	}
+	51% {
+		.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0.1);
+		border-color: rgba(255, 0, 0, 0.5);
+	}
+	100% {
+		.rgb-light-crimson(); background-color: rgba(@rval, @gval, @bval, 0);
+		border-color: rgba(255, 0, 0, 0);
+	}
+};
