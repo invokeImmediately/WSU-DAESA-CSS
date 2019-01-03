@@ -224,13 +224,16 @@
 	}
 
 	body.user-is-tabbing .column a:focus::after {
-		border-left-color: blue;
 		border: 9px solid transparent;
 		content: "";
 		left: 0;
 		position: absolute;
 		top: 0;
 		.transform(~"translateX(-50%) translateX(-4px)");
+
+		& {
+			border-left-color: blue;
+		}
 	}
 
 /*    ----------------------------------------------------------------------------------------------
