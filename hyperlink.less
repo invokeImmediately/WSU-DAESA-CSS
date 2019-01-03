@@ -19,11 +19,11 @@
 **    §1: Legacy styles for columnar hyperlinks................................................33
 **    §2: CSS3-driven tooltips via hyperlink elements..........................................94
 **    §3: A11y friendly default style for columnar hyperlinks.................................179
-**    §4: In-focus hyperlinks.................................................................212
-**    §5: Links for non-text elements.........................................................236
-**    §6: Special cases for hyperlinks........................................................284
-**    §7: Inclusional hyperlink styling via Less mixins.......................................310
-**    §8: Additional mixins...................................................................408
+**    §4: In-focus hyperlinks.................................................................214
+**    §5: Links for non-text elements.........................................................237
+**    §6: Special cases for hyperlinks........................................................283
+**    §7: Inclusional hyperlink styling via Less mixins.......................................309
+**    §8: Additional mixins...................................................................407
 **    ───────────────────────────────────────────────────────────────────────────────────────────
 */
 
@@ -216,6 +216,7 @@
 	body.user-is-tabbing a:focus {
 		border: 2px dotted white;
 		outline: 2px dotted blue;
+		z-index: 99352 !important;
 	}
 		
 	body.user-is-tabbing .column a:focus {
@@ -223,8 +224,8 @@
 	}
 
 	body.user-is-tabbing .column a:focus::after {
-		border: 9px solid transparent;
 		border-left-color: blue;
+		border: 9px solid transparent;
 		content: "";
 		left: 0;
 		position: absolute;
