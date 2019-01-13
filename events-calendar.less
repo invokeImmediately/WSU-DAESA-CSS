@@ -54,14 +54,14 @@
 		td.tribe-events-future {
 			div[id*=tribe-events-daynum-] > a {
 				border-bottom: none;
+				border-bottom-color: @colors__links;
 				box-shadow: none;
-				border-bottom-color: @hex-crimson;
 
 				&:hover {					
-					border-bottom-right-radius: 0.25em;
 					border-bottom-left-radius: 0.25em;
-					& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@hex-crimson, 1); }
-					& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@hex-crimson, .15); }
+					border-bottom-right-radius: 0.25em;
+					& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@colors__links, 1); }
+					& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@colors__links, .15); }
 					color: @hex-light-crimson;
 				}
 			}
@@ -71,19 +71,20 @@
 	#tribe-bar-views {
 		a {
 			border-bottom: none;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
 			box-shadow: none;
 			text-shadow: none;
-			border-bottom-right-radius: 0;
-			border-bottom-left-radius: 0;
 		}
 
 		li.tribe-bar-active a {
 			border-bottom: 0.0625em solid transparent;
+
 			&:hover {
 				border-bottom-right-radius: 0.25em;
 				border-bottom-left-radius: 0.25em;
-				& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@hex-crimson, 1); }
-				& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@hex-crimson, .15); }
+				& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@colors__links, 1); }
+				& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@colors__links, .15); }
 				color: @hex-light-crimson !important;
 			}
 		}
@@ -91,10 +92,10 @@
 
 	.type-tribe_events[class*=post-] {
 		.tribe-events-event-image {
-			position: relative;
 			float: left;
 			height: 0;
 			padding-bottom: 30%;
+			position: relative;
 
 			.tribe-events-single & {
 				width: 30%;
@@ -148,8 +149,9 @@
 
 		.tribe-events-single ul.tribe-related-events & img {
 			border: 0.0625em solid transparent;
+
 			&:hover {
-				border: .0625em solid @hex-crimson;
+				border: .0625em solid @colors__links;
 			}
 		}
 	}
@@ -175,9 +177,11 @@
 			.tribe-events-page-title {
 				color: @hex-white;
 				margin-top: @v-dflt-spcng * 3 / 4;
+
 				a {
 					color: @hex-light-crimson;
 					border-bottom: 1px solid transparent;
+
 					&:hover {
 						color: tint(@hex-light-crimson, 50%);
 						border-bottom-color: tint(@hex-light-crimson, 50%);
@@ -187,20 +191,13 @@
 
 			.tribe-events-calendar {
 				background-color: @hex-white;
+
 				th {
 					background-color: @hex-crimson;
 				}
 			}
 
-			#tribe-events-header {
-				&::before,
-				&::after {
-					@media only screen and (max-width: 768px) {
-						display: none;
-					}
-				}
-			}
-
+			#tribe-events-header,
 			#tribe-events-footer {
 				&::before,
 				&::after {
@@ -209,19 +206,23 @@
 					}
 				}
 
+				ul {
+					max-width: none;
+				}
+
 				a {
-					padding-right: 3px;
-					padding-left: 3px;
-					border-bottom: .0625em solid @hex-white;
-					& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@hex-white,.3333); }
+					border-bottom: 1px solid @hex-white;
+					& { box-shadow: inset 0 -2px 0 @rgba; .getRgbaStr(@hex-white,.6667); }
 					color: @hex-white;
+					padding-left: 3px;
+					padding-right: 3px;
 
 					&:hover {
-						border-radius: 4px;
-						border-bottom: .0625em solid transparent;
-						box-shadow: inset 0 -0.3125em 0 transparent;
-						.getRgbaStr(@hex-white, 0.75);
+						.getRgbaStr(@hex-white, 0.85);
 						background-color: @rgba;
+						border-radius: 4px;
+						border-bottom: 1px solid transparent;
+						box-shadow: inset 0 -2px 0 transparent;
 						color: @hex-light-crimson;
 					}
 
@@ -233,34 +234,38 @@
 
 				.tribe-events-sub-nav .tribe-events-nav-previous {
 					margin-left: 5px;
+
 					@media only screen and (max-width: 768px) {
 						margin-left: 0;
 					}
 				}
 			}
+
 			.tribe-events-sub-nav li a {
 				@media only screen and (max-width: 768px) {
 					background-color: transparent;
 				}				
 			}
+
 			#tribe-mobile-container {
 				padding: @v-dflt-spcng / 4;
+
 				.tribe-mobile-day {
 					.tribe-mobile-day-heading {
-						padding-top: @v-dflt-spcng / 4;
-						padding-right: @v-dflt-spcng / 4;
-						padding-left: @v-dflt-spcng / 4;
-						margin-bottom: 0;
-						margin-left: 0;
 						border-top-left-radius: 7px;
 						border-top-right-radius: 7px;
+						margin-bottom: 0;
+						margin-left: 0;
+						padding-left: @v-dflt-spcng / 4;
+						padding-right: @v-dflt-spcng / 4;
+						padding-top: @v-dflt-spcng / 4;
 					}
 
 					.tribe-events-mobile {
-						padding-right: @v-dflt-spcng / 4;
-						padding-left: @v-dflt-spcng / 4;
-						border-bottom-right-radius: 7px;
 						border-bottom-left-radius: 7px;
+						border-bottom-right-radius: 7px;
+						padding-left: @v-dflt-spcng / 4;
+						padding-right: @v-dflt-spcng / 4;
 					}
 
 					.tribe-mobile-day-heading,
@@ -271,15 +276,18 @@
 				}
 			}
 		}
+
 		&.tribe-events-day {
 			.tribe-events-day-time-slot > h5:first-child {
 				background-color: @hex-darker-gray;
 			}
 		}
+
 		&.tribe-events-single {
 			.tribe-events-event-meta {
 				padding-top: @v-dflt-spcng * 3 / 4;
 			}
+
 			.tribe-events-schedule {
 				margin-top: 0.375em;
 
@@ -288,6 +296,7 @@
 				}
 			}
 		}
+
 		&.tribe-events-list {
 			.tribe-events-page-title {
 				padding-bottom: 0.5em;
@@ -306,15 +315,18 @@
 					}
 				}
 			}
+
 			.tribe-events-list-separator-month span {
 				padding-bottom: 0.2em;
 				border-radius: 4px;
 				background-color: @hex-crimson;
 				color: white;
 			}
+
 			.tribe-event-schedule-details {
 				font-size: 1.3rem;
 			}
+
 			.tribe-events-venue-details {
 				font-size: 1.3rem;
 				margin-top: 0;
@@ -477,6 +489,7 @@
 		.content-item-event-title {
 			display: block;
 			margin-left: 3.25rem;
+
 			a {
 				border-bottom-color: transparent;
 				text-shadow: none;
