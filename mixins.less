@@ -168,42 +168,6 @@
 	}
 }
 
-@spacing-class-list: @sz-xxxsmll, 8th, @sz-xxsmll, qrtr, @sz-xsmll, half, @sz-nrml, nrml, 
-	@sz-xxxlrg, full;
-
-.setup-spacing-classes(extract(@spacing-class-list, length(@spacing-class-list)), 
-	extract(@spacing-class-list, length(@spacing-class-list) - 1), length(@spacing-class-list));
-
-.setup-spacing-classes(@class-str, @spacing-factor, @idx) when (@idx >= 4) {
-	.declare-spacing-class(@class-str, @spacing-factor);
-	.setup-spacing-classes(extract(@spacing-class-list, @idx - 2), extract(@spacing-class-list, 
-		@idx - 3), @idx - 2);
-}
-
-.setup-spacing-classes(@class-str, @spacing-factor, @idx) when (@idx = 2) {
-	.declare-spacing-class(@class-str, @spacing-factor);
-}
-
-.spaces-top-none,
-.column .spaces-top-none {
-	.spaces-top(0) !important;
-}
-
-.spaces-rgt-none,
-.column .spaces-rgt-none {
-	.spaces-rgt(0) !important;
-}
-
-.spaces-btm-none,
-.column .spaces-btm-none {
-	.spaces-btm(0) !important;
-}
-
-.spaces-lft-none,
-.column .spaces-lft-none {
-	.spaces-lft(0) !important;
-}
-
 // TODO: Eliminate or move to utility-mixins.less.
 /*    ----------------------------------------------------------------------------------------------
 **    OUE-MIXINS §5: Padding
@@ -242,22 +206,6 @@
 	.column .pads-lft-@{class-str} {
 		.pads-lft(@padding-factor);
 	}
-}
-
-@padding-class-list: @sz-xxxsmll, 8th, @sz-xxsmll, qrtr, @sz-xsmll, half, @sz-nrml, nrml, 
-	@sz-xxxlrg, full;
-
-.setup-padding-classes(extract(@padding-class-list, length(@padding-class-list)), 
-	extract(@padding-class-list, length(@padding-class-list) - 1), length(@padding-class-list));
-
-.setup-padding-classes(@class-str, @padding-factor, @idx) when (@idx >= 4) {
-	.declare-padding-class(@class-str, @padding-factor);
-	.setup-padding-classes(extract(@padding-class-list, @idx - 2), extract(@padding-class-list, 
-		@idx - 3), @idx - 2);
-}
-
-.setup-padding-classes(@class-str, @padding-factor, @idx) when (@idx = 2) {
-	.declare-padding-class(@class-str, @padding-factor);
 }
 
 .generate-indents(4);
