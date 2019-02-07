@@ -81,29 +81,38 @@
 			@media all {
 				.header-content {
 					h1, h2 {
-						&:extend(.has-alt-font);
+						.has-alt-font;
+						color: @hex-white;
+					}
+
+					h3 {
 						color: @hex-white;
 					}
 
 					h1 {
-						.textShadow3D(@hex-white,6px);
+						.textShadow3D(@hex-white, 4px);
 					}
 
 					h2 {
-						.textShadow3D(@hex-white,4px);
+						.textShadow3D(@hex-white, 4px);
 					}
 
+					h1 + h2,
 					h3 {
-						.rgb-crimson();
-						border: 1px solid white;
-						background-color: rgba(@rval,@gval,@bval,0.95);
-						color: @hex-white;
-						padding: .1rem .2rem .2rem;
-						.textShadow3D(@hex-white,2px);
+						.textShadow3D(@hex-white, 2px);
 
-						& > mark.highlight {
-							.textShadow3D(#AEC7CB,2px);
-						}
+					}
+
+					h1 + h2,
+					h2 + h3 {
+						.rgb-crimson();
+						background-color: rgba(@rval,@gval,@bval,0.95);
+						border: 1px solid white;
+						padding: .1rem .2rem .2rem;
+					}
+
+					mark.highlight {
+						.textShadow3D(#AEC7CB,2px);
 					}
 				}
 			}
