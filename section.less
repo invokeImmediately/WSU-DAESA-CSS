@@ -13,22 +13,23 @@
 *** SEMANTIC CSS FOR STYLING OUE SECTION ELEMENTS
 **/
 
-/**   ───────────────────────────────────────────────────────────────────────────────────────────
-***   TABLE OF CONTENTS:
-***   ───────────────────────────────────────────────────────────────────────────────────────────
-***   §1: Utility classes......................................................................37
-***   §2: Legacy article headers...............................................................47
-***   §3: Halves builder sections.............................................................126
-***   §4: Side-right builder sections.........................................................138
-***   §5: Thirds builder sections.............................................................150
-***   §6: Section coloring....................................................................181
-***   §7: Spacing overrides to improve responsive design......................................215
-***   §8: Gutter padding overrides to improve mobile design...................................297
-***   §9: Column stacking overrides to improve mobile design..................................518
-***   §10: Linked column styling..............................................................540
-**    §11: Accessibility friendly utility classes............................................1425
-**      >>> §11.1: Font-sizing variables for columns.........................................1429
-**      >>> §11.2: Default font sizes for column elements....................................1443
+/**  ───────────────────────────────────────────────────────────────────────────────────────────────
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***  §1: Utility classes.......................................................................37
+***  §2: Legacy article headers................................................................47
+***  §3: Halves builder sections..............................................................126
+***  §4: Side-right builder sections..........................................................138
+***  §5: Thirds builder sections..............................................................150
+***  §6: Section coloring.....................................................................181
+***  §7: Spacing overrides to improve responsive design.......................................215
+***  §8: Gutter padding overrides to improve mobile design....................................297
+***  §9: Column stacking overrides to improve mobile design...................................518
+***  §10: Linked column styling...............................................................540
+***  §11: Accessibility friendly utility classes.............................................1425
+***    >>> §11.1: Font-sizing variables for columns..........................................1429
+***    >>> §11.2: Default font sizes for column elements.....................................1443
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
 @oue-section-ruleset: {
@@ -71,10 +72,22 @@
 					text-transform: uppercase;
 				}
 
+				h1 + h2 {
+					font-style: normal;
+				}
+
 				h1 + h2,
 				h2 + h3 {
 					font-size: 1.261rem;
-					margin-top: .75rem;
+					margin-top: 0;
+				}
+
+				h1:first-child,
+				h2:first-child {
+					background-color: rgba(0, 0, 0, 0.7);
+					border: 1px solid white;
+					border-bottom-color: transparent;
+					padding: 4px 4px 9px;
 				}
 			}
 
@@ -90,11 +103,11 @@
 					}
 
 					h1 {
-						.textShadow3D(@hex-white, 4px);
+						.textShadow3D(@hex-white, 3px);
 					}
 
 					h2 {
-						.textShadow3D(@hex-white, 4px);
+						.textShadow3D(@hex-white, 3px);
 					}
 
 					h1 + h2,
@@ -108,7 +121,7 @@
 						.rgb-crimson();
 						background-color: rgba(@rval,@gval,@bval,0.95);
 						border: 1px solid white;
-						padding: .1rem .2rem .2rem;
+						padding: 4px 4px 5px;
 					}
 
 					mark.highlight {
