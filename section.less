@@ -66,7 +66,9 @@
 				top: 50%;
 				transform: translateY(-50%);
 
-				h1, h2, h3 {
+				h1,
+				h2,
+				h3 {
 					font-size: 2.826rem;
 					line-height: 0.8em;
 					text-transform: uppercase;
@@ -77,17 +79,24 @@
 				}
 
 				h1 + h2,
-				h2 + h3 {
+				h2 + h3,
+				h1 .subtitle {
 					font-size: 1.261rem;
+					line-height: 0.8em;
 					margin-top: 0;
 				}
 
-				h1:first-child,
+				.title,
 				h2:first-child {
 					background-color: rgba(0, 0, 0, 0.7);
 					border: 1px solid white;
 					border-bottom-color: transparent;
 					padding: 4px 4px 9px;
+				}
+
+				.title,
+				.subtitle {
+					display: block;
 				}
 			}
 
@@ -111,13 +120,14 @@
 					}
 
 					h1 + h2,
-					h3 {
+					h3,
+					h1 .subtitle {
 						.textShadow3D(@hex-white, 2px);
-
 					}
 
 					h1 + h2,
-					h2 + h3 {
+					h2 + h3,
+					.subtitle {
 						.rgb-crimson();
 						background-color: rgba(@rval,@gval,@bval,0.95);
 						border: 1px solid white;
