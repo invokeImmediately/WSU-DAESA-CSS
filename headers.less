@@ -1,33 +1,41 @@
-/*  ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
-**  │ FILENAME: headers.less                                                                       │
-**  │                                                                                              │
-**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
-**  │                                                                                              │
-**  │ DESCRIPTION: Embodies style rules for presenting headers on WSU Office of Undergraduate      │
-**  │   Education web pages built using the builder template of the Spine parent theme of WSUWP.   │
-**  │   Styles are designed to accompany or supersede styling associated with the theme.           │
-**  └──────────────────────────────────────────────────────────────────────────────────────────────┘
-*/
+/** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: headers.less                                                                       │
+*** │                                                                                              │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+*** │                                                                                              │
+*** │ DESCRIPTION: Embodies style rules for presenting headers on WSU Office of Undergraduate      │
+*** │   Education web pages built using the builder template of the Spine parent theme of WSUWP.   │
+*** │   Styles are designed to accompany or supersede styling associated with the theme.           │
+*** └──────────────────────────────────────────────────────────────────────────────────────────────┘
+**/
 
-/*    ──────────────────────────────────────────────────────────────────────────────────────────────
-**    TABLE OF CONTENTS:
-**    ───────────────────────────────────────────────────────────────────────────────────────────
-**    §1: Main header..........................................................................27
-**    §2: Sectional article headers............................................................94
-**    ──────────────────────────────────────────────────────────────────────────────────────────────
-*/
+/**  ───────────────────────────────────────────────────────────────────────────────────────────────
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***    §1: Main header.........................................................................27
+***    §2: Sectional article headers...........................................................90
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
+**/
 
-/*  ================================================================================================
-**  SEMANTIC CSS FOR STYLING OUE HEADER ELEMENTS
-*/
+/** ================================================================================================
+*** SEMANTIC CSS FOR STYLING OUE HEADER ELEMENTS
+**/
 
 @oue-header-ruleset: {
 
-/*    ----------------------------------------------------------------------------------------------
-**    §1: Main header
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §1: Main header
+**/
 
 	header.main-header {
+		@media print {
+			background: none !important;
+			border-bottom: 1px solid black;
+			border-top: 1px solid black;
+			margin-bottom: 1em;
+			padding-top: 1em;
+		}
+
 		.sup-header-default {
 			.has-responsive-font(0.9rem, false, @v-fnt-sclng-fctrs-alt-2);
 			margin-bottom: .5rem;
@@ -38,26 +46,14 @@
 			.has-responsive-font((2.5rem * 16 / 17), 0.9em, @v-fnt-sclng-fctrs-alt-2);
 		}
 
-		&.centered {
-			@media all {
-				@media (min-width: @large-format-threshold) {
-					text-align: center;
-				}
-
-				@media (min-width: (@spine-threshold + 1)) and 
-						(max-width: (@large-format-threshold - 1)) {
-					text-align: left;
-				}
-
-				@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
-					text-align: center;
-				}
-
-				@media (max-width: @tablet-screen-width) {
-					text-align: left;
-				}
-			}
+		.sup-header-default,
+		.sub-header-default {
+			@media print {
+				text-shadow: none;
+				color: black;
+			}			
 		}
+
 		.header-group { text-align: inherit; }
 		.header-group.centered {
 			@media all {
@@ -90,9 +86,9 @@
 
 .declare-ruleset(@oue-header-ruleset, @oue-rules-wrapper);
 
-/*    ----------------------------------------------------------------------------------------------
-**    §2: Sectional article headers (inclusional via Less mixin)
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §2: Sectional article headers (inclusional via Less mixin)
+**/
 
 .use-sectional-article-headers() {
 	.page.has-short-main-header {
@@ -144,10 +140,6 @@
 
 		.column {
 			&.one {
-				background: @hex-dark-gray;
-				background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.4) 50%, 
-					rgba(0,0,0,0.1) ),
-					linear-gradient(to right, #5e6a71, #5e6a71);
 				height: 100%;
 				left: 0;
 				padding-left: 0;
@@ -156,7 +148,11 @@
 				right: 40%;
 				width: auto;
 
-				@media all {
+				@media screen {
+					background: @hex-dark-gray;
+					background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.4) 50%,
+						rgba(0,0,0,0.1) ), linear-gradient(to right, #5e6a71, #5e6a71);
+
 					@media (max-width: @large-mobile-screen-width) {
 						right: 0;
 						height: 50%;
@@ -215,6 +211,11 @@
 						font-size: 6.5vw;
 					}
 
+					@media print {
+						color: black;
+						text-shadow: none;
+					}
+
 					& + .subtitle {
 						color: @hex-white;
 						font-size: 1.25em;
@@ -233,8 +234,12 @@
 					color: @hex-bright-gray;
 					margin-bottom: 0.125em;
 
-					@media all and (max-width: @column-floating-threshold) {
+					@media screen and (max-width: @column-floating-threshold) {
 						font-size: 3.25vw;
+					}
+
+					@media print {
+						color: black;
 					}
 				}
 
