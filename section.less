@@ -332,219 +332,133 @@
 ***   template
 **/
 
-	@media only screen and (min-width:(@large-mobile-screen-width + 1))
-			and (max-width:@column-floating-threshold) {
-		.gutter .column:not(.gutterless),
-		.guttered {
-			padding-left: @v-dflt-spcng;
-			padding-right: @v-dflt-spcng
+	.set-up-non-standard-spacing(@spacing-is-non-standard) when (@spacing-is-non-standard = 1) {
+		.single.gutter .column:not(.gutterless) {
+			padding-left: @default-spacing;
+			padding-right: @default-spacing;
 		}
 
-	   .single.gutter .column:not(.gutterless) {
-			padding-left: @v-dflt-spcng;
-			padding-right: @v-dflt-spcng
-		}
-
-		.halves.gutter .column.one:not(.gutterless),
-		.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
 		.side-left.gutter .column.one:not(.gutterless),
-		.side-right.gutter .column.one:not(.gutterless) {
-			padding-right: @v-dflt-spcng
+		.side-right.gutter .column.one:not(.gutterless),
+		.halves.gutter .column.one:not(.gutterless),
+		.thirds.gutter .column.one:not(.gutterless),
+		.quarters.gutter .column.one:not(.gutterless) {
+			padding-left: @default-spacing;
+			padding-right: (@default-spacing / 2);
 		}
 
 		.halves.gutter .column.two:not(.gutterless),
-		.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
 		.side-left.gutter .column.two:not(.gutterless),
-		.side-right.gutter .column.two:not(.gutterless) {
-			padding-left: @v-dflt-spcng
-		}
-
-		.thirds.gutter .column.one:not(.gutterless),
-		.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
-		.triptych.gutter .column.one:not(.gutterless) {
-			padding-right: @v-dflt-spcng
+		.side-right.gutter .column.two:not(.gutterless),
+		.thirds.gutter .column.three:not(.gutterless),
+		.quarters.gutter .column.four:not(.gutterless) {
+			padding-left: (@default-spacing / 2);
+			padding-right: @default-spacing;
 		}
 
 		.thirds.gutter .column.two:not(.gutterless),
-		.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
-		.triptych.gutter .column.two:not(.gutterless) {
-			padding-left: @v-dflt-spcng;
-			padding-right: @v-dflt-spcng
-		}
-
-		.thirds.gutter .column.three:not(.gutterless),
-		.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
-		.triptych.gutter .column.three:not(.gutterless) {
-			padding-left: @v-dflt-spcng
-		}
-
-		.quarters.gutter .column.one:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
-			padding-right: (@v-dflt-spcng / 2)
-		}
-
 		.quarters.gutter .column.two:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2);
-			padding-right: @v-dflt-spcng
+		.quarters.gutter .column.three:not(.gutterless) {
+			padding-right: (@default-spacing / 2);
+			padding-left: (@default-spacing / 2);			
 		}
 
-		.quarters.gutter .column.three:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
-			padding-left: @v-dflt-spcng;
-			padding-right: (@v-dflt-spcng / 2)
-		}
 
-		.quarters.gutter .column.four:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2)
+		@media only screen and (min-width:(@large-mobile-screen-width + 1))
+				and (max-width:@column-floating-threshold) {
+			.single.gutter .column:not(.gutterless),
+			.halves.gutter .column.one:not(.gutterless),
+			.halves.gutter .column.two:not(.gutterless),
+			.side-left.gutter .column.one:not(.gutterless),
+			.side-left.gutter .column.two:not(.gutterless),
+			.side-right.gutter .column.one:not(.gutterless),
+			.side-right.gutter .column.two:not(.gutterless),
+			.thirds.gutter .column.one:not(.gutterless),
+			.thirds.gutter .column.two:not(.gutterless),
+			.thirds.gutter .column.three:not(.gutterless) {
+				padding-left: @default-spacing;
+				padding-right: @default-spacing;
+			}
+
+			.quarters.gutter .column.one:not(.gutterless),
+			.quarters.gutter .column.three:not(.gutterless) {
+				padding-left: @default-spacing;
+				padding-right: (@default-spacing / 2);
+			}
+
+			.quarters.gutter .column.two:not(.gutterless),
+			.quarters.gutter .column.four:not(.gutterless) {
+				padding-left: (@default-spacing / 2);
+				padding-right: @default-spacing;
+			}
 		}
 	}
+	.set-up-non-standard-spacing(@use-non-standard-spacing);
 
 	@media only screen and (min-width:(@mobile-screen-width + 1))
 			and (max-width:@large-mobile-screen-width) {
-		.gutter .column:not(.gutterless),
-		.guttered {
-			padding-left: (@v-dflt-spcng / 2);
-			padding-right: (@v-dflt-spcng / 2);
-		}
-
-		.single.gutter .column:not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2);
-			padding-right: (@v-dflt-spcng / 2);
-		}
-
+		.single.gutter .column.one:not(.gutterless),
 		.halves.gutter .column.one:not(.gutterless),
-		.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
-		.side-left.gutter .column.one:not(.gutterless),
-		.side-right.gutter .column.one:not(.gutterless) {
-			padding-right: (@v-dflt-spcng / 2);
-		}
-
 		.halves.gutter .column.two:not(.gutterless),
-		.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
+		.side-left.gutter .column.one:not(.gutterless),
 		.side-left.gutter .column.two:not(.gutterless),
-		.side-right.gutter .column.two:not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2);
-		}
-
+		.side-right.gutter .column.one:not(.gutterless),
+		.side-right.gutter .column.two:not(.gutterless),
 		.thirds.gutter .column.one:not(.gutterless),
-		.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
-		.triptych.gutter .column.one:not(.gutterless) {
-			padding-right: (@v-dflt-spcng / 2);
-		}
-
 		.thirds.gutter .column.two:not(.gutterless),
-		.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
-		.triptych.gutter .column.two:not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2);
-			padding-right: (@v-dflt-spcng / 2);
-		}
-
-		.thirds.gutter .column.three:not(.gutterless),
-		.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
-		.triptych.gutter .column.three:not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2);
+		.thirds.gutter .column.three:not(.gutterless) {
+			padding-left: (@default-spacing / 2);
+			padding-right: (@default-spacing / 2);
 		}
 
 		.quarters.gutter .column.one:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
-			padding-right: (@v-dflt-spcng / 2 / 2);
+		.quarters.gutter .column.three:not(.gutterless) {
+			padding-left: (@default-spacing / 2);
+			padding-right: (@default-spacing / 2 / 2);
 		}
 
 		.quarters.gutter .column.two:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2 / 2);
-			padding-right: (@v-dflt-spcng / 2);
-		}
-
-		.quarters.gutter .column.three:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2);
-			padding-right: (@v-dflt-spcng / 2 / 2);
-		}
-
-		.quarters.gutter .column.four:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2 / 2);
+		.quarters.gutter .column.four:not(.gutterless) {
+			padding-left: (@default-spacing / 2 / 2);
+			padding-right: (@default-spacing / 2);
 		}
 
 		section.gutter > header {
-			padding-left: (@v-dflt-spcng / 2);
-			padding-right: (@v-dflt-spcng / 2);
+			padding-left: (@default-spacing / 2);
+			padding-right: (@default-spacing / 2);
 		}
 	}
 
 	@media only screen and (max-width:@mobile-screen-width) {
-		.gutter .column:not(.gutterless),
-		.guttered {
-			padding-left: (@v-dflt-spcng / 4);
-			padding-right: (@v-dflt-spcng / 4);
-		}
-
-		.single.gutter .column:not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 4);
-			padding-right: (@v-dflt-spcng / 4);
-		}
-
+		.single.gutter .column.one:not(.gutterless),
 		.halves.gutter .column.one:not(.gutterless),
-		.halves.gutter .column:nth-of-type(2n+3):not(.gutterless),
-		.side-left.gutter .column.one:not(.gutterless),
-		.side-right.gutter .column.one:not(.gutterless) {
-			padding-right: (@v-dflt-spcng / 4);
-		}
-
 		.halves.gutter .column.two:not(.gutterless),
-		.halves.gutter .column:nth-of-type(2n+4):not(.gutterless),
+		.side-left.gutter .column.one:not(.gutterless),
 		.side-left.gutter .column.two:not(.gutterless),
-		.side-right.gutter .column.two:not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 4);
-		}
-
+		.side-right.gutter .column.one:not(.gutterless),
+		.side-right.gutter .column.two:not(.gutterless),
 		.thirds.gutter .column.one:not(.gutterless),
-		.thirds.gutter .column:nth-of-type(3n+4):not(.gutterless),
-		.triptych.gutter .column.one:not(.gutterless) {
-			padding-right: (@v-dflt-spcng / 4);
-		}
-
 		.thirds.gutter .column.two:not(.gutterless),
-		.thirds.gutter .column:nth-of-type(3n+5):not(.gutterless),
-		.triptych.gutter .column.two:not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 4);
-			padding-right: (@v-dflt-spcng / 4);
-		}
-
-		.thirds.gutter .column.three:not(.gutterless),
-		.thirds.gutter .column:nth-of-type(3n+6):not(.gutterless),
-		.triptych.gutter .column.three:not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 4);
+		.thirds.gutter .column.three:not(.gutterless) {
+			padding-left: (@default-spacing / 4);
+			padding-right: (@default-spacing / 4);
 		}
 
 		.quarters.gutter .column.one:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+5):not(.gutterless) {
-			padding-right: (@v-dflt-spcng / 2 / 4);
+		.quarters.gutter .column.three:not(.gutterless) {
+			padding-left: (@default-spacing / 4);
+			padding-right: (@default-spacing / 2 / 4);
 		}
 
 		.quarters.gutter .column.two:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+6):not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2 / 4);
-			padding-right: (@v-dflt-spcng / 4);
-		}
-
-		.quarters.gutter .column.three:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+7):not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 4);
-			padding-right: (@v-dflt-spcng / 2 / 4);
-		}
-
-		.quarters.gutter .column.four:not(.gutterless),
-		.quarters.gutter .column:nth-of-type(4n+8):not(.gutterless) {
-			padding-left: (@v-dflt-spcng / 2 / 4);
+		.quarters.gutter .column.four:not(.gutterless) {
+			padding-left: (@default-spacing / 2 / 4);
+			padding-right: (@default-spacing / 4);
 		}
 
 		section.gutter > header {
-			padding-left: (@v-dflt-spcng / 4);
-			padding-right: (@v-dflt-spcng / 4);
+			padding-left: (@default-spacing / 4);
+			padding-right: (@default-spacing / 4);
 		}
 	}
 
