@@ -14,52 +14,34 @@
 */
 
 .keyframes(@name; @ruleset) {
-    @-webkit-keyframes @name { @ruleset(); }
-    @-moz-keyframes @name { @ruleset(); }
     @keyframes @name { @ruleset(); }
 }
 
 .animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when 
 		(@name = none) and (@delay = 0s) {
-    -webkit-animation: @name;
-       -moz-animation: @name;
             animation: @name;
 }
 
 .animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when 
 		not (@name = none) and (@delay = 0s) {
-    -webkit-animation: @name @duration @timing @iterations;
-       -moz-animation: @name @duration @timing @iterations;
             animation: @name @duration @timing @iterations;
 }
 
 .animation(@name; @duration:0s; @timing: linear; @delay: 0s; @iterations: infinite) when 
 		not (@name = none) and not (@delay = 0s) {
-    -webkit-animation: @name @duration @timing @iterations;
-       -moz-animation: @name @duration @timing @iterations;
             animation: @name @duration @timing @iterations;
-    -webkit-animation-delay: @delay;
-       -moz-animation-delay: @delay;
             animation-delay: @delay;
 }
 
 .transform-origin(@origin-x; @origin-y; @origin-z:0) {
-    -webkit-transform-origin: @origin-x @origin-y @origin-z;
-        -ms-transform-origin: @origin-x @origin-y @origin-z;    
             transform-origin: @origin-x @origin-y @origin-z;
 }
 
 .transform(@operations) {
-    -webkit-transform: @operations;
-       -moz-transform: @operations;
-//         -o-transform: @operations; // Vendor prefix only used in Opera 11.5.
             transform: @operations;
 }
 
 .transition(@parameters) {
-    -webkit-transition: @parameters;
-       -moz-transition: @parameters;
-//         -o-transition: @parameters; // Vendor prefix only used in Opera 11.5.
             transition: @parameters;
 }
 
