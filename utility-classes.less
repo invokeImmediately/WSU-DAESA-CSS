@@ -554,10 +554,10 @@
 	@color-modifiers-list: ~"lightest", ~"lighter", ~"light", ~"lightish", ~"darkish", ~"dark", 
 		~"darker", ~"darkest", ~"accent";
 
-	.color-class-loop(@class-name, @color-list, @idx) when (@idx > 0) and 
-			(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
-			length(@color-list)) {
-		.color-class-loop(@class-name, @color-list, (@idx - 1));
+	.color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when (@idx > 0) and
+			(@use-these-classes = 1) and (@idx <= length(@color-modifiers-list)) and
+			(length(@color-modifiers-list) = length(@color-list)) {
+		.color-class-loop(@use-these-classes, @class-name, @color-list, (@idx - 1));
 		@modifier: extract(@color-modifiers-list, @idx);
 		@color-value: extract(@color-list, @idx);
 		.c--@{class-name}--@{modifier} {
@@ -565,10 +565,16 @@
 		}
 	}
 
-	.background-color-class-loop(@class-name, @color-list, @idx) when (@idx > 0) and 
-			(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
-			length(@color-list)) {
-		.background-color-class-loop(@class-name, @color-list, (@idx - 1));
+	.color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when (@idx > 0) and
+			(@use-these-classes = 0) and (@idx <= length(@color-modifiers-list)) and
+			(length(@color-modifiers-list) = length(@color-list)) {
+		// Do nothing b/c @use-these-classes = 0
+	}
+
+	.background-color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when
+			(@idx > 0) and (@use-these-classes = 1) and (@idx <= length(@color-modifiers-list)) and
+			(length(@color-modifiers-list) = length(@color-list)) {
+		.background-color-class-loop(@use-these-classes, @class-name, @color-list, (@idx - 1));
 		@modifier: extract(@color-modifiers-list, @idx);
 		@color-value: extract(@color-list, @idx);
 		.bgc--@{class-name}--@{modifier} {
@@ -578,6 +584,12 @@
 			.getRgbaForProp(returned, @color-value, 0.25);
 			background-color: @returned;
 		}
+	}
+
+	.background-color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when
+			(@idx > 0) and (@use-these-classes = 0) and (@idx <= length(@color-modifiers-list)) and
+			(length(@color-modifiers-list) = length(@color-list)) {
+		// Do nothing b/c @use-these-classes = 0
 	}
 
 	.define-bg-color-tint(@class-name, @color-list, @idx)  when (@idx > 0) and 
@@ -592,60 +604,71 @@
 ***     >>> §8.1: WSU Grays
 **/
 
-	.color-class-loop(~"gray", @colors--grays__hex, length(@colors--grays__hex));
+	.color-class-loop( @use-gray-color-scheme, ~"gray", @colors--grays__hex,
+		length( @colors--grays__hex ) );
 
-	.background-color-class-loop(~"gray", @colors--grays__hex, length(@colors--grays__hex));
+	.background-color-class-loop( @use-gray-color-scheme, ~"gray", @colors--grays__hex,
+		length( @colors--grays__hex ) );
 
-// TODO: Finish setting up other color color utility classes
 /**     ····························································································
 ***     >>> §8.2: WSU Crimsons
 **/
 
-	.color-class-loop(~"crimson", @colors--crimsons__hex, length(@colors--crimsons__hex));
+	.color-class-loop( @use-crimson-color-scheme, ~"crimson", @colors--crimsons__hex,
+		length( @colors--crimsons__hex ) );
 
-	.background-color-class-loop(~"crimson", @colors--crimsons__hex, length(@colors--crimsons__hex));
+	.background-color-class-loop( @use-crimson-color-scheme, ~"crimson", @colors--crimsons__hex,
+		length(@colors--crimsons__hex));
 
-	.define-bg-color-tint(~"crimson", @colors--crimsons__hex, @colors__darkish);
+	.define-bg-color-tint( ~"crimson", @colors--crimsons__hex, @colors__darkish );
 
 /**     ····························································································
-***     >>> §8.3: WSU Greens
+***     >>> §8.4: WSU Greens
 **/
 
-	.color-class-loop(~"green", @colors--greens__hex, length(@colors--greens__hex));
+	.color-class-loop( @use-green-color-scheme, ~"green", @colors--greens__hex,
+		length( @colors--greens__hex ) );
 
-	.background-color-class-loop(~"green", @colors--greens__hex, length(@colors--greens__hex));
+	.background-color-class-loop( @use-green-color-scheme, ~"green", @colors--greens__hex,
+		length( @colors--greens__hex ) );
 
-	.define-bg-color-tint(~"green", @colors--greens__hex, @colors__accent);
+	.define-bg-color-tint( ~"green", @colors--greens__hex, @colors__accent );
 
 /**     ····························································································
 ***     >>> §8.4: WSU Yellows
 **/
 
-	.color-class-loop(~"yellow", @colors--yellows__hex, length(@colors--yellows__hex));
+	.color-class-loop( @use-yellow-color-scheme, ~"yellow", @colors--yellows__hex,
+		length( @colors--yellows__hex ) );
 
-	.background-color-class-loop(~"yellow", @colors--yellows__hex, length(@colors--yellows__hex));
+	.background-color-class-loop( @use-yellow-color-scheme, ~"yellow", @colors--yellows__hex,
+		length( @colors--yellows__hex ) );
 
-	.define-bg-color-tint(~"yellow", @colors--yellows__hex, @colors__accent);
+	.define-bg-color-tint( ~"yellow", @colors--yellows__hex, @colors__accent );
 
 /**     ····························································································
 ***     >>> §8.5: WSU Blues
 **/
 
-	.color-class-loop(~"blue", @colors--blues__hex, length(@colors--blues__hex));
+	.color-class-loop( @use-blue-color-scheme, ~"blue", @colors--blues__hex,
+		length( @colors--blues__hex ) );
 
-	.background-color-class-loop(~"blue", @colors--blues__hex, length(@colors--blues__hex));
+	.background-color-class-loop( @use-blue-color-scheme, ~"blue", @colors--blues__hex,
+		length( @colors--blues__hex ) );
 
-	.define-bg-color-tint(~"blue", @colors--blues__hex, @colors__accent);
+	.define-bg-color-tint( ~"blue", @colors--blues__hex, @colors__accent );
 
 /**     ····························································································
 ***     >>> §8.6: WSU Oranges
 **/
 
-	.color-class-loop(~"orange", @colors--oranges__hex, length(@colors--oranges__hex));
+	.color-class-loop( @use-orange-color-scheme, ~"orange", @colors--oranges__hex,
+		length( @colors--oranges__hex ) );
 
-	.background-color-class-loop(~"orange", @colors--oranges__hex, length(@colors--oranges__hex));
+	.background-color-class-loop( @use-orange-color-scheme, ~"orange", @colors--oranges__hex,
+		length( @colors--oranges__hex ) );
 
-	.define-bg-color-tint(~"orange", @colors--oranges__hex, @colors__accent);
+	.define-bg-color-tint( ~"orange", @colors--oranges__hex, @colors__accent );
 };
 
 .declare-ruleset(@oue-utility-classes-ruleset, @oue-rules-wrapper);
