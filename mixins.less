@@ -1,38 +1,40 @@
-/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-**  │ FILENAME: mixins.less                                                                      │
-**  │                                                                                            │
-**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-**  │                                                                                            │
-**  │ DESCRIPTION: Contains Less mixins for supporting semantic CSS based design of WSU Office   │
-**  │   of Undergraduate Education web sites built using the WSUWP platform employing the Spine  │
-**  │   parent theme. CSS declarations effected by invokation or inclusion of these mixins are   │
-**  │   designed to accompany or supersede styling associated with the theme.                    │
-**  └────────────────────────────────────────────────────────────────────────────────────────────┘
-*/
+/** ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: mixins.less                                                                      │
+*** │                                                                                            │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+*** │                                                                                            │
+*** │ DESCRIPTION: Contains Less mixins for supporting semantic CSS based design of WSU Office   │
+*** │   of Undergraduate Education web sites built using the WSUWP platform employing the Spine  │
+*** │   parent theme. CSS declarations effected by invokation or inclusion of these mixins are   │
+*** │   designed to accompany or supersede styling associated with the theme.                    │
+*** └────────────────────────────────────────────────────────────────────────────────────────────┘
+**/
 
-/*  ================================================================================================
-**  LESS MIXINS FOR SUPPORTING SEMANTIC CSS BASED DEVELOPMENT
-*/
+/** ================================================================================================
+*** LESS MIXINS FOR SUPPORTING SEMANTIC CSS BASED DEVELOPMENT
+**/
 
-/*    ───────────────────────────────────────────────────────────────────────────────────────────
-**    TABLE OF CONTENTS:
-**    ───────────────────────────────────────────────────────────────────────────────────────────
-**      OUE-MIXINS §1: Semantic visibility control.............................................34
-**      OUE-MIXINS §2: Element sizing..........................................................58
-**      OUE-MIXINS §3: Positioning.............................................................80
-**      OUE-MIXINS §4: Spacing................................................................106
-**      OUE-MIXINS §5: Padding................................................................215
-**      OUE-MIXINS §6: Typography.............................................................322
-**      OUE-MIXINS §7: Borders................................................................351
-**      OUE-MIXINS §8: More typography........................................................416
-**      OUE-MIXINS §9: Semantic mixins for responsive layouts.................................528
-**      OUE-MIXINS §10: Iteratively specified CSS declarations................................543
-**      OUE-MIXINS §11: Interpolated style declarations.......................................708
-*/
+/**  ───────────────────────────────────────────────────────────────────────────────────────────────
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***     §1: Semantic visibility control........................................................36
+***     §2: Element sizing.....................................................................60
+***     §3: Positioning........................................................................82
+***     §4: Spacing...........................................................................108
+***     §5: Padding...........................................................................175
+***     §6: Typography........................................................................266
+***     §7: Borders...........................................................................295
+***     §8: More typography...................................................................360
+***     §9: Semantic mixins for responsive layouts............................................472
+***     §10: Iteratively specified CSS declarations...........................................487
+***     §11: Interpolated style declarations..................................................652
+***     §12: Declaration of detached rulesets.................................................681
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
+**/
 
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §1: Semantic visibility control
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §1: Semantic visibility control
+**/
 
 .initially-hidden, 
 .column .initially-hidden {
@@ -54,9 +56,9 @@
 }
 
 // TODO: Eliminate or move to utility-mixins.less.
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §2: Element sizing
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §2: Element sizing
+**/
 
 .set-widths(@wdth, @mn-wdth: "na", @mx-wdth: "na") when (@mn-wdth > 0) and (isnumber(@mn-wdth))
   and (@mx-wdth = "na") {
@@ -76,9 +78,9 @@
 }
 
 // TODO: Eliminate or move to utility-mixins.less.
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §3: Positioning
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §3: Positioning
+**/
 
 .set-pstn-top(@pstn) when not (@pstn = "na") {
 	top: @pstn;
@@ -102,9 +104,9 @@
 }
 
 // TODO: Eliminate or move to utility-mixins.less.
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §4: Spacing
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §4: Spacing
+**/
 
 .vrtcl-spcng-full() {
     margin-top: @v-dflt-spcng;
@@ -169,9 +171,9 @@
 }
 
 // TODO: Eliminate or move to utility-mixins.less.
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §5: Padding
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §5: Padding
+**/
 
 .pads-top(@sclng-fctr: 1.0) {
     padding-top: (@v-dflt-spcng * @sclng-fctr);
@@ -260,9 +262,9 @@
 }
 
 // TODO: Eliminate or move to utility-mixins.less.
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §6: Typography
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §6: Typography
+**/
 
 .breaks-words,
 .column .breaks-words {
@@ -289,9 +291,9 @@
 }
 
 // TODO: Eliminate or move to utility-mixins.less.
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §7: Borders
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §7: Borders
+**/
 
 .soft-gray-border,
 .column .soft-gray-border {
@@ -354,9 +356,9 @@
 	}
 }
 	
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §8: More typography
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §8: More typography
+**/
 
 .responsive-fSize(@fSize, @scale) when
 		(isem(@fSize)) and (length(@scale) = 6),
@@ -449,26 +451,26 @@
  (isunit(@fntsz, rem)) and (isem(@lnhght)),
  (ispixel(@fntsz)) and (ispixel(@lnhght)),
  (ispixel(@fntsz)) and (isem(@lnhght)) {
-	.row.single:not(.mimic-multi-column-sections) .column & {
+	.single & {
 		.has-responsive-font(@fntsz, @lnhght);
 	}
-	.row.single.mimic-two-column-sections .column & {
+	.mimic-two-column-sections & {
 		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt);
 	}
-	.row.side-right .column &,
-	.row.side-left .column &,
-	.row.halves .column & {
+	.side-right &,
+	.side-left &,
+	.halves & {
 		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt);
 	}
-	.row.thirds .column &,
-	.row.quarters .column & {
+	.thirds &,
+	.quarters & {
 		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt-2);
 	}
 }
 
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §9: Semantic mixins for responsive layouts
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §9: Semantic mixins for responsive layouts
+**/
 
 .declare-mobile-layout(@lg-mobile-ruleset, @nrml-mobile-ruleset) 
 		when (isruleset(@lg-mobile-ruleset)) and (isruleset(@nrml-mobile-ruleset)){
@@ -481,9 +483,9 @@
 	}
 }
 
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §10: Iteratively specified CSS declarations
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §10: Iteratively specified CSS declarations
+**/
 
 .apply-ruleset-to-selector-list(@slctr-list, @ruleset-to-apply) when (length(@slctr-list) = 1) 
 		and (isruleset(@ruleset-to-apply)) {
@@ -646,9 +648,9 @@
 	}
 }
 
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §11: Interpolated style declarations
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §11: Interpolated style declarations
+**/
 
 .has-responsive-property(@property, @value, @sclng-fctrs: @v-fnt-sclng-fctrs) 
 		when (isnumber(@value))	and (length(@sclng-fctrs) = 6) {
@@ -675,9 +677,9 @@
 	}
 }
 
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-MIXINS §12: Declaration of detached rulesets
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §12: Declaration of detached rulesets
+**/
 
 .declare-ruleset(@ruleset, @wrapper) when (isruleset(@ruleset)) and (@wrapper = ~"") {
 	@ruleset();
