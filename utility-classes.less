@@ -19,30 +19,30 @@
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
 ***  §1: Widths................................................................................52
 ***      >>> §1.1: Percent widths..............................................................56
-***      >>> §1.2: Pixel widths................................................................97
-***      >>> §1.3: Max widths.................................................................140
-***  §2: Typography...........................................................................152
-***      >>> §2.1: Font Sizing................................................................156
-***      >>> §2.2: Line Heights...............................................................220
-***      >>> §2.3: Bolding....................................................................268
-***      >>> §2.4: Text transformation........................................................298
-***      >>> §2.5: Text alignment.............................................................312
-***  §3: Spacing..............................................................................336
-***  §4: Floating.............................................................................356
-***      >>> §4.1: Clearing...................................................................375
-***  §5: Display..............................................................................395
-***      >>> §5.1: Flex-box...................................................................434
-***  §6: Margins..............................................................................474
-***  §7: Padding..............................................................................520
-***    >>> §7.1: In units of "em".............................................................524
-***    >>> §7.2: In units of "rem"............................................................563
-***  §8: Colors...............................................................................598
-***      >>> §8.1: WSU Grays..................................................................643
-***      >>> §8.2: WSU Crimsons...............................................................652
-***      >>> §8.3: WSU Greens.................................................................662
-***      >>> §8.4: WSU Yellows................................................................672
-***      >>> §8.5: WSU Blues..................................................................682
-***      >>> §8.6: WSU Oranges................................................................692
+***      >>> §1.2: Pixel widths................................................................96
+***      >>> §1.3: Max widths.................................................................134
+***  §2: Typography...........................................................................145
+***      >>> §2.1: Font Sizing................................................................149
+***      >>> §2.2: Line Heights...............................................................207
+***      >>> §2.3: Bolding....................................................................254
+***      >>> §2.4: Text transformation........................................................283
+***      >>> §2.5: Text alignment.............................................................295
+***  §3: Spacing..............................................................................315
+***  §4: Floating.............................................................................334
+***      >>> §4.1: Clearing...................................................................350
+***  §5: Display..............................................................................367
+***      >>> §5.1: Flex-box...................................................................402
+***  §6: Margins..............................................................................442
+***  §7: Padding..............................................................................478
+***      >>> §7.1: In units of "em"...........................................................482
+***      >>> §7.2: In units of "rem"..........................................................516
+***  §8: Colors...............................................................................551
+***      >>> §8.1: WSU Grays..................................................................592
+***      >>> §8.2: WSU Crimsons...............................................................601
+***      >>> §8.3: WSU Greens.................................................................611
+***      >>> §8.4: WSU Yellows................................................................621
+***      >>> §8.5: WSU Blues..................................................................631
+***      >>> §8.6: WSU Oranges................................................................641
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -86,7 +86,6 @@
 	.pct-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pct-width-array)) {
 		.pct-width-loop((@idx - 1));
 		@class-name: extract(@pct-width--class-array, @idx);
-		.width--@{class-name},
 		.w--@{class-name} {
 			.width--pct(@idx);
 		}
@@ -98,38 +97,33 @@
 **/
 
 	@pxl-width-1--class: ~"64px";
-	@pxl-width-2--class: ~"80px";
-	@pxl-width-3--class: ~"96px";
-	@pxl-width-4--class: ~"112px";
-	@pxl-width-5--class: ~"128px";
-	@pxl-width-6--class: ~"144px";
-	@pxl-width-7--class: ~"160px";
-	@pxl-width-8--class: ~"176px";
-	@pxl-width-9--class: ~"192px";
-	@pxl-width-10--class: ~"208px";
-	@pxl-width-11--class: ~"224px";
-	@pxl-width-12--class: ~"240px";
-	@pxl-width-13--class: ~"256px";
-	@pxl-width-14--class: ~"272px";
-	@pxl-width-15--class: ~"288px";
-	@pxl-width-16--class: ~"304px";
-	@pxl-width-17--class: ~"320px";
-	@pxl-width-18--class: ~"336px";
-	@pxl-width-19--class: ~"352px";
-	@pxl-width-20--class: ~"368px";
-	@pxl-width-21--class: ~"384px";
+	@pxl-width-2--class: ~"96px";
+	@pxl-width-3--class: ~"128px";
+	@pxl-width-4--class: ~"160px";
+	@pxl-width-5--class: ~"192px";
+	@pxl-width-6--class: ~"224px";
+	@pxl-width-7--class: ~"256px";
+	@pxl-width-8--class: ~"288px";
+	@pxl-width-9--class: ~"320px";
+	@pxl-width-10--class: ~"384px";
+	@pxl-width-11--class: ~"448px";
+	@pxl-width-12--class: ~"512px";
+	@pxl-width-13--class: ~"576px";
+	@pxl-width-14--class: ~"640px";
+	@pxl-width-15--class: ~"768px";
+	@pxl-width-16--class: ~"832px";
+	@pxl-width-17--class: ~"896px";
+	@pxl-width-18--class: ~"960px";
 
 	@pxl-width--class-array: @pxl-width-1--class, @pxl-width-2--class, @pxl-width-3--class,
 		@pxl-width-4--class, @pxl-width-5--class, @pxl-width-6--class, @pxl-width-7--class,
 		@pxl-width-8--class, @pxl-width-9--class, @pxl-width-10--class, @pxl-width-11--class,
 		@pxl-width-12--class, @pxl-width-13--class, @pxl-width-14--class, @pxl-width-15--class,
-		@pxl-width-16--class, @pxl-width-17--class, @pxl-width-18--class, @pxl-width-19--class,
-		@pxl-width-20--class, @pxl-width-21--class;
+		@pxl-width-16--class, @pxl-width-17--class, @pxl-width-18--class;
 
 	.pxl-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pxl-width-array)) {
 		.pxl-width-loop((@idx - 1));
 		@class-name: extract(@pxl-width--class-array, @idx);
-		.width--@{class-name},
 		.w--@{class-name} {
 			.width--pxl(@idx);
 		}
@@ -139,7 +133,6 @@
 /**     ····························································································
 ***     >>> §1.3: Max widths
 **/
-	.max-width--none,
 	.mw--none {
 		max-width: none;
 	}
@@ -186,32 +179,26 @@
 	.fSize-loop(length(@fSize-array));
 
 	// Semantic font-sizing with reference to standard heading sizes
-	.h1-text-size,
 	.h1-fs {
 		.font-size(@h1-font-size);
 	}
 
-	.h2-text-size,
 	.h2-fs {
 		.font-size(@h2-font-size);
 	}
 
-	.h3-text-size,
 	.h3-fs {
 		.font-size(@h3-font-size);
 	}
 
-	.h4-text-size,
 	.h4-fs {
 		.font-size(@h4-font-size);
 	}
 
-	.h5-text-size,
 	.h5-fs {
 		.font-size(@h5-font-size);
 	}
 
-	.h6-text-size,
 	.h6-fs {
 		.font-size(@h6-font-size);
 	}
@@ -257,7 +244,6 @@
 	.lHeight-loop(@idx) when (@idx > 0) and (@idx <= length(@lHeight-array)) {
 		.lHeight-loop((@idx - 1));
 		@class-name: extract(@lHeight--class-array, @idx);
-		.line-height--@{class-name},
 		.lh--@{class-name} {
 			.line-height(@idx);
 		}
@@ -287,7 +273,6 @@
 		.fWeight-loop((@idx - 1));
 		@class-name: extract(extract(@fWeight--array, @idx), 1);
 		@value: extract(extract(@fWeight--array, @idx), 2);
-		.font-weight--@{class-name},
 		.fw--@{class-name} {
 			.font-weight(@value);
 		}
@@ -298,12 +283,10 @@
 ***     >>> §2.4: Typograhy: Text transformation
 **/
 
-	.text-transform--none,
 	.tt--none {
 		text-transform: none;
 	}
 
-	.text-transform--uppercase,
 	.tt--uppercase {
 		text-transform: uppercase;
 	}
@@ -312,22 +295,18 @@
 ***     >>> §2.5: Typograhy: Text alignment
 **/
 
-	.text-align--center,
 	.ta--center {
 		text-align: center;
 	}
 
-	.text-align--justify,
 	.ta--justify {
 		text-align: justify;
 	}
 
-	.text-align--left,
 	.ta--left {
 		text-align: left;
 	}
 
-	.text-align--right,
 	.ta--right {
 		text-align: left;
 	}
@@ -345,7 +324,6 @@
 		.spacing-loop((@idx - 1));
 		@class-name: extract(extract(@spacing--array, @idx), 1);
 		@value-idx: extract(extract(@spacing--array, @idx), 2);
-		.column * + .spacing--@{class-name},
 		.column * + .sv--@{class-name} {
 			margin-top: extract(@mSize-array, @value-idx);
 		}
@@ -356,17 +334,14 @@
 ***   §4: Floating
 **/
 
-	.float--none,
 	.flt--none {
 		float: none;
 	}
 
-	.float--right,
 	.flt--right {
 		float: right;
 	}
 
-	.float--left,
 	.flt--left {
 		float: left;
 	}
@@ -375,17 +350,14 @@
 ***     >>> §4.1: Clearing
 **/
 
-	.clear--left,
 	.clr--left {
 		clear: left;
 	}
 
-	.clear--right,
 	.clr--right {
 		clear: right;
 	}
 
-	.clear--both,
 	.clr--both {
 		clear: both;
 	}
@@ -395,22 +367,18 @@
 ***   §5: Display
 **/
 
-	.display--block,
 	.dy--block {
 		display: block;
 	}
 
-	.display--inline,
 	.dy--inline {
 		display: inline;
 	}
 
-	.display--inline-block,
 	.dy--inline-block {
 		display: inline-block;
 	}
 
-	.display--none,
 	.dy--none {
 		display: none;
 	}
@@ -479,27 +447,22 @@
 		.margin-loop((@idx - 1));
 		@class-name: extract(extract(@spacing--array, @idx), 1);
 		@value-idx: extract(extract(@spacing--array, @idx), 2);
-		.margin--@{class-name},
 		.ma--@{class-name} {
 			.margin(@value-idx, "all");
 		}
 
-		.margin-bottom--@{class-name},
 		.mb--@{class-name} {
 			.margin(@value-idx, "bottom");
 		}
 
-		.margin-left--@{class-name},
 		.ml--@{class-name} {
 			.margin(@value-idx, "left");
 		}
 
-		.margin-right--@{class-name},
 		.mr--@{class-name} {
 			.margin(@value-idx, "right");
 		}
 
-		.margin-top--@{class-name},
 		.mt--@{class-name} {
 			.margin(@value-idx, "top");
 		}
@@ -527,27 +490,22 @@
 		.padding-loop((@idx - 1));
 		@class-name: extract(extract(@padding--array, @idx), 1);
 		@value-idx: extract(extract(@padding--array, @idx), 2);
-		.padding--@{class-name},
 		.pa--@{class-name} {
 			.padding(@value-idx, "all");
 		}
 
-		.padding-bottom--@{class-name},
 		.pb--@{class-name} {
 			.padding(@value-idx, "bottom");
 		}
 
-		.padding-left--@{class-name},
 		.pl--@{class-name} {
 			.padding(@value-idx, "left");
 		}
 
-		.padding-right--@{class-name},
 		.pr--@{class-name} {
 			.padding(@value-idx, "right");
 		}
 
-		.padding-top--@{class-name},
 		.pt--@{class-name} {
 			.padding(@value-idx, "top");
 		}
@@ -602,7 +560,6 @@
 		.color-class-loop(@class-name, @color-list, (@idx - 1));
 		@modifier: extract(@color-modifiers-list, @idx);
 		@color-value: extract(@color-list, @idx);
-		.color--@{class-name}--@{modifier},
 		.c--@{class-name}--@{modifier} {
 			color: @color-value;
 		}
@@ -614,11 +571,9 @@
 		.background-color-class-loop(@class-name, @color-list, (@idx - 1));
 		@modifier: extract(@color-modifiers-list, @idx);
 		@color-value: extract(@color-list, @idx);
-		.bg-color--@{class-name}--@{modifier},
 		.bgc--@{class-name}--@{modifier} {
 			background-color: @color-value;
 		}
-		.bg-color--@{class-name}--@{modifier}--25pct,
 		.bgc--@{class-name}--@{modifier}--25pct {
 			.getRgbaForProp(returned, @color-value, 0.25);
 			background-color: @returned;
@@ -628,7 +583,6 @@
 	.define-bg-color-tint(@class-name, @color-list, @idx)  when (@idx > 0) and 
 			(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
 			length(@color-list)) {
-		.bg-color--@{class-name}--tint,
 		.bgc--@{class-name}--tint {
 			background-color: tint(extract(@color-list, @idx), 87%);
 		}	
