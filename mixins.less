@@ -371,10 +371,11 @@
 		@media (min-width: (@spine-threshold + 1)) and (max-width: (@desktop-width - 1)) {
 			font-size: (@fSize * extract(@scale, 2));
 		}
-		@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
+		@media (min-width: (@column-floating-threshold + 1)) and (max-width: @spine-threshold) {
 			font-size: (@fSize * extract(@scale, 3));
 		}
-		@media (min-width: (@large-mobile-screen-width + 1)) and (max-width: @tablet-screen-width) {
+		@media (min-width: (@large-mobile-screen-width + 1)) and
+				(max-width: @column-floating-threshold) {
 			font-size: (@fSize * extract(@scale, 4));
 		}
 		@media (min-width: (@mobile-screen-width + 1)) and (max-width: @large-mobile-screen-width) {
@@ -386,85 +387,111 @@
 	}
 }
 
-.has-responsive-font(@fntsz, @lnhght, @sclng-fctrs: @v-fnt-sclng-fctrs) when (isem(@fntsz))
-  and (isem(@lnhght)) and (length(@sclng-fctrs) = 6),
-  (isem(@fntsz)) and (isunit(@lnhght, rem)) and (length(@sclng-fctrs) = 6),
-  (isem(@fntsz)) and (ispixel(@lnhght)) and (length(@sclng-fctrs) = 6),
-  (isunit(@fntsz, rem)) and (isem(@lnhght)) and (length(@sclng-fctrs) = 6),
-  (isunit(@fntsz, rem)) and (isunit(@lnhght, rem)) and (length(@sclng-fctrs) = 6),
-  (isunit(@fntsz, rem)) and (ispixel(@lnhght)) and (length(@sclng-fctrs) = 6),
-  (ispixel(@fntsz)) and (isem(@lnhght)) and (length(@sclng-fctrs) = 6),
-  (ispixel(@fntsz)) and (isunit(@lnhght, rem)) and (length(@sclng-fctrs) = 6),
-  (ispixel(@fntsz)) and (ispixel(@lnhght)) and (length(@sclng-fctrs) = 6) {
+.has-responsive-font( @fntsz, @lnhght, @scaling-factors: @default-scaling-factors,
+		@scaling-indices: @default-scaling-indices ) when
+		( isem( @fntsz ) ) and ( isem( @lnhght ) ) and ( length( @scaling-factors ) = 5 ) and
+			( length(@scaling-indices) = 6 ),
+		( isem( @fntsz ) ) and ( isunit( @lnhght, rem ) ) and ( length( @scaling-factors ) = 5 ) and
+			( length(@scaling-indices) = 6 ),
+		( isem( @fntsz ) ) and ( ispixel( @lnhght ) ) and ( length( @scaling-factors ) = 5 ) and
+			( length(@scaling-indices) = 6 ),
+		( isunit( @fntsz, rem ) ) and ( isem( @lnhght ) ) and ( length( @scaling-factors ) = 5 ) and
+			( length(@scaling-indices) = 6 ),
+		( isunit( @fntsz, rem ) ) and ( isunit( @lnhght, rem ) ) and
+			( length( @scaling-factors ) = 5 ) and ( length( @scaling-indices) = 6 ),
+		( isunit( @fntsz, rem ) ) and ( ispixel( @lnhght ) )
+			and ( length( @scaling-factors ) = 5 ) and ( length( @scaling-indices) = 6 ),
+		( ispixel( @fntsz ) ) and ( isem( @lnhght ) ) and ( length( @scaling-factors ) = 5 ) and
+			(length(@scaling-indices) = 6),
+		( ispixel( @fntsz ) ) and ( isunit( @lnhght, rem ) ) and
+			( length( @scaling-factors ) = 5 ) and ( length( @scaling-indices) = 6 ),
+		( ispixel( @fntsz ) ) and ( ispixel( @lnhght ) ) and ( length( @scaling-factors ) = 5 ) and
+			(length(@scaling-indices) = 6) {
 	@media all {
 		line-height: @lnhght;
-		@media (min-width: @desktop-width) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 1));
+
+		@media ( min-width: @desktop-width ) {
+			font-size: (@fntsz * extract( @scaling-factors, extract( @scaling-indices, 1 ) ) );
 		}
-		@media (min-width: (@spine-threshold + 1)) and (max-width: (@desktop-width - 1)) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 2));
+		@media ( min-width: ( @spine-threshold + 1 ) ) and ( max-width: ( @desktop-width - 1 ) ) {
+			font-size: (@fntsz * extract(@scaling-factors, extract( @scaling-indices, 2 ) ));
 		}
-		@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 3));
+		@media ( min-width: ( @column-floating-threshold + 1 ) ) and
+				( max-width: @spine-threshold ) {
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 3 ) ) );
 		}
-		@media (min-width: (@large-mobile-screen-width + 1)) and (max-width: @tablet-screen-width) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 4));
+		@media ( min-width: ( @large-mobile-screen-width + 1 ) ) and
+				( max-width: @column-floating-threshold ) {
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 4 ) ) );
 		}
-		@media (min-width: (@mobile-screen-width + 1)) and (max-width: @large-mobile-screen-width) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 5));
+		@media ( min-width: ( @mobile-screen-width + 1 ) ) and
+				( max-width: @large-mobile-screen-width ) {
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 5 ) ) );
 		}
-		@media (max-width: @mobile-screen-width) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 6));
+		@media ( max-width: @mobile-screen-width ) {
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 6 ) ) );
 		}
 	}
 }
 
-.has-responsive-font(@fntsz, @lnhght, @sclng-fctrs: @v-fnt-sclng-fctrs) when (isem(@fntsz))
- and (@lnhght = false) and (length(@sclng-fctrs) = 6),
-  (isunit(@fntsz, rem)) and (@lnhght = false) and (length(@sclng-fctrs) = 6),
-  (ispixel(@fntsz)) and (@lnhght = false) and (length(@sclng-fctrs) = 6) {
+.has-responsive-font( @fntsz, @lnhght, @scaling-factors: @default-scaling-factors,
+		@scaling-indices: @default-scaling-indices ) when
+		( isem( @fntsz) ) and ( @lnhght = false ) and (length(@scaling-factors) = 5 ) and
+			(length(@scaling-indices) = 6),
+		( isunit( @fntsz, rem ) ) and ( @lnhght = false ) and ( length( @scaling-factors ) = 5 ) and
+			(length(@scaling-indices) = 6),
+		( ispixel( @fntsz ) ) and ( @lnhght = false ) and ( length( @scaling-factors ) = 5 ) and
+			(length(@scaling-indices) = 6) {
 	@media all {
-		font-size: @fntsz;
 		@media (min-width: @desktop-width) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 1));
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 1 ) ) );
 		}
 		@media (min-width: (@spine-threshold + 1)) and (max-width: (@desktop-width - 1)) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 2));
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 2 ) ) );
 		}
-		@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 3));
+		@media (min-width: (@column-floating-threshold + 1)) and (max-width: @spine-threshold) {
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 3 ) ) );
 		}
-		@media (min-width: (@large-mobile-screen-width + 1)) and (max-width: @tablet-screen-width) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 4));
+		@media (min-width: (@large-mobile-screen-width + 1)) and
+				(max-width: @column-floating-threshold) {
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 4 ) ) );
 		}
 		@media (min-width: (@mobile-screen-width + 1)) and (max-width: @large-mobile-screen-width) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 5));
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 5 ) ) );
 		}
 		@media (max-width: @mobile-screen-width) {
-			font-size: (@fntsz * extract(@sclng-fctrs, 6));
+			font-size: ( @fntsz * extract( @scaling-factors, extract( @scaling-indices, 6 ) ) );
 		}
 	}
 }
 
-.has-sectionally-responsive-font(@fntsz, @lnhght) when (isem(@fntsz)) and (isem(@lnhght)),
- (isunit(@fntsz, rem)) and (isunit(@lnhght, rem)),
- (isunit(@fntsz, rem)) and (isem(@lnhght)),
- (ispixel(@fntsz)) and (ispixel(@lnhght)),
- (ispixel(@fntsz)) and (isem(@lnhght)) {
+.has-sectionally-responsive-font( @fntsz, @lnhght, @scaling-factors: @default-scaling-factors ) when
+		( isem( @fntsz ) ) and ( isem( @lnhght ) ) and ( length( @scaling-factors ) = 5 ),
+		( isunit( @fntsz, rem ) ) and ( isunit( @lnhght, rem ) ) and
+			( length( @scaling-factors ) = 5 ),
+		( isunit( @fntsz, rem ) ) and ( isem( @lnhght ) ) and ( length( @scaling-factors ) = 5 ),
+		( ispixel( @fntsz ) ) and ( ispixel( @lnhght ) ) and ( length( @scaling-factors ) = 5 ),
+		( ispixel( @fntsz ) ) and ( isem( @lnhght ) ) and ( length( @scaling-factors ) = 5 ),
+		( isem( @fntsz) ) and ( @lnhght = false ) and ( length( @scaling-factors ) = 5),
+		( isunit( @fntsz, rem ) ) and ( @lnhght = false ) and ( length( @scaling-factors ) = 5 ),
+		( ispixel( @fntsz ) ) and ( @lnhght = false ) and ( length( @scaling-factors ) = 5 ) {
 	.single & {
-		.has-responsive-font(@fntsz, @lnhght);
+		.has-responsive-font(@fntsz, @lnhght, @scaling-factors);
 	}
-	.mimic-two-column-sections & {
-		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt);
-	}
+	.mimic-two-column-sections &,
 	.side-right &,
 	.side-left &,
 	.halves & {
-		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt);
+		@scaling-indices: 2, 3, 3, 2, 3, 4;
+		.has-responsive-font( @fntsz, @lnhght, @scaling-factors, @scaling-indices );
 	}
-	.thirds &,
+	.thirds & {
+		@scaling-indices: 2, 4, 4, 2, 3, 4;
+		.has-responsive-font( @fntsz, @lnhght, @scaling-factors, @scaling-indices );
+	}
 	.quarters & {
-		.has-responsive-font(@fntsz, @lnhght, @v-fnt-sclng-fctrs-alt-2);
+		@scaling-indices: 3, 4, 4, 3, 4, 5;
+		.has-responsive-font( @fntsz, @lnhght, @scaling-factors, @scaling-indices );
 	}
 }
 

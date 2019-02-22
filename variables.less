@@ -201,25 +201,25 @@
 // Viewport width at which wide-screen backgrounds activate
 @widescreen-background-width: 1440px;
 
+// Viewport width at which wide-screen backgrounds activate
+@background-visible-width: 1440px;
+
 
 //@v-scl-dwn: 0.92195445;
 // Scaling factor by which font size reduces as a smaller format is reached
 @v-scl-dwn: 0.938;
 
 // Scaling factor by which font size expands as a larger format is reached
-@v-scl-up: (1 / @v-scl-dwn);
-
+@v-scl-up: 1.125;
 
 // A list defining the sequence by which responsive websites set font sizes as different screen 
-//  sizes are encountered
-@v-fnt-sclng-fctrs: @v-scl-up, 1.0, @v-scl-up, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn);
+// sizes are encountered.
+@default-scaling-factors: 1.118, 1.0, 0.941, 0.882, 0.824;
+@default-scaling-indices: 1, 2, 1, 2, 3, 4; 
 
-// An alternate list of font scaling factors
-@v-fnt-sclng-fctrs-alt: 1.0, 1.0, 1.0, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn);
+// Default font scaling for columns.
 
-// An additional alternate list of font scaling factors
-@v-fnt-sclng-fctrs-alt-2: 1.0, @v-scl-dwn, 1.0, @v-scl-dwn, (@v-scl-dwn * @v-scl-dwn), 
-	(@v-scl-dwn * @v-scl-dwn);
+@column-fs-scaling-array: 1.125, 1.0, 1.125, 1.0, 0.941, 0.882;
 
 /**   ----------------------------------------------------------------------------------------------
 ***   §4: Colors

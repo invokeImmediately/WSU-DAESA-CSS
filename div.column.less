@@ -21,45 +21,60 @@ section.pad-top {
 
 @oue-column-ruleset: {
 	.column {
-		font-size: @column-fs;
-		color: @column-color;
 		&:extend(.has-dflt-font);
+
+		color: @column-color;
+
 		&:nth-child(1) {
 			margin-top: 0;
 		}
+
 		&.hides-overflow {
 			overflow: hidden;
 		}
+
 		&.make-me-a-wrapper {
 			padding: 0;
 		}
+
 		&.no-top-pad {
 			padding-top: 0;
 		}
+
 		&.with-right-margin {
 			margin-right: 2rem;
-		}    
+		}
+
+		.has-sectionally-responsive-font( extract(@fSize-array, @fSize-1000mx),
+			extract(@lHeight-array, @lHeight-1000mx) );
+
 		section {
 			position: relative;
 			&+section:not(.no-top-margin) {
 				margin-top: @v-dflt-spcng;
 			}
 		}
+
 		.crimson-text {
 			color: @hex-crimson;
 		}
+
 		.blue-text {
 			color: @hex-blue;
 		}
+
 		.dark-blue-text {
 			color: @hex-dark-blue;
 		}
+
 		.centered-text {
 			text-align: center;
 		}
+
 		.larger-text, .has-larger-text {
 			font-size: larger;
 		}
+
 		.has-smaller-text {
 			font-size: smaller !important;
 		}
