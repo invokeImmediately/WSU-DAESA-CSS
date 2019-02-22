@@ -26,9 +26,6 @@
 ***  §8: Gutter padding overrides to improve mobile design....................................297
 ***  §9: Column stacking overrides to improve mobile design...................................518
 ***  §10: Linked column styling...............................................................540
-***  §11: Accessibility friendly utility classes.............................................1425
-***    >>> §11.1: Font-sizing variables for columns..........................................1429
-***    >>> §11.2: Default font sizes for column elements.....................................1443
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -249,54 +246,8 @@
 ***   §7: Spacing overrides to improve responsive design of WSU Spine builder template
 **/
 
-	main section.row {
-		& > .column > article > .article-body,
-		& > .column > article > .article-summary,
-		& > .column table > tbody > tr > td {
-			& > ul:not(.no-btm-margin),
-			& > section > ul:not(.no-btm-margin),
-			& > div > ul:not(.no-btm-margin),
-			& > ol:not(.no-btm-margin),
-			& > section > ol:not(.no-btm-margin),
-			& > div > ol:not(.no-btm-margin),
-			& > .gform_wrapper .gfield_html > p:not(:last-child),
-			& > .gform_confirmation_wrapper p:not(:last-child) {
-				margin-bottom: @v-btm-mrgns;
-			}
-		}
-
-		&:last-child {
-			& > .column {
-				& > .column > article > .article-body,
-				& > .column > article > .article-summary {
-					& > ul:last-child,
-					& > section > ul:last-child,
-					& > div > ul:last-child,
-					& > ol:last-child,
-					& > section > ol:last-child,
-					& > div > ol:last-child {
-						margin-bottom: 0;
-					}
-				}
-			}
-			// TODO: Check and see if these are correct.
-			&.halves,
-			&.thirds,
-			&.quarters,
-			&.side-right,
-			&.side-left {
-				& > .column:not(:last-child),
-				& > .column:not(:last-child) > article > .article-body,
-				& > .column:not(:last-child) > article > .article-summary,
-				& > .column:not(:last-child) > section {
-					& > :last-child {
-						@media all and (max-width: @column-floating-threshold) {
-							margin-bottom: @v-btm-mrgns;
-						}
-					}
-				}
-			}
-		}
+	main .row {
+		font-size: @column-fs;
 
 		& > .column table > tbody > tr > td {
 			& > p:last-child,
@@ -1368,7 +1319,6 @@
 	}
 }
 
-
 /**   ----------------------------------------------------------------------------------------------
 ***   §11: Accessibility friendly utility classes
 **/
@@ -1390,24 +1340,3 @@
 /**     ····························································································
 ***     >>> §11.2: Default font sizes for column elements
 **/
-
-.row {
-	&.single .column,
-	&.halves .column,
-	&.quarters .column,
-	&.side-right .column,
-	&.side-left .column,
-	&.thirds .column {
-		font-size: @col--fSize-1;
-
-		@media all{
-			@media (max-width: @desktop-width) {
-				font-size: @col--fSize-2;
-			}
-
-			@media (max-width: @tablet-screen-width) {
-				font-size: @col--fSize-3;
-			}
-		}
-	}
-}

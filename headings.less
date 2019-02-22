@@ -60,7 +60,8 @@
 			font-weight: 700;
 
 			&.article-title {
-				.has-responsive-font((@v-h2-sz * 0.4), @v-hX-lnhght);
+				font-size: @v-h2-sz * 0.4;
+				line-height: @v-hX-lnhght;
 			}
 
 			&.centered {
@@ -240,7 +241,8 @@
 
 		.column & h1.article-title,
 		.column & h2.article-title {
-			.has-responsive-font((@v-p-sz * 1.5), @v-hX-lnhght);
+			font-size: @v-p-sz * 1.5;
+			line-height: @v-hX-lnhght;
 		}
 	}
 
