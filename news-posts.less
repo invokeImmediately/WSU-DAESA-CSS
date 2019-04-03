@@ -158,12 +158,15 @@
 		.wsuwp-content-syndicate-list {
 			display: flex;
 			flex-wrap: wrap;
-			.font-size(@fSize-900mx);
 			list-style-type: none;
 			padding: 0;
 		}
 
 		&.layout--2-columns {
+			.wsuwp-content-syndicate-list {
+				.font-size(@fSize-900mx);
+			}
+
 			.wsuwp-content-syndicate-item {
 				.padding(@pSize-1000mx, "bottom");
 				.padding(@pSize-1000mx, "right");
