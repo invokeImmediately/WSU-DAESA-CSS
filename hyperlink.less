@@ -1,37 +1,37 @@
-/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-**  │ FILENAME: hyperlink.less                                                                   │
-**  │                                                                                            │
-**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-**  │                                                                                            │
-**  │ DESCRIPTION: Involves styles for hyperlink elements of WSU Office of Undergraduate         │
-**  │   Education web pages built using the builder template of the Spine parent theme of WSUWP. │
-**  │   Styles are designed to accompany or supersede styling associated with the theme.         │
-**  └────────────────────────────────────────────────────────────────────────────────────────────┘
-*/
+/** ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: hyperlink.less                                                                   │
+*** │                                                                                            │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+*** │                                                                                            │
+*** │ DESCRIPTION: Involves styles for hyperlink elements of WSU Office of Undergraduate         │
+*** │   Education web pages built using the builder template of the Spine parent theme of WSUWP. │
+*** │   Styles are designed to accompany or supersede styling associated with the theme.         │
+*** └────────────────────────────────────────────────────────────────────────────────────────────┘
+**/
 
-/*  ================================================================================================
-**  SEMANTIC CSS FOR STYLING OUE HYPERLINK ELEMENTS
-*/
+/** ================================================================================================
+*** SEMANTIC CSS FOR STYLING OUE HYPERLINK ELEMENTS
+**/
 
-/*    ─────────────────────────────────────────────────────────────────────────────────────────── 
-**    TABLE OF CONTENTS:
-**    ───────────────────────────────────────────────────────────────────────────────────────────
-**    §1: Legacy styles for columnar hyperlinks................................................33
-**    §2: CSS3-driven tooltips via hyperlink elements..........................................94
-**    §3: A11y friendly default style for columnar hyperlinks.................................179
-**    §4: In-focus hyperlinks.................................................................214
-**    §5: Links for non-text elements.........................................................237
-**    §6: Special cases for hyperlinks........................................................283
-**    §7: Inclusional hyperlink styling via Less mixins.......................................309
-**    §8: Additional mixins...................................................................407
-**    ───────────────────────────────────────────────────────────────────────────────────────────
-*/
+/**  ───────────────────────────────────────────────────────────────────────────────────────────────
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***  §1: Legacy styles for columnar hyperlinks................................................33
+***  §2: CSS3-driven tooltips via hyperlink elements..........................................94
+***  §3: A11y friendly default style for columnar hyperlinks.................................179
+***  §4: In-focus hyperlinks.................................................................214
+***  §5: Links for non-text elements.........................................................240
+***  §6: Special cases for hyperlinks........................................................292
+***  §7: Inclusional hyperlink styling via Less mixins.......................................318
+***  §8: Additional mixins...................................................................416
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
+**/
 
 @oue-hyperlink-ruleset: {
 
-/*    ----------------------------------------------------------------------------------------------
-**    §1: Legacy styles for columnar hyperlinks
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §1: Legacy styles for columnar hyperlinks
+**/
 
 	.column {
 		a {
@@ -90,9 +90,9 @@
 		}
 	}
 
-/*    ----------------------------------------------------------------------------------------------
-**    §2: CSS3-driven tooltips via hyperlink elements
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §2: CSS3-driven tooltips via hyperlink elements
+**/
 
 	a.vpue-tooltip {
 		position: relative;
@@ -157,7 +157,7 @@
 			 -webkit-box-shadow: inset -1px 1px 0 @hex-white;
 			 -moz-box-shadow: inset 0 1px 0 @hex-white;
 			 -o-box-shadow: inset 0 1px 0 @hex-white;
-		/*display: none;*/
+		/**isplay: none;**/
 		}
 		& > span {
 			background: @hex-lightest-orange;
@@ -175,9 +175,9 @@
 		}
 	}
 
-/*    ----------------------------------------------------------------------------------------------
-**    §3: A11y friendly default style for columnar hyperlinks
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §3: A11y friendly default style for columnar hyperlinks
+**/
 
 	.column a {
 		border: 1px solid transparent;
@@ -210,9 +210,9 @@
 		}
 	}
 
-/*    ----------------------------------------------------------------------------------------------
-**    §4: In-focus hyperlinks
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §4: In-focus hyperlinks
+**/
 	body.user-is-tabbing a:focus {
 		border: 2px dotted white;
 		outline: 2px dotted blue;
@@ -236,9 +236,9 @@
 		}
 	}
 
-/*    ----------------------------------------------------------------------------------------------
-**    §5: Links for non-text elements
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §5: Links for non-text elements
+**/
 
 	.column a {
 		&.non-text-link {
@@ -256,6 +256,12 @@
 				top: 100%;
 				.transform(~"translate(-50%, -100%) translateY(2px)");
 				.transition(~"all .25s ease");
+			}
+
+			&.--not-baseline {
+				&::before {
+					.transform(~"translate(-50%, -100%) translateY(6px)");
+				}
 			}
 
 			img {
@@ -282,9 +288,9 @@
 	display: inline-block;		
 }
 
-/*    ----------------------------------------------------------------------------------------------
-**    §6: Special cases for hyperlinks
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §6: Special cases for hyperlinks
+**/
 	.column h1 a:not(.non-text-link),
 	.column h2 a:not(.non-text-link),
 	.column h3 a:not(.non-text-link),
@@ -308,9 +314,9 @@
 
 .declare-ruleset(@oue-hyperlink-ruleset, @oue-rules-wrapper);
 
-/*    ----------------------------------------------------------------------------------------------
-**    §7: Inclusional hyperlink styling via Less mixins
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §7: Inclusional hyperlink styling via Less mixins
+**/
 
 .use-glass-button-layout() {
 	.column a {
@@ -406,9 +412,9 @@
 	}
 }
 
-/*    ----------------------------------------------------------------------------------------------
-**    §8: Additional mixins
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   §8: Additional mixins
+**/
 
 .add-icon__non-text-link(@icon) when (isurl(@icon)) {
 	.column a {
