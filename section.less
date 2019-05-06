@@ -16,16 +16,19 @@
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Utility classes.......................................................................37
-***  §2: Legacy article headers................................................................47
-***  §3: Halves builder sections..............................................................126
-***  §4: Side-right builder sections..........................................................138
-***  §5: Thirds builder sections..............................................................150
-***  §6: Section coloring.....................................................................181
-***  §7: Spacing overrides to improve responsive design.......................................215
-***  §8: Gutter padding overrides to improve mobile design....................................297
-***  §9: Column stacking overrides to improve mobile design...................................518
-***  §10: Linked column styling...............................................................540
+***  §1: Utility classes.......................................................................38
+***  §2: Legacy article headers................................................................48
+***  §3: Halves builder sections..............................................................160
+***  §4: Side-right builder sections..........................................................172
+***  §5: Thirds builder sections..............................................................184
+***  §6: Section coloring.....................................................................215
+***  §7: Spacing overrides to improve responsive design.......................................249
+***  §8: Gutter padding overrides to improve mobile design....................................271
+***  §9: Column stacking overrides to improve mobile design...................................406
+***  §10: Linked column styling...............................................................428
+***  §11: Accessibility friendly utility classes.............................................1312
+***     >>> §11.1: Font-sizing variables for columns.........................................1316
+***     >>> §11.2: Default font sizes for column elements....................................1330
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -248,20 +251,6 @@
 
 	main .row {
 		font-size: @column-fs;
-
-		& > .column table > tbody > tr > td {
-			& > p:last-child,
-			& > section > p:last-child,
-			& > div > p:last-child,
-			& > ul:last-child,
-			& > section > ul:last-child,
-			& > div > ul:last-child,
-			& > ol:last-child,
-			& > section > ol:last-child,
-			& > div > ol:last-child {
-				margin-bottom: 0;
-			}
-		}
 	}
 
 	.h1-header + section.pad-top {
