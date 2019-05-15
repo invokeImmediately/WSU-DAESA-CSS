@@ -395,7 +395,7 @@
 	.show-on-mobile {
 		@media all {
 			@media (min-width: (@large-mobile-screen-width + 1)) {
-				display: none;
+				display: none !important;
 			}
 		}
 	}
@@ -403,7 +403,7 @@
 	.hide-on-mobile {
 		@media all {
 			@media (max-width: (@large-mobile-screen-width)) {
-				display: none;
+				display: none !important;
 			}
 		}
 	}
@@ -411,7 +411,7 @@
 	.show-on-tablet {
 		@media all {
 			@media (min-width: (@tablet-screen-width + 1)) {
-				display: none;
+				display: none !important;
 			}
 		}
 	}
@@ -419,7 +419,7 @@
 	.hide-on-tablet {
 		@media all {
 			@media (max-width: (@tablet-screen-width)) {
-				display: none;
+				display: none !important;
 			}
 		}
 	}
