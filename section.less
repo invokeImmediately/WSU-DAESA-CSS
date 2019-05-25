@@ -26,9 +26,9 @@
 ***  §8: Gutter padding overrides to improve mobile design....................................271
 ***  §9: Column stacking overrides to improve mobile design...................................406
 ***  §10: Linked column styling...............................................................428
-***  §11: Accessibility friendly utility classes.............................................1312
-***     >>> §11.1: Font-sizing variables for columns.........................................1316
-***     >>> §11.2: Default font sizes for column elements....................................1330
+***  §11: Accessibility friendly utility classes.............................................1318
+***     >>> §11.1: Font-sizing variables for columns.........................................1322
+***     >>> §11.2: Default font sizes for column elements....................................1336
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -439,6 +439,7 @@
 		.column {
 			position: relative;
 			height: 0;
+			margin-top: 0 !important;
 			padding-bottom: ~"calc(33% - @{v-dflt-spcng}) !important";
 			background-position: center center;
 			background-size: 100% auto;
@@ -834,7 +835,6 @@
 			#binder.max-1386 & {
 				@media all and (min-width: 1205px) {
 					padding-bottom: 0 !important;
-					height: 327px;
 				}
 			}
 		}
@@ -1202,13 +1202,11 @@
 		// TODO: move to UCORE custom file; it is unnecessary to include this in all OUE sites.
 		&.for-faculty {
 			&.has-title {
-				&.quarters {
-					margin-top: ~"calc(" (@v-dflt-spcng * 3 / 2) ~" + 10px)";
+				margin-top: ~"calc(" (@v-dflt-spcng * 3 / 2) ~" + 10px)";
 
-					.column:first-child > header:first-child {
-						border-bottom: 10px solid rgba(red(@hex-white), green(@hex-white), 
-							blue(@hex-white), 1);
-					}
+				.column:first-child > header:first-child {
+					border-bottom: 10px solid rgba(red(@hex-white), green(@hex-white),
+						blue(@hex-white), 1);
 				}
 			}
 
@@ -1220,12 +1218,12 @@
 				&:not(:first-child) {
 					@media all {
 						@media (min-width: (@column-floating-threshold + 1)) {
-							border-left: 10px solid rgba(red(@hex-white), green(@hex-white), 
+							border-left: 10px solid rgba(red(@hex-white), green(@hex-white),
 								blue(@hex-white), 1);
 						}
 
 						@media (max-width: @column-floating-threshold) {
-							border-top: 10px solid rgba(red(@hex-white), green(@hex-white), 
+							border-top: 10px solid rgba(red(@hex-white), green(@hex-white),
 								blue(@hex-white), 1);
 						}
 					}
@@ -1300,6 +1298,14 @@
 						&:nth-child(4) {
 							border-left: 10px solid rgba(red(@hex-white), green(@hex-white), 
 								blue(@hex-white), 1) !important;
+						}
+					}
+
+					@media all and (max-width: @large-mobile-screen-width) {
+						background-size: cover;
+
+						&:hover {
+							background-size: cover;
 						}
 					}
 				}
