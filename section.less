@@ -16,19 +16,17 @@
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Utility classes.......................................................................38
-***  §2: Legacy article headers................................................................48
-***  §3: Halves builder sections..............................................................160
-***  §4: Side-right builder sections..........................................................172
-***  §5: Thirds builder sections..............................................................184
-***  §6: Section coloring.....................................................................215
-***  §7: Spacing overrides to improve responsive design.......................................249
-***  §8: Gutter padding overrides to improve mobile design....................................271
-***  §9: Column stacking overrides to improve mobile design...................................406
-***  §10: Linked column styling...............................................................428
-***  §11: Accessibility friendly utility classes.............................................1318
-***     >>> §11.1: Font-sizing variables for columns.........................................1322
-***     >>> §11.2: Default font sizes for column elements....................................1336
+***  §1: Utility classes.......................................................................36
+***  §2: Legacy article headers................................................................46
+***  §3: Thirds builder sections..............................................................158
+***  §4: Section coloring.....................................................................189
+***  §5: Spacing overrides....................................................................223
+***  §6: Gutter padding overrides.............................................................245
+***  §7: Column stacking overrides............................................................379
+***  §8: Linked column styling................................................................400
+***  §9: Accessibility friendly utility classes..............................................1290
+***     >>> §9.1: Font-sizing variables for columns..........................................1294
+***     >>> §9.2: Default font sizes for column elements.....................................1308
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -157,31 +155,7 @@
 		}
 
 /**   ----------------------------------------------------------------------------------------------
-***   §3: Halves builder sections
-**/
-
-		&.halves {
-			.column {
-				p:not([class*="center"]) {
-					text-align: left;
-				}
-			}
-		}
-
-/**   ----------------------------------------------------------------------------------------------
-***   §4: Side-right builder sections
-**/
-
-		&.side-right {
-			.column.two {
-				p {
-					text-align: left;
-				}
-			}
-		}
-
-/**   ----------------------------------------------------------------------------------------------
-***   §5: Thirds builder sections
+***   §3: Thirds builder sections
 **/
 
 		&.thirds {
@@ -212,7 +186,7 @@
 	}
 
 /**   ----------------------------------------------------------------------------------------------
-***   §6: Section coloring
+***   §4: Section coloring
 **/
 
 	@class-setup-matrix: has-charcoal-background @hex-charcoal-gray @hex-white,
@@ -246,7 +220,7 @@
 	.setup-coloring-classes(@class-setup-matrix);
 
 /**   ----------------------------------------------------------------------------------------------
-***   §7: Spacing overrides to improve responsive design of WSU Spine builder template
+***   §5: Spacing overrides
 **/
 
 	main .row {
@@ -268,8 +242,7 @@
 	}
 	
 /**   ----------------------------------------------------------------------------------------------
-***   §8: Gutter padding overrides to improve mobile design of WSU Spine builder 
-***   template
+***   §6: Gutter padding overrides
 **/
 
 	.set-up-non-standard-spacing(@spacing-is-non-standard) when (@spacing-is-non-standard = 1) {
@@ -403,8 +376,7 @@
 	}
 
 /**   ----------------------------------------------------------------------------------------------
-***   §9: Column stacking overrides to improve mobile design of WSU Spine builder 
-***   template
+***   §7: Column stacking overrides
 **/
 
 	@media all and (max-width: @column-floating-threshold) {
@@ -425,7 +397,7 @@
 .declare-ruleset(@oue-section-ruleset, @oue-rules-wrapper);
 
 /**   ----------------------------------------------------------------------------------------------
-***   §10: Linked column styling
+***   §8: Linked column styling
 **/
 
 .use-linked-columns() {
@@ -1315,11 +1287,11 @@
 }
 
 /**   ----------------------------------------------------------------------------------------------
-***   §11: Accessibility friendly utility classes
+***   §9: Accessibility friendly utility classes
 **/
 
 /**     ····························································································
-***     >>> §11.1: Font-sizing variables for columns
+***     >>> §9.1: Font-sizing variables for columns
 **/
 
 // TODO: Remove "body.use-a11y-styles" when no longer needed
@@ -1333,5 +1305,5 @@
 // @col--fSize-array: ;
 
 /**     ····························································································
-***     >>> §11.2: Default font sizes for column elements
+***     >>> §9.2: Default font sizes for column elements
 **/
