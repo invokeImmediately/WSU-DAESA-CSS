@@ -1,32 +1,32 @@
-/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-**  │ FILENAME: components.less                                                                  │
-**  │                                                                                            │
-**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-**  │                                                                                            │
-**  │ DESCRIPTION: Less import that contains style rules designed according to component-based   │
-**  │  CSS conventions and which are commonly used on all WSU Office of Undergraduate Education  │
-**  │  websites.                                                                                 │
-**  └────────────────────────────────────────────────────────────────────────────────────────────┘
-*/
+/** ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: components.less                                                                  │
+*** │                                                                                            │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+*** │                                                                                            │
+*** │ DESCRIPTION: Less import that contains style rules designed according to component-based   │
+*** │  CSS conventions and which are commonly used on all WSU Office of Undergraduate Education  │
+*** │  websites.                                                                                 │
+*** └────────────────────────────────────────────────────────────────────────────────────────────┘
+**/
 
-/*  ================================================================================================
-**  OUE COMPONENT-BASED CSS
-*/
+/** ================================================================================================
+*** OUE COMPONENT-BASED CSS
+**/
 
-/*    ──────────────────────────────────────────────────────────────────────────────────────────────
-**    TABLE OF CONTENTS:
-**    ───────────────────────────────────────────────────────────────────────────────────────────
-**    §1: Card styling.........................................................................28
-**    §2: Page headers.........................................................................52
-**    §3: On this page........................................................................138
-**    ──────────────────────────────────────────────────────────────────────────────────────────────
-*/
+/**  ───────────────────────────────────────────────────────────────────────────────────────────────
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***  §1: Card styling..........................................................................28
+***  §2: Page headers..........................................................................52
+***  §3: On this page.........................................................................138
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
+**/
 
 @oue-components-ruleset: {
 
-/*      ····························································································
-**      >>> §1: Card styling
-*/
+/**     ····························································································
+***     >>> §1: Card styling
+**/
 
 	.style--card {
 		.style--card--flat__();
@@ -48,9 +48,9 @@
 		.margin(@mSize-0mx, "top")
 	}
 
-/*      ····························································································
-**      >>> §2: Page headers
-*/
+/**     ····························································································
+***     >>> §2: Page headers
+**/
 
 	@page-header__bg-color: rgba(red(extract(@colors--grays__hex, @colors__darkest)), green(extract(@colors--grays__hex, @colors__darkest)), blue(extract(@colors--grays__hex, @colors__darkest)), 0.9);
 	@page-header__fg-color: extract(@colors--grays__hex, @colors__accent);
@@ -134,9 +134,9 @@
 	}
 
 
-/*      ····························································································
-**      >>> §3: On this page
-*/
+/**     ····························································································
+***     >>> §3: On this page
+**/
 
 	@otp__clr--bg: #2f3438;
 	@otp__clr--item-bg: extract(@colors--grays__hex, @colors__dark);
@@ -152,8 +152,8 @@
 		background-color: @otp__clr--bg;
 		padding-bottom: .75em;
 
-		.column {
-			background-color: inherit;
+		&.single .column {
+			float: left !important;
 		}
 	}
 
@@ -185,7 +185,7 @@
 			box-shadow: none;
 			color: white;
 			display: inline-block;
-			padding: 14px 16px;
+			padding: 5px 12px;
 			text-align: center;
 
 			&:hover {
@@ -195,7 +195,7 @@
 			}
 
 			@media all and (max-width: @tablet-screen-width) {
-				padding: 8px 10px;
+				padding: 4px 10px;
 				font-size: 0.85em;
 			}
 		}
