@@ -73,17 +73,6 @@
 			}
 		}
 	}
-
-	.column {
-		&:not(.show-header) > header:first-child {
-			display: none;
-		}
-
-		header:first-child + h1, header:first-child + h2.fancy.with-top-border,
-		 header:first-child + h3.fancy.with-top-border {
-			margin-top: 0;
-		}
-	}
 };
 
 .declare-ruleset(@oue-header-ruleset, @oue-rules-wrapper);
