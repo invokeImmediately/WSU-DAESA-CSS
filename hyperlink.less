@@ -324,8 +324,6 @@
 	.column a {
 		&.recommend-button,
 		&.glass-button {
-			display:block;
-			position: relative;
 			padding: 1em;
 			border-radius: 7px;
 			border-bottom: none;
@@ -336,7 +334,10 @@
 			}
 			.transition(~"all 0.3s ease");
 
-			// TODO: Combine before & after into one style; free up after for other functions
+			&:hover {
+				border-radius: 7px;
+			}
+
 			&::before {
 				content: "";
 				position: absolute;
@@ -411,6 +412,11 @@
 				}
 			}
 		}
+	}
+
+	.recommend-button,
+	.glass-button {
+		display: block;
 	}
 }
 
