@@ -213,28 +213,37 @@
 		&.--related {
 			a {
 				position: relative;
+				margin-right: 5px;
+			}
+
+			a::before,
+			a::after {
+				content: "";
+				border-top: 3px solid @otp__clr--item-bg;
+				position: absolute;
+				top: 50%;
+				width: 5px;
 			}
 
 			a::before {
-				content: "";
-				border-bottom: 1px solid @otp__clr--border;
-				border-top: 1px solid @otp__clr--border;
-				bottom: -1px;
-				left: (-1 * @otp__w-border);
-				position: absolute;
-				right: (-1 * @otp__w-border);
-				top: -1px;
+				right: 0;
+				transform: translateX(5px);
+			}
+
+			a::after {
+				left: 0;
+				transform: translateX(-5px);
 			}
 
 			&.--start {
-				a::before {
-					left: 0;
+				a::after {
+					content: none;
 				}
 			}
 
 			&.--end {
 				a::before {
-					right: 0;
+					content: none;
 				}
 			}
 		}
