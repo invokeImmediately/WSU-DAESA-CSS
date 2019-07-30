@@ -16,13 +16,13 @@
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Form nodes...........................................................................30
-***    >>> §1.1: Form-mediated "Read More" interfaces.........................................36
-***  §2: Gravity forms.......................................................................109
-***    >>> §2.1: Modifications of default GF styling.........................................113
-***    >>> §2.2: Required field highlighting.................................................351
-***    >>> §2.3: Advanced form controls......................................................500
-***  §3: WSUWP password entry form...........................................................545
+***  §1: Form nodes............................................................................30
+***    >>> §1.1: Form-mediated "Read More" interfaces..........................................36
+***  §2: Gravity forms........................................................................109
+***    >>> §2.1: Modifications of default GF styling..........................................113
+***    >>> §2.2: Required field highlighting..................................................365
+***    >>> §2.3: Advanced form controls.......................................................514
+***  §3: WSUWP password entry form............................................................559
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -174,6 +174,12 @@
 				}
 			}
 
+			.gform_heading {
+				li {
+					list-style: disc !important;
+				}
+			}
+
 			.ginput_complex {
 				span.ginput_full:not(:first-of-type) label, span.ginput_left:not(:first-of-type) 
 						label, span.ginput_right:not(:nth-of-type(2)) label {
@@ -232,33 +238,29 @@
 						display: none;
 					}
 
-					.mce-toolbar-grp > .mce-stack-layout {
-						& > .mce-toolbar.mce-first {
-							.mce-btn {
-								&[aria-label="Blockquote"],
-								&[aria-label="Insert/edit link"],
-								&[aria-label="Remove link"],
-								&[aria-label="Insert/edit image"],
-								&[aria-label="Table"],
-								&[aria-label="Toolbar Toggle"],
-								&[aria-label="Fullscreen"] {
-									display: none;
-								}
-							}
-
-							#mceu_0 {
+					.mce-toolbar.mce-first {
+						.mce-btn {
+							&[aria-label="Insert/edit image (Shift+Alt+M)"],
+							&[aria-label="Align left (Shift+Alt+L)"],
+							&[aria-label="Align center (Shift+Alt+C)"],
+							&[aria-label="Align right (Shift+Alt+R)"],
+							&[aria-label="Align left (Shift+Alt+L)"],
+							&[aria-label="Table"],
+							&[aria-label="Show blocks"],
+							&[aria-label="Source code"],
+							&[aria-label="Toolbar Toggle (Shift+Alt+Z)"] {
 								display: none;
 							}
-						}
-
-						& > .mce-toolbar.mce-last {
-							display: none;
 						}
 					}
 
 					.mce-statusbar {
 						display: none;
 					}
+				}
+
+				.wp-editor-container {
+					border-color: #717171 !important;
 				}
 
 				iframe {
@@ -344,6 +346,18 @@
 
 			div.ginput_container_textarea > textarea {
 				font-size: 16px;
+			}
+
+			input,
+			select {
+				border-color: #717171 !important;
+				border-style: solid !important;
+				border-width: 1px !important;
+			}
+
+			.chosen-single,
+			.chosen-drop {
+				border-color: #717171 !important;
 			}
 		}
 
