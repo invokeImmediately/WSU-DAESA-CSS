@@ -434,12 +434,12 @@
 	h5,
 	h6 {
 		&.solid {
-			padding: .1em .25em .11em 5px;
+			padding: .15em .25em .2em 5px;
 			position: relative;
 
 			&::before {
 				content: "";
-				bottom: 0;
+				height: 100%;
 				left: 0;
 				position: absolute;
 				top: 0;
@@ -460,9 +460,8 @@
 					.getRgbaStr(@hex-black, 0.333); }
 
 				&::before {
-					border-top: 2px solid rgba(@rval, @gval, @bval,1);
-					border-bottom: 1px solid rgba(@rval, @gval, @bval, 0.5);
-					.rgb-black();
+					border-bottom: 1px solid @hex-black;
+					border-top: 2px solid @hex-black;
 				}
 			}
 
@@ -490,9 +489,8 @@
 					.getRgbaStr(@hex-dark-crimson, 0.5); }
 
 				&::before {
-					border-bottom: 1px solid rgba(@rval, @gval, @bval,0.5);
-					border-top: 2px solid rgba(@rval, @gval, @bval, 1);
-					.rgb-dark-crimson();
+					border-bottom: 1px solid @hex-dark-crimson;
+					border-top: 2px solid @hex-dark-crimson;
 				}
 			}
 		}
