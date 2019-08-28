@@ -19,11 +19,10 @@
 ***  §1: Legacy styles for columnar hyperlinks................................................33
 ***  §2: CSS3-driven tooltips via hyperlink elements..........................................94
 ***  §3: A11y friendly default style for columnar hyperlinks.................................179
-***  §4: In-focus hyperlinks.................................................................214
-***  §5: Links for non-text elements.........................................................240
-***  §6: Special cases for hyperlinks........................................................292
-***  §7: Inclusional hyperlink styling via Less mixins.......................................318
-***  §8: Additional mixins...................................................................416
+***  §4: Links for non-text elements.........................................................240
+***  §5: Special cases for hyperlinks........................................................292
+***  §6: Inclusional hyperlink styling via Less mixins.......................................318
+***  §7: Additional mixins...................................................................416
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -213,33 +212,7 @@
 	}
 
 /**   ----------------------------------------------------------------------------------------------
-***   §4: In-focus hyperlinks
-**/
-	body.user-is-tabbing a:focus {
-		border: 2px dotted white;
-		outline: 2px dotted blue;
-		z-index: 99352 !important;
-	}
-		
-	body.user-is-tabbing .column a:focus {
-		position: relative;
-	}
-
-	body.user-is-tabbing .column a:focus::after {
-		border: 9px solid transparent;
-		content: "";
-		left: 0;
-		position: absolute;
-		top: 0;
-		.transform(~"translateX(-50%) translateX(-4px)");
-
-		& {
-			border-left-color: blue;
-		}
-	}
-
-/**   ----------------------------------------------------------------------------------------------
-***   §5: Links for non-text elements
+***   §4: Links for non-text elements
 **/
 
 	.column a.non-text-link,
@@ -293,7 +266,7 @@
 	}
 
 /**   ----------------------------------------------------------------------------------------------
-***   §6: Special cases for hyperlinks
+***   §5: Special cases for hyperlinks
 **/
 	.column h1 a:not(.non-text-link),
 	.column h2 a:not(.non-text-link),
@@ -319,7 +292,7 @@
 .declare-ruleset(@oue-hyperlink-ruleset, @oue-rules-wrapper);
 
 /**   ----------------------------------------------------------------------------------------------
-***   §7: Inclusional hyperlink styling via Less mixins
+***   §6: Inclusional hyperlink styling via Less mixins
 **/
 
 .use-glass-button-layout() {
@@ -424,7 +397,7 @@
 }
 
 /**   ----------------------------------------------------------------------------------------------
-***   §8: Additional mixins
+***   §7: Additional mixins
 **/
 
 .add-icon__non-text-link(@icon) when (isurl(@icon)) {
