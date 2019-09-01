@@ -20,9 +20,9 @@
 ***    >>> §1.1: Form-mediated "Read More" interfaces..........................................36
 ***  §2: Gravity forms........................................................................109
 ***    >>> §2.1: Modifications of default GF styling..........................................113
-***    >>> §2.2: Required field highlighting..................................................365
-***    >>> §2.3: Advanced form controls.......................................................514
-***  §3: WSUWP password entry form............................................................559
+***    >>> §2.2: Required field highlighting..................................................370
+***    >>> §2.3: Advanced form controls.......................................................530
+***  §3: WSUWP password entry form............................................................575
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -232,6 +232,23 @@
 		}
 
 		li.gfield {
+			:focus {
+				outline: 1px solid blue;
+			}
+
+			.chosen-single,
+			.chosen-drop {
+				border-color: #717171 !important;
+			}
+
+			input,
+			select {
+				border-color: #717171 !important;
+				border-style: solid !important;
+				border-width: 1px !important;
+				outline: 1px solid blue !important;
+			}
+
 			&.uses-rich-editor {
 				.tmce-active {
 					.mce-menubar {
@@ -346,18 +363,6 @@
 
 			div.ginput_container_textarea > textarea {
 				font-size: 16px;
-			}
-
-			input,
-			select {
-				border-color: #717171 !important;
-				border-style: solid !important;
-				border-width: 1px !important;
-			}
-
-			.chosen-single,
-			.chosen-drop {
-				border-color: #717171 !important;
 			}
 		}
 
