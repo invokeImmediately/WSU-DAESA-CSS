@@ -73,19 +73,16 @@
 					padding-bottom: 0;
 				}
 			}
-
-			&:hover {
-				.builder-banner-content {
-					font-size: 2rem;
-				}
-			}
 		}
 
 		.builder-banner-inner-content {
+			.rgb-black();
 			background-color: rgba(@rval,@gval,@bval,0.85);
+			box-sizing: border-box;
 			font-size: inherit;
 			line-height: inherit;
-			.rgb-black();
+			padding-left: 2em;
+			padding-right: 2em;
 			width: 100%;
 
 			p {
@@ -109,9 +106,9 @@
 				.transition(~"color .4s linear, border-color .4s linear");
 
 				&:hover {
+					.rgb-gray();
 					border-color: rgba(@rval,@gval,@bval,0.4);
 					color: #949b9d;
-					.rgb-gray();
 				}
 			}
 		}
@@ -125,8 +122,8 @@
 			opacity: 1.0;
 
 			&:before {
-				background-color: @rgba;
 				.getRgbaStr(@hex-black, 0.85);
+				background-color: @rgba;
 				border-radius: 1.7rem;
 				padding-bottom:2px;
 
@@ -134,15 +131,20 @@
 					border-radius: 15px;
 				}
 			}
+
 			&:hover::before {
-				background-color: @rgba;
 				.getRgbaStr(@hex-gray, 0.85);
+				background-color: @rgba;
 			}
 		}
-
 	}
 
 	@media all {
+		@media (min-width: @background-width-threshold ) {
+			.column .builder-banner-slide:hover .builder-banner-content {
+				font-size: 2rem;
+			}
+		}
 		@media (max-width: (@background-width-threshold - 1)) and (min-width: (@spine-threshold + 1)) {
 			.column .builder-banner-content {
 				font-size: 2.1179vw;
