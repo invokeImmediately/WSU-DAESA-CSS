@@ -12,8 +12,8 @@
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***    §1: Main header.........................................................................27
-***    §2: Sectional article headers...........................................................81
+***    §1: Main header and components..........................................................27
+***    §2: Sectional article headers...........................................................71
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -24,16 +24,23 @@
 @oue-header-ruleset: {
 
 /**   ----------------------------------------------------------------------------------------------
-***   §1: Main header
+***   §1: Main header and components
 **/
 
-	header.main-header {
+	.main-header {
+		height: auto;
+
 		@media print {
 			background: none !important;
 			border-bottom: 1px solid black;
 			border-top: 1px solid black;
 			margin-bottom: 1em;
 			padding-top: 1em;
+		}
+
+		.header-group {
+			padding-top: 1rem;
+			position: relative;
 		}
 
 		.sup-header-default {
@@ -55,23 +62,6 @@
 				color: black;
 			}			
 		}
-
-		.header-group { text-align: inherit; }
-		.header-group.centered {
-			@media all {
-				@media (min-width: @large-format-threshold) {
-					left: 50%;
-					width: 100%;
-					.transform(~"translateX(-50%)");
-				}
-
-				@media (min-width: (@tablet-screen-width + 1)) and (max-width: @spine-threshold) {
-					left: 50%;
-					width: 100%;
-					.transform(~"translateX(-50%)");
-				}
-			}
-		}
 	}
 };
 
@@ -82,16 +72,6 @@
 **/
 
 .use-sectional-article-headers() {
-	.page.has-short-main-header {
-		.main-header {
-			height: 85px;
-
-			& > .header-group {
-				padding-bottom: 1em !important;
-			}
-		}
-	}
-
 	.use-short-main-header-on-pages(@header-height: 85px, @header-padding: 1em) {
 		body.page:not(.home) main.spine-blank-template > header.main-header {
 			@header-height: 85px;
