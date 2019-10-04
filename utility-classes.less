@@ -135,7 +135,7 @@
 		}
 
 		.mw--@{class-name} {
-			max-width: extract(@pxl-width-array, @idx);
+			max-width: extract(@pxl-width-array, @idx) !important;
 		}
 	}
 	.pxl-width-loop(length(@pxl-width-array));
@@ -148,7 +148,7 @@
 	}
 
 	.mw--80ch {
-		max-width: 80ch;
+		max-width: 80ch !important;
 	}
 
 	.w--auto {
