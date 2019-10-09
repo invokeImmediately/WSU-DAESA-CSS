@@ -17,8 +17,8 @@
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
 ***  §1: Primary news feed & posts: Articles & components......................................29
-***  §2: Primary news feed & posts: Widgets & components......................................114
-***  §3: Secondary news feeds (via WSUWP-Content-Syndicate plugin)............................179
+***  §2: Primary news feed & posts: Widgets & components......................................128
+***  §3: Secondary news feeds (via WSUWP-Content-Syndicate plugin)............................193
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -43,7 +43,9 @@
 			border-bottom: 1px solid rgba(127,127,127,.2);
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
-			margin: -1em;
+			margin-left: -1em;
+			margin-right: -1em;
+			margin-top: -1em;
 			padding-left: 1em;
 			padding-right: 1em;
 			padding-top: 1em;
@@ -64,17 +66,29 @@
 		line-height: @body-text--lHeight;
 
 		.article-media-contacts,
-	    .article-sidebar,
+		.article-sidebar,
 		img,
 		object,
 		& > h3,
 		.photo-caption {
-	        display: none;
-	    }
+			display: none;
+		}
 
-	    .attachment-spine-thumbnail_size {
-	        display: block;
-	    }
+		.article-thumbnail img {
+			@media all {
+				@media (max-width: @desktop-width) {
+					width: 128px;
+				}
+
+				@media (max-width: @large-mobile-screen-width) {
+					width: 96px;
+				}
+			}
+		}
+
+		.attachment-spine-thumbnail_size {
+			display: block;
+		}
 	}
 
 	.column .article-summary {
