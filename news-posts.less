@@ -1,20 +1,33 @@
-/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-**  │ FILENAME: news-posts.less                                                                  │
-**  │                                                                                            │
-**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-**  │                                                                                            │
-**  │ DESCRIPTION: Includes styles for elements associated with form nodes within OUE pages      │
-**  │   built using the WSU Spine theme for WordPress. Styles are designed to accompany or       │
-**  │   supersede styling associated with the Spine parent theme.                                │
-**  └────────────────────────────────────────────────────────────────────────────────────────────┘
-*/
+/** ┌────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: news-posts.less                                                                  │
+*** │                                                                                            │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+*** │                                                                                            │
+*** │ DESCRIPTION: Includes styles for elements associated with form nodes within OUE pages      │
+*** │  built using the WSU Spine theme for WordPress. Styles are designed to accompany or        │
+*** │  supersede styling associated with the Spine parent theme.                                 │
+*** └────────────────────────────────────────────────────────────────────────────────────────────┘
+**/
 
-/*  ================================================================================================
-**  SEMANTIC CSS FOR STYLING OUE NEWS POSTS
-*/
+/** ================================================================================================
+*** SEMANTIC CSS FOR STYLING OUE NEWS POSTS & RELATED COMPONENTS
+**/
+
+/**  ───────────────────────────────────────────────────────────────────────────────────────────────
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***  §1: Primary news feed & posts: Articles & components......................................29
+***  §2: Primary news feed & posts: Widgets & components......................................115
+***  §3: Secondary news feeds (via WSUWP-Content-Syndicate plugin)............................180
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
+**/
 
 @oue-news-ruleset: {
 	@_article-margin: 15px;
+
+/**   ----------------------------------------------------------------------------------------------
+***   §1: Primary news feed & posts: Articles & components
+**/
 
 	.article-body {
 		position: relative;
@@ -98,6 +111,10 @@
 		}
 	}
 
+/**   ----------------------------------------------------------------------------------------------
+***   §2: Primary news feed & posts: Widgets & components
+**/
+
 	.widget {
 		background-color: extract(@colors--grays__hex, @colors__lightest);
 		border-radius: 5px;
@@ -158,6 +175,10 @@
 			display: none;
 		}
 	}
+
+/**   ----------------------------------------------------------------------------------------------
+***   §3: Secondary news feeds (via WSUWP-Content-Syndicate plugin)
+**/
 
 	.wsuwp-json--headlines {
 		.content-item-byline-author {
