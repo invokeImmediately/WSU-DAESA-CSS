@@ -27,7 +27,7 @@
 	}
 
 	.new-article-section {
-		.row.h1-header& {
+		.h1-header& {
 			padding: (@v-dflt-spcng / 2);
 
 			h1,
@@ -43,7 +43,8 @@
 			}
 		}
 
-		.row.side-right .column.one& {
+		.side-left .one&,
+		.side-right .one& {
 			header {
 				margin-bottom: @v-dflt-spcng;
 				margin-left: (-1 * @v-dflt-spcng);
@@ -51,7 +52,8 @@
 			}
 		}
 
-		.row.side-right .column.two& {
+		.side-left .two&,
+		.side-right .two& {
 			header {
 				margin-bottom: @v-dflt-spcng;
 				margin-right: (-1.005 * @v-dflt-spcng); // Compensate for rounding error in Chrome.
@@ -59,8 +61,10 @@
 			}
 		}
 
-		.row.side-right .column.one&,
-		.row.side-right .column.two& {
+		.side-left .one&,
+		.side-left .two&,
+		.side-right .one&,
+		.side-right .two& {
 			header {
 				background-color: @hex-charcoal-gray;
 				color: @hex-white;
