@@ -276,12 +276,23 @@
 		&.layout--2-columns {
 			.wsuwp-content-syndicate-list {
 				.font-size(@fSize-900mx);
+				max-width: none !important;
 			}
 
 			.wsuwp-content-syndicate-item {
 				.padding(@pSize-1000mx, "bottom");
 				.padding(@pSize-1000mx, "right");
 				width: 50%;
+
+				@media all {
+					@media (max-width: @large-mobile-screen-width) {
+						width: 100%;
+					}
+				}
+			}
+
+			* + .wsuwp-content-syndicate-item {
+				margin-top: 0;
 			}
 		}
 	}
