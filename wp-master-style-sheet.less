@@ -1,23 +1,35 @@
 /** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
 *** │ FILENAME: wp-master-stylesheet.less                                                          │
+*** │                                                                                              │
+*** │ SUMMARY: Entry point for including dependencies utilized in building custom stylesheets that │
+*** │  are common to all websites designed, built, and maintained by the Divsion of Academic       │
+*** │  Engagement and Student Achievement (DAESA) in the Office of the Provost at Washington State │
+*** │  University (WSU).                                                                           │
 *** └──────────────────────────────────────────────────────────────────────────────────────────────┘
 **/
 
+/**  ───────────────────────────────────────────────────────────────────────────────────────────────
+***  MASTER STYLESHEET HEADER COMMENT APPEARS BELOW.
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***  Please note that the following comment block immediately proceeding this one is designed to
+***  be included at the top of all stylsheets built using the entry point of which this file
+***  consists.
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
+**/
+
 /*! ================================================================================================
-*** Styles common to all WSU Office of Undergraduate Education (OUE) websites
-*** ================================================================================================
-***   SUMMARY: CSS code designed for use on all OUE websites that was built from precompiled CSS
-**     written in the Less language extension of CSS.
+***   SUMMARY: The following section of this stylesheet contains CSS code written for use on all
+***    websites designed, built, and maintained by the Divsion of Academic Engagement and Student
+***    Achievement (DAESA) in the Office of the Provost at Washington State University (WSU).
 ***
-***   DESCRIPTION: Intended for use with all WSUWP websites associated with the WSU Office of 
-***     Undergraduate Education, a unit within the Office of the Provost. (Please see 
-***     https://web.wsu.edu and https://vpue.wsu.edu/oue for more information.) It is designed to 
-***     be applied via the WSUWP CSS Stylesheet Editor functioning in add-on mode.
+***   DESCRIPTION: The CSS code in the following section was generated from precompiled CSS written
+***     in the Less language extension of CSS. It is designed to be applied via the WSUWP CSS
+***     Stylesheet Editor functioning in add-on mode.
 ***
-***   AUTHOR: Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)            
-***
-***   GIT REPOSITORY: https://github.com/invokeImmediately/wsu-ue---css/
-***     (Please see above git repository for fully documented, precompiled source code.)
+***     Please refer to the git repository at https://github.com/invokeImmediately/WSU-UE---CSS/
+***     for fully documented, precompiled source code.  
+***     
+***   AUTHOR: Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
 ***
 ***   LICENSE: ISC - Copyright (c) 2019 Daniel C. Rieck.
 ***
@@ -34,17 +46,17 @@
 *** ================================================================================================
 **/
 
-/** ================================================================================================
+/** ───────────────────────────────────────────────────────────────────────────────────────────────
 *** ADDITIONAL DESIGN COMMENTS
-*** ================================================================================================
+*** ────────────────────────────────────────────────────────────────────────────────────────────
 ***   DESIGN PHILOSOPHY: This stylesheet mixes semantic with functional CSS. The Spine Theme for 
 ***     WSUWP takes a semantic approach to styling; thus, this add-on style sheet necessarily 
 ***     contains some semantic styling of its own. Specifically, semantic CSS is utilized to 
-***     override or minimally build upon the default design imposed by the Spine builder theme.
+***     override or minimally build upon the default design imposed by the Spine Builder theme.
 ***
-***     Functional CSS is utilized to maximally build upon the Spine builder theme and further 
-***     extend its design flexibility. Content authors are enabled more options for tweaking the 
-***     design to suit their needs without needing to touch CSS, while the CSS is made more 
+***     Functional CSS is utilized to maximally build upon the Spine builder theme by further 
+***     extending its design flexibility. Content authors are enabled more options for tweaking the 
+***     basal design to suit their needs without needing to touch CSS, while the CSS is made more 
 ***     reusable and easier to maintain.
 ***
 ***   ORGANIZATION OF STYLESHEET: This stylesheet is organized such that semantic CSS preceeds
@@ -53,67 +65,66 @@
 ***
 ***     The semantic styling section of this stylesheet is laid out according to the W3C HTML5 
 ***     language specification (please see https://www.w3.org/TR/html5/ for more information). 
-***     Styles are generally declared in the same sequence as their matching elements appear in the 
-***     HTML5 spec. Moreover, style declarations are made according to browser rendering sequence; 
-***     styles for controlling layout are followed by those related to painting and then by those 
-***     associated with dynamic behaviors to the DOM tree.
-*** ================================================================================================
+***     Style rules are generally declared in the same sequence as their matching elements appear in
+***     the HTML5 spec. Moreover, property settings are generally made in alphabetical order within
+***     a declaration to make the code more predictable an thereby easier to read.
+*** ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1:  Global Less variables and Less mixins/utility classes...............................122
-***    >>> §1.1: Additional fonts.............................................................126
-***    >>> §1.2: Color variables and mixins...................................................132
-***    >>> §1.3: Miscellaneous mixins.........................................................144
-***    >>> §1.4: Utility mixins...............................................................150
-***    >>> §1.5: Animation utility classes....................................................156
-***  §2: Anchor pseudoclass...................................................................162
-***  §3: Document section nodes...............................................................168
-***    >>> §3.1: HTML element.................................................................172
-***    >>> §3.2: Body element.................................................................180
-***    >>> §3.3: Article elements.............................................................198
-***    >>> §3.4: Section elements.............................................................204
-***    >>> §3.5: Aside elements...............................................................212
-***    >>> §3.6: Heading elements.............................................................218
-***    >>> §3.7: Header elements..............................................................224
-***    >>> §3.8: Footer elements..............................................................230
-***  §4: Content grouping nodes...............................................................240
-***    >>> §4.1: Paragraph elements...........................................................244
-***    >>> §4.2: Hr elements..................................................................250
-***    >>> §4.3: List elements................................................................256
-***    >>> §4.4: Div elements.................................................................262
-***       └> §4.4.1: News posts...............................................................276
-***       └> §4.4.2: Banner slideshows........................................................287
-***       └> §4.4.3: Columns..................................................................293
-***       └> §4.4.4: Flippable content panels.................................................299
-***       └> §4.4.5: Page covering notices....................................................305
-***       └> §4.4.6: Recent updates...........................................................311
-***    >>> §4.5: Main element.................................................................317
-***  §5: Text-level nodes.....................................................................323
-***    >>> §5.1: Hyperlink elements...........................................................327
-***    >>> §5.2: Strong elements..............................................................333
-***    >>> §5.3: Mark elements................................................................348
-***    >>> §5.4: Span elements................................................................358
-***    >>> §5.5: Cite elements................................................................364
-***  §6: Embedded content nodes...............................................................372
-***    >>> §6.1: Image elements...............................................................376
-***    >>> §6.2: Iframe elements..............................................................382
-***  §7: Tabular data nodes...................................................................388
-***  §8: Form nodes...........................................................................394
-***  §9: Scripted elements....................................................................400
-***    >>> §9.1: Toggled drop-down panels.....................................................404
-***    >>> §9.2: Subtle panels................................................................410
-***    >>> §9.3: Flippable content panels.....................................................451
-***    >>> §9.4: QTip driven tooltips.........................................................460
-***    >>> §9.5: Quick-tabs panels............................................................466
-***    >>> §9.6: Trive Events Calendars.......................................................472
-***    >>> §9.7: Auto-scrolling image panels..................................................478
-***  §10: Functional CSS......................................................................506
-***    >>> §10.1: Website notices.............................................................510
-***    >>> §10.2: Other components............................................................516
-***  §11: Utility classes.....................................................................522
+***  §1:  Global Less variables and Less mixins/utility classes...............................132
+***    >>> §1.1: Additional fonts.............................................................136
+***    >>> §1.2: Color variables and mixins...................................................142
+***    >>> §1.3: Miscellaneous mixins.........................................................148
+***    >>> §1.4: Utility mixins...............................................................154
+***    >>> §1.5: Animation utility classes....................................................160
+***  §2: Anchor pseudoclass...................................................................166
+***  §3: Document section nodes...............................................................172
+***    >>> §3.1: HTML element.................................................................176
+***    >>> §3.2: Body element.................................................................184
+***    >>> §3.3: Article elements.............................................................202
+***    >>> §3.4: Section elements.............................................................208
+***    >>> §3.5: Aside elements...............................................................216
+***    >>> §3.6: Heading elements.............................................................222
+***    >>> §3.7: Header elements..............................................................228
+***    >>> §3.8: Footer elements..............................................................234
+***  §4: Content grouping nodes...............................................................244
+***    >>> §4.1: Paragraph elements...........................................................248
+***    >>> §4.2: Hr elements..................................................................254
+***    >>> §4.3: List elements................................................................260
+***    >>> §4.4: Div elements.................................................................266
+***       └> §4.4.1: News posts...............................................................280
+***       └> §4.4.2: Banner slideshows........................................................291
+***       └> §4.4.3: Columns..................................................................297
+***       └> §4.4.4: Flippable content panels.................................................303
+***       └> §4.4.5: Page covering notices....................................................309
+***       └> §4.4.6: Recent updates...........................................................315
+***    >>> §4.5: Main element.................................................................321
+***  §5: Text-level nodes.....................................................................327
+***    >>> §5.1: Hyperlink elements...........................................................331
+***    >>> §5.2: Strong elements..............................................................337
+***    >>> §5.3: Mark elements................................................................352
+***    >>> §5.4: Span elements................................................................362
+***    >>> §5.5: Cite elements................................................................368
+***  §6: Embedded content nodes...............................................................376
+***    >>> §6.1: Image elements...............................................................380
+***    >>> §6.2: Iframe elements..............................................................386
+***  §7: Tabular data nodes...................................................................392
+***  §8: Form nodes...........................................................................398
+***  §9: Scripted elements....................................................................404
+***    >>> §9.1: Toggled drop-down panels.....................................................408
+***    >>> §9.2: Subtle panels................................................................414
+***    >>> §9.3: Flippable content panels.....................................................455
+***    >>> §9.4: QTip driven tooltips.........................................................464
+***    >>> §9.5: Quick-tabs panels............................................................470
+***    >>> §9.6: Trive Events Calendars.......................................................476
+***    >>> §9.7: Auto-scrolling image panels..................................................482
+***  §10: Functional CSS......................................................................510
+***    >>> §10.1: Website notices.............................................................514
+***    >>> §10.2: Other components............................................................520
+***  §11: Utility classes.....................................................................526
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
