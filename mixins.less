@@ -708,12 +708,18 @@
 ***   §12: Declaration of detached rulesets
 **/
 
-.declare-ruleset(@ruleset, @wrapper) when (isruleset(@ruleset)) and (@wrapper = ~"") {
+.declare-ruleset(@ruleset, @wrapper, @switch: true) when (@switch) and (isruleset(@ruleset))
+		and (@wrapper = ~"") {
 	@ruleset();
 }
 
-.declare-ruleset(@ruleset, @wrapper) when (isruleset(@ruleset)) and not (@wrapper = ~"") {
+.declare-ruleset(@ruleset, @wrapper, @switch: true) when (@switch) and (isruleset(@ruleset))
+		and not (@wrapper = ~"") {
 	@{wrapper} {
 		@ruleset();
 	}
+}
+
+.declare-ruleset(@ruleset, @wrapper, @switch: true) when not (@switch) {
+	// Do nothing.
 }
