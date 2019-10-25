@@ -11,35 +11,37 @@
 
 /** ================================================================================================
 *** SEMANTIC CSS FOR STYLING OUE HYPERLINK ELEMENTS
+*** ================================================================================================
 **/
 
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Legacy styles for columnar hyperlinks................................................33
-***  §2: CSS3-driven tooltips via hyperlink elements..........................................94
-***  §3: A11y friendly default style for columnar hyperlinks.................................179
-***  §4: Links for non-text elements.........................................................240
-***  §5: Special cases for hyperlinks........................................................292
-***  §6: Inclusional hyperlink styling via Less mixins.......................................318
-***  §7: Additional mixins...................................................................416
+***  §1: Legacy styles for columnar hyperlinks................................................35
+***  §2: CSS3-driven tooltips via hyperlink elements..........................................98
+***  §3: DAESA-Style Hyperlinks..............................................................187
+***    >>> §3.1: A11y friendly default style for columnar hyperlinks.........................193
+***    >>> §3.2: Links for non-text elements.................................................230
+***    >>> §3.3: Special cases for hyperlinks................................................284
+***  §4: Inclusional hyperlink styling via Less mixins.......................................310
+***    >>> §4.1: Glass button layouts........................................................314
+***    >>> §4.1: Glass button layouts........................................................419
+***  §5: Layout modification mixins..........................................................424
+***    >>> §5.1: Icons for non-text-links....................................................427
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
-@oue-hyperlink-ruleset: {
-
-/**   ----------------------------------------------------------------------------------------------
-***   §1: Legacy styles for columnar hyperlinks
+/** ================================================================================================
+*** §1: Legacy styles for columnar hyperlinks
 **/
 
+@rs__legacy-hyperlinks: {
 	.column {
 		a {
 			&.pop-out-link {
 				.transition(~"color .4s linear, background .4s ease-in, font-size .25s linear");
 				&:hover {
 					font-size: 1.05em;
-//					line-height: ~"calc(1.05em * 1.05)";
-//					color: @hex-accent-orange;
 				}
 			}
 			&.learn-more {
@@ -88,11 +90,15 @@
 				green(@hex-light-crimson), blue(@hex-light-crimson), .2);
 		}
 	}
+};
 
-/**   ----------------------------------------------------------------------------------------------
-***   §2: CSS3-driven tooltips via hyperlink elements
+.declare-ruleset(@rs__legacy-hyperlinks, @oue-rules-wrapper, @use-design__legacy-hyperlinks);
+
+/** ================================================================================================
+*** §2: CSS3-driven tooltips via hyperlink elements
 **/
 
+@rs__ccs3-tooltips: {
 	a.vpue-tooltip {
 		position: relative;
 		border-bottom: dotted 1px #b67233;
@@ -173,9 +179,18 @@
 			 border-right: 1px solid @hex-dark-orange;
 		}
 	}
+};
+
+.declare-ruleset(@rs__css3-tooltips, @oue-rules-wrapper, @use-design__css3-tooltips);
+
+/** ================================================================================================
+*** §3: DAESA-Style Hyperlinks
+**/
+
+@rs__daesa-hyperlinks: {
 
 /**   ----------------------------------------------------------------------------------------------
-***   §3: A11y friendly default style for columnar hyperlinks
+***   >>> §3.1: A11y friendly default style for columnar hyperlinks
 **/
 
 	.column a {
@@ -212,7 +227,7 @@
 	}
 
 /**   ----------------------------------------------------------------------------------------------
-***   §4: Links for non-text elements
+***   >>> §3.2: Links for non-text elements
 **/
 
 	.column a.non-text-link,
@@ -266,7 +281,7 @@
 	}
 
 /**   ----------------------------------------------------------------------------------------------
-***   §5: Special cases for hyperlinks
+***   >>> §3.3: Special cases for hyperlinks
 **/
 	.column h1 a:not(.non-text-link),
 	.column h2 a:not(.non-text-link),
@@ -289,10 +304,14 @@
 	}
 };
 
-.declare-ruleset(@oue-hyperlink-ruleset, @oue-rules-wrapper);
+.declare-ruleset(@rs__daesa-hyperlinks, @oue-rules-wrapper, @use-design__daesa-hyperlinks);
+
+/** ================================================================================================
+*** §4: Inclusional hyperlink styling via Less mixins
+**/
 
 /**   ----------------------------------------------------------------------------------------------
-***   §6: Inclusional hyperlink styling via Less mixins
+***   >>> §4.1: Glass button layouts
 **/
 
 .use-glass-button-layout() {
@@ -397,7 +416,15 @@
 }
 
 /**   ----------------------------------------------------------------------------------------------
-***   §7: Additional mixins
+***   >>> §4.1: Glass button layouts
+**/
+
+/** ================================================================================================
+*** §5: Layout modification mixins
+**/
+
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §5.1: Icons for non-text links
 **/
 
 .add-icon__non-text-link(@icon) when (isurl(@icon)) {
@@ -408,4 +435,3 @@
 		}
 	}
 }
-
