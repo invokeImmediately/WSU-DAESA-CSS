@@ -17,17 +17,18 @@
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Legacy styles for columnar hyperlinks................................................35
-***  §2: CSS3-driven tooltips via hyperlink elements..........................................98
-***  §3: DAESA-Style Hyperlinks..............................................................187
-***    >>> §3.1: A11y friendly default style for columnar hyperlinks.........................193
-***    >>> §3.2: Links for non-text elements.................................................230
-***    >>> §3.3: Special cases for hyperlinks................................................284
-***  §4: Inclusional hyperlink styling via Less mixins.......................................310
-***    >>> §4.1: Glass button layouts........................................................314
-***    >>> §4.1: Glass button layouts........................................................419
-***  §5: Layout modification mixins..........................................................424
-***    >>> §5.1: Icons for non-text-links....................................................427
+***  §1: Legacy styles for columnar hyperlinks................................................36
+***  §2: CSS3-driven tooltips via hyperlink elements..........................................93
+***  §3: DAESA-Style Hyperlinks..............................................................182
+***    >>> §3.1: A11y friendly default style for columnar hyperlinks.........................188
+***    >>> §3.2: Links for non-text elements.................................................232
+***    >>> §3.3: Special cases for hyperlinks................................................286
+***  §4: Provost's-Office-Style Hyperlinks...................................................312
+***  §5: Inclusional hyperlink styling via Less mixins.......................................334
+***    >>> §5.1: Glass button layouts........................................................338
+***    >>> §5.1: Glass button layouts........................................................443
+***  §6: Layout modification mixins..........................................................447
+***    >>> §6.1: Icons for non-text-links....................................................451
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -38,12 +39,6 @@
 @rs__legacy-hyperlinks: {
 	.column {
 		a {
-			&.pop-out-link {
-				.transition(~"color .4s linear, background .4s ease-in, font-size .25s linear");
-				&:hover {
-					font-size: 1.05em;
-				}
-			}
 			&.learn-more {
 				font-weight: bold;
 				font-size: 0.925em;
@@ -98,7 +93,7 @@
 *** §2: CSS3-driven tooltips via hyperlink elements
 **/
 
-@rs__ccs3-tooltips: {
+@rs__css3-tooltips: {
 	a.vpue-tooltip {
 		position: relative;
 		border-bottom: dotted 1px #b67233;
@@ -226,6 +221,13 @@
 		}
 	}
 
+	.column a.pop-out-link {
+		.transition(~"color .4s linear, background .4s ease-in, font-size .25s linear");
+		&:hover {
+			font-size: 1.05em;
+		}
+	}
+
 /**   ----------------------------------------------------------------------------------------------
 ***   >>> §3.2: Links for non-text elements
 **/
@@ -307,11 +309,33 @@
 .declare-ruleset(@rs__daesa-hyperlinks, @oue-rules-wrapper, @use-design__daesa-hyperlinks);
 
 /** ================================================================================================
-*** §4: Inclusional hyperlink styling via Less mixins
+*** §4: Provost's-Office-Style Hyperlinks
+**/
+
+@rs__provost-hyperlinks: {
+	a {
+		.column & {
+			color: @hex-crimson;
+			text-decoration: none;
+
+			&:hover {
+				.getRgbaStr(@hex-crimson, 0.5);
+
+				color: @hex-light-crimson;
+				text-shadow: 0 0 3px @rgba;
+			}
+		}
+	}
+};
+
+.declare-ruleset(@rs__provost-hyperlinks, @oue-rules-wrapper, @use-design__provost-hyperlinks);
+
+/** ================================================================================================
+*** §5: Inclusional hyperlink styling via Less mixins
 **/
 
 /**   ----------------------------------------------------------------------------------------------
-***   >>> §4.1: Glass button layouts
+***   >>> §5.1: Glass button layouts
 **/
 
 .use-glass-button-layout() {
@@ -416,15 +440,15 @@
 }
 
 /**   ----------------------------------------------------------------------------------------------
-***   >>> §4.1: Glass button layouts
+***   >>> §5.1: Glass button layouts
 **/
 
 /** ================================================================================================
-*** §5: Layout modification mixins
+*** §6: Layout modification mixins
 **/
 
 /**   ----------------------------------------------------------------------------------------------
-***   >>> §5.1: Icons for non-text links
+***   >>> §6.1: Icons for non-text links
 **/
 
 .add-icon__non-text-link(@icon) when (isurl(@icon)) {
