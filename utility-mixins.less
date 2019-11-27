@@ -76,9 +76,9 @@
 @pct-width-19: 95%;
 @pct-width-20: 100%;
 
-@pct-width-array: @pct-width-1, @pct-width-2, @pct-width-3, @pct-width-4, @pct-width-5, 
-	@pct-width-6, @pct-width-7, @pct-width-8, @pct-width-9, @pct-width-10, @pct-width-11, 
-	@pct-width-12, @pct-width-13, @pct-width-14, @pct-width-15, @pct-width-16, @pct-width-17, 
+@pct-width-array: @pct-width-1, @pct-width-2, @pct-width-3, @pct-width-4, @pct-width-5,
+	@pct-width-6, @pct-width-7, @pct-width-8, @pct-width-9, @pct-width-10, @pct-width-11,
+	@pct-width-12, @pct-width-13, @pct-width-14, @pct-width-15, @pct-width-16, @pct-width-17,
 	@pct-width-18, @pct-width-19, @pct-width-20;
 
 .width--pct(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) and
@@ -115,9 +115,9 @@
 @pxl-width-23: 896px;
 @pxl-width-24: 960px;
 
-@pxl-width-array: @pxl-width-1, @pxl-width-2, @pxl-width-3, @pxl-width-4, @pxl-width-5, 
-	@pxl-width-6, @pxl-width-7, @pxl-width-8, @pxl-width-9, @pxl-width-10, @pxl-width-11, 
-	@pxl-width-12, @pxl-width-13, @pxl-width-14, @pxl-width-15, @pxl-width-16, @pxl-width-17, 
+@pxl-width-array: @pxl-width-1, @pxl-width-2, @pxl-width-3, @pxl-width-4, @pxl-width-5,
+	@pxl-width-6, @pxl-width-7, @pxl-width-8, @pxl-width-9, @pxl-width-10, @pxl-width-11,
+	@pxl-width-12, @pxl-width-13, @pxl-width-14, @pxl-width-15, @pxl-width-16, @pxl-width-17,
 	@pxl-width-18, @pxl-width-19, @pxl-width-20, @pxl-width-21, @pxl-width-22, @pxl-width-23,
 	@pxl-width-24;
 
@@ -157,9 +157,9 @@
 @pxl-height-21: 384px;
 @pxl-height-22: 400px;
 
-@pxl-height-array: @pxl-height-1, @pxl-height-2, @pxl-height-3, @pxl-height-4, @pxl-height-5, 
-	@pxl-height-6, @pxl-height-7, @pxl-height-8, @pxl-height-9, @pxl-height-10, @pxl-height-11, 
-	@pxl-height-12, @pxl-height-13, @pxl-height-14, @pxl-height-15, @pxl-height-16, @pxl-height-17, 
+@pxl-height-array: @pxl-height-1, @pxl-height-2, @pxl-height-3, @pxl-height-4, @pxl-height-5,
+	@pxl-height-6, @pxl-height-7, @pxl-height-8, @pxl-height-9, @pxl-height-10, @pxl-height-11,
+	@pxl-height-12, @pxl-height-13, @pxl-height-14, @pxl-height-15, @pxl-height-16, @pxl-height-17,
 	@pxl-height-18, @pxl-height-19, @pxl-height-20, @pxl-height-21, @pxl-height-22;
 
 .height--pxl(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) and
@@ -195,11 +195,11 @@
 @mSize-17: 4em;
 
 // OUE em margins array
-@mSize-array: @mSize-1, @mSize-2, @mSize-3, @mSize-4, @mSize-5, @mSize-6, @mSize-7, @mSize-8, 
-	@mSize-9, @mSize-10, @mSize-11, @mSize-12, @mSize-13, @mSize-14, @mSize-15, @mSize-16, 
+@mSize-array: @mSize-1, @mSize-2, @mSize-3, @mSize-4, @mSize-5, @mSize-6, @mSize-7, @mSize-8,
+	@mSize-9, @mSize-10, @mSize-11, @mSize-12, @mSize-13, @mSize-14, @mSize-15, @mSize-16,
 	@mSize-17;
 
-// Semantic em margins 
+// Semantic em margins
 @mSize-0mx: 1;
 @mSize-250mx: 2;
 @mSize-500mx: 3;
@@ -219,7 +219,7 @@
 @mSize-4000mx: 17;
 
 // Utility mixins for defining margin sizes downstream.
-.margin(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+.margin(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@mSize-array)) and (isstring(@which-dir)) {
 	.margin__parse-dir(@size, @dir) when (@dir = "all") {
 		margin: @size;
@@ -241,7 +241,7 @@
 		margin-top: @size;
 	}
 
-	.margin__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and 
+	.margin__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and
 			not (@dir = "left") and not(@dir = "right") and not (@dir = "top") {
 		/*! Less error: .margin__parse-dir => Invalid @dir */
 	}
@@ -250,12 +250,12 @@
 	.margin__parse-dir(@mSize__this, @which-dir);
 }
 
-.margin(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and 
+.margin(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@mSize-array))) and (isstring(@which-dir)) {
 	/*! Less error: .margin__parse-dir => Invalid @idx */
 }
 
-.margin(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+.margin(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@mSize-array)) and not (isstring(@which-dir)) {
 	/*! Less error: .margin__parse-dir => Invalid @which-dir */
 }
@@ -284,11 +284,11 @@
 @rem-mSize-17: 4rem;
 
 // OUE rem margins array
-@rem-mSize-array: @rem-mSize-1, @rem-mSize-2, @rem-mSize-3, @rem-mSize-4, @rem-mSize-5, 
-	@rem-mSize-6, @rem-mSize-7, @rem-mSize-8, @rem-mSize-9, @rem-mSize-10, @rem-mSize-11, 
+@rem-mSize-array: @rem-mSize-1, @rem-mSize-2, @rem-mSize-3, @rem-mSize-4, @rem-mSize-5,
+	@rem-mSize-6, @rem-mSize-7, @rem-mSize-8, @rem-mSize-9, @rem-mSize-10, @rem-mSize-11,
 	@rem-mSize-12, @rem-mSize-13, @rem-mSize-14, @rem-mSize-15, @rem-mSize-16, @rem-mSize-17;
 
-// Semantic rem margins 
+// Semantic rem margins
 @rem-mSize-0mx: 1;
 @rem-mSize-125mx: 2;
 @rem-mSize-250mx: 3;
@@ -308,7 +308,7 @@
 @rem-mSize-2000mx: 17;
 
 // Utility mixins for defining margin sizes downstream.
-.margins-rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+.margins-rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@rem-mSize-array)) and (isstring(@which-dir)) {
 	.margins-rem__parse-dir(@size, @dir) when (@dir = "all") {
 		margin: @size;
@@ -330,7 +330,7 @@
 		margin-top: @size;
 	}
 
-	.margins-rem__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and 
+	.margins-rem__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and
 			not (@dir = "left") and not(@dir = "right") and not (@dir = "top") {
 		/*! Less error: .margins-rem__parse-dir => Invalid @dir */
 	}
@@ -339,12 +339,12 @@
 	.margins-rem__parse-dir(@rem-mSize__this, @which-dir);
 }
 
-.margins-rem(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and 
+.margins-rem(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@mSize-array))) and (isstring(@which-dir)) {
 	/*! Less error: .margins-rem__parse-dir => Invalid @idx */
 }
 
-.margins-rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+.margins-rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@mSize-array)) and not (isstring(@which-dir)) {
 	/*! Less error: .margins-rem__parse-dir => Invalid @which-dir */
 }
@@ -377,7 +377,7 @@
 @spacing-4000mx: 17;
 
 // Utility mixin for defining spacing downstream.
-.spacing(@idx) when (isnumber(@idx)) and not (ispercentage(@idx)) and 
+.spacing(@idx) when (isnumber(@idx)) and not (ispercentage(@idx)) and
 		(@idx <= length(@mSize-array)) {
 	* + & {
 		margin-top: extract(@mSize-array, @idx);
@@ -388,7 +388,7 @@
 ***   >>> §5.2: In units of "rem"
 **/
 
-// Semantic rem spacing sizes (based on @rem-mSize-array) 
+// Semantic rem spacing sizes (based on @rem-mSize-array)
 @rem-spacing-0mx: 1;
 @rem-spacing-125mx: 2;
 @rem-spacing-250mx: 3;
@@ -408,7 +408,7 @@
 @rem-spacing-2000mx: 17;
 
 // Utility mixin for defining spacing downstream.
-.rem-spacing(@idx) when (isnumber(@idx)) and not (ispercentage(@idx)) and 
+.rem-spacing(@idx) when (isnumber(@idx)) and not (ispercentage(@idx)) and
 		(@idx <= length(@rem-mSize-array)) {
 	* + & {
 		margin-top: extract(@rem-mSize-array, @idx);
@@ -443,11 +443,11 @@
 @pSize-17: 4em;
 
 // OUE em padding array
-@pSize-array: @pSize-1, @pSize-2, @pSize-3, @pSize-4, @pSize-5, @pSize-6, @pSize-7, @pSize-8, 
-	@pSize-9, @pSize-10, @pSize-11, @pSize-12, @pSize-13, @pSize-14, @pSize-15, @pSize-16, 
+@pSize-array: @pSize-1, @pSize-2, @pSize-3, @pSize-4, @pSize-5, @pSize-6, @pSize-7, @pSize-8,
+	@pSize-9, @pSize-10, @pSize-11, @pSize-12, @pSize-13, @pSize-14, @pSize-15, @pSize-16,
 	@pSize-17;
 
-// Semantic em padding 
+// Semantic em padding
 @pSize-0mx: 1;
 @pSize-125mx: 2;
 @pSize-250mx: 3;
@@ -467,7 +467,7 @@
 @pSize-2000mx: 17;
 
 // Utility mixins for defining padding sizes downstream.
-.padding(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+.padding(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and (isstring(@which-dir)) {
 	.padding__parse-dir(@size, @dir) when (@dir = "all") {
 		padding: @size;
@@ -498,12 +498,12 @@
 	.padding__parse-dir(@pSize__this, @which-dir);
 }
 
-.padding(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and 
+.padding(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array))) and (isstring(@which-dir)) {
 	/*! Less error: .padding__parse-dir => Invalid @idx */
 }
 
-.padding(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+.padding(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and not (isstring(@which-dir)) {
 	/*! Less error: .padding__parse-dir => Invalid @which-dir */
 }
@@ -524,10 +524,10 @@
 @pSize-9--rem: 4rem;
 
 // OUE em padding array
-@pSize-array--rem: @pSize-1--rem, @pSize-2--rem, @pSize-3--rem, @pSize-4--rem, @pSize-5--rem, 
+@pSize-array--rem: @pSize-1--rem, @pSize-2--rem, @pSize-3--rem, @pSize-4--rem, @pSize-5--rem,
 	@pSize-6--rem, @pSize-7--rem, @pSize-8--rem, @pSize-9--rem;
 
-// Semantic em padding 
+// Semantic em padding
 @pSize-0mx--rem: 1;
 @pSize-250mx--rem: 2;
 @pSize-500mx--rem: 3;
@@ -539,7 +539,7 @@
 @pSize-2000mx--rem: 9;
 
 // Utility mixins for defining padding sizes downstream.
-.padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+.padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and (isstring(@which-dir)) {
 	.padding--rem__parse-dir(@size, @dir) when (@dir = "all") {
 		padding: @size;
@@ -561,7 +561,7 @@
 		padding-top: @size;
 	}
 
-	.padding--rem__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and 
+	.padding--rem__parse-dir(@size, @dir) when not (@dir = "all") and not (@dir = "bottom") and
 			not (@dir = "left") and not(@dir = "right") and not (@dir = "top") {
 		/*! Less error: .padding--rem__parse-dir => Invalid @dir */
 	}
@@ -570,12 +570,12 @@
 	.padding--rem__parse-dir(@pSize__this, @which-dir);
 }
 
-.padding--rem(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and 
+.padding--rem(@idx, @which-dir) when not ((isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array))) and (isstring(@which-dir)) {
 	/*! Less error: .padding--rem__parse-dir => Invalid @idx */
 }
 
-.padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and 
+.padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and not (isstring(@which-dir)) {
 	/*! Less error: .padding--rem__parse-dir => Invalid @which-dir */
 }
@@ -672,21 +672,21 @@
 @fSize-81: 2.4em;
 
 // OUE font-sizing array.
-@fSize-array: @fSize-1, @fSize-2, @fSize-3, @fSize-4, @fSize-5, @fSize-6, @fSize-7, @fSize-8, 
-	@fSize-9, @fSize-10, @fSize-11, @fSize-12, @fSize-13, @fSize-14, @fSize-15, @fSize-16, 
-	@fSize-17, @fSize-18, @fSize-19, @fSize-20, @fSize-21, @fSize-22, @fSize-23, @fSize-24, 
-	@fSize-25, @fSize-26, @fSize-27, @fSize-28, @fSize-29, @fSize-30, @fSize-31, @fSize-32, 
-	@fSize-33, @fSize-34, @fSize-35, @fSize-36, @fSize-37, @fSize-38, @fSize-39, @fSize-40, 
-	@fSize-41, @fSize-42, @fSize-43, @fSize-44, @fSize-45, @fSize-46, @fSize-47, @fSize-48, 
-	@fSize-49, @fSize-50, @fSize-51, @fSize-52, @fSize-53, @fSize-54, @fSize-55, @fSize-56, 
-	@fSize-57, @fSize-58, @fSize-59, @fSize-60, @fSize-61, @fSize-62, @fSize-63, @fSize-64, 
-	@fSize-65, @fSize-66, @fSize-67, @fSize-68, @fSize-69, @fSize-70, @fSize-71, @fSize-72, 
-	@fSize-73, @fSize-74, @fSize-75, @fSize-76, @fSize-77, @fSize-78, @fSize-79, @fSize-80, 
+@fSize-array: @fSize-1, @fSize-2, @fSize-3, @fSize-4, @fSize-5, @fSize-6, @fSize-7, @fSize-8,
+	@fSize-9, @fSize-10, @fSize-11, @fSize-12, @fSize-13, @fSize-14, @fSize-15, @fSize-16,
+	@fSize-17, @fSize-18, @fSize-19, @fSize-20, @fSize-21, @fSize-22, @fSize-23, @fSize-24,
+	@fSize-25, @fSize-26, @fSize-27, @fSize-28, @fSize-29, @fSize-30, @fSize-31, @fSize-32,
+	@fSize-33, @fSize-34, @fSize-35, @fSize-36, @fSize-37, @fSize-38, @fSize-39, @fSize-40,
+	@fSize-41, @fSize-42, @fSize-43, @fSize-44, @fSize-45, @fSize-46, @fSize-47, @fSize-48,
+	@fSize-49, @fSize-50, @fSize-51, @fSize-52, @fSize-53, @fSize-54, @fSize-55, @fSize-56,
+	@fSize-57, @fSize-58, @fSize-59, @fSize-60, @fSize-61, @fSize-62, @fSize-63, @fSize-64,
+	@fSize-65, @fSize-66, @fSize-67, @fSize-68, @fSize-69, @fSize-70, @fSize-71, @fSize-72,
+	@fSize-73, @fSize-74, @fSize-75, @fSize-76, @fSize-77, @fSize-78, @fSize-79, @fSize-80,
 	@fSize-81;
 
 // Semantic font-sizing Less variables: Miscellaneous
 @fSize--min: 1;
-@fSize--body-text: ceil(unit(@v-p-sz - extract(@fSize-array,1)) / unit(extract(@fSize-array,2) 
+@fSize--body-text: ceil(unit(@v-p-sz - extract(@fSize-array,1)) / unit(extract(@fSize-array,2)
 	- extract(@fSize-array,1))) + 1;
 @fSize--max: length(@fSize-array);
 
@@ -782,7 +782,7 @@
 @h6-font-size: @fSize-1400mx;
 
 // Utility mixin for defining font sizes downstream.
-.font-size(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
+.font-size(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx))
 		and (@idx <= length(@fSize-array)) {
 	font-size: extract(@fSize-array, @idx);
 }
@@ -815,13 +815,13 @@
 @lHeight-21: 1.5em;
 
 // OUE font-sizing array.
-@lHeight-array: @lHeight-1, @lHeight-2, @lHeight-3, @lHeight-4, @lHeight-5, @lHeight-6, @lHeight-7, 
-	@lHeight-8, @lHeight-9, @lHeight-10, @lHeight-11, @lHeight-12, @lHeight-13, @lHeight-14, 
+@lHeight-array: @lHeight-1, @lHeight-2, @lHeight-3, @lHeight-4, @lHeight-5, @lHeight-6, @lHeight-7,
+	@lHeight-8, @lHeight-9, @lHeight-10, @lHeight-11, @lHeight-12, @lHeight-13, @lHeight-14,
 	@lHeight-15, @lHeight-16, @lHeight-17, @lHeight-18, @lHeight-19, @lHeight-20, @lHeight-21;
 
 // Semantic font-sizing Less variables.
 @lHeight--min: 1;
-@lHeight--body-text: ceil(unit(@body-text--lHeight - extract(@lHeight-array,1)) / 
+@lHeight--body-text: ceil(unit(@body-text--lHeight - extract(@lHeight-array,1)) /
 	unit(extract(@lHeight-array,2) - extract(@lHeight-array,1))) + 1;
 @lHeight--max: length(@lHeight-array);
 @lHeight-667mx: 1;
@@ -847,7 +847,7 @@
 @lHeight-1000mx: 21;
 
 // Utility mixin for defining font sizes downstream.
-.line-height(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) 
+.line-height(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx))
 		and (@idx <= length(@lHeight-array)) {
 	line-height: extract(@lHeight-array, @idx);
 }
@@ -862,7 +862,7 @@
 @fWeight-bold: 700;
 @fWeight-extra-bold: 800;
 
-.font-weight(@weight) when (isnumber(@weight)) and not (ispixel(@weight)) 
+.font-weight(@weight) when (isnumber(@weight)) and not (ispixel(@weight))
 		and not (ispercentage(@weight)) {
 	font-weight: @weight;
 }
@@ -905,7 +905,7 @@
 	color: extract(@colors--grays__hex, @colors__darker);
 	margin-left: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
 	margin-right: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
-	padding: extract(@pSize-array--rem, @pSize-250mx--rem) extract(@pSize-array--rem, 
+	padding: extract(@pSize-array--rem, @pSize-250mx--rem) extract(@pSize-array--rem,
 		@pSize-500mx--rem);
 
 	&:first-child {
@@ -926,7 +926,7 @@
 	margin-left: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
 	margin-right: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
 	letter-spacing: 1px;
-	padding: extract(@pSize-array--rem, @pSize-250mx--rem) extract(@pSize-array--rem, 
+	padding: extract(@pSize-array--rem, @pSize-250mx--rem) extract(@pSize-array--rem,
 		@pSize-500mx--rem);
 	word-spacing: 1px;
 }
