@@ -1,32 +1,27 @@
 /** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
 *** │ FILENAME: headers.less                                                                       │
 *** │                                                                                              │
-*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+*** │ SUMMARY: Semantic CSS for styling main and article headers.                                  │
 *** │                                                                                              │
 *** │ DESCRIPTION: Embodies style rules for presenting headers on WSU Office of Undergraduate      │
 *** │   Education web pages built using the builder template of the Spine parent theme of WSUWP.   │
 *** │   Styles are designed to accompany or supersede styling associated with the theme.           │
+*** │                                                                                              │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
 *** └──────────────────────────────────────────────────────────────────────────────────────────────┘
-**/
-
-/**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***    §1: Main header and components..........................................................27
-***    §2: Sectional article headers...........................................................71
+***    §1: Main header and components..........................................................26
+***    §2: UP CMS style article headers........................................................71
+***    §3: Sectional article headers..........................................................193
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
-
-/** ================================================================================================
-*** SEMANTIC CSS FOR STYLING OUE HEADER ELEMENTS
-**/
-
-@oue-header-ruleset: {
 
 /**   ----------------------------------------------------------------------------------------------
 ***   §1: Main header and components
 **/
 
+@ruleset__daesa-main-headers: {
 	.main-header {
 		height: auto;
 
@@ -65,10 +60,132 @@
 	}
 };
 
-.declare-ruleset(@oue-header-ruleset, @oue-rules-wrapper);
+.declare-ruleset(@ruleset__daesa-main-headers, @oue-rules-wrapper, @use-design__daesa-main-headers);
 
 /**   ----------------------------------------------------------------------------------------------
-***   §2: Sectional article headers (inclusional via Less mixin)
+***   §2: UP CMS style article headers
+**/
+
+@ruleset__up-cms-headers: {
+	.article-header:not(.row) {
+		background-size: cover;
+		
+		&:not([class*="h--"]) {
+			height: 120px;
+		}
+
+		&:not([class*="mw--"]) {
+			max-width: 922px;
+		}
+
+		.header-content {
+			margin-left: 1rem;
+			margin-right: 1rem;
+			position: relative;
+			top: 50%;
+			.transform(~"translateY(-50%)");
+
+			&.align-bottom {
+				top: 50%;
+				.transform(~"translateY(-100%) translateY(-1rem)");
+			}
+
+			h1,
+			h2,
+			h3 {
+				font-size: 2.826rem;
+				line-height: 0.9em;
+				text-transform: uppercase;
+			}
+
+			h1 + h2 {
+				font-style: normal;
+			}
+
+			h1 + h2,
+			h2 + h3,
+			h1 .subtitle {
+				font-size: 1.261rem;
+				line-height: 0.9em;
+				margin-top: 0;
+			}
+
+			.title,
+			h2:first-child {
+				background-color: rgba(0, 0, 0, 0.7);
+				border: 1px solid white;
+				border-bottom-color: transparent;
+				padding: 4px 4px 9px;
+			}
+
+			.title,
+			.subtitle {
+				display: block;
+			}
+		}
+
+		@media all {
+			.header-content {
+				h1,
+				h2 {
+					.has-alt-font;
+					color: @hex-white;
+				}
+
+				h3 {
+					color: @hex-white;
+				}
+
+				h1 {
+					.textShadow3D(@hex-white, 3px);
+				}
+
+				h2 {
+					.textShadow3D(@hex-white, 3px);
+				}
+
+				h1 + h2,
+				h3,
+				h1 .subtitle {
+					.textShadow3D(@hex-white, 2px);
+				}
+
+				h1 + h2,
+				h2 + h3,
+				.subtitle {
+					.rgb-crimson();
+					background-color: rgba(@rval,@gval,@bval,0.95);
+					border: 1px solid white;
+					padding: 4px 4px 5px;
+				}
+
+				.highlight {
+					.textShadow3D(#AEC7CB,2px);
+				}
+			}
+		}
+
+		@media print {
+			background: transparent !important;
+
+			.header-content {
+				margin-left: 0;
+				margin-right: 0;
+
+				h2,
+				h3 {
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+};
+
+.declare-ruleset(@ruleset__up-cms-headers, @oue-rules-wrapper, @use-design__up-cms-headers);
+
+/**   ----------------------------------------------------------------------------------------------
+***   §3: Sectional article headers (inclusional via Less mixin)
 **/
 
 .use-sectional-article-headers() {
