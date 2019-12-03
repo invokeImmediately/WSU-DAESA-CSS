@@ -13,21 +13,25 @@
 *** SEMANTIC CSS FOR STYLING OUE LISTS
 **/
 
-/**   ──────────────────────────────────────────────────────────────────────────────────────────────
-***   TABLE OF CONTENTS:
-***   ───────────────────────────────────────────────────────────────────────────────────────────
-***   §1: Unordered lists......................................................................28
-***   §2: Ordered lists.......................................................................181
-***   §3: Definition lists lists..............................................................226
-***   ──────────────────────────────────────────────────────────────────────────────────────────────
+/**  ───────────────────────────────────────────────────────────────────────────────────────────────
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***  §1: Unordered lists......................................................................31
+***  §2: Ordered lists........................................................................73
+***  §3: General list items..................................................................121
+***  §4: Definition lists....................................................................136
+***  §5: Specialty lists.....................................................................303
+***    >>> §5.1: Content boxes...............................................................307
+***    >>> §5.2: External links lists........................................................368
+***    >>> §5.3: Lists with a cascaded layout................................................382
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
-@oue-lists-ruleset: {
-
-/**   ----------------------------------------------------------------------------------------------
-***   §1: Unordered lists
+/** ================================================================================================
+*** §1: Unordered lists
 **/
 
+@daesa-ul-rs: {
 	ul {
 		.font-size(@fSize-1000mx);
 		.line-height(@lHeight-1000mx);
@@ -61,137 +65,15 @@
 	.column p + ul {
 		margin-top: extract(@mSize-array, @mSize-500mx);
 	}
+};
 
-	ul.content-boxes {
-		.font-size(@fSize-925mx);
-		.line-height(@lHeight-1000mx);
-		padding-left: 0;
-		padding-right: 0;
+.declare-ruleset(@daesa-ul-rs, @oue-rules-wrapper, @use-design__daesa-ul);
 
-		& > li {
-			list-style-type: none;
-			position: relative;
-
-			@media all and (max-width: @background-width-threshold) {
-				overflow-x: auto;
-			}
-
-			p {
-				&.email {
-					font-size: 0.9em;
-					font-weight: bold;
-				}
-			}
-
-			& > img {
-				left: 10px;
-				left: ~"calc(.5rem + 10px)";
-				position: absolute;
-				top: 24px;
-				top: ~"calc(1rem + 7px)";
-				width: 106px;
-
-				@media all and (max-width: @large-mobile-screen-width) {
-					left: ~"calc(.5rem + 7px)";
-					width: 84px;
-				}
-			}
-
-			& > .content {
-				left: 121px;
-				min-width: 189px;
-				padding: 0 0 10px 0;
-				position: relative;
-				width: ~"calc(100% - 136px)";
-
-				@media all and (max-width: @large-mobile-screen-width) {
-					left: 99px;
-				}
-			}
-
-			& + li {
-				margin-top: @v-dflt-spcng;
-			}
-
-		}
-
-	}
-
-	ul.external-links li {
-		list-style-image: url(/wp-content/uploads/sites/906/2015/08/external-link-bullet.png);
-	}
-
-	ul.cascaded-layout {
-		@media print {
-			&[style] {
-				height: auto !important;
-			}
-		}
-
-		& > li {
-			list-style-type: none;
-
-			@media print {
-				display:block !important;
-				float: left;
-				left:0 !important;
-				position: relative !important;
-				top: auto !important;
-				width: 100% !important;
-			}
-
-			&.cascade-sizer, &.gutter-sizer {
-				background: none !important;
-				border: none !important;
-				box-shadow: none !important;
-				height: 0 !important;
-				min-height: 0 !important;
-				padding: 0 !important;
-			}
-
-			&.gutter-sizer {
-				width: 2% !important;
-			}
-		}
-
-		&.blank {
-			font-size: 1rem !important;
-			margin-top: @v-btm-mrgns !important;
-			padding: 0;
-
-			& > li {
-				float: left;
-				list-style-type: none;
-				margin-bottom: 3%;
-				width: 48.5%;
-
-				@media all {
-					@media (max-width: @column-floating-threshold) {
-						width: 96%;
-						margin-bottom: 6%;
-					}
-
-					@media (max-width: @background-width-threshold) {
-						overflow-x: visible;
-					}
-
-				}
-
-				& + li {
-					margin-top: 0;
-				}
-
-				&.gutter-sizer {
-					width: 3% !important;
-				}
-			}
-		}
-	}
-
-/**   ----------------------------------------------------------------------------------------------
-***   §2: Ordered lists
+/** ================================================================================================
+*** §2: Ordered lists
 **/
 
+@daesa-ol-rs: {
 	ol {
 		.font-size(@fSize-1000mx);
 		.line-height(@lHeight-1000mx);
@@ -231,12 +113,30 @@
 	.column p + ol {
 		margin-top: extract(@mSize-array, @mSize-500mx);
 	}
+};
 
+.declare-ruleset(@daesa-ol-rs, @oue-rules-wrapper, @use-design__daesa-ol);
 
-/**   ----------------------------------------------------------------------------------------------
-***   §3: Definition lists
+/** ================================================================================================
+*** §3: General list items
 **/
 
+@daesa-general-li-rs: {
+	li {
+		ol &,
+		ul & {
+			padding: 0 0 0.5em 0;
+		}		
+	}
+};
+
+.declare-ruleset(@daesa-general-li-rs, @oue-rules-wrapper, @use-design__daesa-li);
+
+/** ================================================================================================
+*** §4: Definition lists
+**/
+
+@daesa-dl-rs: {
 	.column dl.faq {
 		position: relative;
 
@@ -397,4 +297,158 @@
 	}
 };
 
-.declare-ruleset(@oue-lists-ruleset, @oue-rules-wrapper);
+.declare-ruleset(@oue-lists-ruleset, @oue-rules-wrapper, @use-design__daesa-dl);
+
+/** ================================================================================================
+*** §5: Specialty lists
+**/
+
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §5.1: Content boxes
+**/
+
+@daesa-content-boxes-rs: {
+	.content-boxes {
+		.font-size(@fSize-925mx);
+		.line-height(@lHeight-1000mx);
+		padding-left: 0;
+		padding-right: 0;
+
+		& > li {
+			list-style-type: none;
+			position: relative;
+
+			@media all and (max-width: @background-width-threshold) {
+				overflow-x: auto;
+			}
+
+			p {
+				&.email {
+					font-size: 0.9em;
+					font-weight: bold;
+				}
+			}
+
+			& > img {
+				left: 10px;
+				left: ~"calc(.5rem + 10px)";
+				position: absolute;
+				top: 24px;
+				top: ~"calc(1rem + 7px)";
+				width: 106px;
+
+				@media all and (max-width: @large-mobile-screen-width) {
+					left: ~"calc(.5rem + 7px)";
+					width: 84px;
+				}
+			}
+
+			& > .content {
+				left: 121px;
+				min-width: 189px;
+				padding: 0 0 10px 0;
+				position: relative;
+				width: ~"calc(100% - 136px)";
+
+				@media all and (max-width: @large-mobile-screen-width) {
+					left: 99px;
+				}
+			}
+
+			& + li {
+				margin-top: @v-dflt-spcng;
+			}
+		}
+	}
+};
+
+.declare-ruleset(@daesa-content-boxes-rs, @oue-rules-wrapper, @use-design__content-boxes);
+
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §5.2: External links lists
+**/
+
+@daesa-external-links-list-rs: {
+	.external-links {
+		li {
+			list-style-image: url(/wp-content/uploads/sites/906/2015/08/external-link-bullet.png);
+		}
+	}
+};
+
+.declare-ruleset(@daesa-external-links-list-rs, @oue-rules-wrapper, @use-design__external-links-list);
+
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §5.3: Lists with a cascaded layout
+**/
+
+@daesa-cascaded-layout-rs: {
+	ul.cascaded-layout {
+		@media print {
+			&[style] {
+				height: auto !important;
+			}
+		}
+
+		& > li {
+			list-style-type: none;
+
+			@media print {
+				display:block !important;
+				float: left;
+				left:0 !important;
+				position: relative !important;
+				top: auto !important;
+				width: 100% !important;
+			}
+
+			&.cascade-sizer, &.gutter-sizer {
+				background: none !important;
+				border: none !important;
+				box-shadow: none !important;
+				height: 0 !important;
+				min-height: 0 !important;
+				padding: 0 !important;
+			}
+
+			&.gutter-sizer {
+				width: 2% !important;
+			}
+		}
+
+		&.blank {
+			font-size: 1rem !important;
+			margin-top: @v-btm-mrgns !important;
+			padding: 0;
+
+			& > li {
+				float: left;
+				list-style-type: none;
+				margin-bottom: 3%;
+				width: 48.5%;
+
+				@media all {
+					@media (max-width: @column-floating-threshold) {
+						width: 96%;
+						margin-bottom: 6%;
+					}
+
+					@media (max-width: @background-width-threshold) {
+						overflow-x: visible;
+					}
+
+				}
+
+				& + li {
+					margin-top: 0;
+				}
+
+				&.gutter-sizer {
+					width: 3% !important;
+				}
+			}
+		}
+	}
+}
+
+.declare-ruleset(@daesa-cascaded-layout-rs, @oue-rules-wrapper, @use-design__cascaded-layout);
