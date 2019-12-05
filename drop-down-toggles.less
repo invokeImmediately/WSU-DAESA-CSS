@@ -82,19 +82,19 @@
 		background-color: rgba(red(@clr-bxd-lght), green(@clr-bxd-lght), blue(@clr-bxd-lght), 0.1);
 		&:after,
 		&:before {
+			background-color: @clr-bxd-drk;
+			border-radius: 4px;
+			border: none;
+			color: @hex-white;
 			content: "+";
+			.ff--mono;
+			font-size: 18px;
+			height: 18px;
 			left: 18px;
+			line-height: 16px;
+			text-align: center;
 			top: 50%;
 			width: 18px; 
-			height: 18px;
-			border: none;
-			border-radius: 4px;
-			font-size: 18px;
-			line-height: 16px;
-			.has-mono-font;
-			text-align: center;
-			background-color: @clr-bxd-drk;
-			color: @hex-white;
 			.transform(~"translate(-50%, -50%)");
 		}
 		&:after {
