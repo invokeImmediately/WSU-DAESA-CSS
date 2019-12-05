@@ -1,29 +1,31 @@
-/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-**  │ FILENAME: div.column.less                                                                  │
-**  │                                                                                            │
-**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-**  │                                                                                            │
-**  │ DESCRIPTION: Incorporates styles for (div).column elements of WSU Office of Undergraduate  │
-**  │   Education web pages built using the builder template of the Spine parent theme of WSUWP. │
-**  │   Styles are designed to accompany or supersede styling associated with the theme.         │
-**  └────────────────────────────────────────────────────────────────────────────────────────────┘
-*/
+/** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: div.column.less                                                                    │
+*** │                                                                                              │
+*** │ SUMMARY: Semantic CSS for styling Spine Builder template columns on DAESA websites.          │
+*** │                                                                                              │
+*** │ DESCRIPTION: Incorporates styles for WSUWP Spine Builder template columns in websites        │
+*** │   belonging to programs and units of the WSU Division of Academic Engagement and Student     │
+*** │   Achievement. Styles are designed to accompany or supersede styling associated with the     │
+*** │   Spine theme.                                                                               │
+*** │                                                                                              │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+*** └──────────────────────────────────────────────────────────────────────────────────────────────┘
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***  §1: DAESA styled columns ruleset..........................................................19
+***  §2: Callouts..............................................................................87
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+**/
 
-/*  ================================================================================================
-**  SEMANTIC CSS FOR STYLING OUE COLUMNS
-*/
+/** ================================================================================================
+*** §1: DAESA styled columns ruleset
+**/
 
-section.pad-top {
-    &.half-pad, div.column.half-pad {
-        padding-top: (@v-dflt-spcng / 2);
-    }
-}
-
-@oue-column-ruleset: {
+@daesa-columns-rs: {
 	.column {
-		&:extend(.ff--sans);
-
 		color: @column-color;
+		.ff--sans;
+		font-weight: 300;
 
 		&:nth-child(1) {
 			margin-top: 0;
@@ -31,18 +33,6 @@ section.pad-top {
 
 		&.hides-overflow {
 			overflow: hidden;
-		}
-
-		&.make-me-a-wrapper {
-			padding: 0;
-		}
-
-		&.no-top-pad {
-			padding-top: 0;
-		}
-
-		&.with-right-margin {
-			margin-right: 2rem;
 		}
 
 		.has-sectionally-responsive-font( extract(@fSize-array, @fSize-1000mx),
@@ -53,22 +43,6 @@ section.pad-top {
 			&+section:not(.no-top-margin) {
 				margin-top: @v-dflt-spcng;
 			}
-		}
-
-		.crimson-text {
-			color: @hex-crimson;
-		}
-
-		.blue-text {
-			color: @hex-blue;
-		}
-
-		.dark-blue-text {
-			color: @hex-dark-blue;
-		}
-
-		.centered-text {
-			text-align: center;
 		}
 
 		.larger-text, .has-larger-text {
@@ -109,82 +83,91 @@ section.pad-top {
 	}
 };
 
-.declare-ruleset(@oue-column-ruleset, @oue-rules-wrapper);
+.declare-ruleset(@daesa-columns-rs, @oue-rules-wrapper, @use-design__daesa-columns);
 
-// TODO: move to separate div.callout file
-div.callout {
-	.set-widths(auto, 80px, 230px);
-	height: auto;
-	padding: 10px;
-	border: 1px solid #F1D031;
-	background-color: #FFEF93;
-	color: #000;
-	line-height: 1.2em;
-	border-radius: 3px;
-	box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
-	&.left:before,
-	&.right:before,
-	&.top:before,
-	&.left:after,
-	&.right:after,
-	&.top:after {
-		content: "";
-		width: 0;
-		height: 0;
-		border: 10px solid transparent;
-	}
-	&.left:before,
-	&.right:before,
-	&.left:after,
-	&.right:after {
-		.set-position(absolute, 50%);
-		.transform(~"translateY(-50%)");
-	}
-	&.top:before,
-	&.top:after {
-		.set-position(absolute, "na", "na", "na", 50%);
-		.transform(~"translateX(-50%)");
-	}
-	&.left:after,
-	&.right:after,
-	&.top:after {
-		border: 11px solid transparent;
-		z-index: -1;
-	}
-	&.left {
-		.set-position(absolute, 50%, "na", "na", 0);
-		.transform(~"translate(-100%,-50%) translateX(-10px)");
-		&:before {
-			right: -20px;
-			border-left: 10px solid #FFEF93;
+/** ================================================================================================
+*** §2: Callouts
+**/
+
+// TODO: move to separate callout file
+
+@daesa-callouts-rs: {
+	.callout {
+		.set-widths(auto, 80px, 230px);
+		height: auto;
+		padding: 10px;
+		border: 1px solid #F1D031;
+		background-color: #FFEF93;
+		color: #000;
+		line-height: 1.2em;
+		border-radius: 3px;
+		box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+		&.left:before,
+		&.right:before,
+		&.top:before,
+		&.left:after,
+		&.right:after,
+		&.top:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
 		}
-		&:after {
-			right: -22px;
-			border-left: 10px solid #F1D031;
+		&.left:before,
+		&.right:before,
+		&.left:after,
+		&.right:after {
+			.set-position(absolute, 50%);
+			.transform(~"translateY(-50%)");
+		}
+		&.top:before,
+		&.top:after {
+			.set-position(absolute, "na", "na", "na", 50%);
+			.transform(~"translateX(-50%)");
+		}
+		&.left:after,
+		&.right:after,
+		&.top:after {
+			border: 11px solid transparent;
+			z-index: -1;
+		}
+		&.left {
+			.set-position(absolute, 50%, "na", "na", 0);
+			.transform(~"translate(-100%,-50%) translateX(-10px)");
+			&:before {
+				right: -20px;
+				border-left: 10px solid #FFEF93;
+			}
+			&:after {
+				right: -22px;
+				border-left: 10px solid #F1D031;
+			}
+		}
+		&.right {
+			.set-position(absolute, 50%, 0, "na", "na");
+			.transform(~"translate(100%,-50%) translateX(10px)");
+			&:before {
+				left: -20px;
+				border-right: 10px solid #FFEF93;
+			}
+			&:after {
+				left: -22px;
+				border-right: 11px solid #F1D031;
+			}
+		}
+		&.top {
+			.set-position(absolute, 0, "na", "na", 50%);
+			.transform(~"translate(-50%,-100%) translateY(-10px)");
+			&:before {
+				bottom: -20px;
+				border-top: 10px solid #FFEF93;
+			}
+			&:after {
+				bottom: -22px;
+				border-top: 11px solid #F1D031;
+			}
 		}
 	}
-	&.right {
-		.set-position(absolute, 50%, 0, "na", "na");
-		.transform(~"translate(100%,-50%) translateX(10px)");
-		&:before {
-			left: -20px;
-			border-right: 10px solid #FFEF93;
-		}
-		&:after {
-			left: -22px;
-			border-right: 11px solid #F1D031;
-		}
-	}
-	&.top {
-		.set-position(absolute, 0, "na", "na", 50%);
-		.transform(~"translate(-50%,-100%) translateY(-10px)");
-		&:before {
-			bottom: -20px;
-			border-top: 10px solid #FFEF93;
-		}
-		&:after {
-			bottom: -22px;
-			border-top: 11px solid #F1D031;
-		}
-	}
-}
+};
+
+.declare-ruleset(@daesa-callouts-rs, @oue-rules-wrapper, @use-design__daesa-callouts);
