@@ -54,7 +54,7 @@
 	.article-tagline {
 		font-size: @v-artcl-tgln-sz;
 		font-weight: @v-artcl-tgln-wght;
-		.has-subst-font.serif;
+		.ff--serif-2;
 		line-height: @v-artcl-tgln-lnhght;
 
 		&.home,
@@ -64,7 +64,7 @@
 
 		&.sans,
 		&.article-tagline--sans {
-			&:extend(.has-alt-font);
+			&:extend(.ff--condensed);
 			color: @hex-black;
 			font-weight: 300;
 			// letter-spacing: 0.5px; // Removed on 2016-06-10 to improve readability of text.
