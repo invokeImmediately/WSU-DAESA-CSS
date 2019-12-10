@@ -715,23 +715,23 @@
 		@class-name: extract(extract(@margins--rem--array, @idx), 1);
 		@value-idx: extract(extract(@margins--rem--array, @idx), 2);
 		.ma--rem--@{class-name} {
-			.margin-rem(@value-idx, "all");
+			.margins-rem(@value-idx, "all");
 		}
 
 		.mb--rem--@{class-name} {
-			.margin-rem(@value-idx, "bottom");
+			.margins-rem(@value-idx, "bottom");
 		}
 
 		.ml--rem--@{class-name} {
-			.margin-rem(@value-idx, "left");
+			.margins-rem(@value-idx, "left");
 		}
 
 		.mr--rem--@{class-name} {
-			.margin-rem(@value-idx, "right");
+			.margins-rem(@value-idx, "right");
 		}
 
 		.mt--rem--@{class-name} {
-			.margin-rem(@value-idx, "top");
+			.margins-rem(@value-idx, "top");
 		}
 	}
 	.margin-rem-loop( length( @margins--rem--array ) );
