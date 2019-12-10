@@ -704,10 +704,10 @@
 ***   >>> §7.3: In units of "rem"
 **/
 
-	@margins--rem--array: ~"0mx" @rem-mSize-0mx, ~"250mx" @rem-mSize-250mx,
-		~"500mx" @rem-mSize-500mx, ~"750mx" @rem-mSize-750mx, ~"1000mx" @rem-mSize-1000mx,
-		~"1250mx" @rem-mSize-1250mx, ~"1500mx" @rem-mSize-1500mx, ~"1750mx" @rem-mSize-1750mx,
-		~"2000mx" @rem-mSize-1750mx;
+	@margins--rem--array: ~"0mx" @rem-mSize-0mx, ~"250mx" @rem-mSize-125mx,
+		~"500mx" @rem-mSize-250mx, ~"750mx" @rem-mSize-375mx, ~"1000mx" @rem-mSize-500mx,
+		~"1250mx" @rem-mSize-625mx, ~"1500mx" @rem-mSize-750mx, ~"1750mx" @rem-mSize-875mx,
+		~"2000mx" @rem-mSize-1000mx;
 
 
 	.margin-rem-loop(@idx) when (@idx > 0) and (@idx <= length(@margins--rem--array)) {
