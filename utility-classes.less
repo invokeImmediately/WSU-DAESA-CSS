@@ -712,8 +712,8 @@
 
 	.margin-rem-loop(@idx) when (@idx > 0) and (@idx <= length(@margins--rem--array)) {
 		.margin-loop((@idx - 1));
-		@class-name: extract(extract(@rem-mSize-array, @idx), 1);
-		@value-idx: extract(extract(@rem-mSize-array, @idx), 2);
+		@class-name: extract(extract(@margins--rem--array, @idx), 1);
+		@value-idx: extract(extract(@margins--rem--array, @idx), 2);
 		.ma--rem--@{class-name} {
 			.margin-rem(@value-idx, "all");
 		}
