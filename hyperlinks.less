@@ -1,34 +1,28 @@
 /** ┌────────────────────────────────────────────────────────────────────────────────────────────┐
 *** │ FILENAME: hyperlink.less                                                                   │
 *** │                                                                                            │
-*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
+*** │ SUMMARY: Semantic CSS for styling DAESA hyperlink elements.                                │
 *** │                                                                                            │
 *** │ DESCRIPTION: Involves styles for hyperlink elements of WSU Office of Undergraduate         │
 *** │   Education web pages built using the builder template of the Spine parent theme of WSUWP. │
 *** │   Styles are designed to accompany or supersede styling associated with the theme.         │
+*** │                                                                                            │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
 *** └────────────────────────────────────────────────────────────────────────────────────────────┘
-**/
-
-/** ================================================================================================
-*** SEMANTIC CSS FOR STYLING OUE HYPERLINK ELEMENTS
-*** ================================================================================================
-**/
-
-/**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Legacy styles for columnar hyperlinks................................................36
-***  §2: CSS3-driven tooltips via hyperlink elements..........................................93
-***  §3: DAESA-Style Hyperlinks..............................................................182
-***    >>> §3.1: A11y friendly default style for columnar hyperlinks.........................188
-***    >>> §3.2: Links for non-text elements.................................................232
-***    >>> §3.3: Special cases for hyperlinks................................................286
-***  §4: Provost's-Office-Style Hyperlinks...................................................312
-***  §5: Inclusional hyperlink styling via Less mixins.......................................334
-***    >>> §5.1: Glass button layouts........................................................338
-***    >>> §5.1: Glass button layouts........................................................443
-***  §6: Layout modification mixins..........................................................447
-***    >>> §6.1: Icons for non-text-links....................................................451
+***  §1: Legacy styles for columnar hyperlinks................................................30
+***  §2: CSS3-driven tooltips via hyperlink elements..........................................87
+***  §3: DAESA-Style Hyperlinks..............................................................176
+***    >>> §3.1: A11y friendly default style for columnar hyperlinks.........................182
+***    >>> §3.2: Links for non-text elements.................................................227
+***    >>> §3.3: Special cases for hyperlinks................................................281
+***  §4: Provost's-Office-Style Hyperlinks...................................................307
+***  §5: Inclusional hyperlink styling via Less mixins.......................................329
+***    >>> §5.1: Glass button layouts........................................................333
+***    >>> §5.1: Glass button layouts........................................................438
+***  §6: Layout modification mixins..........................................................442
+***    >>> §6.1: Icons for non-text-links....................................................446
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -198,11 +192,12 @@
 		&{ box-shadow: inset 0 -1px 0 @rgba; 
 			.getRgbaStr(@colors__links, .25); }
 		text-decoration: none;
-		.transition(~"all .25s ease");
+		.transition(~"color .4s, background 0.4s, border 0.1s");
 
 		&:hover {
 			&{ background-color: @rgba;
 				.getRgbaStr(@colors__links__hover, .15); }
+			border-bottom-width: 3px;
 			border-color: @colors__links__hover;
 			border-radius: 0;
 			box-shadow: inset 0 -1px 0 transparent;
@@ -300,7 +295,7 @@
 		text-decoration: underline;
 
 		&:hover {
-			border-bottom: 1px solid @colors__links;
+			border-bottom: 4px solid @colors__links__hover;
 			text-decoration: none;
 		}
 	}
