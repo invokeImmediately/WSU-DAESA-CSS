@@ -254,15 +254,11 @@
 
 				@media screen {
 					background: @hex-dark-gray;
-					background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.4) 50%,
-						rgba(0,0,0,0.1) ), linear-gradient(to right, #5e6a71, #5e6a71);
 
 					@media (max-width: @large-mobile-screen-width) {
 						right: 0;
 						height: 50%;
 						top: 50%;
-						background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.4) 70%, 
-							rgba(0,0,0,0.1)), linear-gradient(to right, #5e6a71,#5e6a71);
 					}
 				}
 				& > :first-child,
@@ -292,17 +288,27 @@
 						}
 					}
 
+					&::before{
+						.animation(fade-in; 2s; linear; 0s; 1)
+						background: #a31d36;
+						bottom: 0;
+						content: "";
+						height: 6px;
+						left: 0;
+						position: absolute
+						width: 40px;
+					}
+
 					& > :last-child {
 						margin-bottom: 0 !important;
 					}
+
 				}
 
 				h1 {
-					color: @hex-white;
+					color: @hex-darker-gray;
 					line-height: .95em;
 					margin: 0;
-					text-shadow: 0 0 4px @hex-black, 0 0 4px @hex-black, 0 0 4px @hex-black,
-						0 0 4px @hex-black, 0 0 4px @hex-black;
 
 					@media all and (max-width: @column-floating-threshold) {
 						font-size: 6.5vw;
@@ -314,7 +320,7 @@
 					}
 
 					& + .subtitle {
-						color: @hex-white;
+						color: @hex-darker-gray;
 						font-size: 1.25em;
 						font-weight: bold;
 						line-height: 1.1em;
@@ -328,7 +334,7 @@
 				}
 
 				.parent-page {
-					color: @hex-bright-gray;
+					color: @hex-darker-gray;
 					margin-bottom: 0.125em;
 
 					@media screen and (max-width: @column-floating-threshold) {
