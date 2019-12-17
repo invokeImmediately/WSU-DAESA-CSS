@@ -172,6 +172,10 @@
 				margin-right: (@v-dflt-spcng / 4);
 			}
 		}
+
+		.builder-section-banner &:before {
+			right: 0.4rem;
+		}
 	}
 
 	.cycle-next,
@@ -183,7 +187,6 @@
 			background-color: @rgba;
 			border-radius: 1.7rem;
 			padding-bottom: 2px;
-			right: 0.4rem;
 
 			@media screen and (max-width: @column-floating-threshold) {
 				border-radius: 15px;
@@ -207,14 +210,9 @@
 				margin-left: (@v-dflt-spcng / 4);
 			}
 		}
-	}
 
-	@media all {
-		// TODO: Move back to wp-master-style-sheet.less
-		@media (min-width: 906px) {
-			.readability-controlled {
-				width: 70%;
-			}
+		.builder-section-banner &:before {
+			left: 0.4rem;
 		}
 	}
 };
