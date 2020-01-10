@@ -71,9 +71,7 @@
 
 	}
 
-	.column * + ul,
-	.column ol ul,
-	.column ul ul {
+	.column * + ul {
 		margin-top: extract(@mSize-array, @mSize-1000mx);
 	}
 
@@ -82,7 +80,9 @@
 		padding-top: 0;
 	}
 
-	.column p + ul {
+	.column p + ul,
+	.column ol ul,
+	.column ul ul {
 		margin-top: extract(@mSize-array, @mSize-500mx);
 	}
 };
@@ -126,9 +126,7 @@
 		}
 	}
 
-	.column * + ol,
-	.column ol ol,
-	.column ul ol {
+	.column * + ol {
 		margin-top: extract(@mSize-array, @mSize-1000mx);
 	}
 
@@ -137,7 +135,9 @@
 		padding-top: 0;
 	}
 
-	.column p + ol {
+	.column p + ol,
+	.column ol ol,
+	.column ul ol {
 		margin-top: extract(@mSize-array, @mSize-500mx);
 	}
 };
