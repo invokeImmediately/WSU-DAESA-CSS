@@ -1,12 +1,25 @@
-/** ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-*** │ FILENAME: lists.less                                                                       │
-*** │                                                                                            │
-*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-*** │                                                                                            │
-*** │ DESCRIPTION: Encompasses styles for elements associated with form nodes within OUE pages   │
-*** │   built using the WSU Spine theme for WordPress. Styles are designed to accompany or       │
-*** │   supersede styling associated with the Spine parent theme.                                │
-*** └────────────────────────────────────────────────────────────────────────────────────────────┘
+/** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: lists.less                                                                         │
+*** │                                                                                              │
+*** │ SUMMARY: Encompasses styles for elements associated with form nodes within OUE pages built   │
+*** │   using the WSU Spine theme for WordPress. Styles are designed to accompany or supersede     │
+*** │   styling associated with the Spine parent theme.                                            │
+*** │                                                                                              │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+*** │                                                                                              │
+*** │ LICENSE: ISC - Copyright (c) 2020 Daniel C. Rieck.                                           │
+*** │                                                                                              │
+*** │   Permission to use, copy, modify, and/or distribute this software for any purpose with or   │
+*** │   without fee is hereby granted, provided that the above copyright notice and this           │
+*** │   permission notice appear in all copies.                                                    │
+*** │                                                                                              │
+*** │   THE SOFTWARE IS PROVIDED "AS IS" AND DANIEL C. RIECK DISCLAIMS ALL WARRANTIES WITH REGARD  │
+*** │   THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT │
+*** │   SHALL DANIEL C. RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL        │
+*** │   DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN  │
+*** │   AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN           │
+*** │   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                                   │
+*** └──────────────────────────────────────────────────────────────────────────────────────────────┘
 **/
 
 /** ================================================================================================
@@ -16,14 +29,14 @@
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Unordered lists......................................................................31
-***  §2: Ordered lists........................................................................73
-***  §3: General list items..................................................................121
-***  §4: Definition lists....................................................................136
-***  §5: Specialty lists.....................................................................303
-***    >>> §5.1: Content boxes...............................................................307
-***    >>> §5.2: External links lists........................................................368
-***    >>> §5.3: Lists with a cascaded layout................................................382
+***  §1: Unordered lists......................................................................44
+***  §2: Ordered lists........................................................................93
+***  §3: General list items..................................................................148
+***  §4: Definition lists....................................................................163
+***  §5: Specialty lists.....................................................................330
+***    >>> §5.1: Content boxes...............................................................334
+***    >>> §5.2: External links lists........................................................395
+***    >>> §5.3: Lists with a cascaded layout................................................409
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -58,8 +71,15 @@
 
 	}
 
-	.column * + ul {
+	.column * + ul,
+	.column ol ul,
+	.column ul ul {
 		margin-top: extract(@mSize-array, @mSize-1000mx);
+	}
+
+	.column ol ul,
+	.column ul ul {
+		padding-top: 0;
 	}
 
 	.column p + ul {
@@ -106,8 +126,15 @@
 		}
 	}
 
-	.column * + ol {
+	.column * + ol,
+	.column ol ol,
+	.column ul ol {
 		margin-top: extract(@mSize-array, @mSize-1000mx);
+	}
+
+	.column ol ol,
+	.column ul ol {
+		padding-top: 0;
 	}
 
 	.column p + ol {
