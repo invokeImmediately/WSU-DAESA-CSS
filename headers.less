@@ -8,12 +8,25 @@
 *** │   Styles are designed to accompany or supersede styling associated with the theme.           │
 *** │                                                                                              │
 *** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+*** │                                                                                              │
+*** │ LICENSE: ISC - Copyright (c) 2020 Daniel C. Rieck.                                           │
+*** │                                                                                              │
+*** │   Permission to use, copy, modify, and/or distribute this software for any purpose with or   │
+*** │   without fee is hereby granted, provided that the above copyright notice and this           │
+*** │   permission notice appear in all copies.                                                    │
+*** │                                                                                              │
+*** │   THE SOFTWARE IS PROVIDED "AS IS" AND DANIEL C. RIECK DISCLAIMS ALL WARRANTIES WITH REGARD  │
+*** │   THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT │
+*** │   SHALL DANIEL C. RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL        │
+*** │   DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN  │
+*** │   AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN           │
+*** │   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                                   │
 *** └──────────────────────────────────────────────────────────────────────────────────────────────┘
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***    §1: Main header and components..........................................................21
-***    §2: UP CMS style article headers........................................................66
-***    §3: Sectional article headers..........................................................192
+***    §1: Main header and components..........................................................34
+***    §2: UP CMS style article headers........................................................79
+***    §3: Sectional article headers..........................................................205
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -218,11 +231,13 @@
 	}
 
 	.row.article-header {
-		height: 230px;
+		&:not([class*="h--"]) {
+			height: 230px;
 
-		@media all {
-			@media (max-width: @large-mobile-screen-width) {
-				height: 340px;
+			@media all {
+				@media (max-width: @large-mobile-screen-width) {
+					height: 340px;
+				}
 			}
 		}
 
