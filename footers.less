@@ -1,0 +1,106 @@
+/** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: footers.less                                                                       │
+*** │                                                                                              │
+*** │ SUMMARY: Semantic CSS for styling footers on DAESA websites.                                 │
+*** │                                                                                              │
+*** │ DESCRIPTION: Embodies style rules for presenting footers on WSU DAESA web pages built using  │
+*** │   the builder template of the Spine parent theme of WSUWP. Styles are designed to accompany  │
+*** │   or supersede styling associated with the theme. Design was inspired by the visual design   │
+*** │   of the global footer in use on the website of the WSU Office of the Provost.               │
+*** │                                                                                              │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+*** │                                                                                              │
+*** │ LICENSE: ISC - Copyright (c) 2020 Daniel C. Rieck.                                           │
+*** │                                                                                              │
+*** │   Permission to use, copy, modify, and/or distribute this software for any purpose with or   │
+*** │   without fee is hereby granted, provided that the above copyright notice and this           │
+*** │   permission notice appear in all copies.                                                    │
+*** │                                                                                              │
+*** │   THE SOFTWARE IS PROVIDED "AS IS" AND DANIEL C. RIECK DISCLAIMS ALL WARRANTIES WITH REGARD  │
+*** │   THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT │
+*** │   SHALL DANIEL C. RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL        │
+*** │   DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN  │
+*** │   AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN           │
+*** │   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                                   │
+*** └──────────────────────────────────────────────────────────────────────────────────────────────┘
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***    §1: Footer sections.....................................................................33
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
+**/
+
+/**   ----------------------------------------------------------------------------------------------
+***   §1: Footer sections
+**/
+
+@ruleset__provost-footers: {
+	.footersection {
+		.column.one {
+			height: 100%;
+			height: 36px;
+		}
+	}
+
+	.footer {
+		.column & {
+			align-items: center;
+			background: #262626;
+			bottom: 0;
+			color: #fff;
+			display: flex;
+			height: 36px;
+			list-style-type: none;
+			margin: 0;
+			min-width: 1188px;
+			padding: 0;
+			position: fixed;
+			z-index: 9999;
+
+			a {
+				color: #fff;
+
+				&:hover {
+					color: #ca1237;
+				}
+			}
+
+			ul {
+				color: #b7b7b7;
+				display: block;
+				list-style-type: none;
+				margin: 0;
+				padding: 0 2em 0 2.6em;
+				width: 100%;
+
+				li {
+					display: inline;
+					margin: 0;
+					padding: 0;
+					font-size: .65em;
+					font-weight: 400;
+					text-align: left;
+					list-style-type: none;
+
+					&:before {
+						content: "";
+						display: none;
+						list-style-type: none;
+
+					}
+
+					&:after {
+						content: ",";
+						margin: 0;
+						list-style-type: none;
+					}
+
+					&:last-child:after {
+						content: "";				
+					}
+				}
+			}
+		}
+	}
+};
+
+.declare-ruleset(@ruleset__provost-footers, @oue-rules-wrapper, @use-design__provost-footers);
