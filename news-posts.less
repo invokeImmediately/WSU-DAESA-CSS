@@ -1,12 +1,25 @@
-/** ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-*** │ FILENAME: news-posts.less                                                                  │
-*** │                                                                                            │
-*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-*** │                                                                                            │
-*** │ DESCRIPTION: Includes styles for elements associated with form nodes within OUE pages      │
-*** │  built using the WSU Spine theme for WordPress. Styles are designed to accompany or        │
-*** │  supersede styling associated with the Spine parent theme.                                 │
-*** └────────────────────────────────────────────────────────────────────────────────────────────┘
+/** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: news-posts.less                                                                    │
+*** │                                                                                              │
+*** │ SUMMARY: Includes styles for elements associated with news post components within DAESA      │
+*** │  pages built using the WSU Spine theme for WordPress. Styles are designed to accompany or    │
+*** │  supersede styling associated with the Spine parent theme.                                   │
+*** │                                                                                              │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+*** │                                                                                              │
+*** │ LICENSE: ISC - Copyright (c) 2020 Daniel C. Rieck.                                           │
+*** │                                                                                              │
+*** │   Permission to use, copy, modify, and/or distribute this software for any purpose with or   │
+*** │   without fee is hereby granted, provided that the above copyright notice and this           │
+*** │   permission notice appear in all copies.                                                    │
+*** │                                                                                              │
+*** │   THE SOFTWARE IS PROVIDED "AS IS" AND DANIEL C. RIECK DISCLAIMS ALL WARRANTIES WITH REGARD  │
+*** │   THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT │
+*** │   SHALL DANIEL C. RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL        │
+*** │   DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN  │
+*** │   AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN           │
+*** │   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                                   │
+*** └──────────────────────────────────────────────────────────────────────────────────────────────┘
 **/
 
 /** ================================================================================================
@@ -16,9 +29,9 @@
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Primary news feed & posts: Articles & components......................................29
-***  §2: Primary news feed & posts: Widgets & components......................................128
-***  §3: Secondary news feeds (via WSUWP-Content-Syndicate plugin)............................188
+***  §1: Primary news feed & posts: Articles & components......................................42
+***  §2: Primary news feed & posts: Widgets & components......................................145
+***  §3: Secondary news feeds (via WSUWP-Content-Syndicate plugin)............................205
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -59,6 +72,10 @@
 		.column & .article-title {
 			font-size: @v-p-sz * 2;
 			line-height: @v-hX-lnhght;
+
+			a {
+				font-weight: bold;
+			}
 		}
 	}
 
