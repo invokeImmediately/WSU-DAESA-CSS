@@ -103,6 +103,19 @@
 			}
 		}
 	}
+
+	.global-bar--top {
+		background: rgb(130,12,35,1);
+		background: -moz-linear-gradient(left,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		background: -webkit-linear-gradient(left,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		background: linear-gradient(to right,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#820c23',endColorstr='#a60f2d',GradientType=1);
+		height: 4px;
+		position: fixed;
+		top: 0;
+		width: 1188px;
+		z-index: 99;
+	}
 };
 
 .declare-ruleset(@ruleset__provost-footers, @oue-rules-wrapper, @use-design__provost-footers);
