@@ -12,12 +12,12 @@
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Legacy style declarations (prior to a11y redesign)....................................32
-***    >>> §1.1: Component-based styling.......................................................36
-***       └> §1.1.1: Article decks.............................................................42
-***       └> §1.1.2: Article taglines..........................................................58
-***  §2: Accessibility friendly classes.......................................................263
-***    >>> §2.1: Style Defaults...............................................................267
+***  §1: Legacy style declarations (prior to a11y redesign)....................................29
+***    >>> §1.1: Component-based styling.......................................................33
+***       └> §1.1.1: Article decks.............................................................39
+***       └> §1.1.2: Article taglines..........................................................51
+***  §2: Accessibility friendly classes........................................................69
+***    >>> §2.1: Style Defaults................................................................73
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -38,7 +38,7 @@
 /**     ····························································································
 ***      └> §1.1.1: Article decks
 **/
-	&.article-deck {
+	.article-deck {
 		.has-sectionally-responsive-font(@v-artcl-deck-sz, @body-text--lHeight);
 		color: @hex-dark-green;
 
@@ -54,48 +54,11 @@
 	.article-tagline {
 		font-size: @v-artcl-tgln-sz;
 		font-weight: @v-artcl-tgln-wght;
-		.ff--serif-2;
 		line-height: @v-artcl-tgln-lnhght;
 
 		&.home,
 		&.article-tagline--home {
 			font-size: @v-artcl-tgln-sz * 1.15;
-		}
-
-		&.sans,
-		&.article-tagline--sans {
-			&:extend(.ff--condensed);
-			color: @hex-black;
-			font-weight: 300;
-			// letter-spacing: 0.5px; // Removed on 2016-06-10 to improve readability of text.
-			.lead-in,
-			.article-tagline__lead-in {
-				color: extract(@colors--yellows__hex, @colors__darker);
-				font-weight: 700;
-				letter-spacing: normal;                    
-			}
-		}
-
-		&:not(.has-no-bordering):not(.article-tagline--borderless) {
-			.has-pull-quote-bordering(@hex-darker-gray);
-
-			&.crimson,
-			&.article-tagline--crimson {
-				.has-pull-quote-bordering(@hex-crimson);
-				color: @hex-crimson;
-				.has-gray-text {
-					color: @hex-darker-gray;
-				}
-			}
-		}
-
-		h1 + &:not(.alt),
-		h2 + &:not(.alt),
-		h3 + &:not(.alt),
-		h4 + &:not(.alt),
-		h5 + &:not(.alt),
-		h6 + &:not(.alt) {
-			margin-top: (@v-btm-mrgns * 4 / 3);
 		}
 	}
 };
