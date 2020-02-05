@@ -25,18 +25,18 @@
 *** └──────────────────────────────────────────────────────────────────────────────────────────────┘
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***    §1: Footer sections.....................................................................33
+***    §1: Footer sections.....................................................................34
+***    §2: DAESA-style footer sections........................................................124
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
 /**   ----------------------------------------------------------------------------------------------
-***   §1: Footer sections
+***   §1: Provost-style footer sections
 **/
 
 @ruleset__provost-footers: {
 	.footersection {
 		.column.one {
-			height: 100%;
 			height: 36px;
 		}
 	}
@@ -97,7 +97,7 @@
 					}
 
 					&:last-child:after {
-						content: "";				
+						content: "";
 					}
 				}
 			}
@@ -119,3 +119,98 @@
 };
 
 .declare-ruleset(@ruleset__provost-footers, @oue-rules-wrapper, @use-design__provost-footers);
+
+/**   ----------------------------------------------------------------------------------------------
+***   §2: DAESA-style footer sections
+**/
+
+@ruleset__daesa-footers: {
+	.daesa-footer-row {
+		height: 36px;
+	}
+
+	.daesa-footer {
+		align-items: center;
+		bottom: 0;
+		display: flex;
+		height: 36px;
+		list-style-type: none;
+		margin: 0;
+		min-width: 1188px;
+		padding: 0;
+		position: fixed;
+		z-index: 9999;
+	}
+
+	.daesa-footer--dark {
+		background: #262626;
+		color: #fff;
+
+		.daesa-footer__info-list {
+			color: #b7b7b7;
+		}
+	}
+
+	.unit-identity-list {
+		display: block;
+		list-style-type: none;
+		margin: 0;
+		padding: 0 2em 0 2.6em;
+		width: 100%;
+	}
+
+	.unit-identity-list--bright {
+		color: #b7b7b7;
+	}
+
+	.unit-identity-list__entry {
+		display: inline;
+		margin: 0;
+		padding: 0;
+		font-size: .65em;
+		font-weight: 400;
+		text-align: left;
+		list-style-type: none;		
+
+		&:before {
+			content: "";
+			display: none;
+			list-style-type: none;
+		}
+
+		&:after {
+			content: ",";
+			margin: 0;
+			list-style-type: none;
+		}
+
+		&:last-child:after {
+			content: "";
+		}
+	}
+
+	.unit-identity-list--bright .unit-identity-list__link {
+		border-bottom-color: white;
+		color: #fff;
+
+		&:hover {
+			border-color: #ca1237;
+			color: #ca1237;
+		}
+	}
+
+	.global-bar {
+		background: rgb(130,12,35,1);
+		background: -moz-linear-gradient(left,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		background: -webkit-linear-gradient(left,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		background: linear-gradient(to right,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#820c23',endColorstr='#a60f2d',GradientType=1);
+		height: 4px;
+		position: fixed;
+		top: 0;
+		width: 1188px;
+		z-index: 99;
+	}
+};
+
+.declare-ruleset(@ruleset__daesa-footers, @oue-rules-wrapper, @use-design__provost-footers);
