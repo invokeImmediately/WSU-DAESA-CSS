@@ -145,10 +145,6 @@
 	.daesa-footer--dark {
 		background: #262626;
 		color: #fff;
-
-		.daesa-footer__info-list {
-			color: #b7b7b7;
-		}
 	}
 
 	.unit-identity-list {
@@ -189,13 +185,15 @@
 		}
 	}
 
-	.unit-identity-list--bright .unit-identity-list__link {
-		border-bottom-color: white;
-		color: #fff;
+	.unit-identity-list__link {
+		.unit-identity-list--bright & {
+			border-bottom-color: white;
+			color: #fff;
 
-		&:hover {
-			border-color: #ca1237;
-			color: #ca1237;
+			&:hover {
+				border-color: #ca1237;
+				color: #ca1237;
+			}			
 		}
 	}
 
@@ -213,4 +211,4 @@
 	}
 };
 
-.declare-ruleset(@ruleset__daesa-footers, @oue-rules-wrapper, @use-design__provost-footers);
+.declare-ruleset(@ruleset__daesa-footers, @oue-rules-wrapper, @use-design__daesa-footers);
