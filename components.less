@@ -28,9 +28,10 @@
 /**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Card styling..........................................................................40
-***  §2: Page headers..........................................................................64
-***  §3: On this page.........................................................................150
+***  §1: Card styling..........................................................................41
+***  §2: Page headers..........................................................................65
+***  §3: On this page.........................................................................151
+***  §4: §4: Hero containers (inspired by Rainier theme)......................................308
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -56,7 +57,7 @@
 		.style--card__sub-title__();
 	}
 
-	.style-card__title + .style--card__sub-title {
+	.style--card__title + .style--card__sub-title {
 		.margin(@mSize-0mx, "top")
 	}
 
@@ -301,6 +302,52 @@
 			background: @icon-url center center/auto 100% no-repeat;
 		}
 	};
+
+
+/**     ····························································································
+***     >>> §4: Hero containers (inspired by Rainier theme)
+**/
+
+	.hero-block-rs: {
+		@fg-color-1: #ca1237;
+		@fg-color-2: #7db9e8;
+
+		.hero-container {
+			background-color: @fg-color;
+			background-position: center;
+
+			&:after,
+			&:before {
+				content: "";
+				display: block;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+				z-index: 1;
+			}
+
+			&:after {
+				background: linear-gradient(to right, rgba(red(@fg-color-1),green(@fg-color-1),blue(@fg-color-1)) 0%, rgba(red(@fg-color-2),green(@fg-color-2),blue(@fg-color-2)) 100%);
+			}
+
+			&:before {
+				background: url(https://s3.wp.wsu.edu/uploads/sites/57/2020/02/bg-dots.png) top left repeat;
+			}
+		}
+
+		.hero-container__content {
+			align-items: center;
+			color: white;
+			display: flex;
+			padding: 2rem;
+			position: relative;
+			text-shadow: 1px 2px 2px black;
+			z-index: 3;
+		}
+	};
+	.hero-block-rs();
 };
 
 .declare-ruleset(@oue-components-ruleset, @oue-rules-wrapper);
