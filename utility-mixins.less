@@ -884,7 +884,6 @@
 }
 
 .style--card--flat__() {
-	background-color: extract(@colors--grays__hex, @colors__accent);
 	box-shadow: 0 0 0 1px @returned, 0 0 0 2px @returned-2, 0 3px 2px 0 @returned-3;
 	.getRgbaForProp(returned, extract(@colors--grays__hex, @colors__accent), 0.9);
 	.getRgbaForProp(returned-2, extract(@colors--grays__hex, @colors__darkest), 0.2);
@@ -893,7 +892,6 @@
 }
 
 .style--card--raised__() {
-	background-color: extract(@colors--grays__hex, @colors__accent);
 	border: 1px solid extract(@colors--grays__hex, @colors__dark);
 	box-shadow: 0 @style--card__border-radius 8px 1px @rgba;
 	.getRgbaStr(extract(@colors--grays__hex, @colors__darkest), 0.22);
@@ -901,7 +899,6 @@
 }
 
 .style--card__title__() {
-	background-color: extract(@colors--grays__hex, @colors__lighter);
 	color: extract(@colors--grays__hex, @colors__darker);
 	margin-left: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
 	margin-right: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
