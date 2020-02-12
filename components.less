@@ -430,12 +430,18 @@
 **/
 	@arrowed-bullet-list-rs: {
 		.arrowed-bullet-list {
-			list-style-type: ~"'⇒'";
+			list-style-type: none;
 			padding-left: 1.5em;
 		}
 
 		.arrowed-bullet-list__item {
-			padding-left: .5em;
+			position: relative;
+
+			&:before {
+				content: "⇒";
+				font-weight: bold;
+				.transform(~"translateX(-100%) translateX(-.5em)");
+			}
 		}
 	}
 	@arrowed-bullet-list-rs();
