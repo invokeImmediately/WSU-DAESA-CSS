@@ -33,6 +33,7 @@
 ***  §3: On this page.........................................................................152
 ***  §4: Hero containers (inspired by Rainier theme)..........................................309
 ***  §5: Breadcrumb link lists................................................................398
+***  §6: Arrowed bullet lists.................................................................000
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -423,6 +424,21 @@
 		}
 	};
 	@breadcrumb-link-rs();
+
+/**     ····························································································
+***     >>> §6: Arrowed bullet lists
+**/
+	@arrowed-bullet-list-rs: {
+		.arrowed-bullet-list {
+			list-style-type: '⇒';
+			padding-left: 1.5em;
+		}
+
+		.arrowed-bullet-list__item {
+			padding-left: .5em;
+		}
+	}
+	@arrowed-bullet-list-rs();
 };
 
 .declare-ruleset(@oue-components-ruleset, @oue-rules-wrapper);
