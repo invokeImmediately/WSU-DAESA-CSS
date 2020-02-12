@@ -431,7 +431,7 @@
 	@arrowed-bullet-list-rs: {
 		.arrowed-bullet-list {
 			list-style-type: none;
-			padding-left: 1.5em;
+			padding-left: 2em;
 		}
 
 		.arrowed-bullet-list__item {
@@ -440,6 +440,7 @@
 			&:before {
 				content: "⇒";
 				font-weight: bold;
+				position: absolute;
 				.transform(~"translateX(-100%) translateX(-.5em)");
 			}
 		}
