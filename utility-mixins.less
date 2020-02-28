@@ -27,9 +27,9 @@
 ***  §7: Typography...........................................................................584
 ***      >>> §7.1: Typograhy: Font Sizing.....................................................588
 ***      >>> §7.2: Line heights...............................................................791
-***      >>> §7.3: Bolding....................................................................856
-***  §8: Functional CSS.......................................................................871
-***      >>> §8.1: Card styling...............................................................875
+***      >>> §7.3: Bolding....................................................................861
+***  §8: Functional CSS.......................................................................876
+***      >>> §8.1: Card styling...............................................................880
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -813,11 +813,14 @@
 @lHeight-19: 1.45em;
 @lHeight-20: 1.475em;
 @lHeight-21: 1.5em;
+@lHeight-22: 1.75em;
+@lHeight-23: 2em;
 
 // OUE font-sizing array.
 @lHeight-array: @lHeight-1, @lHeight-2, @lHeight-3, @lHeight-4, @lHeight-5, @lHeight-6, @lHeight-7,
 	@lHeight-8, @lHeight-9, @lHeight-10, @lHeight-11, @lHeight-12, @lHeight-13, @lHeight-14,
-	@lHeight-15, @lHeight-16, @lHeight-17, @lHeight-18, @lHeight-19, @lHeight-20, @lHeight-21;
+	@lHeight-15, @lHeight-16, @lHeight-17, @lHeight-18, @lHeight-19, @lHeight-20, @lHeight-21,
+	@lHeight-22, @lHeight-23;
 
 // Semantic font-sizing Less variables.
 @lHeight--min: 1;
@@ -845,6 +848,8 @@
 @lHeight-967mx: 19;
 @lHeight-983mx: 20;
 @lHeight-1000mx: 21;
+@lHeight-1167mx: 22;
+@lHeight-1333mx: 23;
 
 // Utility mixin for defining font sizes downstream.
 .line-height(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx))
