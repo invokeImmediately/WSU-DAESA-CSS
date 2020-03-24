@@ -15,6 +15,18 @@
 */
 
 .use-events-calendar(@sub-header-text) when (isstring(@sub-header-text)) {
+	.single-tribe_venue {
+		.tribe-events-venue-meta {
+			.tribe-venue-name::before {
+				content: "Events by Venue: ";
+			}
+
+			.venue-address {
+				display: none;
+			}
+		}
+	}
+
 	.tribe-events-before-html {
 		margin-bottom: 2rem;
 
