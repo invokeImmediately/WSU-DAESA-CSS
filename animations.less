@@ -65,6 +65,15 @@
                  0 round((@size*10/3),4) round((@size*10/3),4) rgba(0,0,0,.15);
 }
 
+@rules-fade-in: {
+    0% {
+        opacity: 0;
+    }        
+    100% {
+        opacity: 1;
+    }
+};
+
 @rules-fade-in-from-left: {
     0% {
         opacity: 0;
@@ -138,8 +147,12 @@
     100% { transform: scale(1); }
 };
 
+.fade-in {
+    .animation(anim-fade-in; 1s; linear; 0s; 1);
+    .keyframes(anim-fade-in; @rules-fade-in);
+}
+
 .fade-in-from-top {
-	opacity: 0;
     .animation(anim-fade-in-from-top; 1s; linear; 0s; 1);
     .keyframes(anim-fade-in-from-top; @rules-fade-in-from-top);
 	&.delayed.fast {
