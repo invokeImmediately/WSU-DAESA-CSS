@@ -337,21 +337,21 @@
 		width: 100%;
 		margin: 0 auto;
 		margin-bottom: 20px;
-		font-size: 13px;
 		text-align: left;
 		color: @hex-crimson;
 
 		a {
-			border-bottom: 1px dotted rgba(152,30,50,0.0);
 			color: inherit;
 			box-shadow: none;
+
+			&:not(:hover) {
+				border-bottom-color: transparent;
+			}
 		}
 
 		th,
 		td {
-
 			max-width: 200px;
-
 		}
 
 		th {
@@ -385,8 +385,8 @@
 
 		td {
 			p {
-				padding-top: 2px;
-				padding-bottom: 3px;
+				padding-top: 4px;
+				padding-bottom: 7px;
 				font-size: inherit;
 				text-align: inherit;
 
