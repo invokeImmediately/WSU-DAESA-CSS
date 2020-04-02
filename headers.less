@@ -241,6 +241,14 @@
 			}
 		}
 
+		&:not(.article-header--colored) {
+			.column.one {				
+				@media screen {
+					background: @hex-bright-gray;
+				}			
+			}
+		}
+
 		@media print {
 			height: auto;
 		}
@@ -268,8 +276,6 @@
 				}
 
 				@media screen {
-					background: @hex-bright-gray;
-
 					@media (max-width: @large-mobile-screen-width) {
 						right: 0;
 						height: 50%;
