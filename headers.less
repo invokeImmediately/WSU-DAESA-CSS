@@ -242,7 +242,9 @@
 		}
 
 		&:not(.article-header--colored) {
-			.column.one {				
+			.column.one {
+				color: @hex-dark-gray;
+
 				@media screen {
 					background: @hex-bright-gray;
 				}			
@@ -326,7 +328,7 @@
 				}
 
 				h1 {
-					color: @hex-darker-gray;
+					color: inherit;
 					line-height: .95em;
 					margin: 0;
 
@@ -340,7 +342,7 @@
 					}
 
 					& + .subtitle {
-						color: @hex-darker-gray;
+						color: inherit;
 						font-size: 1.25em;
 						font-weight: bold;
 						line-height: 1.1em;
