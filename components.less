@@ -153,9 +153,11 @@
 ***     >>> §3: On this page
 **/
 
-	@otp__clr--bg: #2f3438;
+	@otp__clr--bg: #e4e6e7;
 	@otp__clr--item-bg: extract(@colors--grays__hex, @colors__dark);
+	@otp__clr--heading-bg: #2f3438;
 	@otp__clr--border: extract(@colors--grays__hex, @colors__lightish);
+	@otp__clr--item-ol: black;
 	@otp__clr--border-hl: extract(@colors--grays__hex, @colors__accent);
 	@otp__clr--highlight: #23272a;
 	@otp__clr--crimson: #54464e;
@@ -164,8 +166,11 @@
 	@otp__w-gap: 14px;
 
 	.on-this-page {
-		background-color: @otp__clr--bg;
 		padding-bottom: .75em;
+
+		&:not(.on-this-page--colored):not() {
+			background-color: @otp__clr--bg;
+		}
 
 		&.single .column {
 			float: left !important;
@@ -173,7 +178,10 @@
 	}
 
 	.on-this-page__heading {
-		color: @hex-white;
+		:not(.on-this-page--colored) & {
+			color: @otp__clr--heading-bg;
+		}
+
 		font-size: (@default-spacing * .85);
 		padding-bottom: (@default-spacing / 3);
 	}
@@ -207,6 +215,10 @@
 				border-color: @otp__clr--border-hl;
 				border-width: 1px;
 				text-decoration: underline;
+			}
+
+			&:not(:focus) {
+				outline: 1px solid @otp__clr--item-ol;
 			}
 
 			@media all and (max-width: @tablet-screen-width) {
