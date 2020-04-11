@@ -1,274 +1,464 @@
-/*  ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-**  │ FILENAME: tables.less                                                                      │
-**  │                                                                                            │
-**  │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-**  │                                                                                            │
-**  │ DESCRIPTION: Contains styles for table-associated elements of OUE web pages built using    │
-**  │   the page builder template of the Spine parent theme of the WSU WordPress platform.       │
-**  │   Styles are designed to accompany or supersede styling associated with the Spine parent   │
-**  │   theme.                                                                                   │
-**  └────────────────────────────────────────────────────────────────────────────────────────────┘
-*/
+/** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+*** │ FILENAME: tables.less                                                                        │
+*** │                                                                                              │
+*** │ SUMMARY: Style rules for controlling how tables are displayed on DAESA websites.             │
+*** │                                                                                              │
+*** │ DESCRIPTION: Intended for use on pages of DAESA websites created using the page builder      │
+*** │   template of the Spine parent theme of the WSU WordPress platform. Styles are designed to   │
+*** │   accompany or supersede styling associated with the Spine parent theme.                     │
+*** │                                                                                              │
+*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
+*** │                                                                                              │
+*** │ LICENSE: ISC - Copyright (c) 2020 Daniel C. Rieck.                                           │
+*** │                                                                                              │
+*** │   Permission to use, copy, modify, and/or distribute this software for any purpose with or   │
+*** │   without fee is hereby granted, provided that the above copyright notice and this           │
+*** │   permission notice appear in all copies.                                                    │
+*** │                                                                                              │
+*** │   THE SOFTWARE IS PROVIDED "AS IS" AND DANIEL C. RIECK DISCLAIMS ALL WARRANTIES WITH REGARD  │
+*** │   TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO    │
+*** │   EVENT SHALL DANIEL C. RIECK BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL  │
+*** │   DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN  │
+*** │   AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN           │
+*** │   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                                   │
+*** └──────────────────────────────────────────────────────────────────────────────────────────────┘
+***  TABLE OF CONTENTS:
+***  ────────────────────────────────────────────────────────────────────────────────────────────
+***  §1: Switchable sets of style rules for controlling how tables are displayed..............000
+***   >>> §1.1: Plain tables..................................................................000
+***   >>> §1.2: People lists..................................................................000
+***   >>> §1.3: WSU blue themed tables........................................................000
+***   >>> §1.4: WSU gray themed tables........................................................000
+***  §2: TablePress tables, switchable style rules for........................................000
+***  §3: Optional sets of style rules that are included by mixin..............................000
+***    >>> §3.1: Award recipients table.......................................................000
+***    >>> §3.2: Navigational map tables......................................................000
+***  ───────────────────────────────────────────────────────────────────────────────────────────────
+**/
 
-// TODO: Add table of contents to code documentation
+/** ================================================================================================
+*** §1: Switchable sets of style rules for controlling how tables are displayed 
+**/
 
-/*  ================================================================================================
-**  STYLES FOR TABULAR DATA ELEMENTS ON WSU OFFICE OF UNDERGADUATE EDUCATION WEBSITES
-*/
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §1.1: Plain tables
+**/
 
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-TABLES §1: Default styling of tables
-*/
+@ruleset__plain-tables: {
+	.column table.plain {
+		background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat fixed left top;
+		border-bottom: 1px solid @hex-dark-gray;
+		border-collapse: separate;
+		border-spacing: 0;
+		border-top: 1px solid @hex-dark-gray;
 
-@oue-table-ruleset: {
-	.column {
-		table {
-			&.plain {
-				background: @hex-white url(/wp-content/uploads/sites/906/2015/08/bg-dark.jpg) repeat
-				 fixed left top;
-				border-collapse: separate;
-				border-spacing: 0;
-				border-top: 1px solid @hex-dark-gray;
-				border-bottom: 1px solid @hex-dark-gray;
+		thead tr th {
+			border-bottom: 1px solid #B6BCBF;
+			border-top: 1px solid @hex-white;
+			padding-bottom: .25rem;
+			padding-left: .25rem;
+			padding-top: .25rem;
+			text-align: inherit;
+		}
 
-				thead {
-					tr {
-						th {
-							padding-top: .25rem;
-							padding-left: .25rem;
-							padding-bottom: .25rem;
-							border-top: 1px solid @hex-white;
-							border-bottom: 1px solid #B6BCBF;
-							text-align: inherit;
-						}
-					}
-				}
-
-				tbody {
-					tr {
-						td {
-							padding-top: .25rem;
-							padding-left: .25rem;
-							padding-bottom: .25rem;
-							background-color: @hex-bright-gray;
-							border-top: 1px solid @hex-white;
-							border-bottom: 1px solid @hex-light-gray;
-							text-align: inherit;
-							vertical-align: top;
-						}
-					}
-
-					tr:nth-of-type(2n) {
-						td {
-							padding-top: .25rem;
-							padding-left: .25rem;
-							padding-bottom: .25rem;
-							background-color: @hex-white;
-							border-top: 1px solid @hex-bright-gray;
-							border-bottom: 1px solid @hex-lighter-gray;
-							text-align: inherit;
-							vertical-align: top;
-						}
-					}
-				}
-			}
-
-			&.peopleList {
-				background: @hex-white;
-				border-collapse: separate;
-				border-spacing: 0;
-				border-top: 1px solid #e5e5e5;
-				width: 100%;
-
-				tbody {
-					td {
-						/* background: #c75d61; */
-						border-bottom: 1px solid #e5e5e5;
-						padding-bottom: 3pt;
-						padding-top: 3pt;
-						vertical-align: top;
-						width: 80%;
-					
-						&:first-of-type {
-							text-align: center;
-							width: 20%;
-						}
-
-						&:not(:first-of-type) {
-							padding-top: 0.5em;
-						}
-					}
-				}
-			}
-
-			&.wsu-blue-theme {
-				width: 100%;
-				border-collapse:separate;
-				border-spacing:0;
-				border-top: 1px solid @hex-dark-blue;
-				&:not(.no-bottom-border) {
-					border-bottom: 1px solid @hex-dark-blue;
-				}
-
-				@media all {
-					@media (min-width: 891px) {
-						font-size: 14px;
-					}
-
-					@media (max-width: 890px) {
-						font-size: 12px;
-					}
-				}
-
-				& > thead > tr {
-					& > th {
-						background-color: @hex-darker-blue;
-						color: @hex-white;
-						padding: 3px;
-						vertical-align: bottom;
-					}
-
-					&.supra-header-row > th {
-						@font-increase: 0.4em;
-
-						padding-top: (1em - @font-increase);
-						padding-right: 0.5em;
-						padding-bottom: @font-increase;
-						padding-left: 1.5em;
-						background-color: @hex-darkest-blue;
-						vertical-align: bottom;
-						text-indent: -1em;
-						font-variant: small-caps;
-						font-weight: bold;
-						color: @hex-white;
-						font-size: (1em + @font-increase);
-					}
-				}
-
-				&:not(.has-row-spans) > tbody {
-					& > tr:nth-child(2n) > td {
-						background-color: @hex-white;
-						line-height: normal;
-						padding-bottom: 0.5em;
-						padding-left: 1.5em;
-						padding-right: 0.5em;
-						padding-top: 3px;
-						text-indent: -1em;
-						vertical-align: top;
-					}
-
-					& > tr:nth-child(2n + 1) > td {
-						background-color: @hex-lightest-blue;
-						line-height: normal;
-						padding-bottom: 0.5em;
-						padding-left: 1.5em;
-						padding-right: 0.5em;
-						padding-top: 3px;
-						text-indent: -1em;
-						vertical-align: top;
-					}
-				}
-
-				&.has-row-spans {
-					& > tbody:nth-child(2n) > tr {
-						& > td {
-							background-color: @hex-white;
-							line-height: normal;
-							padding-bottom: 0.5em;
-							padding-left: 1.5em;
-							padding-right: 0.5em;
-							padding-top: 3px;
-							text-indent: -1em;
-							vertical-align: top;
-						}
-
-						&.alt > td {
-							background-color: #f2f2f2;
-						}
-					}
-
-					& > tbody:nth-child(2n + 1) > tr {
-						& > td {
-							background-color: @hex-lightest-blue;
-							line-height: normal;
-							padding-bottom: 0.5em;
-							padding-left: 1.5em;
-							padding-right: 0.5em;
-							padding-top: 3px;
-							text-indent: -1em;
-							vertical-align: top;
-						}
-
-						&.alt > td {
-							background-color: #c3d6d9;
-						}
-					}
-				}
-			}
-
-			&.wsu-gray-theme {
-				border-bottom: 1px solid @hex-darker-gray;
-				border-collapse:separate;
-				border-spacing:0;
-				border-top: 1px solid @hex-darker-gray;
+		tbody tr {
+			td {
+				background-color: @hex-bright-gray;
+				border-bottom: 1px solid @hex-light-gray;
+				border-top: 1px solid @hex-white;
+				padding-bottom: .25rem;
+				padding-left: .25rem;
+				padding-top: .25rem;
+				text-align: inherit;
 				vertical-align: top;
-				width: 100%;
+			}
 
-				@media all {
-					@media (min-width: 891px) {
-						font-size: 14px;
-					}
+			&:nth-of-type(2n) td {
+					padding-top: .25rem;
+					padding-left: .25rem;
+					padding-bottom: .25rem;
+					background-color: @hex-white;
+					border-top: 1px solid @hex-bright-gray;
+					border-bottom: 1px solid @hex-lighter-gray;
+					text-align: inherit;
+					vertical-align: top;
+			}
+		}
+	}
+};
+.declare-ruleset(@ruleset__plain-tables, @oue-rules-wrapper, @use-design__plain-tables);
 
-					@media (max-width: 890px) {
-						font-size: 12px;
-					}
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §1.2: People lists
+**/
+
+@ruleset__people-lists: {
+	.column table.peopleList {
+		background: @hex-white;
+		border-collapse: separate;
+		border-spacing: 0;
+		border-top: 1px solid #e5e5e5;
+		width: 100%;
+
+		tbody td {
+				/* background: #c75d61; */
+				border-bottom: 1px solid #e5e5e5;
+				padding-bottom: 3pt;
+				padding-top: 3pt;
+				vertical-align: top;
+				width: 80%;
+			
+				&:first-of-type {
+					text-align: center;
+					width: 20%;
 				}
 
-				//font-variant: small-caps;
-				& > thead > tr {
-					& > th {
-						background-color: @hex-dark-gray;
-						color: @hex-white;
-						padding: 3px;
-						vertical-align: top;
-					}
-
-					&.sub-heading-row > th {
-						background-color: @hex-black;
-						color: @hex-white;
-						//font-variant: small-caps;
-						font-weight: bold;
-						padding: 3px;
-						text-indent: -1em;
-						vertical-align: bottom;
-					}
-				}
-
-				& > tbody {
-					& > tr:nth-child(2n) > td {
-						background-color: @hex-white;
-						line-height: normal;
-						padding: 3px;
-						vertical-align: top;
-					}
-
-					& > tr:nth-child(2n + 1) > td {
-						background-color: @hex-lighter-gray;
-						line-height: normal;
-						padding: 3px;
-						vertical-align: top;
-					}
+				&:not(:first-of-type) {
+					padding-top: 0.5em;
 				}
 			}
 		}
 	}
 };
+.declare-ruleset(@ruleset__people-tables, @oue-rules-wrapper, @use-design__people-lists);
 
-.declare-ruleset(@oue-table-ruleset, @oue-rules-wrapper);
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §1.3: WSU blue themed tables
+**/
 
-/*    ----------------------------------------------------------------------------------------------
-**    OUE-TABLES §2: Optional styling of tables via inclusional mixins
-*/
+@ruleset__wsu-blue-tables: {
+	.column table.wsu-blue-theme {
+		border-collapse:separate;
+		border-spacing:0;
+		border-top: 1px solid @hex-dark-blue;
+		width: 100%;
+
+		@media all {
+			@media (min-width: 891px) {
+				font-size: 14px;
+			}
+
+			@media (max-width: 890px) {
+				font-size: 12px;
+			}
+		}
+
+		&:not(.no-bottom-border) {
+			border-bottom: 1px solid @hex-dark-blue;
+		}
+
+		&:not(.has-row-spans) > tbody {
+			& > tr:nth-child(2n) > td {
+				background-color: @hex-white;
+				line-height: normal;
+				padding-bottom: 0.5em;
+				padding-left: 1.5em;
+				padding-right: 0.5em;
+				padding-top: 3px;
+				text-indent: -1em;
+				vertical-align: top;
+			}
+
+			& > tr:nth-child(2n + 1) > td {
+				background-color: @hex-lightest-blue;
+				line-height: normal;
+				padding-bottom: 0.5em;
+				padding-left: 1.5em;
+				padding-right: 0.5em;
+				padding-top: 3px;
+				text-indent: -1em;
+				vertical-align: top;
+			}
+		}
+
+		&.has-row-spans {
+			& > tbody:nth-child(2n) > tr {
+				& > td {
+					background-color: @hex-white;
+					line-height: normal;
+					padding-bottom: 0.5em;
+					padding-left: 1.5em;
+					padding-right: 0.5em;
+					padding-top: 3px;
+					text-indent: -1em;
+					vertical-align: top;
+				}
+
+				&.alt > td {
+					background-color: #f2f2f2;
+				}
+			}
+
+			& > tbody:nth-child(2n + 1) > tr {
+				& > td {
+					background-color: @hex-lightest-blue;
+					line-height: normal;
+					padding-bottom: 0.5em;
+					padding-left: 1.5em;
+					padding-right: 0.5em;
+					padding-top: 3px;
+					text-indent: -1em;
+					vertical-align: top;
+				}
+
+				&.alt > td {
+					background-color: #c3d6d9;
+				}
+			}
+		}
+
+		& > thead > tr {
+			& > th {
+				background-color: @hex-darker-blue;
+				color: @hex-white;
+				padding: 3px;
+				vertical-align: bottom;
+			}
+
+			&.supra-header-row > th {
+				@font-increase: 0.4em;
+
+				padding-top: (1em - @font-increase);
+				padding-right: 0.5em;
+				padding-bottom: @font-increase;
+				padding-left: 1.5em;
+				background-color: @hex-darkest-blue;
+				vertical-align: bottom;
+				text-indent: -1em;
+				font-variant: small-caps;
+				font-weight: bold;
+				color: @hex-white;
+				font-size: (1em + @font-increase);
+			}
+		}
+	}
+};
+.declare-ruleset(@ruleset__wsu-blue-tables, @oue-rules-wrapper, @use-design__wsu-blue-tables);
+
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §1.4: WSU gray themed tables
+**/
+
+@ruleset__wsu-gray-tables: {
+	.column table.wsu-gray-theme {
+		border-bottom: 1px solid @hex-darker-gray;
+		border-collapse:separate;
+		border-spacing:0;
+		border-top: 1px solid @hex-darker-gray;
+		vertical-align: top;
+		width: 100%;
+
+		@media all {
+			@media (min-width: 891px) {
+				font-size: 14px;
+			}
+
+			@media (max-width: 890px) {
+				font-size: 12px;
+			}
+		}
+
+		//font-variant: small-caps;
+		& > thead > tr {
+			& > th {
+				background-color: @hex-dark-gray;
+				color: @hex-white;
+				padding: 3px;
+				vertical-align: top;
+			}
+
+			&.sub-heading-row > th {
+				background-color: @hex-black;
+				color: @hex-white;
+				//font-variant: small-caps;
+				font-weight: bold;
+				padding: 3px;
+				text-indent: -1em;
+				vertical-align: bottom;
+			}
+		}
+
+		& > tbody {
+			& > tr:nth-child(2n) > td {
+				background-color: @hex-white;
+				line-height: normal;
+				padding: 3px;
+				vertical-align: top;
+			}
+
+			& > tr:nth-child(2n + 1) > td {
+				background-color: @hex-lighter-gray;
+				line-height: normal;
+				padding: 3px;
+				vertical-align: top;
+			}
+		}
+	}
+};
+.declare-ruleset(@ruleset__wsu-gray-tables, @oue-rules-wrapper, @use-design__wsu-gray-tables);
+
+/** ================================================================================================
+*** §2: TablePress tables, switchable style rules for
+**/
+
+@ruleset__tablepress-tables: {
+	@dflt-tbl-hdr-clr: #c4e3f3;
+	@dflt-tbl-hdr-txt-clr: @hex-black;
+	@dflt-tbl-col1-clr: @hex-white;
+	@dflt-tbl-col1-alt-clr: @hex-bright-yellow;
+	@dflt-tbl-row-clr: @hex-white;
+	@dflt-tbl-row-alt-clr: #eef7fb;
+	@dflt-tbl-colspan-clr: #d9edf7;
+	@dflt-tbl-sub-row-clr: @hex-lightest-yellow;
+	//@dflt-hvr-mix-clr: #ffff00;
+	@dflt-hvr-mix-clr: @hex-accent-yellow;
+	.tablepress {
+		border-collapse: separate;
+		border-spacing: 0;
+		//box-shadow: 2px 2px 7px rgba(0,0,0,0.5);
+		border: 1px solid @hex-lighter-gray;
+		.dataTables_scrollBody & {
+			border-top: 0;
+		}
+		.dataTables_scrollFoot & {
+			border: 0;
+		}
+		width: 100% !important;
+		thead th {
+			padding-right: .5em;
+			padding-left: .5em;
+			background-color: @dflt-tbl-hdr-clr;
+			color: @dflt-tbl-hdr-txt-clr;
+			border-bottom: 1px solid saturate(darken(@dflt-tbl-hdr-clr, 30%), 5%);
+			&:not(:last-child) {
+				border-right: 1px solid darken(@dflt-tbl-hdr-clr, 30%);
+			}
+			&:not(:first-child) {
+				border-top: 1px solid saturate(lighten(@dflt-tbl-hdr-clr, 5%), 5%);
+				border-left: 1px solid lighten(@dflt-tbl-hdr-clr, 5%);
+			}
+			.has-responsive-font((@v-p-sz * 0.88), @body-text--lHeight);
+		}
+		tbody {
+			td {
+				&:not(.no-padding) {
+					padding-right: 0.5em;
+					padding-left: 0.5em;
+				}
+				&.no-padding {
+					padding: 0;
+				}
+				&:not(:last-child) {
+					border-right: 1px solid darken(@dflt-tbl-row-clr, 30%);
+				}
+				&:not(:first-child) {
+					border-left: 1px solid lighten(@dflt-tbl-row-clr, 5%);
+				}
+				&:first-child:not(:last-child) {
+					border-right: 1px solid darken(@dflt-tbl-col1-clr, 30%);
+				}
+				&[colspan]:first-child {
+					font-weight: bold;
+				}
+				.has-responsive-font((@v-p-sz * 0.88), @body-text--lHeight);
+				.transition(~"all 0.3s ease");
+				p,
+				ul,
+				ol {
+					font-size: inherit;
+				}
+			}
+			.odd {
+				td {
+					background-color: @dflt-tbl-row-alt-clr;
+					&:not(:last-child) {
+						border-right: 1px solid darken(@dflt-tbl-row-alt-clr, 30%);
+					}
+					&:not(:first-child) {
+						border-left: 1px solid lighten(@dflt-tbl-row-alt-clr, 5%);
+					}
+					&[colspan]:first-child {
+						background-color: @dflt-tbl-colspan-clr;
+					}
+					//&:first-child {
+					//	background-color: @dflt-tbl-col1-alt-clr;
+					//	border-right: 1px solid darken(@dflt-tbl-col1-alt-clr, 30%);
+					//}
+				}
+				&:not(:first-child) td {
+					border-top: 1px solid saturate(lighten(@dflt-tbl-row-alt-clr, 5%), 5%);
+				}
+				&:not(:last-child) td {
+					border-bottom: 1px solid saturate(darken(@dflt-tbl-row-alt-clr, 30%), 5%);
+				}
+			}
+			.even {
+				td {
+					background-color: @dflt-tbl-row-clr;
+					//&:first-child {
+					//	background-color: @dflt-tbl-col1-clr;
+					//}
+					&[colspan]:first-child {
+						background-color: @dflt-tbl-colspan-clr;
+					}
+				}
+				&:not(:first-child) td {
+					border-top: 1px solid saturate(lighten(@dflt-tbl-row-clr, 5%), 5%);
+				}
+				&:not(:last-child) td {
+					border-bottom: 1px solid saturate(darken(@dflt-tbl-row-clr, 30%), 5%);
+				}
+			}
+		}
+		.row-hover tr {
+			&:hover td {
+				background-color: lighten(mix(@dflt-tbl-row-clr, @dflt-hvr-mix-clr, 87%), 3%);
+				&:first-child {
+					background-color: lighten(mix(@dflt-tbl-col1-clr, @dflt-hvr-mix-clr, 87%), 3%);
+				}
+			}
+			&.odd:hover td {
+				background-color: lighten(mix(@dflt-tbl-row-alt-clr, @dflt-hvr-mix-clr, 87%), 3%);
+				&:first-child {
+					background-color: lighten(mix(@dflt-tbl-col1-alt-clr, @dflt-hvr-mix-clr, 87%), 3%);
+				}			
+			}
+		}
+		.sorting {
+			.transition(~"all 0.3s ease");
+		}
+		&.learning-goals {
+			thead th:first-child,
+			tbody td:first-child {
+				width: 30%;
+				min-width: 255px;
+			}
+		}
+	}
+
+	.column h2.tablepress-table-name {
+		padding: 8px 0.5em;
+		margin-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
+		background-color: @hex-lighter-gray;
+		font-size: 1.3em;
+		text-align: center;
+		text-transform: none;
+		& + table.tablepress {
+			border-top: 1px solid saturate(darken(@dflt-tbl-hdr-clr, 30%), 5%);
+		}
+	}
+};
+.declare-ruleset(@ruleset__tablepress-tables, @oue-rules-wrapper, @use-design__tablepress-tables);
+
+/** ================================================================================================
+*** §3: Optional sets of style rules that are included by mixin
+**/
+
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §3.1: Award recipients table
+**/
 
 .use-award-recipients-tables() {
 	.column table.award-recipients {
@@ -331,6 +521,10 @@
 		}
 	}
 }
+
+/**   ----------------------------------------------------------------------------------------------
+***   >>> §3.2: Navigational map tables
+**/
 
 .use-navigational-map-tables() {
 	.column table.navigational-map {
