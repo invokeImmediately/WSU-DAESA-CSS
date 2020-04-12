@@ -30,9 +30,9 @@
 ***   >>> §1.3: WSU blue themed tables........................................................125
 ***   >>> §1.4: WSU gray themed tables........................................................238
 ***  §2: TablePress tables, switchable style rules for........................................300
-***  §3: Optional sets of style rules that are included by mixin..............................455
-***    >>> §3.1: Award recipients table.......................................................459
-***    >>> §3.2: Navigational map tables......................................................525
+***  §3: Optional sets of style rules that are included by mixin..............................337
+***    >>> §3.1: Award recipients table.......................................................341
+***    >>> §3.2: Navigational map tables......................................................407
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -301,151 +301,33 @@
 **/
 
 @ruleset__tablepress-tables: {
-	@dflt-tbl-hdr-clr: #c4e3f3;
-	@dflt-tbl-hdr-txt-clr: @hex-black;
-	@dflt-tbl-col1-clr: @hex-white;
-	@dflt-tbl-col1-alt-clr: @hex-bright-yellow;
-	@dflt-tbl-row-clr: @hex-white;
-	@dflt-tbl-row-alt-clr: #eef7fb;
-	@dflt-tbl-colspan-clr: #d9edf7;
-	@dflt-tbl-sub-row-clr: @hex-lightest-yellow;
-	//@dflt-hvr-mix-clr: #ffff00;
-	@dflt-hvr-mix-clr: @hex-accent-yellow;
+	@header__border-color: #a60f2d;
+	@header__border-width: 4px;
+	@header__bg-color: #f3f3f3;
+	@sorting__bg-color: #049cdb;
+
 	.tablepress {
-		border-collapse: separate;
-		border-spacing: 0;
-		//box-shadow: 2px 2px 7px rgba(0,0,0,0.5);
-		border: 1px solid @hex-lighter-gray;
-		.dataTables_scrollBody & {
-			border-top: 0;
-		}
-		.dataTables_scrollFoot & {
-			border: 0;
-		}
-		width: 100% !important;
-		thead th {
-			padding-right: .5em;
-			padding-left: .5em;
-			background-color: @dflt-tbl-hdr-clr;
-			color: @dflt-tbl-hdr-txt-clr;
-			border-bottom: 1px solid saturate(darken(@dflt-tbl-hdr-clr, 30%), 5%);
-			&:not(:last-child) {
-				border-right: 1px solid darken(@dflt-tbl-hdr-clr, 30%);
-			}
-			&:not(:first-child) {
-				border-top: 1px solid saturate(lighten(@dflt-tbl-hdr-clr, 5%), 5%);
-				border-left: 1px solid lighten(@dflt-tbl-hdr-clr, 5%);
-			}
-			.has-responsive-font((@v-p-sz * 0.88), @body-text--lHeight);
-		}
-		tbody {
-			td {
-				&:not(.no-padding) {
-					padding-right: 0.5em;
-					padding-left: 0.5em;
-				}
-				&.no-padding {
-					padding: 0;
-				}
-				&:not(:last-child) {
-					border-right: 1px solid darken(@dflt-tbl-row-clr, 30%);
-				}
-				&:not(:first-child) {
-					border-left: 1px solid lighten(@dflt-tbl-row-clr, 5%);
-				}
-				&:first-child:not(:last-child) {
-					border-right: 1px solid darken(@dflt-tbl-col1-clr, 30%);
-				}
-				&[colspan]:first-child {
-					font-weight: bold;
-				}
+		thead {
+			border-top: @header__border-width solid @header__border-color;
+
+			th {
+				background-color: @header__bg-color;
+				border-bottom: 1px solid @header__border-color;
 				.has-responsive-font((@v-p-sz * 0.88), @body-text--lHeight);
-				.transition(~"all 0.3s ease");
-				p,
-				ul,
-				ol {
-					font-size: inherit;
-				}
-			}
-			.odd {
-				td {
-					background-color: @dflt-tbl-row-alt-clr;
-					&:not(:last-child) {
-						border-right: 1px solid darken(@dflt-tbl-row-alt-clr, 30%);
-					}
-					&:not(:first-child) {
-						border-left: 1px solid lighten(@dflt-tbl-row-alt-clr, 5%);
-					}
-					&[colspan]:first-child {
-						background-color: @dflt-tbl-colspan-clr;
-					}
-					//&:first-child {
-					//	background-color: @dflt-tbl-col1-alt-clr;
-					//	border-right: 1px solid darken(@dflt-tbl-col1-alt-clr, 30%);
-					//}
-				}
-				&:not(:first-child) td {
-					border-top: 1px solid saturate(lighten(@dflt-tbl-row-alt-clr, 5%), 5%);
-				}
-				&:not(:last-child) td {
-					border-bottom: 1px solid saturate(darken(@dflt-tbl-row-alt-clr, 30%), 5%);
-				}
-			}
-			.even {
-				td {
-					background-color: @dflt-tbl-row-clr;
-					//&:first-child {
-					//	background-color: @dflt-tbl-col1-clr;
-					//}
-					&[colspan]:first-child {
-						background-color: @dflt-tbl-colspan-clr;
-					}
-				}
-				&:not(:first-child) td {
-					border-top: 1px solid saturate(lighten(@dflt-tbl-row-clr, 5%), 5%);
-				}
-				&:not(:last-child) td {
-					border-bottom: 1px solid saturate(darken(@dflt-tbl-row-clr, 30%), 5%);
-				}
 			}
 		}
-		.row-hover tr {
-			&:hover td {
-				background-color: lighten(mix(@dflt-tbl-row-clr, @dflt-hvr-mix-clr, 87%), 3%);
-				&:first-child {
-					background-color: lighten(mix(@dflt-tbl-col1-clr, @dflt-hvr-mix-clr, 87%), 3%);
-				}
-			}
-			&.odd:hover td {
-				background-color: lighten(mix(@dflt-tbl-row-alt-clr, @dflt-hvr-mix-clr, 87%), 3%);
-				&:first-child {
-					background-color: lighten(mix(@dflt-tbl-col1-alt-clr, @dflt-hvr-mix-clr, 87%), 3%);
-				}			
-			}
-		}
+
 		.sorting {
 			.transition(~"all 0.3s ease");
-		}
-		&.learning-goals {
-			thead th:first-child,
-			tbody td:first-child {
-				width: 30%;
-				min-width: 255px;
+
+			&:hover {
+				background-color: @sorting__bg-color;
 			}
 		}
-	}
 
-	.column h2.tablepress-table-name {
-		padding: 8px 0.5em;
-		margin-bottom: 0;
-		margin-left: 0;
-		margin-right: 0;
-		background-color: @hex-lighter-gray;
-		font-size: 1.3em;
-		text-align: center;
-		text-transform: none;
-		& + table.tablepress {
-			border-top: 1px solid saturate(darken(@dflt-tbl-hdr-clr, 30%), 5%);
+		.tablepress .sorting_asc,
+		.tablepress .sorting_desc {
+			background-color: @sorting__bg-color;
 		}
 	}
 };
