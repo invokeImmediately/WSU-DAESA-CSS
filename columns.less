@@ -40,8 +40,9 @@
 
 		section {
 			position: relative;
-			&+section:not(.no-top-margin) {
-				margin-top: @v-dflt-spcng;
+
+			* + & {
+				margin-top: extract(@mSize-array, @mSize-1000mx);
 			}
 		}
 
