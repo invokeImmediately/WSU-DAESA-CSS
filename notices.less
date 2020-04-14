@@ -11,7 +11,7 @@
 ***  §1: Basic notices.........................................................................21
 ***  §2: Linked notices........................................................................58
 ***  §3: Mixin .add-download-notice...........................................................125
-***  §4: Mixin add-new-notice-class...........................................................141
+***  §4: Mixin add-new-notice-class...........................................................148
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -125,11 +125,18 @@
 *** §3: Mixin .add-download-notice
 **/
 
-	.add-download-notice(@download-notice-bg-clr, @download-notice-stripe-clr, @download-icon-url) 
-			when (iscolor(@download-notice-bg-clr)) and (iscolor(@download-notice-stripe-clr)) 
+	.add-download-notice(@download-notice-bg-clr,
+			@download-notice-stripe-clr,
+			@download-notice-border-clr,
+			@download-icon-url)
+			when (iscolor(@download-notice-bg-clr))
+			and (iscolor(@download-notice-stripe-clr)) 
+			and (iscolor(@download-notice-border-clr)) 
 			and (isurl(@download-icon-url)) {
 		.column .notice.download {
 			background-color: @download-notice-bg-clr;
+			border-color: @download-notice-border-clr;
+
 			&::before {
 				background: @download-notice-stripe-clr @download-icon-url 4px @v-btm-mrgns 
 					no-repeat;
