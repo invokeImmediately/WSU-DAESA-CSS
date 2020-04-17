@@ -24,14 +24,20 @@
 *** └──────────────────────────────────────────────────────────────────────────────────────────────┘
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***    §1: Main header and components..........................................................34
-***    §2: UP CMS style article headers........................................................79
-***    §3: Sectional article headers..........................................................205
+***    §1: Main header and components..........................................................36
+***      >>> §1.1: DAESA styled main headers...................................................40
+***      >>> §1.2: Provost Office styled main headers..........................................84
+***    §2: UP CMS style article headers.......................................................162
+***    §3: Sectional article headers..........................................................287
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
+/** ================================================================================================
+*** §1: Main header and components
+**/
+
 /**   ----------------------------------------------------------------------------------------------
-***   §1: Main header and components
+***   >>> §1.1: DAESA styled main headers
 **/
 
 @ruleset__daesa-main-headers: {
@@ -72,11 +78,88 @@
 		}
 	}
 };
-
 .declare-ruleset(@ruleset__daesa-main-headers, @oue-rules-wrapper, @use-design__daesa-main-headers);
 
 /**   ----------------------------------------------------------------------------------------------
-***   §2: UP CMS style article headers
+***   >>> §1.2: Provost Office styled main headers
+**/
+
+@ruleset__provost-main-headers: {
+	.main-header {
+		background: rgb(130,12,35,1);
+		background: -moz-linear-gradient(left,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		background: -webkit-linear-gradient(left,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		background: linear-gradient(to right,rgba(130,12,35,1) 0%,rgba(166,15,45,1) 100%);
+		color: @hex-white !important;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#820c23',endColorstr='#a60f2d',GradientType=1);
+		padding: 1rem 0;
+		position: relative;
+
+		sub,
+		sup {
+			&:not(.unset) {
+				color: @hex-white !important;
+			}
+		}
+
+		.header-group {
+			padding-top: 1em !important;
+			position: relative;
+
+			&:not(.unset) {
+				font-size: 13px;
+				line-height: 1em;
+				padding: .7em 2rem;
+				position: relative;
+			}
+		}
+
+		.sub-header,
+		.sup-header {
+			display: inline-block;
+
+			@media screen and (max-width: @spine-threshold) {
+				display: block;
+			}
+		}
+
+		.sub-header,
+		.sup-header,
+		.sub-header-default,
+		.sup-header-default {
+			font-size: inherit !important;
+		}
+
+		.sub-header-default {
+			border-left: 1px solid #fff;
+			font-weight: 300;
+			margin-left: 1em;
+			padding-left: 1.25em;
+			color: #fff;
+
+			@media screen and (max-width: @spine-threshold) {
+				border-left: 0;
+				margin-left: 0;
+				padding-left: 0;
+			}
+		}
+
+		.sub-header-default,
+		.sup-header-default {
+			text-transform: uppercase;
+			width: auto;
+		}
+
+		.sup-header-default {
+			font-weight: bold;
+		}
+	}
+};
+.declare-ruleset(@ruleset__provost-main-headers, @oue-rules-wrapper,
+	@use-design__provost-main-headers);
+
+/** ================================================================================================
+*** §2: UP CMS style article headers
 **/
 
 @ruleset__up-cms-headers: {
@@ -196,13 +279,12 @@
 			}
 		}
 	}
-
 };
 
 .declare-ruleset(@ruleset__up-cms-headers, @oue-rules-wrapper, @use-design__up-cms-headers);
 
-/**   ----------------------------------------------------------------------------------------------
-***   §3: Sectional article headers (inclusional via Less mixin)
+/** ================================================================================================
+*** §3: Sectional article headers (inclusional via Less mixin)
 **/
 
 .use-sectional-article-headers() {
