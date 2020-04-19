@@ -20,35 +20,27 @@
 *** │   AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN           │
 *** │   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                                   │
 *** └──────────────────────────────────────────────────────────────────────────────────────────────┘
-**/
-
-/** ================================================================================================
-*** SEMANTIC CSS FOR STYLING OUE FORMS
-**/
-
-/**  ───────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Form nodes............................................................................43
-***    >>> §1.1: Form-mediated "Read More" interfaces..........................................49
-***  §2: Gravity forms........................................................................122
-***    >>> §2.1: Modifications of default GF styling..........................................126
-***    >>> §2.2: Required field highlighting..................................................386
-***    >>> §2.3: Advanced form controls.......................................................546
-***  §3: WSUWP password entry form............................................................591
+***  §1: Vanilla forms.........................................................................36
+***    >>> §1.1: Form-mediated "Read More" interfaces..........................................40
+***  §2: Gravity forms........................................................................116
+***    >>> §2.1: Modifications of default GF styling..........................................120
+***    >>> §2.2: Required field highlighting..................................................384
+***    >>> §2.3: Advanced form controls.......................................................496
+***  §3: WSUWP password entry form............................................................595
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
-/**   ----------------------------------------------------------------------------------------------
-***   §1: Form nodes
+/** ================================================================================================
+*** §1: Vanilla forms
 **/
-
-@oue-forms-ruleset: {
 
 /**     ····························································································
 ***     >>> §1.1: Form-mediated "Read More" interfaces
 **/
 
+@daesa-forms__read-more: {
 	input.read-more-state {
 		display: none;
 
@@ -117,6 +109,8 @@
 	.read-more-state:checked ~ p label.read-more-trigger:before {
 		content: 'Show less';
 	}
+};
+.declare-ruleset(@daesa-forms__read-more, @oue-rules-wrapper, @use-design__read-more);
 
 /**   ----------------------------------------------------------------------------------------------
 ***   §2: Gravity forms
@@ -126,6 +120,7 @@
 ***     >>> §2.1: Modifications of default GF styling
 **/
 
+@daesa-forms__gravity-forms: {
 	.column {
 		.gform_wrapper {
 			max-width: 990px;
@@ -381,11 +376,16 @@
 				font-size: 16px;
 			}
 		}
+	}
+};
+.declare-ruleset(@daesa-forms__gravity-forms, @oue-rules-wrapper, @use-design__gravity-forms);
 
 /**     ····························································································
 ***     >>> §2.2: Required field highlighting
 **/
 
+@daesa-forms__gf-highlighting: {
+	.column {
 		.gform_fields {
 			&.top_label {
 				& > li.gfield {
@@ -489,7 +489,14 @@
 
 	.gform_heading h3.gform_title:extend(.column h3.fancy.with-top-border all) {
 	}
+};
+.declare-ruleset(@daesa-forms__gf-highlighting, @oue-rules-wrapper, @use-design__gf-highlighting);
 
+/**     ····························································································
+***     >>> §2.3: Advanced form controls
+**/
+
+@daesa-forms__gf-advanced: {
 	.oue-gf-rqrd-input,
 	.oue-gf-rqrd-select,
 	.oue-gf-hghlghts-rqrd-input,
@@ -541,11 +548,6 @@
 			}
 		}
 	}
-
-/**     ····························································································
-***     >>> §2.3: Advanced form controls
-**/
-
 	.oue-gf-actvtr-checkbox {
 		.transition(~"background 0.3s ease");
 
@@ -586,15 +588,16 @@
 		.animation(gf-fades-in; 0.5s; linear; 0s; 1);
 		.keyframes(gf-fades-in; @frames-simple-fade-in);
 	}
+};
+.declare-ruleset(@daesa-forms__gf-advanced, @oue-rules-wrapper, @use-design__gf-advanced);
 
 /**   ----------------------------------------------------------------------------------------------
-***   §2: WSUWP password entry form
+***   §3: WSUWP password entry form
 **/
-
+@daesa-forms__pwd-required: {
 	.post-password-required {
 		padding-left: 2rem;
 		padding-top: 2rem;
 	}
 };
-
-.declare-ruleset(@oue-forms-ruleset, @oue-rules-wrapper);
+.declare-ruleset(@daesa-forms__pwd-required, @oue-rules-wrapper);
