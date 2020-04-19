@@ -27,8 +27,8 @@
 ***  §2: Gravity forms........................................................................116
 ***    >>> §2.1: Modifications of default GF styling..........................................120
 ***    >>> §2.2: Required field highlighting..................................................384
-***    >>> §2.3: Advanced form controls.......................................................496
-***  §3: WSUWP password entry form............................................................595
+***    >>> §2.3: Advanced form controls.......................................................502
+***  §3: WSUWP password entry form............................................................601
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -457,6 +457,7 @@
 				select:not(.gf-value-entered):not(:focus),
 				textarea:not(.gf-value-entered):not(:focus) {
 					background-color: rgba(255,0,0,0.1);
+					background: linear-gradient(to bottom, rgba(255,0,0,0.1), rgba(255,0,0,0));
 				}
 
 				.gfield_checkbox,
@@ -465,16 +466,21 @@
 
 					&:not(.gf-value-entered) {
 						background-color: rgba(255,0,0,0.1);
+						background: linear-gradient(to bottom, rgba(255,0,0,0.1), rgba(255,0,0,0));
 					}
 
 				}
 
 				// Exceptions
-				.address_line_2 input {
-					background-color: @hex-white !important;
+				.address_line_2,
+				.name_middle,
+				.name_suffix {
+					input {
+						background-color: @hex-white !important;
 
-					&:focus {
-						background-color: @hex-bright-blue !important;
+						&:focus {
+							background-color: @hex-bright-blue !important;
+						}						
 					}
 				}
 			}
