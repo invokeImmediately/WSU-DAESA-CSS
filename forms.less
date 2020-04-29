@@ -29,6 +29,7 @@
 ***    >>> §2.2: Required field highlighting..................................................384
 ***    >>> §2.3: Advanced form controls.......................................................502
 ***  §3: WSUWP password entry form............................................................601
+***  §4: DAESA styled progress indicators.....................................................601
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -600,6 +601,7 @@
 /**   ----------------------------------------------------------------------------------------------
 ***   §3: WSUWP password entry form
 **/
+
 @daesa-forms__pwd-required: {
 	.post-password-required {
 		padding-left: 2rem;
@@ -607,3 +609,104 @@
 	}
 };
 .declare-ruleset(@daesa-forms__pwd-required, @oue-rules-wrapper);
+
+/**   ----------------------------------------------------------------------------------------------
+***   §4: DAESA styled progress indicators
+**/
+
+@gf__progress-indicators: {
+	@empi__active-bgc: #58111d;
+	@empi__active-fgc: white;
+	@empi__compl-bgc: #981e32;
+	@empi__compl-fgc: white;
+	@empi__bgc: #e5e6e8;
+	@empi__fgc: black;
+	@empi__spacing: 18px;
+	@empi__wrap-width: 875px;
+
+	.progress-indicator {
+		align-items: center;
+		border-top: 1px dotted #ccc;
+		display: flex;
+		justify-content: center;
+		list-style-type: none;
+		position: relative;
+
+		@media screen and (max-width: @empi__wrap-width) {
+			flex-wrap: wrap;
+		}
+
+		&::before {
+			color: @hex-dark-gray;
+			content: "Application Progress:";
+			position: absolute;
+			left: 0;
+			text-transform: uppercase;
+			top: 1.3em;
+		}
+
+		body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html ol&,
+		body .gform_wrapper form div.gform_body ul.gform_fields li.gfield.gfield_html ol& {
+			list-style-type: none !important;
+			margin-bottom: 0;
+			margin-left: 0;
+			padding-top: 2.3em;
+
+			li {
+				list-style-type: none !important;
+			}
+		}
+	}
+
+	.progress-indicator__l-connector,
+	.progress-indicator__r-connector {
+		background-color: @empi__bgc;
+		position: absolute;
+		height: 5px;
+		top: 50%;
+		width: 18px;
+
+		.progress-indicator__section-complete & {
+			background-color: @empi__compl-bgc;
+		}
+	}
+
+	.progress-indicator__l-connector {
+		left: 0;
+		.transform( ~"translate(-100%,-50%)" );
+
+		.progress-indicator__section-active & {
+			background-color: @empi__compl-bgc;
+		}
+	}
+
+	.progress-indicator__r-connector {
+		right: 0;
+		.transform( ~"translate(100%,-50%)" );
+	}
+
+	.progress-indicator__section {
+		background-color: @empi__bgc;
+		border-radius: .25em;
+		color: @empi__fgc;
+		padding: .5em 1em;
+		position: relative;
+
+		body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html ol &,
+		body .gform_wrapper form div.gform_body ul.gform_fields li.gfield.gfield_html ol & {
+			margin-right: 18px;
+			padding: .5em 1em;
+		}
+	}
+
+	.progress-indicator__section-active {
+		background-color: @empi__active-bgc;
+		color: @empi__active-fgc;
+	}
+
+	.progress-indicator__section-complete {
+		background-color: @empi__compl-bgc;
+		color: @empi__compl-fgc;
+	}
+}
+.declare-ruleset(@gf__progress-indicators, @oue-rules-wrapper, @use-design__gf-progress-indicators);
