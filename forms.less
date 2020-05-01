@@ -125,7 +125,6 @@
 	.column {
 		.gform_wrapper {
 			max-width: 990px;
-
 			#extensions_message {
 				padding-left: 1rem;
 			}
@@ -227,6 +226,12 @@
 				font-size: 1.125em;
 			}
 
+			table.gfield_list {
+				thead th {
+					font-weight: 600;
+				}
+			}
+
 			ul:last-child {
 				padding-bottom: 0;
 			}
@@ -267,7 +272,8 @@
 						display: none;
 					}
 
-					.mce-toolbar.mce-first {
+					.mce-toolbar,
+					.mce-toolbar-grp {
 						.mce-btn {
 							&[aria-label="Insert/edit image (Shift+Alt+M)"],
 							&[aria-label="Align left (Shift+Alt+L)"],
@@ -277,6 +283,7 @@
 							&[aria-label="Table"],
 							&[aria-label="Show blocks"],
 							&[aria-label="Source code"],
+							&[aria-label="Text color"],
 							&[aria-label="Toolbar Toggle (Shift+Alt+Z)"] {
 								display: none;
 							}
