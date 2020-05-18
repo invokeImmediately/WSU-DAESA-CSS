@@ -71,7 +71,7 @@
 
 	}
 
-	.column * + ul {
+	.column * + ul:not([class*="margined-"]) {
 		margin-top: extract(@mSize-array, @mSize-1000mx);
 	}
 
@@ -80,7 +80,7 @@
 		padding-top: 0;
 	}
 
-	.column p + ul,
+	.column p + ul:not([class*="margined-"]),
 	.column ol ul,
 	.column ul ul {
 		margin-top: extract(@mSize-array, @mSize-500mx);
@@ -126,7 +126,7 @@
 		}
 	}
 
-	.column * + ol {
+	.column * + ol:not([class*="margined-"]) {
 		margin-top: extract(@mSize-array, @mSize-1000mx);
 	}
 
@@ -135,7 +135,7 @@
 		padding-top: 0;
 	}
 
-	.column p + ol,
+	.column p + ol:not([class*="margined-"]),
 	.column ol ol,
 	.column ul ol {
 		margin-top: extract(@mSize-array, @mSize-500mx);
