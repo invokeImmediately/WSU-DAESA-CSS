@@ -315,18 +315,20 @@
 
 	.row.article-header {
 		&:not([class*="h--"]) {
-			height: 230px;
+			height: 200px;
 
-			@media all {
-				@media (max-width: @large-mobile-screen-width) {
-					height: 340px;
+			&.halves {				
+				@media all {
+					@media (max-width: @large-mobile-screen-width) {
+						height: 340px;
+					}
 				}
 			}
 		}
 
 		&:not(.article-header--colored) {
 			.column.one {
-				color: @hex-dark-gray;
+				color: #4c4c4c;
 
 				@media screen {
 					background: @hex-bright-gray;
@@ -339,26 +341,99 @@
 		}
 
 		.column {
-			&.one,
-			&.two {
-				background-position: center center;
-				background-size: cover;
-				height: 100%;
-				padding-left: 0;
-				padding-right: 0;
-				position: absolute;
-				width: auto;
+			height: 100%;
+
+			@media print {
+				position: static;
+				height: auto;
+				padding: @v-dflt-spcng;
 			}
 
+			& > :first-child,
+			header:first-child + * {
+				left: @v-dflt-spcng;
+				position: absolute;
+				right: @v-dflt-spcng;
+				top: 50%;
+				.transform(~"translateY(-50%) translateY(-.5em)");
+
+				@media all {
+					@media (max-width: @column-floating-threshold) {
+						right: (@v-dflt-spcng / 2);
+					}
+
+					@media (max-width: @large-mobile-screen-width) {
+						left: (@v-dflt-spcng / 2);
+					}
+
+					@media (max-width: @mobile-screen-width) {
+						left: (@v-dflt-spcng / 4);
+					}
+
+					@media print {
+						position: static;
+						.transform(~"none");
+					}
+				}
+
+				&:before{
+					background: #a31d36;
+					bottom: -1rem;
+					content: "";
+					height: 6px;
+					left: 0;
+					position: absolute;
+					width: 40px;
+				}
+
+				& > :last-child {
+					margin-bottom: 0 !important;
+				}
+
+			}
+
+			h1 {
+				color: inherit;
+				line-height: .95em;
+				margin: 0;
+
+				@media print {
+					color: black;
+					text-shadow: none;
+				}
+
+				& + .subtitle {
+					color: inherit;
+					font-size: 1.25em;
+					font-weight: bold;
+					line-height: 1.1em;
+					text-shadow: 0 0 2px @hex-black, 0 0 2px @hex-black, 0 0 2px @hex-black;
+					text-transform: uppercase;
+				}
+			}
+
+			.parent-page {
+				color: @hex-darker-gray;
+				margin-bottom: 0.125em;
+
+				@media print {
+					color: black;
+				}
+			}
+
+			& > :not(:first-child):not(header:first-child + *) {
+				display: none;
+			}
+
+			& > :not(h1):not(div) {
+				display: none;
+			}
+		}
+
+		&.halves .column {
 			&.one {
 				left: 0;
 				right: 40%;
-
-				@media print {
-					position: static;
-					height: auto;
-					padding: @v-dflt-spcng;
-				}
 
 				@media screen {
 					@media (max-width: @large-mobile-screen-width) {
@@ -367,71 +442,13 @@
 						top: 50%;
 					}
 				}
-				& > :first-child,
-				header:first-child + * {
-					left: @v-dflt-spcng;
-					position: absolute;
-					right: @v-dflt-spcng;
-					top: 50%;
-					.transform(~"translateY(-50%)");
-
-					@media all {
-						@media (max-width: @column-floating-threshold) {
-							right: (@v-dflt-spcng / 2);
-						}
-
-						@media (max-width: @large-mobile-screen-width) {
-							left: (@v-dflt-spcng / 2);
-						}
-
-						@media (max-width: @mobile-screen-width) {
-							left: (@v-dflt-spcng / 4);
-						}
-
-						@media print {
-							position: static;
-							.transform(~"none");
-						}
-					}
-
-					&:before{
-						background: #a31d36;
-						bottom: -1rem;
-						content: "";
-						height: 6px;
-						left: 0;
-						position: absolute;
-						width: 40px;
-					}
-
-					& > :last-child {
-						margin-bottom: 0 !important;
-					}
-
-				}
 
 				h1 {
-					color: inherit;
-					line-height: .95em;
-					margin: 0;
-
 					@media all and (max-width: @column-floating-threshold) {
 						font-size: 6.5vw;
 					}
 
-					@media print {
-						color: black;
-						text-shadow: none;
-					}
-
 					& + .subtitle {
-						color: inherit;
-						font-size: 1.25em;
-						font-weight: bold;
-						line-height: 1.1em;
-						text-shadow: 0 0 2px @hex-black, 0 0 2px @hex-black, 0 0 2px @hex-black;
-						text-transform: uppercase;
-
 						@media all and (max-width: @column-floating-threshold) {
 							font-size: 4vw;
 						}
@@ -439,25 +456,20 @@
 				}
 
 				.parent-page {
-					color: @hex-darker-gray;
-					margin-bottom: 0.125em;
-
 					@media screen and (max-width: @column-floating-threshold) {
 						font-size: 3.25vw;
 					}
-
-					@media print {
-						color: black;
-					}
 				}
+			}
 
-				& > :not(:first-child):not(header:first-child + *) {
-					display: none;
-				}
-
-				& > :not(h1):not(div) {
-					display: none;
-				}
+			&.one,
+			&.two {
+				background-position: center center;
+				background-size: cover;
+				padding-left: 0;
+				padding-right: 0;
+				position: absolute;
+				width: auto;
 			}
 
 			&.two {
