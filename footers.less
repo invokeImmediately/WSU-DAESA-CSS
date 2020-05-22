@@ -26,7 +26,7 @@
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
 ***    §1: Footer sections.....................................................................34
-***    §2: DAESA-style footer sections........................................................158
+***    §2: DAESA-style footer sections........................................................157
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -36,16 +36,14 @@
 
 @ruleset__provost-footers: {
 	.site-footer {
-		&__column {
-			height: 3rem;
+		height: 3rem;
 
-			@media (min-width: (@background-width-threshold + 1)) {
-				height: 2rem;
-			}
+		@media (min-width: (@background-width-threshold + 1)) {
+			height: 2rem;
+		}
 
-			@media (max-width: @large-mobile-screen-width) {
-				height: 4rem;
-			}
+		@media (max-width: @large-mobile-screen-width) {
+			height: 4rem;
 		}
 
 		&__content {
@@ -73,6 +71,7 @@
 
 			@media (max-width: @large-mobile-screen-width) {
 				height: 4rem;
+				position: relative;
 			}
 
 			body.admin-bar & {
