@@ -9,9 +9,9 @@
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
 ***  §1: Basic notices.........................................................................21
-***  §2: Linked notices........................................................................58
-***  §3: Mixin .add-download-notice...........................................................125
-***  §4: Mixin add-new-notice-class...........................................................148
+***  §2: Linked notices........................................................................55
+***  §3: Mixin .add-download-notice...........................................................119
+***  §4: Mixin add-new-notice-class...........................................................142
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -24,7 +24,6 @@
 	.column .notice {
 		background-color: #fef1f4;
 		border: 1px solid #a60f2d;
-		border-radius: 4px;
 		box-sizing: border-box;
 		margin-left: auto;
 		margin-right: auto;
@@ -41,8 +40,6 @@
 
 		&::before {
 			bottom: 0;
-			border-bottom-right-radius: 3px;
-			border-top-right-radius: 3px;
 			content: "";
 			position: absolute;
 			right: 0;
@@ -63,7 +60,6 @@
 				display: none;
 				&:first-of-type {
 					border-color: transparent;
-					border-radius: 10px;
 					box-shadow: none;
 					color: transparent;
 					display: block;
@@ -112,8 +108,6 @@
 			.hyperlink-simulator {
 				border-bottom: 0.0625em solid rgba(red(@hex-crimson), green(@hex-crimson), 
 					blue(@hex-crimson), 1);
-				border-bottom-left-radius: 0.25em;
-				border-bottom-right-radius: 0.25em;
 				box-shadow: inset 0 -0.3125em 0 rgba(red(@hex-crimson), green(@hex-crimson), 
 					blue(@hex-crimson), .15);
 				color: @hex-crimson;
