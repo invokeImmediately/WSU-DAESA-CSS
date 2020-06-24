@@ -9,9 +9,9 @@
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
 ***  §1: Basic notices.........................................................................21
-***  §2: Linked notices........................................................................55
-***  §3: Mixin .add-download-notice...........................................................119
-***  §4: Mixin add-new-notice-class...........................................................142
+***  §2: Linked notices........................................................................64
+***  §3: Mixin .add-download-notice...........................................................128
+***  §4: Mixin add-new-notice-class...........................................................151
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -21,18 +21,27 @@
 *** §1: Basic notices
 **/
 
-	.column .notice {
+	.notice {
 		background-color: #fef1f4;
-		border: 1px solid #a60f2d;
+		border: 1px solid rgba(166,15,45,.2);
+		border-radius: 5px;
 		box-sizing: border-box;
-		margin-left: auto;
-		margin-right: auto;
+		box-shadow: 0 12px 16px 2px rgba(0,0,0,.03), 0 5px 22px 4px rgba(0,0,0,.03), 0 6px 13px 0 rgba(0,0,0,.02);
 		overflow: hidden;
 		padding: @v-btm-mrgns;
 		padding-right: ~"calc(@{v-btm-mrgns} + 32px)";
 		position: relative;
 		width: 80%;
 		width: ~"calc(90% - 2 * @{v-btm-mrgns} - 32px)";
+
+		@media (max-width: @column-floating-threshold) {
+			width: 100%;
+		}
+
+		.column & {
+			margin-left: auto;
+			margin-right: auto;
+		}
 
 		&.full-width {
 			width: 100%;
