@@ -89,6 +89,7 @@
 
 		.article-media-contacts,
 		.article-sidebar,
+		figure:not(.article-thumbnail),
 		img,
 		object,
 		& > h3,
@@ -136,7 +137,7 @@
 
 	.single-post,
 	.summary-divided {
-		.article-header,
+		.article-header:not(.row),
 		.article-header .article-title {
 			margin-bottom: @_article-margin;
 		}
@@ -163,7 +164,7 @@
 			ul {
 				padding: 0;
 				li {
-					padding-bottom: 0.5em;
+					padding-bottom: 1em;
 				}
 			}
 			.post-date {
