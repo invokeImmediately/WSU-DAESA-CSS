@@ -29,11 +29,11 @@
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
 ***  §1: Card styling..........................................................................43
-***  §2: Page headers..........................................................................67
-***  §3: On this page.........................................................................153
-***  §4: Hero containers (inspired by Rainier theme)..........................................329
-***  §5: Breadcrumb link lists................................................................417
-***  §6: Arrowed bullet lists.................................................................448
+***  §2: Page headers..........................................................................72
+***  §3: On this page.........................................................................158
+***  §4: Hero containers (inspired by Rainier theme)..........................................334
+***  §5: Breadcrumb link lists................................................................422
+***  §6: Arrowed bullet lists.................................................................453
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -43,23 +43,28 @@
 ***     >>> §1: Card styling
 **/
 
-	.style--card {
+	.style--card,
+	.daesa-card {
 		.style--card--flat__();
 	}
 
-	.style--card--raised {
+	.style--card--raised,
+	.daesa-card--raised {
 		.style--card--raised__();
 	}
 
-	.style--card__title {
+	.style--card__title,
+	.daesa-card__title {
 		.style--card__title__();
 	}
 
-	.style--card__sub-title {
+	.style--card__sub-title,
+	.daesa-card__sub-title {
 		.style--card__sub-title__();
 	}
 
-	.style--card__title + .style--card__sub-title {
+	.style--card__title + .style--card__sub-title,
+	.daesa-card__title + .daesa-card__sub-title {
 		.margin(@mSize-0mx, "top")
 	}
 
