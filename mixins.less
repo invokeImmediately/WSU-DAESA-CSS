@@ -475,21 +475,23 @@
 		( isem( @fntsz) ) and ( @lnhght = false ) and ( length( @scaling-factors ) = 5),
 		( isunit( @fntsz, rem ) ) and ( @lnhght = false ) and ( length( @scaling-factors ) = 5 ),
 		( ispixel( @fntsz ) ) and ( @lnhght = false ) and ( length( @scaling-factors ) = 5 ) {
-	.single & {
+	.row.single &,
+	.row.side-right &.one,
+	.row.side-left &.two {
 		.has-responsive-font(@fntsz, @lnhght, @scaling-factors);
 	}
-	.mimic-two-column-sections &,
-	.side-right &,
-	.side-left &,
-	.halves & {
+	.row.mimic-two-column-sections &,
+	.row.side-right &.two,
+	.row.side-left &.one,
+	.row.halves & {
 		@scaling-indices: 2, 3, 3, 2, 3, 4;
 		.has-responsive-font( @fntsz, @lnhght, @scaling-factors, @scaling-indices );
 	}
-	.thirds & {
+	.row.thirds & {
 		@scaling-indices: 2, 4, 4, 2, 3, 4;
 		.has-responsive-font( @fntsz, @lnhght, @scaling-factors, @scaling-indices );
 	}
-	.quarters & {
+	.row.quarters & {
 		@scaling-indices: 3, 4, 4, 3, 4, 5;
 		.has-responsive-font( @fntsz, @lnhght, @scaling-factors, @scaling-indices );
 	}
