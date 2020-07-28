@@ -83,7 +83,7 @@ p {
 		padding-bottom: 0;
 	}
 
-	.column * + &:not([class*="margined-"]) {
+	* + &:not([class]) {
 		margin-top: extract(@mSize-array, @mSize-1000mx);
 	}
 }
