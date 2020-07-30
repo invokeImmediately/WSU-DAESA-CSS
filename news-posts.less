@@ -24,11 +24,11 @@
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
 ***  §1: Default DAESA news section styling....................................................36
 ***    >>> §1.1: Articles & components.........................................................43
-***    >>> §1.2: Primary news feed & posts: Widgets & components..............................155
-***    >>> §1.3: Secondary news feeds (via WSUWP-Content-Syndicate plugin)....................218
-***      └> §1.3.1: Legacy ruleset............................................................222
-***      └> §1.3.2: New, BEM ruleset..........................................................338
-***  §2: WSU Insider style news feeds.........................................................461
+***    >>> §1.2: Primary news feed & posts: Widgets & components..............................162
+***    >>> §1.3: Secondary news feeds (via WSUWP-Content-Syndicate plugin)....................225
+***      └> §1.3.1: Legacy ruleset............................................................229
+***      └> §1.3.2: New, BEM ruleset..........................................................345
+***  §2: WSU Insider style news feeds.........................................................468
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -84,11 +84,18 @@
 		}
 	}
 
+	.article-sub-heading {
+		border-bottom: 1px solid rgba(127,127,127,.2);
+		padding-bottom: 1rem;
+		margin-bottom: 1rem;
+	}
+
 	.article-summary {
 		line-height: @body-text--lHeight;
 
 		.article-media-contacts,
 		.article-sidebar,
+		.article-sub-heading,
 		figure:not(.article-thumbnail),
 		img,
 		object,
