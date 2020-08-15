@@ -13,57 +13,57 @@
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
 ***  §1: Persistent comment for documenting general DAESA styling section of stylesheet........71
-***  §2:  Global Less variables and Less mixins/utility classes...............................131
-***    >>> §2.1: Additional fonts.............................................................135
-***    >>> §2.2: Color variables and mixins...................................................141
-***    >>> §2.3: Miscellaneous mixins.........................................................147
-***    >>> §2.4: Utility mixins...............................................................153
-***    >>> §2.5: Animation utility classes....................................................159
-***  §3: Anchor pseudoclass...................................................................165
-***  §4: Document section nodes...............................................................171
-***    >>> §4.1: HTML element.................................................................175
-***    >>> §4.2: Body element.................................................................183
-***    >>> §4.3: Article elements.............................................................201
-***    >>> §4.4: Section elements.............................................................207
-***    >>> §4.5: Aside elements...............................................................215
-***    >>> §4.6: Heading elements.............................................................221
-***    >>> §4.7: Header elements..............................................................227
-***    >>> §4.8: Footer elements..............................................................233
-***  §5: Content grouping nodes...............................................................245
-***    >>> §5.1: Paragraph elements...........................................................249
-***    >>> §5.2: Hr elements..................................................................255
-***    >>> §5.3: List elements................................................................261
-***    >>> §5.4: Div elements.................................................................267
-***       └> §5.4.1: News posts...............................................................281
-***       └> §5.4.2: Banner slideshows........................................................292
-***       └> §5.4.3: Columns..................................................................298
-***       └> §5.4.4: Flippable content panels.................................................304
-***       └> §5.4.5: Page covering notices....................................................310
-***       └> §5.4.6: Recent updates...........................................................316
-***    >>> §5.5: Main element.................................................................322
-***  §6: Text-level nodes.....................................................................328
-***    >>> §6.1: Hyperlink elements...........................................................332
-***    >>> §6.2: Strong elements..............................................................338
-***    >>> §6.3: Mark elements................................................................357
-***    >>> §6.4: Span elements................................................................367
-***    >>> §6.5: Cite elements................................................................373
-***  §7: Embedded content nodes...............................................................381
-***    >>> §7.1: Image elements...............................................................385
-***    >>> §7.2: Iframe elements..............................................................391
-***  §8: Tabular data nodes...................................................................397
-***  §9: Form nodes...........................................................................403
-***  §10: Scripted elements...................................................................409
-***    >>> §10.1: Toggled drop-down panels....................................................413
-***    >>> §10.2: Subtle panels...............................................................419
-***    >>> §10.3: Flippable content panels....................................................460
-***    >>> §10.4: QTip driven tooltips........................................................469
-***    >>> §10.5: Quick-tabs panels...........................................................475
-***    >>> §10.6: Trive Events Calendars......................................................481
-***    >>> §10.7: Auto-scrolling image panels.................................................487
-***  §11: Functional CSS......................................................................515
-***    >>> §11.1: Website notices.............................................................519
-***    >>> §11.2: Other components............................................................525
-***  §12: Utility classes.....................................................................531
+***  §2:  Global Less variables and Less mixins/utility classes...............................165
+***    >>> §2.1: Additional fonts.............................................................169
+***    >>> §2.2: Color variables and mixins...................................................175
+***    >>> §2.3: Miscellaneous mixins.........................................................181
+***    >>> §2.4: Utility mixins...............................................................187
+***    >>> §2.5: Animation utility classes....................................................193
+***  §3: Anchor pseudoclass...................................................................199
+***  §4: Document section nodes...............................................................205
+***    >>> §4.1: HTML element.................................................................209
+***    >>> §4.2: Body element.................................................................217
+***    >>> §4.3: Article elements.............................................................235
+***    >>> §4.4: Section elements.............................................................241
+***    >>> §4.5: Aside elements...............................................................249
+***    >>> §4.6: Heading elements.............................................................255
+***    >>> §4.7: Header elements..............................................................261
+***    >>> §4.8: Footer elements..............................................................267
+***  §5: Content grouping nodes...............................................................279
+***    >>> §5.1: Paragraph elements...........................................................283
+***    >>> §5.2: Hr elements..................................................................289
+***    >>> §5.3: List elements................................................................295
+***    >>> §5.4: Div elements.................................................................301
+***       └> §5.4.1: News posts...............................................................315
+***       └> §5.4.2: Banner slideshows........................................................326
+***       └> §5.4.3: Columns..................................................................332
+***       └> §5.4.4: Flippable content panels.................................................338
+***       └> §5.4.5: Page covering notices....................................................344
+***       └> §5.4.6: Recent updates...........................................................350
+***    >>> §5.5: Main element.................................................................356
+***  §6: Text-level nodes.....................................................................362
+***    >>> §6.1: Hyperlink elements...........................................................366
+***    >>> §6.2: Strong elements..............................................................372
+***    >>> §6.3: Mark elements................................................................391
+***    >>> §6.4: Span elements................................................................401
+***    >>> §6.5: Cite elements................................................................407
+***  §7: Embedded content nodes...............................................................415
+***    >>> §7.1: Image elements...............................................................419
+***    >>> §7.2: Iframe elements..............................................................425
+***  §8: Tabular data nodes...................................................................431
+***  §9: Form nodes...........................................................................437
+***  §10: Scripted elements...................................................................443
+***    >>> §10.1: Toggled drop-down panels....................................................447
+***    >>> §10.2: Subtle panels...............................................................453
+***    >>> §10.3: Flippable content panels....................................................494
+***    >>> §10.4: QTip driven tooltips........................................................503
+***    >>> §10.5: Quick-tabs panels...........................................................509
+***    >>> §10.6: Trive Events Calendars......................................................515
+***    >>> §10.7: Auto-scrolling image panels.................................................521
+***  §11: Functional CSS......................................................................549
+***    >>> §11.1: Website notices.............................................................553
+***    >>> §11.2: Other components............................................................559
+***  §12: Utility classes.....................................................................565
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -105,15 +105,49 @@
 /** ───────────────────────────────────────────────────────────────────────────────────────────────
 *** ADDITIONAL DESIGN COMMENTS
 *** ────────────────────────────────────────────────────────────────────────────────────────────
-*** DESIGN PHILOSOPHY: This stylesheet mixes semantic with functional CSS. The Spine Theme for WSUWP
-***   takes a semantic approach to styling; thus, this add-on style sheet necessarily contains some
-***   semantic styling of its own. Specifically, semantic CSS is utilized to override or minimally
-***   build upon the default design imposed by the Spine Builder theme.
+*** DESIGN PHILOSOPHY: I and the rest of the WSU DAESA design team feels the Spine theme represents
+***   a decent starting point for creating a branded academic website for a WSU unit or program. The
+***   theme is meant to be unobtrusive enough to be easily customized with additional CSS code to
+***   create branding for the unit/program that depends on it. However, I see several gaps in its
+***   responsive and accessibility design, and addressing these gaps would significantly enhance the
+***   quality of the theme. This has led our team to choose a strategy of adopting the theme and
+***   overriding and extending its design where beneficial to create our branded unit and program
+***   websites.
 ***
-***   Functional CSS is utilized to maximally build upon the Spine builder theme by further
-***   extending its design flexibility. Content authors are enabled more options for tweaking the
-***   basal design to suit their needs without needing to touch CSS, while the CSS is made more
-***   reusable and easier to maintain.
+***   To achieve this strategy, I designed this stylesheet to mix CSS code written according to
+***   SMACSS, BEM, and functional/atomic CSS paradigms to provide this customization and
+***   gap-addressing enhancement of design. In general, SMACSS is used to write style rules that
+***   override behaviors from style rules declared in the Spine theme's basal source files that we
+***   want to improve upon. The BEM paradigm is used to write rules for displaying new, complex
+***   components that meet specific design needs of DAESA content creators that are not better met
+***   by what the Spine theme provides. Finally, functional CSS is employed to provide a libary of
+***   simple classes that can be leveraged to tweak how a DAESA web page's components are being
+***   displayed without the need to write more custom CSS.
+***
+***   Specifically, SMACSS is utilized in this stylesheet because the Spine theme for WSUWP itself
+***   takes a SMACSS style approach to its design. Specifically, style rules are declared in
+***   spine.min.css that operate at base, layout, and modular levels. Consequently, this add-on,
+***   downsteam style sheet necessarily contains styling written according to the same paradigm in
+***   order to override or minimally build upon the default design imposed by the Spine Builder
+***   theme. This overriding approach is optimal in our case because our DAESA design team operates
+***   under business conditions where obtaining our own servers, writing our own child theme, and
+***   maintaining our own WordPress installation incurs more costs compared to the benefits it would
+***   provide.
+***
+***   The BEM paradigm is used to write style rules as needed for more complex components of DAESA
+***   websites, including gravity forms. BM is utilized because of the simple way it: 1) achieves a
+***   readable structure, 2) promotes modularity by minimizing unnecessary specificity and
+***   collisions from cascading, and 3) produces resusable code by requiring the independent
+***   development of style rules for each block. Moreover, I do not mind the increased application
+***   of long class names to HTML tags that is associated with this paradigm because the class names
+***   are so meaningful. I find they enable a web devloper or designer to immediately grasp how
+***   the tag they are applied to will be styled just from reading the web page's source code.
+***
+***   Classes written according to a functional/atomic CSS paradigm have also been added to this
+***   stylesheet to further extend the Spine theme's design flexibility for content creators on
+***   DAESA websites. Through focused, durable atomic CSS classes, content authors are enabled more
+***   options for tweaking the layout and apperance of their content needs without needing to write
+***   additional CSS or clutter markup tags with undesirable style attribute settings.
 ***
 *** ORGANIZATION OF STYLESHEET: This stylesheet is organized such that semantic CSS preceeds
 ***   functional CSS. This is done to ensure that utility classes associated with functional CSS
