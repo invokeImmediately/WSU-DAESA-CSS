@@ -27,9 +27,9 @@
 ***  §7: Typography...........................................................................584
 ***      >>> §7.1: Typograhy: Font Sizing.....................................................588
 ***      >>> §7.2: Line heights...............................................................791
-***      >>> §7.3: Bolding....................................................................861
-***  §8: Functional CSS.......................................................................876
-***      >>> §8.1: Card styling...............................................................880
+***      >>> §7.3: Bolding....................................................................856
+***  §8: Functional CSS.......................................................................871
+***      >>> §8.1: Card styling...............................................................875
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -793,34 +793,31 @@
 
 // Standard line-height options for all OUE websites.
 @lHeight-1: 1em;
-@lHeight-2: 1.025em;
-@lHeight-3: 1.05em;
-@lHeight-4: 1.075em;
-@lHeight-5: 1.1em;
-@lHeight-6: 1.125em;
-@lHeight-7: 1.15em;
-@lHeight-8: 1.175em;
-@lHeight-9: 1.2em;
-@lHeight-10: 1.225em;
-@lHeight-11: 1.25em;
-@lHeight-12: 1.275em;
-@lHeight-13: 1.3em;
-@lHeight-14: 1.325em;
-@lHeight-15: 1.35em;
-@lHeight-16: 1.375em;
-@lHeight-17: 1.4em;
-@lHeight-18: 1.425em;
-@lHeight-19: 1.45em;
-@lHeight-20: 1.475em;
-@lHeight-21: 1.5em;
-@lHeight-22: 1.75em;
-@lHeight-23: 2em;
+@lHeight-2: 1.05em;
+@lHeight-3: 1.1em;
+@lHeight-4: 1.15em;
+@lHeight-5: 1.2em;
+@lHeight-6: 1.25em;
+@lHeight-7: 1.3em;
+@lHeight-8: 1.35em;
+@lHeight-9: 1.4em;
+@lHeight-10: 1.45em;
+@lHeight-11: 1.5em;
+@lHeight-12: 1.55em;
+@lHeight-13: 1.6em;
+@lHeight-14: 1.65em;
+@lHeight-15: 1.7em;
+@lHeight-16: 1.75em;
+@lHeight-17: 1.8em;
+@lHeight-18: 1.85em;
+@lHeight-19: 1.9em;
+@lHeight-20: 1.95em;
+@lHeight-21: 2em;
 
 // OUE font-sizing array.
 @lHeight-array: @lHeight-1, @lHeight-2, @lHeight-3, @lHeight-4, @lHeight-5, @lHeight-6, @lHeight-7,
 	@lHeight-8, @lHeight-9, @lHeight-10, @lHeight-11, @lHeight-12, @lHeight-13, @lHeight-14,
-	@lHeight-15, @lHeight-16, @lHeight-17, @lHeight-18, @lHeight-19, @lHeight-20, @lHeight-21,
-	@lHeight-22, @lHeight-23;
+	@lHeight-15, @lHeight-16, @lHeight-17, @lHeight-18, @lHeight-19, @lHeight-20, @lHeight-21;
 
 // Semantic font-sizing Less variables.
 @lHeight--min: 1;
@@ -828,28 +825,26 @@
 	unit(extract(@lHeight-array,2) - extract(@lHeight-array,1))) + 1;
 @lHeight--max: length(@lHeight-array);
 @lHeight-667mx: 1;
-@lHeight-683mx: 2;
-@lHeight-700mx: 3;
-@lHeight-717mx: 4;
-@lHeight-733mx: 5;
-@lHeight-750mx: 6;
-@lHeight-767mx: 7;
-@lHeight-783mx: 8;
-@lHeight-800mx: 9;
-@lHeight-817mx: 10;
-@lHeight-833mx: 11;
-@lHeight-850mx: 12;
-@lHeight-867mx: 13;
-@lHeight-883mx: 14;
-@lHeight-900mx: 15;
-@lHeight-917mx: 16;
-@lHeight-933mx: 17;
-@lHeight-950mx: 18;
-@lHeight-967mx: 19;
-@lHeight-983mx: 20;
-@lHeight-1000mx: 21;
-@lHeight-1167mx: 22;
-@lHeight-1333mx: 23;
+@lHeight-700mx: 2;
+@lHeight-733mx: 3;
+@lHeight-767mx: 4;
+@lHeight-800mx: 5;
+@lHeight-833mx: 6;
+@lHeight-867mx: 7;
+@lHeight-900mx: 8;
+@lHeight-933mx: 9;
+@lHeight-967mx: 10;
+@lHeight-1000mx: 11;
+@lHeight-1033mx: 12;
+@lHeight-1067mx: 13;
+@lHeight-1100mx: 14;
+@lHeight-1133mx: 15;
+@lHeight-1167mx: 16;
+@lHeight-1200mx: 17;
+@lHeight-1233mx: 18;
+@lHeight-1267mx: 19;
+@lHeight-1300mx: 20;
+@lHeight-1333mx: 21;
 
 // Utility mixin for defining font sizes downstream.
 .line-height(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx))
