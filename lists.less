@@ -49,41 +49,41 @@
 		.font-size(@fSize-1000mx);
 		.line-height(@lHeight-1000mx);
 		max-width: 80ch;
-	}
 
-	#wpadminbar ul {
-		max-width: none;
-	}
-
-	.column ul {
-		padding-bottom: 0;
-		padding-right: 0;
-
-		ol,
-		ul {
-
-			font-size: inherit  !important;
+		#wpadminbar & {
+			max-width: none;
 		}
 
-		li {
-			line-height: inherit;
+		.row & {
+			padding-bottom: 0;
+			padding-right: 0;
+
+			ol,
+			ul {
+
+				font-size: inherit  !important;
+			}
+
+			li {
+				line-height: inherit;
+			}
+
 		}
 
-	}
+		.row * + &:not([class*="margined-top"]):not([class*="mt--"]):not([class*="sv--"]) {
+			margin-top: extract(@mSize-array, @mSize-1000mx);
+		}
 
-	.column * + ul:not([class]) {
-		margin-top: extract(@mSize-array, @mSize-1000mx);
-	}
+		.row ol &,
+		.row ul & {
+			padding-top: 0;
+		}
 
-	.column ol ul,
-	.column ul ul {
-		padding-top: 0;
-	}
-
-	.column p + ul:not([class]),
-	.column ol ul,
-	.column ul ul {
-		margin-top: extract(@mSize-array, @mSize-500mx);
+		.row p + &:not([class*="margined-top"]):not([class*="mt--"]):not([class*="sv--"]),
+		.row ol &,
+		.row ul & {
+			margin-top: extract(@mSize-array, @mSize-500mx);
+		}
 	}
 };
 
@@ -98,47 +98,47 @@
 		.font-size(@fSize-1000mx);
 		.line-height(@lHeight-1000mx);
 		max-width: 80ch;
-	}
 
-	#wpadminbar ol {
-		max-width: none;
-	}
-
-	.column ol {
-		padding-right: 0;
-		padding-bottom: 0;
-
-		li {
-			line-height: inherit;
+		#wpadminbar & {
+			max-width: none;
 		}
 
-		ol,
-		ul {
-			font-size: inherit !important;
-		}
+		.row & {
+			padding-right: 0;
+			padding-bottom: 0;
 
-		ol {
-			list-style-type: lower-alpha;
+			li {
+				line-height: inherit;
+			}
+
+			ol,
+			ul {
+				font-size: inherit !important;
+			}
 
 			ol {
-				list-style-type: lower-roman;
+				list-style-type: lower-alpha;
+
+				ol {
+					list-style-type: lower-roman;
+				}
 			}
 		}
-	}
 
-	.column * + ol:not([class]) {
-		margin-top: extract(@mSize-array, @mSize-1000mx);
-	}
+		.row * + &:not([class*="margined-top"]):not([class*="mt--"]):not([class*="sv--"]) {
+			margin-top: extract(@mSize-array, @mSize-1000mx);
+		}
 
-	.column ol ol,
-	.column ul ol {
-		padding-top: 0;
-	}
+		.row ol &,
+		.row ul & {
+			padding-top: 0;
+		}
 
-	.column p + ol:not([class]),
-	.column ol ol,
-	.column ul ol {
-		margin-top: extract(@mSize-array, @mSize-500mx);
+		.row p + &:not([class*="margined-top"]):not([class*="mt--"]):not([class*="sv--"]),
+		.row ol &,
+		.row ul & {
+			margin-top: extract(@mSize-array, @mSize-500mx);
+		}
 	}
 };
 
@@ -164,7 +164,7 @@
 **/
 
 @daesa-dl-rs: {
-	.column dl.faq {
+	.row dl.faq {
 		position: relative;
 
 		dt {
