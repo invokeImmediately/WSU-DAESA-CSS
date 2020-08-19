@@ -31,10 +31,10 @@
 ***  §1: Card styling..........................................................................44
 ***  §2: Page headers..........................................................................73
 ***  §3: On this page.........................................................................159
-***  §4: Hero containers (inspired by Rainier theme)..........................................335
-***  §5: Breadcrumb link lists................................................................423
-***  §6: Arrowed bullet lists.................................................................454
-***  §7: Text lists...........................................................................476
+***  §4: Hero containers (inspired by Rainier theme)..........................................333
+***  §5: Breadcrumb link lists................................................................421
+***  §6: Arrowed bullet lists.................................................................452
+***  §7: Text lists...........................................................................474
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -209,22 +209,19 @@
 		a {
 			background-color: @otp__clr--item-bg;
 			border: 1px solid @otp__clr--border;
-			border-radius: 0;
+			border-radius: 3px;
 			box-shadow: none;
 			color: white;
 			display: inline-block;
 			padding: 5px 12px;
 			text-align: center;
 
+			&:focus,
 			&:hover {
 				background-color: @otp__clr--highlight;
 				border-color: @otp__clr--border-hl;
 				border-width: 1px;
 				text-decoration: underline;
-			}
-
-			&:not(:focus) {
-				outline: 1px solid @otp__clr--item-ol;
 			}
 
 			@media all and (max-width: @tablet-screen-width) {
@@ -239,6 +236,7 @@
 			a {
 				background-color: @otp__clr--crimson;
 
+				&:focus,
 				&:hover {
 					background-color: @otp__clr--crimson-hl;
 				}					
