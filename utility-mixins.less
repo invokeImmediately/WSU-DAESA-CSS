@@ -110,16 +110,17 @@
 @pxl-width-18: 512px;
 @pxl-width-19: 576px;
 @pxl-width-20: 640px;
-@pxl-width-21: 768px;
-@pxl-width-22: 832px;
-@pxl-width-23: 896px;
-@pxl-width-24: 960px;
+@pxl-width-21: 704px;
+@pxl-width-22: 768px;
+@pxl-width-23: 832px;
+@pxl-width-24: 896px;
+@pxl-width-25: 960px;
 
 @pxl-width-array: @pxl-width-1, @pxl-width-2, @pxl-width-3, @pxl-width-4, @pxl-width-5,
 	@pxl-width-6, @pxl-width-7, @pxl-width-8, @pxl-width-9, @pxl-width-10, @pxl-width-11,
 	@pxl-width-12, @pxl-width-13, @pxl-width-14, @pxl-width-15, @pxl-width-16, @pxl-width-17,
 	@pxl-width-18, @pxl-width-19, @pxl-width-20, @pxl-width-21, @pxl-width-22, @pxl-width-23,
-	@pxl-width-24;
+	@pxl-width-24, @pxl-width-25;
 
 .width--pxl(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) and
 		(@idx <= length(@pxl-width-array)) {

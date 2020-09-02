@@ -155,10 +155,11 @@
 	@pxl-width-18--class: ~"512px";
 	@pxl-width-19--class: ~"576px";
 	@pxl-width-20--class: ~"640px";
-	@pxl-width-21--class: ~"768px";
-	@pxl-width-22--class: ~"832px";
-	@pxl-width-23--class: ~"896px";
-	@pxl-width-24--class: ~"960px";
+	@pxl-width-21--class: ~"704px";
+	@pxl-width-22--class: ~"768px";
+	@pxl-width-23--class: ~"832px";
+	@pxl-width-24--class: ~"896px";
+	@pxl-width-25--class: ~"960px";
 
 	@pxl-width--class-array: @pxl-width-1--class, @pxl-width-2--class, @pxl-width-3--class,
 		@pxl-width-4--class, @pxl-width-5--class, @pxl-width-6--class, @pxl-width-7--class,
@@ -166,7 +167,7 @@
 		@pxl-width-12--class, @pxl-width-13--class, @pxl-width-14--class, @pxl-width-15--class,
 		@pxl-width-16--class, @pxl-width-17--class, @pxl-width-18--class, @pxl-width-19--class,
 		@pxl-width-20--class, @pxl-width-21--class, @pxl-width-22--class, @pxl-width-23--class,
-		@pxl-width-24--class;
+		@pxl-width-24--class, @pxl-width-25--class;
 
 	.pxl-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pxl-width-array)) {
 		.pxl-width-loop((@idx - 1));
