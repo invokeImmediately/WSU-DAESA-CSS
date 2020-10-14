@@ -26,9 +26,9 @@
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
 ***    §1: Main header and components..........................................................36
 ***      >>> §1.1: DAESA styled main headers...................................................40
-***      >>> §1.2: Provost Office styled main headers..........................................84
-***    §2: UP CMS style article headers.......................................................163
-***    §3: Sectional article headers..........................................................288
+***      >>> §1.2: Provost Office styled main headers..........................................98
+***    §2: UP CMS style article headers.......................................................177
+***    §3: Sectional article headers..........................................................302
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -55,6 +55,19 @@
 		.header-group {
 			padding-top: 1rem;
 			position: relative;
+
+			&.guttered {
+				.declare-mobile-layout(
+					{
+						padding-left: (@v-dflt-spcng / 2);
+						padding-right: (@v-dflt-spcng / 2);
+					},
+					{
+						padding-left: (@v-dflt-spcng / 4);
+						padding-right: (@v-dflt-spcng / 4);
+					}
+				);
+			}
 		}
 
 		.sup-header-default {
@@ -65,8 +78,9 @@
 
 		.sub-header-default,
 		.sub-header {
-			@scaling-indices: 2, 3, 3, 2, 3, 4;
-			.has-responsive-font( (2.5rem * 16 / 17), 0.9em, @default-scaling-factors, @scaling-indices );
+			@scaling-indices: 2, 3, 3, 2, 4, 5;
+			@mh-scaling-factors: 1.1, 1.0, 0.9, 0.76, 0.68;
+			.has-responsive-font( (2.5rem * 16 / 17), 1em, @mh-scaling-factors, @scaling-indices );
 		}
 
 		.sup-header-default,
