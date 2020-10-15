@@ -25,10 +25,10 @@
 ***     §6: Typography........................................................................266
 ***     §7: Borders...........................................................................295
 ***     §8: More typography...................................................................360
-***     §9: Semantic mixins for responsive layouts............................................472
-***     §10: Iteratively specified CSS declarations...........................................487
-***     §11: Interpolated style declarations..................................................652
-***     §12: Declaration of detached rulesets.................................................681
+***     §9: Semantic mixins for responsive layouts............................................503
+***     §10: Iteratively specified CSS declarations...........................................518
+***     §11: Interpolated style declarations..................................................683
+***     §12: Declaration of detached rulesets.................................................712
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -482,7 +482,9 @@
 	}
 	.row.mimic-two-column-sections &,
 	.row.side-right &.two,
+	.row.side-right &.one.mimic-sidebar,
 	.row.side-left &.one,
+	.row.side-left &.two.mimic-sidebar,
 	.row.halves & {
 		@scaling-indices: 2, 3, 3, 2, 3, 4;
 		.has-responsive-font( @fntsz, @lnhght, @scaling-factors, @scaling-indices );
