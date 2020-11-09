@@ -32,11 +32,11 @@
 ***    >>> §3.3: Overlay links...............................................................300
 ***    >>> §3.4: Special cases for hyperlinks................................................346
 ***  §4: Provost's-Office-Style Hyperlinks...................................................381
-***  §5: Provost's-Office-Style Hyperlinks...................................................403
-***  §6: Inclusional hyperlink styling via Less mixins.......................................452
-***    >>> §6.1: Glass button layouts........................................................456
-***  §7: Layout modification mixins..........................................................561
-***    >>> §7.1: Icons for non-text-links....................................................565
+***  §5: Simple button design for hyperlinks.................................................403
+***  §6: Inclusional hyperlink styling via Less mixins.......................................454
+***    >>> §6.1: Glass button layouts........................................................458
+***  §7: Layout modification mixins..........................................................563
+***    >>> §7.1: Icons for non-text-links....................................................567
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -427,10 +427,12 @@
 			}
 		}
 
-		&.simple-button--crimson:not(:hover) {
-			background-color: #a60f2d;
-			border: 0;
-			color: white;
+		&.simple-button--crimson {
+			&:not(:hover) {
+				background-color: #a60f2d;
+				border: 0;
+				color: white;
+			}
 
 			&:hover {
 				background-color: #ca1237;
