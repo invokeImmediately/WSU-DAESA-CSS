@@ -29,15 +29,15 @@
 ***  §2: CSS3-driven tooltips via hyperlink elements..........................................107
 ***  §3: DAESA-Style Hyperlinks...............................................................196
 ***    >>> §3.1: A11y friendly default style for columnar hyperlinks..........................202
-***    >>> §3.2: Links for non-text elements..................................................244
-***    >>> §3.3: Overlay links................................................................298
-***    >>> §3.4: Special cases for hyperlinks.................................................344
-***  §4: Provost's-Office-Style Hyperlinks....................................................379
-***  §5: Simple button design for hyperlinks..................................................401
-***  §6: Inclusional hyperlink styling via Less mixins........................................452
-***    >>> §6.1: Glass button layouts.........................................................456
-***  §7: Layout modification mixins...........................................................561
-***    >>> §7.1: Icons for non-text-links.....................................................565
+***    >>> §3.2: Links for non-text elements..................................................245
+***    >>> §3.3: Overlay links................................................................299
+***    >>> §3.4: Special cases for hyperlinks.................................................345
+***  §4: Provost's-Office-Style Hyperlinks....................................................380
+***  §5: Simple button design for hyperlinks..................................................402
+***  §6: Inclusional hyperlink styling via Less mixins........................................453
+***    >>> §6.1: Glass button layouts.........................................................457
+***  §7: Layout modification mixins...........................................................562
+***    >>> §7.1: Icons for non-text-links.....................................................566
 *** ────────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -206,8 +206,9 @@
 		.column & {
 			border-bottom: 1px solid @colors__links;
 			text-decoration: none;
-			.transition(~"color .4s, background 0.4s, border 0.1s");
+			.transition(~"color .2s ease, background 0.2s ease, border-width .05s");
 
+			&:focus,
 			&:hover {
 				&{ background-color: @rgba;
 					.getRgbaStr(@colors__links__hover, .15); }
