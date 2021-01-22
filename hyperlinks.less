@@ -8,7 +8,7 @@
 ***   of the Spine parent theme of WSUWP. Styles are designed to accompany or supersede styling
 ***   associated with the theme.
 *** @author Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)
-*** @license MIT Copyright (c) 2020 Washington State University
+*** @license MIT Copyright (c) 2021 Washington State University
 ***   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
 ***     and associated documentation files (the "Software"), to deal in the Software without
 ***     restriction, including without limitation the rights to use, copy, modify, merge, publish,
@@ -29,15 +29,15 @@
 ***  §2: CSS3-driven tooltips via hyperlink elements..........................................107
 ***  §3: DAESA-Style Hyperlinks...............................................................196
 ***    >>> §3.1: A11y friendly default style for columnar hyperlinks..........................202
-***    >>> §3.2: Links for non-text elements..................................................245
-***    >>> §3.3: Overlay links................................................................299
-***    >>> §3.4: Special cases for hyperlinks.................................................345
-***  §4: Provost's-Office-Style Hyperlinks....................................................380
-***  §5: Simple button design for hyperlinks..................................................402
-***  §6: Inclusional hyperlink styling via Less mixins........................................453
-***    >>> §6.1: Glass button layouts.........................................................457
-***  §7: Layout modification mixins...........................................................562
-***    >>> §7.1: Icons for non-text-links.....................................................566
+***    >>> §3.2: Links for non-text elements..................................................252
+***    >>> §3.3: Overlay links................................................................306
+***    >>> §3.4: Special cases for hyperlinks.................................................352
+***  §4: Provost's-Office-Style Hyperlinks....................................................387
+***  §5: Simple button design for hyperlinks..................................................409
+***  §6: Inclusional hyperlink styling via Less mixins........................................460
+***    >>> §6.1: Glass button layouts.........................................................464
+***  §7: Layout modification mixins...........................................................569
+***    >>> §7.1: Icons for non-text-links.....................................................573
 *** ────────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -211,11 +211,15 @@
 			&:focus,
 			&:hover {
 				&{ background-color: @rgba;
-					.getRgbaStr(@colors__links__hover, .15); }
+					.getRgbaStr(@colors__links__hover, .1); }
 				border-bottom-width: 3px;
 				border-color: @colors__links__hover;
 				&{ text-shadow: 1px 1px 2px @rgba;
 					.getRgbaStr(@colors__links, .3); }
+			}
+
+			&:not([class*="fw--"]) {
+				font-weight: 400;
 			}
 
 			&.gform_anchor {
@@ -229,8 +233,11 @@
 			}
 		}
 
-		.column strong & {
-			font-weight: bold;
+		.column strong &,
+		.column b & {
+			&:not([class*="fw--"]) {
+				font-weight: 700;
+			}
 		}
 	}
 
