@@ -561,7 +561,9 @@
 		}
 
 		a {
-			font-weight: bold;
+			&:not([class*=fw--]) {
+				font-weight: bold;
+			}
 
 			&:after {
 				background: ~"url(https://s3.wp.wsu.edu/uploads/sites/56/2020/02/link.svg) .2em/70% no-repeat";
