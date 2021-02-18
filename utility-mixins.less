@@ -61,25 +61,27 @@
 @pct-width-4: 20%;
 @pct-width-5: 25%;
 @pct-width-6: 30%;
-@pct-width-7: 35%;
-@pct-width-8: 40%;
-@pct-width-9: 45%;
-@pct-width-10: 50%;
-@pct-width-11: 55%;
-@pct-width-12: 60%;
-@pct-width-13: 65%;
-@pct-width-14: 70%;
-@pct-width-15: 75%;
-@pct-width-16: 80%;
-@pct-width-17: 85%;
-@pct-width-18: 90%;
-@pct-width-19: 95%;
-@pct-width-20: 100%;
+@pct-width-7: 33.33%;
+@pct-width-8: 35%;
+@pct-width-9: 40%;
+@pct-width-10: 45%;
+@pct-width-11: 50%;
+@pct-width-12: 55%;
+@pct-width-13: 60%;
+@pct-width-14: 65%;
+@pct-width-15: 66.66%;
+@pct-width-16: 70%;
+@pct-width-17: 75%;
+@pct-width-18: 80%;
+@pct-width-19: 85%;
+@pct-width-20: 90%;
+@pct-width-21: 95%;
+@pct-width-22: 100%;
 
 @pct-width-array: @pct-width-1, @pct-width-2, @pct-width-3, @pct-width-4, @pct-width-5,
 	@pct-width-6, @pct-width-7, @pct-width-8, @pct-width-9, @pct-width-10, @pct-width-11,
 	@pct-width-12, @pct-width-13, @pct-width-14, @pct-width-15, @pct-width-16, @pct-width-17,
-	@pct-width-18, @pct-width-19, @pct-width-20;
+	@pct-width-18, @pct-width-19, @pct-width-20, @pct-width-21, @pct-width-22;
 
 .width--pct(@idx) when (isnumber(@idx)) and not (ispixel(@idx)) and not (ispercentage(@idx)) and
 		(@idx <= length(@pct-width-array)) {
