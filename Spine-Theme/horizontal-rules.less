@@ -1,0 +1,101 @@
+/** ────────────────────────────────────────────────────────────────────────────────────────────────
+*** █  █ ▄▀▀▄ █▀▀▄ ▀█▀ ▀▀▀█ ▄▀▀▄ ▐▀▀▄▐▀█▀▌▄▀▀▄ █
+*** █▀▀█ █  █ █▄▄▀  █   ▄▀  █  █ █  ▐  █  █▄▄█ █  ▄ ▀▀
+*** █  ▀  ▀▀  ▀  ▀▄▀▀▀ █▄▄▄  ▀▀  ▀  ▐  █  █  ▀ ▀▀▀ 
+***
+***    █▀▀▄ █  █ █    █▀▀▀ ▄▀▀▀   █    █▀▀▀ ▄▀▀▀ ▄▀▀▀
+***    █▄▄▀ █  █ █  ▄ █▀▀  ▀▀▀█   █  ▄ █▀▀  ▀▀▀█ ▀▀▀█
+***    ▀  ▀▄ ▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀  ▀ ▀▀▀  ▀▀▀▀ ▀▀▀  ▀▀▀
+***
+*** Involves styles for hr elements of WSU Division of Academic Engagement and Student Achievement
+***   websits created using the the Spine parent theme of WSUWP. Styles are designed to accompany or
+***   supersede the theme's stylesheet via application to the site using the CSS Stylesheet Editor,
+***   set to add-on mode, in the WordPress administration area.
+***
+*** @version 1.0.0
+***
+*** @link https://github.com/invokeImmediately/WSU-DAESA-CSS/blob/master/
+***   Spine-Theme/horizontal-rules.less
+*** @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
+*** @license MIT Copyright (c) 2021 Washington State University
+***   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+***     and associated documentation files (the "Software"), to deal in the Software without
+***     restriction, including without limitation the rights to use, copy, modify, merge, publish,
+***     distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
+***     the Software is furnished to do so, subject to the following conditions:
+***   The above copyright notice and this permission notice shall be included in all copies or
+***     substantial portions of the Software.
+***   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+***     BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+***     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+***     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+***     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+***     SOFTWARE.
+*** ────────────────────────────────────────────────────────────────────────────────────────────────
+**/
+
+@oue-hr-ruleset: {
+	hr {
+		background-color: @hex-lighter-gray;
+		border: 0;
+		height: 1px;
+		.margin(@mSize-2000mx, "bottom");
+		.margin(@mSize-2000mx, "top");
+		overflow: visible;
+		position: relative;
+
+		&.bc--crimson {
+			border-bottom: 1px solid rgba(198,12,48,.25);
+		    border-top: 1px solid #981e32;			
+		}
+
+		&.spacer {
+			border: none;
+		}
+
+		&.subSection,
+		&.sub-section {
+			width: 85%;
+			margin: @v-dflt-spcng auto;
+			background: none;
+			border: 0;
+			.rgb-dark-gray(); border-top: 1px dashed rgba(@rval,@gval,@bval,0.5);
+			border-bottom: 1px dashed rgba(160,160,160,0.25);
+			text-align: center;
+		}
+
+		&.thicker {
+			border-top-width: 2px;
+		}
+	}
+};
+
+.declare-ruleset(@oue-hr-ruleset, @oue-rules-wrapper);
+
+.declare-hr-icon-class(@class-name, @icon-url, @width, @height, @h-margin, @v-margin,
+		@justification) when (isstring(@class-name)) and (isurl(@icon-url)) and (ispixel(@width)) 
+		and (ispixel(@height)) and (ispixel(@h-margin)) and (@justification = "left") {
+	hr.@{class-name}::before {
+		background: @icon-url;
+		content: "";
+		height: @height;
+		left: @h-margin;
+		position: absolute;
+		top: @v-margin;
+		width: @width;
+	}
+}
+
+.declare-hr-icon-class(@class-name, @icon-url, @width, @height, @h-margin, @v-margin,
+		@justification) when (isstring(@class-name)) and (isurl(@icon-url)) and (ispixel(@width)) 
+		and (ispixel(@height)) and (ispixel(@h-margin)) and (@justification = "right") {
+	hr.@{class-name}::before {
+		background: @icon-url;
+		content: "";
+		height: @height;
+		position: absolute;
+		right: @h-margin;
+		top: @v-margin;
+		width: @width;
+	}
+}

@@ -1,0 +1,153 @@
+/** ────────────────────────────────────────────────────────────────────────────────────────────────
+*** ▄▀▀▀ █▀▀▄ ▄▀▀▄ ▐▀▀▄   █    █▀▀▀ ▄▀▀▀ ▄▀▀▀
+*** ▀▀▀█ █▄▄▀ █▄▄█ █  ▐   █  ▄ █▀▀  ▀▀▀█ ▀▀▀█
+*** ▀▀▀  █    █  ▀ ▀  ▐ ▀ ▀▀▀  ▀▀▀▀ ▀▀▀  ▀▀▀
+*** 
+*** Embodies styles for span elements of WSU Division of Academic Engagement and Student Achievement
+***   websites created using the the Spine parent theme of WSUWP. Styles are designed to accompany
+***   or supersede the theme's stylesheet via application to the site using the CSS Stylesheet
+***   Editor, set to add-on mode, in the WordPress administration area.
+*** 
+*** @version 1.0.0
+*** 
+*** @link https://github.com/invokeImmediately/WSU-DAESA-CSS/blob/master/Spine-Theme/spans.less
+*** @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
+*** @license MIT Copyright (c) 2021 Washington State University
+***   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+***     and associated documentation files (the "Software"), to deal in the Software without
+***     restriction, including without limitation the rights to use, copy, modify, merge, publish,
+***     distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
+***     the Software is furnished to do so, subject to the following conditions:
+***   The above copyright notice and this permission notice shall be included in all copies or
+***     substantial portions of the Software.
+***   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+***     BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+***     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+***     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+***     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+***     SOFTWARE.
+*** ────────────────────────────────────────────────────────────────────────────────────────────────
+**/
+
+@oue-span-ruleset: {
+	span {
+		&.accentuated-text {
+			&:extend(.ff--condensed);
+			font-weight: 700;
+			font-size: 1.3em;
+			line-height: normal;
+			color: saturate(@hex-dark-blue,100%);
+
+			&.darker {
+				color: @hex-dark-blue;
+			}
+
+			&.brighter {
+				color: saturate(@hex-blue,100%);
+			}
+
+			&.gray {
+				color: @hex-dark-gray;
+
+				&.brighter {
+					color: @hex-less-dark-gray;
+				}
+			}
+		}
+
+		&.callout {
+			&:extend(div.callout all);
+		}
+
+		&.has-tool-tip,
+		&.has-tooltip {
+			@rval: 0;
+			@gval: 70;
+			@bval: 189;
+			position: relative;
+			margin-bottom: -3px;
+			.rgb-accent-blue(); border-bottom: 1px dotted rgba(@rval, @gval, @bval, 0.85);
+			color: #0046bd;
+			transition-property: color, background, border-color;
+			 -webkit-transition-property: color, background, border-color;
+			transition-duration: .3s, .3s, .3s;
+			 -webkit-transition-duration: .3s, .3s, .3s;
+			transition-timing-function: ease, ease, ease;
+			 -webkit-transition-timing-function: ease, ease, ease;
+
+			&:hover {
+				@rval: 88;
+				@gval: 149;
+				@bval: 255;
+				background-color: rgba(@rval, @gval, @bval, 0.1);
+				border-color: rgba(@rval, @gval, @bval, 0.85);
+				color: #5895ff;
+			}
+		}
+
+		&.hides-with-spine {
+			@media all and (max-width: @spine-threshold) {
+				display: none;
+			}
+		}
+
+		&.hides-from-spine {
+			@media all and (min-width: (@spine-threshold + 1)) {
+				display: none;
+			}
+		}
+
+		&.hides-with-rghtclmn {
+			@media all and (max-width: @column-floating-threshold) {
+				display: none;
+			}
+		}
+
+		&.hides-from-rghtclmn {
+			@media all and (min-width: (@column-floating-threshold + 1)) {
+				display: none;
+			}
+		}
+
+		&.shrink-text-on-mobile {
+			@media all and (max-width: @large-mobile-screen-width) {
+				font-size: 0.9em;
+			}	
+		}
+
+		&.shrink-text-on-tablet {
+			@media all and (max-width: @tablet-screen-width) {
+				font-size: 0.9em;
+			}	
+		}
+	}
+};
+
+.declare-ruleset(@oue-span-ruleset, @oue-rules-wrapper);
+
+.use-tool-tip-indicator-icon(@icon-url) when (isurl(@icon-url)) {
+	span.has-tool-tip,
+	span.has-tooltip {
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 10px;
+			height: 10px;
+			background: @icon-url no-repeat center center/100% 100%;
+			opacity: 1.0;
+			.transition(~"all 0.3s ease");
+			.transform(~"translate(100%, -25%)");
+		}
+
+		&:hover:after {
+			opacity: 0;
+		}
+	}
+	.use-qtip-indicator-icon(@icon-url);
+}
+
+.declare-span-rulesets(@grid-behavior) when (@grid-behavior = "hybrid") {
+}
+.declare-span-rulesets(@grid-behavior);
