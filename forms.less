@@ -27,9 +27,9 @@
 ***  §2: Gravity forms........................................................................117
 ***    >>> §2.1: Modifications of default GF styling..........................................121
 ***    >>> §2.2: Required field highlighting..................................................392
-***    >>> §2.3: Advanced form controls.......................................................512
-***  §3: WSUWP password entry form............................................................611
-***  §4: DAESA styled progress indicators.....................................................623
+***    >>> §2.3: Advanced form controls.......................................................513
+***  §3: WSUWP password entry form............................................................612
+***  §4: DAESA styled progress indicators.....................................................624
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -443,11 +443,11 @@
 			& > .gfield.gfield_contains_required {
 				& > .ginput_container_select {
 					& > .gfield_select:not(.gf-value-entered) + .chosen-container-single:not(.chosen-with-drop) > .chosen-single {
-						background: linear-gradient(to bottom,rgba(0,0,0,0) 20%,rgba(0,0,0,.038) 50%,rgba(0,0,0,.07) 52%,rgba(0,0,0,.045) 100%), linear-gradient(to bottom, rgba(255,0,0,0.1), rgba(255,0,0,0.1)), linear-gradient(to bottom,#fff,#fff);
+						background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) .6em);
 					}
 
 					& > .gfield_select + .chosen-container-single.chosen-with-drop > .chosen-single {
-						background: linear-gradient(to bottom,rgba(0,0,0,0) 20%,rgba(0,0,0,.038) 50%,rgba(0,0,0,.07) 52%,rgba(0,0,0,.045) 100%), linear-gradient(to bottom, @hex-bright-blue, @hex-bright-blue);
+						background: linear-gradient(to bottom, rgba(0,0,255,0.1) 0, transparent .3em);
 					}
 				}
 
@@ -458,6 +458,7 @@
 
 					&:focus {
 						background-color: @hex-bright-blue !important;
+						background: linear-gradient(to bottom, rgba(0,0,255,0.1) 0, transparent .3em);
 					}
 				}
 
@@ -465,7 +466,7 @@
 				select:not(.gf-value-entered):not(:focus),
 				textarea:not(.gf-value-entered):not(:focus) {
 					background-color: rgba(255,0,0,0.1);
-					background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) 1.5em);
+					background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) .6em);
 				}
 
 				.gfield_checkbox,
@@ -476,7 +477,7 @@
 
 					&:not(.gf-value-entered) {
 						background-color: rgba(255,0,0,0.1);
-						background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) 1.5em);
+						background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) .6em);
 					}
 
 				}
