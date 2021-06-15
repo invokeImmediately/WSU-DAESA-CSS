@@ -8,7 +8,7 @@
 ***   application to the site using the CSS Stylesheet Editor, set to add-on mode, in the WordPress
 ***   administration area.
 ***
-*** @version 1.0.0
+*** @version 1.0.0-rc1.0.0
 ***
 *** @link https://github.com/invokeImmediately/WSU-DAESA-CSS/blob/master/Spine-Theme/headings.less
 *** @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
@@ -57,41 +57,6 @@
 			}
 		}
 
-		.column.show-header.has-fancy-header > header:first-child > & {
-			&{ background-color: @rgba; .getRgbaStr(@hex-dark-gray, 0.2); }
-			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
-					0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
-					0.225) );
-				.rgb-dark-gray(); }
-			&{ border-bottom: 2px solid @rgba; .getRgbaStr(@hex-dark-gray, 0.075); }
-			margin-bottom: (@v-dflt-spcng / 2);
-			margin-left: (-1 * @v-dflt-spcng / 4);
-			margin-right: (-1 * @v-dflt-spcng / 4);
-			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 11 / 40);
-			position: relative;
-		}
-
-		.column.show-header.has-fancy-header > header:first-child > & {
-			padding-top: 0.5rem;
-
-			&:not(:first-child) {
-				margin-top: @v-dflt-spcng;
-			}
-
-			&::before {
-				border-bottom: 1px solid rgba(@rval,@gval,@bval,0.3333);
-				border-top-width: 2px;
-				border-top: 1px solid rgba(@rval,@gval,@bval,0.6667);
-				content: "";
-				height: 0;
-				left: 0;
-				position: absolute;
-				.rgb-darker-gray();
-				top: 0;
-				width: 100%;
-			}
-		}
-
 		.column h1 + & {
 			font-style: italic;
 		}
@@ -113,40 +78,6 @@
 	h3 {
 		.column.show-header.has-lowercase-header > header:first-child > & {
 			text-transform: none;
-		}
-
-		.column.show-header.has-fancy-header > header:first-child > & {
-			&{ background-color: @rgba; .getRgbaStr(@hex-light-crimson, 0.075); }
-			&{ background: linear-gradient(to right, transparent, rgba(@rval, @gval, @bval, 
-					0.075) 5%, rgba(@rval, @gval, @bval, 0.075) 50%, rgba(@rval, @gval, @bval, 
-					0.225));
-				.rgb-light-crimson(); }
-			&{ border-bottom: 2px solid @rgba; .getRgbaStr(@hex-light-crimson, 0.075); }
-			margin-bottom: (@v-dflt-spcng / 2);
-			margin-left: 0;
-			margin-right: 0;
-			padding: (@v-dflt-spcng / 6) (@v-dflt-spcng / 4) (@v-dflt-spcng * 9 / 40) 0;
-			position: relative;
-		}
-
-		.column.show-header.has-fancy-header > header:first-child > & {
-			padding-top: 0.4375rem;
-
-			&:not(:first-child) {
-				margin-top: @v-dflt-spcng;
-			}
-
-			&::before {
-				border-bottom: 1px solid rgba(@rval,@gval,@bval,0.375);
-				border-top: 1px solid rgba(@rval,@gval,@bval,0.67);
-				content: "";
-				height: 0;
-				left: 0;
-				position: absolute;
-				.rgb-crimson();
-				top: 0;
-				width: 100%;
-			}
 		}
 	}
 
@@ -186,7 +117,7 @@
 	h5,
 	h6 {
 		.ff--condensed;
-		font-weight: bold;
+		.fw--semi-bold;
 		margin: 0;
 		padding: 0;
 
@@ -194,6 +125,15 @@
 			.margins-rem(@rem-spacing-2000mx, "top");
 		}
 	}
+
+	h1 {
+		.fw--extra-bold;
+	}
+
+	h2 {
+		.fw--bold;
+	}
+
 
 /**   ----------------------------------------------------------------------------------------------
 ***   >>> §4.2: Font sizing
@@ -255,7 +195,7 @@
 	h4,
 	h5,
 	h6 {
-		color: @hex-crimson;
+		color: @hex-darkest-gray;
 	}
 
 	h1 {

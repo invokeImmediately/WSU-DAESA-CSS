@@ -1,52 +1,49 @@
-/** ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
-*** │ █▀ █▀▀ ▀█▀ ▀█▀ █ █▄ █ █▀▀ █▀   █   █▀▀ █▀ █▀                                                 │
-*** │ ▄█ ██▄  █   █  █ █ ▀█ █▄█ ▄█ ▄ █▄▄ ██▄ ▄█ ▄█                                                 │
-*** │                                                                                              │
-*** │ Contains settings, implemented as Less variables, that the process for compiling Less files  │
-*** │   into a custom stylesheet for use on a [WSU DAESA](https://daesa.wsu.edu/) website.         │
-*** │                                                                                              │
-*** │ Contains Less variables utilized in css-build-entry-point.less and its                       │
-*** │   dependencies to control customizable aspects of the CSS build process.                     │
-*** │                                                                                              │
-*** │ @author Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)           │
-*** │                                                                                              │
-*** │ @license Copyright (c) 2020 Washington State University                                      │
-*** │   Permission is hereby granted, free of charge, to any person obtaining a copy of this       │
-*** │     software and associated documentation files (the "Software"), to deal in the Software    │
-*** │     without restriction, including without limitation the rights to use, copy, modify,       │
-*** │     merge, publish, distribute, sublicense, and/or sell copies of the Software, and to       │
-*** │     permit persons to whom the Software is furnished to do so, subject to the following      │
-*** │     conditions:                                                                              │
-*** │   The above copyright notice and this permission notice shall be included in all copies or   │
-*** │     substantial portions of the Software.                                                    │
-*** │   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,        │
-*** │     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR │
-*** │     PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE       │
-*** │     LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT │
-*** │     OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR      │
-*** │     OTHER DEALINGS IN THE SOFTWARE.                                                          │
-*** └──────────────────────────────────────────────────────────────────────────────────────────────┘
+﻿/** ────────────────────────────────────────────────────────────────────────────────────────────────
+*** █▀▀▄ █  █ ▀█▀ █    █▀▀▄    ▄▀▀▀ █▀▀▀▐▀█▀▌▐▀█▀▌▀█▀ ▐▀▀▄ █▀▀▀ ▄▀▀▀   █    █▀▀▀ ▄▀▀▀ ▄▀▀▀
+*** █▀▀▄ █  █  █  █  ▄ █  █ ▀▀ ▀▀▀█ █▀▀   █    █   █  █  ▐ █ ▀▄ ▀▀▀█   █  ▄ █▀▀  ▀▀▀█ ▀▀▀█
+*** ▀▀▀   ▀▀  ▀▀▀ ▀▀▀  ▀▀▀     ▀▀▀  ▀▀▀▀  █    █  ▀▀▀ ▀  ▐ ▀▀▀▀ ▀▀▀  ▀ ▀▀▀  ▀▀▀▀ ▀▀▀  ▀▀▀
+***
+*** Contains settings, implemented as Less variables, that the process for compiling Less files
+***   into a custom stylesheet for use on a [WSU DAESA](https://daesa.wsu.edu/) websites.
+***
+*** @link https://github.com/invokeImmediately/WSU-DAESA-CSS/main/blob/Settings/build-settings.less
+*** @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
+*** @license MIT Copyright (c) 2021 Washington State University
+***   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+***     and associated documentation files (the "Software"), to deal in the Software without
+***     restriction, including without limitation the rights to use, copy, modify, merge, publish,
+***     distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
+***     the Software is furnished to do so, subject to the following conditions:
+***   The above copyright notice and this permission notice shall be included in all copies or
+***     substantial portions of the Software.
+***   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+***     BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+***     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+***     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+***     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+***     SOFTWARE.
+*** ────────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Default sizing of spacing and fonts...................................................50
-***    >>> §1.1: Columns.......................................................................54
-***    >>> §1.2: Paragraphs....................................................................77
-***    >>> §1.3: Headings......................................................................89
-***    >>> §1.4: Article components...........................................................105
-***  §2: Responsive design scaling factors....................................................121
-***  §3: Screen thresholds for responsive design..............................................143
-***  §4: Colors...............................................................................201
-***    >>> §4.1: Color scheme flags...........................................................205
-***    >>> §4.2: Hyperlink coloring...........................................................211
-***  §5: Switches for controlling dependency inclusion........................................219
-***    >>> §5.1: Builder template columns.....................................................223
-***    >>> §5.2: Feeds........................................................................230
-***    >>> §5.3: Footers......................................................................238
-***    >>> §5.4: Forms........................................................................245
-***    >>> §5.5: Headers......................................................................255
-***    >>> §5.6: Hyperlinks...................................................................263
-***    >>> §5.7: Lists........................................................................273
-***    >>> §5.8: Tables.......................................................................285
+***  §1: Default sizing of spacing and fonts...................................................51
+***    >>> §1.1: Columns.......................................................................55
+***    >>> §1.2: Paragraphs....................................................................85
+***    >>> §1.3: Headings.....................................................................102
+***    >>> §1.4: Article components...........................................................124
+***  §2: Responsive design scaling factors....................................................146
+***  §3: Screen thresholds for responsive design..............................................168
+***  §4: Colors...............................................................................226
+***    >>> §4.1: Color scheme flags...........................................................230
+***    >>> §4.2: Hyperlink coloring...........................................................236
+***  §5: Switches for controlling dependency inclusion........................................244
+***    >>> §5.1: Builder template columns.....................................................248
+***    >>> §5.2: Feeds........................................................................255
+***    >>> §5.3: Footers......................................................................263
+***    >>> §5.4: Forms........................................................................270
+***    >>> §5.5: Headers......................................................................280
+***    >>> §5.6: Hyperlinks...................................................................288
+***    >>> §5.7: Lists........................................................................298
+***    >>> §5.8: Tables.......................................................................310
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -59,67 +56,91 @@
 **/
 
 // TODO: change variable name to @root-fSize
-@root-font-size: 100%;			// 100% on Chrome @ medium text size setting is 16px
+// Note: 100% on Chrome @ medium text size setting is 16px
+@root-font-size: 100%;
 
-@v-w-cnstrn-lrg: 800px;			// Larger column width constraint (legacy)
+// Larger column width constraint (legacy)
+@v-w-cnstrn-lrg: 800px;			
 
-@v-w-cnstrn-nrml: 660px;		// Normal width constraint (legacy)
+// Normal width constraint (legacy)
+@v-w-cnstrn-nrml: 660px;
 
-@column-fs: 1rem;				// Default font size of Builder page template columns; this is a
-								// slightly larger and more readable default than what some websites
-								// at WSU use.
+// Default font size of Builder page template columns; this is a slightly larger and more readable
+//   default than what some websites at WSU use.
+@column-fs: 1rem;
 
-@column-color: extract(@colors--grays__hex, @colors__darker);	// Default textual coloring of
-																// builder section columns
+// Default textual coloring of builder section columns in the Spine Theme.
+@column-color: extract(@colors--grays__hex, @colors__darkest);	
+														
+// Non-standard spacing trigger flag
+//   @todo: Unused? If so, this should be removed.
+@use-non-standard-spacing: 0;
 
-@use-non-standard-spacing: 0;	// Non-standard spacing trigger flag (Unused? Need to check)
-
-@v-dflt-spcng: 2rem; 			// Default sitewide spacing
+// Default sitewide spacing
+//   @todo: Check and see if @v-dflt-spcng is still in use; if so, update to @default-spacing.
+@v-dflt-spcng: 2rem;
 @default-spacing: 2rem;
 
 /**   ----------------------------------------------------------------------------------------------
 ***     >>> §1.2: Paragraphs
 **/
 
-@v-btm-mrgns: (@v-dflt-spcng / 2);	// Basal size of paragraph default bottom margins
+// Basal size of paragraph default bottom margins
+@v-btm-mrgns: (@default-spacing / 2);
 
-@v-btm-pads: (@v-dflt-spcng / 2);	// Basal size of paragraph default bottom pads
+// Basal size of paragraph default bottom pads
+@v-btm-pads: (@default-spacing / 2);
 
-@v-p-sz: 1em;						// Basal font size of paragraph elements
+// Basal font size of paragraph elements
+@v-p-sz: 1em;
+@body-text--fSize: 1em;
 
-@body-text--lHeight: 1.5em;			// Basal line height of paragraph elements
+// Basal line height of paragraph elements
+@body-text--lHeight: 1.5em;
 
 /**   ----------------------------------------------------------------------------------------------
 ***     >>> §1.3: Headings
 **/
 
-@v-hX-lnhght: 1.1em;				// Basal line height of heading elements
+// Basal line height of heading elements
+@v-hX-lnhght: 1.1em;
 
-@v-h4-lnhght: 1.2em;				// Basal line height of h4 elements specifically
+// Basal line height of h4 elements specifically
+@v-h4-lnhght: 1.2em;
 
-@v-h1-sz: @v-p-sz * 3 * 16 / 17;	// Default h1 element font size
+@v-h1-sz: 3rem;
 
-@v-h2-sz: @v-p-sz * 2.2 * 16 / 17;	// Default h2 element font size
+@v-h2-sz: 2.1rem;
 
-@v-h3-sz: @v-p-sz * 1.7 * 16 / 17;	// Default h3 element font size
+@v-h3-sz: 1.8rem;
 
-@v-h4-sz: @v-p-sz * 1.4 * 16 / 17;	// Default h4 element font size
+@v-h4-sz: 1.5rem;
+
+@v-h5-sz: 1.25rem;
+
+@v-h6-sz: 1rem;
 
 /**   ----------------------------------------------------------------------------------------------
 ***     >>> §1.4: Article components
 **/
 
-@v-artcl-deck-sz: 1.2em;			// Default article deck font size
+// Default article deck font size
+@v-artcl-deck-sz: 1.2em;
 
-@v-artcl-tgln-sz: 1.43em;			// Default article tagline font size
+// Default article tagline font size
+@v-artcl-tgln-sz: 1.43em;
 
-@v-artcl-tgln-lnhght: 1.313em;		// Default article tagline line height
+// Default article tagline line height
+@v-artcl-tgln-lnhght: 1.313em;
 
-@v-artcl-tgln-wght: 300;			// Default article tagline weight
+// Default article tagline weight
+@v-artcl-tgln-wght: 300;
 
-@v-bnnr-txt-sz: 1.25em;				// Default banner text font size
+// Default banner text font size
+@v-bnnr-txt-sz: 1.25em;
 
-@v-p-jmpbck-sz: 0.6875em;			// Default font size of jump back/to top shortcut links
+// Default font size of jump back/to top shortcut links
+@v-p-jmpbck-sz: 0.6875em;
 
 /** ================================================================================================
 *** §2: Responsive design scaling factors
@@ -147,11 +168,11 @@
 *** §3: Screen thresholds for responsive design
 **/
 
-@wqxga-width: 2560px;				// Viewport width corresponding to the WQXGA screen resolution
-									// standard
+// Viewport width corresponding to the WQXGA screen resolution standard
+@wqxga-width: 2560px;
 
-@wuxga-width: 1920px;				// Viewport width corresponding to the WUXGA screen resolution
-									// standard
+// Viewport width corresponding to the WUXGA screen resolution standard
+@wuxga-width: 1920px;				
 
 // Viewport size at which font sizing for desktop-sized displays kicks in
 @desktop-width: 1073px;
@@ -185,15 +206,15 @@
 @background-visible-width: 1440px;
 
 
-//@v-scl-dwn: 0.92195445;
 // Scaling factor by which font size reduces as a smaller format is reached
+//   @note Previously, @v-scl-dwn was set to 0.92195445.
 @v-scl-dwn: 0.938;
 
 // Scaling factor by which font size expands as a larger format is reached
 @v-scl-up: 1.125;
 
 // A list defining the sequence by which responsive websites set font sizes as different screen 
-// sizes are encountered.
+//   sizes are encountered.
 @default-scaling-factors: 1.118, 1.0, 0.941, 0.882, 0.824;
 @default-scaling-indices: 1, 2, 1, 2, 3, 4; 
 
