@@ -1,35 +1,52 @@
-/** ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-*** │ FILENAME: utility-mixins.less                                                              │
-*** │                                                                                            │
-*** │ AUTHOR: Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)         │
-*** │                                                                                            │
-*** │ DESCRIPTION: Less import that defines a variety of utility mixins to be utilized in        │
-*** │  making focused, functional style declarations and creating utility classes. Designed as a │
-*** │  dependency to be imported upstream of other Less files in the final stylesheet build.     │
-*** └────────────────────────────────────────────────────────────────────────────────────────────┘
+/** ────────────────────────────────────────────────────────────────────────────────────────────────
+*** █  █▐▀█▀▌▀█▀ █    ▀█▀▐▀█▀▌█  █    ▐▀▄▀▌▀█▀▐▄ ▄▌▀█▀ ▐▀▀▄ ▄▀▀▀   █    █▀▀▀ ▄▀▀▀ ▄▀▀▀
+*** █  █  █   █  █  ▄  █   █  ▀▄▄█ ▀▀ █ ▀ ▌ █   █   █  █  ▐ ▀▀▀█   █  ▄ █▀▀  ▀▀▀█ ▀▀▀█
+***  ▀▀   █  ▀▀▀ ▀▀▀  ▀▀▀  █  ▄▄▄▀    █   ▀▀▀▀▐▀ ▀▌▀▀▀ ▀  ▐ ▀▀▀  ▀ ▀▀▀  ▀▀▀▀ ▀▀▀  ▀▀▀
+***
+*** Less import that defines a variety of utility mixins to be utilized in making focused,
+***   functional style declarations and creating utility classes. Designed as a dependency to be
+***   imported upstream of other Less files in the final stylesheet build.
+***
+*** @link https://github.com/invokeImmediately/WSU-DAESA-CSS/
+*** @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
+*** @license MIT Copyright (c) 2021 Washington State University
+***   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+***     and associated documentation files (the "Software"), to deal in the Software without
+***     restriction, including without limitation the rights to use, copy, modify, merge, publish,
+***     distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
+***     the Software is furnished to do so, subject to the following conditions:
+***   The above copyright notice and this permission notice shall be included in all copies or
+***     substantial portions of the Software.
+***   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+***     BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+***     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+***     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+***     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+***     SOFTWARE.
+*** ────────────────────────────────────────────────────────────────────────────────────────────────
 ***  TABLE OF CONTENTS:
 ***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Display...............................................................................37
-***  §2: Width.................................................................................51
-***      >>> §2.1: In units of percentage......................................................55
-***      >>> §2.2: In units of pixels..........................................................90
-***  §3: Height...............................................................................131
-***      >>> §3.1: In units of pixels.........................................................135
-***  §4: Margins..............................................................................172
-***      >>> §4.1: In units of "em"...........................................................176
-***      >>> §4.2: In units of "rem"..........................................................265
-***  §5: Spacing..............................................................................354
-***      >>> §5.1: In units of "em"...........................................................358
-***      >>> §5.2: In units of "rem"..........................................................389
-***  §6: Padding..............................................................................420
-***      >>> §6.1: In units of "em"...........................................................424
-***      >>> §6.2: In units of "rem"..........................................................513
-***  §7: Typography...........................................................................585
-***      >>> §7.1: Typograhy: Font Sizing.....................................................589
-***      >>> §7.2: Line heights...............................................................792
-***      >>> §7.3: Bolding....................................................................857
-***  §8: Functional CSS.......................................................................872
-***      >>> §8.1: Card styling...............................................................876
+***  §1: Display...............................................................................54
+***  §2: Width.................................................................................68
+***      >>> §2.1: In units of percentage......................................................72
+***      >>> §2.2: In units of pixels.........................................................109
+***  §3: Height...............................................................................150
+***      >>> §3.1: In units of pixels.........................................................154
+***  §4: Margins..............................................................................191
+***      >>> §4.1: In units of "em"...........................................................195
+***      >>> §4.2: In units of "rem"..........................................................284
+***  §5: Spacing..............................................................................373
+***      >>> §5.1: In units of "em"...........................................................377
+***      >>> §5.2: In units of "rem"..........................................................408
+***  §6: Padding..............................................................................439
+***      >>> §6.1: In units of "em"...........................................................443
+***      >>> §6.2: In units of "rem"..........................................................532
+***  §7: Typography...........................................................................621
+***      >>> §7.1: Typograhy: Font Sizing.....................................................625
+***      >>> §7.2: Line heights...............................................................828
+***      >>> §7.3: Bolding....................................................................893
+***  §8: Functional CSS.......................................................................908
+***      >>> §8.1: Card styling...............................................................912
 ***  ───────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -293,22 +310,22 @@
 
 // Semantic rem margins
 @rem-mSize-0mx: 1;
-@rem-mSize-125mx: 2;
-@rem-mSize-250mx: 3;
-@rem-mSize-375mx: 4;
-@rem-mSize-500mx: 5;
-@rem-mSize-625mx: 6;
-@rem-mSize-750mx: 7;
-@rem-mSize-875mx: 8;
-@rem-mSize-1000mx: 9;
-@rem-mSize-1125mx: 10;
-@rem-mSize-1250mx: 11;
-@rem-mSize-1375mx: 12;
-@rem-mSize-1500mx: 13;
-@rem-mSize-1625mx: 14;
-@rem-mSize-1750mx: 15;
-@rem-mSize-1875mx: 16;
-@rem-mSize-2000mx: 17;
+@rem-mSize-250mx: 2;
+@rem-mSize-500mx: 3;
+@rem-mSize-750mx: 4;
+@rem-mSize-1000mx: 5;
+@rem-mSize-1250mx: 6;
+@rem-mSize-1500mx: 7;
+@rem-mSize-1750mx: 8;
+@rem-mSize-2000mx: 9;
+@rem-mSize-2250mx: 10;
+@rem-mSize-2500mx: 11;
+@rem-mSize-2750mx: 12;
+@rem-mSize-3000mx: 13;
+@rem-mSize-3250mx: 14;
+@rem-mSize-3500mx: 15;
+@rem-mSize-3750mx: 16;
+@rem-mSize-4000mx: 17;
 
 // Utility mixins for defining margin sizes downstream.
 .margins-rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
@@ -393,22 +410,22 @@
 
 // Semantic rem spacing sizes (based on @rem-mSize-array)
 @rem-spacing-0mx: 1;
-@rem-spacing-125mx: 2;
-@rem-spacing-250mx: 3;
-@rem-spacing-375mx: 4;
-@rem-spacing-500mx: 5;
-@rem-spacing-625mx: 6;
-@rem-spacing-750mx: 7;
-@rem-spacing-875mx: 8;
-@rem-spacing-1000mx: 9;
-@rem-spacing-1125mx: 10;
-@rem-spacing-1250mx: 11;
-@rem-spacing-1375mx: 12;
-@rem-spacing-1500mx: 13;
-@rem-spacing-1625mx: 14;
-@rem-spacing-1750mx: 15;
-@rem-spacing-1875mx: 16;
-@rem-spacing-2000mx: 17;
+@rem-spacing-250mx: 2;
+@rem-spacing-500mx: 3;
+@rem-spacing-750mx: 4;
+@rem-spacing-1000mx: 5;
+@rem-spacing-1250mx: 6;
+@rem-spacing-1500mx: 7;
+@rem-spacing-1750mx: 8;
+@rem-spacing-2000mx: 9;
+@rem-spacing-2250mx: 10;
+@rem-spacing-2500mx: 11;
+@rem-spacing-2750mx: 12;
+@rem-spacing-3000mx: 13;
+@rem-spacing-3250mx: 14;
+@rem-spacing-3500mx: 15;
+@rem-spacing-3750mx: 16;
+@rem-spacing-4000mx: 17;
 
 // Utility mixin for defining spacing downstream.
 .rem-spacing(@idx) when (isnumber(@idx)) and not (ispercentage(@idx)) and
@@ -452,22 +469,22 @@
 
 // Semantic em padding
 @pSize-0mx: 1;
-@pSize-125mx: 2;
-@pSize-250mx: 3;
-@pSize-375mx: 4;
-@pSize-500mx: 5;
-@pSize-625mx: 6;
-@pSize-750mx: 7;
-@pSize-875mx: 8;
-@pSize-1000mx: 9;
-@pSize-1125mx: 10;
-@pSize-1250mx: 11;
-@pSize-1375mx: 12;
-@pSize-1500mx: 13;
-@pSize-1625mx: 14;
-@pSize-1750mx: 15;
-@pSize-1875mx: 16;
-@pSize-2000mx: 17;
+@pSize-250mx: 2;
+@pSize-500mx: 3;
+@pSize-750mx: 4;
+@pSize-1000mx: 5;
+@pSize-1250mx: 6;
+@pSize-1500mx: 7;
+@pSize-1750mx: 8;
+@pSize-2000mx: 9;
+@pSize-2250mx: 10;
+@pSize-2500mx: 11;
+@pSize-2750mx: 12;
+@pSize-3000mx: 13;
+@pSize-3250mx: 14;
+@pSize-3500mx: 15;
+@pSize-3750mx: 16;
+@pSize-4000mx: 17;
 
 // Utility mixins for defining padding sizes downstream.
 .padding(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
@@ -517,18 +534,27 @@
 
 // Standard padding options in em units for all OUE websites
 @pSize-1--rem: 0;
-@pSize-2--rem: 0.5rem;
-@pSize-3--rem: 1rem;
-@pSize-4--rem: 1.5rem;
-@pSize-5--rem: 2rem;
-@pSize-6--rem: 2.5rem;
-@pSize-7--rem: 3rem;
-@pSize-8--rem: 3.5rem;
-@pSize-9--rem: 4rem;
+@pSize-2--rem: .25rem;
+@pSize-3--rem: .5rem;
+@pSize-4--rem: .75rem;
+@pSize-5--rem: 1rem;
+@pSize-6--rem: 1.25rem;
+@pSize-7--rem: 1.5rem;
+@pSize-8--rem: 1.75rem;
+@pSize-9--rem: 2rem;
+@pSize-10--rem: 2.25rem;
+@pSize-11--rem: 2.5rem;
+@pSize-12--rem: 2.75rem;
+@pSize-13--rem: 3rem;
+@pSize-14--rem: 3.25rem;
+@pSize-15--rem: 3.5rem;
+@pSize-16--rem: 3.75rem;
+@pSize-17--rem: 4rem;
 
 // OUE em padding array
 @pSize-array--rem: @pSize-1--rem, @pSize-2--rem, @pSize-3--rem, @pSize-4--rem, @pSize-5--rem,
-	@pSize-6--rem, @pSize-7--rem, @pSize-8--rem, @pSize-9--rem;
+	@pSize-6--rem, @pSize-7--rem, @pSize-8--rem, @pSize-9--rem, @pSize-10--rem, @pSize-11--rem,
+	@pSize-11--rem;
 
 // Semantic em padding
 @pSize-0mx--rem: 1;
@@ -540,9 +566,17 @@
 @pSize-1500mx--rem: 7;
 @pSize-1750mx--rem: 8;
 @pSize-2000mx--rem: 9;
+@pSize-2250mx--rem: 10;
+@pSize-2500mx--rem: 11;
+@pSize-2750mx--rem: 12;
+@pSize-3000mx--rem: 13;
+@pSize-3250mx--rem: 14;
+@pSize-3500mx--rem: 15;
+@pSize-3750mx--rem: 16;
+@pSize-4000mx--rem: 17;
 
 // Utility mixins for defining padding sizes downstream.
-.padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
+.padding--rem(@idx, @whi1ch-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and (isstring(@which-dir)) {
 	.padding--rem__parse-dir(@size, @dir) when (@dir = "all") {
 		padding: @size;
