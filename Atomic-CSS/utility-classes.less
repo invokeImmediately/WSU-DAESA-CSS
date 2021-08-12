@@ -9,7 +9,7 @@
  *  Designed to be imported downstream of other Less files in the final stylesheet build so its
  *    rules will have the greatest possible weight in style conflict resolution.
  *
- *  @version 1.0.3
+ *  @version 1.0.4
  *
  *  @author Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/blob/master/…→
@@ -31,45 +31,45 @@
  *  ────────────────────────────────────────────────────────────────────────────────────────────────
  *   TABLE OF CONTENTS:
  *   ────────────────────────────────────────────────────────────────────────────────────────────
- *   §1: Box-sizing............................................................................81
- *   §2: Widths................................................................................93
- *       >>> §2.1: Percent widths..............................................................97
- *       >>> §2.2: Pixel widths...............................................................140
- *       >>> §2.3: Additional widths..........................................................195
- *   §3: Heights..............................................................................226
- *       >>> §3.1: Pixel heights..............................................................230
- *       >>> §3.2: Em heights.................................................................000
- *       >>> §3.3: Additional heights.........................................................273
- *   §4: Typography...........................................................................281
- *       >>> §4.1: Font Sizing................................................................285
- *       >>> §4.2: Line Heights...............................................................349
- *       >>> §4.3: Bolding....................................................................396
- *       >>> §4.4: Text transformation........................................................425
- *       >>> §4.5: Text alignment.............................................................437
- *   §5: Spacing..............................................................................457
- *   §6: Floating.............................................................................477
- *       >>> §6.1: Clearing...................................................................493
- *   §7: Display..............................................................................510
- *       >>> §7.1: Flex-box...................................................................578
- *          └> §7.5.1: Flex direction.........................................................586
- *          └> §7.5.2: Flex wrapping..........................................................606
- *          └> §7.5.3: Content justification..................................................622
- *          └> §7.5.4: Item alignment.........................................................646
- *          └> §7.5.5: Content alignment......................................................666
- *          └> §7.5.6: Basis..................................................................690
- *          └> §7.5.6: Growth.................................................................706
- *          └> §7.5.6: Shrinking..............................................................718
- *   §8: Margins..............................................................................730
- *       >>> §8.1: General margins............................................................734
- *       >>> §8.2: In units of "em"...........................................................744
- *       >>> §8.3: In units of "rem"..........................................................774
- *   §9: Padding..............................................................................812
- *       >>> §9.1: In units of "em"...........................................................816
- *       >>> §9.2: In units of "rem"..........................................................850
- *   §10: Vertical alignment..................................................................887
- *   §11: Colors..............................................................................923
- *       >>> §11.1: General...................................................................976
- *       >>> §11.2: WSU Crimsons..............................................................984
+ *   §1: Box-sizing............................................................................79
+ *   §2: Widths................................................................................91
+ *       >>> §2.1: Percent widths..............................................................95
+ *       >>> §2.2: Pixel widths...............................................................133
+ *       >>> §2.3: Additional widths..........................................................182
+ *   §3: Heights..............................................................................213
+ *       >>> §3.1: Pixel heights..............................................................217
+ *       >>> §3.2: Em heights.................................................................255
+ *       >>> §3.3: Additional heights.........................................................296
+ *   §4: Typography...........................................................................304
+ *       >>> §4.1: Font Sizing................................................................308
+ *       >>> §4.2: Line Heights...............................................................366
+ *       >>> §4.3: Bolding....................................................................408
+ *       >>> §4.4: Text transformation........................................................435
+ *       >>> §4.5: Text alignment.............................................................447
+ *   §5: Spacing..............................................................................467
+ *   §6: Floating.............................................................................483
+ *       >>> §6.1: Clearing...................................................................499
+ *   §7: Display..............................................................................516
+ *       >>> §7.1: Flex-box...................................................................584
+ *          └> §7.5.1: Flex direction.........................................................592
+ *          └> §7.5.2: Flex wrapping..........................................................612
+ *          └> §7.5.3: Content justification..................................................628
+ *          └> §7.5.4: Item alignment.........................................................652
+ *          └> §7.5.5: Content alignment......................................................672
+ *          └> §7.5.6: Basis..................................................................696
+ *          └> §7.5.6: Growth.................................................................712
+ *          └> §7.5.6: Shrinking..............................................................724
+ *   §8: Margins..............................................................................736
+ *       >>> §8.1: General margins............................................................740
+ *       >>> §8.2: In units of "em"...........................................................750
+ *       >>> §8.3: In units of "rem"..........................................................780
+ *   §9: Padding..............................................................................813
+ *       >>> §9.1: In units of "em"...........................................................817
+ *       >>> §9.2: In units of "rem"..........................................................849
+ *   §10: Vertical alignment..................................................................881
+ *   §11: Colors..............................................................................917
+ *       >>> §11.1: General...................................................................970
+ *       >>> §11.2: WSU Crimsons..............................................................978
  *  ────────────────────────────────────────────────────────────────────────────────────────────────
  */
 
@@ -95,130 +95,119 @@
  *    >>> §2.1: Percent widths
  */
 
-	@pct-width-1--class: ~"5pct";
-	@pct-width-2--class: ~"10pct";
-	@pct-width-3--class: ~"15pct";
-	@pct-width-4--class: ~"20pct";
-	@pct-width-5--class: ~"25pct";
-	@pct-width-6--class: ~"33pct";
-	@pct-width-7--class: ~"35pct";
-	@pct-width-8--class: ~"35pct";
-	@pct-width-9--class: ~"40pct";
-	@pct-width-10--class: ~"45pct";
-	@pct-width-11--class: ~"50pct";
-	@pct-width-12--class: ~"55pct";
-	@pct-width-13--class: ~"60pct";
-	@pct-width-14--class: ~"65pct";
-	@pct-width-15--class: ~"66pct";
-	@pct-width-16--class: ~"70pct";
-	@pct-width-17--class: ~"75pct";
-	@pct-width-18--class: ~"80pct";
-	@pct-width-19--class: ~"85pct";
-	@pct-width-20--class: ~"90pct";
-	@pct-width-21--class: ~"95pct";
-	@pct-width-22--class: ~"100pct";
+  @pct-width-1--class: ~"5pct";
+  @pct-width-2--class: ~"10pct";
+  @pct-width-3--class: ~"15pct";
+  @pct-width-4--class: ~"20pct";
+  @pct-width-5--class: ~"25pct";
+  @pct-width-6--class: ~"33pct";
+  @pct-width-7--class: ~"35pct";
+  @pct-width-8--class: ~"35pct";
+  @pct-width-9--class: ~"40pct";
+  @pct-width-10--class: ~"45pct";
+  @pct-width-11--class: ~"50pct";
+  @pct-width-12--class: ~"55pct";
+  @pct-width-13--class: ~"60pct";
+  @pct-width-14--class: ~"65pct";
+  @pct-width-15--class: ~"66pct";
+  @pct-width-16--class: ~"70pct";
+  @pct-width-17--class: ~"75pct";
+  @pct-width-18--class: ~"80pct";
+  @pct-width-19--class: ~"85pct";
+  @pct-width-20--class: ~"90pct";
+  @pct-width-21--class: ~"95pct";
+  @pct-width-22--class: ~"100pct";
 
-	@pct-width--class-array: @pct-width-1--class, @pct-width-2--class, @pct-width-3--class,
-		@pct-width-4--class, @pct-width-5--class, @pct-width-6--class, @pct-width-7--class,
-		@pct-width-8--class, @pct-width-9--class, @pct-width-10--class, @pct-width-11--class,
-		@pct-width-12--class, @pct-width-13--class, @pct-width-14--class, @pct-width-15--class,
-		@pct-width-16--class, @pct-width-17--class, @pct-width-18--class, @pct-width-19--class,
-		@pct-width-20--class, @pct-width-21--class, @pct-width-22--class;
+  @pct-width--class-array: @pct-width-1--class, @pct-width-2--class, @pct-width-3--class, @pct-width-4--class, @pct-width-5--class, @pct-width-6--class, @pct-width-7--class, @pct-width-8--class, @pct-width-9--class, @pct-width-10--class, @pct-width-11--class, @pct-width-12--class, @pct-width-13--class, @pct-width-14--class, @pct-width-15--class, @pct-width-16--class, @pct-width-17--class, @pct-width-18--class, @pct-width-19--class, @pct-width-20--class, @pct-width-21--class, @pct-width-22--class;
 
-	.pct-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pct-width-array)) {
-		.pct-width-loop((@idx - 1));
-		@class-name: extract(@pct-width--class-array, @idx);
-		.w--@{class-name} {
-			.w--pct@idx);
-		}
-	}
-	.pct-width-loop(length(@pct-width-array));
+  .pct-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pct-width-array)) {
+    .pct-width-loop((@idx - 1));
+    @class-name: extract(@pct-width--class-array, @idx);
+    .w--@{class-name} {
+      .w--pct(@idx);
+    }
+  }
+  .pct-width-loop(length(@pct-width-array));
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §2.2: Pixel widths
  */
 
-	@pxl-width-1--class: ~"64px";
-	@pxl-width-2--class: ~"80px";
-	@pxl-width-3--class: ~"96px";
-	@pxl-width-4--class: ~"112px";
-	@pxl-width-5--class: ~"128px";
-	@pxl-width-6--class: ~"144px";
-	@pxl-width-7--class: ~"160px";
-	@pxl-width-8--class: ~"176px";
-	@pxl-width-9--class: ~"192px";
-	@pxl-width-10--class: ~"208px";
-	@pxl-width-11--class: ~"224px";
-	@pxl-width-12--class: ~"240px";
-	@pxl-width-13--class: ~"256px";
-	@pxl-width-14--class: ~"288px";
-	@pxl-width-15--class: ~"320px";
-	@pxl-width-16--class: ~"384px";
-	@pxl-width-17--class: ~"448px";
-	@pxl-width-18--class: ~"512px";
-	@pxl-width-19--class: ~"576px";
-	@pxl-width-20--class: ~"640px";
-	@pxl-width-21--class: ~"704px";
-	@pxl-width-22--class: ~"768px";
-	@pxl-width-23--class: ~"832px";
-	@pxl-width-24--class: ~"896px";
-	@pxl-width-25--class: ~"960px";
+  @pxl-width-1--class: ~"64px";
+  @pxl-width-2--class: ~"80px";
+  @pxl-width-3--class: ~"96px";
+  @pxl-width-4--class: ~"112px";
+  @pxl-width-5--class: ~"128px";
+  @pxl-width-6--class: ~"144px";
+  @pxl-width-7--class: ~"160px";
+  @pxl-width-8--class: ~"176px";
+  @pxl-width-9--class: ~"192px";
+  @pxl-width-10--class: ~"208px";
+  @pxl-width-11--class: ~"224px";
+  @pxl-width-12--class: ~"240px";
+  @pxl-width-13--class: ~"256px";
+  @pxl-width-14--class: ~"288px";
+  @pxl-width-15--class: ~"320px";
+  @pxl-width-16--class: ~"384px";
+  @pxl-width-17--class: ~"448px";
+  @pxl-width-18--class: ~"512px";
+  @pxl-width-19--class: ~"576px";
+  @pxl-width-20--class: ~"640px";
+  @pxl-width-21--class: ~"704px";
+  @pxl-width-22--class: ~"768px";
+  @pxl-width-23--class: ~"832px";
+  @pxl-width-24--class: ~"896px";
+  @pxl-width-25--class: ~"960px";
 
-	@pxl-width--class-array: @pxl-width-1--class, @pxl-width-2--class, @pxl-width-3--class,
-		@pxl-width-4--class, @pxl-width-5--class, @pxl-width-6--class, @pxl-width-7--class,
-		@pxl-width-8--class, @pxl-width-9--class, @pxl-width-10--class, @pxl-width-11--class,
-		@pxl-width-12--class, @pxl-width-13--class, @pxl-width-14--class, @pxl-width-15--class,
-		@pxl-width-16--class, @pxl-width-17--class, @pxl-width-18--class, @pxl-width-19--class,
-		@pxl-width-20--class, @pxl-width-21--class, @pxl-width-22--class, @pxl-width-23--class,
-		@pxl-width-24--class, @pxl-width-25--class;
+  @pxl-width--class-array: @pxl-width-1--class, @pxl-width-2--class, @pxl-width-3--class, @pxl-width-4--class, @pxl-width-5--class, @pxl-width-6--class, @pxl-width-7--class, @pxl-width-8--class, @pxl-width-9--class, @pxl-width-10--class, @pxl-width-11--class, @pxl-width-12--class, @pxl-width-13--class, @pxl-width-14--class, @pxl-width-15--class, @pxl-width-16--class, @pxl-width-17--class, @pxl-width-18--class, @pxl-width-19--class, @pxl-width-20--class, @pxl-width-21--class, @pxl-width-22--class, @pxl-width-23--class, @pxl-width-24--class, @pxl-width-25--class;
 
-	.pxl-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pxl-width-array)) {
-		.pxl-width-loop((@idx - 1));
-		@class-name: extract(@pxl-width--class-array, @idx);
-		.w--@{class-name} {
-			.width--pxl(@idx);
-		}
+  .pxl-width-loop(@idx) when (@idx > 0) and (@idx <= length(@pxl-width-array)) {
+    .pxl-width-loop((@idx - 1));
+    @class-name: extract(@pxl-width--class-array, @idx);
+    .w--@{class-name} {
+      .w--pxl(@idx);
+    }
 
-		.mnw--@{class-name} {
-			min-width: extract(@pxl-width-array, @idx);
-		}
+    .mnw--@{class-name} {
+      min-width: extract(@pxl-width-array, @idx);
+    }
 
-		.mw--@{class-name} {
-			max-width: extract(@pxl-width-array, @idx);
-		}
-	}
-	.pxl-width-loop(length(@pxl-width-array));
+    .mw--@{class-name} {
+      max-width: extract(@pxl-width-array, @idx);
+    }
+  }
+  .pxl-width-loop(length(@pxl-width-array));
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §2.3: Additional widths
  */
-	.mw--none {
-		max-width: none;
-	}
+  .mw--none {
+    max-width: none;
+  }
 
-	.mw--80ch {
-		max-width: 80ch;
-	}
+  .mw--80ch {
+    max-width: 80ch;
+  }
 
-	.mw--75ch {
-		max-width: 75ch;
-	}
+  .mw--75ch {
+    max-width: 75ch;
+  }
 
-	.mw--70ch {
-		max-width: 70ch;
-	}
+  .mw--70ch {
+    max-width: 70ch;
+  }
 
-	.mw--65ch {
-		max-width: 65ch;
-	}
+  .mw--65ch {
+    max-width: 65ch;
+  }
 
-	.mw--60ch {
-		max-width: 60ch;
-	}
+  .mw--60ch {
+    max-width: 60ch;
+  }
 
-	.w--auto {
-		width: auto;
-	}
+  .w--auto {
+    width: auto;
+  }
 
 /** ================================================================================================
  *  §3: Heights
@@ -228,51 +217,87 @@
  *    >>> §3.1: Pixel heights
  */
 
-	@pxl-height-1--class: ~"64px";
-	@pxl-height-2--class: ~"80px";
-	@pxl-height-3--class: ~"96px";
-	@pxl-height-4--class: ~"112px";
-	@pxl-height-5--class: ~"128px";
-	@pxl-height-6--class: ~"144px";
-	@pxl-height-7--class: ~"160px";
-	@pxl-height-8--class: ~"176px";
-	@pxl-height-9--class: ~"192px";
-	@pxl-height-10--class: ~"208px";
-	@pxl-height-11--class: ~"224px";
-	@pxl-height-12--class: ~"240px";
-	@pxl-height-13--class: ~"256px";
-	@pxl-height-14--class: ~"272px";
-	@pxl-height-15--class: ~"288px";
-	@pxl-height-16--class: ~"304px";
-	@pxl-height-17--class: ~"320px";
-	@pxl-height-18--class: ~"336px";
-	@pxl-height-19--class: ~"352px";
-	@pxl-height-20--class: ~"368px";
-	@pxl-height-21--class: ~"384px";
-	@pxl-height-22--class: ~"400px";
+  @pxl-height-1--class: ~"64px";
+  @pxl-height-2--class: ~"80px";
+  @pxl-height-3--class: ~"96px";
+  @pxl-height-4--class: ~"112px";
+  @pxl-height-5--class: ~"128px";
+  @pxl-height-6--class: ~"144px";
+  @pxl-height-7--class: ~"160px";
+  @pxl-height-8--class: ~"176px";
+  @pxl-height-9--class: ~"192px";
+  @pxl-height-10--class: ~"208px";
+  @pxl-height-11--class: ~"224px";
+  @pxl-height-12--class: ~"240px";
+  @pxl-height-13--class: ~"256px";
+  @pxl-height-14--class: ~"272px";
+  @pxl-height-15--class: ~"288px";
+  @pxl-height-16--class: ~"304px";
+  @pxl-height-17--class: ~"320px";
+  @pxl-height-18--class: ~"336px";
+  @pxl-height-19--class: ~"352px";
+  @pxl-height-20--class: ~"368px";
+  @pxl-height-21--class: ~"384px";
+  @pxl-height-22--class: ~"400px";
 
-	@pxl-height--class-array: @pxl-height-1--class, @pxl-height-2--class, @pxl-height-3--class,
-		@pxl-height-4--class, @pxl-height-5--class, @pxl-height-6--class, @pxl-height-7--class,
-		@pxl-height-8--class, @pxl-height-9--class, @pxl-height-10--class, @pxl-height-11--class,
-		@pxl-height-12--class, @pxl-height-13--class, @pxl-height-14--class, @pxl-height-15--class,
-		@pxl-height-16--class, @pxl-height-17--class, @pxl-height-18--class, @pxl-height-19--class,
-		@pxl-height-20--class, @pxl-height-21--class, @pxl-height-22--class;
+  @pxl-height--class-array: @pxl-height-1--class, @pxl-height-2--class, @pxl-height-3--class, @pxl-height-4--class, @pxl-height-5--class, @pxl-height-6--class, @pxl-height-7--class, @pxl-height-8--class, @pxl-height-9--class, @pxl-height-10--class, @pxl-height-11--class, @pxl-height-12--class, @pxl-height-13--class, @pxl-height-14--class, @pxl-height-15--class, @pxl-height-16--class, @pxl-height-17--class, @pxl-height-18--class, @pxl-height-19--class, @pxl-height-20--class, @pxl-height-21--class, @pxl-height-22--class;
 
-	.pxl-height-loop(@idx) when (@idx > 0) and (@idx <= length(@pxl-height-array)) {
-		.pxl-height-loop((@idx - 1));
-		@class-name: extract(@pxl-height--class-array, @idx);
-		.h--@{class-name} {
-			.h--pxl(@idx);
-		}
-	}
-	.pxl-height-loop(length(@pxl-height-array));
+  .pxl-height-loop(@idx) when (@idx > 0) and (@idx <= length(@pxl-height-array)) {
+    .pxl-height-loop((@idx - 1));
+    @class-name: extract(@pxl-height--class-array, @idx);
+    .h--@{class-name} {
+      .h--pxl(@idx);
+    }
+  }
+  .pxl-height-loop(length(@pxl-height-array));
+
+/**   ----------------------------------------------------------------------------------------------
+ *    >>> §3.2: Em heights
+ */
+
+  @em-height-1--class: ~"250mem";
+  @em-height-2--class: ~"333mem";
+  @em-height-3--class: ~"500mem";
+  @em-height-4--class: ~"667mem";
+  @em-height-5--class: ~"750mem";
+  @em-height-6--class: ~"1em";
+  @em-height-7--class: ~"1250mem";
+  @em-height-8--class: ~"1333mem";
+  @em-height-9--class: ~"1500mem";
+  @em-height-10--class: ~"1667mem";
+  @em-height-11--class: ~"1750mem";
+  @em-height-12--class: ~"2em";
+  @em-height-13--class: ~"3em";
+  @em-height-14--class: ~"45dem";
+  @em-height-15--class: ~"6em";
+  @em-height-16--class: ~"75dem";
+  @em-height-17--class: ~"9em";
+  @em-height-18--class: ~"105dem";
+  @em-height-19--class: ~"12em";
+  @em-height-20--class: ~"135dem";
+  @em-height-21--class: ~"15em";
+  @em-height-22--class: ~"165dem";
+  @em-height-23--class: ~"18em";
+  @em-height-24--class: ~"195dem";
+  @em-height-25--class: ~"21em";
+
+  @em-height--class-array: @em-height-1--class, @em-height-2--class, @em-height-3--class, @em-height-4--class, @em-height-5--class, @em-height-6--class, @em-height-7--class, @em-height-8--class, @em-height-9--class, @em-height-10--class, @em-height-11--class, @em-height-12--class, @em-height-13--class, @em-height-14--class, @em-height-15--class, @em-height-16--class, @em-height-17--class, @em-height-18--class, @em-height-19--class, @em-height-20--class, @em-height-21--class, @em-height-22--class, @em-height-23--class, @em-height-24--class, @em-height-25--class;
+
+  .em-height-loop(@idx) when (@idx > 0) and (@idx <= length(@em-height-array)) {
+    .em-height-loop((@idx - 1));
+    @class-name: extract(@em-height--class-array, @idx);
+    .h--@{class-name} {
+      .h--em(@idx);
+    }
+  }
+  .em-height-loop(length(@em-height-array));
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §3.3: Additional heights
  */
 
 .h--auto {
-	height: auto;
+  height: auto;
 }
 
 /** ================================================================================================
@@ -293,55 +318,49 @@
 
 // TODO: Reduce number of options to reduce file size
 
-	@fSize--class-array: ~"400mx" @fSize-400mx, ~"500mx" @fSize-500mx, ~"600mx" @fSize-600mx,
-		~"700mx" @fSize-700mx, ~"800mx" @fSize-800mx, ~"900mx" @fSize-900mx, ~"1000mx" @fSize-1000mx,
-		~"1100mx" @fSize-1100mx, ~"1200mx" @fSize-1200mx, ~"1300mx" @fSize-1300mx,
-		~"1400mx" @fSize-1400mx, ~"1500mx" @fSize-1500mx, ~"1600mx" @fSize-1600mx,
-		~"1700mx" @fSize-1700mx, ~"1800mx" @fSize-1800mx, ~"1900mx" @fSize-1900mx,
-		~"2000mx" @fSize-2000mx, ~"2100mx" @fSize-2100mx, ~"2200mx" @fSize-2200mx,
-		~"2300mx" @fSize-2300mx, ~"2400mx" @fSize-2400mx;
+  @fSize--class-array: ~"400mx" @fSize-400mx, ~"500mx" @fSize-500mx, ~"600mx" @fSize-600mx, ~"700mx" @fSize-700mx, ~"800mx" @fSize-800mx, ~"900mx" @fSize-900mx, ~"1000mx" @fSize-1000mx, ~"1100mx" @fSize-1100mx, ~"1200mx" @fSize-1200mx, ~"1300mx" @fSize-1300mx, ~"1400mx" @fSize-1400mx, ~"1500mx" @fSize-1500mx, ~"1600mx" @fSize-1600mx, ~"1700mx" @fSize-1700mx, ~"1800mx" @fSize-1800mx, ~"1900mx" @fSize-1900mx, ~"2000mx" @fSize-2000mx, ~"2100mx" @fSize-2100mx, ~"2200mx" @fSize-2200mx, ~"2300mx" @fSize-2300mx, ~"2400mx" @fSize-2400mx;
 
-	.fSize-loop(@idx) when (@idx > 0) and (@idx <= length(@fSize-array)) {
-		.fSize-loop((@idx - 1));
-		@class-name: extract(extract(@fSize--class-array, @idx), 1);
-		@value-idx: extract(extract(@fSize--class-array, @idx), 2);
-		.font-size--@{class-name},
-		.fs--@{class-name} {
-			.font-size(@value-idx);
-		}
-	}
-	.fSize-loop(length(@fSize-array));
+  .fSize-loop(@idx) when (@idx > 0) and (@idx <= length(@fSize-array)) {
+    .fSize-loop((@idx - 1));
+    @class-name: extract(extract(@fSize--class-array, @idx), 1);
+    @value-idx: extract(extract(@fSize--class-array, @idx), 2);
+    .font-size--@{class-name},
+    .fs--@{class-name} {
+      .font-size(@value-idx);
+    }
+  }
+  .fSize-loop(length(@fSize-array));
 
-	// Semantic font-sizing with reference to standard heading sizes
-	.h1-fs,
-	.fs--h1 {
-		.font-size(@h1-font-size);
-	}
+  // Semantic font-sizing with reference to standard heading sizes
+  .h1-fs,
+  .fs--h1 {
+    .font-size(@h1-font-size);
+  }
 
-	.h2-fs,
-	.fs--h2 {
-		.font-size(@h2-font-size);
-	}
+  .h2-fs,
+  .fs--h2 {
+    .font-size(@h2-font-size);
+  }
 
-	.h3-fs,
-	.fs--h3 {
-		.font-size(@h3-font-size);
-	}
+  .h3-fs,
+  .fs--h3 {
+    .font-size(@h3-font-size);
+  }
 
-	.h4-fs,
-	.fs--h4 {
-		.font-size(@h4-font-size);
-	}
+  .h4-fs,
+  .fs--h4 {
+    .font-size(@h4-font-size);
+  }
 
-	.h5-fs,
-	.fs--h5 {
-		.font-size(@h5-font-size);
-	}
+  .h5-fs,
+  .fs--h5 {
+    .font-size(@h5-font-size);
+  }
 
-	.h6-fs,
-	.fs--h6 {
-		.font-size(@h6-font-size);
-	}
+  .h6-fs,
+  .fs--h6 {
+    .font-size(@h6-font-size);
+  }
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §4.2: Line heights
@@ -352,377 +371,366 @@
  *        which are both defined in utility-mixins.less.
  */
 
-	@lHeight-1--class: ~"667mx";
-	@lHeight-2--class: ~"700mx";
-	@lHeight-3--class: ~"733mx";
-	@lHeight-4--class: ~"767mx";
-	@lHeight-5--class: ~"800mx";
-	@lHeight-6--class: ~"833mx";
-	@lHeight-7--class: ~"867mx";
-	@lHeight-8--class: ~"900mx";
-	@lHeight-9--class: ~"933mx";
-	@lHeight-10--class: ~"967mx";
-	@lHeight-11--class: ~"1000mx";
-	@lHeight-12--class: ~"1033mx";
-	@lHeight-13--class: ~"1067mx";
-	@lHeight-14--class: ~"1100mx";
-	@lHeight-15--class: ~"1133mx";
-	@lHeight-16--class: ~"1167mx";
-	@lHeight-17--class: ~"1200mx";
-	@lHeight-18--class: ~"1233mx";
-	@lHeight-19--class: ~"1267mx";
-	@lHeight-20--class: ~"1300mx";
-	@lHeight-21--class: ~"1333mx";
+  @lHeight-1--class: ~"667mx";
+  @lHeight-2--class: ~"700mx";
+  @lHeight-3--class: ~"733mx";
+  @lHeight-4--class: ~"767mx";
+  @lHeight-5--class: ~"800mx";
+  @lHeight-6--class: ~"833mx";
+  @lHeight-7--class: ~"867mx";
+  @lHeight-8--class: ~"900mx";
+  @lHeight-9--class: ~"933mx";
+  @lHeight-10--class: ~"967mx";
+  @lHeight-11--class: ~"1000mx";
+  @lHeight-12--class: ~"1033mx";
+  @lHeight-13--class: ~"1067mx";
+  @lHeight-14--class: ~"1100mx";
+  @lHeight-15--class: ~"1133mx";
+  @lHeight-16--class: ~"1167mx";
+  @lHeight-17--class: ~"1200mx";
+  @lHeight-18--class: ~"1233mx";
+  @lHeight-19--class: ~"1267mx";
+  @lHeight-20--class: ~"1300mx";
+  @lHeight-21--class: ~"1333mx";
 
-	@lHeight--class-array: @lHeight-1--class, @lHeight-2--class, @lHeight-3--class,
-		@lHeight-4--class, @lHeight-5--class, @lHeight-6--class, @lHeight-7--class,
-		@lHeight-8--class, @lHeight-9--class, @lHeight-10--class, @lHeight-11--class,
-		@lHeight-12--class, @lHeight-13--class, @lHeight-14--class, @lHeight-15--class,
-		@lHeight-16--class, @lHeight-17--class, @lHeight-18--class, @lHeight-19--class,
-		@lHeight-20--class, @lHeight-21--class;
+  @lHeight--class-array: @lHeight-1--class, @lHeight-2--class, @lHeight-3--class, @lHeight-4--class, @lHeight-5--class, @lHeight-6--class, @lHeight-7--class, @lHeight-8--class, @lHeight-9--class, @lHeight-10--class, @lHeight-11--class, @lHeight-12--class, @lHeight-13--class, @lHeight-14--class, @lHeight-15--class, @lHeight-16--class, @lHeight-17--class, @lHeight-18--class, @lHeight-19--class, @lHeight-20--class, @lHeight-21--class;
 
-	.lHeight-loop(@idx) when (@idx > 0) and (@idx <= length(@lHeight-array)) {
-		.lHeight-loop((@idx - 1));
-		@class-name: extract(@lHeight--class-array, @idx);
-		.lh--@{class-name} {
-			.line-height(@idx);
-		}
-	}
-	.lHeight-loop(length(@lHeight-array));
+  .lHeight-loop(@idx) when (@idx > 0) and (@idx <= length(@lHeight-array)) {
+    .lHeight-loop((@idx - 1));
+    @class-name: extract(@lHeight--class-array, @idx);
+    .lh--@{class-name} {
+      .line-height(@idx);
+    }
+  }
+  .lHeight-loop(length(@lHeight-array));
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §4.3: Bolding
  */
 
-	@fWeight-1--class: ~"light";
-	@fWeight-1--value: @fWeight-light;
-	@fWeight-2--class: ~"normal";
-	@fWeight-2--value: @fWeight-normal;
-	@fWeight-3--class: ~"semi-bold";
-	@fWeight-3--value: @fWeight-semi-bold;
-	@fWeight-4--class: ~"bold";
-	@fWeight-4--value: @fWeight-bold;
-	@fWeight-5--class: ~"extra-bold";
-	@fWeight-5--value: @fWeight-extra-bold;
+  @fWeight-1--class: ~"light";
+  @fWeight-1--value: @fWeight-light;
+  @fWeight-2--class: ~"normal";
+  @fWeight-2--value: @fWeight-normal;
+  @fWeight-3--class: ~"semi-bold";
+  @fWeight-3--value: @fWeight-semi-bold;
+  @fWeight-4--class: ~"bold";
+  @fWeight-4--value: @fWeight-bold;
+  @fWeight-5--class: ~"extra-bold";
+  @fWeight-5--value: @fWeight-extra-bold;
 
-	@fWeight--array: @fWeight-1--class @fWeight-1--value, @fWeight-2--class @fWeight-2--value,
-		@fWeight-3--class @fWeight-3--value, @fWeight-4--class @fWeight-4--value,
-		@fWeight-5--class @fWeight-5--value;
+  @fWeight--array: @fWeight-1--class @fWeight-1--value, @fWeight-2--class @fWeight-2--value, @fWeight-3--class @fWeight-3--value, @fWeight-4--class @fWeight-4--value, @fWeight-5--class @fWeight-5--value;
 
-	.fWeight-loop(@idx) when (@idx > 0) and (@idx <= length(@fWeight--array)) {
-		.fWeight-loop((@idx - 1));
-		@class-name: extract(extract(@fWeight--array, @idx), 1);
-		@value: extract(extract(@fWeight--array, @idx), 2);
-		.fw--@{class-name} {
-			.font-weight(@value);
-		}
-	}
-	.fWeight-loop(length(@fWeight--array));
+  .fWeight-loop(@idx) when (@idx > 0) and (@idx <= length(@fWeight--array)) {
+    .fWeight-loop((@idx - 1));
+    @class-name: extract(extract(@fWeight--array, @idx), 1);
+    @value: extract(extract(@fWeight--array, @idx), 2);
+    .fw--@{class-name} {
+      .font-weight(@value);
+    }
+  }
+  .fWeight-loop(length(@fWeight--array));
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §4.4: Text transformation
  */
 
-	.tt--none {
-		text-transform: none;
-	}
+  .tt--none {
+    text-transform: none;
+  }
 
-	.tt--uppercase {
-		text-transform: uppercase;
-	}
+  .tt--uppercase {
+    text-transform: uppercase;
+  }
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §4.5: Text alignment
  */
 
-	.ta--center {
-		text-align: center;
-	}
+  .ta--center {
+    text-align: center;
+  }
 
-	.ta--justify {
-		text-align: justify;
-	}
+  .ta--justify {
+    text-align: justify;
+  }
 
-	.ta--left {
-		text-align: left;
-	}
+  .ta--left {
+    text-align: left;
+  }
 
-	.ta--right {
-		text-align: left;
-	}
+  .ta--right {
+    text-align: left;
+  }
 
 /**   ----------------------------------------------------------------------------------------------
  *    §5: Spacing
  */
 
-	@spacing--array: ~"0mx" @spacing-0mx, ~"250mx" @spacing-250mx, ~"500mx" @spacing-500mx,
-		~"750mx" @spacing-750mx, ~"1000mx" @spacing-1000mx, ~"1250mx" @spacing-1250mx,
-		~"1500mx" @spacing-1500mx, ~"1750mx" @spacing-1750mx, ~"2000mx" @spacing-2000mx,
-		~"2500mx" @spacing-2500mx, ~"3000mx" @spacing-3000mx,	~"3500mx" @spacing-3500mx,
-		~"4000mx" @spacing-4000mx;
+  @spacing--array: ~"0mx" @spacing-0mx, ~"250mx" @spacing-250mx, ~"500mx" @spacing-500mx, ~"750mx" @spacing-750mx, ~"1000mx" @spacing-1000mx, ~"1250mx" @spacing-1250mx, ~"1500mx" @spacing-1500mx, ~"1750mx" @spacing-1750mx, ~"2000mx" @spacing-2000mx, ~"2500mx" @spacing-2500mx, ~"3000mx" @spacing-3000mx, ~"3500mx" @spacing-3500mx, ~"4000mx" @spacing-4000mx;
 
-	.spacing-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
-		.spacing-loop((@idx - 1));
-		@class-name: extract(extract(@spacing--array, @idx), 1);
-		@value-idx: extract(extract(@spacing--array, @idx), 2);
-		.column * + .sv--@{class-name} {
-			margin-top: extract(@mSize-array, @value-idx);
-		}
-	}
-	.spacing-loop(length(@spacing--array));
+  .spacing-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+    .spacing-loop((@idx - 1));
+    @class-name: extract(extract(@spacing--array, @idx), 1);
+    @value-idx: extract(extract(@spacing--array, @idx), 2);
+    .column * + .sv--@{class-name} {
+      margin-top: extract(@mSize-array, @value-idx);
+    }
+  }
+  .spacing-loop(length(@spacing--array));
 
 /** ================================================================================================
  *  §6: Floating
  */
 
-	.flt--none {
-		float: none;
-	}
+  .flt--none {
+    float: none;
+  }
 
-	.flt--right {
-		float: right;
-	}
+  .flt--right {
+    float: right;
+  }
 
-	.flt--left {
-		float: left;
-	}
+  .flt--left {
+    float: left;
+  }
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §6.1: Clearing
  */
 
-	.clr--left {
-		clear: left;
-	}
+  .clr--left {
+    clear: left;
+  }
 
-	.clr--right {
-		clear: right;
-	}
+  .clr--right {
+    clear: right;
+  }
 
-	.clr--both {
-		clear: both;
-	}
+  .clr--both {
+    clear: both;
+  }
 
 
 /** ================================================================================================
  *  §7: Display
  */
 
-	.dy--block {
-		display: block;
-	}
+  .dy--block {
+    display: block;
+  }
 
-	.dy--inline {
-		display: inline;
-	}
+  .dy--inline {
+    display: inline;
+  }
 
-	.dy--inline-block {
-		display: inline-block;
-	}
+  .dy--inline-block {
+    display: inline-block;
+  }
 
-	.dy--none {
-		display: none;
-	}
+  .dy--none {
+    display: none;
+  }
 
-	.show-on-mobile {
-		@media all {
-			@media (min-width: (@large-mobile-screen-width + 1)) {
-				display: none !important;
-			}
-		}
-	}
+  .show-on-mobile {
+    @media all {
+      @media (min-width: (@large-mobile-screen-width + 1)) {
+        display: none !important;
+      }
+    }
+  }
 
-	.hide-on-mobile {
-		@media all {
-			@media (max-width: (@large-mobile-screen-width)) {
-				display: none !important;
-			}
-		}
-	}
+  .hide-on-mobile {
+    @media all {
+      @media (max-width: (@large-mobile-screen-width)) {
+        display: none !important;
+      }
+    }
+  }
 
-	.show-on-tablet {
-		@media all {
-			@media (min-width: (@tablet-screen-width + 1)) {
-				display: none !important;
-			}
-		}
-	}
+  .show-on-tablet {
+    @media all {
+      @media (min-width: (@tablet-screen-width + 1)) {
+        display: none !important;
+      }
+    }
+  }
 
-	.hide-on-tablet {
-		@media all {
-			@media (max-width: (@tablet-screen-width)) {
-				display: none !important;
-			}
-		}
-	}
+  .hide-on-tablet {
+    @media all {
+      @media (max-width: (@tablet-screen-width)) {
+        display: none !important;
+      }
+    }
+  }
 
-	.show-when-floating-columns {
-		@media all {
-			@media (max-width: (@column-floating-threshold)) {
-				display: none !important;
-			}
-		}
-	}
+  .show-when-floating-columns {
+    @media all {
+      @media (max-width: (@column-floating-threshold)) {
+        display: none !important;
+      }
+    }
+  }
 
-	.hide-when-floating-columns {
-		@media all {
-			@media (min-width: (@column-floating-threshold + 1)) {
-				display: none !important;
-			}
-		}
-	}
+  .hide-when-floating-columns {
+    @media all {
+      @media (min-width: (@column-floating-threshold + 1)) {
+        display: none !important;
+      }
+    }
+  }
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §7.1: Flex-box
  */
 
-	.dy--flex {
-		display: flex;
-	}
+  .dy--flex {
+    display: flex;
+  }
 
 /**     ····························································································
  *       └> §7.5.1: Flex direction
  */
 
-	.flxd--row {
-		flex-direction: row;
-	}
+  .flxd--row {
+    flex-direction: row;
+  }
 
-	.flxd--row-reverse {
-		flex-direction: row-reverse;
-	}
+  .flxd--row-reverse {
+    flex-direction: row-reverse;
+  }
 
-	.flxd--column {
-		flex-direction: column;
-	}
+  .flxd--column {
+    flex-direction: column;
+  }
 
-	.flxd--column-reverse {
-		flex-direction: column;
-	}
+  .flxd--column-reverse {
+    flex-direction: column;
+  }
 
 /**     ····························································································
  *       └> §7.5.2: Flex wrapping
  */
 
-	.flxw--no-wrap {
-		flex-wrap: nowrap;
-	}
+  .flxw--no-wrap {
+    flex-wrap: nowrap;
+  }
 
-	.flxw--wrap {
-		flex-wrap: wrap;
-	}
+  .flxw--wrap {
+    flex-wrap: wrap;
+  }
 
-	.flxw--wrap-reverse {
-		flex-wrap: wrap;
-	}
+  .flxw--wrap-reverse {
+    flex-wrap: wrap;
+  }
 
 /**     ····························································································
  *       └> §7.5.3: Content justification
  */
 
-	.flxjc--start {
-		justify-content: start;
-	}
+  .flxjc--start {
+    justify-content: start;
+  }
 
-	.flxjc--center {
-		justify-content: center;
-	}
+  .flxjc--center {
+    justify-content: center;
+  }
 
-	.flxjc--space-between {
-		justify-content: space-between;
-	}
+  .flxjc--space-between {
+    justify-content: space-between;
+  }
 
-	.flxjc--space-around {
-		justify-content: space-around;
-	}
+  .flxjc--space-around {
+    justify-content: space-around;
+  }
 
-	.flxjc--space-evenly {
-		justify-content: space-evenly;
-	}
+  .flxjc--space-evenly {
+    justify-content: space-evenly;
+  }
 
 /**     ····························································································
  *       └> §7.5.4: Item alignment
  */
 
-	.flxai--flex-start {
-		align-items: flex-start;
-	}
+  .flxai--flex-start {
+    align-items: flex-start;
+  }
 
-	.flxai--flex-end {
-		align-items: flex-end;
-	}
+  .flxai--flex-end {
+    align-items: flex-end;
+  }
 
-	.flxai--stretch {
-		align-items: stretch;
-	}
+  .flxai--stretch {
+    align-items: stretch;
+  }
 
-	.flxai--center {
-		align-items: center;
-	}
+  .flxai--center {
+    align-items: center;
+  }
 
 /**     ····························································································
  *       └> §7.5.5: Content alignment
  */
 
-	.flxac--flex-start {
-		align-content: flex-start;
-	}
+  .flxac--flex-start {
+    align-content: flex-start;
+  }
 
-	.flxac--flex-end {
-		align-content: flex-end;
-	}
+  .flxac--flex-end {
+    align-content: flex-end;
+  }
 
-	.flxac--center {
-		align-content: center;
-	}
+  .flxac--center {
+    align-content: center;
+  }
 
-	.flxac--space-between {
-		align-content: space-between;
-	}
+  .flxac--space-between {
+    align-content: space-between;
+  }
 
-	.flxac--space-around {
-		align-content: space-around;
-	}
+  .flxac--space-around {
+    align-content: space-around;
+  }
 
 /**     ····························································································
  *       └> §7.5.6: Basis
  */
 
-	.flxb--0 {
-		flex-basis: 0;
-	}
+  .flxb--0 {
+    flex-basis: 0;
+  }
 
-	.flxb--auto {
-		flex-basis: auto;
-	}
+  .flxb--auto {
+    flex-basis: auto;
+  }
 
-	.flxb--content {
-		flex-basis: content;
-	}
+  .flxb--content {
+    flex-basis: content;
+  }
 
 /**     ····························································································
  *       └> §7.5.7: Growth
  */
 
-	.flxg--0 {
-		flex-grow: 0;
-	}
+  .flxg--0 {
+    flex-grow: 0;
+  }
 
-	.flxg--1 {
-		flex-grow: 1;
-	}
+  .flxg--1 {
+    flex-grow: 1;
+  }
 
 /**     ····························································································
  *       └> §7.5.8: Shrinking
  */
 
-	.flxs--0 {
-		flex-shrink: 0;
-	}
+  .flxs--0 {
+    flex-shrink: 0;
+  }
 
-	.flxs--1 {
-		flex-shrink: 1;
-	}
+  .flxs--1 {
+    flex-shrink: 1;
+  }
 
 /** ================================================================================================
  *  §8: Margins
@@ -732,79 +740,74 @@
  *    >>> §8.1: General margins
  */
 
-	.mh--auto {
-		margin-left: auto;
-		margin-right: auto;
-	}
+  .mh--auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §8.2: In units of "em"
  */
 
-	.margin-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
-		.margin-loop((@idx - 1));
-		@class-name: extract(extract(@spacing--array, @idx), 1);
-		@value-idx: extract(extract(@spacing--array, @idx), 2);
-		.ma--@{class-name} {
-			.margin(@value-idx, "all");
-		}
+  .margin-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+    .margin-loop((@idx - 1));
+    @class-name: extract(extract(@spacing--array, @idx), 1);
+    @value-idx: extract(extract(@spacing--array, @idx), 2);
+    .ma--@{class-name} {
+      .margin(@value-idx, "all");
+    }
 
-		.mb--@{class-name} {
-			.margin(@value-idx, "bottom");
-		}
+    .mb--@{class-name} {
+      .margin(@value-idx, "bottom");
+    }
 
-		.ml--@{class-name} {
-			.margin(@value-idx, "left");
-		}
+    .ml--@{class-name} {
+      .margin(@value-idx, "left");
+    }
 
-		.mr--@{class-name} {
-			.margin(@value-idx, "right");
-		}
+    .mr--@{class-name} {
+      .margin(@value-idx, "right");
+    }
 
-		.mt--@{class-name} {
-			.margin(@value-idx, "top");
-		}
-	}
-	.margin-loop(length(@spacing--array));
+    .mt--@{class-name} {
+      .margin(@value-idx, "top");
+    }
+  }
+  .margin-loop(length(@spacing--array));
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §8.3: In units of "rem"
  */
 
-	@margins--rem--array: ~"0mx" @rem-mSize-0mx, ~"250mx" @rem-mSize-250mx,
-		~"500mx" @rem-mSize-500mx, ~"750mx" @rem-mSize-750mx, ~"1000mx" @rem-mSize-1000mx,
-		~"1250mx" @rem-mSize-1250mx, ~"1500mx" @rem-mSize-1500mx, ~"1750mx" @rem-mSize-1750mx,
-		~"2000mx" @rem-mSize-2000mx, ~"2250mx" @rem-mSize-2250mx, ~"2500mx" @rem-mSize-2500mx,
-		~"2750mx" @rem-mSize-2750mx, ~"3000mx" @rem-mSize-3000mx, ~"3250mx" @rem-mSize-3250mx,
-		~"3500mx" @rem-mSize-3500mx, ~"3750mx" @rem-mSize-3750mx, ~"4000mx" @rem-mSize-4000mx;
+  @margins--rem--array: ~"0mx" @rem-mSize-0mx, ~"250mx" @rem-mSize-250mx, ~"500mx" @rem-mSize-500mx, ~"750mx" @rem-mSize-750mx, ~"1000mx" @rem-mSize-1000mx, ~"1250mx" @rem-mSize-1250mx, ~"1500mx" @rem-mSize-1500mx, ~"1750mx" @rem-mSize-1750mx, ~"2000mx" @rem-mSize-2000mx, ~"2250mx" @rem-mSize-2250mx, ~"2500mx" @rem-mSize-2500mx, ~"2750mx" @rem-mSize-2750mx, ~"3000mx" @rem-mSize-3000mx, ~"3250mx" @rem-mSize-3250mx, ~"3500mx" @rem-mSize-3500mx, ~"3750mx" @rem-mSize-3750mx, ~"4000mx" @rem-mSize-4000mx;
 
 
-	.margin-rem-loop(@idx) when (@idx > 0) and (@idx <= length(@margins--rem--array)) {
-		.margin-rem-loop((@idx - 1));
-		@class-name: extract(extract(@margins--rem--array, @idx), 1);
-		@value-idx: extract(extract(@margins--rem--array, @idx), 2);
-		.ma--rem--@{class-name} {
-			.margins-rem(@value-idx, "all");
-		}
+  .margin-rem-loop(@idx) when (@idx > 0) and (@idx <= length(@margins--rem--array)) {
+    .margin-rem-loop((@idx - 1));
+    @class-name: extract(extract(@margins--rem--array, @idx), 1);
+    @value-idx: extract(extract(@margins--rem--array, @idx), 2);
+    .ma--rem--@{class-name} {
+      .margins-rem(@value-idx, "all");
+    }
 
-		.mb--rem--@{class-name} {
-			.margins-rem(@value-idx, "bottom");
-		}
+    .mb--rem--@{class-name} {
+      .margins-rem(@value-idx, "bottom");
+    }
 
-		.ml--rem--@{class-name} {
-			.margins-rem(@value-idx, "left");
-		}
+    .ml--rem--@{class-name} {
+      .margins-rem(@value-idx, "left");
+    }
 
-		.mr--rem--@{class-name} {
-			.margins-rem(@value-idx, "right");
-		}
+    .mr--rem--@{class-name} {
+      .margins-rem(@value-idx, "right");
+    }
 
-		.mt--rem--@{class-name} {
-			.margins-rem(@value-idx, "top");
-		}
-	}
-	.margin-rem-loop( length( @margins--rem--array ) );
+    .mt--rem--@{class-name} {
+      .margins-rem(@value-idx, "top");
+    }
+  }
+  .margin-rem-loop( length( @margins--rem--array ) );
 
 /** ================================================================================================
  *  §9: Padding
@@ -814,181 +817,174 @@
  *    >>> §9.1: In units of "em"
  */
 
-	@padding--array: ~"0mx" @pSize-0mx, ~"250mx" @pSize-250mx, ~"500mx" @pSize-500mx,
-		~"750mx" @pSize-750mx, ~"1000mx" @pSize-1000mx, ~"1250mx" @pSize-1250mx,
-		~"1500mx" @pSize-1500mx, ~"1750mx" @pSize-1750mx, ~"2000mx" @pSize-2000mx;
+  @padding--array: ~"0mx" @pSize-0mx, ~"250mx" @pSize-250mx, ~"500mx" @pSize-500mx, ~"750mx" @pSize-750mx, ~"1000mx" @pSize-1000mx, ~"1250mx" @pSize-1250mx, ~"1500mx" @pSize-1500mx, ~"1750mx" @pSize-1750mx, ~"2000mx" @pSize-2000mx;
 
-	.padding-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
-		.padding-loop((@idx - 1));
-		@class-name: extract(extract(@padding--array, @idx), 1);
-		@value-idx: extract(extract(@padding--array, @idx), 2);
-		.pa--@{class-name} {
-			.padding(@value-idx, "all");
-		}
+  .padding-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+    .padding-loop((@idx - 1));
+    @class-name: extract(extract(@padding--array, @idx), 1);
+    @value-idx: extract(extract(@padding--array, @idx), 2);
+    .pa--@{class-name} {
+      .padding(@value-idx, "all");
+    }
 
-		.pb--@{class-name} {
-			.padding(@value-idx, "bottom");
-		}
+    .pb--@{class-name} {
+      .padding(@value-idx, "bottom");
+    }
 
-		.pl--@{class-name} {
-			.padding(@value-idx, "left");
-		}
+    .pl--@{class-name} {
+      .padding(@value-idx, "left");
+    }
 
-		.pr--@{class-name} {
-			.padding(@value-idx, "right");
-		}
+    .pr--@{class-name} {
+      .padding(@value-idx, "right");
+    }
 
-		.pt--@{class-name} {
-			.padding(@value-idx, "top");
-		}
-	}
-	.padding-loop(length(@padding--array));
+    .pt--@{class-name} {
+      .padding(@value-idx, "top");
+    }
+  }
+  .padding-loop(length(@padding--array));
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §9.2: In units of "rem"
  */
 
-	@padding--rem--array: ~"0mx" @pSize-0mx--rem, ~"250mx" @pSize-250mx--rem,
-		~"500mx" @pSize-500mx--rem, ~"750mx" @pSize-750mx--rem, ~"1000mx" @pSize-1000mx--rem,
-		~"1250mx" @pSize-1250mx--rem, ~"1500mx" @pSize-1500mx--rem, ~"1750mx" @pSize-1750mx--rem,
-		~"2000mx" @pSize-2000mx--rem, ~"2250mx" @pSize-2250mx--rem, ~"2500mx" @pSize-2500mx--rem,
-		~"2750mx" @pSize-2750mx--rem, ~"3000mx" @pSize-3000mx--rem, ~"3250mx" @pSize-3250mx--rem,
-		~"3500mx" @pSize-3500mx--rem, ~"3750mx" @pSize-3750mx--rem, ~"4000mx" @pSize-4000mx--rem;
+  @padding--rem--array: ~"0mx" @pSize-0mx--rem, ~"250mx" @pSize-250mx--rem, ~"500mx" @pSize-500mx--rem, ~"750mx" @pSize-750mx--rem, ~"1000mx" @pSize-1000mx--rem, ~"1250mx" @pSize-1250mx--rem, ~"1500mx" @pSize-1500mx--rem, ~"1750mx" @pSize-1750mx--rem, ~"2000mx" @pSize-2000mx--rem, ~"2250mx" @pSize-2250mx--rem, ~"2500mx" @pSize-2500mx--rem, ~"2750mx" @pSize-2750mx--rem, ~"3000mx" @pSize-3000mx--rem, ~"3250mx" @pSize-3250mx--rem, ~"3500mx" @pSize-3500mx--rem, ~"3750mx" @pSize-3750mx--rem, ~"4000mx" @pSize-4000mx--rem;
 
-	.padding-rem-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
-		.padding-rem-loop((@idx - 1));
-		@class-name: extract(extract(@padding--rem--array, @idx), 1);
-		@value-idx: extract(extract(@padding--rem--array, @idx), 2);
-		.pa--rem--@{class-name} {
-			.padding--rem(@value-idx, "all");
-		}
+  .padding-rem-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+    .padding-rem-loop((@idx - 1));
+    @class-name: extract(extract(@padding--rem--array, @idx), 1);
+    @value-idx: extract(extract(@padding--rem--array, @idx), 2);
+    .pa--rem--@{class-name} {
+      .padding--rem(@value-idx, "all");
+    }
 
-		.pb--rem--@{class-name} {
-			.padding--rem(@value-idx, "bottom");
-		}
+    .pb--rem--@{class-name} {
+      .padding--rem(@value-idx, "bottom");
+    }
 
-		.pl--rem--@{class-name} {
-			.padding--rem(@value-idx, "left");
-		}
+    .pl--rem--@{class-name} {
+      .padding--rem(@value-idx, "left");
+    }
 
-		.pr--rem--@{class-name} {
-			.padding--rem(@value-idx, "right");
-		}
+    .pr--rem--@{class-name} {
+      .padding--rem(@value-idx, "right");
+    }
 
-		.pt--rem--@{class-name} {
-			.padding--rem(@value-idx, "top");
-		}
-	}
-	.padding-rem-loop(length(@padding--rem--array));
+    .pt--rem--@{class-name} {
+      .padding--rem(@value-idx, "top");
+    }
+  }
+  .padding-rem-loop(length(@padding--rem--array));
 
 /** ================================================================================================
  *  §10: Vertical alignment
  */
 
-	.va--baseline {
-		vertical-align: baseline;
-	}
+  .va--baseline {
+    vertical-align: baseline;
+  }
 
-	.va--bottom {
-		vertical-align: bottom;
-	}
+  .va--bottom {
+    vertical-align: bottom;
+  }
 
-	.va--middle {
-		vertical-align: middle;
-	}
+  .va--middle {
+    vertical-align: middle;
+  }
 
-	.va--sub {
-		vertical-align: sub;
-	}
+  .va--sub {
+    vertical-align: sub;
+  }
 
-	.va--super {
-		vertical-align: super;
-	}
+  .va--super {
+    vertical-align: super;
+  }
 
-	.va--text-bottom {
-		vertical-align: text-bottom;
-	}
+  .va--text-bottom {
+    vertical-align: text-bottom;
+  }
 
-	.va--text-top {
-		vertical-align: text-top;
-	}
+  .va--text-top {
+    vertical-align: text-top;
+  }
 
-	.va--top {
-		vertical-align: top;
-	}
+  .va--top {
+    vertical-align: top;
+  }
 
 /** ================================================================================================
  *  §11: Colors
  */
 
-	@color-modifiers-list: ~"lightest", ~"lighter", ~"light", ~"lightish", ~"darkish", ~"dark",
-		~"darker", ~"darkest", ~"accent";
+  @color-modifiers-list: ~"lightest", ~"lighter", ~"light", ~"lightish", ~"darkish", ~"dark",
+    ~"darker", ~"darkest", ~"accent";
 
-	.color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when (@idx > 0) and
-			(@use-these-classes = 1) and (@idx <= length(@color-modifiers-list)) and
-			(length(@color-modifiers-list) = length(@color-list)) {
-		.color-class-loop(@use-these-classes, @class-name, @color-list, (@idx - 1));
-		@modifier: extract(@color-modifiers-list, @idx);
-		@color-value: extract(@color-list, @idx);
-		.c--@{class-name}--@{modifier} {
-			color: @color-value;
-		}
-	}
+  .color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when (@idx > 0) and
+      (@use-these-classes = 1) and (@idx <= length(@color-modifiers-list)) and
+      (length(@color-modifiers-list) = length(@color-list)) {
+    .color-class-loop(@use-these-classes, @class-name, @color-list, (@idx - 1));
+    @modifier: extract(@color-modifiers-list, @idx);
+    @color-value: extract(@color-list, @idx);
+    .c--@{class-name}--@{modifier} {
+      color: @color-value;
+    }
+  }
 
-	.color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when (@idx > 0) and
-			(@use-these-classes = 0) and (@idx <= length(@color-modifiers-list)) and
-			(length(@color-modifiers-list) = length(@color-list)) {
-		// Do nothing b/c @use-these-classes = 0
-	}
+  .color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when (@idx > 0) and
+      (@use-these-classes = 0) and (@idx <= length(@color-modifiers-list)) and
+      (length(@color-modifiers-list) = length(@color-list)) {
+    // Do nothing b/c @use-these-classes = 0
+  }
 
-	.background-color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when
-			(@idx > 0) and (@use-these-classes = 1) and (@idx <= length(@color-modifiers-list)) and
-			(length(@color-modifiers-list) = length(@color-list)) {
-		.background-color-class-loop(@use-these-classes, @class-name, @color-list, (@idx - 1));
-		@modifier: extract(@color-modifiers-list, @idx);
-		@color-value: extract(@color-list, @idx);
-		.bgc--@{class-name}--@{modifier} {
-			background-color: @color-value;
-		}
-		.bgc--@{class-name}--@{modifier}--25pct {
-			.getRgbaForProp(returned, @color-value, 0.25);
-			background-color: @returned;
-		}
-	}
+  .background-color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when
+      (@idx > 0) and (@use-these-classes = 1) and (@idx <= length(@color-modifiers-list)) and
+      (length(@color-modifiers-list) = length(@color-list)) {
+    .background-color-class-loop(@use-these-classes, @class-name, @color-list, (@idx - 1));
+    @modifier: extract(@color-modifiers-list, @idx);
+    @color-value: extract(@color-list, @idx);
+    .bgc--@{class-name}--@{modifier} {
+      background-color: @color-value;
+    }
+    .bgc--@{class-name}--@{modifier}--25pct {
+      .getRgbaForProp(returned, @color-value, 0.25);
+      background-color: @returned;
+    }
+  }
 
-	.background-color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when
-			(@idx > 0) and (@use-these-classes = 0) and (@idx <= length(@color-modifiers-list)) and
-			(length(@color-modifiers-list) = length(@color-list)) {
-		// Do nothing b/c @use-these-classes = 0
-	}
+  .background-color-class-loop(@use-these-classes, @class-name, @color-list, @idx) when
+      (@idx > 0) and (@use-these-classes = 0) and (@idx <= length(@color-modifiers-list)) and
+      (length(@color-modifiers-list) = length(@color-list)) {
+    // Do nothing b/c @use-these-classes = 0
+  }
 
-	.define-bg-color-tint(@class-name, @color-list, @idx)  when (@idx > 0) and
-			(@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
-			length(@color-list)) {
-		.bgc--@{class-name}--tint {
-			background-color: tint(extract(@color-list, @idx), 87%);
-		}	
-	}
+  .define-bg-color-tint(@class-name, @color-list, @idx)  when (@idx > 0) and
+      (@idx <= length(@color-modifiers-list)) and (length(@color-modifiers-list) =
+      length(@color-list)) {
+    .bgc--@{class-name}--tint {
+      background-color: tint(extract(@color-list, @idx), 87%);
+    }
+  }
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §11.1: General
  */
 
-	.bgc--transparent {
-		background-color: transparent;
-	}
+  .bgc--transparent {
+    background-color: transparent;
+  }
 
 /**   ----------------------------------------------------------------------------------------------
  *    >>> §11.2: WSU Crimsons
  */
 
-	.color-class-loop( @use-crimson-color-scheme, ~"crimson", @colors--crimsons__hex,
-		length( @colors--crimsons__hex ) );
+  .color-class-loop( @use-crimson-color-scheme, ~"crimson", @colors--crimsons__hex,
+    length( @colors--crimsons__hex ) );
 
-	.background-color-class-loop( @use-crimson-color-scheme, ~"crimson", @colors--crimsons__hex,
-		length(@colors--crimsons__hex));
+  .background-color-class-loop( @use-crimson-color-scheme, ~"crimson", @colors--crimsons__hex,
+    length(@colors--crimsons__hex));
 
-	.define-bg-color-tint( ~"crimson", @colors--crimsons__hex, @colors__darkish );
+  .define-bg-color-tint( ~"crimson", @colors--crimsons__hex, @colors__darkish );
 };
 
 .declare-ruleset(@daesa-utility-classes-ruleset, @oue-rules-wrapper);
