@@ -7,7 +7,7 @@
  *    functional style declarations and creating utility classes. Designed as a dependency to be
  *    imported upstream of other Less files in the final stylesheet build.
  *
- *  @version 1.0.0
+ *  @version 1.0.1
  *
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/
  *  @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
@@ -998,7 +998,7 @@
 .style--card__() {
 	border-radius: @style--card__border-radius;
 	box-sizing: border-box;
-	padding: extract(@pSize-array--rem, @pSize-500mx--rem);
+	padding: extract(@pSize-array--rem, @pSize-1000mx--rem);
 }
 
 .style--card--flat__() {
@@ -1019,15 +1019,15 @@
 
 .style--card__title__() {
 	color: extract(@colors--grays__hex, @colors__darker);
-	margin-left: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
-	margin-right: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
-	padding: extract(@pSize-array--rem, @pSize-250mx--rem) extract(@pSize-array--rem,
-		@pSize-500mx--rem);
+	margin-left: -1 * extract(@rem-mSize-array, @rem-mSize-1000mx);
+	margin-right: -1 * extract(@rem-mSize-array, @rem-mSize-1000mx);
+	padding: extract(@pSize-array--rem, @pSize-500mx--rem) extract(@pSize-array--rem,
+		@pSize-1000mx--rem);
 
 	&:first-child {
 		border-top-left-radius: (@style--card__border-radius - 1);
 		border-top-right-radius: (@style--card__border-radius - 1);
-		margin-top: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
+		margin-top: -1 * extract(@rem-mSize-array, @rem-mSize-1000mx);
 	}
 }
 
@@ -1042,7 +1042,7 @@
 	margin-left: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
 	margin-right: -1 * extract(@rem-mSize-array, @rem-mSize-500mx);
 	letter-spacing: 1px;
-	padding: extract(@pSize-array--rem, @pSize-250mx--rem) extract(@pSize-array--rem,
-		@pSize-500mx--rem);
+	padding: extract(@pSize-array--rem, @pSize-500mx--rem) extract(@pSize-array--rem,
+		@pSize-1000mx--rem);
 	word-spacing: 1px;
 }
