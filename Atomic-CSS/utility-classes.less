@@ -820,7 +820,7 @@
 
   @padding--array: ~"0mx" @pSize-0mx, ~"250mx" @pSize-250mx, ~"500mx" @pSize-500mx, ~"750mx" @pSize-750mx, ~"1000mx" @pSize-1000mx, ~"1250mx" @pSize-1250mx, ~"1500mx" @pSize-1500mx, ~"1750mx" @pSize-1750mx, ~"2000mx" @pSize-2000mx;
 
-  .padding-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+  .padding-loop(@idx) when (@idx > 0) and (@idx <= length(@padding--array)) {
     .padding-loop((@idx - 1));
     @class-name: extract(extract(@padding--array, @idx), 1);
     @value-idx: extract(extract(@padding--array, @idx), 2);
@@ -852,7 +852,7 @@
 
   @padding--rem--array: ~"0mx" @pSize-0mx--rem, ~"250mx" @pSize-250mx--rem, ~"500mx" @pSize-500mx--rem, ~"750mx" @pSize-750mx--rem, ~"1000mx" @pSize-1000mx--rem, ~"1250mx" @pSize-1250mx--rem, ~"1500mx" @pSize-1500mx--rem, ~"1750mx" @pSize-1750mx--rem, ~"2000mx" @pSize-2000mx--rem, ~"2250mx" @pSize-2250mx--rem, ~"2500mx" @pSize-2500mx--rem, ~"2750mx" @pSize-2750mx--rem, ~"3000mx" @pSize-3000mx--rem, ~"3250mx" @pSize-3250mx--rem, ~"3500mx" @pSize-3500mx--rem, ~"3750mx" @pSize-3750mx--rem, ~"4000mx" @pSize-4000mx--rem;
 
-  .padding-rem-loop(@idx) when (@idx > 0) and (@idx <= length(@spacing--array)) {
+  .padding-rem-loop(@idx) when (@idx > 0) and (@idx <= length(@padding--rem--array)) {
     .padding-rem-loop((@idx - 1));
     @class-name: extract(extract(@padding--rem--array, @idx), 1);
     @value-idx: extract(extract(@padding--rem--array, @idx), 2);
