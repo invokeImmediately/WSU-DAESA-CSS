@@ -7,7 +7,7 @@
  *    functional style declarations and creating utility classes. Designed as a dependency to be
  *    imported upstream of other Less files in the final stylesheet build.
  *
- *  @version 1.0.1
+ *  @version 1.0.2
  *
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/
  *  @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
@@ -657,7 +657,7 @@
 @pSize-4000mx--rem: 17;
 
 // Utility mixins for defining padding sizes downstream.
-.padding--rem(@idx, @whi1ch-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
+.padding--rem(@idx, @which-dir) when (isnumber(@idx)) and not (ispixel(@idx)) and
 		not (ispercentage(@idx)) and (@idx <= length(@pSize-array)) and (isstring(@which-dir)) {
 	.padding--rem__parse-dir(@size, @dir) when (@dir = "all") {
 		padding: @size;
