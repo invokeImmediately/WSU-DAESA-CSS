@@ -8,7 +8,7 @@
 ***   accompany or supersede the theme's stylesheet via application to the site using the CSS
 ***   Stylesheet Editor, set to add-on mode, in the WordPress administration area.
 *** 
-*** @version 1.0.0
+*** @version 1.0.1
 *** 
 *** @link https://github.com/invokeImmediately/WSU-DAESA-CSS/blob/master/Spine-Theme/paragraphs.less
 *** @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
@@ -32,9 +32,9 @@
 ***  §1: Legacy style declarations (prior to a11y redesign)....................................46
 ***    >>> §1.1: Component-based styling.......................................................50
 ***       └> §1.1.1: Article decks.............................................................56
-***       └> §1.1.2: Article taglines..........................................................68
-***  §2: Accessibility friendly classes........................................................86
-***    >>> §2.1: Style Defaults................................................................90
+***       └> §1.1.2: Article taglines..........................................................63
+***  §2: Accessibility friendly classes........................................................81
+***    >>> §2.1: Style Defaults................................................................85
 *** ────────────────────────────────────────────────────────────────────────────────────────────────
 **/
 
@@ -56,12 +56,7 @@
 ***      └> §1.1.1: Article decks
 **/
 	.article-deck {
-		.has-sectionally-responsive-font(@v-artcl-deck-sz, @body-text--lHeight);
-		color: @hex-dark-green;
-
-		strong {
-			color: @hex-green;
-		}
+		font-size: @sz__article-deck;
 	}
 
 /**     ····························································································
@@ -69,13 +64,13 @@
 **/
 
 	.article-tagline {
-		font-size: @v-artcl-tgln-sz;
-		font-weight: @v-artcl-tgln-wght;
-		line-height: @v-artcl-tgln-lnhght;
+		font-size: @sz__article-tagline;
+		font-weight: @sz__article-tagline-wght;
+		line-height: @sz__article-tagline-lh;
 
 		&.home,
 		&.article-tagline--home {
-			font-size: @v-artcl-tgln-sz * 1.15;
+			font-size: @sz__article-tagline * 1.15;
 		}
 	}
 };
