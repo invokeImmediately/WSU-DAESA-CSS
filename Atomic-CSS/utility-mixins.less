@@ -7,7 +7,7 @@
  *    functional style declarations and creating utility classes. Designed as a dependency to be
  *    imported upstream of other Less files in the final stylesheet build.
  *
- *  @version 1.0.2
+ *  @version 1.0.3
  *
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/
  *  @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
@@ -1002,18 +1002,14 @@
 }
 
 .style--card--flat__() {
-	.getRgbaForProp(returned, extract(@colors--grays__hex, @colors__darkest), 0.03);
-	.getRgbaForProp(returned-2, extract(@colors--grays__hex, @colors__darkest), 0.02);
-	box-shadow: 0 12px 16px 2px @returned, 0 5px 22px 4px @returned, 0 6px 13px 0 @returned-2;
+	border: 1px solid #eee;
 	.style--card__();
 }
 
 .style--card--raised__() {
-	.getRgbaForProp(returned, extract(@colors--grays__hex, @colors__dark), 0.15);
-	.getRgbaForProp(returned-2, extract(@colors--grays__hex, @colors__darkest), 0.03);
-	.getRgbaForProp(returned-3, extract(@colors--grays__hex, @colors__darkest), 0.02);
-	border: 1px solid @returned;
-	box-shadow: 0 12px 16px 2px @returned-2, 0 5px 22px 4px @returned-2, 0 6px 13px 0 @returned-3;
+	.getRgbaForProp(returned, extract(@colors--grays__hex, @colors__darkest), 0.03);
+	border: 1px solid #eee;
+	box-shadow: 0 6px 8px 1px @returned, 0 5px 11px 2px @returned;
 	.style--card__();
 }
 
