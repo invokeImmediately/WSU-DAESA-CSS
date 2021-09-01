@@ -7,7 +7,7 @@
  *    Academic Engagement web pages built using the builder template of the Spine parent theme of
  *    WSUWP. Styles are designed to accompany or supersede styling associated with the theme.
  *
- *  @version 1.0.0
+ *  @version 1.1.0
  *
  *  @author Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/blob/master/…→
@@ -30,6 +30,14 @@
  */
 
 .use-events-calendar(@sub-header-text) when (isstring(@sub-header-text)) {
+	@event-link-clr: #a60f2d;
+	@event-link-hl-clr: #ca1237;
+	@meta-bg-clr: #eff0f1;
+	@meta-brdr-clr: #ddd;
+	@pg-title-color: @hex-white;
+	@pg-title-bg-color: #58111d;
+	@pg-title-link-color: #ffd9c5;
+
 	.recurring-info-tooltip,
 	.tribe-events-calendar .tribe-events-tooltip,
 	.tribe-events-shortcode.view-week .tribe-events-tooltip,
@@ -41,63 +49,136 @@
 		}
 	}
 
-	.single-tribe_events {
-		.tribe-events-single-event-title {
-			line-height:1.2em;
-		}
-	}
-
-	.single-tribe_venue {
-		.tribe-events-venue-meta {
-			.tribe-venue-name::before {
-				content: "Events by Venue: ";
+	.single-tribe_ {
+		&events {
+			.tribe-events-single-event-title {
+				line-height:1.2em;
 			}
 
-			.venue-address {
-				display: none;
+			.tribe-events-event-meta {
+				background-color: @meta-bg-clr;
+				border-color: @meta-brdr-clr;
+				margin-bottom: 2rem;
+				padding-top: .5rem;
+			}
+
+			#tribe-events-content #tribe-events-footer {
+				border: 0;
+				padding-top: 0;
 			}
 		}
-	}
 
-	.tribe-events-before-html {
-		margin-bottom: 2rem;
+		&venue {
+			.tribe-events-venue-meta {
+				.tribe-venue-name::before {
+					content: "Events by Venue: ";
+				}
 
-		.single-tribe_events & .calendar-intro-message {
-			display: none;
-		}
-	}
-
-	.tribe-events-calendar {
-		td.tribe-events-past,
-		td.tribe-events-present,
-		td.tribe-events-future {
-			div[id*=tribe-events-daynum-] > a {
-				border-bottom: none;
-				border-bottom-color: @colors__links;
-				box-shadow: none;
-
-				&:hover {					
-					border-bottom-left-radius: 0.25em;
-					border-bottom-right-radius: 0.25em;
-					& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@colors__links, 1); }
-					& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@colors__links, .15); }
-					color: @hex-light-crimson;
+				.venue-address {
+					display: none;
 				}
 			}
 		}
 	}
 
-	.tribe-events-loop {
-		.type-tribe_events {
-			& + .type-tribe_events {
-				border-top: 1px solid #eff0f1;
-				padding-top: 1.5em;
+	.tribe-events- {
+		&before-html {
+			&:not(:empty) {
+				margin-bottom: 2rem;
+			}
+
+			.single-tribe_events & .calendar-intro-message {
+				display: none;
 			}
 		}
-	}
 
-	.tribe-events-sub-nav {
-		max-width: none;
+		&calendar {
+			td.tribe-events-past,
+			td.tribe-events-present,
+			td.tribe-events-future {
+				div[id*=tribe-events-daynum-] > a {
+					border-bottom: none;
+					border-bottom-color: @colors__links;
+					box-shadow: none;
+
+					&:hover {					
+						border-bottom-left-radius: 0.25em;
+						border-bottom-right-radius: 0.25em;
+						& { border-bottom: 0.0625em solid @rgba; .getRgbaStr(@colors__links, 1); }
+						& { box-shadow: inset 0 -0.3125em 0 @rgba; .getRgbaStr(@colors__links, .15); }
+						color: @hex-light-crimson;
+					}
+				}
+			}
+		}
+
+		&list-event-title .tribe-event-url {
+			position: relative;
+
+			&:after {
+				background: url(https://s3.wp.wsu.edu/uploads/sites/57/2021/08/wsu-icons_insider-link.svg) .2em/70% no-repeat;
+				content: "";
+				display: inline-block;
+				height: 1em;
+				margin: 0 0 -.05em .1em;
+				position: absolute;
+				width: 1em;
+			}
+		}
+
+		#tribe-events-content &list-event-title .tribe-event-url {
+			&:hover,
+			&:focus {
+				color: @event-link-hl-clr;
+			}
+		}
+
+		&loop {
+			.type-tribe_events {
+				& + .type-tribe_events {
+					border-top: 1px solid #eff0f1;
+					padding-top: 1.5em;
+				}
+			}
+		}
+
+		&page-title {
+			margin-bottom: 0;
+			padding-bottom: 0.5em;
+			padding-top: 0.42em;
+			background-color: @pg-title-bg-color;
+			color: @pg-title-color;
+
+			a {
+				&:not(:hover):not(:focus) {
+					color: @pg-title-link-color;
+					border-bottom: 1px solid transparent;
+					text-decoration: none
+				}
+
+				&:hover,
+				&:focus {
+					.getRgbaStr(@pg-title-color, 0.1)
+					background-color: @rgba;
+					color: @pg-title-color;
+				}
+			}
+		}
+
+		&sub-nav {
+			max-width: none;			
+		}
+
+		#tribe-events-content &venue-details a,
+		#tribe-events-content &read-more,
+		#tribe-events-content &nav-previous a,
+		#tribe-events-content &nav-next a,
+		#tribe-events-content &back a {
+			&:not(:hover):not(:focus) {
+				color: @event-link-clr;
+				border-bottom-color: transparent;
+			}
+		}
 	}
 
 	.tribe_events-template-default,
@@ -276,9 +357,13 @@
 		}
 	}
 
-	#tribe-events-content {
-		@title-color: #58111d;
+	#tribe-events,
+	#tribe-events-pg-template,
+	.tribe-events-pg-template {
+		padding: 0;
+	}
 
+	#tribe-events-content {
 		&.tribe-events-day {
 			.tribe-events-day-time-slot > h5:first-child {
 				background-color: @hex-darker-gray;
@@ -286,24 +371,6 @@
 		}
 
 		&.tribe-events-list {
-			.tribe-events-page-title {
-				padding-bottom: 0.5em;
-				padding-top: 0.42em;
-				border-radius: 10px;
-				background-color: @title-color;
-				color: @hex-white;
-
-				a {
-					color: @hex-light-crimson;
-					border-bottom: 1px solid transparent;
-
-					&:hover {
-						color: tint(@hex-light-crimson, 50%);
-						border-bottom-color: tint(@hex-light-crimson, 50%);
-					}
-				}
-			}
-
 			.tribe-event-schedule-details {
 				font-size: 1.3rem;
 			}
@@ -311,11 +378,6 @@
 			.tribe-events-venue-details {
 				font-size: 1.3rem;
 				margin-top: 0;
-				/*! TODO: Replace with a JavaScript-based solution b/c some events lack a venue, but the plugin loads empty HTML tags regardless.
-				&:before {
-					content: "Location: ";
-					font-weight: bold;
-				}*/
 			}
 
 			.tribe-events-list-separator-month span {
