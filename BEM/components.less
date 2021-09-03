@@ -6,7 +6,7 @@
  *  Less import that contains style rules designed according to component-based CSS conventions and
  *    which are commonly used on all WSU DAESA websites.
  *
- *  @version 1.0.0
+ *  @version 1.0.1
  * 
  *  @author Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/blob/main/…→
@@ -438,7 +438,7 @@
 		}
 
 		.breadcrumb-list__link {
-			&:not(:hover) {
+			&:not(:hover):not(:focus) {
 				box-shadow: none;
 				border-bottom-color: transparent;
 				color: inherit;
