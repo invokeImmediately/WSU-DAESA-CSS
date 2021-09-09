@@ -1,0 +1,105 @@
+/** ────────────────────────────────────────────────────────────────────────────────────────────────
+*** █▀▀▄ ▄▀▀▄ █▀▀▀ ▄▀▀▀ ▄▀▀▄    █▀▀▀ █▀▀▄ ▀█▀ █▀▀▄   █    █▀▀▀ ▄▀▀▀ ▄▀▀▀
+*** █  █ █▄▄█ █▀▀  ▀▀▀█ █▄▄█ ▀▀ █ ▀▄ █▄▄▀  █  █  █   █  ▄ █▀▀  ▀▀▀█ ▀▀▀█
+*** ▀▀▀  █  ▀ ▀▀▀▀ ▀▀▀  █  ▀    ▀▀▀▀ ▀  ▀▄▀▀▀ ▀▀▀  ▀ ▀▀▀  ▀▀▀▀ ▀▀▀  ▀▀▀ 
+***
+*** BEM classes for creating grid layouts on [WSU DAESA](https://daesa.wsu.edu/) websites. Designed
+***   for use with either Spine or WDS based WSUWP themes.
+***
+*** @version 1.0.0
+***
+*** @link https://github.com/invokeImmediately/WSU-DAESA-CSS/main/blob/BEM/daesa-grid.less
+*** @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
+*** @license MIT Copyright (c) 2021 Washington State University
+***   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+***     and associated documentation files (the "Software"), to deal in the Software without
+***     restriction, including without limitation the rights to use, copy, modify, merge, publish,
+***     distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
+***     the Software is furnished to do so, subject to the following conditions:
+***   The above copyright notice and this permission notice shall be included in all copies or
+***     substantial portions of the Software.
+***   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+***     BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+***     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+***     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+***     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+***     SOFTWARE.
+*** ────────────────────────────────────────────────────────────────────────────────────────────────
+**/
+
+@rs__daesa-grids: {
+	.daesa-grid {
+		// Variables affecting Grid layout and properties
+		@gap-size: @default-spacing / 2;
+		@dflt-row-hgt: 1.5em * 3;
+
+		// Grid's default properties as a block
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-auto-rows: minmax(@dflt-row-hgt, auto);
+		grid-gap: @gap-size;
+
+		// Responsive layout
+		@media (max-width: @column-floating-threshold) {
+			grid-template-columns: 1fr;
+		}
+
+		// Modifier classes for grids
+		&--narrow-gap {
+			grid-gap: @gap-size / 2;
+		}
+
+		&--wide-gap {
+			grid-gap: @gap-size * 2;
+		}
+
+		// Elements of grids
+		&__cell {
+			grid-row: auto;
+			grid-column: auto;
+
+			// Row-based modifications
+			&--2w {
+				grid-column: auto / span 2;
+			}
+
+			&--3w {
+				grid-column: auto / span 3;
+			}
+
+			&--2w,
+			&--3w {
+				@media (max-width: @column-floating-threshold) {
+					grid-column: auto;
+				}			
+			}
+
+			// Column-based modifications
+			&--2h {
+				grid-row: auto / span 2;
+			}
+
+			&--3h {
+				grid-row: auto / span 3;
+			}
+
+			&--4h {
+				grid-row: auto / span 4;
+			}
+
+			&--2h,
+			&--3h,
+			&--4h {
+				@media (max-width: @column-floating-threshold) {
+					grid-row: auto;
+				}			
+			}
+
+		// Three-column grid layout
+		&--3-cols {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+};
+
+.declare-ruleset(@rs__daesa-grids, @oue-rules-wrapper, @use-design__daesa-grids);
