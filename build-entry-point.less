@@ -94,7 +94,7 @@
  *
  *  Please refer to the linked GitHub project for fully documented, precompiled source code.
  *
- *  @version 1.1.0-rc0.5.17
+ *  @version 1.1.0-rc0.5.18
  *
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS
  *  @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
@@ -292,7 +292,7 @@ footer.article-footer {
 
 @oue-div-ruleset: {
     div {
-        .column * + &:not([class*="margined-top"]):not([class*="mt--"]):not([class*="sv--"]) {
+        .column > * + &:not([class*="margined-top"]):not([class*="mt--"]):not([class*="sv--"]) {
             margin-top: extract(@mSize-array, @mSize-1000mx);
         }
     }
