@@ -8,7 +8,7 @@
  *    invocation or inclusion of these mixins are designed to accompany or supersede styling
  *    associated with the active theme.
  *
- *  @version 1.1.1
+ *  @version 1.1.2
  *
  *  @author Daniel Rieck <daniel.rieck@wsu.edu> (https://github.com/invokeImmediately)
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/blob/main/mixins.less
@@ -37,12 +37,12 @@
  *   §6: Typography...........................................................................280
  *   §7: Borders..............................................................................309
  *   §8: More typography......................................................................374
- *   §9: Semantic mixins for responsive layouts...............................................517
- *   §10: Iteratively specified CSS declarations..............................................532
- *   §11: Interpolated style declarations.....................................................697
- *   §12: Declaration of detached rulesets....................................................726
- *     >>> §12.1: Rulesets whose selectors might be "wrapped" by a prepended substring........730
- *     >>> §12.2: Unwrapped rulesets..........................................................750
+ *   §9: Semantic mixins for responsive layouts...............................................518
+ *   §10: Iteratively specified CSS declarations..............................................533
+ *   §11: Interpolated style declarations.....................................................698
+ *   §12: Declaration of detached rulesets....................................................727
+ *     >>> §12.1: Rulesets whose selectors might be "wrapped" by a prepended substring........731
+ *     >>> §12.2: Unwrapped rulesets..........................................................751
  *   ───────────────────────────────────────────────────────────────────────────────────────────────
  */
 
@@ -492,6 +492,7 @@
 	.row.single &,
 	.row.side-right &.one,
 	.row.side-left &.two {
+		@scaling-indices: 2, 3, 3, 2, 3, 4;
 		.has-responsive-font(@fntsz, @lnhght, @scaling-factors);
 	}
 	.row.mimic-two-column-sections &,
