@@ -1,727 +1,823 @@
-/** ──────────────────────────────────────────────────────────────────────────────────────────────── 
-***	█▀▀▀ ▄▀▀▄ █▀▀▄ ▐▀▄▀▌▄▀▀▀   █    █▀▀▀ ▄▀▀▀ ▄▀▀▀
-*** █▀▀▀ █  █ █▄▄▀ █ ▀ ▌▀▀▀█   █  ▄ █▀▀  ▀▀▀█ ▀▀▀█
-*** ▀     ▀▀  ▀  ▀▄█   ▀▀▀▀  ▀ ▀▀▀  ▀▀▀▀ ▀▀▀  ▀▀▀
-***
-*** Custom styling for forms appearing on WSUWP websites that is generally used on websites managed
-***   by WSU DAESA.
-***
-*** @version 1.0.0-alpha
-***
-*** @link https://github.com/invokeImmediately/WSU-DAESA-CSS/main/blob/forms.less
-*** @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
-*** @license MIT Copyright (c) 2021 Washington State University
-***   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
-***     and associated documentation files (the "Software"), to deal in the Software without
-***     restriction, including without limitation the rights to use, copy, modify, merge, publish,
-***     distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
-***     the Software is furnished to do so, subject to the following conditions:
-***   The above copyright notice and this permission notice shall be included in all copies or
-***     substantial portions of the Software.
-***   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
-***     BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-***     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-***     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-***     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-***     SOFTWARE.
-*** ────────────────────────────────────────────────────────────────────────────────────────────────
-***  TABLE OF CONTENTS:
-***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Vanilla forms.........................................................................37
-***    >>> §1.1: Form-mediated "Read More" interfaces..........................................41
-***  §2: Gravity forms........................................................................117
-***    >>> §2.1: Modifications of default GF styling..........................................121
-***    >>> §2.2: Required field highlighting..................................................392
-***    >>> §2.3: Advanced form controls.......................................................512
-***  §3: WSUWP password entry form............................................................611
-***  §4: DAESA styled progress indicators.....................................................623
-***  ───────────────────────────────────────────────────────────────────────────────────────────────
-**/
+/** ────────────────────────────────────────────────────────────────────────────────────────────────
+ *  █▀▀▀ ▄▀▀▄ █▀▀▄ ▐▀▄▀▌▄▀▀▀   █    █▀▀▀ ▄▀▀▀ ▄▀▀▀
+ *  █▀▀▀ █  █ █▄▄▀ █ ▀ ▌▀▀▀█   █  ▄ █▀▀  ▀▀▀█ ▀▀▀█
+ *  ▀     ▀▀  ▀  ▀▄█   ▀▀▀▀  ▀ ▀▀▀  ▀▀▀▀ ▀▀▀  ▀▀▀
+ * 
+ *  Custom styling for forms appearing on WSUWP websites that is generally used on websites managed
+ *    by WSU DAESA.
+ * 
+ *  @version 1.0.0
+ * 
+ *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/main/blob/forms.less
+ *  @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
+ *  @license MIT Copyright (c) 2021 Washington State University
+ *    Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+ *      and associated documentation files (the "Software"), to deal in the Software without
+ *      restriction, including without limitation the rights to use, copy, modify, merge, publish,
+ *      distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
+ *      the Software is furnished to do so, subject to the following conditions:
+ *    The above copyright notice and this permission notice shall be included in all copies or
+ *      substantial portions of the Software.
+ *    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+ *      BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *      NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ *      DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *      FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *      SOFTWARE.
+ *  ────────────────────────────────────────────────────────────────────────────────────────────────
+ *   TABLE OF CONTENTS:
+ *   ────────────────────────────────────────────────────────────────────────────────────────────
+ *   §1: Vanilla forms.........................................................................43
+ *     >>> §1.1: Form-mediated "Read More" interfaces..........................................47
+ *   §2: Gravity forms........................................................................123
+ *     >>> §2.1: Modifications of default GF styling (Spine compatible).......................127
+ *     >>> §2.2: Modifications of default GF styling (WDS and Spine compatible)...............398
+ *     >>> §2.3: Required field highlighting..................................................467
+ *     >>> §2.4: Advanced form controls.......................................................613
+ *   §3: WSUWP password entry form............................................................712
+ *   §4: DAESA styled progress indicators.....................................................724
+ *   ───────────────────────────────────────────────────────────────────────────────────────────────
+ */
 
 /** ================================================================================================
-*** §1: Vanilla forms
-**/
+ *  §1: Vanilla forms
+ */
 
 /**     ····························································································
-***     >>> §1.1: Form-mediated "Read More" interfaces
-**/
+ *      >>> §1.1: Form-mediated "Read More" interfaces
+ */
 
 @daesa-forms__read-more: {
-	input.read-more-state {
-		display: none;
+  input.read-more-state {
+    display: none;
 
-		&:checked ~ .read-more-target {
-			margin-top: 0;
-			height: auto;
-			opacity: 1;
-		}
+    &:checked ~ .read-more-target {
+      margin-top: 0;
+      height: auto;
+      opacity: 1;
+    }
 
-		& ~ p label.read-more-trigger:before {
-			content: 'Show more';
-		}
-	}
+    & ~ p label.read-more-trigger:before {
+      content: 'Show more';
+    }
+  }
 
-	label.read-more-trigger {
-		.animation(orange-glow; 5s);
-		background-color: rgba(@rval,@gval,@bval,0.25); .rgb-accent-yellow();
-		border: 1px solid #2a3033;
-		border-radius: .25rem;
-		color: @hex-dark-gray;
-		cursor: pointer;
-		display: inline-block;
-		font-size: .9rem;
-		.keyframes(orange-glow; @rules-orange-glow);
-		line-height: 2;
-		padding: 0 .5rem;
-		position: relative;
-		.transition(~"all 0.3333s ease");
+  label.read-more-trigger {
+    .animation(orange-glow; 5s);
+    background-color: rgba(@rval,@gval,@bval,0.25); .rgb-accent-yellow();
+    border: 1px solid #2a3033;
+    border-radius: .25rem;
+    color: @hex-dark-gray;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .9rem;
+    .keyframes(orange-glow; @rules-orange-glow);
+    line-height: 2;
+    padding: 0 .5rem;
+    position: relative;
+    .transition(~"all 0.3333s ease");
 
-		&:after {
-			border-radius: 0.25rem;
-			bottom: 0;
-			content: "";
-			left: 2px;
-			position: absolute;
-			right: 2px;
-			top: 2px;
+    &:after {
+      border-radius: 0.25rem;
+      bottom: 0;
+      content: "";
+      left: 2px;
+      position: absolute;
+      right: 2px;
+      top: 2px;
 
-			& {
-				@color-top: returned; .getRgbaForProp(@color-top, @hex-white, 0.7);
-				@color-mid-a: returned-2; .getRgbaForProp(@color-mid-a, @hex-white, 0.1);
-				@color-mid-b: returned-3; .getRgbaForProp(@color-mid-b, @hex-black, 0);
-				@color-btm: returned-4; .getRgbaForProp(@color-btm, @hex-black, 0.1);         
-				background: linear-gradient(@@color-top, @@color-mid-a 50%, @@color-mid-b 50%, 
-					@@color-btm);
-			}
-		}
-	}
+      & {
+        @color-top: returned; .getRgbaForProp(@color-top, @hex-white, 0.7);
+        @color-mid-a: returned-2; .getRgbaForProp(@color-mid-a, @hex-white, 0.1);
+        @color-mid-b: returned-3; .getRgbaForProp(@color-mid-b, @hex-black, 0);
+        @color-btm: returned-4; .getRgbaForProp(@color-btm, @hex-black, 0.1);         
+        background: linear-gradient(@@color-top, @@color-mid-a 50%, @@color-mid-b 50%, 
+          @@color-btm);
+      }
+    }
+  }
 
-	label.read-more-trigger:hover {
-		.animation(none);
-		background-color: rgba(@rval,@gval,@bval,1.0); .rgb-accent-yellow();
-		border: 1px solid #2a3033;
-		box-shadow: 0 0 18px rgba(@rval,@gval,@bval,0.6667);
-		color: @hex-darkest-gray;
-	}
+  label.read-more-trigger:hover {
+    .animation(none);
+    background-color: rgba(@rval,@gval,@bval,1.0); .rgb-accent-yellow();
+    border: 1px solid #2a3033;
+    box-shadow: 0 0 18px rgba(@rval,@gval,@bval,0.6667);
+    color: @hex-darkest-gray;
+  }
 
-	div.read-more-target {
-		height: 0;
-		margin-top: .5rem;
-		opacity: 0;
-		overflow: hidden;
-		.transition(~"all .333s ease");
-	}
+  div.read-more-target {
+    height: 0;
+    margin-top: .5rem;
+    opacity: 0;
+    overflow: hidden;
+    .transition(~"all .333s ease");
+  }
 
-	.read-more-state:checked ~ p label.read-more-trigger:before {
-		content: 'Show less';
-	}
+  .read-more-state:checked ~ p label.read-more-trigger:before {
+    content: 'Show less';
+  }
 };
 .declare-ruleset(@daesa-forms__read-more, @oue-rules-wrapper, @use-design__read-more);
 
 /**   ----------------------------------------------------------------------------------------------
-***   §2: Gravity forms
-**/
+ *    §2: Gravity forms
+ */
 
 /**     ····························································································
-***     >>> §2.1: Modifications of default GF styling
-**/
+ *      >>> §2.1: Modifications of default GF styling (Spine compatible)
+ */
 
 @daesa-forms__gravity-forms: {
-	.column {
-		.gform_wrapper {
-			max-width: 990px;
-			#extensions_message {
-				padding-left: 1rem;
-			}
+  .column {
+    .gform_wrapper {
+      max-width: 990px;
+      #extensions_message {
+        padding-left: 1rem;
+      }
 
-			.field_sublabel_above {
-				.ginput_complex.ginput_container label {
-					margin: 0;
-				}
-			}
+      .field_sublabel_above {
+        .ginput_complex.ginput_container label {
+          margin: 0;
+        }
+      }
 
-			.gfield_checkbox li {
-				margin-bottom: 0;
-			}
+      .gfield_checkbox li {
+        margin-bottom: 0;
+      }
 
-			.gfield_checkbox li label,
-			.gfield_radio li label {
-				font-weight: normal;
-			}
+      .gfield_checkbox li label,
+      .gfield_radio li label {
+        font-weight: normal;
+      }
 
-			.gfield_checkbox li input,
-			.gfield_checkbox li input[type=checkbox],
-			.gfield_radio li input[type=radio] {
-				vertical-align: top;
-			}
+      .gfield_checkbox li input,
+      .gfield_checkbox li input[type=checkbox],
+      .gfield_radio li input[type=radio] {
+        vertical-align: top;
+      }
 
-			&.gf_browser_chrome {
-				.gfield_checkbox li input,
-				.gfield_checkbox li input[type=checkbox],
-				.gfield_radio li input[type=radio] {
-					margin-top: 8px;
-				}
-			}
+      &.gf_browser_chrome {
+        .gfield_checkbox li input,
+        .gfield_checkbox li input[type=checkbox],
+        .gfield_radio li input[type=radio] {
+          margin-top: 8px;
+        }
+      }
 
-			.gfield_description {
-				max-width: 80ch;
-			}
+      .gfield_description {
+        max-width: 80ch;
+      }
 
-			.gform_body > ul {
-				& > li.has-top-border:not(.gsection):not(.gfield_html) + li:not(.gsection)::before, 
-				& > li.has-top-spacer:not(.gsection):not(.gfield_html) + li:not(.gsection)::before {
-					content: "";
-					display: block;
-					height: 0;
-					margin: @v-dflt-spcng auto 0;
-					width: 95%;
-				}
+      .gform_body > ul {
+        & > li.has-top-border:not(.gsection):not(.gfield_html) + li:not(.gsection)::before, 
+        & > li.has-top-spacer:not(.gsection):not(.gfield_html) + li:not(.gsection)::before {
+          content: "";
+          display: block;
+          height: 0;
+          margin: @v-dflt-spcng auto 0;
+          width: 95%;
+        }
 
-				& > li.has-top-border:not(.gsection):not(.gfield_html) + li:not(.gsection)::before {
-					border-bottom: 1px dashed rgba(160,160,160,0.25);
-					border-top: 1px dashed rgba(@rval,@gval,@bval,0.3333); .rgb-dark-gray(); 
-				}
+        & > li.has-top-border:not(.gsection):not(.gfield_html) + li:not(.gsection)::before {
+          border-bottom: 1px dashed rgba(160,160,160,0.25);
+          border-top: 1px dashed rgba(@rval,@gval,@bval,0.3333); .rgb-dark-gray(); 
+        }
 
-				& > li.gf-bckgrnd-field {
-					display: none !important;
-				}
-			}
+        & > li.gf-bckgrnd-field {
+          display: none !important;
+        }
+      }
 
-			.gform_heading {
-				li {
-					list-style: disc !important;
-				}
-			}
+      .gform_heading {
+        li {
+          list-style: disc !important;
+        }
+      }
 
-			.ginput_complex {
-				span.ginput_full:not(:first-of-type) label, span.ginput_left:not(:first-of-type) 
-						label, span.ginput_right:not(:nth-of-type(2)) label {
-					margin-top: 0.4em;
-				}
-			}
+      .ginput_complex {
+        span.ginput_full:not(:first-of-type) label, span.ginput_left:not(:first-of-type) 
+            label, span.ginput_right:not(:nth-of-type(2)) label {
+          margin-top: 0.4em;
+        }
+      }
 
-			.gsection {
-				margin-bottom: 0;
-				margin-top: @v-dflt-spcng;
-			}
+      .gsection {
+        margin-bottom: 0;
+        margin-top: @v-dflt-spcng;
+      }
 
-			.percentbar_blue {
-				background-color: extract(@colors--crimsons__hex, @colors__darkish);
-			}
+      .percentbar_blue {
+        background-color: extract(@colors--crimsons__hex, @colors__darkish);
+      }
 
-			.top_label li ul.gfield_radio {
-				@media only screen and (min-width: 641px) {
-					width: 100%;
-				}
+      .top_label li ul.gfield_radio {
+        @media only screen and (min-width: 641px) {
+          width: 100%;
+        }
 
-			}
+      }
 
-			h2.fancy {
-				margin-right: 0;
-				margin-left: 0;
-			}
+      h2.fancy {
+        margin-right: 0;
+        margin-left: 0;
+      }
 
-			h2.gsection_title {
-				.font-size(@h4-font-size);
-			}
+      h2.gsection_title {
+        .font-size(@h4-font-size);
+      }
 
-			label.gfield_label {
-				margin-top: 0;
-				margin-bottom: 0;
-				font-size: 1.125em;
-			}
+      label.gfield_label {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1.125em;
+      }
 
-			table.gfield_list {
-				thead th {
-					font-weight: 600;
-				}
-			}
+      table.gfield_list {
+        thead th {
+          font-weight: 600;
+        }
+      }
 
-			ul:last-child {
-				padding-bottom: 0;
-			}
+      ul:last-child {
+        padding-bottom: 0;
+      }
 
-			&.gf_browser_chrome .gform_body {
-				@media only screen {
-					@media (min-width: 641px) {
-						width: ~"calc(100% + 15px)";
-					}
+      &.gf_browser_chrome .gform_body {
+        @media only screen {
+          @media (min-width: 641px) {
+            width: ~"calc(100% + 15px)";
+          }
 
-					@media (max-width: 640px) {
-						width: 100%;
-					}
-				}
-			}
-		}
+          @media (max-width: 640px) {
+            width: 100%;
+          }
+        }
+      }
+    }
 
-		li.gfield {
-			:focus {
-				outline: 1px solid blue;
-			}
+    li.gfield {
+      :focus {
+        outline: 1px solid blue;
+      }
 
-			.chosen-single,
-			.chosen-drop {
-				border-color: #717171 !important;
-			}
+      .chosen-single,
+      .chosen-drop {
+        border-color: #717171 !important;
+      }
 
-			input,
-			select {
-				border-color: #717171 !important;
-				border-style: solid !important;
-				border-width: 1px !important;
-			}
+      input,
+      select {
+        border-color: #717171 !important;
+        border-style: solid !important;
+        border-width: 1px !important;
+      }
 
-			&.uses-rich-editor {
-				.tmce-active {
-					.mce-menubar {
-						display: none;
-					}
+      &.uses-rich-editor {
+        .tmce-active {
+          .mce-menubar {
+            display: none;
+          }
 
-					.mce-toolbar,
-					.mce-toolbar-grp {
-						.mce-btn {
-							&[aria-label="Insert/edit image (Shift+Alt+M)"],
-							&[aria-label="Align left (Shift+Alt+L)"],
-							&[aria-label="Align center (Shift+Alt+C)"],
-							&[aria-label="Align right (Shift+Alt+R)"],
-							&[aria-label="Align left (Shift+Alt+L)"],
-							&[aria-label="Table"],
-							&[aria-label="Show blocks"],
-							&[aria-label="Source code"],
-							&[aria-label="Text color"],
-							&[aria-label="Toolbar Toggle (Shift+Alt+Z)"] {
-								display: none;
-							}
-						}
-					}
+          .mce-toolbar,
+          .mce-toolbar-grp {
+            .mce-btn {
+              &[aria-label="Insert/edit image (Shift+Alt+M)"],
+              &[aria-label="Align left (Shift+Alt+L)"],
+              &[aria-label="Align center (Shift+Alt+C)"],
+              &[aria-label="Align right (Shift+Alt+R)"],
+              &[aria-label="Align left (Shift+Alt+L)"],
+              &[aria-label="Table"],
+              &[aria-label="Show blocks"],
+              &[aria-label="Source code"],
+              &[aria-label="Text color"],
+              &[aria-label="Toolbar Toggle (Shift+Alt+Z)"] {
+                display: none;
+              }
+            }
+          }
 
-					.mce-statusbar {
-						display: none;
-					}
-				}
+          .mce-statusbar {
+            display: none;
+          }
+        }
 
-				.wp-editor-container {
-					border-color: #717171 !important;
-				}
+        .wp-editor-container {
+          border-color: #717171 !important;
+        }
 
-				iframe {
-					width: 100% !important;
-				}
+        iframe {
+          width: 100% !important;
+        }
 
-				span.gp-word-count-label {
-					margin-top: 0 !important;
-				}
-			}
+        span.gp-word-count-label {
+          margin-top: 0 !important;
+        }
+      }
 
-			&.gf_left_half.expands-to-two-thirds {
-				@media only screen and (min-width: 641px) {
-					width: 67% !important;
-				}
+      &.gf_left_half.expands-to-two-thirds {
+        @media only screen and (min-width: 641px) {
+          width: 67% !important;
+        }
 
-				& + li.gfield.gf_right_half {
-					@media only screen and (min-width: 641px) {
-						width: 33% !important;
-					}
-				}
-			}
+        & + li.gfield.gf_right_half {
+          @media only screen and (min-width: 641px) {
+            width: 33% !important;
+          }
+        }
+      }
 
-			&.has-label-spacer {
-				& > div.ginput_container {
-					@media only screen {
-						@media (min-width: 641px) {
-							margin-top: 21px;
-						}
+      &.has-label-spacer {
+        & > div.ginput_container {
+          @media only screen {
+            @media (min-width: 641px) {
+              margin-top: 21px;
+            }
 
-						@media (min-width: (@tablet-screen-width + 1)) {
-							margin-top: 23px;
-						}
+            @media (min-width: (@tablet-screen-width + 1)) {
+              margin-top: 23px;
+            }
 
-						@media (min-width: (@spine-threshold + 1)) {
-							margin-top: 21px;
-						}
+            @media (min-width: (@spine-threshold + 1)) {
+              margin-top: 21px;
+            }
 
-						@media (min-width: @desktop-width) {
-							margin-top: 23px;
-						}
-					}
-				}
-			}
+            @media (min-width: @desktop-width) {
+              margin-top: 23px;
+            }
+          }
+        }
+      }
 
-			& > div.ginput_complex > span > label {
-				color: @hex-dark-grayish-pink;
-			}
+      & > div.ginput_complex > span > label {
+        color: @hex-dark-grayish-pink;
+      }
 
-			& > .ginput_container_select {
-				& > .chosen-container {
-					width: 100% !important;
-				}
+      & > .ginput_container_select {
+        & > .chosen-container {
+          width: 100% !important;
+        }
 
-				& > .chosen-container-single {
-					& > .chosen-single {
-						background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, 
-							rgba(0,0,0,0.038) 50%, rgba(0,0,0,0.07) 52%, 
-							rgba(0,0,0,0.045) 100%), linear-gradient(to bottom, #fff, #fff);
-						height: 1.98em;
-						line-height: 1.98em;
+        & > .chosen-container-single {
+          & > .chosen-single {
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, 
+              rgba(0,0,0,0.038) 50%, rgba(0,0,0,0.07) 52%, 
+              rgba(0,0,0,0.045) 100%), linear-gradient(to bottom, #fff, #fff);
+            height: 1.98em;
+            line-height: 1.98em;
 
-						&:hover {
-							text-shadow: none;
-						}
+            &:hover {
+              text-shadow: none;
+            }
 
-						& > div > b {
-							background-position: ~"0 calc(-10px + 1.98em / 2)";
+            & > div > b {
+              background-position: ~"0 calc(-10px + 1.98em / 2)";
 
-							@media only screen and (max-width: 641px) {
-								top: ~"calc(0.99em - 3px)";
-								background-position: 0 -7px;
-							}
-						}
-					}
+              @media only screen and (max-width: 641px) {
+                top: ~"calc(0.99em - 3px)";
+                background-position: 0 -7px;
+              }
+            }
+          }
 
-					&.chosen-with-drop > .chosen-single {
-						background: linear-gradient(to bottom, rgba(0,0,0,0.07) 20%, 
-							rgba(0,0,0,0) 80%), linear-gradient(to bottom, #fff, #fff);
-					}
-				}
-			}
+          &.chosen-with-drop > .chosen-single {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.07) 20%, 
+              rgba(0,0,0,0) 80%), linear-gradient(to bottom, #fff, #fff);
+          }
+        }
+      }
 
-			div.ginput_container_textarea > textarea {
-				font-size: 16px;
-			}
-		}
-	}
+      div.ginput_container_textarea > textarea {
+        font-size: 16px;
+      }
+    }
+  }
 };
 .declare-ruleset(@daesa-forms__gravity-forms, @oue-rules-wrapper, @use-design__gravity-forms);
 
 /**     ····························································································
-***     >>> §2.2: Required field highlighting
-**/
+ *      >>> §2.2: Modifications of default GF styling (WDS and Spine Compatible)
+ */
+@daesa-forms__wds-gravity-forms: {
+  .gform_wrapper.gravity-theme {
+    .gform_body {
+      background-color: #f7f7f7;
+      padding: .5rem 2rem 2rem;      
+    }
+
+    .field_sublabel_above {
+      .gfield_description {
+        margin-top: 0;
+        padding-bottom: 0;
+
+        & + .ginput_container {
+          margin-top: .5rem;
+        }
+      }
+
+      .instruction {
+        margin-top: .25rem;
+        padding: 0;
+      }
+    }
+
+    .gfield {
+      margin-top: 1rem;
+
+      input,
+      select,
+      textarea {
+        padding: .5rem;
+      }
+
+      input,
+      select,
+      textarea,
+      .gfield_radio,
+      .gfield_checkbox {
+        background: #fff;
+        border: 1px solid #ccc;
+        border-bottom-color: #000;
+        border-radius: .3125rem;
+      }
+
+      &_label {
+        font-weight: 600;
+        margin-bottom: 0;
+
+        & + .ginput_container {
+          margin-top: .5rem;
+        }
+      }
+    }
+
+    .ginput_complex {
+      label {
+        padding: 0;
+      }
+    }
+
+    label {
+      font-weight: 400;
+    }
+  }
+};
+.declare-ruleset(@daesa-forms__wds-gravity-forms, @oue-rules-wrapper, @use-design__wds-gravity-forms);
+
+/**     ····························································································
+ *      >>> §2.3: Required field highlighting
+ */
 
 @daesa-forms__gf-highlighting: {
-	.column {
-		.gform_fields {
-			&.top_label {
-				& > li.gfield {
-					&.gfield_error {
-						&.gf_left_half,
-						&.gf_right_half {
-							width: ~"calc(50% - 16px)";
-						}
-					}
+  .column {
+    .gform_fields {
+      &.top_label {
+        & > li.gfield {
+          &.gfield_error {
+            &.gf_left_half,
+            &.gf_right_half {
+              width: ~"calc(50% - 16px)";
+            }
+          }
 
-					&.gf_left_half,
-					&.gf_right_half {
-						ul.gfield_radio,
-						ul.gfield_checkbox {
-							width: 100%;
-						}
-					}
+          &.gf_left_half,
+          &.gf_right_half {
+            ul.gfield_radio,
+            ul.gfield_checkbox {
+              width: 100%;
+            }
+          }
 
-					& > div.gfield_description {
-						padding: 0;
-						margin: 0;
-						color: @hex-dark-grayish-pink;
+          & > div.gfield_description {
+            padding: 0;
+            margin: 0;
+            color: @hex-dark-grayish-pink;
 
-						ul {
-							li {
-								list-style: disc inside none !important;
-							}
-						}
+            ul {
+              li {
+                list-style: disc inside none !important;
+              }
+            }
 
-						p + ul {
-							margin-top: 0;
-						}
-					}
+            p + ul {
+              margin-top: 0;
+            }
+          }
 
-					& > div.ginput_complex {
-						margin-top: 0;
-					}
-				}
+          & > div.ginput_complex {
+            margin-top: 0;
+          }
+        }
 
-				& > li.gfield + li.gfield:not(.gsection),
-				li.gfield:first-child {
-					.margin(@mSize-500mx, "top");
-				}
+        & > li.gfield + li.gfield:not(.gsection),
+        li.gfield:first-child {
+          .margin(@mSize-500mx, "top");
+        }
 
-			}
+      }
 
-			& > .gfield.gfield_contains_required {
-				& > .ginput_container_select {
-					& > .gfield_select:not(.gf-value-entered) + .chosen-container-single:not(.chosen-with-drop) > .chosen-single {
-						background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) .6em);
-					}
+      & > .gfield.gfield_contains_required {
+        & > .ginput_container_select {
+          & > .gfield_select:not(.gf-value-entered) + .chosen-container-single:not(.chosen-with-drop) > .chosen-single {
+            background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) .6em);
+          }
 
-					& > .gfield_select + .chosen-container-single.chosen-with-drop > .chosen-single {
-						background: linear-gradient(to bottom, rgba(0,0,255,0.1) 0, transparent .3em);
-					}
-				}
+          & > .gfield_select + .chosen-container-single.chosen-with-drop > .chosen-single {
+            background: linear-gradient(to bottom, rgba(0,0,255,0.1) 0, transparent .3em);
+          }
+        }
 
-				input,
-				select,
-				textarea {
-					.transition(~"background 0.3s ease");
+        input,
+        select,
+        textarea {
+          .transition(~"background 0.3s ease");
 
-					&:focus {
-						background: linear-gradient(to bottom, rgba(0,0,255,0.1) 0, transparent .3em);
-					}
-				}
+          &:focus {
+            background: linear-gradient(to bottom, rgba(0,0,255,0.1) 0, transparent .3em);
+          }
+        }
 
-				input:not(.gf-value-entered):not(:focus),
-				select:not(.gf-value-entered):not(:focus),
-				textarea:not(.gf-value-entered):not(:focus) {
-					background-color: rgba(255,0,0,0.1);
-					background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) .6em);
-				}
+        input:not(.gf-value-entered):not(:focus),
+        select:not(.gf-value-entered):not(:focus),
+        textarea:not(.gf-value-entered):not(:focus) {
+          background-color: rgba(255,0,0,0.1);
+          background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) .6em);
+        }
 
-				.gfield_checkbox,
-				.gfield_radio {
-					border: 1px solid #767676;
-					padding: .25em .5em .1em !important;
-					.transition(~"background 0.3s ease");
+        .gfield_checkbox,
+        .gfield_radio {
+          border: 1px solid #767676;
+          padding: .25em .5em .1em !important;
+          .transition(~"background 0.3s ease");
 
-					&:not(.gf-value-entered) {
-						background-color: rgba(255,0,0,0.1);
-						background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) .6em);
-					}
+          &:not(.gf-value-entered) {
+            background-color: rgba(255,0,0,0.1);
+            background: linear-gradient(to bottom, rgba(255,0,0,0.1) 0, rgba(255,0,0,0) .6em);
+          }
 
-				}
+        }
 
-				// Exceptions
-				.address_line_2,
-				.name_middle,
-				.name_suffix {
-					input {
-						background: @hex-white !important;
+        // Exceptions
+        .address_line_2,
+        .name_middle,
+        .name_suffix {
+          input {
+            background: @hex-white !important;
 
-						&:focus {
-							background-color: @hex-bright-blue !important;
-						}						
-					}
-				}
-			}
-		}
-	}
+            &:focus {
+              background-color: @hex-bright-blue !important;
+            }           
+          }
+        }
+      }
+    }
+  }
 
-	.gform_heading h3.gform_title:extend(.column h3 all) {
-	}
+  .gform_heading h3.gform_title:extend(.column h3 all) {
+  }
 
-	.gform_heading h3.gform_title:extend(.column h3.fancy all) {
-	}
+  .gform_heading h3.gform_title:extend(.column h3.fancy all) {
+  }
 
-	.gform_heading h3.gform_title:extend(.column h3.fancy.with-top-border all) {
-	}
+  .gform_heading h3.gform_title:extend(.column h3.fancy.with-top-border all) {
+  }
 };
 .declare-ruleset(@daesa-forms__gf-highlighting, @oue-rules-wrapper, @use-design__gf-highlighting);
 
+@daesa-forms__wds-gf-highlighting: {
+  .gform_wrapper.gravity-theme {
+    .gfield_contains_required {
+      input:not(.gf-value-entered),
+      select:not(.gf-value-entered),
+      textarea:not(.gf-value-entered),
+      .gfield_radio:not(.gf-value-entered),
+      .gfield_checkbox:not(.gf-value-entered) {
+        border-left: 2px solid #a60f2d;
+      }
+
+      input.gf-value-entered,
+      select.gf-value-entered,
+      textarea.gf-value-entered {
+        padding-left: calc(.5rem + 1px);
+      }
+
+      .gfield_radio.gf-value-entered,
+      .gfield_checkbox.gf-value-entered {
+        padding-left: 1px;
+      }
+    }
+  }
+};
+.declare-ruleset(@daesa-forms__wds-gf-highlighting, @oue-rules-wrapper, @use-design__wds-gf-highlighting);
+
 /**     ····························································································
-***     >>> §2.3: Advanced form controls
-**/
+ *      >>> §2.4: Advanced form controls
+ */
 
 @daesa-forms__gf-advanced: {
-	.oue-gf-rqrd-input,
-	.oue-gf-rqrd-select,
-	.oue-gf-hghlghts-rqrd-input,
-	.oue-gf-hghlghts-rqrd-select {
-		input,
-		select {
-			.transition(~"background 0.3s ease");
+  .oue-gf-rqrd-input,
+  .oue-gf-rqrd-select,
+  .oue-gf-hghlghts-rqrd-input,
+  .oue-gf-hghlghts-rqrd-select {
+    input,
+    select {
+      .transition(~"background 0.3s ease");
 
-			&:focus {
-				background-color: @hex-bright-blue !important;
-			}
-		}
+      &:focus {
+        background-color: @hex-bright-blue !important;
+      }
+    }
 
-		&.gfield_contains_required {
-			input:not(.gf-value-entered):not(:focus),
-			select:not(.gf-value-entered):not(:focus) {
-				background-color: rgba(255,0,0,0.1);
-			}
-		}
-	}
+    &.gfield_contains_required {
+      input:not(.gf-value-entered):not(:focus),
+      select:not(.gf-value-entered):not(:focus) {
+        background-color: rgba(255,0,0,0.1);
+      }
+    }
+  }
 
-	.oue-gf-rqrd-checkbox,
-	.oue-gf-hghlghts-rqrd-checkbox {
-		&.gfield_contains_required {
-			ul.gfield_checkbox, ul.gfield_radio {
-				.transition(~"background 0.3s ease");
-				&:not(.gf-value-entered) {
-					background-color: rgba(255,0,0,0.1);
-				}
-			}
-		}
-	}
+  .oue-gf-rqrd-checkbox,
+  .oue-gf-hghlghts-rqrd-checkbox {
+    &.gfield_contains_required {
+      ul.gfield_checkbox, ul.gfield_radio {
+        .transition(~"background 0.3s ease");
+        &:not(.gf-value-entered) {
+          background-color: rgba(255,0,0,0.1);
+        }
+      }
+    }
+  }
 
-	.oue-gf-rqrd-txtarea,
-	.oue-gf-hghlghts-rqrd-txtarea {
-		textarea {
-			.transition(~"background 0.3s ease");
+  .oue-gf-rqrd-txtarea,
+  .oue-gf-hghlghts-rqrd-txtarea {
+    textarea {
+      .transition(~"background 0.3s ease");
 
-			&:focus {
-				background-color: @hex-bright-blue;
-			}
-		}
+      &:focus {
+        background-color: @hex-bright-blue;
+      }
+    }
 
-		&.gfield_contains_required {
-			textarea {
-				&:not(.gf-value-entered):not(:focus) {
-					background-color: rgba(255,0,0,0.1);
-				}
-			}
-		}
-	}
-	.oue-gf-actvtr-checkbox {
-		.transition(~"background 0.3s ease");
+    &.gfield_contains_required {
+      textarea {
+        &:not(.gf-value-entered):not(:focus) {
+          background-color: rgba(255,0,0,0.1);
+        }
+      }
+    }
+  }
+  .oue-gf-actvtr-checkbox {
+    .transition(~"background 0.3s ease");
 
-		&.gf-activated {
-			display: none !important;
-		}
-	}
+    &.gf-activated {
+      display: none !important;
+    }
+  }
 
-	.oue-gf-actvtr-chain {
-		.transition(all 0.3s ease);
+  .oue-gf-actvtr-chain {
+    .transition(all 0.3s ease);
 
-		&.gf-hidden {
-			display: none !important;
-		}
-	}
+    &.gf-hidden {
+      display: none !important;
+    }
+  }
 
-	.oue-gf-upload-chain {
-		input {
-			.transition(~"background 0.3s ease");
+  .oue-gf-upload-chain {
+    input {
+      .transition(~"background 0.3s ease");
 
-			&:focus {
-				background-color: @hex-bright-blue;
-			}
-		}
+      &:focus {
+        background-color: @hex-bright-blue;
+      }
+    }
 
-		&.gfield_contains_required {
-			input:not(.gf-value-entered):not(:focus) {
-				background-color: rgba(255,0,0,0.1);
-			}
-		}
+    &.gfield_contains_required {
+      input:not(.gf-value-entered):not(:focus) {
+        background-color: rgba(255,0,0,0.1);
+      }
+    }
 
-		&.gf-hidden {
-			display: none !important;
-		}
-	}
+    &.gf-hidden {
+      display: none !important;
+    }
+  }
 
-	.oue-gf-revealed {
-		.animation(gf-fades-in; 0.5s; linear; 0s; 1);
-		.keyframes(gf-fades-in; @frames-simple-fade-in);
-	}
+  .oue-gf-revealed {
+    .animation(gf-fades-in; 0.5s; linear; 0s; 1);
+    .keyframes(gf-fades-in; @frames-simple-fade-in);
+  }
 };
 .declare-ruleset(@daesa-forms__gf-advanced, @oue-rules-wrapper, @use-design__gf-advanced);
 
 /**   ----------------------------------------------------------------------------------------------
-***   §3: WSUWP password entry form
-**/
+ *    §3: WSUWP password entry form
+ */
 
 @daesa-forms__pwd-required: {
-	.post-password-required {
-		padding-left: 2rem;
-		padding-top: 2rem;
-	}
+  .post-password-required {
+    padding-left: 2rem;
+    padding-top: 2rem;
+  }
 };
 .declare-ruleset(@daesa-forms__pwd-required, @oue-rules-wrapper);
 
 /**   ----------------------------------------------------------------------------------------------
-***   §4: DAESA styled progress indicators
-**/
+ *    §4: DAESA styled progress indicators
+ */
 
 @gf__progress-indicators: {
-	@empi__active-bgc: #58111d;
-	@empi__active-fgc: white;
-	@empi__compl-bgc: #981e32;
-	@empi__compl-fgc: white;
-	@empi__bgc: #e5e6e8;
-	@empi__fgc: black;
-	@empi__spacing: 18px;
-	@empi__wrap-width: 875px;
+  @empi__active-bgc: #58111d;
+  @empi__active-fgc: white;
+  @empi__compl-bgc: #981e32;
+  @empi__compl-fgc: white;
+  @empi__bgc: #e5e6e8;
+  @empi__fgc: black;
+  @empi__spacing: 18px;
+  @empi__wrap-width: 875px;
 
-	.progress-indicator {
-		align-items: center;
-		border-top: 1px dotted #ccc;
-		display: flex;
-		justify-content: center;
-		list-style-type: none;
-		position: relative;
+  .progress-indicator {
+    align-items: center;
+    border-top: 1px dotted #ccc;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    position: relative;
 
-		@media screen and (max-width: @empi__wrap-width) {
-			flex-wrap: wrap;
-		}
+    @media screen and (max-width: @empi__wrap-width) {
+      flex-wrap: wrap;
+    }
 
-		&::before {
-			color: @hex-dark-gray;
-			content: "Application Progress:";
-			position: absolute;
-			left: 0;
-			text-transform: uppercase;
-			top: .3em;
-		}
+    &::before {
+      color: @hex-dark-gray;
+      content: "Application Progress:";
+      position: absolute;
+      left: 0;
+      text-transform: uppercase;
+      top: .3em;
+    }
 
-		body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html ol&,
-		body .gform_wrapper form div.gform_body ul.gform_fields li.gfield.gfield_html ol& {
-			list-style-type: none !important;
-			margin-bottom: 0;
-			margin-left: 0;
-			padding-top: 2.3em;
+    body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html ol&,
+    body .gform_wrapper form div.gform_body ul.gform_fields li.gfield.gfield_html ol& {
+      list-style-type: none !important;
+      margin-bottom: 0;
+      margin-left: 0;
+      padding-top: 2.3em;
 
-			li {
-				list-style-type: none !important;
-			}
-		}
-	}
+      li {
+        list-style-type: none !important;
+      }
+    }
+  }
 
-	.progress-indicator__l-connector,
-	.progress-indicator__r-connector {
-		background-color: @empi__bgc;
-		position: absolute;
-		height: 5px;
-		top: 50%;
-		width: 18px;
+  .progress-indicator__l-connector,
+  .progress-indicator__r-connector {
+    background-color: @empi__bgc;
+    position: absolute;
+    height: 5px;
+    top: 50%;
+    width: 18px;
 
-		.progress-indicator__section-complete & {
-			background-color: @empi__compl-bgc;
-		}
-	}
+    .progress-indicator__section-complete & {
+      background-color: @empi__compl-bgc;
+    }
+  }
 
-	.progress-indicator__l-connector {
-		left: 0;
-		.transform( ~"translate(-100%,-50%)" );
+  .progress-indicator__l-connector {
+    left: 0;
+    .transform( ~"translate(-100%,-50%)" );
 
-		.progress-indicator__section-active & {
-			background-color: @empi__compl-bgc;
-		}
-	}
+    .progress-indicator__section-active & {
+      background-color: @empi__compl-bgc;
+    }
+  }
 
-	.progress-indicator__r-connector {
-		right: 0;
-		.transform( ~"translate(100%,-50%)" );
-	}
+  .progress-indicator__r-connector {
+    right: 0;
+    .transform( ~"translate(100%,-50%)" );
+  }
 
-	.progress-indicator__section {
-		background-color: @empi__bgc;
-		border-radius: .25em;
-		color: @empi__fgc;
-		padding: .5em 1em;
-		position: relative;
-		text-align: center;
+  .progress-indicator__section {
+    background-color: @empi__bgc;
+    border-radius: .25em;
+    color: @empi__fgc;
+    padding: .5em 1em;
+    position: relative;
+    text-align: center;
 
-		body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html ol &,
-		body .gform_wrapper form div.gform_body ul.gform_fields li.gfield.gfield_html ol & {
-			margin-right: 18px;
-			padding: .5em 1em;
-		}
-	}
+    body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html ol &,
+    body .gform_wrapper form div.gform_body ul.gform_fields li.gfield.gfield_html ol & {
+      margin-right: 18px;
+      padding: .5em 1em;
+    }
+  }
 
-	.progress-indicator__section-active {
-		background-color: @empi__active-bgc;
-		color: @empi__active-fgc;
-	}
+  .progress-indicator__section-active {
+    background-color: @empi__active-bgc;
+    color: @empi__active-fgc;
+  }
 
-	.progress-indicator__section-complete {
-		background-color: @empi__compl-bgc;
-		color: @empi__compl-fgc;
-	}
+  .progress-indicator__section-complete {
+    background-color: @empi__compl-bgc;
+    color: @empi__compl-fgc;
+  }
 }
 .declare-ruleset(@gf__progress-indicators, @oue-rules-wrapper, @use-design__gf-progress-indicators);

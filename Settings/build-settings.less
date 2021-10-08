@@ -1,63 +1,64 @@
 ﻿/** ────────────────────────────────────────────────────────────────────────────────────────────────
-*** █▀▀▄ █  █ ▀█▀ █    █▀▀▄    ▄▀▀▀ █▀▀▀▐▀█▀▌▐▀█▀▌▀█▀ ▐▀▀▄ █▀▀▀ ▄▀▀▀   █    █▀▀▀ ▄▀▀▀ ▄▀▀▀
-*** █▀▀▄ █  █  █  █  ▄ █  █ ▀▀ ▀▀▀█ █▀▀   █    █   █  █  ▐ █ ▀▄ ▀▀▀█   █  ▄ █▀▀  ▀▀▀█ ▀▀▀█
-*** ▀▀▀   ▀▀  ▀▀▀ ▀▀▀  ▀▀▀     ▀▀▀  ▀▀▀▀  █    █  ▀▀▀ ▀  ▐ ▀▀▀▀ ▀▀▀  ▀ ▀▀▀  ▀▀▀▀ ▀▀▀  ▀▀▀
-***
-*** Contains settings, implemented as Less variables, that the process for compiling Less files
-***   into a custom stylesheet for use on a [WSU DAESA](https://daesa.wsu.edu/) websites.
-***
-*** @version 1.1.1
-***
-*** @link https://github.com/invokeImmediately/WSU-DAESA-CSS/main/blob/Settings/build-settings.less
-*** @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
-*** @license MIT Copyright (c) 2021 Washington State University
-***   Permission is hereby granted, free of charge, to any person obtaining a copy of this software
-***     and associated documentation files (the "Software"), to deal in the Software without
-***     restriction, including without limitation the rights to use, copy, modify, merge, publish,
-***     distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
-***     the Software is furnished to do so, subject to the following conditions:
-***   The above copyright notice and this permission notice shall be included in all copies or
-***     substantial portions of the Software.
-***   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
-***     BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-***     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-***     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-***     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-***     SOFTWARE.
-*** ────────────────────────────────────────────────────────────────────────────────────────────────
-***  TABLE OF CONTENTS:
-***  ────────────────────────────────────────────────────────────────────────────────────────────
-***  §1: Default sizing of spacing and fonts...................................................55
-***    >>> §1.1: Columns.......................................................................59
-***    >>> §1.2: Paragraphs....................................................................89
-***    >>> §1.3: Headings.....................................................................106
-***    >>> §1.4: Article components...........................................................128
-***  §2: Responsive design scaling factors....................................................150
-***  §3: Screen thresholds for responsive design..............................................172
-***  §4: Colors...............................................................................230
-***    >>> §4.1: Color scheme flags...........................................................234
-***    >>> §4.2: Hyperlink coloring...........................................................241
-***  §5: Switches for controlling dependency inclusion........................................249
-***    >>> §5.1: Builder template columns.....................................................253
-***    >>> §5.2: Feeds........................................................................260
-***    >>> §5.3: Nav..........................................................................268
-***    >>> §5.4: Footers......................................................................273
-***    >>> §5.5: Forms........................................................................280
-***    >>> §5.6: Headers......................................................................290
-***    >>> §5.7: Hyperlinks...................................................................298
-***    >>> §5.8: Lists........................................................................308
-***    >>> §5.9: Tables.......................................................................320
-***    >>> §5.10: Grid layouts................................................................330
-***  ───────────────────────────────────────────────────────────────────────────────────────────────
-**/
+ *  █▀▀▄ █  █ ▀█▀ █    █▀▀▄    ▄▀▀▀ █▀▀▀▐▀█▀▌▐▀█▀▌▀█▀ ▐▀▀▄ █▀▀▀ ▄▀▀▀   █    █▀▀▀ ▄▀▀▀ ▄▀▀▀
+ *  █▀▀▄ █  █  █  █  ▄ █  █ ▀▀ ▀▀▀█ █▀▀   █    █   █  █  ▐ █ ▀▄ ▀▀▀█   █  ▄ █▀▀  ▀▀▀█ ▀▀▀█
+ *  ▀▀▀   ▀▀  ▀▀▀ ▀▀▀  ▀▀▀     ▀▀▀  ▀▀▀▀  █    █  ▀▀▀ ▀  ▐ ▀▀▀▀ ▀▀▀  ▀ ▀▀▀  ▀▀▀▀ ▀▀▀  ▀▀▀
+ * 
+ *  Contains settings, implemented as Less variables, that the process for compiling Less files
+ *    into a custom stylesheet for use on a [WSU DAESA](https://daesa.wsu.edu/) websites.
+ * 
+ *  @version 1.1.2
+ * 
+ *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/main/blob/Settings/build-settings.less
+ *  @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
+ *  @license MIT Copyright (c) 2021 Washington State University
+ *    Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+ *      and associated documentation files (the "Software"), to deal in the Software without
+ *      restriction, including without limitation the rights to use, copy, modify, merge, publish,
+ *      distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
+ *      the Software is furnished to do so, subject to the following conditions:
+ *    The above copyright notice and this permission notice shall be included in all copies or
+ *      substantial portions of the Software.
+ *    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+ *      BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *      NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ *      CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ *      ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *      SOFTWARE.
+ *  ────────────────────────────────────────────────────────────────────────────────────────────────
+ *   TABLE OF CONTENTS:
+ *   ────────────────────────────────────────────────────────────────────────────────────────────
+ *   §1: Default sizing of spacing and fonts...................................................55
+ *     >>> §1.1:  Columns......................................................................59
+ *     >>> §1.2:  Paragraphs...................................................................89
+ *     >>> §1.3:  Headings....................................................................106
+ *     >>> §1.4:  Article components..........................................................128
+ *   §2: Responsive design scaling factors....................................................150
+ *   §3: Screen thresholds for responsive design..............................................172
+ *   §4: Colors...............................................................................230
+ *     >>> §4.1:  Color scheme flags..........................................................234
+ *     >>> §4.2:  Hyperlink coloring..........................................................241
+ *   §5: Switches for controlling dependency inclusion........................................249
+ *     >>> §5.1:  Builder template columns....................................................253
+ *     >>> §5.2:  Feeds.......................................................................260
+ *     >>> §5.3:  Nav.........................................................................268
+ *     >>> §5.4:  Footers.....................................................................273
+ *     >>> §5.5:  Forms.......................................................................280
+ *     >>> §5.6:  Headers.....................................................................290
+ *     >>> §5.7:  Hyperlinks..................................................................298
+ *     >>> §5.8:  Lists.......................................................................308
+ *     >>> §5.9:  Tables......................................................................320
+ *     >>> §5.10: Other Spine components......................................................320
+ *     >>> §5.11: Custom DAESA components.....................................................330
+ *   ───────────────────────────────────────────────────────────────────────────────────────────────
+ */
 
 /** ================================================================================================
-*** §1: Default sizing of spacing and fonts
-**/
+ *  §1: Default sizing of spacing and fonts
+ */
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §1.1: Columns
-**/
+ *      >>> §1.1: Columns
+ */
 
 // TODO: change variable name to @root-fSize
 // Note: 100% on Chrome @ medium text size setting is 16px
@@ -86,8 +87,8 @@
 @default-spacing: 2rem;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §1.2: Paragraphs
-**/
+ *      >>> §1.2: Paragraphs
+ */
 
 // Basal size of paragraph default bottom margins
 @v-btm-mrgns: (@default-spacing / 2);
@@ -103,8 +104,8 @@
 @body-text--lHeight: 1.5em;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §1.3: Headings
-**/
+ *      >>> §1.3: Headings
+ */
 
 // Basal line height of heading elements
 @v-hX-lnhght: 1.1em;
@@ -125,8 +126,8 @@
 @v-h6-sz: 1rem;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §1.4: Article components
-**/
+ *      >>> §1.4: Article components
+ */
 
 // Default article deck font size
 @sz__article-deck: 1.4em;
@@ -147,8 +148,8 @@
 @v-p-jmpbck-sz: 0.6875em;
 
 /** ================================================================================================
-*** §2: Responsive design scaling factors
-**/
+ *  §2: Responsive design scaling factors
+ */
 
 @sz-xxxlrg: 2;						// XXX-Large scaling factor
 
@@ -169,8 +170,8 @@
 @sz-xxxsmll: 0.125;					// XXX-Small scaling factor
 
 /** ================================================================================================
-*** §3: Screen thresholds for responsive design
-**/
+ *  §3: Screen thresholds for responsive design
+ */
 
 // Viewport width corresponding to the WQXGA screen resolution standard
 @wqxga-width: 2560px;
@@ -227,76 +228,78 @@
 @column-fs-scaling-array: 1.125, 1.0, 1.125, 1.0, 0.941, 0.882;
 
 /** ================================================================================================
-*** §4: Colors
-**/
+ *  §4: Colors
+ */
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §4.1: Color scheme flags
-**/
+ *      >>> §4.1: Color scheme flags
+ */
 
 @use-crimson-color-scheme-v1: true;
 @use-wds-color-scheme: false;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §4.2: Hyperlink coloring
-**/
+ *      >>> §4.2: Hyperlink coloring
+ */
 
 @colors__links: @hex-crimson;
 @colors__links__hover: @hex-light-crimson;
 @colors__links__hover--alt: @hex-light-crimson--tinted;
 
 /** ================================================================================================
-*** §5: Switches for controlling depdendency inclusion
-**/
+ *  §5: Switches for controlling depdendency inclusion
+ */
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.1: Builder template columns
-**/
+ *      >>> §5.1: Builder template columns
+ */
 
 @use-design__daesa-columns: true;
 @use-design__daesa-callouts: false;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.2: Feeds
-**/
+ *      >>> §5.2: Feeds
+ */
 
 @use-design__insider-news-feeds: false;
 @use-design__wsuwp-json-legacy: true;
 @use-design__wsuwp-json-bem: false;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.3: Nav
-**/
+ *      >>> §5.3: Nav
+ */
 @use-design__spine-nav-overrides: true;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.4: Footers
-**/
+ *      >>> §5.4: Footers
+ */
 
 @use-design__provost-footers: false;
 @use-design__daesa-footers: false;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.5: Forms
-**/
+ *      >>> §5.5: Forms
+ */
 
 @use-design__read-more: false;
 @use-design__gravity-forms: true;
+@use-design__wds-gravity-forms: false;
 @use-design__gf-highlighting: true;
+@use-design__wds-gf-highlighting: false;
 @use-design__gf-advanced: false;
 @use-design__gf-progress-indicators: false;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.6: Headers
-**/
+ *      >>> §5.6: Headers
+ */
 
 @use-design__daesa-main-headers: true;
 @use-design__provost-main-headers: false;
 @use-design__up-cms-headers: true;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.7: Hyperlinks
-**/
+ *      >>> §5.7: Hyperlinks
+ */
 
 @use-design__daesa-hyperlinks: true;
 @use-design__legacy-hyperlinks: false;
@@ -305,8 +308,8 @@
 @use-design__simple-buttons: true;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.8: Lists
-**/
+ *      >>> §5.8: Lists
+ */
 
 @use-design__daesa-ul: true;
 @use-design__daesa-ol: true;
@@ -317,8 +320,8 @@
 @use-design__cascaded-layout: true;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.9: Tables
-**/
+ *      >>> §5.9: Tables
+ */
 
 @use-design__plain-tables: false;
 @use-design__people-lists: false;
@@ -327,7 +330,14 @@
 @use-design__tablepress-tables: true;
 
 /**   ----------------------------------------------------------------------------------------------
-***     >>> §5.10: Grid layouts
-**/
+ *      >>> §5.10: Other Spine components
+ */
+
+@use-design__oue-asides: false;
+
+/**   ----------------------------------------------------------------------------------------------
+ *      >>> §5.11: Custom DAESA components
+ */
 
 @use-design__daesa-grids: false;
+@use-design__daesa-ab-addin: true;
