@@ -6,7 +6,7 @@
  *  Custom styling for forms appearing on WSUWP websites that is generally used on websites managed
  *    by WSU DAESA.
  * 
- *  @version 1.0.0
+ *  @version 1.0.1
  * 
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/main/blob/forms.less
  *  @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
@@ -32,10 +32,10 @@
  *   §2: Gravity forms........................................................................123
  *     >>> §2.1: Modifications of default GF styling (Spine compatible).......................127
  *     >>> §2.2: Modifications of default GF styling (WDS and Spine compatible)...............398
- *     >>> §2.3: Required field highlighting..................................................467
- *     >>> §2.4: Advanced form controls.......................................................613
- *   §3: WSUWP password entry form............................................................712
- *   §4: DAESA styled progress indicators.....................................................724
+ *     >>> §2.3: Required field highlighting..................................................483
+ *     >>> §2.4: Advanced form controls.......................................................629
+ *   §3: WSUWP password entry form............................................................728
+ *   §4: DAESA styled progress indicators.....................................................740
  *   ───────────────────────────────────────────────────────────────────────────────────────────────
  */
 
@@ -450,6 +450,22 @@
       }
     }
 
+    .gfield_html:not(.gfield_html--for-indicator) {
+      background: #ffffff;
+      border-radius: 0.3125rem;
+      padding: 2rem;
+    }
+
+    .gf_page_steps {
+      background-color: #f7f7f7;
+      margin-bottom: 0;
+      padding: .5rem 1rem .25rem;
+    }
+
+    .gf_step_completed .gf_step_number:before {
+      box-sizing: border-box;
+    }
+
     .ginput_complex {
       label {
         padding: 0;
@@ -755,6 +771,11 @@
       top: .3em;
     }
 
+    .gform_wrapper.gravity-theme & {
+      max-width: none;
+      padding-top: 3rem;
+    }
+
     body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html ol&,
     body .gform_wrapper form div.gform_body ul.gform_fields li.gfield.gfield_html ol& {
       list-style-type: none !important;
@@ -772,9 +793,9 @@
   .progress-indicator__r-connector {
     background-color: @empi__bgc;
     position: absolute;
-    height: 5px;
+    height: .3125rem;
     top: 50%;
-    width: 18px;
+    width: 1rem;
 
     .progress-indicator__section-complete & {
       background-color: @empi__compl-bgc;
@@ -802,6 +823,11 @@
     padding: .5em 1em;
     position: relative;
     text-align: center;
+
+    .gform_wrapper.gravity-theme & {
+      margin-right: 2rem;
+      margin-bottom: 1.5rem;
+    }
 
     body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html ol &,
     body .gform_wrapper form div.gform_body ul.gform_fields li.gfield.gfield_html ol & {
