@@ -7,11 +7,11 @@
  *    functional style declarations and creating utility classes. Designed as a dependency to be
  *    imported upstream of other Less files in the final stylesheet build.
  *
- *  @version 1.0.3
+ *  @version 1.0.4
  *
  *  @link https://github.com/invokeImmediately/WSU-DAESA-CSS/
  *  @author Daniel Rieck [daniel.rieck@wsu.edu] (https://github.com/invokeImmediately)
- *  @license MIT Copyright (c) 2021 Washington State University
+ *  @license MIT Copyright (c) 2022 Washington State University
  *    Permission is hereby granted, free of charge, to any person obtaining a copy of this software
  *      and associated documentation files (the "Software"), to deal in the Software without
  *      restriction, including without limitation the rights to use, copy, modify, merge, publish,
@@ -790,7 +790,7 @@
 @fSize-81: 2.4em;
 
 // OUE font-sizing array.
-@fSize-array: @fSize-1, @fSize-2, @fSize-3, @fSize-4, @fSize-5, @fSize-6, @fSize-7, @fSize-8,
+@fSize-array: @{fSize-1}, @{fSize-2}, @fSize-3, @fSize-4, @fSize-5, @fSize-6, @fSize-7, @fSize-8,
 	@fSize-9, @fSize-10, @fSize-11, @fSize-12, @fSize-13, @fSize-14, @fSize-15, @fSize-16,
 	@fSize-17, @fSize-18, @fSize-19, @fSize-20, @fSize-21, @fSize-22, @fSize-23, @fSize-24,
 	@fSize-25, @fSize-26, @fSize-27, @fSize-28, @fSize-29, @fSize-30, @fSize-31, @fSize-32,
@@ -804,8 +804,8 @@
 
 // Semantic font-sizing Less variables: Miscellaneous
 @fSize--min: 1;
-@fSize--body-text: ceil(unit(@v-p-sz - extract(@fSize-array,1)) / unit(extract(@fSize-array,2)
-	- extract(@fSize-array,1))) + 1;
+@fSize--body-text: ceil((unit(@v-p-sz - extract(@fSize-array,1)) / unit(extract(@fSize-array,2)
+	- extract(@fSize-array,1)))) + 1;
 @fSize--max: length(@fSize-array);
 
 // Semantic font-sizing Less variables: Units of mx
